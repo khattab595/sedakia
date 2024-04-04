@@ -1,6 +1,6 @@
 
 import '../../../../core/network/api_response.dart';
-import '../../../products/data/models/product_dto.dart';
+import '../../../invoices/data/models/product_dto.dart';
 import '../../data/models/category_dto.dart';
 import '../../data/models/product_filter_params.dart';
 

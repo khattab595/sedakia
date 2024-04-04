@@ -1,5 +1,5 @@
 import 'package:app/core/widgets/buttons/primary_icon_button.dart';
-import 'package:app/src/stores/data/models/add_store_params.dart';
+import 'package:app/src/qayds/data/models/add_store_params.dart';
 import 'package:app/src/profile/data/models/change_password_params.dart';
 import 'package:app/src/profile/data/models/profile_dto.dart';
 
@@ -9,7 +9,7 @@ import '../../../profile/domain/entities/profile.dart';
 import '../../domain/entities/settings_types.dart';
 import '../widgets/change_password_widget.dart';
 import '../widgets/general_widget.dart';
-import '../../../stores/presentation/pages/stores_screen.dart';
+import '../../../qayds/presentation/pages/stores_screen.dart';
 
 class SettingsScreen extends BaseStatelessWidget {
   final Profile profile;

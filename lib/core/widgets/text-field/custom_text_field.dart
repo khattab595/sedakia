@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
     // if
     Color? borderColor = colorBorderSide ?? context.theme.inputDecorationTheme.fillColor ?? context.theme.colorScheme.onSurface;
     return Padding(
-      padding: margin ?? EdgeInsets.zero,
+      padding: margin ?? 15.paddingBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

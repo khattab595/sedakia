@@ -1,5 +1,5 @@
 import 'package:app/core/widgets/images/image_network.dart';
-import 'package:app/src/products/domain/entities/product.dart';
+import 'package:app/src/invoices/domain/entities/product.dart';
 
 import '../../../../main_index.dart';
 import 'price_widget.dart';

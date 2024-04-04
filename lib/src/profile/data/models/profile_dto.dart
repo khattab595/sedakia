@@ -10,7 +10,7 @@ class ProfileDto {
   String? email;
   @JsonKey(name: 'phone')
   String? phone;
-  @JsonKey(name: 'stores')
+  @JsonKey(name: 'qayds')
   List<StoreDto>? stores;
 
   ProfileDto({this.name, this.email, this.phone, this.stores});

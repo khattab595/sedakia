@@ -26,31 +26,23 @@ class LoginScreen extends BaseStatelessWidget {
         children: [
           CustomTextField(
             controller: phoneNumberController,
-            hintText: "${strings.email} / ${strings.phone}",
-            margin: const EdgeInsets.only(top: 30, bottom: 20),
-            iconPath: AppIcons.user_bold,
+            hintText: strings.point_sale_mobile_number,
           ),
           CustomTextField(
             controller: passwordController,
             hintText: strings.password,
-            iconPath: AppIcons.lock_bold,
+            isPassword: true,
             keyboardType: TextInputType.visiblePassword,
-            margin: const EdgeInsets.only(bottom: 12),
           ),
-          LabelButton(
-            title: strings.forgot_password,
-            onTap: () {
-              HelperMethods.launchURL('https://eg.app.com/forgot-password');
-            },
-          ),
+          // LabelButton(
+          //   title: strings.forgot_password,
+          //   onTap: () {
+          //     HelperMethods.launchURL('https://eg.app.com/forgot-password');
+          //   },
+          // ),
           PrimaryButton(
             title: strings.login,
-            fontSize: 22,
-            radius: 12,
-            height: 45,
-            backgroundColor: context.onPrimary,
-            margin:
-            const EdgeInsets.only(top: 30, right: 40, left: 40),
+            margin: 20.paddingTop,
             onPressed: () => onPressed(),
           ),
         ],

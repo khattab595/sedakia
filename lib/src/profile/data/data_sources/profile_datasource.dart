@@ -4,8 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
-import '../../../stores/presentation/pages/stores_screen.dart';
-import '../../../stores/data/models/add_store_params.dart';
+import '../../../qayds/presentation/pages/stores_screen.dart';
+import '../../../qayds/data/models/add_store_params.dart';
 import '../models/change_password_params.dart';
 import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';

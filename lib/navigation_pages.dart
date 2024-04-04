@@ -1,6 +1,6 @@
 import 'package:app/src/categories/presentation/pages/categories_page.dart';
 import 'package:app/src/notifications/presentation/pages/notifications_page.dart';
-import 'package:app/src/products/presentation/product/pages/products_page.dart';
+import 'package:app/src/invoices/presentation/product/pages/products_page.dart';
 import 'core/widgets/bottom_navigator_bar_item.dart';
 import 'src/home/presentation/pages/home/home_page.dart';
 import 'src/main_index.dart';

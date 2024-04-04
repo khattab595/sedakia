@@ -1,5 +1,5 @@
-import 'package:app/src/products/presentation/product/widgets/product_item.dart';
-import 'package:app/src/products/presentation/product/widgets/show_more_product.dart';
+import 'package:app/src/invoices/presentation/product/widgets/product_item.dart';
+import 'package:app/src/invoices/presentation/product/widgets/show_more_product.dart';
 
 import '../../../../home/data/models/home_dto.dart';
 import '../../../../main_index.dart';

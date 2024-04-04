@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../products/data/models/product_dto.dart';
+import '../../../invoices/data/models/product_dto.dart';
 
 part 'home_dto.g.dart'; 
 
@@ -42,7 +42,7 @@ class Section {
   String? title;
   @JsonKey(name: 'see_more')
   bool? seeMore;
-  @JsonKey(name: 'products')
+  @JsonKey(name: 'invoices')
   List<ProductDto>? products;
 
   Section({this.title, this.seeMore, this.products});

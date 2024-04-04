@@ -1,5 +1,5 @@
 import '../../../../main_index.dart';
-import '../../../../products/presentation/product/widgets/products_list_title.dart';
+import '../../../../invoices/presentation/product/widgets/products_list_title.dart';
 import '../../../domain/entities/home.dart';
 import '../../widgets/home_header.dart';
 import '../../widgets/sliders_home.dart';

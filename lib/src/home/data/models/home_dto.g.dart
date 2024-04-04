@@ -38,7 +38,7 @@ Map<String, dynamic> _$StatisticToJson(Statistic instance) => <String, dynamic>{
 Section _$SectionFromJson(Map<String, dynamic> json) => Section(
       title: json['title'] as String?,
       seeMore: json['see_more'] as bool?,
-      products: (json['products'] as List<dynamic>?)
+      products: (json['invoices'] as List<dynamic>?)
           ?.map((e) => ProductDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -46,5 +46,5 @@ Section _$SectionFromJson(Map<String, dynamic> json) => Section(
 Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
       'title': instance.title,
       'see_more': instance.seeMore,
-      'products': instance.products,
+      'invoices': instance.products,
     };

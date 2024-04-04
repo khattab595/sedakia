@@ -1,6 +1,6 @@
 import 'package:app/core/network/api_response.dart';
-import 'package:app/src/products/data/models/product_details_dto.dart';
-import 'package:app/src/products/data/models/product_dto.dart';
+import 'package:app/src/invoices/data/models/product_details_dto.dart';
+import 'package:app/src/invoices/data/models/product_dto.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/models/filter_params.dart';

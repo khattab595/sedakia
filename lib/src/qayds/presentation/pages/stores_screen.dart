@@ -1,5 +1,5 @@
-import 'package:app/src/stores/data/models/add_store_params.dart';
-import 'package:app/src/stores/presentation/widgets/store_item.dart';
+import 'package:app/src/qayds/data/models/add_store_params.dart';
+import 'package:app/src/qayds/presentation/widgets/store_item.dart';
 
 import '../../../main_index.dart';
 import '../../../profile/data/models/profile_dto.dart';

@@ -2,7 +2,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/network/api_response.dart';
-import '../../../products/data/models/product_dto.dart';
+import '../../../invoices/data/models/product_dto.dart';
 import '../../domain/repositories/base_categories_repo.dart';
 import '../data_sources/categories_datasource.dart';
 import '../models/category_dto.dart';

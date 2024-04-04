@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/base_profile_repo.dart';
 import '../data_sources/profile_datasource.dart';
-import '../../../stores/data/models/add_store_params.dart';
+import '../../../qayds/data/models/add_store_params.dart';
 import '../models/change_password_params.dart';
 import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';

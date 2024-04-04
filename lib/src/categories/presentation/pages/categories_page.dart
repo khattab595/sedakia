@@ -1,7 +1,7 @@
 import 'package:app/core/widgets/tabview/tabbar_widget.dart';
 import 'package:app/src/main_index.dart';
-import 'package:app/src/products/domain/entities/product.dart';
-import 'package:app/src/products/presentation/product/pages/products_screen.dart';
+import 'package:app/src/invoices/domain/entities/product.dart';
+import 'package:app/src/invoices/presentation/product/pages/products_screen.dart';
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../domain/entities/category.dart';
 import '../bloc/categories_bloc.dart';

@@ -3,7 +3,7 @@ import 'package:app/core/exceptions/extensions.dart';
 import 'package:app/core/widgets/buttons/app_icon_button.dart';
 import 'package:app/core/widgets/buttons/primary_button.dart';
 import 'package:app/core/widgets/buttons/row_buttons.dart';
-import 'package:app/src/stores/data/models/add_store_params.dart';
+import 'package:app/src/qayds/data/models/add_store_params.dart';
 import 'package:app/src/profile/data/models/profile_dto.dart';
 import 'package:app/src/settings/presentation/widgets/settengs_container.dart';
 import 'package:flutter/material.dart';

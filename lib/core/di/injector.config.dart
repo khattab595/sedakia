@@ -59,11 +59,11 @@ import '../../src/notifications/domain/use_cases/notifications_usecase.dart'
     as _i52;
 import '../../src/notifications/presentation/bloc/Notification_bloc.dart'
     as _i67;
-import '../../src/products/data/data_sources/products_datasource.dart' as _i14;
-import '../../src/products/data/repositories/products_repo.dart' as _i38;
-import '../../src/products/domain/repositories/base_products_repo.dart' as _i37;
-import '../../src/products/domain/use_cases/products_usecase.dart' as _i53;
-import '../../src/products/presentation/product/bloc/products_bloc.dart'
+import '../../src/invoices/data/data_sources/products_datasource.dart' as _i14;
+import '../../src/invoices/data/repositories/products_repo.dart' as _i38;
+import '../../src/invoices/domain/repositories/base_products_repo.dart' as _i37;
+import '../../src/invoices/domain/use_cases/products_usecase.dart' as _i53;
+import '../../src/invoices/presentation/product/bloc/products_bloc.dart'
     as _i69;
 import '../../src/profile/data/data_sources/profile_datasource.dart' as _i15;
 import '../../src/profile/data/repositories/profile_repo.dart' as _i40;
@@ -81,11 +81,11 @@ import '../../src/splash/data/repositories/splash_repo.dart' as _i44;
 import '../../src/splash/domain/repositories/base_splash_repo.dart' as _i43;
 import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i56;
 import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i71;
-import '../../src/stores/data/data_sources/stores_datasource.dart' as _i19;
-import '../../src/stores/data/repositories/stores_repo_imp.dart' as _i21;
-import '../../src/stores/domain/repositories/stores_repo.dart' as _i20;
-import '../../src/stores/domain/use_cases/stores_usecase.dart' as _i22;
-import '../../src/stores/presentation/bloc/stores_bloc.dart' as _i57;
+import '../../src/qayds/data/data_sources/stores_datasource.dart' as _i19;
+import '../../src/qayds/data/repositories/stores_repo_imp.dart' as _i21;
+import '../../src/qayds/domain/repositories/stores_repo.dart' as _i20;
+import '../../src/qayds/domain/use_cases/stores_usecase.dart' as _i22;
+import '../../src/qayds/presentation/bloc/stores_bloc.dart' as _i57;
 import '../../src/wallet/data/data_sources/wallet_datasource.dart' as _i23;
 import '../../src/wallet/data/repositories/wallet_repo.dart' as _i46;
 import '../../src/wallet/domain/repositories/base_wallet_repo.dart' as _i45;

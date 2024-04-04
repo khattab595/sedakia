@@ -1,8 +1,8 @@
 import 'package:app/core/components/base_widget_bloc.dart';
 
 import '../../../main_index.dart';
-import '../../../products/domain/entities/product.dart';
-import '../../../products/presentation/product/pages/products_screen.dart';
+import '../../../invoices/domain/entities/product.dart';
+import '../../../invoices/presentation/product/pages/products_screen.dart';
 import '../bloc/favorites_bloc.dart';
 
 class FavoritesPage

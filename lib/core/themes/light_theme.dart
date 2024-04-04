@@ -2,7 +2,7 @@ import 'package:app/src/main_index.dart';
 
 
 
-const Color primaryColor = Color(0xff0082d9);
+const Color primaryColor = Color(0xffD11317);
 const Color lighterDarkColor = Color(0xff252525);
 const secondaryColor = Color(0xff0083DA);
 const String fontFamily = 'Cairo';
@@ -59,8 +59,8 @@ final lightTheme = ThemeData(
     elevation: 0,
   ),
   inputDecorationTheme: const InputDecorationTheme(
-    filled: true,
-    fillColor: Color(0xffA0DBFF),
+    // filled: true,
+    // fillColor: Color(0xffA0DBFF),
     hintStyle: TextStyle(
       fontSize: 14,
       fontFamily: 'Cairo-Regular',

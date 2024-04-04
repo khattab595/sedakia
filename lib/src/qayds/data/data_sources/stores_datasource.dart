@@ -15,7 +15,7 @@ abstract class  StoresDatasource{
   @factoryMethod
   factory StoresDatasource(Dio dio) = _StoresDatasource;
 
-  @GET('/app/setting/stores')
+  @GET('/app/setting/qayds')
   Future<ApiResponse<List<StoreDto>>> fetchStores();
 
   @POST('/app/setting/store/add')

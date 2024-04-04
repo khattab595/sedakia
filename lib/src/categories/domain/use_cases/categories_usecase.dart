@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/network/api_response.dart';
-import '../../../products/data/models/product_dto.dart';
+import '../../../invoices/data/models/product_dto.dart';
 import '../../data/models/product_filter_params.dart';
 import '../entities/category.dart';
 import '../repositories/base_categories_repo.dart';

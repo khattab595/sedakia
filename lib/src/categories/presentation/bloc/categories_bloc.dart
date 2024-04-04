@@ -1,11 +1,11 @@
 import 'package:app/core/commen/common_state.dart';
 import 'package:app/core/network/api_response.dart';
-import 'package:app/src/products/domain/entities/product.dart';
+import 'package:app/src/invoices/domain/entities/product.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/bloc/base_cubit.dart';
 import '../../../../core/resources/data_state.dart';
-import '../../../products/data/models/product_dto.dart';
+import '../../../invoices/data/models/product_dto.dart';
 import '../../data/models/product_filter_params.dart';
 import '../../domain/entities/category.dart';
 import '../../domain/use_cases/categories_usecase.dart';

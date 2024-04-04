@@ -34,7 +34,7 @@ class _StoresDatasource implements StoresDatasource {
     )
             .compose(
               _dio.options,
-              '/app/setting/stores',
+              '/app/setting/qayds',
               queryParameters: queryParameters,
               data: _data,
             )
