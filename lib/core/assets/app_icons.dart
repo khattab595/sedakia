@@ -4,6 +4,7 @@ class AppIcons{
   static const String home = "assets/icons/home.svg";
   static const String invoices = "assets/icons/invoices.svg";
   static const String qayd = "assets/icons/qayd.svg";
+  static const String calender1 = "assets/icons/calender1.svg";
   static const String account = "assets/icons/account.svg";
   static const String notifications = "assets/icons/notifications.svg";
   static const String qayd_payment = "assets/icons/qayd_payment.svg";
