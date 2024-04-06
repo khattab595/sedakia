@@ -26,31 +26,32 @@ class TabBarWidget  extends StatelessWidget{
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
-        backgroundColor: kBackgroundColor,
+        backgroundColor: Colors.white,
         appBar:   PreferredSize(
-          preferredSize: const Size.fromHeight(100),
+          preferredSize: const Size.fromHeight(110),
           child: Container(
-            margin: 10.paddingAll,
+            margin: 10.paddingAll+10.paddingHoriz,
             decoration: BoxDecoration(
               color: kBackgroundColor,
               border: Border.all(
                   color: kBorderColor,
-                  width: 0.5,
+                  width: 0.3,
                   style: BorderStyle.solid),
               borderRadius: BorderRadius.circular(30)),
             child: TabBar(
               isScrollable: true,
               indicatorColor: context.primaryColor,
               unselectedLabelStyle: kTextLabel,
-              labelStyle: kTextRegular.copyWith(fontSize: 11),
+              labelStyle: kTextSemiBold.copyWith(fontSize: 17),
               labelColor: Colors.white,
               unselectedLabelColor:kPrimaryDark,
-              padding: 0.paddingAll,
+              padding: 5.paddingAll,
               indicatorPadding: 0.paddingAll,
-              labelPadding: 3.paddingAll,
+              labelPadding:  50.paddingHoriz ,
               indicator:  BoxDecoration(
                   color: context.primaryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(21))
+
+                  borderRadius: const BorderRadius.all(Radius.circular(21))
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               onTap: onTap,
@@ -60,6 +61,7 @@ class TabBarWidget  extends StatelessWidget{
           ),
         ),
         body: TabBarView(
+
           // physics: const NeverScrollableScrollPhysics(),
           children: tabs.map((e) => e.page).toList(),
         ),

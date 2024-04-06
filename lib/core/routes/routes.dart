@@ -10,6 +10,7 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/settings_page.dart';
@@ -31,6 +32,7 @@ class Routes {
   static const String register = 'registerPage';
   static const String onboardingPage = 'onboardingPage';
   static const String favoritesPage = 'favoritesPage';
+  static const String reportsPage = 'ReportsPage';
   static const String ordersPage = 'OrdersPage';
   static const String communityPage = 'communityPage';
   static const String submitOrderPage = 'submitOrderPage';
@@ -88,6 +90,7 @@ class Routes {
     changeLanguagePage: (context) => ChangLanguagePage(),
     profile: (context) => ProfilePage(),
     aboutLogeste: (context) => AboutLogestePage(),
+    reportsPage: (context) => ReportsPage(),
     /* ====================================================================== */
 
     walletHistoryPage: (context) => WalletHistoryPage(),
