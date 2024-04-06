@@ -141,29 +141,31 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/logo/
+    - assets/images/loading.gif
+
 
   fonts:
-    - family: MyFlutterApp
+    - family: Cairo-Black
       fonts:
-        - asset: assets/font/MyFlutterApp.ttf
-    - family: Tajawal-Black
+        - asset: assets/fonts/Cairo-Black.ttf
+    - family: Cairo-Bold
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-Black.ttf
-    - family: Tajawal-Bold
+        - asset: assets/fonts/Cairo-Bold.ttf
+    - family: Cairo-ExtraBold
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-Bold.ttf
-    - family: Tajawal-ExtraBold
+        - asset: assets/fonts/Cairo-ExtraBold.ttf
+    - family: Cairo-ExtraLight
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-ExtraBold.ttf
-    - family: Tajawal-ExtraLight
+        - asset: assets/fonts/Cairo-ExtraLight.ttf
+    - family: Cairo-Light
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-ExtraLight.ttf
-    - family: Tajawal-Light
+        - asset: assets/fonts/Cairo-Light.ttf
+    - family: Cairo-Medium
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-Light.ttf
-    - family: Tajawal-Medium
+        - asset: assets/fonts/Cairo-Medium.ttf
+    - family: Cairo-Regular
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-Medium.ttf
-    - family: Tajawal-Regular
+        - asset: assets/fonts/Cairo-Regular.ttf
+    - family: Cairo-SemiBold
       fonts:
-        - asset: assets/font/Tajawal/Tajawal-Regular.ttf
+        - asset: assets/fonts/Cairo-SemiBold.ttf

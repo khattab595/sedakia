@@ -1,4 +1,6 @@
 import '../../../../../core/components/base_widget_bloc.dart';
+import '../../../../../core/utils/navigator.dart';
+import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/home.dart';
 import '../../bloc/home_bloc.dart';
@@ -13,15 +15,24 @@ class HomePage extends BaseBlocWidget<DataSuccess<Home>, HomeCubit> {
   void loadInitialData(BuildContext context) {
     bloc.fetchHomeData();
   }
-  //
-  // @override
-  // String? title(BuildContext context) => strings.home;
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      isDrawer: true,
-      isNotifications: true,
-      titleWidget: SearchHome(),
+      appBar: AppBar(
+        title:
+        BoldText(
+          label: '${strings.welcome}, السعد ',
+          fontSize: 20,
+        ),
+        centerTitle: false,
+        actions: [
+          AppIconButton(
+            padding: 20.paddingEnd,
+            icon: AppIcons.notifications,
+            onPressed: () => Navigators.pushNamed(Routes.notifications),
+          ),
+        ],
+      ),
       body: buildConsumer(context),
     );
   }

@@ -27,13 +27,13 @@ class ChangePasswordWidget extends BaseStatelessWidget{
         key: formKey,
         child: Column(
           children: [
-            CustomTextField(
-              title: strings.old_password,
-              controller: oldController,
-              hintText: strings.old_password,
-              keyboardType: TextInputType.visiblePassword,
-              margin: 15.paddingBottom,
-            ),
+            // CustomTextField(
+            //   title: strings.old_password,
+            //   controller: oldController,
+            //   hintText: strings.old_password,
+            //   keyboardType: TextInputType.visiblePassword,
+            //   margin: 15.paddingBottom,
+            // ),
             CustomTextField(
               title: strings.new_password,
               controller: newController,

@@ -1,164 +1,165 @@
-import 'package:app/src/main_index.dart';
-
-
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 const Color primaryColor = Color(0xffD11317);
-const Color lighterDarkColor = Color(0xff252525);
-const secondaryColor = Color(0xff0083DA);
-const String fontFamily = 'Cairo';
+const Color lighterDarkColor = Color(0xff69452E);
+const secondaryColor = Color(0xffffffff);
+const Color kGreyColor = Color(0xff818185);
+const Color blackColor = Color(0xff000000);
+const String fontBold = 'Cairo-Bold';
+const String fontMedium = 'Cairo-Medium';
+const String fontRegular = 'Cairo-Regular';
+
 
 final lightTheme = ThemeData(
   primaryColor: primaryColor,
   brightness: Brightness.light,
-  primaryColorDark: const Color(0xff191919),
-  scaffoldBackgroundColor: const Color(0xffFEFEFE),
+  primaryColorDark: blackColor,
+  scaffoldBackgroundColor: const Color(0xffffffff),
   hintColor: const Color(0xffF7F6F6),
-  disabledColor: kYellowColor.withOpacity(0.5),
   cardColor: const Color(0xffffffff),
-  dividerColor: kDividerColor,
-  switchTheme: SwitchThemeData(
-    thumbColor: MaterialStateProperty.all<Color>(const Color(0xffffc001)),
-    trackColor: MaterialStateProperty.all<Color>(kGreyColor),
+  dividerColor: const Color(0xffD0D5DD),
+  shadowColor: blackColor.withOpacity(0.15),
+  dividerTheme: const DividerThemeData(
+    space: 0,
+    thickness: 1,
+    color: Color(0xffF7F6F6),
   ),
-  iconTheme: const IconThemeData(
-    color: kYellowColor,
-  ),
+  // iconTheme: const IconThemeData(
+  //   color: kYellowColor,
+  // ),
   colorScheme: ColorScheme.fromSwatch(
     primarySwatch: Colors.green,
- //   primaryColorDark: const Color(0xFF232323),
+    //   primaryColorDark: const Color(0xFF232323),
     backgroundColor: secondaryColor,
     accentColor: const Color(0xff494949),
     errorColor: const Color(0xffF67D31),
   ).copyWith(
-    secondaryContainer: Color(0xff06bd3d),
-    background: const Color(0xff66B4E8),
-    primaryContainer: const Color(0xffd6e6f1),
-    errorContainer: kErrorColor,
-    onBackground: kBlueColor,
-    onSurface: kBorderColor,
+    secondaryContainer: const Color(0xff06bd3d),
+    primaryContainer: const Color(0xffF9F0E1),
     onSecondary: const Color(0xffF67D31),
-    secondary: secondaryColor,
-    onError: kRedColorEB,
-    surface: kOrangeColor,
-    onPrimary: Color(0xffffbf00),
+    secondary: const Color(0xffffffff),
+    outline: const Color(0xff818185),
   ),
   appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: secondaryColor,
       statusBarIconBrightness: Brightness.light,
     ),
-    foregroundColor: Colors.white,
-    titleTextStyle: TextStyle(
-      fontSize: 18,
-      fontFamily: fontFamily,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-    backgroundColor: secondaryColor,
-    centerTitle: true,
+    color: Color(0xffffffff),
     elevation: 0,
+    foregroundColor: Color(0xffF9F0E1),
+    titleTextStyle: TextStyle(
+      fontSize: 20,
+      fontFamily: fontBold,
+      fontWeight: FontWeight.w700,
+      color: blackColor,
+    ),
+    //  backgroundColor: secondaryColor,
+    centerTitle: true,
   ),
   inputDecorationTheme: const InputDecorationTheme(
-    // filled: true,
-    // fillColor: Color(0xffA0DBFF),
+    filled: true,
+    fillColor: Color(0xffffffff),
     hintStyle: TextStyle(
       fontSize: 14,
       fontFamily: 'Cairo-Regular',
     ),
+
   ),
-  fontFamily: fontFamily,
+  fontFamily: fontBold,
   textTheme:  const TextTheme(
     titleLarge: TextStyle(
       fontSize: 32,
-      fontFamily: fontFamily,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
+      fontFamily: fontBold,
+      fontWeight: FontWeight.bold,
+      color: blackColor,
     ),
     titleMedium: TextStyle(
       fontSize: 22,
-      fontFamily: fontFamily,
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
+      fontFamily: fontBold,
+      fontWeight: FontWeight.bold,
+      color: blackColor,
     ),
     titleSmall: TextStyle(
       fontSize: 20.0,
-      color: Colors.black,
-      fontFamily: fontFamily,
-      fontWeight: FontWeight.w400,
+      color: blackColor,
+      fontFamily: fontRegular,
+      fontWeight: FontWeight.bold,
     ),
 
     bodyLarge: TextStyle(
       fontSize: 16.0,
-      color: Colors.black,
-      fontFamily: fontFamily,
+      color: blackColor,
+      fontFamily: fontBold,
       fontWeight: FontWeight.w600,
     ),
     bodyMedium: TextStyle(
       fontSize: 14.0,
-      color: Colors.black,
-      fontFamily: fontFamily,
+      color: blackColor,
+      fontFamily: fontMedium,
       fontWeight: FontWeight.w500,
     ),
     bodySmall: TextStyle(
       fontSize: 12.0,
-      color: Colors.black,
-      fontFamily: fontFamily,
+      color: blackColor,
+      fontFamily: fontRegular,
       fontWeight: FontWeight.w400,
     ),
     displayLarge: TextStyle(
       fontSize: 18.0,
       color: kGreyColor,
-      fontFamily: fontFamily,
+      fontFamily: fontBold,
       fontWeight: FontWeight.w600,
     ),
     displayMedium: TextStyle(
       fontSize: 16.0,
       color: kGreyColor,
-      fontFamily: fontFamily,
+      fontFamily: fontMedium,
       fontWeight: FontWeight.w500,
     ),
     displaySmall: TextStyle(
       fontSize: 14.0,
       color: kGreyColor,
-      fontFamily: fontFamily,
+      fontFamily: fontRegular,
       fontWeight: FontWeight.w400,
     ),
     labelLarge: TextStyle(
       fontSize: 16.0,
       color: Colors.white,
-      fontFamily: fontFamily,
+      fontFamily: fontBold,
       fontWeight: FontWeight.w600,
     ),
     labelMedium: TextStyle(
       fontSize: 14.0,
       color: Colors.white,
-      fontFamily: fontFamily,
+      fontFamily: fontMedium,
       fontWeight: FontWeight.w500,
     ),
     labelSmall: TextStyle(
       fontSize: 12.0,
       color: Colors.white,
-      fontFamily: fontFamily,
+      fontFamily: fontRegular,
       fontWeight: FontWeight.w400,
       letterSpacing: 1.0,
       wordSpacing: 0.0,
     ),
     headlineSmall: TextStyle(
       fontSize: 14.0,
-      color: secondaryColor,
-      fontFamily: fontFamily,
+      color: primaryColor,
+      fontFamily: fontRegular,
       fontWeight: FontWeight.w400,
     ),
     headlineMedium: TextStyle(
       fontSize: 16.0,
-      color: secondaryColor,
-      fontFamily: fontFamily,
+      color: primaryColor,
+      fontFamily: fontMedium,
       fontWeight: FontWeight.w500,
     ),
     headlineLarge: TextStyle(
       fontSize: 18.0,
-      color: secondaryColor,
-      fontFamily: fontFamily,
+      color: primaryColor,
+      fontFamily: fontBold,
       fontWeight: FontWeight.w600,
     ),
 

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 
-import '../../navigation_pages.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
@@ -10,23 +8,30 @@ import '../../src/categories/presentation/pages/categories_page.dart';
 import '../../src/community/presentation/pages/community_page.dart';
 import '../../src/favorites/presentation/pages/favorites_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
+import '../../src/main_index.dart';
+import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/invoices/presentation/product/pages/products_page.dart';
-import '../../src/invoices/presentation/product/pages/search_products_page.dart';
+import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/settings_page.dart';
-import '../../src/qayds/presentation/pages/stores_page.dart';
+import '../../src/settings/presentation/support/pages/support_page.dart';
 import '../../src/wallet/presentation/pages/wallet_page.dart';
 import '../../src/wallet/presentation/payment_methods/pages/add_new_method/add_payment_method_page.dart';
 import '../../src/wallet/presentation/payment_methods/pages/payment_methods_page.dart';
 import '../../src/wallet/presentation/widgets/wallet_history/wallet_history_page.dart';
 
 class Routes {
-  static const String languagePage = 'language_page';
+
+
   static const String intro = '/';
   static const String loginPage = 'loginUI';
+  static const String editProfilePage = 'editProfilePage';
+  static const String languagePage = 'language_page';
+  static const String supportPage = 'supportPage';
+
   static const String register = 'registerPage';
   static const String onboardingPage = 'onboardingPage';
   static const String favoritesPage = 'favoritesPage';
@@ -34,7 +39,8 @@ class Routes {
   static const String communityPage = 'communityPage';
   static const String submitOrderPage = 'submitOrderPage';
   static const String orderDetailsPage = 'orderDetailsPage';
-  static const String searchProductsPage = 'searchProductsPage';
+  static const String changePasswordPage = 'ChangePasswordPage';
+  static const String changeLanguagePage = 'changeLanguagePage';
 
   static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
   static const String enterPinCodePage = 'enterPinCodePage';
@@ -52,7 +58,6 @@ class Routes {
   static const String walletPage = 'wallet';
   static const String academy = 'academy';
   static const String settings = 'settings';
-  static const String changeLanguage = 'changeLanguagePage';
   static const String aboutLogeste = 'aboutLogestePage';
   static const String homePage = 'homePage';
   static const String qrCodePage = 'QrCodePage';
@@ -70,26 +75,29 @@ class Routes {
   static const String productDetailsPage = 'productDetailsPage';
 
   static final routes = <String, Widget Function(BuildContext)>{
-    loginPage: (context) => LoginPage(),
+    editProfilePage: (context) => EditProfilePage(),
+        loginPage: (context) => LoginPage(),
+    notifications: (context) => NotificationsPage(),
+    supportPage: (context) => SupportPage(),
+    settings: (context) => SettingsPage(),
+    changePasswordPage: (context) => ChangePasswordPage(),
+
+
     register: (context) => RegisterPage(),
     walletPage: (context) => WalletPage(),
     communityPage: (context) => CommunityPage(),
     favoritesPage: (context) => FavoritesPage(),
     enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),
-    newPasswordPage: (context) => NewPasswordPage(),
-    navigationPages: (context) => NavigationPages(),
+    navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
-    notifications: (context) => NotificationsPage(),
     categoriesPage: (context) => CategoriesPage(),
     productsPage: (context) => ProductsPage(),
-    settings: (context) => SettingsPage(),
-    changeLanguage: (context) => ChangLanguagePage(),
+    changeLanguagePage: (context) => ChangLanguagePage(),
     profile: (context) => ProfilePage(),
     aboutLogeste: (context) => AboutLogestePage(),
     /* ====================================================================== */
-    storesPage: (context) => StoresPage(),
-    searchProductsPage: (context) => SearchProductsPage(),
+
     walletHistoryPage: (context) => WalletHistoryPage(),
     paymentMethodsPage: (context) => PaymentMethodsPage(),
     addPaymentMethodPage: (context) => AddPaymentMethodPage(),

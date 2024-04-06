@@ -2,65 +2,58 @@ import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/forgot_password_params.dart';
 
-class NewPasswordScreen extends BaseStatelessWidget {
-  final Function(ForgotPasswordParams) onForgotPasswordParams;
+class ChangePasswordScreen extends BaseStatelessWidget {
+  final Function(ForgotPasswordParams) onChangePassword;
 
-  NewPasswordScreen({Key? key, required this.onForgotPasswordParams})
+  ChangePasswordScreen({Key? key, required this.onChangePassword})
       : super(key: key);
 
-  bool notMatches = false;
-
+  TextEditingController oldPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
-
   TextEditingController confirmNewPasswordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final _key = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Form(
-        key: formKey,
+    return Form(
+      key: _key,
+      child: Padding(
+        padding: 16.paddingAll,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              strings.your_account_has_been_recovered_set_new_password,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.headlineLarge!.copyWith(
-                fontSize: 22,
-              ),
+            40.ph,
+            CustomTextField(
+              controller: oldPasswordController,
+              title: strings.current_password,
+              isPassword: true,
             ),
             CustomTextField(
               controller: newPasswordController,
-              hintText: strings.new_password,
-              iconPath: AppIcons.lockOutline,
+              title: strings.new_password,
               isPassword: true,
-              margin: const EdgeInsets.only(bottom: 20, top: 30),
             ),
             CustomTextField(
               controller: confirmNewPasswordController,
-              hintText: strings.confirm_new_password,
-              iconPath: AppIcons.lockOutline,
+              title: strings.confirm_new_password,
               isPassword: true,
             ),
-            const Spacer(),
             PrimaryButton(
-              title: strings.confirm,
-              radius: 8,
+              title: strings.change,
+              margin: 40.paddingTop,
               onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  onForgotPasswordParams(ForgotPasswordParams(
-                    newPassword: newPasswordController.text,
-                    confirmPassword: confirmNewPasswordController.text,
-                  ));
-                }
+                onSelectedPressed();
               },
             ),
           ],
         ),
       ),
     );
+  }
+
+  onSelectedPressed() async {
+    if (_key.currentState!.validate()) {
+     // onChange!(newPasswordController.text);
+    }
   }
 }

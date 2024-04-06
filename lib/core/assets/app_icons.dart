@@ -1,10 +1,30 @@
 class AppIcons{
 
+
+  static const String home = "assets/icons/home.svg";
+  static const String invoices = "assets/icons/invoices.svg";
+  static const String qayd = "assets/icons/qayd.svg";
+  static const String account = "assets/icons/account.svg";
+  static const String notifications = "assets/icons/notifications.svg";
+  static const String qayd_payment = "assets/icons/qayd_payment.svg";
+  static const String reports = "assets/icons/reports.svg";
+  static const String phone = "assets/icons/phone.svg";
+  static const String whats_app = "assets/icons/whats_app.svg";
+  static const String email = "assets/icons/email.svg";
+  static const String phone_circle = "assets/icons/phone_circle.svg";
+  static const String whats_app_circle = "assets/icons/whats_app_circle.svg";
+  static const String email_circle = "assets/icons/email_circle.svg";
+  static const String edit = "assets/icons/edit.svg";
+  static const String request_email = "assets/icons/request_email.svg";
+  static const String lock = "assets/icons/lock.svg";
+  static const String language = "assets/icons/language.svg";
+  static const String support = "assets/icons/support.svg";
+  static const String logout = "assets/icons/logout.svg";
+
   static const String email_bold = "assets/icons/email_bold.svg";
   static const String lock_bold = "assets/icons/lock_bold.svg";
   static const String user_bold = "assets/icons/user_bold.svg";
   static const String telephone = "assets/icons/telephone.svg";
-  static const String notifications = "assets/icons/notifications.svg";
   static const String menu = "assets/icons/menu.svg";
   static const String favorite_outline = "assets/icons/favorite_outline.svg";
   static const String favorite_bold = "assets/icons/favorite_bold.svg";
@@ -15,7 +35,6 @@ class AppIcons{
   static const String arrow_down = "assets/icons/arrow_down.svg";
   static const String community_bold = "assets/icons/community_bold.svg";
   static const String facebook = "assets/icons/facebook.svg";
-  static const String home = "assets/icons/home.svg";
   static const String images_outline = "assets/icons/images_outline.svg";
   static const String logout_bold = "assets/icons/logout_bold.svg";
   static const String order_bold = "assets/icons/order_bold.svg";
@@ -33,7 +52,6 @@ class AppIcons{
   static const String cart = "assets/icons/cart.svg";
   static const String add_more = "assets/icons/add_more.svg";
   static const String comm = "assets/icons/comm.svg";
-  static const String language = "assets/icons/language.svg";
   static const String store = "assets/icons/store.svg";
   static const String time = "assets/icons/time.svg";
   static const String shipping_car_bold = "assets/icons/shipping_car_bold.svg";
@@ -55,14 +73,12 @@ class AppIcons{
   static const String eyeSlash = "assets/icons/eye_slash.svg";
   static const String checkmarkCircle = "assets/icons/checkmark_circle.svg";
   static const String cloudUpload = "assets/icons/cloud_upload.svg";
-  static const String email = "assets/icons/email.svg";
   static const String profile = "assets/icons/profile.svg";
   static const String lockOutline = "assets/icons/lock_outline.svg";
   static const String callOutline = "assets/icons/call_outline.svg";
   static const String callCircle = "assets/icons/call_circle.svg";
   static const String buildings = "assets/icons/buildings.svg";
   static const String cross = "assets/icons/cross.svg";
-  static const String logout = "assets/icons/logout.svg";
   static const String aboutLogeste = "assets/icons/about_logeste.svg";
   static const String settings = "assets/icons/settings.svg";
   static const String shoppingBagOutline = "assets/icons/shopping_bag_outline.svg";

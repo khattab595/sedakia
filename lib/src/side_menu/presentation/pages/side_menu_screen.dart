@@ -77,11 +77,6 @@ class SideMenuScreen extends BaseStatelessWidget {
               tileRoute: Routes.favoritesPage,
             ),
             DrawerTile(
-              tileIconPath: AppIcons.app_pedia_bold,
-              tileTitle: strings.app_pedia,
-              tileRoute: Routes.favoritesPage,
-            ),
-            DrawerTile(
               tileIconPath: AppIcons.settings,
               tileTitle: strings.settings,
               tileRoute: Routes.settings,

@@ -1,3 +1,4 @@
+import 'package:app/src/main_index.dart';
 import 'package:flutter/material.dart';
 
 ///  Created by harbey on 9/3/2023.
@@ -53,6 +54,7 @@ class ImageNetwork extends StatelessWidget {
       margin: margin ?? EdgeInsets.zero,
       padding: padding ?? EdgeInsets.zero,
       decoration: BoxDecoration(
+        color: context.hintColor,
         borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 8),
       ),
       child: ClipRRect(

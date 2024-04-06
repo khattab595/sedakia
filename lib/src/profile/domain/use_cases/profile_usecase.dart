@@ -16,13 +16,16 @@ class ProfileUseCase {
   ProfileUseCase(this.repository);
 
   Future<Profile> fetchProfileData(bool isFromCash) async {
-    ProfileDto profile = ProfileDto();
-    if (isFromCash) {
-      profile = await HelperMethods.getProfile();
-    } else {
-      profile = await repository.fetchProfileData();
-      await HelperMethods.saveProfile(profile);
-    }
+    ProfileDto profile = ProfileDto(
+      email: '',
+      name: '',
+    );
+    // if (isFromCash) {
+    //   profile = await HelperMethods.getProfile();
+    // } else {
+    //   profile = await repository.fetchProfileData();
+    //   await HelperMethods.saveProfile(profile);
+    // }
     return Profile.fromJson(profile);
   }
 

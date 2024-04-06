@@ -14,16 +14,15 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
   }
 
   @override
+  String? title(BuildContext context) => '';
+
+  @override
   Widget buildWidget(BuildContext context, DataSuccess<Profile> state) {
     return ProfileScreen(
       profile: state.data!,
-      onDeleteAccount: () => bloc.deleteProfileData(),
+      onLogout: () => bloc.deleteProfileData(),
     );
   }
 
-  @override
-  String? title(BuildContext context) {
-    return strings.my_account;
-  }
 }
 

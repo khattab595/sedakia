@@ -10,8 +10,8 @@ class HomeUseCase {
   HomeUseCase(this.repository);
 
   Future<Home> fetchHomeData() async {
-    final data = await repository.fetchHomeData();
-    return Home.fromJson(data);
+    // final data = await repository.fetchHomeData();
+    return Home();
   }
 
   Future<String> reasonForDisconnection(String reason) async {

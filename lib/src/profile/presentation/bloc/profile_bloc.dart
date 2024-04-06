@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/bloc/base_cubit.dart';
@@ -14,12 +16,15 @@ class ProfileBloc extends BaseCubit {
 
   ProfileBloc(this.usecase);
 
-  void fetchProfileData({bool isFromCash = false}) {
+  void fetchProfileData({bool isFromCash = true}) {
     executeSuccess(() => usecase.fetchProfileData(isFromCash));
   }
 
   void editProfileData(EditProfileParams params) {
     executeEmitterListener(() => usecase.editProfileData(params));
+  }
+  void editProfileImage(File params) {
+    // executeEmitterListener(() => usecase.editProfileData(params));
   }
 
   void deleteProfileData() {

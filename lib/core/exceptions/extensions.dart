@@ -127,6 +127,8 @@ extension ThemesExtension on BuildContext {
 
   Color get primaryColor => Theme.of(this).primaryColor;
 
+  Color get primaryColorDark => Theme.of(this).primaryColorDark;
+
   Color get onPrimary => Theme.of(this).colorScheme.onPrimary;
 
   Color get cardColor => Theme.of(this).cardColor;

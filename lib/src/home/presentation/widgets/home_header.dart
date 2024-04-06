@@ -1,73 +1,71 @@
+import 'package:app/core/assets/app_icons.dart';
 import 'package:app/core/decorations/decorations.dart';
 import 'package:app/core/exceptions/extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/components/base_stateless_widget.dart';
+import '../../../../core/widgets/buttons/app_icon.dart';
+import '../../../../core/widgets/texts/texts.dart';
 import '../../data/models/home_dto.dart';
 
 ///  Created by harbey on 9/15/2023.
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends BaseStatelessWidget {
   final List<Statistic> statistics;
-  const HomeHeader({super.key, required this.statistics});
+   HomeHeader({super.key, required this.statistics});
   @override
   Widget build(BuildContext context) {
 
-    return Padding(
-      padding: 11.paddingHoriz,
-      child: Row(
-        children: statistics
-            .map((e) => Expanded(
-                  child: _Item(
-                    statistic: e,
-                  ),
-                ))
-            .toList(),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _Item(
+          icon: AppIcons.qayd_payment,
+          title: strings.qayd_pay,
+        ),
+        _Item(
+          icon: AppIcons.reports,
+          title: strings.reports,
+        ),
+      ]
     );
   }
 }
 
-class _Item extends StatelessWidget {
-  final Statistic statistic;
+class _Item extends BaseStatelessWidget {
+  final String icon;
+  final String title;
 
-  const _Item({required this.statistic});
+   _Item({
+    super.key,
+    required this.icon,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: 5.paddingHoriz,
+      padding: 20.paddingVert,
+      constraints: const BoxConstraints(
+        minWidth: 110,
+        maxHeight: 130,
+      ),
       decoration: Decorations.kDecorationOnlyRadius(
-        color: kColorFromHex(statistic.color ?? '#000000'),
-        radius: 14,
+        color: primaryColorDark.withOpacity(0.03),
+        radius: 8,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          6.ph,
-          Text(
-            statistic.title ?? '',
-            style: context.labelMedium,
+          AppIcon(
+            icon: icon,
+            size: 40,
           ),
-          2.ph,
-          Container(
-            padding: 4.paddingAll,
-            width: double.infinity,
-            alignment: Alignment.center,
-            decoration: Decorations.kDecorationOnlyRadius(
-              color: kColorFromHex(statistic.color ?? '#000000').withOpacity(0.2),
-              radius: 14,
-            ),
-            child: Text(
-              statistic.value?.toString() ?? '0',
-              style: context.labelMedium,
-            ),
+          BoldText(
+            label: title,
           ),
         ],
       ),
     );
-  }
-
-
-  Color kColorFromHex(String hexColor, {double opacity = 1.0}) {
-    final hexCode = hexColor.replaceAll('#', '');
-    return Color(int.parse('FF$hexCode', radix: 16)).withOpacity(opacity);
   }
 }

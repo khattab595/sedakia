@@ -68,9 +68,9 @@ class MyApp extends StatelessWidget {
                   ],
                   routes: Routes.routes,
                   initialRoute: state.isFirstTime
-                      ? Routes.walletPage
+                      ? Routes.navigationPages
                       : state.isLogin
-                          ? Routes.homePage
+                          ? Routes.loginPage
                           : Routes.loginPage,
                 );
         },

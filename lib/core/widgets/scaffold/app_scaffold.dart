@@ -78,25 +78,6 @@ class AppScaffold extends StatelessWidget {
                 centerTitle: true,
                 flexibleSpace: titleWidget,
                 foregroundColor: foregroundColor ?? theme.appBarTheme.foregroundColor,
-                actions: actions ?? [
-                 // if (isNotifications!)
-                    AppIconButton(
-                      icon: AppIcons.notifications,
-                      padding: 8.paddingEnd,
-                      size: 25,
-                      onPressed: () {
-                      },
-                    ),
-                  AppIconButton(
-                    icon: AppIcons.cart,
-                    padding: 6.paddingEnd,
-                    size: 25,
-                    onPressed: () {
-                      Navigators.pushNamed(Routes.submitOrderPage);
-                    },
-                  ),
-                ],
-
                 leadingWidth: 30,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarColor: backgroundAppBar ?? theme.appBarTheme.backgroundColor,

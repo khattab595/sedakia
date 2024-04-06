@@ -12,10 +12,9 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      AppImages.logo,
-      width: size ?? width ,
-      height: size ?? height ,
-       fit: BoxFit.cover,
+      AppImages.splashLogo,
+      width: size ?? width ?? 200,
+      height: size ?? height ?? 200,
     );
   }
 }

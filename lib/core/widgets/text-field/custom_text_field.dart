@@ -1,7 +1,7 @@
 import 'package:app/src/main_index.dart';
 
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends BaseStatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final String? title;
@@ -24,12 +24,12 @@ class CustomTextField extends StatelessWidget {
   final double? radius;
   final bool? isValidator;
   final double? minHeight;
-   const CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = true, this.minHeight}) : super(key: key);
+    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = true, this.minHeight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // if
-    Color? borderColor = colorBorderSide ?? context.theme.inputDecorationTheme.fillColor ?? context.theme.colorScheme.onSurface;
+    Color? borderColor = colorBorderSide ?? primaryColorDark.withOpacity(0.1);
     return Padding(
       padding: margin ?? 15.paddingBottom,
       child: Column(
@@ -38,9 +38,9 @@ class CustomTextField extends StatelessWidget {
         children: [
           if (title != null) ...[Text(
             title!,
-            style: context.bodySmall.copyWith(fontSize: 18),
+            style: context.bodyMedium.copyWith(fontSize: 15),
           ),
-            5.ph,
+            8.ph,
           ],
           SizedBox(
             height: minHeight,
@@ -74,21 +74,21 @@ class CustomTextField extends StatelessWidget {
                 suffixIcon: suffixIcon,
                 contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 border:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 12)),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 focusedBorder:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 12)),
-                  borderSide: BorderSide(color: borderColor),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderSide: BorderSide(color: primaryColor),
                 ),
 
                 enabledBorder:  OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 12)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 12)),
-                  borderSide: BorderSide(color: context.errorColor),
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderSide: BorderSide(color: errorColor),
                 ),
               ),
               validator: (isValidator! &&  validator == null) ? (value) {

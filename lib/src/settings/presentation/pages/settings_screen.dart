@@ -9,7 +9,6 @@ import '../../../profile/domain/entities/profile.dart';
 import '../../domain/entities/settings_types.dart';
 import '../widgets/change_password_widget.dart';
 import '../widgets/general_widget.dart';
-import '../../../qayds/presentation/pages/stores_screen.dart';
 
 class SettingsScreen extends BaseStatelessWidget {
   final Profile profile;
@@ -77,21 +76,6 @@ class SettingsScreen extends BaseStatelessWidget {
                 ),
                 20.ph,
                 Divider(color: context.primaryColor, thickness: 1),
-                type == SettingsTypes.general
-                    ? GeneralWidget(
-                        profile: profile,
-                        onEditProfile: onEditProfile,
-                      )
-                    : type == SettingsTypes.store
-                        ? StoresScreen(
-                            stores: profile.stores ?? [],
-                            onSave: onAddStore,
-                            onEdit: onEditStore,
-                            onDelete: onDeleteStore,
-                          )
-                        : ChangePasswordWidget(
-                            onSave: ()=> onChangePassword,
-                          )
               ],
             );
           }),

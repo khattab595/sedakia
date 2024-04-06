@@ -1,4 +1,8 @@
 class AppImages{
+  static const String splashLogo = 'assets/logo/splash.png';
+
+
+
   static const String picker = 'assets/images/picker.png';
   static String onboarding1 = "assets/images/onboarding1.png";
   static String onboarding_human2 = "assets/images/onboarding_human2.png";
