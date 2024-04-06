@@ -4,14 +4,10 @@ import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.da
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/pages/sign-up/register_page.dart';
-import '../../src/categories/presentation/pages/categories_page.dart';
-import '../../src/community/presentation/pages/community_page.dart';
-import '../../src/favorites/presentation/pages/favorites_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
-import '../../src/invoices/presentation/product/pages/products_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
@@ -85,14 +81,10 @@ class Routes {
 
     register: (context) => RegisterPage(),
     walletPage: (context) => WalletPage(),
-    communityPage: (context) => CommunityPage(),
-    favoritesPage: (context) => FavoritesPage(),
     enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
-    categoriesPage: (context) => CategoriesPage(),
-    productsPage: (context) => ProductsPage(),
     changeLanguagePage: (context) => ChangLanguagePage(),
     profile: (context) => ProfilePage(),
     aboutLogeste: (context) => AboutLogestePage(),

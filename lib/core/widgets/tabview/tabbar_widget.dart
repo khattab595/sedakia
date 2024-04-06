@@ -1,8 +1,5 @@
-import 'package:app/core/widgets/images/image_network.dart';
 import 'package:app/src/main_index.dart';
 
-import '../../../src/categories/domain/entities/category.dart';
-import '../../../src/categories/presentation/widgets/task_item.dart';
 
 
 class TabItemModel{
@@ -57,7 +54,7 @@ class TabBarWidget  extends StatelessWidget{
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               onTap: onTap,
-              tabs: tabs.map((e) => CategoryItem(category: Category(categoryName: e.label, image: e.image))
+              tabs: tabs.map((e) => e.builder()
               ).toList(),
             ),
           ),

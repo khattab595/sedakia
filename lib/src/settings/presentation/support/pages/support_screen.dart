@@ -23,6 +23,7 @@ class SupportScreen extends BaseStatelessWidget {
         padding: 16.paddingAll,
         child: Column(
           children: [
+            40.ph,
             CustomTextField(
               controller: subjectController,
               title: strings.email,
@@ -37,11 +38,11 @@ class SupportScreen extends BaseStatelessWidget {
               controller: contentController,
               title: strings.notes,
               keyboardType: TextInputType.multiline,
-              maxLines: 3,
+              maxLines: 5,
             ),
             PrimaryButton(
               title: strings.submit,
-              margin: 40.paddingTop,
+              margin: 20.paddingTop,
               onPressed: () {
                 onSelectedPressed();
               },

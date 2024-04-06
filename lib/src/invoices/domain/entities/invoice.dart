@@ -1,7 +1,7 @@
 
 import '../../data/models/product_dto.dart';
 
-class Product {
+class Invoice {
   int? id;
   String? name;
   String? img;
@@ -10,10 +10,10 @@ class Product {
   int? commission;
   bool? favorite;
 
-  Product({this.id, this.name, this.img, this.price, this.stock, this.commission, this.favorite});
+  Invoice({this.id, this.name, this.img, this.price, this.stock, this.commission, this.favorite});
 
-   factory Product.fromDto(ProductDto json) {
-     return Product(
+   factory Invoice.fromDto(InvoiceDto json) {
+     return Invoice(
        id: json.id,
        name: json.name,
        img: json.img,

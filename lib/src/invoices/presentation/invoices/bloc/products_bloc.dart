@@ -2,19 +2,17 @@ import 'package:app/core/resources/data_state.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/bloc/base_cubit.dart';
-import '../../../../favorites/domain/use_cases/favorites_usecase.dart';
 import '../../../data/models/filter_params.dart';
-import '../../../domain/entities/product.dart';
+import '../../../domain/entities/invoice.dart';
 import '../../../domain/use_cases/products_usecase.dart';
 
 @Injectable()
 class ProductsCubit extends BaseCubit {
   final ProductsUseCase usecase;
-  final FavoritesUseCase favoritesUseCase;
 
-  ProductsCubit(this.usecase, this.favoritesUseCase);
+  ProductsCubit(this.usecase);
 
-  List<Product> allProducts = [];
+  List<Invoice> allProducts = [];
   int page = 0;
   int lastPage = 1;
 
@@ -25,9 +23,9 @@ class ProductsCubit extends BaseCubit {
       () => usecase.fetchProducts(type),
       onSuccess: (dto) {
         lastPage = dto.pagination?.totalPages ?? 1;
-        final data = dto.data?.map((e) => Product.fromDto(e)).toList() ?? [];
+        final data = dto.data?.map((e) => Invoice.fromDto(e)).toList() ?? [];
         allProducts.addAll(data);
-        emit(DataSuccess<List<Product>>(allProducts));
+        emit(DataSuccess<List<Invoice>>(allProducts));
       },
     );
   }
@@ -39,15 +37,11 @@ class ProductsCubit extends BaseCubit {
           () => usecase.fetchProductsBySearch(FilterParams(search: search, page: page)),
       onSuccess: (dto) {
         lastPage = dto.pagination?.totalPages ?? 1;
-        final data = dto.data?.map((e) => Product.fromDto(e)).toList() ?? [];
+        final data = dto.data?.map((e) => Invoice.fromDto(e)).toList() ?? [];
         allProducts.addAll(data);
-        emit(DataSuccess<List<Product>>(allProducts));
+        emit(DataSuccess<List<Invoice>>(allProducts));
       },
     );
-  }
-
-  toggleFavorite(int id) async {
-    executeSuccessState(() => favoritesUseCase.toggleFavorite(id));
   }
 
 }

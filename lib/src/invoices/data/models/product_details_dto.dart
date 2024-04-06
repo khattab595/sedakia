@@ -4,7 +4,7 @@ part 'product_details_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ProductDetailsDto {
-  @JsonKey(name: 'product')
+  @JsonKey(name: 'invoices')
   ProductInfo? product;
   @JsonKey(name: 'options')
   List<OptionDto>? options;

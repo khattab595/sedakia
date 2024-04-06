@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'product_dto.g.dart'; 
 
 @JsonSerializable(ignoreUnannotated: false)
-class ProductDto {
+class InvoiceDto {
   @JsonKey(name: 'id')
   int? id;
   @JsonKey(name: 'name')
@@ -19,10 +19,10 @@ class ProductDto {
   @JsonKey(name: 'favorite')
   bool? favorite;
 
-  ProductDto({this.id, this.name, this.img, this.price, this.stock, this.commission, this.favorite});
+  InvoiceDto({this.id, this.name, this.img, this.price, this.stock, this.commission, this.favorite});
 
-   factory ProductDto.fromJson(Map<String, dynamic> json) => _$ProductDtoFromJson(json);
+   factory InvoiceDto.fromJson(Map<String, dynamic> json) => _$InvoiceDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
+   Map<String, dynamic> toJson() => _$InvoiceDtoToJson(this);
 }
 

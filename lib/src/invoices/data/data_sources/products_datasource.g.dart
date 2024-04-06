@@ -21,20 +21,20 @@ class _ProductsDatasource implements ProductsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<ProductDto>>> fetchProductsByType(String type) async {
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsByType(String type) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<ProductDto>>>(Options(
+        _setStreamType<ApiResponse<List<InvoiceDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/app/product/list/${type}',
+              '/app/invoices/list/${type}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,12 +43,12 @@ class _ProductsDatasource implements ProductsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<ProductDto>>.fromJson(
+    final value = ApiResponse<List<InvoiceDto>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
           ? json
-              .map<ProductDto>(
-                  (i) => ProductDto.fromJson(i as Map<String, dynamic>))
+              .map<InvoiceDto>(
+                  (i) => InvoiceDto.fromJson(i as Map<String, dynamic>))
               .toList()
           : List.empty(),
     );
@@ -56,7 +56,7 @@ class _ProductsDatasource implements ProductsDatasource {
   }
 
   @override
-  Future<ApiResponse<List<ProductDto>>> fetchProductsBySearch(
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsBySearch(
       FilterParams filterParams) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -64,14 +64,14 @@ class _ProductsDatasource implements ProductsDatasource {
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<ProductDto>>>(Options(
+        _setStreamType<ApiResponse<List<InvoiceDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/app/product/get_all_in_stock',
+              '/app/invoices/get_all_in_stock',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -80,12 +80,12 @@ class _ProductsDatasource implements ProductsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<ProductDto>>.fromJson(
+    final value = ApiResponse<List<InvoiceDto>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
           ? json
-              .map<ProductDto>(
-                  (i) => ProductDto.fromJson(i as Map<String, dynamic>))
+              .map<InvoiceDto>(
+                  (i) => InvoiceDto.fromJson(i as Map<String, dynamic>))
               .toList()
           : List.empty(),
     );
@@ -106,7 +106,7 @@ class _ProductsDatasource implements ProductsDatasource {
     )
             .compose(
               _dio.options,
-              '/app/product/view/${id}',
+              '/app/invoices/view/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

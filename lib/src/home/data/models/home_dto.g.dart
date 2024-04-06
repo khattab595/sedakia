@@ -39,7 +39,7 @@ Section _$SectionFromJson(Map<String, dynamic> json) => Section(
       title: json['title'] as String?,
       seeMore: json['see_more'] as bool?,
       products: (json['invoices'] as List<dynamic>?)
-          ?.map((e) => ProductDto.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => InvoiceDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

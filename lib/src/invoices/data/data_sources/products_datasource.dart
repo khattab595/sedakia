@@ -16,13 +16,13 @@ abstract class  ProductsDatasource{
   @factoryMethod
   factory ProductsDatasource(Dio dio) = _ProductsDatasource;
 
-  @GET('/app/product/list/{type}')
-  Future<ApiResponse<List<ProductDto>>> fetchProductsByType(@Path('type') String type);
+  @GET('/app/invoices/list/{type}')
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsByType(@Path('type') String type);
 
-  @GET('/app/product/get_all_in_stock')
-  Future<ApiResponse<List<ProductDto>>> fetchProductsBySearch(@Queries() FilterParams filterParams);
+  @GET('/app/invoices/get_all_in_stock')
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsBySearch(@Queries() FilterParams filterParams);
 
-  @GET('/app/product/view/{id}')
+  @GET('/app/invoices/view/{id}')
   Future<ApiResponse<ProductDetailsDto>> fetchProductDetails(@Path('id') int id);
 
 

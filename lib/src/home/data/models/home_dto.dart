@@ -43,7 +43,7 @@ class Section {
   @JsonKey(name: 'see_more')
   bool? seeMore;
   @JsonKey(name: 'invoices')
-  List<ProductDto>? products;
+  List<InvoiceDto>? products;
 
   Section({this.title, this.seeMore, this.products});
 

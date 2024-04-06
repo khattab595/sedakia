@@ -15,11 +15,11 @@ class ProductsRepo extends BaseProductsRepo{
   ProductsRepo(this.datasource);
 
   @override
-  Future<ApiResponse<List<ProductDto>>> fetchProducts(String type) async {
+  Future<ApiResponse<List<InvoiceDto>>> fetchProducts(String type) async {
     return await datasource.fetchProductsByType(type);
   }
   @override
-  Future<ApiResponse<List<ProductDto>>> fetchProductsBySearch(FilterParams filterParams) async {
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsBySearch(FilterParams filterParams) async {
     return await datasource.fetchProductsBySearch(filterParams);
   }
 

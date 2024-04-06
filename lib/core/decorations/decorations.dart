@@ -13,6 +13,15 @@ class Decorations {
       borderRadius: BorderRadius.all(Radius.circular(radius ?? 12)),
     );
   }
+  static BoxDecoration baseDecorationRadius({
+    Color? color,
+    double? radius,
+  }) {
+    return BoxDecoration(
+      color: color ?? injector<ServicesLocator>().appContext.hintColor,
+      borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+    );
+  }
   static BoxDecoration kDecorationTopRadius({
     required Color color,
     double? radius,

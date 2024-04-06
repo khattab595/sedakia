@@ -50,10 +50,7 @@ class _Item extends BaseStatelessWidget {
         minWidth: 110,
         maxHeight: 130,
       ),
-      decoration: Decorations.kDecorationOnlyRadius(
-        color: primaryColorDark.withOpacity(0.03),
-        radius: 8,
-      ),
+      decoration: Decorations.baseDecorationRadius(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

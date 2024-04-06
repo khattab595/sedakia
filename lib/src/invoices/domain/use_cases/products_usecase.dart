@@ -11,11 +11,11 @@ class ProductsUseCase {
   final BaseProductsRepo repository ;
   ProductsUseCase(this.repository);
 
-  Future<ApiResponse<List<ProductDto>>> fetchProducts(String type) async {
+  Future<ApiResponse<List<InvoiceDto>>> fetchProducts(String type) async {
     return await repository.fetchProducts(type);
   }
 
-  Future<ApiResponse<List<ProductDto>>> fetchProductsBySearch(FilterParams filterParams) async {
+  Future<ApiResponse<List<InvoiceDto>>> fetchProductsBySearch(FilterParams filterParams) async {
     return await repository.fetchProductsBySearch(filterParams);
   }
 

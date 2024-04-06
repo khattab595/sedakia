@@ -214,7 +214,7 @@ class HelperMethods {
     debugPrint('iosInfo ${deviceInfo.data}');
     return PlatformDto(
       id: deviceInfo.data['id'],
-      name: deviceInfo.data['product'],
+      name: deviceInfo.data['invoices'],
       type: (Platform.isAndroid || Platform.isIOS) ? 'mobile' : 'web',
       ver: Platform.version,
       os: Platform.operatingSystem,

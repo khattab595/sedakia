@@ -24,49 +24,46 @@ class EditProfileScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     _initData();
-    return AppScaffold(
-      bottomNavigationBar: editButton(),
-      backgroundColor: context.scaffoldBackgroundColor,
-      body: SingleChildScrollView(
-        padding: 16.paddingHoriz,
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              EditProfileImage(
+    return SingleChildScrollView(
+      padding: 16.paddingHoriz,
+      child: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            20.ph,
+            EditProfileImage(
               image: '',
-                onSelectImage: (file){
-                  onEditImage(file);
-                },
-              ),
-              20.ph,
-              CustomTextField(
-                title: strings.facility_name,
-                controller: facilityNameController,
-              ),
-              CustomTextField(
-                title: strings.no_facility,
-                controller: facilityNoController,
-              ),
-              CustomTextField(
-                title: strings.point_sale_mobile_number,
-                controller: pointSaleNumberController,
-              ),
-              CustomTextField(
-                title: strings.point_sale_address,
-                controller: pointSaleAddressController,
-              ),
-              CustomTextField(
-                title: strings.email,
-                controller: emailController,
-              ),
-              CustomTextField(
-                title: strings.phone_number,
-                controller: phoneController,
-              ),
-              100.ph,
-            ],
-          ),
+              onSelectImage: (file){
+                onEditImage(file);
+              },
+            ),
+            20.ph,
+            CustomTextField(
+              title: strings.facility_name,
+              controller: facilityNameController,
+            ),
+            CustomTextField(
+              title: strings.no_facility,
+              controller: facilityNoController,
+            ),
+            CustomTextField(
+              title: strings.point_sale_mobile_number,
+              controller: pointSaleNumberController,
+            ),
+            CustomTextField(
+              title: strings.point_sale_address,
+              controller: pointSaleAddressController,
+            ),
+            CustomTextField(
+              title: strings.email,
+              controller: emailController,
+            ),
+            CustomTextField(
+              title: strings.mobile_number,
+              controller: phoneController,
+            ),
+            editButton(),
+          ],
         ),
       ),
     );
@@ -76,7 +73,8 @@ class EditProfileScreen extends BaseStatelessWidget {
    return PrimaryButton(
      title: strings.save,
       onPressed: onEditPressed,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+
+      margin:20.paddingVert,
     //  padding: const EdgeInsets.symmetric(vertical: 12),
     );
   }
