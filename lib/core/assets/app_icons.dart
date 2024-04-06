@@ -20,6 +20,17 @@ class AppIcons{
   static const String language = "assets/icons/language.svg";
   static const String support = "assets/icons/support.svg";
   static const String logout = "assets/icons/logout.svg";
+  static const String dot = "assets/icons/dot.svg";
+  static const String timer = "assets/icons/timer.svg";
+
+
+
+
+
+
+
+
+  //////////////////////////////////////////////////////////////////////////////////
 
   static const String email_bold = "assets/icons/email_bold.svg";
   static const String lock_bold = "assets/icons/lock_bold.svg";

@@ -7,6 +7,7 @@ const secondaryColor = Color(0xffffffff);
 const Color kGreyColor = Color(0xff818185);
 const Color blackColor = Color(0xff000000);
 const String fontBold = 'Cairo-Bold';
+const String fontSemiBold = 'Cairo-SemiBold';
 const String fontMedium = 'Cairo-Medium';
 const String fontRegular = 'Cairo-Regular';
 
@@ -91,7 +92,7 @@ final lightTheme = ThemeData(
     bodyLarge: TextStyle(
       fontSize: 16.0,
       color: blackColor,
-      fontFamily: fontBold,
+      fontFamily: fontSemiBold,
       fontWeight: FontWeight.w600,
     ),
     bodyMedium: TextStyle(
@@ -109,7 +110,7 @@ final lightTheme = ThemeData(
     displayLarge: TextStyle(
       fontSize: 18.0,
       color: kGreyColor,
-      fontFamily: fontBold,
+      fontFamily: fontSemiBold,
       fontWeight: FontWeight.w600,
     ),
     displayMedium: TextStyle(
@@ -127,7 +128,7 @@ final lightTheme = ThemeData(
     labelLarge: TextStyle(
       fontSize: 16.0,
       color: Colors.white,
-      fontFamily: fontBold,
+      fontFamily: fontSemiBold,
       fontWeight: FontWeight.w600,
     ),
     labelMedium: TextStyle(
@@ -159,7 +160,7 @@ final lightTheme = ThemeData(
     headlineLarge: TextStyle(
       fontSize: 18.0,
       color: primaryColor,
-      fontFamily: fontBold,
+      fontFamily: fontSemiBold,
       fontWeight: FontWeight.w600,
     ),
 

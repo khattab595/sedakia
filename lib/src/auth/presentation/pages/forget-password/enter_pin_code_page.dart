@@ -7,6 +7,11 @@ class EnterPinCodePage
     extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
   EnterPinCodePage({Key? key}) : super(key: key);
 
+
+  @override
+  String? title(BuildContext context) => strings.confirm_register_qayd;
+
+
   @override
   Widget buildWidget(
       BuildContext context, UnInitState state) {

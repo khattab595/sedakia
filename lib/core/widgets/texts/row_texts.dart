@@ -35,7 +35,7 @@ class RowTexts extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Padding(
-      padding: padding ?? const EdgeInsets.all(8.0),
+      padding: padding ?? const EdgeInsets.all(0),
       child: Row(
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.spaceBetween,

@@ -68,10 +68,10 @@ class MyApp extends StatelessWidget {
                   ],
                   routes: Routes.routes,
                   initialRoute: state.isFirstTime
-                      ? Routes.navigationPages
+                      ? Routes.enterPinCodePage
                       : state.isLogin
-                          ? Routes.loginPage
-                          : Routes.loginPage,
+                          ? Routes.enterPinCodePage
+                          : Routes.enterPinCodePage,
                 );
         },
       ),

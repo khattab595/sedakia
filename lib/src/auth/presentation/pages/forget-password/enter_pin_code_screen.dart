@@ -1,57 +1,68 @@
-
+import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
 import '../../../../../core/widgets/text-field/custom_pin_code.dart';
 
-
-
 class EnterPinCodeScreen extends BaseStatelessWidget {
   final Function(String) onPinCode;
+
   EnterPinCodeScreen({Key? key, required this.onPinCode}) : super(key: key);
   TextEditingController pinCodeController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Form(
         key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              strings.enter_code_recover_your_account,
+            30.ph,
+            SemiBoldHintText(
+              label: strings.confirm_register_qayd_desc,
               textAlign: TextAlign.center,
-              style: theme.textTheme.headlineLarge!.copyWith(
-                fontSize: 22,
-              ),
             ),
-            Text(
-              strings.text_message_has_been_sent_your_registered_phone_number,
-              textAlign: TextAlign.center,
-                style: theme.textTheme.displaySmall,
-            ),
+            30.ph,
             CustomPinCode(
               pinCodeController: pinCodeController,
             ),
-            GestureDetector(
-              onTap: () {
-                pinCodeController.clear();
-              },
-              child: Text(
-                strings.resend,
-                textAlign: TextAlign.center,
-              ),
-
-            ),
-            const Spacer(),
+            20.ph,
+            // GestureDetector(
+            //   onTap: () {
+            //     pinCodeController.clear();
+            //   },
+            //   child: Text(
+            //     strings.resend,
+            //     textAlign: TextAlign.center,
+            //   ),
+            //
+            // ),
             PrimaryButton(
               title: strings.confirm,
-              radius: 8,
-              onPressed: (){
-                if(formKey.currentState!.validate()){
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
                   onPinCode(pinCodeController.text);
                 }
               },
+            ),
+            100.ph,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SemiBoldHintText(
+                  label: '00:24',
+                  textAlign: TextAlign.center,
+                  fontSize: 14,
+                ),
+                5.pw,
+                const AppIcon(
+                  icon: AppIcons.timer,
+                  size: 14,
+                ),
+              ],
             ),
           ],
         ),
