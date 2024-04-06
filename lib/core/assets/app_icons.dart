@@ -7,6 +7,7 @@ class AppIcons{
   static const String calender1 = "assets/icons/calender1.svg";
   static const String account = "assets/icons/account.svg";
   static const String notifications = "assets/icons/notifications.svg";
+  static const String export = "assets/icons/export.svg";
   static const String qayd_payment = "assets/icons/qayd_payment.svg";
   static const String reports = "assets/icons/reports.svg";
   static const String phone = "assets/icons/phone.svg";
