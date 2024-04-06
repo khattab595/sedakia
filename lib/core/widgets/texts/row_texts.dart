@@ -1,5 +1,8 @@
 import 'package:app/core/exceptions/extensions.dart';
+import 'package:app/core/widgets/texts/texts.dart';
 import 'package:flutter/material.dart';
+
+import '../../themes/colors.dart';
 
 class RowTexts extends StatelessWidget {
   final String title;
@@ -40,19 +43,11 @@ class RowTexts extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,
-              style: titleStyle ??
-                  context.headlineSmall.copyWith(fontSize: 16,
-                    color: titleColor,
-                  ),
-              strutStyle: titleStrutStyle),
-          if (isSizedBox!)
-            Text(value,
-                style: valueStyle ??
-                    context.headlineSmall.copyWith(fontSize: 16,
-                      color: valueColor,
-                    ),
-                strutStyle: valueStrutStyle),
+          SemiBoldText(label: title, labelStyle: titleStyle),
+          RegularText(
+            labelStyle: valueStyle ,
+            label: value,
+          ),
         ],
       ),
     );

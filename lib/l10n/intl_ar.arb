@@ -77,6 +77,16 @@
   "submit": "إرسال",
   "notes": "ملاحظات",
   "change": "تغيير",
+  "id_number": "رقم الهوية",
+  "the_amount": "المبلغ",
+  "rs": "ر.س",
+  "date_of_qayd": "تاريخ القيد",
+  "view_invoice": "عرض الفاتورة",
+  "look_for_a_qayd": "ابحث عن قيد",
+  "day": "يوم",
+  "bill": "الفاتورة",
+  "from": "من",
+  "to": "الي",
 
 
 
@@ -190,8 +200,6 @@
   "noun": "Noun",
   "create_request": "Create Request",
   "new_request": "New Request",
-  "from": "From",
-  "to": "To",
   "filter": "Filter",
   "reload": "Reload",
 

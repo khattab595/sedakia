@@ -127,5 +127,8 @@ class AppIcons{
   static const String checkShipment = 'assets/icons/check_shipment.svg';
   static const String pickUp = 'assets/icons/pick_up.svg';
   static const String captain = 'assets/icons/captain.svg';
+  static const String searchInvoice = 'assets/icons/search.svg';
+  static const String filter = 'assets/icons/filter.svg';
+  static const String date = 'assets/icons/date.svg';
 
 }
