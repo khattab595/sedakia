@@ -184,7 +184,7 @@ class ReportsScreen extends BaseStatelessWidget {
                 fontSize: 30,
               ),
               isRS == false
-                  ? SizedBox()
+                  ? const SizedBox()
                   : RegularText(
                       label: strings.rs,
                       fontSize: 14,
