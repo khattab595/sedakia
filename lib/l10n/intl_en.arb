@@ -332,5 +332,18 @@
   "current_stock": "Current Stock",
   "qty": "Qty",
   "out_of_stock": "Out of Stock",
-  "select_method": "Select Method"
+  "select_method": "Select Method",
+  "invoice_number": "Invoice Number:",
+  "registration_number": "Registration number:",
+  "id_number": "ID Number",
+  "the_amount": "The Amount",
+  "rs": "RS",
+  "date_of_qayd": "Date Of Qayd",
+  "duration": "Duration",
+  "view_invoice": "View Invoice",
+  "look_for_a_qayd": "Look for a Qayd",
+  "day": "Day",
+  "bill": "Bill",
+  "from": "From",
+  "to": "To"
 }

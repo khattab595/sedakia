@@ -17,7 +17,7 @@ class InvoicesPage extends BaseBlocWidget<UnInitState, ProductsCubit> {
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return InvoicesScreen(
-      invoices: [],
+    //  invoices: [],
       categoryName: getArguments(context),
       onSearch: (value) {},
     );

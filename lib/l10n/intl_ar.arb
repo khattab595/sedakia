@@ -77,6 +77,12 @@
   "submit": "إرسال",
   "notes": "ملاحظات",
   "change": "تغيير",
+  "the_amount": "المبلغ",
+  "date_of_qayd": "تاريخ القيد",
+  "view_invoice": "عرض الفاتورة",
+  "look_for_a_qayd": "ابحث عن قيد",
+  "day": "يوم",
+  "bill": "الفاتورة",
   "confirm_register_qayd": "تأكيد تسجيل القيد",
   "confirm_register_qayd_desc": "أدخل الرمز المكون من 4 أرقام الذي أرسلناه عبر الرسائل القصيرة الخاصة بك.",
 

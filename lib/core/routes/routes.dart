@@ -5,6 +5,8 @@ import '../../src/auth/presentation/pages/forget-password/new_password_page.dart
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/pages/sign-up/register_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
+import '../../src/invoices/presentation/invoices/pages/details_invoice/details_invoice_page.dart';
+import '../../src/invoices/presentation/invoices/pages/invoices_page.dart';
 import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
@@ -70,6 +72,8 @@ class Routes {
   static const String walletHistoryPage = 'walletHistoryPage';
   static const String paymentMethodsPage = 'paymentMethodsPage';
   static const String addPaymentMethodPage = 'addPaymentMethodPage';
+  static const String invoicesPage = 'invoicesPage';
+  static const String detailsInvoicesPage = 'detailsInvoicesPage';
 
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
@@ -98,5 +102,7 @@ class Routes {
     walletHistoryPage: (context) => WalletHistoryPage(),
     paymentMethodsPage: (context) => PaymentMethodsPage(),
     addPaymentMethodPage: (context) => AddPaymentMethodPage(),
+    invoicesPage: (context) => InvoicesPage(),
+    detailsInvoicesPage: (context) => DetailsInvoicesPage(),
   };
 }
