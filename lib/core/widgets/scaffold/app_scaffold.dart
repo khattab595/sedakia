@@ -43,7 +43,7 @@ class AppScaffold extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       // resizeToAvoidBottomInset: false, // this code remove the keyboard overflow.
-    // drawer: isDrawer! ? SideMenuPage(isCaptain: true) : null,
+      // drawer: isDrawer! ? SideMenuPage(isCaptain: true) : null,
       primary: true,
 
       //SafeArea to save content from the phone top par.
@@ -51,7 +51,7 @@ class AppScaffold extends StatelessWidget {
         key: globalKey,
         drawerScrimColor: Colors.transparent,
         backgroundColor: backgroundColor ?? theme.scaffoldBackgroundColor,
-          body:body,
+        body: body,
       ),
       extendBody: true,
       backgroundColor: backgroundColor ?? theme.scaffoldBackgroundColor,
@@ -67,14 +67,27 @@ class AppScaffold extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                centerTitle: true,
+                centerTitle: false,
                 flexibleSpace: titleWidget,
-                foregroundColor: foregroundColor ?? theme.appBarTheme.foregroundColor,
+                foregroundColor:
+                    foregroundColor ?? theme.appBarTheme.foregroundColor,
                 leadingWidth: 30,
                 systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: backgroundAppBar ?? theme.appBarTheme.backgroundColor,
+                  statusBarColor:
+                      backgroundAppBar ?? theme.appBarTheme.backgroundColor,
                   statusBarBrightness: Brightness.light,
                 ),
+                actions: [
+                  RotatedBox(
+                    quarterTurns: 2,
+                    child: BackButton(
+                      color: context.primaryColor,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                ],
                 // leading: leading ?? (isDrawer!
                 //     ? AppIconButton(
                 //   icon: AppIcons.menu,

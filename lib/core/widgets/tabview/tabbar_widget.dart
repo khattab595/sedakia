@@ -1,7 +1,5 @@
 import 'package:app/src/main_index.dart';
 
-
-
 class TabItemModel{
   final String label ;
   final String? image ;
@@ -39,19 +37,28 @@ class TabBarWidget  extends StatelessWidget{
                   style: BorderStyle.solid),
               borderRadius: BorderRadius.circular(30)),
             child: TabBar(
-              isScrollable: true,
-              indicatorColor: context.primaryColor,
-              unselectedLabelStyle: kTextLabel,
-              labelStyle: kTextSemiBold.copyWith(fontSize: 17),
+              // isScrollable: true,
+              indicatorColor: Colors.transparent,
+              dividerColor: Colors.transparent,
+              unselectedLabelStyle: context.bodyLarge,
+              labelStyle: context.labelLarge,
               labelColor: Colors.white,
               unselectedLabelColor:kPrimaryDark,
               padding: 5.paddingAll,
               indicatorPadding: 0.paddingAll,
-              labelPadding:  50.paddingHoriz ,
+              labelPadding:  0.paddingHoriz ,
               indicator:  BoxDecoration(
                   color: context.primaryColor,
+                  borderRadius: const BorderRadius.all(Radius.circular(21)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: const Offset(0, 1), // changes position of shadow
+                    ),
+                  ],
 
-                  borderRadius: const BorderRadius.all(Radius.circular(21))
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               onTap: onTap,

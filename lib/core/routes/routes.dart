@@ -10,6 +10,7 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
 import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
@@ -28,6 +29,7 @@ class Routes {
   static const String editProfilePage = 'editProfilePage';
   static const String languagePage = 'language_page';
   static const String supportPage = 'supportPage';
+  static const String regiserQaydPage = 'RegiserQaydPage';
 
   static const String register = 'registerPage';
   static const String onboardingPage = 'onboardingPage';
@@ -79,7 +81,7 @@ class Routes {
     supportPage: (context) => SupportPage(),
     settings: (context) => SettingsPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
-
+    regiserQaydPage: (context) => RegisterQaydPage(),
 
     register: (context) => RegisterPage(),
     walletPage: (context) => WalletPage(),

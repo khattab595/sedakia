@@ -8,8 +8,8 @@ import '../bloc/register_qayd_bloc.dart';
 import 'register_qayd_screen.dart';
 
 // ignore: must_be_immutable
-class RegiserQaydPage extends BaseBlocWidget<UnInitState, RegiserQaydCubit> {
-  RegiserQaydPage({Key? key}) : super(key: key);
+class RegisterQaydPage extends BaseBlocWidget<UnInitState, RegiserQaydCubit> {
+  RegisterQaydPage({Key? key}) : super(key: key);
 
 
   @override
@@ -17,7 +17,7 @@ class RegiserQaydPage extends BaseBlocWidget<UnInitState, RegiserQaydCubit> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return RegiserQaydScreen(
+    return RegisterQaydScreen(
       onLogin: (LoginParams params) {
         // bloc.qaydPayment(params);
       },

@@ -1,11 +1,12 @@
-import 'dart:ui';
 
 import 'package:app/src/main_index.dart';
 import '../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../core/widgets/texts/texts.dart';
 
 class ReportsScreen extends BaseStatelessWidget {
+  ReportsScreen({Key? key}) : super(key: key);
   var searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -176,19 +177,24 @@ class ReportsScreen extends BaseStatelessWidget {
           ),
           10.ph,
           Row(
+            textBaseline: TextBaseline.alphabetic,
+            crossAxisAlignment: CrossAxisAlignment.baseline,
             children: [
-              const AppIcon(icon: AppIcons.export),
+              AppIcon(
+                  padding: 10.paddingTop,
+                  icon: AppIcons.export, size: 18),
               const Spacer(),
               SemiBoldText(
                 label: value,
-                fontSize: 30,
+                fontSize: 26,
               ),
+              5.pw,
               isRS == false
                   ? const SizedBox()
                   : RegularText(
                       label: strings.rs,
                       fontSize: 14,
-                    )
+                    ),
             ],
           )
         ],

@@ -24,7 +24,7 @@ class HomeHeader extends BaseStatelessWidget {
           icon: AppIcons.qayd_payment,
           title: strings.qayd_pay,
           onTap: (){
-            //Navigators.pushNamed(Routes.reportsPage);
+            Navigators.pushNamed(Routes.regiserQaydPage);
           },
         ),
         _Item(

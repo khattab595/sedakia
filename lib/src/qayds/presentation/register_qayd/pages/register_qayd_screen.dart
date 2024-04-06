@@ -5,10 +5,10 @@ import '../../../../auth/data/models/login_params.dart';
 import '../../../../main_index.dart';
 
 
-class RegiserQaydScreen extends BaseStatelessWidget {
+class RegisterQaydScreen extends BaseStatelessWidget {
   final Function(LoginParams)? onLogin;
 
-  RegiserQaydScreen({Key? key, this.onLogin}) : super(key: key);
+  RegisterQaydScreen({Key? key, this.onLogin}) : super(key: key);
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

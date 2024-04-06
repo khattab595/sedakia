@@ -15,12 +15,12 @@ class InvoicesScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: invoices.length,
+      itemCount: 5,
       shrinkWrap: true,
       padding: 10.paddingAll,
       itemBuilder: (context, index) {
         return InvoiceItem(
-          invoice: invoices[index],
+          invoice: Invoice(),
         );
       },
     );
