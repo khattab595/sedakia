@@ -12,12 +12,12 @@ var searchController=TextEditingController();
       padding:   EdgeInsets.all(20),
       child: Column(
         children: [
-        //   CustomTextField(
-        //     controller: searchController,
-        //     hintText: strings.search_by_history,
-        // hintStyle:titleSmall.copyWith(fontSize: 15,color:Colors.black.withOpacity(.7) ),
-        //     suffixIcon: AppIcon( padding:10.paddingAll ,icon: AppIcons.calender1,),
-        //   ),
+          CustomTextField(
+            controller: searchController,
+            hintText: strings.search_by_history,
+        hintStyle:titleSmall.copyWith(fontSize: 15,color:Colors.black.withOpacity(.7) ),
+            suffixIcon: AppIcon( padding:10.paddingAll ,icon: AppIcons.calender1,),
+          ),
 
           Row(
             children: [
