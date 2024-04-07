@@ -15,7 +15,8 @@ class CustomTextField extends BaseStatelessWidget {
   final TextStyle? hintStyle;
   final TextAlign? textAlign;
   final Widget? prefixIcon;
-  final String? iconPath;
+  final String? prefixIconPath;
+  final String ? suffixIconPath;
   final Widget? suffixIcon;
   final int? maxLines;
   final Color? colorBorderSide;
@@ -24,7 +25,7 @@ class CustomTextField extends BaseStatelessWidget {
   final double? radius;
   final bool? isValidator;
   final double? minHeight;
-    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = true, this.minHeight}) : super(key: key);
+    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +62,19 @@ class CustomTextField extends BaseStatelessWidget {
               ],
               decoration: inputDecoration ?? InputDecoration(
                 hintText: hintText,
-                hintStyle: hintStyle ?? context.labelSmall.copyWith(fontSize: 16),
+                hintStyle: hintStyle ?? context.displaySmall.copyWith(fontSize: 16),
                 fillColor: fillColor ?? context.theme.inputDecorationTheme.fillColor,
                 filled: true,
                 prefixIconConstraints:  BoxConstraints(
                   minWidth: minHeight?? 35,
                   minHeight: minHeight ?? 35,
                 ),
-                prefixIcon:  iconPath != null ? AppIcon(
+                prefixIcon:  prefixIconPath != null ? AppIcon(
                   padding: const EdgeInsets.all(12),
-                  icon: iconPath!, color: context.onPrimary, size: 20,) : prefixIcon,
-                suffixIcon: suffixIcon,
+                  icon: prefixIconPath!,  size: 20,) : prefixIcon,
+                suffixIcon: suffixIconPath != null ? AppIcon(
+                  padding: const EdgeInsets.all(12),
+                  icon: suffixIconPath!, size: 0) : suffixIcon,
                 contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 border:  OutlineInputBorder(
                   borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),

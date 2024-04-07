@@ -77,19 +77,6 @@ import '../../src/splash/data/repositories/splash_repo.dart' as _i39;
 import '../../src/splash/domain/repositories/base_splash_repo.dart' as _i38;
 import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i51;
 import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i64;
-import '../../src/wallet/data/data_sources/wallet_datasource.dart' as _i22;
-import '../../src/wallet/data/repositories/wallet_repo.dart' as _i41;
-import '../../src/wallet/domain/repositories/base_wallet_repo.dart' as _i40;
-import '../../src/wallet/domain/use_cases/wallet_usecase.dart' as _i53;
-import '../../src/wallet/presentation/bloc/wallet_bloc.dart' as _i66;
-import '../../src/wallet/presentation/payment_methods/bloc/add_payment_method_bloc.dart'
-    as _i55;
-import '../../src/wallet/presentation/payment_methods/bloc/payment_methods_bloc.dart'
-    as _i60;
-import '../../src/wallet/presentation/transactions/bloc/transactions_bloc.dart'
-    as _i65;
-import '../../src/wallet/presentation/wallet_history/bloc/wallet_history_bloc.dart'
-    as _i67;
 import 'injection_module.dart' as _i68;
 
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -131,7 +118,6 @@ Future<_i1.GetIt> $initGetIt(
       () => _i20.StoresRepoImp(gh<_i18.StoresDatasource>()));
   gh.factory<_i21.StoresUseCase>(
       () => _i21.StoresUseCase(gh<_i19.StoresRepo>()));
-  gh.factory<_i22.WalletDatasource>(() => _i22.WalletDatasource(gh<_i4.Dio>()));
   gh.factory<_i23.AuthUseCase>(() => _i23.AuthUseCase(gh<_i5.BaseAuthRepo>()));
   gh.factory<_i24.BaseForgotPasswordRepo>(
       () => _i25.ForgotPasswordRepo(gh<_i7.ForgotPasswordDataSource>()));
@@ -148,8 +134,6 @@ Future<_i1.GetIt> $initGetIt(
       () => _i37.SettingsRepo(gh<_i15.SettingsDatasource>()));
   gh.factory<_i38.BaseSplashRepo>(
       () => _i39.SplashRepo(gh<_i17.SplashDatasource>()));
-  gh.factory<_i40.BaseWalletRepo>(
-      () => _i41.WalletRepo(gh<_i22.WalletDatasource>()));
   gh.factory<_i42.ForgotPasswordUseCase>(
       () => _i42.ForgotPasswordUseCase(gh<_i24.BaseForgotPasswordRepo>()));
   gh.factory<_i43.HomeUseCase>(() => _i43.HomeUseCase(gh<_i26.BaseHomeRepo>()));
@@ -171,20 +155,14 @@ Future<_i1.GetIt> $initGetIt(
       () => _i51.SplashUseCase(gh<_i38.BaseSplashRepo>()));
   gh.factory<_i52.SupportCubit>(
       () => _i52.SupportCubit(gh<_i50.SettingsUseCase>()));
-  gh.factory<_i53.WalletUseCase>(
-      () => _i53.WalletUseCase(gh<_i40.BaseWalletRepo>()));
   gh.factory<_i54.AboutLogesteCubit>(
-      () => _i54.AboutLogesteCubit(gh<_i50.SettingsUseCase>()));
-  gh.factory<_i55.AddPaymentMethodCubit>(
-      () => _i55.AddPaymentMethodCubit(gh<_i53.WalletUseCase>()));
+      () => _i54.AboutLogesteCubit(gh<_i50.SettingsUseCase>()));;
   gh.factory<_i56.AuthCubit>(() => _i56.AuthCubit(gh<_i23.AuthUseCase>()));
   gh.factory<_i57.ForgotPasswordCubit>(
       () => _i57.ForgotPasswordCubit(gh<_i42.ForgotPasswordUseCase>()));
   gh.factory<_i58.HomeCubit>(() => _i58.HomeCubit(gh<_i43.HomeUseCase>()));
   gh.factory<_i59.NotificationsCubit>(
       () => _i59.NotificationsCubit(gh<_i44.NotificationsUseCase>()));
-  gh.factory<_i60.PaymentMethodsCubit>(
-      () => _i60.PaymentMethodsCubit(gh<_i53.WalletUseCase>()));
   gh.factory<_i61.ProductsCubit>(
       () => _i61.ProductsCubit(gh<_i45.ProductsUseCase>()));
   gh.factory<_i62.ProfileBloc>(
@@ -193,12 +171,6 @@ Future<_i1.GetIt> $initGetIt(
       () => _i63.ReportsCubit(gh<_i49.ReportsUseCase>()));
   gh.factory<_i64.SplashCubit>(
       () => _i64.SplashCubit(gh<_i51.SplashUseCase>()));
-  gh.factory<_i65.TransactionsCubit>(
-      () => _i65.TransactionsCubit(gh<_i53.WalletUseCase>()));
-  gh.factory<_i66.WalletCubit>(
-      () => _i66.WalletCubit(gh<_i53.WalletUseCase>()));
-  gh.factory<_i67.WalletHistoryCubit>(
-      () => _i67.WalletHistoryCubit(gh<_i53.WalletUseCase>()));
   return getIt;
 }
 

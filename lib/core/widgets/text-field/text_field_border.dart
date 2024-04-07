@@ -51,7 +51,7 @@ class TextFieldBorder extends StatelessWidget {
       margin: margin ?? 16.paddingHoriz + 6.paddingVert,
       contentPadding: contentPadding,
       radius: radius ?? 12,
-      iconPath: iconPath,
+      prefixIconPath: iconPath,
       isValidator: isValidator,
     );
   }

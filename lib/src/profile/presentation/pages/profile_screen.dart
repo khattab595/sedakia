@@ -34,7 +34,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.request_email,
             title: strings.request_csv_file,
-            route: Routes.notifications,
+            route: '',
             iconSize: 16,
           ),
           ProfileItem(
@@ -45,7 +45,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.language,
             title: strings.language,
-            route: Routes.settings,
+            route: Routes.changeLanguagePage,
           ),
           ProfileItem(
             icon: AppIcons.support,

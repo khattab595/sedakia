@@ -28,7 +28,7 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
             CustomTextField(
               controller: phoneNumberController,
               hintText: strings.phone_number,
-              iconPath: AppIcons.callOutline,
+              prefixIconPath: AppIcons.callOutline,
               keyboardType: TextInputType.phone,
               margin: const EdgeInsets.symmetric(vertical: 20),
             ),

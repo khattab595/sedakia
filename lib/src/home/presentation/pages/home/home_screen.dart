@@ -1,7 +1,7 @@
 import '../../../../main_index.dart';
 import '../../../domain/entities/home.dart';
 import '../../widgets/contact_us.dart';
-import '../../widgets/home_header.dart';
+import '../../widgets/home_buttons.dart';
 import '../../widgets/sliders_home.dart';
 
 class HomeScreen extends BaseStatelessWidget {
@@ -20,7 +20,7 @@ class HomeScreen extends BaseStatelessWidget {
             images: home.slider ?? [],
           ),
           14.ph,
-          HomeHeader(
+          HomeButtons(
             statistics: home.statistics ?? [],
           ),
           20.ph,

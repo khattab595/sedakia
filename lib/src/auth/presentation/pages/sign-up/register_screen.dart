@@ -32,20 +32,20 @@ class RegisterScreen extends BaseStatelessWidget {
           CustomTextField(
             controller: nameController,
             hintText: strings.name,
-            iconPath: AppIcons.user_bold,
+            prefixIconPath: AppIcons.user_bold,
             margin: const EdgeInsets.only(top: 20, bottom: 15),
           ),
           CustomTextField(
             controller: emailController,
             hintText: strings.email,
-            iconPath: AppIcons.email_bold,
+            prefixIconPath: AppIcons.email_bold,
             keyboardType: TextInputType.emailAddress,
             margin: const EdgeInsets.only(bottom: 15),
           ),
           CustomTextField(
             controller: phoneController,
             hintText: strings.phone_number,
-            iconPath: AppIcons.telephone,
+            prefixIconPath: AppIcons.telephone,
             keyboardType: TextInputType.number,
             margin: const EdgeInsets.only(bottom: 15),
           ),
@@ -60,7 +60,7 @@ class RegisterScreen extends BaseStatelessWidget {
           CustomTextField(
             controller: passwordController,
             hintText: strings.password,
-            iconPath: AppIcons.lock_bold,
+            prefixIconPath: AppIcons.lock_bold,
             margin: const EdgeInsets.only(bottom: 15),
             isPassword: true,
           ),

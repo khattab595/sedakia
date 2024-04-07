@@ -20,6 +20,7 @@ class DetailsInvoiceWidget extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: 12.paddingAll,
       child: Column(
         children: [
           30.ph,
@@ -93,55 +94,13 @@ class DetailsInvoiceWidget extends BaseStatelessWidget {
           40.ph,
           PrimaryButton(
             title: strings.pay,
-            margin: 16.paddingHoriz,
             onPressed: () {
-              showModalBottomSheet(
-                  shape: const RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(8.0)),
-                  ),
-                  context: context,
-                  isScrollControlled: true,
-                  builder: (BuildContext context) {
-                    return SizedBox(
-                      height: 400,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          40.ph,
-                           Center(
-                            child: BoldText(
-                              label: strings.search_for_invoice,
-                            ),
-                          ),
-                          CustomTextField(
-                            controller: amountController,
-                            title: strings.the_amount,
-                            margin: 16.paddingHoriz,
-                          ),
-                          16.ph,
-                          FilterDateWidget(onFilter: (date) {}),
-                          16.ph,
-                          /*
-                          tabssss
-                           */
-                          50.ph,
-                          PrimaryButton(
-                            onPressed: () {},
-                            title: strings.search,
-                            margin: 16.paddingHoriz,
-                          )
-                        ],
-                      ),
-                    );
-                  });
             },
           ),
           16.ph,
           SecondaryButton(
             title: strings.print,
             onPressed: () {},
-            margin: 16.paddingHoriz,
             radius: 6,
             borderColor: primaryColor,
           )

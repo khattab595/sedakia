@@ -1,19 +1,14 @@
-import 'package:app/core/assets/app_icons.dart';
-import 'package:app/core/decorations/decorations.dart';
-import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/src/main_index.dart';
-import 'package:flutter/material.dart';
 
-import '../../../../core/components/base_stateless_widget.dart';
+import 'package:app/src/main_index.dart';
+
 import '../../../../core/utils/navigator.dart';
-import '../../../../core/widgets/buttons/app_icon.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../data/models/home_dto.dart';
 
 
-class HomeHeader extends BaseStatelessWidget {
+class HomeButtons extends BaseStatelessWidget {
   final List<Statistic> statistics;
-   HomeHeader({super.key, required this.statistics});
+   HomeButtons({super.key, required this.statistics});
   @override
   Widget build(BuildContext context) {
 
@@ -24,7 +19,7 @@ class HomeHeader extends BaseStatelessWidget {
           icon: AppIcons.qayd_payment,
           title: strings.qayd_pay,
           onTap: (){
-            Navigators.pushNamed(Routes.regiserQaydPage);
+            Navigators.pushNamed(Routes.qaydPaymentPage);
           },
         ),
         _Item(

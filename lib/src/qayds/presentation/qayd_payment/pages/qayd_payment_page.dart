@@ -12,6 +12,8 @@ class QaydPaymentPage extends BaseBlocWidget<UnInitState, QaydPaymentCubit> {
   QaydPaymentPage({Key? key}) : super(key: key);
 
 
+  @override
+  String? title(BuildContext context) => strings.qayd_pay;
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {

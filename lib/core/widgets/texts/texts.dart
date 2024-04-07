@@ -50,7 +50,7 @@ class SemiBoldText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          context.titleLarge.copyWith(
+          context.bodyLarge.copyWith(
               fontSize: fontSize ?? 16, color: labelColor),
     );
   }

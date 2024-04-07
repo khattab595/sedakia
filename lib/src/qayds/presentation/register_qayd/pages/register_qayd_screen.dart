@@ -27,6 +27,7 @@ class RegisterQaydScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            30.ph,
             CustomTextField(
               controller: phoneNumberController,
               title: strings.id_number,

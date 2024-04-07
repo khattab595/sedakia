@@ -151,7 +151,7 @@ class ReportsScreen extends BaseStatelessWidget {
       padding: 10.paddingAll,
       margin: 10.paddingTop,
       alignment: Alignment.center,
-      height: 130,
+      height: 110,
       width: width ?? MediaQuery.of(context).size.width / 2.4,
       decoration: Decorations.baseDecorationRadius(),
       child: Column(

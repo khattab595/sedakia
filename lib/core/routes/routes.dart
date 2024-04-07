@@ -1,4 +1,6 @@
 
+import 'package:path/path.dart';
+
 import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
@@ -12,16 +14,13 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/qayds/presentation/qayd_payment/pages/qayd_payment_page.dart';
 import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
 import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/settings_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
-import '../../src/wallet/presentation/pages/wallet_page.dart';
-import '../../src/wallet/presentation/payment_methods/pages/add_new_method/add_payment_method_page.dart';
-import '../../src/wallet/presentation/payment_methods/pages/payment_methods_page.dart';
-import '../../src/wallet/presentation/widgets/wallet_history/wallet_history_page.dart';
 
 class Routes {
 
@@ -32,6 +31,7 @@ class Routes {
   static const String languagePage = 'language_page';
   static const String supportPage = 'supportPage';
   static const String regiserQaydPage = 'RegiserQaydPage';
+  static const String qaydPaymentPage = 'qaydPaymentPage';
 
   static const String register = 'registerPage';
   static const String onboardingPage = 'onboardingPage';
@@ -75,6 +75,7 @@ class Routes {
   static const String invoicesPage = 'invoicesPage';
   static const String detailsInvoicesPage = 'detailsInvoicesPage';
 
+
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
 
@@ -86,10 +87,8 @@ class Routes {
     settings: (context) => SettingsPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     regiserQaydPage: (context) => RegisterQaydPage(),
+    qaydPaymentPage: (context) => QaydPaymentPage(),
 
-    register: (context) => RegisterPage(),
-    walletPage: (context) => WalletPage(),
-    enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
@@ -98,10 +97,6 @@ class Routes {
     aboutLogeste: (context) => AboutLogestePage(),
     reportsPage: (context) => ReportsPage(),
     /* ====================================================================== */
-
-    walletHistoryPage: (context) => WalletHistoryPage(),
-    paymentMethodsPage: (context) => PaymentMethodsPage(),
-    addPaymentMethodPage: (context) => AddPaymentMethodPage(),
     invoicesPage: (context) => InvoicesPage(),
     detailsInvoicesPage: (context) => DetailsInvoicesPage(),
   };

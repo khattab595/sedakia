@@ -32,15 +32,17 @@ class CustomRichText extends StatelessWidget {
           TextSpan(
             text: '$label ',
             style: labelStyle ??
-                context.textTheme.labelSmall!.copyWith(
-                  color: labelColor ?? Colors.black,
+                context.textTheme.bodyLarge!.copyWith(
+                  color: labelColor,
+                  fontSize: 14,
                 ),
           ),
           TextSpan(
             text: value,
             style: valueStyle ??
-                context.textTheme.labelMedium!.copyWith(
-                  color: valueColor ?? Colors.black,
+                context.textTheme.bodyLarge!.copyWith(
+                  color: valueColor,
+                  fontSize: 14,
                 ),
             recognizer: TapGestureRecognizer()..onTap = valueOnTap,
           ),

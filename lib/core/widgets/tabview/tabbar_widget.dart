@@ -26,7 +26,7 @@ class TabBarWidget  extends StatelessWidget{
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar:   PreferredSize(
-          preferredSize: const Size.fromHeight(110),
+          preferredSize: const Size.fromHeight(70),
           child: Container(
             margin: 10.paddingAll+10.paddingHoriz,
             decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class TabBarWidget  extends StatelessWidget{
                   color: kBorderColor,
                   width: 0.3,
                   style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(30)),
+              borderRadius: BorderRadius.circular(8)),
             child: TabBar(
               // isScrollable: true,
               indicatorColor: Colors.transparent,
@@ -49,7 +49,7 @@ class TabBarWidget  extends StatelessWidget{
               labelPadding:  0.paddingHoriz ,
               indicator:  BoxDecoration(
                   color: context.primaryColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(21)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),

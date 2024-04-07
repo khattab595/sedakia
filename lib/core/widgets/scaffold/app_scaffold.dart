@@ -67,7 +67,7 @@ class AppScaffold extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                centerTitle: false,
+                centerTitle: true,
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
@@ -78,6 +78,7 @@ class AppScaffold extends StatelessWidget {
                   statusBarBrightness: Brightness.light,
                 ),
                 actions: [
+                  if(Navigator.canPop(context))
                   RotatedBox(
                     quarterTurns: 2,
                     child: BackButton(

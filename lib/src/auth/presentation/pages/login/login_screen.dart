@@ -14,7 +14,7 @@ class LoginScreen extends BaseStatelessWidget {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController phoneNumberController = TextEditingController(text: 'sawa1001@hotmail.com');
+  TextEditingController phoneNumberController = TextEditingController(text: '996532514863');
   TextEditingController passwordController = TextEditingController(text: '123456789');
 
   @override
@@ -65,7 +65,6 @@ class LoginScreen extends BaseStatelessWidget {
       onLogin!(LoginParams(
         email: phoneNumberController.text,
         password: passwordController.text,
-        platform: await HelperMethods.getPlatform(),
       ));
     }
   }

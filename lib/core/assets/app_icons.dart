@@ -24,6 +24,7 @@ class AppIcons{
   static const String logout = "assets/icons/logout.svg";
   static const String dot = "assets/icons/dot.svg";
   static const String timer = "assets/icons/timer.svg";
+  static const String drop_down = "assets/icons/drop_down.svg";
 
 
 

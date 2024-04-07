@@ -14,8 +14,8 @@ class QaydPaymentScreen extends BaseStatelessWidget {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController phoneNumberController = TextEditingController(text: 'sawa1001@hotmail.com');
-  TextEditingController passwordController = TextEditingController(text: '123456789');
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController qaydNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,30 +28,22 @@ class QaydPaymentScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Logo(),
-            20.ph,Text(
-              strings.sign_in,
-              style: context.bodyLarge.copyWith(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
             40.ph,
             CustomTextField(
-              controller: phoneNumberController,
-              title: strings.point_sale_mobile_number,
+              controller: qaydNumberController,
+              title: strings.qayd_number,
             ),
+            20.ph,
             CustomTextField(
-              controller: passwordController,
-              title: strings.password,
-              isPassword: true,
-              keyboardType: TextInputType.visiblePassword,
+              controller: phoneNumberController,
+              title: strings.method_payment,
+              suffixIcon: AppIcon(
+                  padding: const EdgeInsets.all(15),
+                  icon: AppIcons.drop_down, size: 0) ,
             ),
-            // LabelButton(
-            //   title: strings.forgot_password,
-            //   onTap: () {
-            //     HelperMethods.launchURL('https://eg.app.com/forgot-password');
-            //   },
-            // ),
+            20.ph,
             PrimaryButton(
-              title: strings.login,
+              title: strings.confirm,
               margin: 20.paddingTop,
               onPressed: () => onPressed(),
             ),
@@ -64,7 +56,7 @@ class QaydPaymentScreen extends BaseStatelessWidget {
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
         email: phoneNumberController.text,
-        password: passwordController.text,
+        password: qaydNumberController.text,
         platform: await HelperMethods.getPlatform(),
       ));
     }

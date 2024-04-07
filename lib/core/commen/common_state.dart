@@ -1,9 +1,6 @@
-
-
 import 'package:equatable/equatable.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../network/api_response.dart';
 abstract class CommonState  extends Equatable{
 
   @override

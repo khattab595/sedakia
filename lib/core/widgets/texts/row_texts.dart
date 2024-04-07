@@ -43,10 +43,11 @@ class RowTexts extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
         children: [
-          SemiBoldText(label: title, labelStyle: titleStyle),
+          SemiBoldText(label: title, labelStyle: titleStyle, fontSize: 14),
           RegularText(
             labelStyle: valueStyle ,
             label: value,
+            fontSize: 14,
           ),
         ],
       ),

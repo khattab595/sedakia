@@ -17,8 +17,7 @@ class SlidersHome extends BaseStatelessWidget {
       height: 200,
       child: Swiper(
         itemCount: 5,
-        index: images.length - 1,
-
+        index: 0,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: 50.paddingBottom,

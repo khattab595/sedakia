@@ -49,11 +49,11 @@ class DateFormatter {
     }
   }
 
-  static String formatTimestampString(String dateString, {String format = 'dd MMMM yyyy hh:mm a'}){
+  static String formatTimestampString(String dateString, {String format = 'yyyy-MM-dd'}){
     final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
-      final DateFormat _inputFormat = DateFormat('yyyy-MM-ddThh:mm:ss');
+      final DateFormat _inputFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
       final DateFormat _outputFormat = DateFormat(format, lang);
       DateTime date = _inputFormat.parse(dateString);
       String formattedDate = _outputFormat.format(date);
