@@ -26,9 +26,9 @@ class TabBarWidget  extends StatelessWidget{
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar:   PreferredSize(
-          preferredSize: const Size.fromHeight(70),
+          preferredSize: const Size.fromHeight(90),
           child: Container(
-            margin: 10.paddingAll+10.paddingHoriz,
+            margin: 20.paddingAll,
             decoration: BoxDecoration(
               color: kBackgroundColor,
               border: Border.all(

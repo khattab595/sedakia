@@ -87,6 +87,7 @@
   "confirm_register_qayd_desc": "أدخل الرمز المكون من 4 أرقام الذي أرسلناه عبر الرسائل القصيرة الخاصة بك.",
   "payment_date": "تاريخ السداد",
   "amount": "المبلغ",
+  "save": "حفظ",
 
 
 
@@ -149,7 +150,6 @@
   "see_more": "See more",
   "active": "Active",
   "set_as_default": "Set as default?",
-  "save": "Save",
   "select_color": "Select color",
   "select_size": "Select size",
   "product_details": "Product Details",

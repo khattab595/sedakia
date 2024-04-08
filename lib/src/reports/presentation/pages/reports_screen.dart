@@ -11,7 +11,7 @@ class ReportsScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: 20.paddingHoriz,
         child: Column(
           children: [
             CustomTextField(
@@ -162,10 +162,11 @@ class ReportsScreen extends BaseStatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: 5.paddingTop,
+                  padding: 8.paddingTop,
                   child: CircleAvatar(
                     radius: 6,
                     backgroundColor: backgroundColor,
@@ -176,7 +177,6 @@ class ReportsScreen extends BaseStatelessWidget {
               ],
             ),
           ),
-          const Spacer(),
           Row(
             textBaseline: TextBaseline.alphabetic,
             crossAxisAlignment: CrossAxisAlignment.baseline,
