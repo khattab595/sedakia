@@ -17,6 +17,7 @@ class ReportsScreen extends BaseStatelessWidget {
             CustomTextField(
               controller: searchController,
               hintText: strings.search_by_history,
+
               hintStyle: titleSmall.copyWith(
                   fontSize: 15, color: Colors.black.withOpacity(.7)),
               suffixIcon: AppIcon(
