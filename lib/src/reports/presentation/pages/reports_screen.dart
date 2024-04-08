@@ -151,7 +151,7 @@ class ReportsScreen extends BaseStatelessWidget {
       padding: 10.paddingAll,
       margin: 10.paddingTop,
       alignment: Alignment.center,
-      height: 110,
+      height: 115,
       width: width ?? MediaQuery.of(context).size.width / 2.4,
       decoration: Decorations.baseDecorationRadius(),
       child: Column(
@@ -161,7 +161,7 @@ class ReportsScreen extends BaseStatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
                   padding: 5.paddingTop,
@@ -175,7 +175,7 @@ class ReportsScreen extends BaseStatelessWidget {
               ],
             ),
           ),
-          10.ph,
+          const Spacer(),
           Row(
             textBaseline: TextBaseline.alphabetic,
             crossAxisAlignment: CrossAxisAlignment.baseline,
