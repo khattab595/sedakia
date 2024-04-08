@@ -130,7 +130,7 @@ flutter_native_splash:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/logo/logo.jpg"
+  image_path: "assets/logo/logo.png"
 
 # The following section is specific to Flutter packages.
 flutter:
