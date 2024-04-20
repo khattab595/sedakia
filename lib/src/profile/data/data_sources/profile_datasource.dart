@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app/core/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -19,8 +21,13 @@ abstract class  ProfileDataSource{
   @GET('/app/setting')
   Future<ApiResponse<ProfileDto>> fetchProfileData();
 
-  @POST('/app/setting/change_general_info')
+  @POST('/v1/editprofile')
   Future<ApiResponse<ProfileDto>> editProfileData(@Body() EditProfileParams params);
+
+  @POST('/v1/editprofile')
+  Future<ApiResponse<ProfileDto>> changeImage(
+    @Part(name: 'image') File image,
+      );
 
   @POST('/app/setting/delete')
   Future<ApiResponse<String>> deleteProfileData();

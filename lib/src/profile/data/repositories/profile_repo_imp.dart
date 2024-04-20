@@ -5,8 +5,6 @@ import '../../../../core/utils/helper_methods.dart';
 import '../../domain/entities/profile.dart';
 import '../../domain/repositories/profile_repo.dart';
 import '../data_sources/profile_datasource.dart';
-import '../../../qayds/data/models/add_store_params.dart';
-import '../../../auth/data/models/change_password_params.dart';
 import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';
 
@@ -31,10 +29,17 @@ class ProfileRepoImp extends ProfileRepo{
   }
 
   @override
-  Future<Profile> editProfileData(EditProfileParams params) async {
+  Future<String> editProfileData(EditProfileParams params) async {
     final data = await apiProvider.editProfileData(params);
     await HelperMethods.saveProfile(data.data!);
-    return Profile.fromJson(data.data!);
+    return data.message ?? '';
+  }
+
+  @override
+  Future<String> changeImage(EditProfileParams params) async {
+    final data = await apiProvider.changeImage(params.image!);
+    await HelperMethods.saveProfile(data.data!);
+    return data.message ?? '';
   }
 
   @override

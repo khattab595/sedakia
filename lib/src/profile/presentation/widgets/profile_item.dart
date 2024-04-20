@@ -9,6 +9,7 @@ class ProfileItem extends StatelessWidget {
   final String route;
   final double iconSize;
   final dynamic args;
+  final VoidCallback? onRefresh;
 
   const ProfileItem({
     Key? key,
@@ -17,13 +18,17 @@ class ProfileItem extends StatelessWidget {
     required this.route,
     this.iconSize = 20,
     this.args,
+    this.onRefresh,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigators.pushNamed(route, arguments: args);
+      onTap: () async {
+        final isRefresh = await Navigators.pushNamed(route, arguments: args);
+        if (isRefresh != null && isRefresh && onRefresh != null) {
+          onRefresh!();
+        }
       },
       child: Column(
         children: [

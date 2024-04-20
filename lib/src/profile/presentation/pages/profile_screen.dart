@@ -6,8 +6,9 @@ import '../widgets/profile_item.dart';
 class ProfileScreen extends BaseStatelessWidget {
   final Profile profile;
   final VoidCallback onLogout;
+  final VoidCallback onRefresh;
 
-  ProfileScreen({Key? key, required this.profile, required this.onLogout})
+  ProfileScreen({Key? key, required this.profile, required this.onLogout, required this.onRefresh})
       : super(key: key);
 
   @override
@@ -25,6 +26,7 @@ class ProfileScreen extends BaseStatelessWidget {
             title: strings.edit_account,
             route: Routes.editProfilePage,
             args: profile,
+            onRefresh: onRefresh,
           ),
           ProfileItem(
             icon: AppIcons.notifications,

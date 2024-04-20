@@ -20,6 +20,7 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
   Widget buildWidget(BuildContext context, DataSuccess<Profile> state) {
     return ProfileScreen(
       profile: state.data!,
+      onRefresh: () => bloc.fetchProfileData(),
       onLogout: () => bloc.deleteProfileData(),
     );
   }

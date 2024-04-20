@@ -21,9 +21,9 @@ abstract class  ForgotPasswordDataSource{
   @GET('/api/v1/Operations/GetAllOperations')
   Future<ApiResponse> enterCode(@Body() String code);
 
-  @GET('/v1/updatePassword')
+  @POST('/v1/updatePassword')
   Future<ApiResponse> forgotPassword(@Body() ForgotPasswordParams params);
 
-  @GET('/v1/updatePassword')
+  @POST('/v1/updatePassword')
   Future<ApiResponse> updatePassword(@Body() ChangePasswordParams params);
 }

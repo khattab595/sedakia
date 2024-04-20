@@ -89,9 +89,8 @@ class EditProfileScreen extends BaseStatelessWidget {
     if (formKey.currentState!.validate()) {
       onEdit(
         EditProfileParams(
-          name: facilityNameController.text,
-          email: facilityNoController.text,
-          phone: pointSaleNumberController.text,
+          email: emailController.text,
+          phone: phoneController.text,
         ),
       );
     }

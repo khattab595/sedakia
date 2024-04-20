@@ -1,4 +1,5 @@
 import '../../../../../core/components/base_widget_bloc.dart';
+import '../../../../../core/utils/navigator.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/change_password_params.dart';
 import '../../../data/models/forgot_password_params.dart';
@@ -20,5 +21,10 @@ class ChangePasswordPage extends BaseBlocWidget<UnInitState, ForgotPasswordCubit
         bloc.changePassword(params);
       },
     );
+  }
+
+  @override
+  void onSuccessDismissed() {
+    Navigators.pop();
   }
 }

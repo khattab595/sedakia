@@ -37,7 +37,7 @@ class HeaderInterceptor extends Interceptor {
   @override
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     String token = await HelperMethods.getToken();
-    options.headers[keyAuthorization] = 'Bearer 177|0xWuI8hchgPjK1HXTFYHypA3nxDFOWH8P7tus1E9021ddac2';
+    options.headers[keyAuthorization] = 'Bearer $token';
     options.headers[keyType] = 'application/json';
     options.headers[keyAccept] = 'application/json';
     options.headers[keyLanguage] = injector<ServicesLocator>().languageCode;

@@ -29,7 +29,7 @@ Future<void> main() async {
   ServicesLocator().init();
   injector.registerSingleton(ClientCreator(
       interceptor: HeaderInterceptor(
-    accessToken: '4|h4504Pt5K9Xcly3aHHYlLZIhdA4xLzxEP9QQR3Pg',
+    accessToken: '',
   )).create());
 
   HttpOverrides.global = MyHttpOverrides();

@@ -20,8 +20,8 @@ class ProfileBloc extends BaseCubit {
   void editProfileData(EditProfileParams params) {
     executeEmitterListener(() => repo.editProfileData(params));
   }
-  void editProfileImage(File params) {
-    // executeEmitterListener(() => usecase.editProfileData(params));
+  void editProfileImage(File file) {
+    executeEmitterListener(() => repo.changeImage(EditProfileParams(image: file)));
   }
 
   void deleteProfileData() {

@@ -19,7 +19,7 @@ class ChangePasswordScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: _key,
-      child: Padding(
+      child: SingleChildScrollView(
         padding: 16.paddingAll,
         child: Column(
           children: [
