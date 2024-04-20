@@ -104,6 +104,5 @@ class EditProfileScreen extends BaseStatelessWidget {
     pointSaleAddressController.text = profile.address ?? '';
     emailController.text = profile.email ?? '';
     phoneController.text = profile.phone ?? '';
-
   }
 }
