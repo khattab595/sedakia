@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
 import '../../../../core/utils/constants.dart';
+import '../models/change_password_params.dart';
 import '../models/forgot_password_params.dart';
 
 part 'forgot_password_datasource.g.dart';
@@ -14,12 +15,15 @@ abstract class  ForgotPasswordDataSource{
   @factoryMethod
   factory ForgotPasswordDataSource(Dio dio) = _ForgotPasswordDataSource;
 
-  @POST('/api/v1/Operations/GetAllOperations')
-  Future<ApiResponse<String>> enterPhoneNumber(@Body() String phoneNumber);
+  @POST('/v1/updatePassword')
+  Future<ApiResponse> enterPhoneNumber(@Body() String phoneNumber);
 
   @GET('/api/v1/Operations/GetAllOperations')
-  Future<ApiResponse<String>> enterCode(@Body() String code);
+  Future<ApiResponse> enterCode(@Body() String code);
 
-  @GET('/api/v1/Operations/GetAllOperations')
-  Future<ApiResponse<String>> forgotPassword(@Body() ForgotPasswordParams params);
+  @GET('/v1/updatePassword')
+  Future<ApiResponse> forgotPassword(@Body() ForgotPasswordParams params);
+
+  @GET('/v1/updatePassword')
+  Future<ApiResponse> updatePassword(@Body() ChangePasswordParams params);
 }

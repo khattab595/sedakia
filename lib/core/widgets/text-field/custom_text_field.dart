@@ -25,7 +25,8 @@ class CustomTextField extends BaseStatelessWidget {
   final double? radius;
   final bool? isValidator;
   final double? minHeight;
-    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight}) : super(key: key);
+  final bool enabled;
+    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class CustomTextField extends BaseStatelessWidget {
         children: [
           if (title != null) ...[Text(
             title!,
-            style: context.bodyMedium.copyWith(fontSize: 15),
+            style: enabled ? bodyMedium.copyWith(fontSize: 15) : displayMedium.copyWith(fontSize: 15),
           ),
             8.ph,
           ],
@@ -48,11 +49,12 @@ class CustomTextField extends BaseStatelessWidget {
             child: TextFormField(
               onTap: onTap,
               readOnly: onTap != null,
+              enabled: enabled,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               textAlign: textAlign ?? TextAlign.start,
               maxLines: maxLines ?? 1,
               keyboardType: isPassword ? TextInputType.visiblePassword : keyboardType,
-              style: context.bodySmall.copyWith(fontSize: 16),
+              style: enabled ? bodySmall.copyWith(fontSize: 16) : displaySmall.copyWith(fontSize: 16),
               obscureText: isPassword,
               controller: controller,
               textInputAction: TextInputAction.next,
@@ -92,6 +94,10 @@ class CustomTextField extends BaseStatelessWidget {
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: errorColor),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderSide: BorderSide(color: borderColor),
                 ),
               ),
               validator: (isValidator! &&  validator == null) ? (value) {

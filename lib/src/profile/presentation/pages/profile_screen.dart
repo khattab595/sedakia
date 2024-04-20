@@ -16,7 +16,7 @@ class ProfileScreen extends BaseStatelessWidget {
       padding: 12.paddingHoriz,
       child: Column(
         children: [
-          ProfileHeaderWidget(),
+          ProfileHeaderWidget(profile: profile),
           30.ph,
           const Divider(),
           30.ph,

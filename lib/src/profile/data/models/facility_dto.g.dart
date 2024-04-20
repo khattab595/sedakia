@@ -1,24 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'country_dto.dart';
+part of 'facility_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CountryDto _$CountryDtoFromJson(Map<String, dynamic> json) => CountryDto(
+FacilityDto _$FacilityDtoFromJson(Map<String, dynamic> json) => FacilityDto(
       id: json['id'] as int?,
+      num: json['num'] as String?,
       name: json['name'] as String?,
-      currency: json['currency'] as String?,
-      lang: json['lang'] as String?,
-      code: json['code'] as String?,
+      address: json['address'] as String?,
     );
 
-Map<String, dynamic> _$CountryDtoToJson(CountryDto instance) =>
+Map<String, dynamic> _$FacilityDtoToJson(FacilityDto instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'num': instance.num,
       'name': instance.name,
-      'currency': instance.currency,
-      'lang': instance.lang,
-      'code': instance.code,
+      'address': instance.address,
     };

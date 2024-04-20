@@ -13,7 +13,7 @@ class _AuthDataSource implements AuthDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.app.com';
+    baseUrl ??= 'https://qayd-sa.com/api';
   }
 
   final Dio _dio;
@@ -21,21 +21,21 @@ class _AuthDataSource implements AuthDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<TokenDto>> login(LoginParams params) async {
+  Future<ApiResponse<ProfileDto>> login(LoginParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<TokenDto>>(Options(
+        _setStreamType<ApiResponse<ProfileDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/app/user/login',
+              '/v1/login',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,29 +44,29 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<TokenDto>.fromJson(
+    final value = ApiResponse<ProfileDto>.fromJson(
       _result.data!,
-      (json) => TokenDto.fromJson(json as Map<String, dynamic>),
+      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<TokenDto>> register(RegisterParams params) async {
+  Future<ApiResponse<ProfileDto>> register(RegisterParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<TokenDto>>(Options(
+        _setStreamType<ApiResponse<ProfileDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/app/user/register',
+              '/v1/logout',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -75,44 +75,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<TokenDto>.fromJson(
+    final value = ApiResponse<ProfileDto>.fromJson(
       _result.data!,
-      (json) => TokenDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<List<CountryDto>>> fetchCountries() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<CountryDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/app/country/list',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<List<CountryDto>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<CountryDto>(
-                  (i) => CountryDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

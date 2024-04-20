@@ -13,7 +13,7 @@ class StoresRepoImp extends StoresRepo{
   StoresRepoImp(this.datasource);
 
   @override
-  Future<List<StoreDto>> fetchStores() async{
+  Future<List> fetchStores() async{
     final data = await datasource.fetchStores();
     return data.data!;
   }
@@ -25,7 +25,7 @@ class StoresRepoImp extends StoresRepo{
   }
 
   @override
-  Future<String> editStore(StoreDto store) async {
+  Future<String> editStore( store) async {
     final response = await datasource.editStore(store);
     return response.message ?? '';
   }

@@ -1,8 +1,6 @@
 
 import 'package:app/core/widgets/images/logo.dart';
 
-import '../../../../../core/utils/helper_methods.dart';
-import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/login_params.dart';
@@ -14,11 +12,15 @@ class LoginScreen extends BaseStatelessWidget {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController phoneNumberController = TextEditingController(text: '996532514863');
-  TextEditingController passwordController = TextEditingController(text: '123456789');
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    if(kDebugMode){
+      phoneNumberController.text = '01020304050';
+      passwordController.text = '12345677';
+    }
 
     return  SingleChildScrollView(
       padding: 20.paddingAll,
@@ -63,7 +65,7 @@ class LoginScreen extends BaseStatelessWidget {
   onPressed() async {
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        email: phoneNumberController.text,
+        phone: phoneNumberController.text,
         password: passwordController.text,
       ));
     }

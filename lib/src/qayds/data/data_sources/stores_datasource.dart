@@ -16,13 +16,13 @@ abstract class  StoresDatasource{
   factory StoresDatasource(Dio dio) = _StoresDatasource;
 
   @GET('/app/setting/qayds')
-  Future<ApiResponse<List<StoreDto>>> fetchStores();
+  Future<ApiResponse<List>> fetchStores();
 
   @POST('/app/setting/store/add')
-  Future<ApiResponse<StoreDto>> addStore(@Body() AddStoreParams params);
+  Future<ApiResponse> addStore(@Body() AddStoreParams params);
 
   @POST('/app/setting/store/edite')
-  Future<ApiResponse<StoreDto>> editStore(@Body() StoreDto store);
+  Future<ApiResponse> editStore(@Body()  store);
 
   @POST('/app/setting/store/delete/{id}')
   Future<ApiResponse> deleteStore(@Path('id') int id);

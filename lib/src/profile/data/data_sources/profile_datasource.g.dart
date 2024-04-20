@@ -13,7 +13,7 @@ class _ProfileDataSource implements ProfileDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.app.com';
+    baseUrl ??= 'https://qayd-sa.com/api';
   }
 
   final Dio _dio;
@@ -113,101 +113,7 @@ class _ProfileDataSource implements ProfileDataSource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> changePassword(
-      ChangePasswordParams params) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/app/setting/changePassword',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<dynamic>.fromJson(
-      _result.data!,
-      (json) => json as dynamic,
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<StoreDto>> addStore(AddStoreParams params) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<StoreDto>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/app/setting/store/add',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<StoreDto>.fromJson(
-      _result.data!,
-      (json) => StoreDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<StoreDto>> editStore(StoreDto store) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(store.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<StoreDto>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/app/setting/store/edite',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<StoreDto>.fromJson(
-      _result.data!,
-      (json) => StoreDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<dynamic>> deleteStore(int id) async {
+  Future<ApiResponse<dynamic>> logout() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -220,7 +126,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/app/setting/store/delete/${id}',
+              '/v1/logout',
               queryParameters: queryParameters,
               data: _data,
             )

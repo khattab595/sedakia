@@ -7,32 +7,32 @@ part of 'profile_dto.dart';
 // **************************************************************************
 
 ProfileDto _$ProfileDtoFromJson(Map<String, dynamic> json) => ProfileDto(
+      id: json['id'] as int?,
+      num: json['num'] as String?,
       name: json['name'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
-      stores: (json['qayds'] as List<dynamic>?)
-          ?.map((e) => StoreDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      address: json['address'] as String?,
+      facility: json['facility'] == null
+          ? null
+          : FacilityDto.fromJson(json['facility'] as Map<String, dynamic>),
+      city: json['city'] == null
+          ? null
+          : CityDto.fromJson(json['city'] as Map<String, dynamic>),
+      image: json['image'] as String?,
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'num': instance.num,
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
-      'qayds': instance.stores,
-    };
-
-StoreDto _$StoreDtoFromJson(Map<String, dynamic> json) => StoreDto(
-      id: json['id'] as int?,
-      storeName: json['store_name'] as String?,
-      storeLink: json['store_link'] as String?,
-      isDefault: json['is_default'] as int?,
-    );
-
-Map<String, dynamic> _$StoreDtoToJson(StoreDto instance) => <String, dynamic>{
-      'id': instance.id,
-      'store_name': instance.storeName,
-      'store_link': instance.storeLink,
-      'is_default': instance.isDefault,
+      'address': instance.address,
+      'facility': instance.facility,
+      'city': instance.city,
+      'image': instance.image,
+      'token': instance.token,
     };

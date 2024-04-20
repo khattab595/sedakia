@@ -55,9 +55,8 @@ class QaydPaymentScreen extends BaseStatelessWidget {
   onPressed() async {
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        email: phoneNumberController.text,
+        phone: phoneNumberController.text,
         password: qaydNumberController.text,
-        platform: await HelperMethods.getPlatform(),
       ));
     }
   }

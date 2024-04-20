@@ -53,9 +53,8 @@ class RegisterQaydScreen extends BaseStatelessWidget {
   onPressed() async {
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        email: phoneNumberController.text,
+        phone: phoneNumberController.text,
         password: amountController.text,
-        platform: await HelperMethods.getPlatform(),
       ));
     }
   }

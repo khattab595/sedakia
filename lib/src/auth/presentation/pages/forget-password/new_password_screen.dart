@@ -1,9 +1,10 @@
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/change_password_params.dart';
 import '../../../data/models/forgot_password_params.dart';
 
 class ChangePasswordScreen extends BaseStatelessWidget {
-  final Function(ForgotPasswordParams) onChangePassword;
+  final Function(ChangePasswordParams) onChangePassword;
 
   ChangePasswordScreen({Key? key, required this.onChangePassword})
       : super(key: key);
@@ -53,7 +54,11 @@ class ChangePasswordScreen extends BaseStatelessWidget {
 
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
-     // onChange!(newPasswordController.text);
+      onChangePassword(ChangePasswordParams(
+        oldPassword: oldPasswordController.text,
+        newPassword: newPasswordController.text,
+        newPasswordConfirmation: confirmNewPasswordController.text,
+      ));
     }
   }
 }

@@ -4,12 +4,12 @@ part 'change_password_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ChangePasswordParams {
-  @JsonKey(name: 'oldPassword')
-  int? oldPassword;
-  @JsonKey(name: 'newPassword')
-  int? newPassword;
-  @JsonKey(name: 'newPassword_confirmation')
-  int? newPasswordConfirmation;
+  @JsonKey(name: 'old_password')
+  String? oldPassword;
+  @JsonKey(name: 'new_password')
+  String? newPassword;
+  @JsonKey(name: 'new_password_confirmation')
+  String? newPasswordConfirmation;
 
   ChangePasswordParams({this.oldPassword, this.newPassword, this.newPasswordConfirmation});
 

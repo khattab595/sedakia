@@ -119,7 +119,7 @@ class HelperMethods {
   static Future<void> saveProfile(ProfileDto dto) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('profile', dto.toJson().toString());
+      prefs.setString('profile', jsonEncode(dto.toJson()));
     } on Exception catch (e) {
       print('e $e');
       rethrow;
@@ -140,23 +140,16 @@ class HelperMethods {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String profile = prefs.getString('profile') ?? '';
-      return ProfileDto.fromJson(jsonDecode(profile));
+      print('profile $profile');
+      final decoded = jsonDecode(profile);
+      print('decoded $decoded');
+      return ProfileDto.fromJson(decoded);
     } on Exception catch (e) {
-      print('e $e');
+      print('getProfile error $e');
       rethrow;
     }
   }
 
-  // static Future<void> getCountryId() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     int countryId = prefs.getInt('countryId') ?? 1;
-  //     return countryId;
-  //   } on Exception catch (e) {
-  //     print('e $e');
-  //     rethrow;
-  //   }
-  // }
   static Future<DateTime?> selectDate(BuildContext context) async {
     ThemeData theme = Theme.of(context);
     return await showDatePicker(

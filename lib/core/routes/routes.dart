@@ -1,11 +1,7 @@
 
-import 'package:path/path.dart';
-
-import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
-import '../../src/auth/presentation/pages/sign-up/register_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/invoices/presentation/invoices/pages/details_invoice/details_invoice_page.dart';
 import '../../src/invoices/presentation/invoices/pages/invoices_page.dart';
@@ -19,7 +15,6 @@ import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart
 import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
-import '../../src/settings/presentation/pages/settings_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
 
 class Routes {
@@ -84,7 +79,6 @@ class Routes {
         loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     supportPage: (context) => SupportPage(),
-    settings: (context) => SettingsPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     regiserQaydPage: (context) => RegisterQaydPage(),
     qaydPaymentPage: (context) => QaydPaymentPage(),

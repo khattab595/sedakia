@@ -13,7 +13,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.app.com';
+    baseUrl ??= 'https://qayd-sa.com/api';
   }
 
   final Dio _dio;
@@ -21,20 +21,20 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<String>> enterPhoneNumber(String phoneNumber) async {
+  Future<ApiResponse<dynamic>> enterPhoneNumber(String phoneNumber) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = phoneNumber;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<String>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/Operations/GetAllOperations',
+              '/v1/updatePassword',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,21 +43,21 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<String>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => json as String,
+      (json) => json as dynamic,
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<String>> enterCode(String code) async {
+  Future<ApiResponse<dynamic>> enterCode(String code) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = code;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<String>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -73,15 +73,15 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<String>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => json as String,
+      (json) => json as dynamic,
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<String>> forgotPassword(
+  Future<ApiResponse<dynamic>> forgotPassword(
       ForgotPasswordParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -89,14 +89,14 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<String>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/Operations/GetAllOperations',
+              '/v1/updatePassword',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -105,9 +105,41 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<String>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => json as String,
+      (json) => json as dynamic,
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> updatePassword(
+      ChangePasswordParams params) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(params.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/v1/updatePassword',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
     );
     return value;
   }

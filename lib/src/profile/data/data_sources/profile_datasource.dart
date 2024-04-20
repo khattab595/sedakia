@@ -4,8 +4,6 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
-import '../../../qayds/data/models/add_store_params.dart';
-import '../models/change_password_params.dart';
 import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';
 
@@ -27,15 +25,6 @@ abstract class  ProfileDataSource{
   @POST('/app/setting/delete')
   Future<ApiResponse<String>> deleteProfileData();
 
-  @POST('/app/setting/changePassword')
-  Future<ApiResponse> changePassword(@Body() ChangePasswordParams params);
-
-  @POST('/app/setting/store/add')
-  Future<ApiResponse<StoreDto>> addStore(@Body() AddStoreParams params);
-
-  @POST('/app/setting/store/edite')
-  Future<ApiResponse<StoreDto>> editStore(@Body() StoreDto store);
-
-  @POST('/app/setting/store/delete/{id}')
-  Future<ApiResponse> deleteStore(@Path('id') int id);
+  @POST('/v1/logout')
+  Future<ApiResponse> logout();
 }

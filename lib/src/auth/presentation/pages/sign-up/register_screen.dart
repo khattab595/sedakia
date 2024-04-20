@@ -1,15 +1,12 @@
 import 'package:app/core/utils/helper_methods.dart';
-import 'package:app/core/widgets/drop_down/drop_down.dart';
 
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/register_params.dart';
-import '../../../domain/entities/country.dart';
 
 class RegisterScreen extends BaseStatelessWidget {
-  final List<Country> countries;
   final Function(RegisterParams)? onRegister ;
-  RegisterScreen({Key? key, required this.countries, this.onRegister}) : super(key: key);
+  RegisterScreen({Key? key, this.onRegister}) : super(key: key);
 
   TextEditingController nameController = TextEditingController();
 
@@ -49,13 +46,13 @@ class RegisterScreen extends BaseStatelessWidget {
             keyboardType: TextInputType.number,
             margin: const EdgeInsets.only(bottom: 15),
           ),
-          DropDownField(
-            hint: strings.select_country,
-            items: countries.map((e) => DropDownItem(title: e.name, id: e.id.toString())).toList(),
-            onChanged: (value) {
-              countryId = int.parse(value.id ?? '0');
-            },
-          ),
+          // DropDownField(
+          //   hint: strings.select_country,
+          //   items: countries.map((e) => DropDownItem(title: e.name, id: e.id.toString())).toList(),
+          //   onChanged: (value) {
+          //     countryId = int.parse(value.id ?? '0');
+          //   },
+          // ),
           15.ph,
           CustomTextField(
             controller: passwordController,

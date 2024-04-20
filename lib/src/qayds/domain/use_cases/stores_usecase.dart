@@ -10,7 +10,7 @@ class StoresUseCase {
 
   StoresUseCase(this.repository);
 
-  Future<List<StoreDto>> fetchStores() async {
+  Future<List> fetchStores() async {
    return await repository.fetchStores();
   }
 
@@ -18,7 +18,7 @@ class StoresUseCase {
     return await repository.addStore(params);
   }
 
-  Future<String> editStore(StoreDto store) async {
+  Future<String> editStore( store) async {
     return await repository.editStore(store);
   }
 

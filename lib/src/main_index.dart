@@ -7,6 +7,7 @@ export '../core/components/loading_widget.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 export 'package:flutter/material.dart';
+
 export '../core/routes/routes.dart';
 export '../core/di/injector.dart';
 export '../core/assets/fonts.dart';
@@ -28,3 +29,4 @@ export 'package:app/core/widgets/texts/custom_container.dart';
 export 'package:app/core/widgets/buttons/primary_button.dart';
 export 'package:app/core/assets/app_images.dart';
 export 'package:flutter/services.dart';
+export 'package:flutter/foundation.dart';

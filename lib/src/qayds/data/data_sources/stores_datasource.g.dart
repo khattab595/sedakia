@@ -13,7 +13,7 @@ class _StoresDatasource implements StoresDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.app.com';
+    baseUrl ??= 'https://qayd-sa.com/api';
   }
 
   final Dio _dio;
@@ -21,13 +21,13 @@ class _StoresDatasource implements StoresDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<StoreDto>>> fetchStores() async {
+  Future<ApiResponse<List<dynamic>>> fetchStores() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<StoreDto>>>(Options(
+        _setStreamType<ApiResponse<List<dynamic>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,27 +43,24 @@ class _StoresDatasource implements StoresDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<StoreDto>>.fromJson(
+    final value = ApiResponse<List<dynamic>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
-          ? json
-              .map<StoreDto>(
-                  (i) => StoreDto.fromJson(i as Map<String, dynamic>))
-              .toList()
+          ? json.map<dynamic>((i) => i as Map<String, dynamic>).toList()
           : List.empty(),
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<StoreDto>> addStore(AddStoreParams params) async {
+  Future<ApiResponse<dynamic>> addStore(AddStoreParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<StoreDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -79,22 +76,21 @@ class _StoresDatasource implements StoresDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<StoreDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => StoreDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<StoreDto>> editStore(StoreDto store) async {
+  Future<ApiResponse<dynamic>> editStore(dynamic store) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(store.toJson());
+    final _data = store;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<StoreDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -110,9 +106,9 @@ class _StoresDatasource implements StoresDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<StoreDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => StoreDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
     );
     return value;
   }

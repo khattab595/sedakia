@@ -1,13 +1,18 @@
+import 'package:json_annotation/json_annotation.dart'; 
+
+part 'forgot_password_params.g.dart'; 
+
+@JsonSerializable(ignoreUnannotated: false)
 class ForgotPasswordParams {
-  final String newPassword;
-  final String confirmPassword;
+  @JsonKey(name: 'new_password')
+  String? newPassword;
+  @JsonKey(name: 'new_password_confirmation')
+  String? newPasswordConfirmation;
 
-  ForgotPasswordParams({required this.newPassword, required this.confirmPassword});
+  ForgotPasswordParams({this.newPassword, this.newPasswordConfirmation});
 
-  Map<String, dynamic> toJson() {
-    return {
-      'newPassword': newPassword,
-      'confirmPassword': confirmPassword,
-    };
-  }
+   factory ForgotPasswordParams.fromJson(Map<String, dynamic> json) => _$ForgotPasswordParamsFromJson(json);
+
+   Map<String, dynamic> toJson() => _$ForgotPasswordParamsToJson(this);
 }
+

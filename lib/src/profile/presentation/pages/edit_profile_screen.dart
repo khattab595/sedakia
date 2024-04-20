@@ -32,7 +32,7 @@ class EditProfileScreen extends BaseStatelessWidget {
           children: [
             20.ph,
             EditProfileImage(
-              image: '',
+              image: profile.image ?? '',
               onSelectImage: (file){
                 onEditImage(file);
               },
@@ -41,26 +41,32 @@ class EditProfileScreen extends BaseStatelessWidget {
             CustomTextField(
               title: strings.facility_name,
               controller: facilityNameController,
+                enabled: false,
             ),
             CustomTextField(
               title: strings.no_facility,
               controller: facilityNoController,
+              enabled: false,
             ),
             CustomTextField(
               title: strings.point_sale_mobile_number,
               controller: pointSaleNumberController,
+              enabled: false,
             ),
             CustomTextField(
               title: strings.point_sale_address,
               controller: pointSaleAddressController,
+              enabled: false,
             ),
             CustomTextField(
               title: strings.email,
               controller: emailController,
+              keyboardType: TextInputType.emailAddress,
             ),
             CustomTextField(
               title: strings.mobile_number,
               controller: phoneController,
+              keyboardType: TextInputType.phone,
             ),
             editButton(),
           ],
@@ -92,8 +98,12 @@ class EditProfileScreen extends BaseStatelessWidget {
   }
 
   _initData() {
-    facilityNameController.text = profile.name ?? '';
-    facilityNoController.text = profile.email ?? '';
-    pointSaleNumberController.text = profile.phone  ?? '';
+    facilityNameController.text = profile.facility?.name ?? '';
+    facilityNoController.text = profile.facility?.num ?? '';
+    pointSaleNumberController.text = profile.num  ?? '';
+    pointSaleAddressController.text = profile.address ?? '';
+    emailController.text = profile.email ?? '';
+    phoneController.text = profile.phone ?? '';
+
   }
 }

@@ -13,7 +13,7 @@ class _HomeDatasource implements HomeDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.app.com';
+    baseUrl ??= 'https://qayd-sa.com/api';
   }
 
   final Dio _dio;
