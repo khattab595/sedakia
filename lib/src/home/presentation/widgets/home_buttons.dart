@@ -1,6 +1,7 @@
 import 'package:app/src/main_index.dart';
 
 import '../../../../core/utils/navigator.dart';
+import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../data/models/home_dto.dart';
 
@@ -70,14 +71,7 @@ class _Item extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        margin: 5.paddingHoriz,
-        padding: 18.paddingVert,
-        constraints: const BoxConstraints(
-          minWidth: 110,
-          maxHeight: 110,
-        ),
-        decoration: Decorations.baseDecorationRadius(),
+      child: ContainerShapeShadow(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

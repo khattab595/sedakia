@@ -133,6 +133,8 @@ extension ThemesExtension on BuildContext {
 
   Color get cardColor => Theme.of(this).cardColor;
 
+  Color get shadowColor => Theme.of(this).shadowColor;
+
   Color get backgroundColor => Theme.of(this).colorScheme.background;
 
   Color get secondary => Theme.of(this).colorScheme.secondary;

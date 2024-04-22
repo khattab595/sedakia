@@ -1,6 +1,33 @@
 import '../../../src/main_index.dart';
 import 'package:flutter/gestures.dart';
 
+class PrimaryBoldText extends StatelessWidget {
+  final String label;
+  final TextAlign textAlign;
+  final TextStyle? labelStyle;
+  final Color? labelColor;
+  final double? fontSize;
+
+  const PrimaryBoldText({
+    Key? key,
+    required this.label,
+    this.textAlign = TextAlign.start,
+    this.labelStyle,
+    this.labelColor,
+    this.fontSize,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      label,
+      textAlign: textAlign,
+      style: labelStyle ??
+          context.headlineLarge.copyWith(fontSize: fontSize ?? 16, color: labelColor, fontWeight: FontWeight.bold),
+    );
+  }
+}
+
 class BoldText extends StatelessWidget {
   final String label;
   final TextAlign textAlign;

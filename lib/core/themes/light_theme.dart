@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-const Color primaryColor = Color(0xffD11317);
+const Color primaryColor = Color(0xff5FC1CF);
 const Color lighterDarkColor = Color(0xff69452E);
 const secondaryColor = Color(0xffffffff);
 const Color kGreyColor = Color(0xff818185);
 const Color blackColor = Color(0xff000000);
-const String fontBold = 'Cairo-Bold';
-const String fontSemiBold = 'Cairo-SemiBold';
-const String fontMedium = 'Cairo-Medium';
-const String fontRegular = 'Cairo-Regular';
+const String fontBold = 'Tajawal-Bold';
+const String fontSemiBold = 'Tajawal-Bold';
+const String fontMedium = 'Tajawal-Medium';
+const String fontRegular = 'Tajawal-Regular';
 
 
 final lightTheme = ThemeData(
@@ -20,7 +20,7 @@ final lightTheme = ThemeData(
   hintColor: const Color(0xffF7F6F6),
   cardColor: const Color(0xffffffff),
   dividerColor: const Color(0xffD0D5DD),
-  shadowColor: blackColor.withOpacity(0.15),
+  shadowColor: blackColor.withOpacity(0.29),
   dividerTheme: const DividerThemeData(
     space: 0,
     thickness: 1,

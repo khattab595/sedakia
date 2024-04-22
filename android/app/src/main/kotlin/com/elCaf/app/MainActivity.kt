@@ -1,4 +1,4 @@
-package com.qayd.app
+package com.elCaf.app
 
 import io.flutter.embedding.android.FlutterActivity
 

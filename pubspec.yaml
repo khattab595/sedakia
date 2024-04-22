@@ -145,27 +145,25 @@ flutter:
 
 
   fonts:
-    - family: Cairo-Black
+    - family: Tajawal-Black
       fonts:
-        - asset: assets/fonts/Cairo-Black.ttf
-    - family: Cairo-Bold
+        - asset: assets/fonts/Tajawal-Black.ttf
+    - family: Tajawal-Bold
       fonts:
-        - asset: assets/fonts/Cairo-Bold.ttf
-    - family: Cairo-ExtraBold
+        - asset: assets/fonts/Tajawal-Bold.ttf
+    - family: Tajawal-ExtraBold
       fonts:
-        - asset: assets/fonts/Cairo-ExtraBold.ttf
-    - family: Cairo-ExtraLight
+        - asset: assets/fonts/Tajawal-ExtraBold.ttf
+    - family: Tajawal-ExtraLight
       fonts:
-        - asset: assets/fonts/Cairo-ExtraLight.ttf
-    - family: Cairo-Light
+        - asset: assets/fonts/Tajawal-ExtraLight.ttf
+    - family: Tajawal-Light
       fonts:
-        - asset: assets/fonts/Cairo-Light.ttf
-    - family: Cairo-Medium
+        - asset: assets/fonts/Tajawal-Light.ttf
+    - family: Tajawal-Medium
       fonts:
-        - asset: assets/fonts/Cairo-Medium.ttf
-    - family: Cairo-Regular
+        - asset: assets/fonts/Tajawal-Medium.ttf
+    - family: Tajawal-Regular
       fonts:
-        - asset: assets/fonts/Cairo-Regular.ttf
-    - family: Cairo-SemiBold
-      fonts:
-        - asset: assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Tajawal-Regular.ttf
+    - family: Tajawal-SemiBold

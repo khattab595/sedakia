@@ -16,6 +16,7 @@ import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
+import '../../src/splash/presentation/pages/introduction_page.dart';
 
 class Routes {
 
@@ -75,6 +76,7 @@ class Routes {
   static const String productDetailsPage = 'productDetailsPage';
 
   static final routes = <String, Widget Function(BuildContext)>{
+    intro: (context) => IntroductionPage(),
     editProfilePage: (context) => EditProfilePage(),
         loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),

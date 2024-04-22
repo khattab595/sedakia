@@ -1,3 +1,4 @@
+import 'package:app/core/widgets/texts/texts.dart';
 import 'package:app/src/main_index.dart';
 
 
@@ -22,11 +23,11 @@ class CustomTextField extends BaseStatelessWidget {
   final Color? colorBorderSide;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? contentPadding;
-  final double? radius;
+  final double radius;
   final bool? isValidator;
   final double? minHeight;
   final bool enabled;
-    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
+    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius = 20, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +39,12 @@ class CustomTextField extends BaseStatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (title != null) ...[Text(
-            title!,
-            style: enabled ? bodyMedium.copyWith(fontSize: 15) : displayMedium.copyWith(fontSize: 15),
-          ),
-            8.ph,
-          ],
+          // if (title != null) ...[Text(
+          //   title!,
+          //   style: enabled ? bodyMedium.copyWith(fontSize: 15) : displayMedium.copyWith(fontSize: 15),
+          // ),
+          //   8.ph,
+          // ],
           SizedBox(
             height: minHeight,
             child: TextFormField(
@@ -63,7 +64,10 @@ class CustomTextField extends BaseStatelessWidget {
                 if (keyboardType == TextInputType.number) FilteringTextInputFormatter.digitsOnly,
               ],
               decoration: inputDecoration ?? InputDecoration(
-                hintText: hintText,
+                // labelText: hintText,
+                label: Padding(
+                    padding: 20.paddingEnd+ 5.paddingStart,
+                    child: PrimaryBoldText(label: title ?? '')),
                 hintStyle: hintStyle ?? context.displaySmall.copyWith(fontSize: 16),
                 fillColor: fillColor ?? context.theme.inputDecorationTheme.fillColor,
                 filled: true,
@@ -79,24 +83,24 @@ class CustomTextField extends BaseStatelessWidget {
                   icon: suffixIconPath!, size: 0) : suffixIcon,
                 contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 border:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 focusedBorder:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius)),
                   borderSide: BorderSide(color: primaryColor),
                 ),
 
                 enabledBorder:  OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius)),
                   borderSide: BorderSide(color: errorColor),
                 ),
                 disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius)),
                   borderSide: BorderSide(color: borderColor),
                 ),
               ),

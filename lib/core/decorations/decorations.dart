@@ -23,11 +23,11 @@ class Decorations {
     );
   }
   static BoxDecoration kDecorationTopRadius({
-    required Color color,
+     Color? color,
     double? radius,
   }) {
     return BoxDecoration(
-      color: color,
+      color: color ?? injector<ServicesLocator>().appContext.cardColor,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(radius ?? 12),
         topRight: Radius.circular(radius ?? 12),
@@ -131,16 +131,17 @@ class Decorations {
     );
   }
 
-  static ShapeDecoration shapeDecorationShadow({Color? color, required Color colorShadow, double? radius, BorderRadiusGeometry? borderRadius}) {
+  static ShapeDecoration shapeDecorationShadow({Color? color, Color? colorShadow, double? radius, BorderRadiusGeometry? borderRadius}) {
+    final appContext = injector<ServicesLocator>().appContext;
     return ShapeDecoration(
-      color: color ?? injector<ServicesLocator>().appContext.cardColor,
+      color: color ?? appContext.cardColor,
       shape: RoundedRectangleBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 5)),
+          borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 20)),
       shadows: [
         BoxShadow(
-          color: colorShadow,
+          color: colorShadow ?? appContext.shadowColor.withOpacity(0.1),
           blurRadius: 10,
-          offset: Offset(0, 0),
+          offset: Offset(0, 2),
           spreadRadius: 0,
         )
       ],

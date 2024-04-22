@@ -1,9 +1,10 @@
 class AppImages{
-  static const String splashLogo = 'assets/logo/splash.png';
+  static const String intro_bg = 'assets/images/intro_bg.png';
 
 
-
+/////////old//////////////////////////////////////////
   static const String picker = 'assets/images/picker.png';
+  static const String splashLogo = 'assets/logo/splash.png';
   static String onboarding1 = "assets/images/onboarding1.png";
   static String onboarding_human2 = "assets/images/onboarding_human2.png";
   static String onboarding_human3 = "assets/images/onboarding_human3.png";

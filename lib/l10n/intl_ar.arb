@@ -1,7 +1,14 @@
 {
+  "welcome_message": "مرحبا بكم في حملة الكاف",
+  "sign_in": "تسجيل الدخول",
+  "sign_in_hajj": "تسجيل دخول الحاج",
+  "reservation_number": "رقم الحجز",
+  "id_number": "رقم الهوية",
+
+
+  "test": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   "arabic": "عربى",
   "english": "English",
-  "sign_in": "تسجيل الدخول",
   "point_sale_mobile_number": "رقم جوال نقطة البيع",
   "password": "كلمة المرور",
   "login": "الدخول",
@@ -39,7 +46,6 @@
   "qayd_invoices": "فواتير قيد",
   "pay_invoices": "فواتير دفع",
   "invoice_number": "رقم الفاتورة",
-  "id_number": "رقم الهوية",
   "qayd_date": "تاريخ القيد",
   "duration": "المدة",
   "show_invoice": "عرض الفاتورة",
@@ -209,7 +215,6 @@
 
 
 
-  "welcome_message": "Welcome to Logeste",
   "log_in_your_account": "Log in to your account",
   "as_representative": "Representative",
   "as_agent": "Agent",
