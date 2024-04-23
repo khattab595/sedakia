@@ -11,7 +11,7 @@ class PrimaryIconButton extends StatelessWidget {
   final Function()? onPressed;
   final double? height;
   final Color? backgroundColor;
-  final BorderRadiusGeometry? borderRadius;
+  final double? borderRadius;
   final String icon;
   final Color? iconColor;
   final Decoration? decoration;
@@ -37,22 +37,23 @@ class PrimaryIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
+      height: height,
       padding:
           padding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       margin: margin,
       decoration: decoration ??
           Decorations.kDecorationOnlyRadius(
-              color: backgroundColor ?? theme.primaryColor, radius: 8),
+              color: backgroundColor ?? theme.primaryColor, radius:borderRadius?? 8),
       child: InkWell(
         onTap: onPressed,
         radius: 100,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppIcon(
                 icon: icon, color: iconColor ?? context.cardColor, size: 25),
-            10.pw,
+            17.pw,
             Text(
               title!,
               style: titleStyle ?? context.labelSmall.copyWith(fontSize: 16)

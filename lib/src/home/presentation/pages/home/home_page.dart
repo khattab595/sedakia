@@ -15,28 +15,6 @@ class HomePage extends BaseBlocWidget<DataSuccess<Home>, HomeCubit> {
     bloc.fetchHomeData();
   }
   @override
-  Widget build(BuildContext context) {
-    return AppScaffold(
-      appBar: AppBar(
-        title:
-        BoldText(
-          label: '${strings.welcome}, السعد ',
-          fontSize: 20,
-        ),
-        centerTitle: false,
-        actions: [
-          AppIconButton(
-            padding: 20.paddingEnd,
-            icon: AppIcons.notifications,
-            onPressed: () => Navigators.pushNamed(Routes.notifications),
-          ),
-        ],
-      ),
-      body: buildConsumer(context),
-    );
-  }
-
-  @override
   Widget buildWidget(BuildContext context, DataSuccess<Home> state) {
     return HomeScreen(
       home: state.data!,

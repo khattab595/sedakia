@@ -69,6 +69,7 @@ const kBorderColor = Color(0xffD3D3D3);
 const kGreyColor = Color(0xff6C6C6C);
 const kDividerColor = Color(0xffE8E8E8);
 const kBlueColor = Color(0xff0276D9);
+const kCafColor = Color(0xff8DDBE5);
 
 
 // not added yet to theme

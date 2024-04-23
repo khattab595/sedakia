@@ -1,6 +1,7 @@
 import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../../../core/utils/navigator.dart';
+import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../main_index.dart';
 
 class ProfileItem extends StatelessWidget {
@@ -32,17 +33,23 @@ class ProfileItem extends StatelessWidget {
       },
       child: Column(
         children: [
-          ListTile(
-              leading: AppIcon(
-                icon: icon,
-                size: iconSize,
-              ),
-              title: SemiBoldText(
-                label: title,
-                fontSize: 14,
-              ),
+          ContainerShapeShadow(
+            radius: 10,
+            height: 52,
+            padding: 0.paddingAll,
+            child: ListTile(
+                leading: AppIcon(
+                  icon: icon,
+                  size: iconSize,
+                ),
+                contentPadding: 25.paddingStart,
+                minLeadingWidth: 40,
+                title: BoldText(
+                  label: title,
+                  fontSize: 13,
+                ),
+            ),
           ),
-          Divider(),
         ],
       ),
     );

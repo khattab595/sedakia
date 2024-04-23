@@ -25,47 +25,49 @@ class NotificationItem extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
+        Container(
           padding: 5.paddingAll,
+          decoration:Decorations.kDecorationTopRadius(radius: 6),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               AppIcon(
-                icon: AppIcons.dot,
-                size: 10,
-                padding: 8.paddingTop,
+              const AppIcon(
+                icon: AppIcons.notification,
+                size: 16,
               ),
               10.pw,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Expanded(
-                          child: RowTexts(
-                            title: 'تم تسديد قيد',
-                            value: 'منذ ساعتان',
-                            titleStyle: bodyLarge.copyWith(fontSize: 16),
-                            valueStyle: displayMedium.copyWith(fontSize: 12),
+                          child: PrimaryBoldText(
+                            label: "الحاج",
                           ),
                         ),
                       ],
                     ),
-                    10.ph,
-                    MediumText(
+                    4.ph,
+                    const MediumText(
                       label:
-                          'تم تسديد قيد رقم 100323 للمستخدم 15653223 بنقطة البيع',
-                      fontSize: 14,
+                          'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل ',
+                      fontSize: 12,
                     ),
+                    5.ph,
+                    RowTexts(
+                      title: "2023-05-28",
+                      value: "02:00am",
+                      titleStyle: bodyMedium.copyWith(fontSize: 12),
+                      valueStyle: bodyMedium.copyWith(fontSize: 12),
+                    )
                   ],
                 ),
               ),
             ],
           ),
         ),
-        10.ph,
-        Divider(),
       ],
     );
   }

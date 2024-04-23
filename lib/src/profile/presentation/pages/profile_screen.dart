@@ -1,6 +1,7 @@
+
+import '../../../../core/widgets/buttons/primary_icon_button.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
-import '../widgets/profile_header_widget.dart';
 import '../widgets/profile_item.dart';
 
 class ProfileScreen extends BaseStatelessWidget {
@@ -15,50 +16,30 @@ class ProfileScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: 12.paddingHoriz,
-      child: Column(
+      child:  Column(
         children: [
-          ProfileHeaderWidget(profile: profile),
-          30.ph,
-          const Divider(),
-          30.ph,
-          ProfileItem(
-            icon: AppIcons.edit,
-            title: strings.edit_account,
-            route: Routes.editProfilePage,
-            args: profile,
-            onRefresh: onRefresh,
-          ),
-          ProfileItem(
-            icon: AppIcons.notifications,
-            title: strings.notifications,
-            route: Routes.notifications,
-          ),
-          ProfileItem(
-            icon: AppIcons.request_email,
-            title: strings.request_csv_file,
-            route: '',
-            iconSize: 16,
-          ),
-          ProfileItem(
-            icon: AppIcons.lock,
-            title: strings.change_password,
-            route: Routes.changePasswordPage,
-          ),
-          ProfileItem(
-            icon: AppIcons.language,
-            title: strings.language,
+           50.ph,
+           ProfileItem(
+            iconSize: 28,
+            icon: AppIcons.lang,
+            title: strings.change_the_language,
             route: Routes.changeLanguagePage,
           ),
-          ProfileItem(
-            icon: AppIcons.support,
-            title: strings.technical_support,
+          10.ph,
+           ProfileItem(
+            icon: AppIcons.setting,
+            title: strings.program_settings,
             route: Routes.supportPage,
           ),
-          ProfileItem(
-            icon: AppIcons.logout,
-            title: strings.logout,
+          10.ph,
+           ProfileItem(
+            icon: AppIcons.communication,
+            title: strings.call_us,
             route: Routes.loginPage,
           ),
+          const Spacer(),
+          PrimaryIconButton(title:strings.sign_in ,icon: AppIcons.register,onPressed: (){},height: 50,borderRadius: 6,),
+           20.ph,
         ],
       ),
     );

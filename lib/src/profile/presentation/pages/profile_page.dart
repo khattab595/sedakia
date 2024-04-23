@@ -14,7 +14,7 @@ class ProfilePage extends BaseBlocWidget<UnInitState, ProfileBloc>{
   // }
 
   @override
-  String? title(BuildContext context) => '';
+  String? title(BuildContext context) => 'يرجي تسجل الدخول';
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {

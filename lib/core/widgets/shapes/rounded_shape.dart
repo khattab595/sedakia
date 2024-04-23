@@ -11,23 +11,29 @@ class ContainerShapeShadow extends StatelessWidget {
 
   final double? radius;
 
+  final EdgeInsetsGeometry?margin;
+  final EdgeInsetsGeometry?padding;
+
   const ContainerShapeShadow(
       {Key? key,
       this.color,
+        this.padding,
       required this.child,
       this.height,
       this.width,
+        this.margin,
       this.radius})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: margin,
       height: height,
       width: width,
-      padding: 12.paddingAll,
+      padding: padding??12.paddingAll,
       alignment: AlignmentDirectional.center,
-      decoration: Decorations.shapeDecorationShadow(),
+      decoration: Decorations.shapeDecorationShadow(radius: radius),
       child: child,
     );
   }

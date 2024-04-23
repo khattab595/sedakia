@@ -1,7 +1,10 @@
 
+import '../../src/about_caf/presentation/pages/about_cafe_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
+import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
+import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/invoices/presentation/invoices/pages/details_invoice/details_invoice_page.dart';
 import '../../src/invoices/presentation/invoices/pages/invoices_page.dart';
@@ -10,6 +13,7 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/program/presentation/pages/programe_page.dart';
 import '../../src/qayds/presentation/qayd_payment/pages/qayd_payment_page.dart';
 import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
 import '../../src/reports/presentation/pages/reports_page.dart';
@@ -70,6 +74,10 @@ class Routes {
   static const String addPaymentMethodPage = 'addPaymentMethodPage';
   static const String invoicesPage = 'invoicesPage';
   static const String detailsInvoicesPage = 'detailsInvoicesPage';
+  static const String aboutCafPage = 'aboutCafPage';
+  static const String programmePage = 'programmePage';
+  static const String campaignTermsPage = 'campaignTermsPage';
+  static const String hajjTransportationPage = 'hajjTransportationPage';
 
 
   /* ====================================================================== */
@@ -95,5 +103,9 @@ class Routes {
     /* ====================================================================== */
     invoicesPage: (context) => InvoicesPage(),
     detailsInvoicesPage: (context) => DetailsInvoicesPage(),
+    aboutCafPage: (context) => AboutCafPage(),
+    programmePage: (context) => ProgramePage(),
+    campaignTermsPage: (context) => CampaignTermsPage(),
+    hajjTransportationPage: (context) => HajjTransportationPage(),
   };
 }

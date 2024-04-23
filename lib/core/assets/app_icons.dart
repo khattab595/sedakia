@@ -19,12 +19,32 @@ class AppIcons{
   static const String edit = "assets/icons/edit.svg";
   static const String request_email = "assets/icons/request_email.svg";
   static const String lock = "assets/icons/lock.svg";
-  static const String language = "assets/icons/language.svg";
   static const String support = "assets/icons/support.svg";
   static const String logout = "assets/icons/logout.svg";
   static const String dot = "assets/icons/dot.svg";
   static const String timer = "assets/icons/timer.svg";
   static const String drop_down = "assets/icons/drop_down.svg";
+
+  ///////////////////////////////////////////////////////////////////////
+  static const String caf = "assets/icons/caf.svg";
+  static const String card = "assets/icons/card.svg";
+  static const String conditions = "assets/icons/conditions.svg";
+  static const String contacts = "assets/icons/contacts.svg";
+  static const String healthy = "assets/icons/healthy.svg";
+  static const String identify = "assets/icons/identify.svg";
+  static const String images = "assets/icons/images.svg";
+  static const String location = "assets/icons/location.svg";
+  static const String points = "assets/icons/points.svg";
+  static const String programs = "assets/icons/programs.svg";
+  static const String reference = "assets/icons/reference.svg";
+  static const String rosary = "assets/icons/rosary.svg";
+  static const String transport = "assets/icons/transport.svg";
+  static const String lang = "assets/icons/lang.svg";
+  static const String setting = "assets/icons/setting.svg";
+  static const String communication = "assets/icons/communication.svg";
+  static const String register = "assets/icons/register.svg";
+  static const String notification = "assets/icons/notification.svg";
+  static const String live = "assets/icons/live.svg";
 
 
 
@@ -123,7 +143,7 @@ class AppIcons{
   static const String bottomArrow = 'assets/icons/bottom_arrow.svg';
 
   static const String phone_bold = 'assets/icons/phone.svg';
-  static const String location = 'assets/icons/location.svg';
+ // static const String location = 'assets/icons/location.svg';
   static const String inProgress = 'assets/icons/in_progress.svg';
   static const String copy = 'assets/icons/copy.svg';
 

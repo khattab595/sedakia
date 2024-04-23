@@ -122,6 +122,24 @@ class Decorations {
     );
   }
 
+  static BoxDecoration kDecorationRadiusAndImage({
+    Color? color,
+    double? radius,
+    Color? borderColor,
+    double? borderWidth,
+    double? t,
+    String?image,
+  }) {
+    return BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
+      image:  DecorationImage(
+        image: AssetImage(image??""),
+        fit: BoxFit.cover
+      )
+    );
+  }
+
   static BoxDecoration boxShape({
     required Color color,
   }) {
@@ -141,7 +159,7 @@ class Decorations {
         BoxShadow(
           color: colorShadow ?? appContext.shadowColor.withOpacity(0.1),
           blurRadius: 10,
-          offset: Offset(0, 2),
+          offset: const Offset(0, 2),
           spreadRadius: 0,
         )
       ],
@@ -156,7 +174,7 @@ class Decorations {
         BoxShadow(
           color: colorShadow.withOpacity(0.05),
           blurStyle: BlurStyle.solid,
-          offset: Offset(100, 100),
+          offset: const Offset(100, 100),
         )
       ],
     );

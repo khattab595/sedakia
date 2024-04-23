@@ -1,5 +1,8 @@
 class AppImages{
   static const String intro_bg = 'assets/images/intro_bg.png';
+  static const String caf = 'assets/images/caf.png';
+  static const String hajj = 'assets/images/hajj.png';
+  static const String images = 'assets/images/images.png';
 
 
 /////////old//////////////////////////////////////////

@@ -16,33 +16,112 @@ class HomeButtons extends BaseStatelessWidget {
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           _Item(
-            icon: AppIcons.qayd_payment,
-            title: strings.qayd_pay,
+            icon: AppImages.caf,
+            sizeIcon: 70,
+            title: strings.about_elcaf,
             onTap: () {
-              Navigators.pushNamed(Routes.qaydPaymentPage);
+              Navigators.pushNamed(Routes.aboutCafPage);
             },
           ),
           _Item(
-            icon: AppIcons.reports,
-            title: strings.reports,
+            sizeIcon: 60,
+            icon: AppIcons.programs,
+            title: strings.programs,
             onTap: () {
-              Navigators.pushNamed(Routes.reportsPage);
+              Navigators.pushNamed(Routes.programmePage);
             },
           ),
         ]),
-        10.ph,
+        22.ph,
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           _Item(
-            icon: AppIcons.qayd,
-            title: strings.register_qayd,
-    sizeIcon: 30,
+            icon: AppIcons.conditions,
+            title: strings.campaign_terms,
+            sizeIcon: 53,
+            onTap: () {
+              Navigators.pushNamed(Routes.campaignTermsPage);
+            },
+          ),
+          _Item(
+            icon: AppIcons.contacts,
+            title: strings.call_us,
+            sizeIcon: 44,
+            onTap: () {
+              Navigators.pushNamed(Routes.invoicesPage);
+            },
+          ),
+        ]),
+        22.ph,
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          _Item(
+            icon: AppIcons.location,
+            title: strings.our_location_is_in_feelings,
+            sizeIcon: 55,
             onTap: () {
               Navigators.pushNamed(Routes.regiserQaydPage);
             },
           ),
           _Item(
-            icon: AppIcons.invoices,
-            title: strings.invoices,
+            icon: AppIcons.points,
+            title: strings.assembly_points,
+            sizeIcon: 55,
+            onTap: () {
+              Navigators.pushNamed(Routes.invoicesPage);
+            },
+          ),
+        ]),
+        22.ph,
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          _Item(
+            icon: AppIcons.transport,
+            title: strings.hajj_transportation,
+            sizeIcon: 50,
+            onTap: () {
+              Navigators.pushNamed(Routes.hajjTransportationPage);
+            },
+          ),
+          _Item(
+            icon: AppIcons.reference,
+            title: strings.references_of_interest_to_you,
+            sizeIcon: 52,
+            onTap: () {
+              Navigators.pushNamed(Routes.invoicesPage);
+            },
+          ),
+        ]),
+        22.ph,
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          _Item(
+            icon: AppIcons.images,
+            title: strings.photo_gallery,
+            sizeIcon: 55,
+            onTap: () {
+              Navigators.pushNamed(Routes.regiserQaydPage);
+            },
+          ),
+          _Item(
+            icon: AppIcons.live,
+            sizeIcon: 57,
+            title: strings.live_broadcast,
+            onTap: () {
+              Navigators.pushNamed(Routes.invoicesPage);
+            },
+          ),
+        ]),
+        22.ph,
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          _Item(
+            icon: AppIcons.healthy,
+            title: strings.your_health_during_hajj,
+            sizeIcon: 61,
+            onTap: () {
+              Navigators.pushNamed(Routes.regiserQaydPage);
+            },
+          ),
+          _Item(
+            icon: AppIcons.rosary,
+            sizeIcon: 51,
+            title: strings.electronic_rosary,
             onTap: () {
               Navigators.pushNamed(Routes.invoicesPage);
             },
@@ -72,6 +151,8 @@ class _Item extends BaseStatelessWidget {
     return InkWell(
       onTap: onTap,
       child: ContainerShapeShadow(
+        height: 109,
+        width: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -81,6 +162,8 @@ class _Item extends BaseStatelessWidget {
               color: primaryColor,
             ),
             BoldText(
+              fontSize: 12,
+              textAlign: TextAlign.center,
               label: title,
             ),
           ],
