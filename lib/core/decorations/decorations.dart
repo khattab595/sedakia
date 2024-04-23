@@ -157,7 +157,7 @@ class Decorations {
           borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 20)),
       shadows: [
         BoxShadow(
-          color: colorShadow ?? appContext.shadowColor.withOpacity(0.1),
+          color: colorShadow ?? appContext.shadowColor.withOpacity(0.06),
           blurRadius: 10,
           offset: const Offset(0, 2),
           spreadRadius: 0,

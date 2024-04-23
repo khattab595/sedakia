@@ -10,10 +10,10 @@ class CustomItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: Decorations.kDecorationRadius(radius: 16,color: kPrimaryLight),
-      margin: 2.paddingEnd + 10.paddingStart,
-      width: MediaQuery.of(context).size.width - 30,
-      height: 100,
+      decoration: Decorations.shapeDecorationShadow(),
+      margin: 20.paddingVert + 10.paddingEnd,
+      width: MediaQuery.of(context).size.width - 70,
+      height: 150,
       child: Row(
         children: [
           50.pw,
