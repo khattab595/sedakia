@@ -17,22 +17,22 @@ class DetailsMessageScreen extends BaseStatelessWidget {
     return Form(
       key: formKey,
       child: SingleChildScrollView(
-        padding: 14.paddingTop,
+        padding: 14.paddingTop + 10.paddingHoriz,
         child: Column(
           children: [
             Column(
               children: [
                 DropDownField(
+                  colorBorderSide: kGrayColor2,
+                  iconColor: kPrimaryDark,
                   items: [],
                   borderRadius: 10,
                   onChanged: (value) {},
-                  colorBorderSide: kPrimaryDark,
                 ),
                 24.ph,
                 CustomTextField(
                   contentPadding: 350.paddingTop,
                   title: strings.message_content,
-                  margin: 8.paddingHoriz,
                   hintText: "Type your message...",
                   radius: 15,
                   controller: messageContentController,

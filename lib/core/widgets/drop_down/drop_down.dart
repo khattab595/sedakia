@@ -21,6 +21,7 @@ class DropDownField extends StatelessWidget {
   final TextStyle? style;
   final Color? colorBorderSide;
   final Color? fillColor;
+  final Color? iconColor;
   final TextStyle? hintStyle;
   final bool isLoading;
 
@@ -33,6 +34,7 @@ class DropDownField extends StatelessWidget {
       required this.onChanged,
       this.prefixIcon,
       this.texStyle,
+        this.iconColor,
       this.value,
       this.iconWidget,
       this.isValidator = true,
@@ -128,8 +130,8 @@ class DropDownField extends StatelessWidget {
             icon: isLoading
                 ? const SmallLoading()
                 : Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: context.secondary,
+                    Icons.arrow_drop_down_outlined,
+                    color:iconColor?? context.secondary,
                   ),
             iconSize: 24,
           ),
