@@ -11,6 +11,7 @@ class DropDownField extends StatelessWidget {
   final String? title;
   final String? hint;
   final String? value;
+  final double? borderRadius;
   final TextStyle? texStyle;
   final IconData? prefixIcon;
   final Widget? iconWidget;
@@ -27,6 +28,7 @@ class DropDownField extends StatelessWidget {
       {Key? key,
       required this.items,
       this.title,
+        this.borderRadius,
       this.hint,
       required this.onChanged,
       this.prefixIcon,
@@ -74,7 +76,7 @@ class DropDownField extends StatelessWidget {
               borderSide: BorderSide(
                 color: borderColor,
               ),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius:BorderRadius.circular(12),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
@@ -87,7 +89,7 @@ class DropDownField extends StatelessWidget {
               borderSide: BorderSide(
                 color: borderColor,
               ),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(borderRadius??12),
             ),
             // Add more decoration..
           ),
@@ -115,6 +117,7 @@ class DropDownField extends StatelessWidget {
           onSaved: (value) {
             //  selectedValue = value.toString();
           },
+
           buttonStyleData: const ButtonStyleData(
             padding: EdgeInsets.only(right: 8),
             // decoration: BoxDecoration(

@@ -24,9 +24,11 @@ class Decorations {
   }
   static BoxDecoration kDecorationTopRadius({
      Color? color,
+     Color? borderColor,
     double? radius,
   }) {
     return BoxDecoration(
+      border: Border.all(color: borderColor??kBlue8D),
       color: color ?? injector<ServicesLocator>().appContext.cardColor,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(radius ?? 12),
@@ -107,6 +109,30 @@ class Decorations {
         color: borderColor ?? kBorderColor,
         width: borderWidth ?? 1.0,
       ),
+    );
+  }
+  static BoxDecoration kDecorationLinearGradient({
+    Color? color,
+    double? radius,
+    Color? borderColor,
+     AlignmentGeometry? begin,
+     AlignmentGeometry? end,
+    double? borderWidth,
+    required List<Color> colors,
+    double? t,
+  }) {
+    return BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.all(Radius.circular(radius ?? 20)),
+      border: Border.all(
+        color: borderColor ?? kBorderColor,
+        width: borderWidth ?? 1.0,
+      ),
+      gradient: LinearGradient(
+        begin: begin??Alignment.bottomRight,
+        end: end??Alignment.topLeft,
+        colors: colors
+      )
     );
   }
   static BoxDecoration kDecorationRadius({

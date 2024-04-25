@@ -4,19 +4,35 @@ import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.da
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
+import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
+import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
 import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
+import '../../src/healthy/presentation/pages/healthy_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/invoices/presentation/invoices/pages/details_invoice/details_invoice_page.dart';
 import '../../src/invoices/presentation/invoices/pages/invoices_page.dart';
+import '../../src/language/presentation/pages/change_language_page.dart';
+import '../../src/live_broadcast/presentation/pages/details_live_broadcast/details_live_broadcast_page.dart';
+import '../../src/live_broadcast/presentation/pages/live_broadcast_page.dart';
+import '../../src/logout/presentation/pages/logout_page.dart';
 import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
+import '../../src/notes/presentation/pages/notes_page.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
+import '../../src/photo_gallery/presentation/pages/details_photo_gallery/details_photo_gallery_page.dart';
+import '../../src/photo_gallery/presentation/pages/more_photo_gallery/more_photo_gallery_page.dart';
+import '../../src/photo_gallery/presentation/pages/photo_gallery_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/program/presentation/pages/details_programe/details_programe_page.dart';
 import '../../src/program/presentation/pages/programe_page.dart';
 import '../../src/qayds/presentation/qayd_payment/pages/qayd_payment_page.dart';
 import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
+import '../../src/quran/presentation/pages/quran_page.dart';
+import '../../src/references/presentation/pages/reference_page.dart';
 import '../../src/reports/presentation/pages/reports_page.dart';
+import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.dart';
+import '../../src/rosary/presentation/pages/rosary_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
@@ -42,7 +58,6 @@ class Routes {
   static const String submitOrderPage = 'submitOrderPage';
   static const String orderDetailsPage = 'orderDetailsPage';
   static const String changePasswordPage = 'ChangePasswordPage';
-  static const String changeLanguagePage = 'changeLanguagePage';
 
   static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
   static const String enterPinCodePage = 'enterPinCodePage';
@@ -78,6 +93,22 @@ class Routes {
   static const String programmePage = 'programmePage';
   static const String campaignTermsPage = 'campaignTermsPage';
   static const String hajjTransportationPage = 'hajjTransportationPage';
+  static const String referencePage = 'referencePage';
+  static const String photoGalleryPage = 'photoGalleryPage';
+  static const String morePhotoGalleryPage = 'morePhotoGalleryPage';
+  static const String detailsPhotoGalleryPage = 'detailsPhotoGalleryPage';
+  static const String liveBroadcastPage = 'liveBroadcastPage';
+  static const String detailsLiveBroadcastPage = 'detailsLiveBroadcastPage';
+  static const String healthyPage = 'healthyPage';
+  static const String rosaryPage = 'rosaryPage';
+  static const String rosaryCounterPage = 'rosaryCounterPage';
+  static const String changeLanguagePage = 'changeLanguagePage';
+  static const String quranPage = 'quranPage';
+  static const String detailsProgrammePage = 'detailsProgrammePage';
+  static const String logoutPage = 'logoutPage';
+  static const String notePage = 'notePage';
+  static const String hajjMessagesPage = 'hajjMessagesPage';
+  static const String detailsMessagePage = 'detailsMessagePage';
 
 
   /* ====================================================================== */
@@ -96,7 +127,6 @@ class Routes {
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
-    changeLanguagePage: (context) => ChangLanguagePage(),
     profile: (context) => ProfilePage(),
     aboutLogeste: (context) => AboutLogestePage(),
     reportsPage: (context) => ReportsPage(),
@@ -107,5 +137,21 @@ class Routes {
     programmePage: (context) => ProgramePage(),
     campaignTermsPage: (context) => CampaignTermsPage(),
     hajjTransportationPage: (context) => HajjTransportationPage(),
+    referencePage: (context) => ReferencePage(),
+    photoGalleryPage: (context) => PhotoGalleryPage(),
+    morePhotoGalleryPage: (context) => MorePhotoGalleryPage(),
+    detailsPhotoGalleryPage: (context) => DetailsPhotoGalleryPage(),
+    liveBroadcastPage: (context) => LiveBroadcastPage(),
+    detailsLiveBroadcastPage: (context) => DetailsLiveBroadcastPage(),
+    healthyPage: (context) => HealthyPage(),
+    rosaryPage: (context) => RosaryPage(),
+    rosaryCounterPage: (context) => RosaryCounterPage(),
+    changeLanguagePage: (context) => ChangeLanguagePage(),
+    quranPage: (context) => QuranPage(),
+    detailsProgrammePage: (context) => DetailsProgramePage(),
+    logoutPage: (context) => LogoutPage(),
+    notePage: (context) => NotePage(),
+    hajjMessagesPage: (context) => HajjMessagesPage(),
+    detailsMessagePage: (context) => DetailsMessagePage(),
   };
 }

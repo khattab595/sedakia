@@ -7,11 +7,12 @@ class SecondaryButton extends StatelessWidget {
   final Function()? onPressed;
   final double? height;
   final double? radius;
+  final double? fontSize;
   final Color? borderColor;
   final Color? textColor;
   final EdgeInsetsGeometry? margin;
   final Color? backgroundColor;
-  const SecondaryButton({Key? key,this.margin, required this.title, this.onPressed, this.height, this.radius, this.borderColor, this.textColor, this.backgroundColor}) : super(key: key);
+  const SecondaryButton({Key? key,this.margin,this.fontSize, required this.title, this.onPressed, this.height, this.radius, this.borderColor, this.textColor, this.backgroundColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class SecondaryButton extends StatelessWidget {
           fixedSize: Size(MediaQuery.of(context).size.width, height ?? 55),
           side: BorderSide(color: borderColor ?? kGreenColor),
         ),
-        child: FittedBox(child: Text(title, style: theme.textTheme.displayLarge!.copyWith(color: textColor ?? theme.primaryColor))),
+        child: FittedBox(child: Text(title, style: theme.textTheme.displayLarge!.copyWith(color: textColor ?? theme.primaryColor,fontSize: fontSize))),
       ),
     );
 

@@ -3,6 +3,10 @@ class AppImages{
   static const String caf = 'assets/images/caf.png';
   static const String hajj = 'assets/images/hajj.png';
   static const String images = 'assets/images/images.png';
+  static const String photo = 'assets/images/photos.png';
+  static const String health = 'assets/images/health.png';
+  static const String quran = 'assets/images/quran.png';
+  static const String test = 'assets/images/test.png';
 
 
 /////////old//////////////////////////////////////////

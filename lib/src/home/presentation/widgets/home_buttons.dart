@@ -85,7 +85,7 @@ class HomeButtons extends BaseStatelessWidget {
             title: strings.references_of_interest_to_you,
             sizeIcon: 52,
             onTap: () {
-              Navigators.pushNamed(Routes.invoicesPage);
+              Navigators.pushNamed(Routes.referencePage);
             },
           ),
         ]),
@@ -96,7 +96,7 @@ class HomeButtons extends BaseStatelessWidget {
             title: strings.photo_gallery,
             sizeIcon: 55,
             onTap: () {
-              Navigators.pushNamed(Routes.regiserQaydPage);
+              Navigators.pushNamed(Routes.photoGalleryPage);
             },
           ),
           _Item(
@@ -104,7 +104,7 @@ class HomeButtons extends BaseStatelessWidget {
             sizeIcon: 57,
             title: strings.live_broadcast,
             onTap: () {
-              Navigators.pushNamed(Routes.invoicesPage);
+              Navigators.pushNamed(Routes.liveBroadcastPage);
             },
           ),
         ]),
@@ -115,7 +115,7 @@ class HomeButtons extends BaseStatelessWidget {
             title: strings.your_health_during_hajj,
             sizeIcon: 61,
             onTap: () {
-              Navigators.pushNamed(Routes.regiserQaydPage);
+              Navigators.pushNamed(Routes.healthyPage);
             },
           ),
           _Item(
@@ -123,7 +123,7 @@ class HomeButtons extends BaseStatelessWidget {
             sizeIcon: 51,
             title: strings.electronic_rosary,
             onTap: () {
-              Navigators.pushNamed(Routes.invoicesPage);
+              Navigators.pushNamed(Routes.rosaryPage);
             },
           ),
         ]),

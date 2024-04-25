@@ -32,7 +32,7 @@ class NotificationItem extends BaseStatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const AppIcon(
-                icon: AppIcons.notification,
+                icon: AppIcons.noti,
                 size: 16,
               ),
               10.pw,

@@ -86,6 +86,13 @@ const kRedColorff = Color(0xffD67BFF);
 const kYellowColor45 = Color(0xffFFAF45);
 const kYellowColor93 = Color(0xffF6F193);
 const kBlueEA = Color(0xff7BD3EA);
+const kBlueBC = Color(0xff307EBC);
+const kBlueCF = Color(0xff5FC1CF);
+const kBlueCB = Color(0xff56B4CB);
+const kBlue00 = Color(0xffF40000);
+const kBlue8D = Color(0xff8D8D8D);
+const kBlueF6 = Color(0xffF6F6F6);
+const kBlue9D = Color(0xffD9D9D9);
 
 extension AppColor on BuildContext{
   bool isDark() => Theme.of(this).brightness == Brightness.dark;

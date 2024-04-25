@@ -1,41 +1,37 @@
 import 'package:app/core/components/base_stateless_widget.dart';
 
+import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../../core/widgets/texts/row_texts.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
 
 class ProgrameItem extends BaseStatelessWidget {
-   ProgrameItem({super.key});
+  ProgrameItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
-        Container(
-          margin: 5.paddingHoriz+16.paddingTop,
+        ContainerShapeShadow(
+          margin: 5.paddingHoriz + 16.paddingTop,
           padding: 5.paddingAll,
-          decoration:Decorations.kDecorationBorderRadius(radius: 10,color: kPrimaryLight,borderColor: kPrimaryLight),
+          radius: 10,
           child: Row(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-             Container(
-               margin: 10.paddingVert+5.paddingStart,
-             height: 76,
-               width: 91,
-               decoration: BoxDecoration(
-                 borderRadius: BorderRadius.circular(5),
-                   image: const DecorationImage(
-                     fit: BoxFit.cover,
-                   image: AssetImage(AppImages.images)
-                 )
-               ),
-             ),
+              Container(
+                margin: 10.paddingVert + 5.paddingStart,
+                height: 76,
+                width: 91,
+                decoration: Decorations.kDecorationRadiusAndImage(
+                    image: AppImages.images, radius: 5),
+              ),
               10.pw,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     const Row(
+                    const Row(
                       children: [
                         Expanded(
                           child: PrimaryBoldText(
@@ -48,7 +44,7 @@ class ProgrameItem extends BaseStatelessWidget {
                     4.ph,
                     const MediumText(
                       label:
-                      'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ',
+                          'لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ',
                       fontSize: 12,
                     ),
                   ],

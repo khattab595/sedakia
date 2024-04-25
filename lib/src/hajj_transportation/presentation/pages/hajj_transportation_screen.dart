@@ -10,17 +10,13 @@ class HajjTransportationPageScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: kCafColor.withOpacity(0.1),
-      child: Column(
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: 4,
-            padding: 10.paddingAll,
-            itemBuilder: (context, index) {
-              return HajjTransportationItem();
-            },
-          ),
-        ],
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: 4,
+        padding: 10.paddingAll,
+        itemBuilder: (context, index) {
+          return HajjTransportationItem();
+        },
       ),
     );
   }

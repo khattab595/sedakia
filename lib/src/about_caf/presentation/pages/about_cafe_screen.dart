@@ -1,6 +1,7 @@
 import 'package:app/core/components/base_stateless_widget.dart';
 import 'package:app/core/widgets/texts/texts.dart';
 
+import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../main_index.dart';
 
 class AboutCafScreen extends BaseStatelessWidget {
@@ -13,12 +14,11 @@ class AboutCafScreen extends BaseStatelessWidget {
       child: Column(
         children: [
           24.ph,
-          Container(
+          ContainerShapeShadow(
             margin: 8.paddingHoriz,
             height: 120,
             width: double.infinity,
-            decoration: Decorations.kDecorationRadius(
-                radius: 20, color: kPrimaryLight),
+            radius: 20,
             child: Center(
                 child: Image.asset(
               AppImages.caf,

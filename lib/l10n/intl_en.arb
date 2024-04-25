@@ -11,11 +11,38 @@
   "live_broadcast": "Live broadcast",
   "your_health_during_hajj": "Your health during Hajj",
   "electronic_rosary": "Electronic rosary",
+  "rosary": "Electronic rosary",
   "change_the_language": "change the language",
   "program_settings": "Program settings",
   "campaign_programmes": "Campaign programmes",
-  "english": "English",
+  "important_references_for_hajj": "Important references for Hajj",
+  "live_broadcast": "Live broadcast",
+  "the_user": "User",
+  "quran": "Quran",
+  "kiss": "Kiss",
+  "choose_the_application_language": "Choose the application language",
   "arabic": "Arabic",
+  "english": "English",
+  "remove": "Remove",
+  "press_here": "Press here",
+  "sign_out": "Sign Out",
+  "send_to_the_campaign": "Send to the campaign",
+  "note": "Notes",
+  "hajj_messages": "Hajj messages",
+  "the_note": "Notes",
+  "category": "التصنيف",
+  "send": "ارسال",
+  "write_a_message": "Write a message",
+  "message_content": "Message content",
+  "cancel": "Cancel",
+
+
+
+
+
+
+
+
   "welcome_back": "Welcome Back",
   "welcome": "Welcome",
   "login": "LOGIN",
@@ -70,7 +97,6 @@
   "city": "City",
   "area": "Area",
   "shipping_notes": "Shipping Notes",
-  "cancel": "Cancel",
   "did_you_confirm_this_order": "Did you confirm this order?",
   "add_new_method": "Add New Method",
   "method": "Method",
