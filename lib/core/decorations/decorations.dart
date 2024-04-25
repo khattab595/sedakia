@@ -28,7 +28,7 @@ class Decorations {
     double? radius,
   }) {
     return BoxDecoration(
-      border: Border.all(color: borderColor??kBlue8D),
+      border: Border.all(color: borderColor??kPrimaryLight),
       color: color ?? injector<ServicesLocator>().appContext.cardColor,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(radius ?? 12),

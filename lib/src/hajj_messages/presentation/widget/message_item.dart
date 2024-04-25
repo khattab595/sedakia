@@ -15,7 +15,7 @@ class MessageItem extends BaseStatelessWidget {
         Container(
           padding: 5.paddingAll,
           margin: 2.paddingHoriz+8.paddingVert,
-          decoration: Decorations.kDecorationTopRadius(radius: 9,color: kBlueF6),
+          decoration: Decorations.kDecorationTopRadius(radius: 9,color: kBlueF6,borderColor: kBlue8D),
           child: Row(
             children: [
               10.pw,
