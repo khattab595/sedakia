@@ -23,7 +23,7 @@ class LiveBraodcastItem extends BaseStatelessWidget {
           const BoldText(
             label: "بث مباشر للحرم المدني",
             fontSize: 15,
-          )
+          ),
         ],
       ),
     );

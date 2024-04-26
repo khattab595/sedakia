@@ -16,7 +16,7 @@ final lightTheme = ThemeData(
   primaryColor: primaryColor,
   brightness: Brightness.light,
   primaryColorDark: blackColor,
-  scaffoldBackgroundColor: const Color(0xffffffff),
+  scaffoldBackgroundColor: secondaryColor.withOpacity(0.1),
   hintColor: const Color(0xffF7F6F6),
   cardColor: const Color(0xffffffff),
   dividerColor: const Color(0xffD0D5DD),

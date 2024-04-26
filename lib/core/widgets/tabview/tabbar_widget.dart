@@ -30,9 +30,9 @@ class TabBarWidget  extends StatelessWidget{
           child: Container(
             margin: 20.paddingAll,
             decoration: BoxDecoration(
-              color: kBackgroundColor,
+              color: context.primaryColor.withOpacity(0.1),
               border: Border.all(
-                  color: kBorderColor,
+                  color: context.primaryColor.withOpacity(0.3),
                   width: 0.3,
                   style: BorderStyle.solid),
               borderRadius: BorderRadius.circular(8)),
@@ -43,7 +43,7 @@ class TabBarWidget  extends StatelessWidget{
               unselectedLabelStyle: context.bodyLarge,
               labelStyle: context.labelLarge,
               labelColor: Colors.white,
-              unselectedLabelColor:kPrimaryDark,
+              unselectedLabelColor:context.primaryColor,
               padding: 5.paddingAll,
               indicatorPadding: 0.paddingAll,
               labelPadding:  0.paddingHoriz ,

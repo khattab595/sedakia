@@ -28,7 +28,7 @@ class Decorations {
     double? radius,
   }) {
     return BoxDecoration(
-      border: Border.all(color: borderColor??kPrimaryLight),
+      border: Border.all(color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor),
       color: color ?? injector<ServicesLocator>().appContext.cardColor,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(radius ?? 12),
@@ -106,7 +106,7 @@ class Decorations {
       color: color,
       borderRadius: BorderRadius.all(Radius.circular(radius ?? 12)),
       border: Border.all(
-        color: borderColor ?? kBorderColor,
+        color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor,
         width: borderWidth ?? 1.0,
       ),
     );
@@ -125,7 +125,7 @@ class Decorations {
       color: color,
       borderRadius: BorderRadius.all(Radius.circular(radius ?? 20)),
       border: Border.all(
-        color: borderColor ?? kBorderColor,
+        color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor,
         width: borderWidth ?? 1.0,
       ),
       gradient: LinearGradient(
@@ -284,7 +284,7 @@ class Decorations {
       color: color,
       shape: BoxShape.circle,
       border: Border.all(
-        color: borderColor ?? kBorderColor,
+        color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor,
         width: borderWidth ?? 1.0,
       ),
     );

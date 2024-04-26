@@ -1,19 +1,17 @@
-
-
 import '../../src/main_index.dart';
 
-class LoadingView extends StatelessWidget {
-  const LoadingView({super.key});
+class LoadingView extends BaseStatelessWidget {
+  LoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: kPrimaryLight,
+        color: scaffoldBackgroundColor,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               SizedBox(
                 height: 30,
                 width: 30,
@@ -22,7 +20,7 @@ class LoadingView extends StatelessWidget {
 */
                 child: CircularProgressIndicator(
                   strokeWidth: 3,
-                  color: kPrimaryDark,
+                  color: primaryColor,
                 ),
               ),
             ],
@@ -31,10 +29,11 @@ class LoadingView extends StatelessWidget {
   }
 }
 
-class SmallLoadingView extends StatelessWidget {
+class SmallLoadingView extends BaseStatelessWidget {
   final double? height;
 
-  const SmallLoadingView({super.key, this.height});
+  SmallLoadingView({super.key, this.height});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -43,16 +42,18 @@ class SmallLoadingView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const <Widget>[
+            children: <Widget>[
               SizedBox(
                 height: 15.0,
                 width: 15.0,
                 child: CircularProgressIndicator(
                   strokeWidth: 1,
+                  color: primaryColor,
                 ),
               ),
             ],
           ),
-        ));
+        ),
+    );
   }
 }

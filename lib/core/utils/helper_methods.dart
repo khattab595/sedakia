@@ -160,8 +160,8 @@ class HelperMethods {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            colorScheme: const ColorScheme.light(
-              primary: kGrayColor2,
+            colorScheme: ColorScheme.light(
+              primary: injector<ServicesLocator>().appContext.primaryColor,
             ),
             buttonTheme: const ButtonThemeData(
               textTheme: ButtonTextTheme.primary,

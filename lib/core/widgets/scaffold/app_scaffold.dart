@@ -44,15 +44,10 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       // resizeToAvoidBottomInset: false, // this code remove the keyboard overflow.
       // drawer: isDrawer! ? SideMenuPage(isCaptain: true) : null,
-      primary: true,
+      // primary: true,
 
       //SafeArea to save content from the phone top par.
-      body: Scaffold(
-        key: globalKey,
-        drawerScrimColor: Colors.transparent,
-        backgroundColor: backgroundColor ?? theme.scaffoldBackgroundColor,
-        body: body,
-      ),
+      body: body,
       extendBody: true,
       backgroundColor: backgroundColor ?? theme.scaffoldBackgroundColor,
       floatingActionButton: floatingActionButton,

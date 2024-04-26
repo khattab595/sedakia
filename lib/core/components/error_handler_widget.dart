@@ -1,3 +1,5 @@
+import 'package:app/core/widgets/texts/texts.dart';
+
 import '/src/main_index.dart';
 // ignore: must_be_immutable
 class ErrorPlaceHolderWidget extends StatelessWidget {
@@ -43,16 +45,15 @@ class ErrorPlaceHolderWidget extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 12),
                 child: placeHolderImage,
               ):Container(),
-              title!=null ?Text(title!,style: kTextMedium.copyWith(color: kPrimaryDark,fontSize: 12),):Container(),
+              title!=null ? MediumText(label: title!,):Container(),
 
-              Text(
-                message.toString().trim(),
-                style:
-                    kTextRegular.copyWith(color: kPrimaryDark, fontSize: 12),
+              RegularText(
+                label: message.toString().trim(),
                 textAlign: TextAlign.center,
               ),
             ],
           ),
-        ));
+        ),
+    );
   }
 }

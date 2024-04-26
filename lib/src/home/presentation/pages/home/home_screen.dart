@@ -13,29 +13,26 @@ class HomeScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       // padding: 16.paddingVert,
-      child: Container(
-        color: kCafColor.withOpacity(0.1),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            50.ph,
-            CustomPrayerTimings(),
-            SizedBox(
-              height: 130,
-              child: ListView.builder(
-                padding: 18.paddingStart,
-                scrollDirection: Axis.horizontal,
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return CustomItem();
-                },
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          50.ph,
+          CustomPrayerTimings(),
+          SizedBox(
+            height: 130,
+            child: ListView.builder(
+              padding: 18.paddingStart,
+              scrollDirection: Axis.horizontal,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return CustomItem();
+              },
             ),
-            HomeButtons(
-              statistics: home.statistics ?? [],
-            ),
-          ],
-        ),
+          ),
+          HomeButtons(
+            statistics: home.statistics ?? [],
+          ),
+        ],
       ),
     );
   }

@@ -27,7 +27,7 @@ class SecondaryButton extends StatelessWidget {
           ),
           backgroundColor: backgroundColor,
           fixedSize: Size(MediaQuery.of(context).size.width, height ?? 55),
-          side: BorderSide(color: borderColor ?? kGreenColor),
+          side: BorderSide(color: borderColor ?? theme.primaryColor,width: 1.5),
         ),
         child: FittedBox(child: Text(title, style: theme.textTheme.displayLarge!.copyWith(color: textColor ?? theme.primaryColor,fontSize: fontSize))),
       ),
