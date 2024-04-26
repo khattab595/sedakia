@@ -16,11 +16,11 @@ class CustomPrayerTimings extends BaseStatelessWidget {
             height: 130,
             decoration:
                 Decorations.kDecorationRadiusAndImage(image: AppImages.hajj)),
-        const Positioned(
+        const PositionedDirectional(
             top: 15,
             bottom: 0,
-            right: 240,
-            left: 0,
+            start: 240,
+            end: 0,
             child: BoldText(
               label: "24 رمضان 1415",
               labelColor: kPrimaryLight,

@@ -1,5 +1,4 @@
 import '../../../src/main_index.dart';
-import 'package:flutter/gestures.dart';
 
 class PrimaryBoldText extends StatelessWidget {
   final String label;

@@ -10,8 +10,7 @@ export 'package:flutter/material.dart';
 
 export '../core/routes/routes.dart';
 export '../core/di/injector.dart';
-export '../core/assets/fonts.dart';
-export '../core/themes/text_styles.dart';
+export '../core/themes/fonts.dart';
 export '../core/themes/colors.dart';
 export '../core/bloc/base_cubit.dart';
 export 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,7 +22,6 @@ export 'package:app/core/widgets/scaffold/custom_divider.dart';
 export 'package:app/core/widgets/buttons/app_icon_button.dart';
 export 'package:app/core/decorations/decorations.dart';
 export 'package:app/core/commen/common_state.dart';
-export 'package:app/core/widgets/helper/helper_widgets.dart';
 export 'package:app/core/widgets/texts/column_texts.dart';
 export 'package:app/core/widgets/texts/custom_container.dart';
 export 'package:app/core/widgets/buttons/primary_button.dart';

@@ -11,7 +11,7 @@ class ChangeLanguageScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kCafColor.withOpacity(0.1),
+      color: primaryColor,
       child: Column(
         children: [
           ContainerShapeShadow(

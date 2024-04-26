@@ -1,4 +1,3 @@
-import 'package:app/core/components/base_stateless_widget.dart';
 
 import '../../../../core/utils/navigator.dart';
 import '../../../main_index.dart';
@@ -9,21 +8,18 @@ class LiveBroadcastScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 3,
-        padding: 10.paddingAll,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return InkWell(
-              onTap: (){
-                pushNamed(Routes.detailsLiveBroadcastPage);
-              },
-              child: LiveBraodcastItem());
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 3,
+      padding: 10.paddingAll,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return InkWell(
+            onTap: (){
+              pushNamed(Routes.detailsLiveBroadcastPage);
+            },
+            child: LiveBraodcastItem());
+      },
     );
   }
 }

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           print('state.isFirstTime ${state.isFirstTime}');
           return state.isLoading
-              ? const LoadingView()
+              ? LoadingView()
               : MaterialApp(
                   theme: lightTheme,
                   debugShowCheckedModeBanner: false,

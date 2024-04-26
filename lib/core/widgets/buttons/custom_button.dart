@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../assets/fonts.dart';
+import '../../themes/fonts.dart';
 
 Widget customButton({
 
