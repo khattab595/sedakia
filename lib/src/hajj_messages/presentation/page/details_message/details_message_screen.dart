@@ -23,6 +23,8 @@ class DetailsMessageScreen extends BaseStatelessWidget {
             Column(
               children: [
                 DropDownField(
+                  hint: strings.inquiry_categories,
+                  hintStyle: bodyLarge.copyWith(color: kPrimaryDark,fontSize: 12),
                   colorBorderSide: kGrayColor2,
                   iconColor: kPrimaryDark,
                   items: [],
@@ -33,7 +35,7 @@ class DetailsMessageScreen extends BaseStatelessWidget {
                 CustomTextField(
                   contentPadding: 350.paddingTop,
                   title: strings.message_content,
-                  hintText: "Type your message...",
+                  hintText: strings.type_your_message,
                   radius: 15,
                   controller: messageContentController,
                 ),
