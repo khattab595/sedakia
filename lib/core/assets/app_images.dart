@@ -7,6 +7,7 @@ class AppImages{
   static const String health = 'assets/images/health.png';
   static const String quran = 'assets/images/quran.png';
   static const String test = 'assets/images/test.png';
+  static const String basmalla = 'assets/images/basmalla.png';
 
 
 /////////old//////////////////////////////////////////

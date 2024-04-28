@@ -23,10 +23,10 @@ class CustomItem extends BaseStatelessWidget {
             color: primaryColor,
           ),
           22.pw,
-          const BoldText(
+           BoldText(
             fontSize: 15,
             textAlign: TextAlign.center,
-            label: "الهوية الرقمية",
+            label: strings.digital_identity,
           ),
         ],
       ),

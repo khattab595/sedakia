@@ -6,15 +6,16 @@ class AppColors {
   static const Color primaryDark = Color(0xff000000);
   static const Color primaryLightText = Color(0xff000000);
   static const Color primaryLight = Color(0xff5FC1CF);
-  static const Color errorColor = Color(0xffDC362E);
+  static const Color errorColor = Color(0xffF40000);
   static const Color greenColor = Color(0xff219653);
   static const Color backgroundColor = Color(0xffF4FCFD);
-  static const Color cardColor = Color(0xffF4FCFD);
+  static const Color cardColor = Color(0xffffffff);
   static const Color borderColor = Color(0xffD0D5DD);
   static const Color greyColor = Color(0xff8D8D8D);
   static const Color dividerColor = Color(0xffE8E8E8);
   static const Color blueColor = Color(0xff0276D9);
   static const Color cafColor = Color(0xff8DDBE5);
+  static const Color cafColor2 = Color(0xff307EBC);
 }
 
 

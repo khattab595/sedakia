@@ -10,44 +10,41 @@ class ChangeLanguageScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: primaryColor,
-      child: Column(
-        children: [
-          ContainerShapeShadow(
-            padding: 23.paddingTop + 10.paddingHoriz,
-            margin: 10.paddingHoriz + 32.paddingTop,
-            child: Column(
-              children: [
-                const AppIcon(
-                  icon: AppIcons.language_icon,
-                  size: 93,
-                ),
-                29.ph,
-                BoldText(
-                  label: strings.choose_the_application_language,
-                  fontSize: 18,
-                ),
-                46.ph,
-                PrimaryButton(
-                  title: strings.english,
-                  onPressed: () {},
-                  radius: 6,
-                ),
-                9.ph,
-                SecondaryButton(
-                  title: strings.arabic,
-                  fontSize: 18,
-                  onPressed: () {},
-                  radius: 6,
-                  borderColor: primaryColor,
-                ),
-                270.ph,
-              ],
-            ),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        ContainerShapeShadow(
+          padding: 23.paddingTop + 10.paddingHoriz,
+          margin: 10.paddingHoriz + 32.paddingTop,
+          child: Column(
+            children: [
+              const AppIcon(
+                icon: AppIcons.language_icon,
+                size: 93,
+              ),
+              29.ph,
+              BoldText(
+                label: strings.choose_the_application_language,
+                fontSize: 18,
+              ),
+              46.ph,
+              PrimaryButton(
+                title: strings.english,
+                onPressed: () {},
+                radius: 6,
+              ),
+              9.ph,
+              SecondaryButton(
+                title: strings.arabic,
+                fontSize: 18,
+                onPressed: () {},
+                radius: 6,
+                borderColor: primaryColor,
+              ),
+              270.ph,
+            ],
+          ),
+        )
+      ],
     );
   }
 }

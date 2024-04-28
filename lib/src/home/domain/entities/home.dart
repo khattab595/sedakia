@@ -3,7 +3,7 @@ import '../../data/models/home_dto.dart';
 class Home {
   List<Statistic>? statistics;
   List<String>? slider;
-  List<Section>? sections;
+  List? sections;
 
   Home({this.statistics, this.slider, this.sections});
 

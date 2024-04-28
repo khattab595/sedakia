@@ -9,24 +9,21 @@ class NotificationsScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: Column(
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: notifications.length,
-            padding: 10.paddingAll,
-            itemBuilder: (context, index) {
-              return NotificationItem(
-                notification: notifications[index],
-                isFirst: index == 0 ? true : false,
-                isLast: index == notifications.length - 1 ? true : false,
-              );
-            },
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: notifications.length,
+          padding: 10.paddingAll,
+          itemBuilder: (context, index) {
+            return NotificationItem(
+              notification: notifications[index],
+              isFirst: index == 0 ? true : false,
+              isLast: index == notifications.length - 1 ? true : false,
+            );
+          },
+        ),
+      ],
     );
   }
 }

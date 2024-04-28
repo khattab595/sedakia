@@ -14,6 +14,6 @@ final String title;
         margin: 11.paddingHoriz,
         height: 49,
         radius: 10,
-        child: SecondaryButton(title:title,onPressed: onPressed,backgroundColor: kPrimaryLight,textColor: kPrimaryDark,borderColor: kPrimaryLight,fontSize: 15,));
+        child: SecondaryButton(title:title,onPressed: onPressed,backgroundColor: whiteTextColor,textColor: blackTextColor,borderColor: whiteTextColor,fontSize: 15,));
   }
 }

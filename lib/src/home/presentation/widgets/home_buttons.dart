@@ -58,7 +58,7 @@ class HomeButtons extends BaseStatelessWidget {
             title: strings.our_location_is_in_feelings,
             sizeIcon: 55,
             onTap: () {
-              Navigators.pushNamed(Routes.regiserQaydPage);
+             // Navigators.pushNamed(Routes.regiserQaydPage);
             },
           ),
           _Item(
@@ -127,6 +127,7 @@ class HomeButtons extends BaseStatelessWidget {
             },
           ),
         ]),
+        100.ph,
       ],
     );
   }

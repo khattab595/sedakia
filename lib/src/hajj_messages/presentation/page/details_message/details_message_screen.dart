@@ -24,9 +24,9 @@ class DetailsMessageScreen extends BaseStatelessWidget {
               children: [
                 DropDownField(
                   hint: strings.inquiry_categories,
-                  hintStyle: bodyLarge.copyWith(color: kPrimaryDark,fontSize: 12),
-                  colorBorderSide: kGrayColor2,
-                  iconColor: kPrimaryDark,
+                  hintStyle: blackSemiBoldStyle.copyWith(color: blackTextColor,fontSize: 12),
+                  colorBorderSide: dividerColor,
+                  iconColor:blackTextColor ,
                   items: [],
                   borderRadius: 10,
                   onChanged: (value) {},
@@ -54,7 +54,7 @@ class DetailsMessageScreen extends BaseStatelessWidget {
                   title: strings.cancel,
                   onPressed: () {},
                   borderColor: primaryColor,
-                  textColor: kBlue00,
+                  textColor: errorColor,
                   height: 50,
                 ),
               ],

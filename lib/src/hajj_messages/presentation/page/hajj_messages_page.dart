@@ -36,7 +36,7 @@ class  HajjMessagesPage extends BaseBlocWidget<UnInitState, ProfileBloc>{
               color: primaryColor,
              // borderColor: primaryColor,
             ),
-            child: const BoldText(label: "ارسال رسالة",fontSize: 15,labelColor: kPrimaryLight,)),
+            child:  BoldText(label: strings.send_message,fontSize: 15,labelColor: whiteTextColor,)),
       ),
       body:HajjMessagesScreen(
       

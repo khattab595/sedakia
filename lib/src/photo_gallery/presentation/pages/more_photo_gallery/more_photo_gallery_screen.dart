@@ -9,23 +9,20 @@ class MorePhotoGalleryScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: GridView.builder(
-        itemCount: 8,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
-          childAspectRatio: 1,
-          mainAxisSpacing: 12,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-              onTap: () {
-                pushNamed(Routes.detailsPhotoGalleryPage);
-              },
-              child: MorePhotoGalleryItem());
-        },
+    return GridView.builder(
+      itemCount: 8,
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
+        childAspectRatio: 1,
+        mainAxisSpacing: 12,
       ),
+      itemBuilder: (BuildContext context, int index) {
+        return InkWell(
+            onTap: () {
+              pushNamed(Routes.detailsPhotoGalleryPage);
+            },
+            child: MorePhotoGalleryItem());
+      },
     );
   }
 }

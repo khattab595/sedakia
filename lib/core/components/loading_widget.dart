@@ -1,13 +1,13 @@
 import '../../src/main_index.dart';
 
-class LoadingView extends BaseStatelessWidget {
+class LoadingView extends StatelessWidget {
   LoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: scaffoldBackgroundColor,
-        child: Center(
+        color: AppColors.backgroundColor,
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -20,12 +20,13 @@ class LoadingView extends BaseStatelessWidget {
 */
                 child: CircularProgressIndicator(
                   strokeWidth: 3,
-                  color: primaryColor,
+                  color: AppColors.primaryLight,
                 ),
               ),
             ],
           ),
-        ));
+        ),
+    );
   }
 }
 

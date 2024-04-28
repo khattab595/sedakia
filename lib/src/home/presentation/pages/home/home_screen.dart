@@ -1,3 +1,5 @@
+import 'package:app/core/utils/navigator.dart';
+
 import '../../../../main_index.dart';
 import '../../../domain/entities/home.dart';
 import '../../widgets/custom_prayer_timings.dart';
@@ -25,7 +27,11 @@ class HomeScreen extends BaseStatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 2,
               itemBuilder: (context, index) {
-                return CustomItem();
+                return InkWell(
+                    onTap: (){
+                      pushNamed(Routes.digitalIdentityPage);
+                    },
+                    child: CustomItem());
               },
             ),
           ),

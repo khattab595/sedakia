@@ -52,27 +52,27 @@ class MyApp extends StatelessWidget {
           return state.isLoading
               ? LoadingView()
               : MaterialApp(
-                  theme: lightTheme,
-                  debugShowCheckedModeBanner: false,
-                  locale: const Locale('ar'),
-                  navigatorKey: injector<ServicesLocator>().navigatorKey,
-                  localizationsDelegates: const [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ],
-                  supportedLocales: const [
-                    Locale('en'), // English, no country code
-                    Locale('ar'), // Arabic, no country code
-                  ],
-                  routes: Routes.routes,
-                  initialRoute: state.isFirstTime
-                      ? Routes.navigationPages
-                      : state.isLogin
-                          ? Routes.navigationPages
-                          : Routes.navigationPages,
-                );
+            theme: lightTheme,
+            debugShowCheckedModeBanner: false,
+            locale: Locale('ar'),
+            navigatorKey: injector<ServicesLocator>().navigatorKey,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en'), // English, no country code
+              Locale('ar'), // Arabic, no country code
+            ],
+            routes: Routes.routes,
+            initialRoute: state.isFirstTime
+                ? Routes.loginPage
+                : state.isLogin
+                ? Routes.loginPage
+                : Routes.loginPage,
+          );
         },
       ),
     );

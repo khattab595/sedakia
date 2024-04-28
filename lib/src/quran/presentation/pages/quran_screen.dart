@@ -8,13 +8,11 @@ class QuranScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: kCafColor.withOpacity(0.1),
-        child: Column(
-          children: [
-            ItemRosary(text: "بسم آلُلُہ آلُرٍحٍمن آلُرٍحٍيَم",fontSize: 18,),
-            Image.asset(AppImages.test,fit: BoxFit.cover,),
-          ],
-        ));
+    return Column(
+      children: [
+        ItemRosary(text: "بسم آلُلُہ آلُرٍحٍمن آلُرٍحٍيَم",fontSize: 18,),
+        Image.asset(AppImages.test,fit: BoxFit.cover,),
+      ],
+    );
   }
 }

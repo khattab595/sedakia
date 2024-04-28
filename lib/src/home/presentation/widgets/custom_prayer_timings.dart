@@ -16,14 +16,14 @@ class CustomPrayerTimings extends BaseStatelessWidget {
             height: 130,
             decoration:
                 Decorations.kDecorationRadiusAndImage(image: AppImages.hajj)),
-        const PositionedDirectional(
+         PositionedDirectional(
             top: 15,
             bottom: 0,
             start: 240,
             end: 0,
             child: BoldText(
               label: "24 رمضان 1415",
-              labelColor: kPrimaryLight,
+              labelColor: whiteTextColor,
               fontSize: 14,
             )),
         Positioned(
@@ -36,9 +36,9 @@ class CustomPrayerTimings extends BaseStatelessWidget {
               value: "01:00pm",
               mainAxisAlignment: MainAxisAlignment.center,
               titleStyle:
-                  bodyLarge.copyWith(fontSize: 18, color: kPrimaryLight),
+                  blackSemiBoldStyle.copyWith(fontSize: 18, color: whiteTextColor),
               valueStyle:
-                  bodyLarge.copyWith(fontSize: 18, color: kPrimaryLight),
+                  blackSemiBoldStyle.copyWith(fontSize: 18, color: whiteTextColor),
             ))
       ],
     );

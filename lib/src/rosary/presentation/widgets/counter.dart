@@ -26,9 +26,9 @@ class Counter extends BaseStatelessWidget {
                           value--;
                           setState(() {});
                         },
-                        color: kBlue00,
+                        color: errorColor,
                         fontSize: 15,
-                        fontWeight: FontWeight.w700,
+
                       ),
                     ),
                   ],
@@ -36,7 +36,7 @@ class Counter extends BaseStatelessWidget {
                 40.ph,
                 CircleAvatar(
                   maxRadius: 100,
-                  backgroundColor: kBlueCB,
+                  backgroundColor: primaryColor,
                   child: Text("$value"),
                 ),
                 90.ph,

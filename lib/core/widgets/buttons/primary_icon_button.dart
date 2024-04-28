@@ -10,6 +10,7 @@ class PrimaryIconButton extends StatelessWidget {
   final TextStyle? titleStyle;
   final Function()? onPressed;
   final double? height;
+  final double? fontSize;
   final Color? backgroundColor;
   final double? borderRadius;
   final String icon;
@@ -21,6 +22,7 @@ class PrimaryIconButton extends StatelessWidget {
   const PrimaryIconButton(
       {Key? key,
       this.title,
+        this.fontSize,
       this.onPressed,
       this.height,
       this.backgroundColor,
@@ -56,7 +58,7 @@ class PrimaryIconButton extends StatelessWidget {
             17.pw,
             Text(
               title!,
-              style: titleStyle ?? context.labelSmall.copyWith(fontSize: 16)
+              style: titleStyle ?? context.labelLarge.copyWith(fontSize:fontSize?? 16)
             ),
           ],
         ),

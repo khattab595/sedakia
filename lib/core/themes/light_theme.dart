@@ -2,18 +2,18 @@
 import '../../src/main_index.dart';
 import 'fonts.dart';
 
-const Color primaryColor = Color(0xff5FC1CF);
-const Color lighterDarkColor = Color(0xff69452E);
-const secondaryColor = Color(0xffffffff);
-const Color kGreyColor = Color(0xff818185);
-const Color blackColor = Color(0xff000000);
+// const Color primaryColor = Color(0xff5FC1CF);
+// const Color lighterDarkColor = Color(0xff69452E);
+// const secondaryColor = Color(0xffffffff);
+// const Color kGreyColor = Color(0xff818185);
+// const Color blackColor = Color(0xff000000);
 
 
 final lightTheme = ThemeData(
   primaryColor: AppColors.primaryLight,
   brightness: Brightness.light,
-  primaryColorDark: blackColor,
-  scaffoldBackgroundColor: secondaryColor.withOpacity(0.1),
+  primaryColorDark: AppColors.primaryDark,
+  scaffoldBackgroundColor: AppColors.backgroundColor,
   hintColor: AppColors.greyColor,
   cardColor: AppColors.cardColor,
   dividerColor: AppColors.borderColor,
@@ -41,7 +41,7 @@ final lightTheme = ThemeData(
   ),
   appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: secondaryColor,
+      statusBarColor: AppColors.backgroundColor,
       statusBarIconBrightness: Brightness.light,
     ),
     color: Color(0xffffffff),
@@ -51,7 +51,7 @@ final lightTheme = ThemeData(
       fontSize: 20,
       fontFamily: Fonts.bold,
       fontWeight: FontWeight.w700,
-      color: blackColor,
+      color: AppColors.primaryDark,
     ),
     //  backgroundColor: secondaryColor,
     centerTitle: true,
@@ -144,19 +144,19 @@ final lightTheme = ThemeData(
     ),
     headlineSmall: TextStyle(
       fontSize: 14.0,
-      color: primaryColor,
+      color: AppColors.primaryLight,
       fontFamily: Fonts.regular,
       fontWeight: FontWeight.w400,
     ),
     headlineMedium: TextStyle(
       fontSize: 16.0,
-      color: primaryColor,
+      color: AppColors.primaryLight,
       fontFamily: Fonts.medium,
       fontWeight: FontWeight.w500,
     ),
     headlineLarge: TextStyle(
       fontSize: 18.0,
-      color: primaryColor,
+      color: AppColors.primaryLight,
       fontFamily: Fonts.bold,
       fontWeight: FontWeight.w600,
     ),

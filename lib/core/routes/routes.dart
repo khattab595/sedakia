@@ -4,13 +4,12 @@ import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.da
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
+import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
 import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
 import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
 import '../../src/healthy/presentation/pages/healthy_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
-import '../../src/invoices/presentation/invoices/pages/details_invoice/details_invoice_page.dart';
-import '../../src/invoices/presentation/invoices/pages/invoices_page.dart';
 import '../../src/language/presentation/pages/change_language_page.dart';
 import '../../src/live_broadcast/presentation/pages/details_live_broadcast/details_live_broadcast_page.dart';
 import '../../src/live_broadcast/presentation/pages/live_broadcast_page.dart';
@@ -30,11 +29,9 @@ import '../../src/qayds/presentation/qayd_payment/pages/qayd_payment_page.dart';
 import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
 import '../../src/quran/presentation/pages/quran_page.dart';
 import '../../src/references/presentation/pages/reference_page.dart';
-import '../../src/reports/presentation/pages/reports_page.dart';
 import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.dart';
 import '../../src/rosary/presentation/pages/rosary_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
-import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
 
@@ -109,6 +106,7 @@ class Routes {
   static const String notePage = 'notePage';
   static const String hajjMessagesPage = 'hajjMessagesPage';
   static const String detailsMessagePage = 'detailsMessagePage';
+  static const String digitalIdentityPage = 'digitalIdentityPage';
 
 
   /* ====================================================================== */
@@ -129,10 +127,7 @@ class Routes {
     homePage: (context) => HomePage(),
     profile: (context) => ProfilePage(),
     aboutLogeste: (context) => AboutLogestePage(),
-    reportsPage: (context) => ReportsPage(),
     /* ====================================================================== */
-    invoicesPage: (context) => InvoicesPage(),
-    detailsInvoicesPage: (context) => DetailsInvoicesPage(),
     aboutCafPage: (context) => AboutCafPage(),
     programmePage: (context) => ProgramePage(),
     campaignTermsPage: (context) => CampaignTermsPage(),
@@ -153,5 +148,6 @@ class Routes {
     notePage: (context) => NotePage(),
     hajjMessagesPage: (context) => HajjMessagesPage(),
     detailsMessagePage: (context) => DetailsMessagePage(),
+    digitalIdentityPage: (context) => DigitalIdentityPage(),
   };
 }

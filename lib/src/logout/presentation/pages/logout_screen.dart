@@ -6,20 +6,20 @@ import '../../../main_index.dart';
 import '../../../profile/presentation/widgets/profile_item.dart';
 
 class LogoutScreen extends BaseStatelessWidget {
-   LogoutScreen({super.key});
+  LogoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: 12.paddingHoriz,
-      child:  Column(
+      child: Column(
         children: [
           50.ph,
           ProfileItem(
             iconSize: 26,
             icon: AppIcons.send,
             title: strings.send_to_the_campaign,
-            route: Routes.changeLanguagePage,
+            route: "",
           ),
           10.ph,
           ProfileItem(
@@ -46,17 +46,25 @@ class LogoutScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.setting,
             title: strings.program_settings,
-            route: Routes.supportPage,
+            route: "",
           ),
           10.ph,
           ProfileItem(
             icon: AppIcons.communication,
             title: strings.call_us,
-            route: Routes.loginPage,
+            route: "",
           ),
           const Spacer(),
-          PrimaryIconButton(title:strings.sign_out ,icon: AppIcons.register,onPressed: (){pushNamedAndRemoveUntil(Routes.loginPage);},height: 50,borderRadius: 6,),
-          20.ph,
+          PrimaryIconButton(
+            title: strings.sign_out,
+            icon: AppIcons.register,
+            onPressed: () {
+              pushNamedAndRemoveUntil(Routes.loginPage);
+            },
+            height: 50,
+            borderRadius: 6,
+          ),
+          100.ph,
         ],
       ),
     );

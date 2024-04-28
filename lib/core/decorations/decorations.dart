@@ -28,7 +28,7 @@ class Decorations {
     double? radius,
   }) {
     return BoxDecoration(
-      border: Border.all(color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor),
+    //  border: Border.all(color: borderColor ?? injector<ServicesLocator>().appContext.dividerColor),
       color: color ?? injector<ServicesLocator>().appContext.cardColor,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(radius ?? 12),
@@ -49,7 +49,15 @@ class Decorations {
       ),
     );
   }
+  static Decoration get decorationTabs => decorationTabsOnlyTop(borderRadius: BorderRadius.circular(10));
+  static Decoration decorationTabsOnlyTop({BorderRadiusGeometry? borderRadius}) {
+    return BoxDecoration(
+      borderRadius:  BorderRadius.circular(10),
+      color: injector<ServicesLocator>().appContext.scaffoldBackgroundColor,
 
+
+    );
+  }
   static BoxDecoration kDecorationBottomRadius({
     required Color color,
     double? radius,

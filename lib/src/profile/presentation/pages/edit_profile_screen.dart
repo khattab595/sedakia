@@ -49,7 +49,7 @@ class EditProfileScreen extends BaseStatelessWidget {
               enabled: false,
             ),
             CustomTextField(
-              title: strings.point_sale_mobile_number,
+              title: strings.home,
               controller: pointSaleNumberController,
               enabled: false,
             ),

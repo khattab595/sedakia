@@ -15,7 +15,7 @@ class MessageItem extends BaseStatelessWidget {
         Container(
           padding: 5.paddingAll,
           margin: 2.paddingHoriz+8.paddingVert,
-          decoration: Decorations.kDecorationTopRadius(radius: 9,color: kBlueF6,borderColor: kBlue8D),
+          decoration: Decorations.kDecorationTopRadius(radius: 9,color: cardColor,borderColor: primaryColor),
           child: Row(
             children: [
               10.pw,
@@ -29,10 +29,10 @@ class MessageItem extends BaseStatelessWidget {
                         CustomRichText(
                           label: "رسالة من :",
                           value: "الحاج محمد",
-                          labelStyle: bodyLarge.copyWith(
+                          labelStyle: blackSemiBoldStyle.copyWith(
                               fontSize: 12, color: primaryColor),
-                          valueStyle: bodyLarge.copyWith(
-                              fontSize: 12, color: kPrimaryDark),
+                          valueStyle: blackSemiBoldStyle.copyWith(
+                              fontSize: 12, color: blackTextColor),
                         ),
                         const Spacer(),
                         const MediumText(
@@ -53,14 +53,14 @@ class MessageItem extends BaseStatelessWidget {
                       ),
                     ),
                     6.ph,
-                    const Divider(endIndent: 8,color: kBlue9D,),
+                     Divider(endIndent: 8,color: dividerColor,),
                     6.ph,
                     RowTexts(
                       title: "تسكين",
                       value: "في انتظار الرد",
-                      titleStyle: bodyMedium.copyWith(fontSize: 12,),
+                      titleStyle: blackMediumStyle.copyWith(fontSize: 12,),
                       valueStyle:
-                          bodyLarge.copyWith(fontSize: 12, color: kBlue8D),
+                          blackSemiBoldStyle.copyWith(fontSize: 12,color: primaryColor),
                     )
                   ],
                 ),

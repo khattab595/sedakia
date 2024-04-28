@@ -8,16 +8,13 @@ class HealthyScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      color: kCafColor.withOpacity(0.1),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 8,
-        padding: 10.paddingAll,
-        itemBuilder: (context, index) {
-          return HealthyItem();
-        },
-      ),
+    return  ListView.builder(
+      shrinkWrap: true,
+      itemCount: 8,
+      padding: 10.paddingAll,
+      itemBuilder: (context, index) {
+        return HealthyItem();
+      },
     );
   }
 }

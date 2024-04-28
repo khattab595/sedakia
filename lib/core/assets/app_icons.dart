@@ -57,6 +57,9 @@ class AppIcons{
   static const String message = "assets/icons/message.svg";
   static const String note = "assets/icons/note.svg";
   static const String send = "assets/icons/send.svg";
+  static const String iconOne = "assets/icons/iconOne.svg";
+  static const String iconTwo = "assets/icons/iconTwo.svg";
+  static const String loss = "assets/icons/loss.svg";
 
 
 

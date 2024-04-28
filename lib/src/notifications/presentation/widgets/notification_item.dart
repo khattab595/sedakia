@@ -27,7 +27,7 @@ class NotificationItem extends BaseStatelessWidget {
       children: [
         Container(
           padding: 5.paddingAll,
-          decoration:Decorations.kDecorationTopRadius(radius: 6),
+          decoration:Decorations.kDecorationTopRadius(radius: 6,),
           child: Row(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,8 +59,8 @@ class NotificationItem extends BaseStatelessWidget {
                     RowTexts(
                       title: "2023-05-28",
                       value: "02:00am",
-                      titleStyle: bodyMedium.copyWith(fontSize: 12),
-                      valueStyle: bodyMedium.copyWith(fontSize: 12),
+                      titleStyle: blackMediumStyle.copyWith(fontSize: 12),
+                      valueStyle: blackMediumStyle.copyWith(fontSize: 12),
                     )
                   ],
                 ),

@@ -8,21 +8,18 @@ class PhotoGalleryScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 3,
-        padding: 10.paddingAll,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return InkWell(
-              onTap: (){
-                pushNamed(Routes.detailsPhotoGalleryPage);
-              },
-              child: PhotoGalleryItem());
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 3,
+      padding: 10.paddingHoriz,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return InkWell(
+            onTap: (){
+              pushNamed(Routes.detailsPhotoGalleryPage);
+            },
+            child: PhotoGalleryItem());
+      },
     );
   }
 }

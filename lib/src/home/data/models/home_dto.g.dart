@@ -12,9 +12,7 @@ HomeDto _$HomeDtoFromJson(Map<String, dynamic> json) => HomeDto(
           .toList(),
       slider:
           (json['slider'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      sections: (json['sections'] as List<dynamic>?)
-          ?.map((e) => Section.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      sections: json['sections'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$HomeDtoToJson(HomeDto instance) => <String, dynamic>{
@@ -33,18 +31,4 @@ Map<String, dynamic> _$StatisticToJson(Statistic instance) => <String, dynamic>{
       'title': instance.title,
       'value': instance.value,
       'color': instance.color,
-    };
-
-Section _$SectionFromJson(Map<String, dynamic> json) => Section(
-      title: json['title'] as String?,
-      seeMore: json['see_more'] as bool?,
-      products: (json['invoices'] as List<dynamic>?)
-          ?.map((e) => InvoiceDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
-      'title': instance.title,
-      'see_more': instance.seeMore,
-      'invoices': instance.products,
     };

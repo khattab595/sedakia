@@ -14,7 +14,7 @@ class HajjTransportationItem extends BaseStatelessWidget {
           margin: 5.paddingHoriz + 16.paddingTop,
           padding: 5.paddingAll,
           decoration: Decorations.kDecorationBorderRadius(
-              radius: 10, color: kPrimaryLight, borderColor: kPrimaryLight),
+              radius: 10, color: whiteTextColor, borderColor: whiteTextColor),
           child: Row(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [

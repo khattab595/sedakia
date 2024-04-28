@@ -28,7 +28,7 @@ class ColumnTexts extends StatelessWidget {
           ),
         ),
         if(isSizedBox!)
-        const SizedBox(height: 8),
+        const SizedBox(height: 5),
         FittedBox(
           child: Text(
             value,

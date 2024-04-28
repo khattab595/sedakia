@@ -9,20 +9,17 @@ class ProgrameScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 4,
-        padding: 10.paddingAll,
-        itemBuilder: (context, index) {
-          return InkWell(
-              onTap: (){
-                pushNamed(Routes.detailsProgrammePage);
-              },
-              child: ProgrameItem());
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: 4,
+      padding: 10.paddingAll,
+      itemBuilder: (context, index) {
+        return InkWell(
+            onTap: (){
+              pushNamed(Routes.detailsProgrammePage);
+            },
+            child: ProgrameItem());
+      },
     );
   }
 }

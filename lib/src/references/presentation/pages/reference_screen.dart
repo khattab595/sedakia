@@ -7,16 +7,13 @@ class ReferenceScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: ListView.builder(
-        itemCount: 3,
-        padding:10.paddingAll,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return ReferenceItem();
-        },
-      ),
+    return ListView.builder(
+      itemCount: 3,
+      padding:10.paddingAll,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return ReferenceItem();
+      },
     );
   }
 }

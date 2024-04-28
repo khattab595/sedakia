@@ -9,18 +9,15 @@ class RosaryScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: kCafColor.withOpacity(0.1),
-      child: Column(
-        children: [
-          23.ph,
-          ItemButtonRosary(title: "الحمد لله",onPressed: (){pushNamed(Routes.rosaryCounterPage);},),
-          23.ph,
-          ItemButtonRosary(title: "لا الاه الا الله",onPressed: (){},),
-          23.ph,
-          ItemButtonRosary(title: "سبحان الله",onPressed: (){},)
-        ],
-      ),
+    return Column(
+      children: [
+        23.ph,
+        ItemButtonRosary(title: "الحمد لله",onPressed: (){pushNamed(Routes.rosaryCounterPage);},),
+        23.ph,
+        ItemButtonRosary(title: "لا الاه الا الله",onPressed: (){},),
+        23.ph,
+        ItemButtonRosary(title: "سبحان الله",onPressed: (){},)
+      ],
     );
   }
 }

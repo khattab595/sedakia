@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../invoices/data/models/product_dto.dart';
 
 part 'home_dto.g.dart'; 
 
@@ -11,7 +10,7 @@ class HomeDto {
   @JsonKey(name: 'slider')
   List<String>? slider;
   @JsonKey(name: 'sections')
-  List<Section>? sections;
+  List? sections;
 
   HomeDto({this.statistics, this.slider, this.sections});
 
@@ -36,20 +35,5 @@ class Statistic {
    Map<String, dynamic> toJson() => _$StatisticToJson(this);
 }
 
-@JsonSerializable(ignoreUnannotated: false)
-class Section {
-  @JsonKey(name: 'title')
-  String? title;
-  @JsonKey(name: 'see_more')
-  bool? seeMore;
-  @JsonKey(name: 'invoices')
-  List<InvoiceDto>? products;
-
-  Section({this.title, this.seeMore, this.products});
-
-   factory Section.fromJson(Map<String, dynamic> json) => _$SectionFromJson(json);
-
-   Map<String, dynamic> toJson() => _$SectionToJson(this);
-}
 
 
