@@ -1,4 +1,4 @@
-package com.elCaf.app
+package com.wezary.app
 
 import io.flutter.embedding.android.FlutterActivity
 
