@@ -4,7 +4,9 @@ import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 import 'package:app/core/utils/constants.dart';
 
+import '../../../home/data/models/home_dto.dart';
 import '../../domain/entities/notification.dart';
+import '../models/notification_dto.dart';
 
 part 'notifications_datasource.g.dart';
 @Injectable()
@@ -15,5 +17,5 @@ abstract class  NotificationsDatasource{
   factory NotificationsDatasource(Dio dio) = _NotificationsDatasource;
 
   @GET('/notifications')
-  Future<ApiResponse<List<Notifications>>> fetchNotifications();
+  Future<ApiResponse<List<NotificationDto>>> fetchNotifications();
 }

@@ -16,6 +16,8 @@ import '../../src/live_broadcast/presentation/pages/details_live_broadcast/detai
 import '../../src/live_broadcast/presentation/pages/live_broadcast_page.dart';
 import '../../src/logout/presentation/pages/logout_page.dart';
 import '../../src/main_index.dart';
+import '../../src/my_courses/presentation/pages/my_courses_page.dart';
+import '../../src/my_courses/presentation/pages/my_courses_screen.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notes/presentation/pages/notes_page.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
@@ -106,6 +108,7 @@ class Routes {
   static const String hajjMessagesPage = 'hajjMessagesPage';
   static const String detailsMessagePage = 'detailsMessagePage';
   static const String digitalIdentityPage = 'digitalIdentityPage';
+  static const String myCoursesPage = 'myCoursesPage';
 
 
   /* ====================================================================== */
@@ -119,9 +122,8 @@ class Routes {
 
 
 
-
-
-    editProfilePage: (context) => EditProfilePage(),
+  myCoursesPage: (context) => MyCoursesPage(),
+  editProfilePage: (context) => EditProfilePage(),
         loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     supportPage: (context) => SupportPage(),

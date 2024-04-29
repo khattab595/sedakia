@@ -25,14 +25,14 @@ class MobileTextField extends BaseStatelessWidget {
          label: '964+',
         ),
       ),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return strings.this_field_is_required;
-        } else if (value.length != 10) {
-          return strings.enter_valid_mobile_number;
-        }
-        return null;
-      },
+      // validator: (value) {
+      //   if (value!.isEmpty) {
+      //     return strings.this_field_is_required;
+      //   } else if (value.length != 10) {
+      //     return strings.enter_valid_mobile_number;
+      //   }
+      //   return null;
+      // },
     );
   }
 }

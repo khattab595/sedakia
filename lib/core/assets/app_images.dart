@@ -8,5 +8,7 @@ class AppImages{
   static const String quran = 'assets/images/quran.png';
   static const String test = 'assets/images/test.png';
   static const String basmalla = 'assets/images/basmalla.png';
+  static const String notificationEmpty = 'assets/images/notif.png';
+  static const String myCoursesEmpty = 'assets/images/course_empty.png';
 
 }
