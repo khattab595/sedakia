@@ -19,7 +19,7 @@ class AboutCafScreen extends BaseStatelessWidget {
           radius: 20,
           child: Center(
               child: Image.asset(
-            AppImages.caf,
+            AppImages.quran,
             width: 106,
             height: 74,
           )),

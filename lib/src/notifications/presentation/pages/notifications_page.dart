@@ -2,7 +2,7 @@
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/notification.dart';
-import '../bloc/Notification_bloc.dart';
+import '../bloc/notification_bloc.dart';
 import 'notifications_screen.dart';
 
 class NotificationsPage extends BaseBlocWidget<DataSuccess<List<Notifications>>, NotificationsCubit> {

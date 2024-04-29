@@ -21,7 +21,7 @@ class DetailsPhotoGalleryScreen extends BaseStatelessWidget {
             padding: 10.paddingHoriz,
             height: 400,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.photo, radius: 10),
+                image: AppImages.spashLogo, radius: 10),
           ),
           19.ph,
           const MediumText(

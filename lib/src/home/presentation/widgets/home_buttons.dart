@@ -16,7 +16,7 @@ class HomeButtons extends BaseStatelessWidget {
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           _Item(
-            icon: AppImages.caf,
+            icon: AppImages.quran,
             sizeIcon: 70,
             title: strings.about_elcaf,
             onTap: () {

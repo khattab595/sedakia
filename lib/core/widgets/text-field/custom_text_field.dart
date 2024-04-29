@@ -27,7 +27,7 @@ class CustomTextField extends BaseStatelessWidget {
   final bool? isValidator;
   final double? minHeight;
   final bool enabled;
-    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius = 20, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
+    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius = 12, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,43 +64,40 @@ class CustomTextField extends BaseStatelessWidget {
                 if (keyboardType == TextInputType.number) FilteringTextInputFormatter.digitsOnly,
               ],
               decoration: inputDecoration ?? InputDecoration(
-                // labelText: hintText,
-                label: Padding(
-                    padding: 20.paddingEnd+ 5.paddingStart,
-                    child: PrimaryBoldText(label: title ?? '')),
+                hintText: hintText,
                 hintStyle: hintStyle ?? context.displaySmall.copyWith(fontSize: 16),
                 fillColor: fillColor ?? context.theme.inputDecorationTheme.fillColor,
                 filled: true,
-                prefixIconConstraints:  BoxConstraints(
-                  minWidth: minHeight?? 35,
-                  minHeight: minHeight ?? 35,
-                ),
+                // prefixIconConstraints:  BoxConstraints(
+                //   minWidth: minHeight?? 35,
+                //   minHeight: minHeight ?? 35,
+                // ),
                 prefixIcon:  prefixIconPath != null ? AppIcon(
                   padding: const EdgeInsets.all(12),
                   icon: prefixIconPath!,  size: 20,) : prefixIcon,
                 suffixIcon: suffixIconPath != null ? AppIcon(
-                  padding: const EdgeInsets.all(12),
-                  icon: suffixIconPath!, size: 0) : suffixIcon,
-                contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                    padding: const EdgeInsets.all(12),
+                    icon: suffixIconPath!, size: 0) : suffixIcon,
+                // contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 border:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius)),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 focusedBorder:  OutlineInputBorder(
-                  borderRadius:  BorderRadius.all(Radius.circular(radius)),
+                  borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: primaryColor),
                 ),
 
                 enabledBorder:  OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: borderColor),
                 ),
                 errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: errorColor),
                 ),
                 disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(radius)),
+                  borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
                   borderSide: BorderSide(color: borderColor),
                 ),
               ),

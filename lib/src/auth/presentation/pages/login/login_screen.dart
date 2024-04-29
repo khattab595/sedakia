@@ -1,8 +1,13 @@
 
 import 'package:app/core/widgets/images/logo.dart';
+import 'package:app/core/widgets/texts/hint_texts.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/texts.dart';
 
+import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
+import '../../../../../core/widgets/text-field/mobile_text_field.dart';
+import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
 import '../../../../splash/presentation/widgets/intro_bg.dart';
 import '../../../data/models/login_params.dart';
@@ -19,63 +24,79 @@ class LoginScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // if(kDebugMode){
-    //   phoneNumberController.text = '01020304050';
-    //   passwordController.text = '12345677';
-    // }
+    if(kDebugMode){
+      phoneNumberController.text = '7712345678';
+      passwordController.text = '123456789';
+    }
 
     return  Form(
       key: formKey,
-      child: Stack(
-        alignment: Alignment.topCenter,
-        children: [
-          IntroBg(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: 20.paddingHoriz + 40.paddingVert,
-              decoration: Decorations.kDecorationTopRadius(),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+      child: SingleChildScrollView(
+        padding: 20.paddingAll,
+        child: Column(
+          children: [
+            50.ph,
+            const Logo(),
+            20.ph,
+            BlackBoldText(
+              label: strings.sign_in,
+              fontSize: 20,
+            ),
+            10.ph,
+            HintMediumText(label: strings.log_in_using_your_mobile_number, fontSize: 14),
+            30.ph,
+            MobileTextField(
+              controller: phoneNumberController,
+            ),
+            CustomTextField(
+              controller: passwordController,
+              hintText: strings.password,
+              keyboardType: TextInputType.number,
+              margin: 7.paddingBottom,
+            ),
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: LabelButton(
+                title: strings.forgot_password,
+                style: primaryMediumStyle,
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
+                },
+              ),
+            ),
+            PrimaryButton(
+              title: strings.sign_in,
+              margin: 30.paddingVert,
+              onPressed: () => onPressed(),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.register);
+              },
+              child: FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    PrimaryBoldText(
-                      label: strings.sign_in_hajj,
-                      fontSize: 20,
-                    ),
-                    30.ph,
-                    CustomTextField(
-                      controller: phoneNumberController,
-                      title: strings.id_number,
-                      keyboardType: TextInputType.number,
-                      margin: 40.paddingVert,
-                    ),
-                    CustomTextField(
-                      controller: passwordController,
-                      title: strings.reservation_number,
-                      keyboardType: TextInputType.number,
-                      margin: 40.paddingBottom,
-                    ),
-                    PrimaryButton(
-                      title: strings.sign_in,
-                      margin: 30.paddingTop,
-                      onPressed: () => onPressed(),
-                    ),
+                    HintMediumText(label: strings.dont_have_an_account),
+                    5.pw,
+                    PrimaryMediumText(label: strings.create_new_account),
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
   onPressed() async {
-   // if (formKey.currentState!.validate()) {
+   if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        phone: phoneNumberController.text,
+        phoneNumber: '964${phoneNumberController.text}',
         password: passwordController.text,
+        fcmToken: 'harby',
       ));
-  //  }
+   }
   }
 }

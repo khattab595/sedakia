@@ -35,7 +35,7 @@ class AuthWidget extends BaseStatelessWidget {
             Padding(
               padding: 20.paddingHoriz + (kToolbarHeight).paddingTop,
               child: Image.asset(
-                AppImages.auth_logo,
+                AppImages.quran,
                 height: 50,
                 fit: BoxFit.fill,
               ),

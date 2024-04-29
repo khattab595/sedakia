@@ -18,7 +18,7 @@ class MorePhotoGalleryItem extends BaseStatelessWidget {
             padding: 10.paddingHoriz,
             height: 114,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.photo, radius: 10),
+                image: AppImages.spashLogo, radius: 10),
           ),
           10.ph,
           const BoldText(

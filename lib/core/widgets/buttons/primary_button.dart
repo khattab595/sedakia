@@ -27,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
           elevation: elevation ?? 0,
           backgroundColor: backgroundColor ??  context.primaryColor,
           shape: RoundedRectangleBorder(
-              borderRadius: borderRadius ??  BorderRadius.all(Radius.circular(radius ?? 6))
+              borderRadius: borderRadius ??  BorderRadius.all(Radius.circular(radius ?? 12))
           ),
           fixedSize: isFixedSize ? Size(width ?? MediaQuery.of(context).size.width, height!) : null,
           minimumSize: isFixedSize ? Size(width ?? MediaQuery.of(context).size.width, height!) : null,

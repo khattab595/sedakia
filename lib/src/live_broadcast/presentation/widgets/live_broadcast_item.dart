@@ -17,7 +17,7 @@ class LiveBraodcastItem extends BaseStatelessWidget {
           Container(
             height: 129,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.photo, radius: 20),
+                image: AppImages.spashLogo, radius: 20),
           ),
           10.ph,
           const BoldText(

@@ -24,7 +24,7 @@ class ProgrameItem extends BaseStatelessWidget {
                 height: 76,
                 width: 91,
                 decoration: Decorations.kDecorationRadiusAndImage(
-                    image: AppImages.images, radius: 5),
+                    image: AppImages.intro, radius: 5),
               ),
               10.pw,
               Expanded(

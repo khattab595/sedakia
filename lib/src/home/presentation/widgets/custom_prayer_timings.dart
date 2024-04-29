@@ -15,7 +15,7 @@ class CustomPrayerTimings extends BaseStatelessWidget {
             margin: 16.paddingHoriz,
             height: 130,
             decoration:
-                Decorations.kDecorationRadiusAndImage(image: AppImages.hajj)),
+                Decorations.kDecorationRadiusAndImage(image: AppImages.quran)),
          PositionedDirectional(
             top: 15,
             bottom: 0,

@@ -17,7 +17,7 @@ class PhotoGalleryItem extends BaseStatelessWidget {
           Container(
             height: 175,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.photo, radius: 10),
+                image: AppImages.spashLogo, radius: 10),
           ),
           19.ph,
           const BoldText(

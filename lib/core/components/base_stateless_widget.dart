@@ -20,7 +20,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
   TextStyle get primaryRegularStyle => textTheme.headlineSmall!;
   TextStyle get primaryMediumStyle => textTheme.headlineMedium!;
   TextStyle get primarySemiBoldStyle => textTheme.headlineLarge!;
-  TextStyle get primaryBoldStyle => textTheme.titleLarge!.copyWith(color: primaryMediumStyle.color);
+  TextStyle get primaryBoldStyle => textTheme.titleLarge!.copyWith(color: primaryMediumStyle.color, fontSize: 18);
   TextStyle get blackRegularStyle => textTheme.bodySmall!;
   TextStyle get blackMediumStyle => textTheme.bodyMedium!;
   TextStyle get blackSemiBoldStyle => textTheme.bodyLarge!;

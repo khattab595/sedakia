@@ -17,7 +17,7 @@ class DetailsProgremeScreen extends BaseStatelessWidget {
             margin: 16.paddingHoriz + 24.paddingTop,
             height: 345,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.images, radius: 24),
+                image: AppImages.intro, radius: 24),
           ),
           9.ph,
           Padding(

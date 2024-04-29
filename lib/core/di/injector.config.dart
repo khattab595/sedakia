@@ -11,9 +11,9 @@
 import 'package:dio/dio.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:shared_preferences/shared_preferences.dart' as _i20;
+import 'package:shared_preferences/shared_preferences.dart' as _i21;
 
-import '../../src/about_caf/presentation/bloc/about_caf_bloc.dart' as _i26;
+import '../../src/about_caf/presentation/bloc/about_caf_bloc.dart' as _i23;
 import '../../src/auth/data/data_sources/auth_datasource.dart' as _i3;
 import '../../src/auth/data/data_sources/forgot_password_datasource.dart'
     as _i7;
@@ -21,60 +21,49 @@ import '../../src/auth/data/repositories/auth_repo_imp.dart' as _i6;
 import '../../src/auth/data/repositories/forgot_password_repo.dart' as _i9;
 import '../../src/auth/domain/repositories/auth_repo.dart' as _i5;
 import '../../src/auth/domain/repositories/forgot_password_repo.dart' as _i8;
-import '../../src/auth/presentation/bloc/auth_bloc.dart' as _i27;
-import '../../src/auth/presentation/bloc/forgot_password_bloc.dart' as _i37;
+import '../../src/auth/presentation/bloc/auth_bloc.dart' as _i24;
+import '../../src/auth/presentation/bloc/forgot_password_bloc.dart' as _i32;
 import '../../src/campaign_terms/presentation/bloc/campaign_terms_bloc.dart'
-    as _i36;
+    as _i31;
 import '../../src/hajj_transportation/presentation/bloc/hajj_transportation_bloc.dart'
-    as _i38;
+    as _i33;
 import '../../src/home/data/data_sources/home_datasource.dart' as _i10;
-import '../../src/home/data/repositories/home_repo.dart' as _i29;
-import '../../src/home/domain/repositories/base_home_repo.dart' as _i28;
-import '../../src/home/domain/use_cases/home_usecase.dart' as _i39;
-import '../../src/home/presentation/bloc/home_bloc.dart' as _i51;
+import '../../src/home/data/repositories/home_repo.dart' as _i26;
+import '../../src/home/domain/repositories/base_home_repo.dart' as _i25;
+import '../../src/home/domain/use_cases/home_usecase.dart' as _i34;
+import '../../src/home/presentation/bloc/home_bloc.dart' as _i44;
 import '../../src/live_broadcast/presentation/bloc/live_broadcast_bloc.dart'
-    as _i40;
+    as _i35;
 import '../../src/nav_bar/presentation/bloc/nav_bar_bloc.dart' as _i12;
-import '../../src/notes/presentation/bloc/notes_bloc.dart' as _i41;
+import '../../src/notes/presentation/bloc/notes_bloc.dart' as _i36;
 import '../../src/notifications/data/data_sources/notifications_datasource.dart'
     as _i13;
-import '../../src/notifications/data/repositories/notifications_repo.dart'
-    as _i31;
-import '../../src/notifications/domain/repositories/base_notifications_repo.dart'
-    as _i30;
-import '../../src/notifications/domain/use_cases/notifications_usecase.dart'
-    as _i42;
-import '../../src/notifications/presentation/bloc/Notification_bloc.dart'
-    as _i52;
+import '../../src/notifications/data/repositories/notifications_repo_imp.dart'
+    as _i15;
+import '../../src/notifications/domain/repositories/notifications_repo.dart'
+    as _i14;
+import '../../src/notifications/presentation/bloc/notification_bloc.dart'
+    as _i37;
 import '../../src/photo_gallery/presentation/bloc/photo_gallery_bloc.dart'
-    as _i43;
-import '../../src/profile/data/data_sources/profile_datasource.dart' as _i14;
-import '../../src/profile/data/repositories/profile_repo_imp.dart' as _i16;
-import '../../src/profile/domain/repositories/profile_repo.dart' as _i15;
-import '../../src/profile/presentation/bloc/profile_bloc.dart' as _i44;
-import '../../src/program/presentation/bloc/programe_bloc.dart' as _i17;
-import '../../src/qayds/data/data_sources/stores_datasource.dart' as _i22;
-import '../../src/qayds/data/repositories/stores_repo_imp.dart' as _i24;
-import '../../src/qayds/domain/repositories/stores_repo.dart' as _i23;
-import '../../src/qayds/domain/use_cases/stores_usecase.dart' as _i25;
-import '../../src/qayds/presentation/qayd_payment/bloc/qayd_payment_bloc.dart'
-    as _i45;
-import '../../src/qayds/presentation/register_qayd/bloc/register_qayd_bloc.dart'
-    as _i46;
-import '../../src/references/presentation/bloc/reference_bloc.dart' as _i18;
-import '../../src/settings/data/data_sources/settings_datasource.dart' as _i19;
-import '../../src/settings/data/repositories/settings_repo.dart' as _i33;
-import '../../src/settings/domain/repositories/base_settings_repo.dart' as _i32;
-import '../../src/settings/domain/use_cases/settings_usecase.dart' as _i47;
-import '../../src/settings/presentation/bloc/about_logeste_bloc.dart' as _i50;
+    as _i38;
+import '../../src/profile/data/data_sources/profile_datasource.dart' as _i16;
+import '../../src/profile/data/repositories/profile_repo_imp.dart' as _i18;
+import '../../src/profile/domain/repositories/profile_repo.dart' as _i17;
+import '../../src/profile/presentation/bloc/profile_bloc.dart' as _i39;
+import '../../src/program/presentation/bloc/programe_bloc.dart' as _i19;
+import '../../src/settings/data/data_sources/settings_datasource.dart' as _i20;
+import '../../src/settings/data/repositories/settings_repo.dart' as _i28;
+import '../../src/settings/domain/repositories/base_settings_repo.dart' as _i27;
+import '../../src/settings/domain/use_cases/settings_usecase.dart' as _i40;
+import '../../src/settings/presentation/bloc/about_logeste_bloc.dart' as _i43;
 import '../../src/settings/presentation/bloc/language_bloc.dart' as _i11;
-import '../../src/settings/presentation/support/bloc/support_bloc.dart' as _i49;
-import '../../src/splash/data/data_sources/splash_datasource.dart' as _i21;
-import '../../src/splash/data/repositories/splash_repo.dart' as _i35;
-import '../../src/splash/domain/repositories/base_splash_repo.dart' as _i34;
-import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i48;
-import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i53;
-import 'injection_module.dart' as _i54;
+import '../../src/settings/presentation/support/bloc/support_bloc.dart' as _i42;
+import '../../src/splash/data/data_sources/splash_datasource.dart' as _i22;
+import '../../src/splash/data/repositories/splash_repo.dart' as _i30;
+import '../../src/splash/domain/repositories/base_splash_repo.dart' as _i29;
+import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i41;
+import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i45;
+import 'injection_module.dart' as _i46;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> $initGetIt(
@@ -99,69 +88,56 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i12.NavBarState>(() => _i12.NavBarState());
   gh.factory<_i13.NotificationsDatasource>(
       () => _i13.NotificationsDatasource(gh<_i4.Dio>()));
-  gh.factory<_i14.ProfileDataSource>(
-      () => _i14.ProfileDataSource(gh<_i4.Dio>()));
-  gh.factory<_i15.ProfileRepo>(
-      () => _i16.ProfileRepoImp(gh<_i14.ProfileDataSource>()));
-  gh.factory<_i17.ProgrameBloc>(
-      () => _i17.ProgrameBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i18.ReferenceBloc>(
-      () => _i18.ReferenceBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i19.SettingsDatasource>(
-      () => _i19.SettingsDatasource(gh<_i4.Dio>()));
-  await gh.factoryAsync<_i20.SharedPreferences>(
+  gh.factory<_i14.NotificationsRepo>(
+      () => _i15.NotificationsRepoImp(gh<_i13.NotificationsDatasource>()));
+  gh.factory<_i16.ProfileDataSource>(
+      () => _i16.ProfileDataSource(gh<_i4.Dio>()));
+  gh.factory<_i17.ProfileRepo>(
+      () => _i18.ProfileRepoImp(gh<_i16.ProfileDataSource>()));
+  gh.factory<_i19.ProgrameBloc>(
+      () => _i19.ProgrameBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i20.SettingsDatasource>(
+      () => _i20.SettingsDatasource(gh<_i4.Dio>()));
+  await gh.factoryAsync<_i21.SharedPreferences>(
     () => injectionModule.prefs,
     preResolve: true,
   );
-  gh.factory<_i21.SplashDatasource>(() => _i21.SplashDatasource(gh<_i4.Dio>()));
-  gh.factory<_i22.StoresDatasource>(() => _i22.StoresDatasource(gh<_i4.Dio>()));
-  gh.factory<_i23.StoresRepo>(
-      () => _i24.StoresRepoImp(gh<_i22.StoresDatasource>()));
-  gh.factory<_i25.StoresUseCase>(
-      () => _i25.StoresUseCase(gh<_i23.StoresRepo>()));
-  gh.factory<_i26.AboutCafBloc>(
-      () => _i26.AboutCafBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i27.AuthCubit>(() => _i27.AuthCubit(gh<_i5.AuthRepo>()));
-  gh.factory<_i28.BaseHomeRepo>(() => _i29.HomeRepo(gh<_i10.HomeDatasource>()));
-  gh.factory<_i30.BaseNotificationsRepo>(
-      () => _i31.WalletRepo(gh<_i13.NotificationsDatasource>()));
-  gh.factory<_i32.BaseSettingsRepo>(
-      () => _i33.SettingsRepo(gh<_i19.SettingsDatasource>()));
-  gh.factory<_i34.BaseSplashRepo>(
-      () => _i35.SplashRepo(gh<_i21.SplashDatasource>()));
-  gh.factory<_i36.CampaignTermsBloc>(
-      () => _i36.CampaignTermsBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i37.ForgotPasswordCubit>(
-      () => _i37.ForgotPasswordCubit(gh<_i8.ForgotPasswordRepo>()));
-  gh.factory<_i38.HajjTransportationBloc>(
-      () => _i38.HajjTransportationBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i39.HomeUseCase>(() => _i39.HomeUseCase(gh<_i28.BaseHomeRepo>()));
-  gh.factory<_i40.LiveBroadcastBloc>(
-      () => _i40.LiveBroadcastBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i41.NoteBloc>(() => _i41.NoteBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i42.NotificationsUseCase>(
-      () => _i42.NotificationsUseCase(gh<_i30.BaseNotificationsRepo>()));
-  gh.factory<_i43.PhotoGalleryBloc>(
-      () => _i43.PhotoGalleryBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i44.ProfileBloc>(() => _i44.ProfileBloc(gh<_i15.ProfileRepo>()));
-  gh.factory<_i45.QaydPaymentCubit>(
-      () => _i45.QaydPaymentCubit(gh<_i25.StoresUseCase>()));
-  gh.factory<_i46.RegiserQaydCubit>(
-      () => _i46.RegiserQaydCubit(gh<_i25.StoresUseCase>()));
-  gh.factory<_i47.SettingsUseCase>(
-      () => _i47.SettingsUseCase(gh<_i32.BaseSettingsRepo>()));
-  gh.factory<_i48.SplashUseCase>(
-      () => _i48.SplashUseCase(gh<_i34.BaseSplashRepo>()));
-  gh.factory<_i49.SupportCubit>(
-      () => _i49.SupportCubit(gh<_i47.SettingsUseCase>()));
-  gh.factory<_i50.AboutLogesteCubit>(
-      () => _i50.AboutLogesteCubit(gh<_i47.SettingsUseCase>()));
-  gh.factory<_i51.HomeCubit>(() => _i51.HomeCubit(gh<_i39.HomeUseCase>()));
-  gh.factory<_i52.NotificationsCubit>(
-      () => _i52.NotificationsCubit(gh<_i42.NotificationsUseCase>()));
-  gh.factory<_i53.SplashCubit>(
-      () => _i53.SplashCubit(gh<_i48.SplashUseCase>()));
+  gh.factory<_i22.SplashDatasource>(() => _i22.SplashDatasource(gh<_i4.Dio>()));
+  gh.factory<_i23.AboutCafBloc>(
+      () => _i23.AboutCafBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i24.AuthCubit>(() => _i24.AuthCubit(gh<_i5.AuthRepo>()));
+  gh.factory<_i25.BaseHomeRepo>(() => _i26.HomeRepo(gh<_i10.HomeDatasource>()));
+  gh.factory<_i27.BaseSettingsRepo>(
+      () => _i28.SettingsRepo(gh<_i20.SettingsDatasource>()));
+  gh.factory<_i29.BaseSplashRepo>(
+      () => _i30.SplashRepo(gh<_i22.SplashDatasource>()));
+  gh.factory<_i31.CampaignTermsBloc>(
+      () => _i31.CampaignTermsBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i32.ForgotPasswordCubit>(
+      () => _i32.ForgotPasswordCubit(gh<_i8.ForgotPasswordRepo>()));
+  gh.factory<_i33.HajjTransportationBloc>(
+      () => _i33.HajjTransportationBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i34.HomeUseCase>(() => _i34.HomeUseCase(gh<_i25.BaseHomeRepo>()));
+  gh.factory<_i35.LiveBroadcastBloc>(
+      () => _i35.LiveBroadcastBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i36.NoteBloc>(() => _i36.NoteBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i37.NotificationsCubit>(
+      () => _i37.NotificationsCubit(gh<_i14.NotificationsRepo>()));
+  gh.factory<_i38.PhotoGalleryBloc>(
+      () => _i38.PhotoGalleryBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i39.ProfileBloc>(() => _i39.ProfileBloc(gh<_i17.ProfileRepo>()));
+  gh.factory<_i40.SettingsUseCase>(
+      () => _i40.SettingsUseCase(gh<_i27.BaseSettingsRepo>()));
+  gh.factory<_i41.SplashUseCase>(
+      () => _i41.SplashUseCase(gh<_i29.BaseSplashRepo>()));
+  gh.factory<_i42.SupportCubit>(
+      () => _i42.SupportCubit(gh<_i40.SettingsUseCase>()));
+  gh.factory<_i43.AboutLogesteCubit>(
+      () => _i43.AboutLogesteCubit(gh<_i40.SettingsUseCase>()));
+  gh.factory<_i44.HomeCubit>(() => _i44.HomeCubit(gh<_i34.HomeUseCase>()));
+  gh.factory<_i45.SplashCubit>(
+      () => _i45.SplashCubit(gh<_i41.SplashUseCase>()));
   return getIt;
 }
 
-class _$InjectionModule extends _i54.InjectionModule {}
+class _$InjectionModule extends _i46.InjectionModule {}

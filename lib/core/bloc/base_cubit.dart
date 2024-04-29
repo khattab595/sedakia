@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../exceptions/empty_list_exception.dart';
 import '../network/api_response.dart';
 import '../resources/data_state.dart';
 
@@ -12,6 +13,13 @@ abstract class BaseCubit extends Cubit<DataState> {
       emit(DataLoading());
       final response = await invoke();
       emit(DataSuccess<T>(response));
+      if(response == null || response is List && response.isEmpty || response is Map && response.isEmpty || response is String && response.isEmpty){
+        print('invoke response $response');
+        throw EmptyListException();
+      } else {
+        print('response  sscc $response');
+        emit(DataSuccess<T>(response));
+      }
     } catch (e) {
       emit(DataFailed(e));
       rethrow;

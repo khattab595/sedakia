@@ -13,7 +13,7 @@ class _NotificationsDatasource implements NotificationsDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://qayd-sa.com/api';
+    baseUrl ??= 'https://wezary.online/api';
   }
 
   final Dio _dio;
@@ -34,7 +34,7 @@ class _NotificationsDatasource implements NotificationsDatasource {
     )
             .compose(
               _dio.options,
-              '/api/v1/Operations/GetAllOperations',
+              '/notifications',
               queryParameters: queryParameters,
               data: _data,
             )

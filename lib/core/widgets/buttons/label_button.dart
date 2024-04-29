@@ -6,6 +6,7 @@ class LabelButton extends StatelessWidget {
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final TextStyle? style;
 
   const LabelButton({
     Key? key,
@@ -14,6 +15,7 @@ class LabelButton extends StatelessWidget {
     this.color,
     this.fontSize,
     this.fontWeight,
+    this.style,
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class LabelButton extends StatelessWidget {
       onTap: onTap,
       child: Text(
         title,
-        style: context.labelLarge.copyWith(
+        style: style ?? context.bodyMedium.copyWith(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,

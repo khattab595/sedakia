@@ -59,12 +59,7 @@ class HeaderInterceptor extends Interceptor {
 
     if (err.response != null) {
       Map<String, dynamic> data = json.decode(err.response.toString());
-
-      List message = data.containsKey('messages')
-          ? data['messages']
-          : data.containsKey('message')
-              ? [data['message']]
-              : ["Something went wrong"];
+String message = data.containsKey('error') ? data['error'] : "Error";
       // final status = data.containsKey('status') ? data['status'] : "Error";
       int code = data.containsKey('code') ? data['code'] : 0;
       /*throw DioError(
@@ -73,7 +68,7 @@ class HeaderInterceptor extends Interceptor {
         type: DioErrorType.response,
         requestOptions: err.requestOptions,
       );*/
-      throw ApiException(message.map((e) => '- $e').join('\n'), code);
+      throw ApiException(message, code);
     } else {
       super.onError(err, handler);
     }

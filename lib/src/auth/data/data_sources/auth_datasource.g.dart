@@ -13,7 +13,7 @@ class _AuthDataSource implements AuthDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://qayd-sa.com/api';
+    baseUrl ??= 'https://wezary.online/api';
   }
 
   final Dio _dio;
@@ -35,7 +35,7 @@ class _AuthDataSource implements AuthDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/login',
+              '/login',
               queryParameters: queryParameters,
               data: _data,
             )

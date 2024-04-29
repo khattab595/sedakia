@@ -3,6 +3,7 @@ import '../../src/about_caf/presentation/pages/about_cafe_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
+import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
 import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
@@ -18,6 +19,7 @@ import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notes/presentation/pages/notes_page.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
+import '../../src/on_boarding/pages/onboarding_page.dart';
 import '../../src/photo_gallery/presentation/pages/details_photo_gallery/details_photo_gallery_page.dart';
 import '../../src/photo_gallery/presentation/pages/more_photo_gallery/more_photo_gallery_page.dart';
 import '../../src/photo_gallery/presentation/pages/photo_gallery_page.dart';
@@ -25,10 +27,7 @@ import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/program/presentation/pages/details_programe/details_programe_page.dart';
 import '../../src/program/presentation/pages/programe_page.dart';
-import '../../src/qayds/presentation/qayd_payment/pages/qayd_payment_page.dart';
-import '../../src/qayds/presentation/register_qayd/pages/register_qayd_page.dart';
 import '../../src/quran/presentation/pages/quran_page.dart';
-import '../../src/references/presentation/pages/reference_page.dart';
 import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.dart';
 import '../../src/rosary/presentation/pages/rosary_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
@@ -114,13 +113,19 @@ class Routes {
 
   static final routes = <String, Widget Function(BuildContext)>{
     intro: (context) => IntroductionPage(),
+    onboardingPage: (context) => const OnBoardingPage(),
+    register: (context) => RegisterPage(),
+
+
+
+
+
+
     editProfilePage: (context) => EditProfilePage(),
         loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     supportPage: (context) => SupportPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
-    regiserQaydPage: (context) => RegisterQaydPage(),
-    qaydPaymentPage: (context) => QaydPaymentPage(),
 
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
@@ -132,7 +137,6 @@ class Routes {
     programmePage: (context) => ProgramePage(),
     campaignTermsPage: (context) => CampaignTermsPage(),
     hajjTransportationPage: (context) => HajjTransportationPage(),
-    referencePage: (context) => ReferencePage(),
     photoGalleryPage: (context) => PhotoGalleryPage(),
     morePhotoGalleryPage: (context) => MorePhotoGalleryPage(),
     detailsPhotoGalleryPage: (context) => DetailsPhotoGalleryPage(),

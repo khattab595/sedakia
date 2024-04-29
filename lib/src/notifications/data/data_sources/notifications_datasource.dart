@@ -14,6 +14,6 @@ abstract class  NotificationsDatasource{
   @factoryMethod
   factory NotificationsDatasource(Dio dio) = _NotificationsDatasource;
 
-  @GET('/api/v1/Operations/GetAllOperations')
+  @GET('/notifications')
   Future<ApiResponse<List<Notifications>>> fetchNotifications();
 }

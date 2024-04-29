@@ -18,7 +18,7 @@ class DetailsLiveBroadcastScreen extends BaseStatelessWidget {
             padding: 10.paddingHoriz,
             height: 514,
             decoration: Decorations.kDecorationRadiusAndImage(
-                image: AppImages.photo, radius: 20),
+                image: AppImages.spashLogo, radius: 20),
           ),
           23.ph,
           const BoldText(

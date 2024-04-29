@@ -12,21 +12,31 @@ class IntroductionScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        IntroBg(),
-        PrimaryBoldText(
-         label: strings.welcome_message,
-          fontSize: 24,
-        ),
-        PrimaryButton(
-          title: strings.sign_in,
-          margin: 20.paddingAll + 20.paddingTop,
-          onPressed: () {
-            pushNamed(Routes.loginPage);
-          },
-        ),
-      ],
+    return Padding(
+      padding: 20.paddingAll,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          IntroBg(),
+          PrimaryButton(
+            title: strings.create_new_account,
+            margin: 80.paddingTop,
+            onPressed: () {
+              pushNamed(Routes.register);
+            },
+          ),
+          PrimaryButton(
+            title: strings.sign_in,
+            margin: 20.paddingTop,
+            backgroundColor: primaryColor.withOpacity(0.2),
+            style: primaryBoldStyle.copyWith(fontSize: 16),
+            onPressed: () {
+              pushNamed(Routes.loginPage);
+            },
+          ),
+        ],
+      ),
     );
   }
 }
