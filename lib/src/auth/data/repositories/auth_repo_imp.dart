@@ -19,7 +19,7 @@ class AuthRepoImp extends AuthRepo{
     final response = await apiProvider.login(params);
     ProfileDto profileDto = ProfileDto(
       name: response.name,
-      email: response.token,
+      token: response.token,
     );
     await HelperMethods.saveProfile(profileDto);
     return Profile.fromJson(profileDto);
