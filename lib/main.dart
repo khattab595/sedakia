@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
             ],
             routes: Routes.routes,
             initialRoute:
-            // Routes.myCoursesPage
+             // Routes.departmentPage
             state.isFirstTime
                 ? Routes.loginPage
                 : state.isLogin

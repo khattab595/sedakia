@@ -20,43 +20,46 @@ class MyCoursesItem extends BaseStatelessWidget {
           children: [
             ImageNetwork(
               margin: 8.paddingAll,
-              width: 150,
+              width: 121,
               radius: 20,
-              height: 120,
+              height: 90,
               fit: BoxFit.cover,
               image:myCourse.image,
             ),
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  5.ph,
                    MediumText(
                     label:myCourse.department!,
-                    fontSize: 15,
+                    fontSize: 12,
                   ),
-                  5.ph,
+                   5.ph,
                    BoldText(
-                    fontSize: 20,
+                    fontSize: 14,
                     textAlign: TextAlign.start,
                     label: myCourse.name!,
                   ),
                   5.ph,
-                  Row(
-                    children: [
-                       MediumText(
-                        label:myCourse.teacher!,
-                        fontSize: 15,
-                      ),
-                      10.pw,
-                      MediumText(
-                        label:myCourse.duration!,
-                        fontSize: 15,
-                        labelColor: context.primaryColor,
-                      ),
-                    ],
+                  FittedBox(
+                    child: Row(
+                      children: [
+                         MediumText(
+                          label:myCourse.teacher!,
+                          fontSize: 15,
+                        ),
+                        10.pw,
+                        MediumText(
+                          label:myCourse.duration!,
+                          fontSize: 10,
+                          labelColor: context.primaryColor,
+                        ),
+                      ],
+                    ),
                   ),
-                  10.ph,
+                  5.ph,
                   Padding(
                     padding: 16.paddingEnd,
                     child:  LinearProgressIndicator(
@@ -65,9 +68,11 @@ class MyCoursesItem extends BaseStatelessWidget {
                       backgroundColor: const Color(0xffDCDCDC), //<-- SEE HERE
                     ),
                   ),
+                  5.ph
                 ],
               ),
-            )
+            ),
+            30.pw
           ],
         ),
       ),

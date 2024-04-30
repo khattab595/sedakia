@@ -10,5 +10,8 @@ class AppImages{
   static const String basmalla = 'assets/images/basmalla.png';
   static const String notificationEmpty = 'assets/images/notif.png';
   static const String myCoursesEmpty = 'assets/images/course_empty.png';
+  static const String holder = 'assets/images/holder.png';
+  static const String avatar = 'assets/images/avatar.png';
+  static const String books = 'assets/images/books.png';
 
 }

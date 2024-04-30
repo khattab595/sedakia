@@ -20,11 +20,11 @@ class MyCoursesDto {
  @JsonKey(name: 'is_favorite')
   bool? isFavorite;
  @JsonKey(name: 'percentage')
-  int? percentage;
+  double? percentage;
 
 
   MyCoursesDto({this.id, this.name, this.image, this.duration, this.department,
-    this.description, this.teacher, this.isFavorite});
+    this.description, this.teacher, this.isFavorite,this.percentage});
 
   factory MyCoursesDto.fromJson(Map<String, dynamic> json) => _$MyCoursesDtoFromJson(json);
 

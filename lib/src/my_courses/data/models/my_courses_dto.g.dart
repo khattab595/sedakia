@@ -15,7 +15,8 @@ MyCoursesDto _$MyCoursesDtoFromJson(Map<String, dynamic> json) => MyCoursesDto(
       description: json['description'] as String?,
       teacher: json['teacher'] as String?,
       isFavorite: json['is_favorite'] as bool?,
-    )..percentage = json['percentage'] as int?;
+      percentage: (json['percentage'] as num?)?.toDouble(),
+    );
 
 Map<String, dynamic> _$MyCoursesDtoToJson(MyCoursesDto instance) =>
     <String, dynamic>{

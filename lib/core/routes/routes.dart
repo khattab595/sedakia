@@ -10,7 +10,10 @@ import '../../src/hajj_messages/presentation/page/details_message/details_messag
 import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
 import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
 import '../../src/healthy/presentation/pages/healthy_page.dart';
+import '../../src/home/presentation/pages/department/department_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
+import '../../src/home/presentation/pages/latest_courses/latest_courses_page.dart';
+import '../../src/home/presentation/pages/teachers/teachers_page.dart';
 import '../../src/language/presentation/pages/change_language_page.dart';
 import '../../src/live_broadcast/presentation/pages/details_live_broadcast/details_live_broadcast_page.dart';
 import '../../src/live_broadcast/presentation/pages/live_broadcast_page.dart';
@@ -109,6 +112,9 @@ class Routes {
   static const String detailsMessagePage = 'detailsMessagePage';
   static const String digitalIdentityPage = 'digitalIdentityPage';
   static const String myCoursesPage = 'myCoursesPage';
+  static const String departmentPage = 'departmentPage';
+  static const String latestCoursesPage = 'latestCoursesPage';
+  static const String teachersPage = 'teachersPage';
 
 
   /* ====================================================================== */
@@ -123,7 +129,10 @@ class Routes {
 
 
   myCoursesPage: (context) => MyCoursesPage(),
+    latestCoursesPage: (context) => LatestCoursesPage(),
+    teachersPage: (context) => TeachersPage(),
   editProfilePage: (context) => EditProfilePage(),
+    departmentPage: (context) => DepartmentPage(),
         loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     supportPage: (context) => SupportPage(),
