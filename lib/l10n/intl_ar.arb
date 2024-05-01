@@ -31,6 +31,21 @@
   "latest_courses": "احدث الدورات",
   "teachers": "المدرسين",
   "chemistry": "الكيمياء",
+  "course_details": "تفاصيل الدورة",
+  "details": "التفاصيل",
+  "lessons": "الدروس",
+  "description": "الوصف",
+  "provider": "يقدم بواسطة",
+  "subscription": "اشترك الان",
+  "about_the_teacher": "نبذة عن المدرس",
+  "courses": "الدورات",
+  "lesson_files": "ملفات الدرس",
+  "sub_code": "كود الاشتراك",
+  "has_not_code": "ليس لديك كود اشتراك؟",
+  "contact_us": "تواصل معنا",
+  "do_subscription": "تسجيل الاشتراك",
+  "subscription_mes": "لتسجيل الاشتراك قم بادخال كود الاشتراك الخاص بك",
+  "cancel": "الغاء",
 
 
 

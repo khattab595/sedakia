@@ -4,12 +4,14 @@ import '../../../main_index.dart';
 import '../../data/models/my_courses_dto.dart';
 
 class MyCoursesItem extends BaseStatelessWidget {
-   MyCoursesItem( {super.key,required this.myCourse,});
+   MyCoursesItem(  {super.key,this.padding,required this.myCourse,this.hasNotProgress, });
    final MyCoursesDto myCourse;
+   final bool? hasNotProgress;
+   final EdgeInsetsGeometry? padding;
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: 16.paddingVert,
+      padding: padding??16.paddingVert,
       child: Container(
         decoration:Decorations.kDecorationBorderRadius(radius: 20,
           color: const Color(0xffEFF0F9),
@@ -59,16 +61,16 @@ class MyCoursesItem extends BaseStatelessWidget {
                       ],
                     ),
                   ),
-                  5.ph,
+                  hasNotProgress==true?
+                  const SizedBox.shrink():
                   Padding(
-                    padding: 16.paddingEnd,
+                    padding: 16.paddingEnd+5.paddingVert,
                     child:  LinearProgressIndicator(
                       value: double.parse(myCourse.percentage.toString()),
                       color: primaryColor, //<-- SEE HERE
                       backgroundColor: const Color(0xffDCDCDC), //<-- SEE HERE
                     ),
                   ),
-                  5.ph
                 ],
               ),
             ),

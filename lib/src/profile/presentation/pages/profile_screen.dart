@@ -19,20 +19,20 @@ class ProfileScreen extends BaseStatelessWidget {
       child:  Column(
         children: [
            50.ph,
-           ProfileItem(
-            iconSize: 28,
-            icon: AppIcons.notification,
-            title: strings.notifications,
-            route: Routes.notifications,
-          ),
-          10.ph,
-          ProfileItem(
-            iconSize: 28,
-            icon: AppIcons.message,
-            title: strings.my_courses,
-            route: Routes.myCoursesPage,
-          ),
-          10.ph,
+          //  ProfileItem(
+          //   iconSize: 28,
+          //   icon: AppIcons.notification,
+          //   title: strings.notifications,
+          //   route: Routes.notifications,
+          // ),
+          // 10.ph,
+          // ProfileItem(
+          //   iconSize: 28,
+          //   icon: AppIcons.message,
+          //   title: strings.my_courses,
+          //   route: Routes.myCoursesPage,
+          // ),
+          // 10.ph,
           ProfileItem(
             iconSize: 28,
             icon: AppIcons.lang,

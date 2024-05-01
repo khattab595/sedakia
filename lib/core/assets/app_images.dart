@@ -13,5 +13,9 @@ class AppImages{
   static const String holder = 'assets/images/holder.png';
   static const String avatar = 'assets/images/avatar.png';
   static const String books = 'assets/images/books.png';
+  static const String video = 'assets/images/video.png';
+  static const String videoTest = 'assets/images/vid.png';
+  static const String file = 'assets/images/file.png';
+  static const String book = 'assets/images/book2.png';
 
 }

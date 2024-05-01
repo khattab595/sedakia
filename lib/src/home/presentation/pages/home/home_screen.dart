@@ -65,7 +65,6 @@ class HomeScreen extends BaseStatelessWidget {
               10.ph,
               CustomTitleRow(title: strings.teachers, onTap: () {
                 pushNamed(Routes.teachersPage);
-
               },),
               10.ph,
               CustomTeachersWidget(),

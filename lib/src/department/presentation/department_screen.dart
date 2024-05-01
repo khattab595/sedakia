@@ -1,9 +1,10 @@
 
-import '../../../../main_index.dart';
-import '../../../../my_courses/data/models/my_courses_dto.dart';
-import '../../../domain/entities/home.dart';
-import '../../widgets/custom_latest_course_item.dart';
 
+import '../../../core/components/base_stateless_widget.dart';
+import '../../home/domain/entities/home.dart';
+import '../../home/presentation/widgets/custom_latest_course_item.dart';
+import '../../main_index.dart';
+import '../../my_courses/data/models/my_courses_dto.dart';
 
 class DepartmentScreen extends BaseStatelessWidget {
   final Home home;

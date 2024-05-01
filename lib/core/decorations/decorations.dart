@@ -271,7 +271,7 @@ class Decorations {
       borderRadius: startEndRadiusBorder(
         topStart: topStart ?? 0,
         bottomStart: bottomStart ?? 0,
-        topEnd: topEnd ?? 10,
+        topEnd: topEnd ?? 0,
         bottomEnd: bottomEnd ?? 0,
       ),
     );
