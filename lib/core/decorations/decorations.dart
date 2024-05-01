@@ -152,7 +152,8 @@ class Decorations {
   }) {
     return BoxDecoration(
       color: color,
-      borderRadius: BorderRadius.all(Radius.circular(radius ?? 12)),
+      borderRadius: BorderRadius.all(Radius.circular(radius ?? 12,)),
+      border: Border.all(color: borderColor!,width: borderWidth!)
     );
   }
 
@@ -270,7 +271,7 @@ class Decorations {
       borderRadius: startEndRadiusBorder(
         topStart: topStart ?? 0,
         bottomStart: bottomStart ?? 0,
-        topEnd: topEnd ?? 10,
+        topEnd: topEnd ?? 0,
         bottomEnd: bottomEnd ?? 0,
       ),
     );

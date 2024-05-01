@@ -5,6 +5,8 @@ import '../../src/auth/presentation/pages/forget-password/new_password_page.dart
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
+import '../../src/course _details/presentaion/course_details_page.dart';
+import '../../src/department/presentation/department_page.dart';
 import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
 import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
@@ -12,10 +14,13 @@ import '../../src/hajj_transportation/presentation/pages/hajj_transportation_pag
 import '../../src/healthy/presentation/pages/healthy_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/language/presentation/pages/change_language_page.dart';
+import '../../src/latest_courses/presentaion/latest_courses_page.dart';
+import '../../src/lesson_details/presentation/lesson_details_page.dart';
 import '../../src/live_broadcast/presentation/pages/details_live_broadcast/details_live_broadcast_page.dart';
 import '../../src/live_broadcast/presentation/pages/live_broadcast_page.dart';
 import '../../src/logout/presentation/pages/logout_page.dart';
 import '../../src/main_index.dart';
+import '../../src/my_courses/presentation/pages/my_courses_page.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notes/presentation/pages/notes_page.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
@@ -33,6 +38,8 @@ import '../../src/rosary/presentation/pages/rosary_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
+import '../../src/teachers/presentation/teacher_details/teacher_details_page.dart';
+import '../../src/teachers/presentation/teachers_page.dart';
 
 class Routes {
 
@@ -106,6 +113,13 @@ class Routes {
   static const String hajjMessagesPage = 'hajjMessagesPage';
   static const String detailsMessagePage = 'detailsMessagePage';
   static const String digitalIdentityPage = 'digitalIdentityPage';
+  static const String myCoursesPage = 'myCoursesPage';
+  static const String departmentPage = 'departmentPage';
+  static const String latestCoursesPage = 'latestCoursesPage';
+  static const String teachersPage = 'teachersPage';
+  static const String teacherDetailsPage = 'teacherDetailsPage';
+  static const String courseDetailsPage = 'courseDetailsPage';
+  static const String lessonDetailsPage = 'lessonDetailsPage';
 
 
   /* ====================================================================== */
@@ -119,14 +133,18 @@ class Routes {
 
 
 
-
-
+    lessonDetailsPage: (context) => LessonDetailsPage(),
+    courseDetailsPage: (context) => CourseDetailsPage(),
+    teacherDetailsPage: (context) => TeacherDetailsPage(),
+    myCoursesPage: (context) => MyCoursesPage(),
+    latestCoursesPage: (context) => LatestCoursesPage(),
+    teachersPage: (context) => TeachersPage(),
     editProfilePage: (context) => EditProfilePage(),
-        loginPage: (context) => LoginPage(),
+    departmentPage: (context) => DepartmentPage(),
+    loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     supportPage: (context) => SupportPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
-
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),

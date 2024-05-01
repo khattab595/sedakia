@@ -25,52 +25,87 @@ class TabBarWidget  extends StatelessWidget{
       length: tabs.length,
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar:   PreferredSize(
-          preferredSize: const Size.fromHeight(90),
-          child: Container(
-            margin: 20.paddingAll,
-            decoration: BoxDecoration(
-              color: context.primaryColor.withOpacity(0.1),
-              border: Border.all(
-                  color: context.primaryColor.withOpacity(0.3),
-                  width: 0.3,
-                  style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(8)),
-            child: TabBar(
+        // appBar:   PreferredSize(
+        //   preferredSize: const Size.fromHeight(90),
+        //   child: Container(
+        //     margin: 20.paddingAll,
+        //     decoration: BoxDecoration(
+        //       color: context.primaryColor.withOpacity(0.1),
+        //       border: Border.all(
+        //           color: context.primaryColor.withOpacity(0.3),
+        //           width: 0.3,
+        //           style: BorderStyle.solid),
+        //       borderRadius: BorderRadius.circular(8)),
+        //     child:
+        //     TabBar(
+        //       // isScrollable: true,
+        //       indicatorColor: Colors.transparent,
+        //       dividerColor: Colors.transparent,
+        //       unselectedLabelStyle: context.bodyLarge,
+        //       labelStyle: context.labelLarge,
+        //       labelColor: Colors.white,
+        //       unselectedLabelColor:context.primaryColor,
+        //       padding: 5.paddingAll,
+        //       indicatorPadding: 0.paddingAll,
+        //       labelPadding:  0.paddingHoriz ,
+        //       indicator:  BoxDecoration(
+        //           color: context.primaryColor,
+        //           borderRadius: const BorderRadius.all(Radius.circular(8)),
+        //           boxShadow: [
+        //             BoxShadow(
+        //               color: Colors.black.withOpacity(0.2),
+        //               spreadRadius: 1,
+        //               blurRadius: 1,
+        //               offset: const Offset(0, 1), // changes position of shadow
+        //             ),
+        //           ],
+        //
+        //       ),
+        //       indicatorSize: TabBarIndicatorSize.tab,
+        //       onTap: onTap,
+        //       tabs: tabs.map((e) => e.builder()
+        //       ).toList(),
+        //     ),
+        //   ),
+        // ),
+        body: Column(
+          children: [
+            TabBar(
               // isScrollable: true,
-              indicatorColor: Colors.transparent,
-              dividerColor: Colors.transparent,
+               indicatorColor:  context.primaryColor,
+              // dividerColor: Colors.transparent,
               unselectedLabelStyle: context.bodyLarge,
               labelStyle: context.labelLarge,
-              labelColor: Colors.white,
-              unselectedLabelColor:context.primaryColor,
+              labelColor: context.primaryColor,
+              unselectedLabelColor:context.dividerColor,
               padding: 5.paddingAll,
               indicatorPadding: 0.paddingAll,
               labelPadding:  0.paddingHoriz ,
-              indicator:  BoxDecoration(
-                  color: context.primaryColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 1,
-                      blurRadius: 1,
-                      offset: const Offset(0, 1), // changes position of shadow
-                    ),
-                  ],
-
-              ),
+              // indicator:  BoxDecoration(
+              //   color: context.primaryColor,
+              //   // borderRadius: const BorderRadius.all(Radius.circular(8)),
+              //   // boxShadow: [
+              //   //   BoxShadow(
+              //   //     color: Colors.black.withOpacity(0.2),
+              //   //     spreadRadius: 1,
+              //   //     blurRadius: 1,
+              //   //     offset: const Offset(0, 1), // changes position of shadow
+              //   //   ),
+              //   // ],
+              //
+              // ),
               indicatorSize: TabBarIndicatorSize.tab,
               onTap: onTap,
               tabs: tabs.map((e) => e.builder()
               ).toList(),
             ),
-          ),
-        ),
-        body: TabBarView(
-
-          // physics: const NeverScrollableScrollPhysics(),
-          children: tabs.map((e) => e.page).toList(),
+            Expanded(
+              child: TabBarView(
+                // physics: const NeverScrollableScrollPhysics(),
+                children: tabs.map((e) => e.page).toList(),
+              ),
+            ),
+          ],
         ),
       ),
     );

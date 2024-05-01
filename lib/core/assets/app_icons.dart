@@ -24,6 +24,9 @@ class AppIcons{
   static const String dot = "assets/icons/dot.svg";
   static const String timer = "assets/icons/timer.svg";
   static const String drop_down = "assets/icons/drop_down.svg";
+  static const String notificationEmpty = "assets/icons/notif_empty.svg";
+  static const String video = "assets/icons/video.svg";
+  static const String book = "assets/icons/book.svg";
 
   ///////////////////////////////////////////////////////////////////////
   static const String caf = "assets/icons/caf.svg";

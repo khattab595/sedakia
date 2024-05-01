@@ -21,13 +21,13 @@ class _NotificationsDatasource implements NotificationsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<Notifications>>> fetchNotifications() async {
+  Future<ApiResponse<List<NotificationDto>>> fetchNotifications() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<Notifications>>>(Options(
+        _setStreamType<ApiResponse<List<NotificationDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,12 +43,12 @@ class _NotificationsDatasource implements NotificationsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<Notifications>>.fromJson(
+    final value = ApiResponse<List<NotificationDto>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
           ? json
-              .map<Notifications>(
-                  (i) => Notifications.fromJson(i as Map<String, dynamic>))
+              .map<NotificationDto>(
+                  (i) => NotificationDto.fromJson(i as Map<String, dynamic>))
               .toList()
           : List.empty(),
     );

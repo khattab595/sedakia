@@ -1,6 +1,6 @@
 import '../../data/models/home_dto.dart';
 
-class Home {
+class Home{
   List<Statistic>? statistics;
   List<String>? slider;
   List? sections;
