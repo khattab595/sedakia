@@ -14,6 +14,17 @@
   "mobile_number": "رقم الموبايل",
   "forgot_password": "نسيت كلمة المرور؟",
   "dont_have_an_account": "ليس لديك حساب؟",
+  "create_account_using_mobile_number": "إنشاء حساب جديد بواسطة رقم الموبايل",
+  "name": "الاسم",
+  "i_read_and_agree_msg": "من خلال إنشاء حساب، فإنك توافق على الشروط والأحكام الخاصة بنا.",
+  "resend": "إعادة ارسال الرمز",
+  "reload": "اعادة تحميل",
+  "academic_level": "اختار المستوي الدراسي",
+  "choose_stage": "اختار المرحلة",
+  "birth_date": "تاريخ الميلاد",
+  "adding_unified_card": "اضافة البطاقة الموحدة",
+  "forward_face": "الوجه الامامي",
+  "back_face": "الوجه الخلفي",
 
 
 
@@ -43,7 +54,6 @@
   "program_settings": "اعدادات البرنامج",
   "campaign_programmes": "برامج الحملة",
   "important_references_for_hajj": "مراجع مهمة للحج",
-  "live_broadcast": "البث المباشر",
   "the_user": "المستخدم",
   "quran": "المصحف",
   "kiss": "القبلة",
@@ -173,6 +183,9 @@
   "payment_date": "تاريخ السداد",
   "amount": "المبلغ",
   "save": "حفظ",
+  "next": "التالي",
+  "verification_msg": "الرجاء ادخال رمز التفعيل المرسل اليك",
+  "verify": "تحقق",
 
 
 
@@ -183,7 +196,6 @@
   "welcome_back": "Welcome Back",
   "sign_up": "SIGN UP",
   "phone": "Phone",
-  "name": "Name",
   "password_note": "The password should contain at least 2 symbols",
   "beginner_course": "Beginner Course",
   "our_group": "Our Group",
@@ -278,7 +290,6 @@
   "from": "From",
   "to": "To",
   "filter": "Filter",
-  "reload": "Reload",
 
 
 
@@ -293,7 +304,6 @@
   "manager_name": "Manager name",
   "rep_with_vehicle": "Representative with a vehicle.",
   "rep_without_vehicle": "Representative without a vehicle.",
-  "next": "Next",
   "complete_your_account_representative": "Complete your account as a representative",
   "already_have_account": "Already have an account?",
   "click_upload_copy_the": "Click to upload a copy of the {name}",
@@ -322,7 +332,6 @@
   "forget_password_message": "Enter the registered phone number\nto recover your account",
   "enter_code_recover_your_account": "Enter the code to recover your account",
   "text_message_has_been_sent_your_registered_phone_number": "A text message has been sent to your registered phone number",
-  "resend": "Resend",
   "your_account_has_been_recovered_set_new_password": "Your account has been recovered\nSet a new password",
   "create_new_password": "Create a new password",
   "status_customer": "Status customer:",

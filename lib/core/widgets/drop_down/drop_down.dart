@@ -3,10 +3,11 @@ import 'package:app/core/widgets/pagination/loading_widget.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/base_stateless_widget.dart';
 import '../../resources/validation.dart';
 import '../../themes/light_theme.dart';
 
-class DropDownField extends StatelessWidget {
+class DropDownField extends BaseStatelessWidget {
   final List<DropDownItem> items;
   final String? title;
   final String? hint;
@@ -25,16 +26,16 @@ class DropDownField extends StatelessWidget {
   final TextStyle? hintStyle;
   final bool isLoading;
 
-  const DropDownField(
+  DropDownField(
       {Key? key,
       required this.items,
       this.title,
-        this.borderRadius,
+      this.borderRadius,
       this.hint,
       required this.onChanged,
       this.prefixIcon,
       this.texStyle,
-        this.iconColor,
+      this.iconColor,
       this.value,
       this.iconWidget,
       this.isValidator = true,
@@ -48,104 +49,86 @@ class DropDownField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color? borderColor = colorBorderSide ??
-        context.theme.inputDecorationTheme.fillColor ??
-        context.theme.colorScheme.onSurface;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (title != null) ...[
-          Text(
-            title ?? '',
-            style: Theme.of(context).textTheme.bodyMedium,
+    Color? borderColor = colorBorderSide ?? context.dividerColor;
+    return DropdownButtonFormField2<DropDownItem>(
+      isExpanded: true,
+      decoration: InputDecoration(
+        // Add Horizontal padding using menuItemStyleData.padding so it matches
+        // the menu padding when button's width is not specified.
+        hintText: hint,
+        hintStyle: hintMediumStyle,
+        filled: true,
+        fillColor: fillColor ?? context.theme.inputDecorationTheme.fillColor,
+        contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor,
           ),
-          5.ph,
-        ],
-        DropdownButtonFormField2<DropDownItem>(
-          isExpanded: true,
-          decoration: InputDecoration(
-            // Add Horizontal padding using menuItemStyleData.padding so it matches
-            // the menu padding when button's width is not specified.
-            // label: Text(
-            //   hint ?? '',
-            //   style: context.displaySmall,
-            // ),
-            filled: true,
-            fillColor:
-                fillColor ?? context.theme.inputDecorationTheme.fillColor,
-            contentPadding: const EdgeInsets.symmetric(vertical: 12),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: borderColor,
-              ),
-              borderRadius:BorderRadius.circular(12),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: borderColor,
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: borderColor,
-              ),
-              borderRadius: BorderRadius.circular(borderRadius??12),
-            ),
-            // Add more decoration..
-          ),
-          hint: Text(
-            hint ?? '',
-            style: hintStyle ?? context.labelSmall.copyWith(fontSize: 16),
-          ),
-          value: getInitialValue(),
-          items: items
-              .map((item) => DropdownMenuItem<DropDownItem>(
-                    value: item,
-                    child: Text(
-                      item.title ?? '',
-                      style: context.bodyMedium,
-                      textAlign: TextAlign.center,
-                    ),
-                  ))
-              .toList(),
-          validator: isValidator
-              ? (value) => Validation.validateRequired(value?.title ?? '')
-              : null,
-          onChanged: (value) {
-            onChanged(value!);
-          },
-          onSaved: (value) {
-            //  selectedValue = value.toString();
-          },
-
-          buttonStyleData: const ButtonStyleData(
-            padding: EdgeInsets.only(left: 20),
-            // decoration: BoxDecoration(
-            //   color: Colors.transparent,
-            // ),
-          ),
-          iconStyleData: IconStyleData(
-            icon: isLoading
-                ? const SmallLoading()
-                : Icon(
-                    Icons.arrow_drop_down_outlined,
-                    color:iconColor?? context.secondary,
-                  ),
-            iconSize: 24,
-          ),
-          dropdownStyleData: DropdownStyleData(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              // color: context.theme.inputDecorationTheme.fillColor,
-            ),
-          ),
-          menuItemStyleData: const MenuItemStyleData(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-          ),
+          borderRadius: BorderRadius.circular(12),
         ),
-      ],
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor,
+          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 12),
+        ),
+        // Add more decoration..
+      ),
+      hint: Text(
+        hint ?? '',
+        style: hintStyle ?? context.labelSmall.copyWith(fontSize: 16),
+      ),
+      value: getInitialValue(),
+      items: items
+          .map((item) => DropdownMenuItem<DropDownItem>(
+                value: item,
+                child: Text(
+                  item.title ?? '',
+                  style: context.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ))
+          .toList(),
+      validator: isValidator
+          ? (value) => Validation.validateRequired(value?.title ?? '')
+          : null,
+      onChanged: (value) {
+        onChanged(value!);
+      },
+      onSaved: (value) {
+        //  selectedValue = value.toString();
+      },
+      buttonStyleData: const ButtonStyleData(
+        padding: EdgeInsets.only(left: 10),
+        // decoration: BoxDecoration(
+        //   color: Colors.transparent,
+        // ),
+      ),
+      iconStyleData: IconStyleData(
+        icon: isLoading
+            ? const SmallLoading()
+            : Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: hintBoldStyle.color,
+              ),
+        iconSize: 30,
+      ),
+      dropdownStyleData: DropdownStyleData(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          // color: context.theme.inputDecorationTheme.fillColor,
+        ),
+      ),
+      menuItemStyleData: const MenuItemStyleData(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+      ),
     );
   }
 
