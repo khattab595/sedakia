@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
 import 'package:firebase_core/firebase_core.dart';
+
 import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
@@ -66,13 +67,11 @@ class MyApp extends StatelessWidget {
               Locale('ar'), // Arabic, no country code
             ],
             routes: Routes.routes,
-            initialRoute:
-             // Routes.departmentPage
-            state.isFirstTime
-                ? Routes.loginPage
+            initialRoute: state.isFirstTime
+                ? Routes.register
                 : state.isLogin
-                ? Routes.loginPage
-                : Routes.loginPage,
+                ? Routes.register
+                : Routes.register,
           );
         },
       ),

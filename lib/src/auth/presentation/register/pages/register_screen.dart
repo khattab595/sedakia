@@ -1,8 +1,12 @@
 import 'package:app/core/utils/helper_methods.dart';
 
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
+import '../../../../../core/widgets/text-field/mobile_text_field.dart';
+import '../../../../../core/widgets/texts/hint_texts.dart';
+import '../../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/register_params.dart';
+import '../../widgets/check_box_terms_conditions.dart';
 
 class RegisterScreen extends BaseStatelessWidget {
   final Function(RegisterParams)? onRegister ;
@@ -15,12 +19,14 @@ class RegisterScreen extends BaseStatelessWidget {
   TextEditingController phoneController = TextEditingController();
 
   TextEditingController passwordController = TextEditingController();
+  StreamStateInitial<bool> isAgreeStream = StreamStateInitial<bool>();
   int? countryId;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    print('complete screen build');
     return Form(
       key: formKey,
       child: Column(
@@ -29,47 +35,59 @@ class RegisterScreen extends BaseStatelessWidget {
           CustomTextField(
             controller: nameController,
             hintText: strings.name,
-            prefixIconPath: AppIcons.user_bold,
-            margin: const EdgeInsets.only(top: 20, bottom: 15),
           ),
           CustomTextField(
             controller: emailController,
-            hintText: strings.email,
-            prefixIconPath: AppIcons.email_bold,
-            keyboardType: TextInputType.emailAddress,
-            margin: const EdgeInsets.only(bottom: 15),
+            hintText: strings.password,
+            isPassword: false,
           ),
-          CustomTextField(
+          MobileTextField(
             controller: phoneController,
-            hintText: strings.phone_number,
-            prefixIconPath: AppIcons.telephone,
-            keyboardType: TextInputType.number,
-            margin: const EdgeInsets.only(bottom: 15),
           ),
-          // DropDownField(
-          //   hint: strings.select_country,
-          //   items: countries.map((e) => DropDownItem(title: e.name, id: e.id.toString())).toList(),
-          //   onChanged: (value) {
-          //     countryId = int.parse(value.id ?? '0');
-          //   },
-          // ),
-          15.ph,
           CustomTextField(
             controller: passwordController,
             hintText: strings.password,
-            prefixIconPath: AppIcons.lock_bold,
-            margin: const EdgeInsets.only(bottom: 15),
             isPassword: true,
+          ),
+          CheckBoxTermsConditions(
+            onChanged: (value) {
+              isAgreeStream.setData(value ?? false);
+            },
           ),
           // Text(
           //   strings.password_note,
           //   style: context.labelSmall,
           // ),
-          PrimaryButton(
-            title:  strings.next,
-            margin: const EdgeInsets.only(top: 15, right: 40, left: 40),
-            onPressed: () => onPressed(),
-            //buttonTextColor: AppColors.appTextColorWhite,
+
+          StreamBuilder<bool>(
+            stream: isAgreeStream.stream,
+            initialData: false,
+            builder: (context, snapshot) {
+              return PrimaryButton(
+                title:  strings.next,
+                margin: 10.paddingTop,
+                onPressed: snapshot.data != true ? null :
+                    () => onPressed() ,
+                //buttonTextColor: AppColors.appTextColorWhite,
+              );
+            }
+          ),
+
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.register);
+            },
+            child: FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  HintMediumText(label: strings.dont_have_an_account),
+                  5.pw,
+                  PrimaryMediumText(label: strings.sign_in),
+                ],
+              ),
+            ),
           ),
         ],
       ),

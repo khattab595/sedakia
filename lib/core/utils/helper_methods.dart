@@ -172,6 +172,7 @@ class HelperMethods {
       },
     );
   }
+
   static Future<String> getToken() async {
     try {
       ProfileDto profile = await getProfile();

@@ -15,10 +15,10 @@ abstract class  ForgotPasswordDataSource{
   @factoryMethod
   factory ForgotPasswordDataSource(Dio dio) = _ForgotPasswordDataSource;
 
-  @POST('/v1/updatePassword')
+  @POST('/forgot-password')
   Future<ApiResponse> enterPhoneNumber(@Body() String phoneNumber);
 
-  @GET('/api/v1/Operations/GetAllOperations')
+  @GET('/resetPassword')
   Future<ApiResponse> enterCode(@Body() String code);
 
   @POST('/v1/updatePassword')
