@@ -41,18 +41,18 @@ class EditProfileImage extends BaseStatelessWidget {
               }),
         ),
         PositionedDirectional(
-          end: 15,
+          start: 30,
           bottom: 0,
           child: Container(
-            height: 40,
-            width: 40,
+            height: 30,
+            width: 30,
             decoration: BoxDecoration(
-              color: const Color(0xffffffff),
+              color: primaryColor,
               borderRadius: BorderRadius.circular(50),
+              border: Border.all(color: context.cardColor, width: 1.5,),
             ),
-            child: IconButton(
-              icon:
-                  Icon(Icons.camera_alt_outlined, color: context.primaryColor, size: 20),
+            child: AppIconButton(
+              icon: AppIcons.camera,
               onPressed: () async {
                 final file = await HelperMethods.getImagePicker();
                 _imageStream.setData(File(file!.path));

@@ -2,6 +2,11 @@ class AppIcons{
 
 
   static const String home = "assets/icons/home.svg";
+  static const String camera = "assets/icons/camera.svg";
+  static const String arrow_lift = "assets/icons/arrow_lift.svg";
+
+
+
   static const String invoices = "assets/icons/invoices.svg";
   static const String qayd = "assets/icons/qayd.svg";
   static const String calender1 = "assets/icons/calender1.svg";
@@ -27,6 +32,7 @@ class AppIcons{
   static const String notificationEmpty = "assets/icons/notif_empty.svg";
   static const String video = "assets/icons/video.svg";
   static const String book = "assets/icons/book.svg";
+  static const String courses = "assets/icons/courses.svg";
 
   ///////////////////////////////////////////////////////////////////////
   static const String caf = "assets/icons/caf.svg";

@@ -5,19 +5,16 @@ import '../../domain/entities/profile.dart';
 import '../bloc/profile_bloc.dart';
 import 'profile_screen.dart';
 
-class ProfilePage extends BaseBlocWidget<UnInitState, ProfileBloc>{
+class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
   ProfilePage({Key? key}) : super(key: key);
 
-  // @override
-  // void loadInitialData(BuildContext context) {
-  //   bloc.fetchProfileData();
-  // }
+  @override
+  void loadInitialData(BuildContext context) {
+    bloc.fetchProfileData();
+  }
 
   @override
-  String? title(BuildContext context) => 'يرجي تسجل الدخول';
-
-  @override
-  Widget buildWidget(BuildContext context, UnInitState state) {
+  Widget buildWidget(BuildContext context, DataSuccess<Profile> state) {
     return ProfileScreen(
       profile: state.data ?? Profile(),
       onRefresh: () => bloc.fetchProfileData(),

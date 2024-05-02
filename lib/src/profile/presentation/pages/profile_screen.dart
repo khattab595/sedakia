@@ -2,6 +2,7 @@
 import '../../../../core/widgets/buttons/primary_icon_button.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
+import '../widgets/profile_header_widget.dart';
 import '../widgets/profile_item.dart';
 
 class ProfileScreen extends BaseStatelessWidget {
@@ -15,26 +16,33 @@ class ProfileScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: 12.paddingHoriz,
+      padding: 10.paddingHoriz,
       child:  Column(
         children: [
-           50.ph,
-          //  ProfileItem(
-          //   iconSize: 28,
-          //   icon: AppIcons.notification,
-          //   title: strings.notifications,
-          //   route: Routes.notifications,
-          // ),
-          // 10.ph,
-          // ProfileItem(
-          //   iconSize: 28,
-          //   icon: AppIcons.message,
-          //   title: strings.my_courses,
-          //   route: Routes.myCoursesPage,
-          // ),
-          // 10.ph,
+          50.ph,
+          ProfileHeaderWidget(profile: profile),
+          Divider(),
           ProfileItem(
-            iconSize: 28,
+            icon: AppIcons.profile,
+            title: strings.change_the_language,
+            route: Routes.editProfilePage,
+          ),
+          ProfileItem(
+            icon: AppIcons.lang,
+            title: strings.change_the_language,
+            route: Routes.changeLanguagePage,
+          ),
+          ProfileItem(
+            icon: AppIcons.lang,
+            title: strings.change_the_language,
+            route: Routes.changeLanguagePage,
+          ),
+          ProfileItem(
+            icon: AppIcons.lang,
+            title: strings.change_the_language,
+            route: Routes.changeLanguagePage,
+          ),
+          ProfileItem(
             icon: AppIcons.lang,
             title: strings.change_the_language,
             route: Routes.changeLanguagePage,

@@ -18,6 +18,7 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HelperMethods.setFirstTime();
     return Padding(
       padding: 20.paddingAll,
       child: Stack(

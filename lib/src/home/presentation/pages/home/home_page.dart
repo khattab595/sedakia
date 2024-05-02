@@ -12,23 +12,6 @@ class HomePage extends BaseBlocWidget<DataSuccess<Home>, HomeCubit> {
     bloc.fetchHomeData();
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return mainFrame(
-  //     body: Stack(
-  //       children: [
-  //         Container(
-  //           height: 100,
-  //           width: 500,
-  //           decoration:
-  //               Decorations.shapeDecorationShadow(radius: 0, color: cardColor),
-  //         ),
-  //         buildConsumer(context),
-  //       ],
-  //     ),
-  //   );
-  // }
-
   @override
   Widget buildWidget(BuildContext context, DataSuccess<Home> state) {
     return HomeScreen(
