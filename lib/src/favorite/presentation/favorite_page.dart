@@ -4,10 +4,10 @@ import '../../../../../../core/components/base_widget_bloc.dart';
 import '../../../core/resources/data_state.dart';
 import '../../home/presentation/bloc/home_bloc.dart';
 import '../../main_index.dart';
-import 'lesson_details_screen.dart';
+import 'favorite_screen.dart';
 
-class LessonDetailsPage extends BaseBlocWidget<DataSuccess, HomeCubit> {
-  LessonDetailsPage({Key? key}) : super(key: key);
+class FavoritePage extends BaseBlocWidget<DataSuccess, HomeCubit> {
+  FavoritePage({Key? key}) : super(key: key);
 
   @override
   void loadInitialData(BuildContext context) {
@@ -15,12 +15,12 @@ class LessonDetailsPage extends BaseBlocWidget<DataSuccess, HomeCubit> {
   }
   @override
   Widget buildWidget(BuildContext context, DataSuccess state) {
-    return LessonDetailsScreen(
+    return FavoriteScreen(
       home: state.data!,
     );
   }
   @override
   String? title(BuildContext context) {
-    return 'الدرس الاول';
+    return strings.favorite;
   }
 }

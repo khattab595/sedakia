@@ -8,6 +8,7 @@ import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
 import '../../../../my_courses/data/models/my_courses_dto.dart';
 import '../../../../my_courses/presentation/widgets/my_courses_item.dart';
+import '../../../data/models/department_dto.dart';
 import '../../../domain/entities/home.dart';
 import '../../widgets/custom_department_item.dart';
 import '../../widgets/custom_departments_widget.dart';
@@ -17,9 +18,9 @@ import '../../widgets/custom_teachers_widget.dart';
 import '../../widgets/personal_informatin_widget.dart';
 
 class HomeScreen extends BaseStatelessWidget {
-  final Home home;
+  final List<DepartmentDto> departmentsList;
 
-  HomeScreen({Key? key, required this.home}) : super(key: key);
+  HomeScreen({Key? key, required this.departmentsList}) : super(key: key);
 
 
   @override
@@ -55,7 +56,7 @@ class HomeScreen extends BaseStatelessWidget {
                 fontSize: 20,
               ),
               10.ph,
-              CustomDepartmentsWidget(),
+              CustomDepartmentsWidget(departmentsList: departmentsList,),
               30.ph,
               CustomTitleRow(title: strings.latest_courses, onTap: () {
                 pushNamed(Routes.latestCoursesPage);
