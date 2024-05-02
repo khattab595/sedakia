@@ -96,13 +96,4 @@ class HomeScreen extends BaseStatelessWidget {
       ),
     );
   }
-
-  String courseImageTest =
-      'https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/438733737_948519656830553_8918195012094984290_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G1JUxOIBt0EQ7kNvgEXOL8_&_nc_ht=scontent.fcai20-5.fna&oh=00_AfD2Xhzte39iBbqctJrvpdFMocbfLvqVK3p_nrtggDWIjg&oe=66370D01';
-  List<String> images = [
-    'https://scontent.fcai20-6.fna.fbcdn.net/v/t39.30808-6/438171287_407893252107402_5810427257132495905_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=npQpjfuoWoIQ7kNvgE0q_Ij&_nc_ht=scontent.fcai20-6.fna&oh=00_AfAMdxbKnrSCfeMSN-GzULs7QXkN_mQp5661Z4agB5qvtg&oe=6636F57E',
-    'https://scontent.fcai20-3.fna.fbcdn.net/v/t39.30808-6/440791195_953238186358700_1454712455871443919_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=tIyzFjheU-cQ7kNvgHS6BPC&_nc_ht=scontent.fcai20-3.fna&oh=00_AfBFFOXO5X7Vmw6YMQSpi2KI8iUGv5RLylmktTGYa8q0iQ&oe=6636F6B0',
-    'https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/440739454_951864423162743_7561334343099904604_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=xS-5QScwSjQQ7kNvgFW3IeD&_nc_ht=scontent.fcai20-2.fna&oh=00_AfDPmMmeVw6x0ba7qnVIXh7ALZTk_ABTvpcCGqsSuIMaXg&oe=66371E74',
-    'https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/438720953_949043266778192_4885540436666848933_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=R3_d9fup2SsQ7kNvgEAWgEo&_nc_ht=scontent.fcai20-2.fna&oh=00_AfA9eWUgVUDZCVdWA746gN8kibDJezFAtpGnHe6F_tparg&oe=663706FC'
-  ];
 }
