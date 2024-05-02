@@ -1,28 +1,34 @@
-import '../../../../core/widgets/images/image_network.dart';
-import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
+import '../../domain/entities/teacher.dart';
 import 'custom_teacher_item.dart';
 
 class CustomTeachersWidget extends BaseStatelessWidget {
-  CustomTeachersWidget({super.key});
+  final StreamStateInitial<List<Teacher>?> teachersStream;
+
+  CustomTeachersWidget({super.key, required this.teachersStream});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          ...latestItems.map((e) =>
-              Padding(
+    return SizedBox(
+      height: 150,
+      child: StreamBuilder<List<Teacher>?>(
+        stream: teachersStream.stream,
+        builder: (context, snapshot) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              Teacher teacher = snapshot.data![index];
+              return Padding(
                 padding: 10.paddingEnd,
-                child:
-                CustomTeacherItem()
-              )
-          ),
-        ],
+                child: CustomTeacherItem(
+                  teacher: teacher,
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
-   List latestItems=[1,2,3,4,5,6,7,8];
-
 }

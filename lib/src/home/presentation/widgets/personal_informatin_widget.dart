@@ -1,4 +1,6 @@
-import '../../../../core/widgets/images/flip_asset_image.dart';
+import 'package:app/core/utils/helper_methods.dart';
+import 'package:app/core/widgets/images/image_network.dart';
+
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
 
@@ -7,25 +9,35 @@ class PersonalInformationWidget extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const FlipAssetImage(image: AppImages.avatar,height: 53,),
-        10.pw,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MediumText(
-              label:strings.welcome_message,
-              fontSize: 14,
-            ),
-            const SemiBoldText(
-              label:'يوسف عبدالمعطي',
-              fontSize: 17,
-            ),
-          ],
-        )
-      ],
+    return FutureBuilder(
+      future: HelperMethods.getProfile(),
+      builder: (context, snapshot) {
+        return Padding(
+          padding: 10.paddingAll,
+          child: Row(
+            children: [
+              ImageNetworkCircle(
+                image: snapshot.data?.image ?? '',
+                size: 60,
+              ),
+              10.pw,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MediumText(
+                    label: strings.welcome_message,
+                    fontSize: 14,
+                  ),
+                  SemiBoldText(
+                    label: snapshot.data?.name ?? '',
+                    fontSize: 17,
+                  ),
+                ],
+              )
+            ],
+          ),
+        );
+      },
     );
   }
-
 }

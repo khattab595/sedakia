@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 import 'package:app/core/utils/constants.dart';
-import '../models/my_courses_dto.dart';
+import '../models/course_dto.dart';
 part 'my_courses_datasource.g.dart';
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
@@ -13,5 +13,5 @@ abstract class  MyCoursesDatasource{
   factory MyCoursesDatasource(Dio dio) = _MyCoursesDatasource;
 
   @GET('/MyCourses')
-  Future<ApiResponse<List<MyCoursesDto>>> fetchMyCourses();
+  Future<ApiResponse<List<CourseDto>>> fetchMyCourses();
 }

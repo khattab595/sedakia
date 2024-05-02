@@ -1,10 +1,10 @@
 import '../../../../core/widgets/custom_empty_widget.dart';
 import '../../../main_index.dart';
-import '../../data/models/my_courses_dto.dart';
+import '../../data/models/course_dto.dart';
 import '../widgets/my_courses_item.dart';
 
 class MyCoursesScreen extends BaseStatelessWidget {
-  final List<MyCoursesDto> myCourses;
+  final List<CourseDto> myCourses;
   MyCoursesScreen({Key? key,required this.myCourses,}) : super(key: key);
 
   @override

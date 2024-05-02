@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:app/core/exceptions/extensions.dart';
+import 'package:app/core/routes/routes.dart';
 import 'package:app/core/utils/helper_methods.dart';
+import 'package:app/core/utils/navigator.dart';
 import 'package:dio/dio.dart';
 import '../di/injector.dart';
 import '../exceptions/api_exception.dart';
@@ -35,7 +37,8 @@ class HeaderInterceptor extends Interceptor {
   HeaderInterceptor({required this.accessToken});
 
   @override
-  Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     String token = await HelperMethods.getToken();
     options.headers[keyAuthorization] = 'Bearer $token';
     options.headers[keyType] = 'application/json';
@@ -59,9 +62,12 @@ class HeaderInterceptor extends Interceptor {
 
     if (err.response != null) {
       Map<String, dynamic> data = json.decode(err.response.toString());
-String message = data.containsKey('error') ? data['error'] : "Error";
+      String message = data.containsKey('error') ? data['error'] : "Error";
       // final status = data.containsKey('status') ? data['status'] : "Error";
       int code = data.containsKey('code') ? data['code'] : 0;
+      if (err.response?.statusCode == 401) {
+        pushNamedAndRemoveUntil(Routes.loginPage);
+      }
       /*throw DioError(
         error: message,
         response: err.response,

@@ -4,11 +4,13 @@ import '../../../../core/components/base_stateless_widget.dart';
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
+import '../../domain/entities/teacher.dart';
 
 class CustomTeacherItem extends BaseStatelessWidget {
-   CustomTeacherItem( {super.key,this.height, this.width,});
+  final Teacher teacher;
   final double? height;
   final double? width;
+   CustomTeacherItem( {super.key,this.height, this.width, required this.teacher});
   @override
   Widget build(BuildContext context) {
     return InkWell(

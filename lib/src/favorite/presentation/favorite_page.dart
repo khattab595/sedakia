@@ -11,7 +11,7 @@ class FavoritePage extends BaseBlocWidget<DataSuccess, HomeCubit> {
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchHomeData();
+    bloc.fetchInitialData();
   }
   @override
   Widget buildWidget(BuildContext context, DataSuccess state) {

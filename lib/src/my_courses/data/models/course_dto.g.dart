@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_courses_dto.dart';
+part of 'course_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MyCoursesDto _$MyCoursesDtoFromJson(Map<String, dynamic> json) => MyCoursesDto(
+CourseDto _$CourseDtoFromJson(Map<String, dynamic> json) => CourseDto(
       id: json['id'] as int?,
       name: json['name'] as String?,
       image: json['images'] as String?,
@@ -18,8 +18,7 @@ MyCoursesDto _$MyCoursesDtoFromJson(Map<String, dynamic> json) => MyCoursesDto(
       percentage: (json['percentage'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$MyCoursesDtoToJson(MyCoursesDto instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$CourseDtoToJson(CourseDto instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'images': instance.image,

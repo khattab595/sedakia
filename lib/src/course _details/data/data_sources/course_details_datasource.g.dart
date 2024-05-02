@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'my_courses_datasource.dart';
+part of 'course_details_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'my_courses_datasource.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _MyCoursesDatasource implements MyCoursesDatasource {
-  _MyCoursesDatasource(
+class _CourseDetailsDatasource implements CourseDetailsDatasource {
+  _CourseDetailsDatasource(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,20 +21,20 @@ class _MyCoursesDatasource implements MyCoursesDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<CourseDto>>> fetchMyCourses() async {
+  Future<ApiResponse<CourseDetailsDto>> fetchCourseDetailsData(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<CourseDto>>>(Options(
+        _setStreamType<ApiResponse<CourseDetailsDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/MyCourses',
+              '/CourseDetails?course_id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,14 +43,9 @@ class _MyCoursesDatasource implements MyCoursesDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<CourseDto>>.fromJson(
+    final value = ApiResponse<CourseDetailsDto>.fromJson(
       _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<CourseDto>(
-                  (i) => CourseDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => CourseDetailsDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

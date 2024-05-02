@@ -3,7 +3,7 @@ import 'package:app/core/utils/navigator.dart';
 import '../../../../../core/widgets/images/image_network.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
-import '../../../../my_courses/data/models/my_courses_dto.dart';
+import '../../../../my_courses/data/models/course_dto.dart';
 import '../../../../my_courses/presentation/widgets/my_courses_item.dart';
 import '../../../data/models/teacher_details_dto.dart';
 
@@ -75,7 +75,7 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
                                 child: MyCoursesItem(
                                   padding: 8.paddingVert,
                                   hasNotProgress: true,
-                                  myCourse: MyCoursesDto(
+                                  myCourse: CourseDto(
                                     percentage: 0.7,
                                     name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
                                     department:'الكيمياء' ,

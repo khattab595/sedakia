@@ -1,11 +1,12 @@
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
-import '../../../my_courses/data/models/my_courses_dto.dart';
+import '../../../my_courses/data/models/course_dto.dart';
+import '../../../my_courses/domain/entities/course.dart';
 
 class CustomLatestCourseItem extends BaseStatelessWidget {
+  final Course myCourse;
    CustomLatestCourseItem( {super.key,required this.myCourse,});
-   final MyCoursesDto myCourse;
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -1,11 +1,10 @@
 import 'package:app/src/lesson_details/presentation/widget/custom_lesson_file_item.dart';
 import '../../../core/widgets/images/flip_asset_image.dart';
 import '../../../core/widgets/texts/texts.dart';
-import '../../home/domain/entities/home.dart';
 import '../../main_index.dart';
 
 class LessonDetailsScreen extends BaseStatelessWidget {
-  final Home home;
+  final  home;
 
   LessonDetailsScreen({Key? key, required this.home}) : super(key: key);
   @override

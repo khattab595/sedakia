@@ -3,7 +3,6 @@ import 'package:app/src/course%20_details/presentaion/widget/custom_lessons_widg
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/tabview/tabbar_widget.dart';
 import '../../../../core/widgets/texts/texts.dart';
-import '../../../home/domain/entities/home.dart';
 import '../../../main_index.dart';
 import '../../data/models/course_details_dto.dart';
 

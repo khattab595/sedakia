@@ -34,7 +34,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/updatePassword',
+              '/forgot-password',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -64,7 +64,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     )
             .compose(
               _dio.options,
-              '/api/v1/Operations/GetAllOperations',
+              '/resetPassword',
               queryParameters: queryParameters,
               data: _data,
             )
