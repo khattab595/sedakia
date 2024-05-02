@@ -1,8 +1,8 @@
 
-import '../../../core/components/base_stateless_widget.dart';
-import '../../home/domain/entities/home.dart';
-import '../../home/presentation/widgets/custom_teacher_item.dart';
-import '../../main_index.dart';
+import '../../../../core/components/base_stateless_widget.dart';
+import '../../../home/domain/entities/home.dart';
+import '../../../home/presentation/widgets/custom_teacher_item.dart';
+import '../../../main_index.dart';
 
 class TeachersScreen extends BaseStatelessWidget {
   final Home home;

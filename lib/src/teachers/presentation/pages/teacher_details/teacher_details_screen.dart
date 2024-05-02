@@ -1,19 +1,16 @@
 
 import 'package:app/core/utils/navigator.dart';
-
-import '../../../../core/components/base_stateless_widget.dart';
-import '../../../../core/widgets/images/image_network.dart';
-import '../../../../core/widgets/texts/texts.dart';
-import '../../../home/domain/entities/home.dart';
-import '../../../home/presentation/widgets/custom_teacher_item.dart';
-import '../../../main_index.dart';
-import '../../../my_courses/data/models/my_courses_dto.dart';
-import '../../../my_courses/presentation/widgets/my_courses_item.dart';
+import '../../../../../core/widgets/images/image_network.dart';
+import '../../../../../core/widgets/texts/texts.dart';
+import '../../../../main_index.dart';
+import '../../../../my_courses/data/models/my_courses_dto.dart';
+import '../../../../my_courses/presentation/widgets/my_courses_item.dart';
+import '../../../data/models/teacher_details_dto.dart';
 
 class TeacherDetailsScreen extends BaseStatelessWidget {
-  final Home home;
+  final TeacherDetailsDto teacherDetails;
 
-  TeacherDetailsScreen({Key? key, required this.home}) : super(key: key);
+  TeacherDetailsScreen({Key? key, required this.teacherDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

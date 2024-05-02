@@ -4,7 +4,9 @@ import 'package:retrofit/retrofit.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
 import '../../domain/entities/shipment_qr_code.dart';
-import '../models/home_dto.dart';
+import '../models/department_dto.dart';
+import '../models/recently_dto.dart';
+import '../models/teacher_dto.dart';
 
 part 'home_datasource.g.dart';
 @Injectable()
@@ -14,8 +16,22 @@ abstract class  HomeDatasource{
   @factoryMethod
   factory HomeDatasource(Dio dio) = _HomeDatasource;
 
-  @GET('/app/dashboard')
-  Future<ApiResponse<HomeDto>> fetchHomeData();
+  @GET('/departments')
+  Future<ApiResponse<List<DepartmentDto>>> fetchDepartmentsData();
+
+  @GET('/teachers')
+  Future<ApiResponse<List<TeacherDto>>> fetchTeachersData();
+
+  @GET('/recently')
+  Future<ApiResponse<RecentlyDto>> fetchRecentlyData();
+
+  @GET('/recentlyCourses')
+  Future<ApiResponse<List<RecentlyDto>>> fetchRecentlyCoursesData();
+
+
+
+
+
 
   @POST('/api/v1/user/DisconnectClient')
   Future<ApiResponse<String>> reasonForDisconnection(@Body() String reason);

@@ -14,7 +14,7 @@ class HomeUseCase {
     return Home();
   }
 
-  Future<String> reasonForDisconnection(String reason) async {
+  Future<String?> reasonForDisconnection(String reason) async {
     return await repository.reasonForDisconnection(reason);
   }
   Future<List<ShipmentQRCode>> scanToReceive(String id) async {

@@ -1,9 +1,9 @@
-import 'package:app/src/teachers/presentation/teachers_screen.dart';
+import 'package:app/src/teachers/presentation/pages/teachers_screen.dart';
 
-import '../../../../../../core/components/base_widget_bloc.dart';
-import '../../../core/resources/data_state.dart';
-import '../../home/presentation/bloc/home_bloc.dart';
-import '../../main_index.dart';
+import '../../../../../../../core/components/base_widget_bloc.dart';
+import '../../../../core/resources/data_state.dart';
+import '../../../home/presentation/bloc/home_bloc.dart';
+import '../../../main_index.dart';
 
 class TeachersPage extends BaseBlocWidget<DataSuccess, HomeCubit> {
   TeachersPage({Key? key}) : super(key: key);

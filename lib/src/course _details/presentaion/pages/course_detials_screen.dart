@@ -1,15 +1,16 @@
 import 'package:app/src/course%20_details/presentaion/widget/custom_details_widget.dart';
 import 'package:app/src/course%20_details/presentaion/widget/custom_lessons_widget.dart';
-import '../../../core/widgets/images/image_network.dart';
-import '../../../core/widgets/tabview/tabbar_widget.dart';
-import '../../../core/widgets/texts/texts.dart';
-import '../../home/domain/entities/home.dart';
-import '../../main_index.dart';
+import '../../../../core/widgets/images/image_network.dart';
+import '../../../../core/widgets/tabview/tabbar_widget.dart';
+import '../../../../core/widgets/texts/texts.dart';
+import '../../../home/domain/entities/home.dart';
+import '../../../main_index.dart';
+import '../../data/models/course_details_dto.dart';
 
 class CourseDetailsScreen extends BaseStatelessWidget {
-  final Home home;
+  final CourseDetailsDto courseDetailsDto;
 
-  CourseDetailsScreen({Key? key, required this.home}) : super(key: key);
+  CourseDetailsScreen({Key? key, required this.courseDetailsDto}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

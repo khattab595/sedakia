@@ -5,9 +5,10 @@ import '../../src/auth/presentation/pages/forget-password/new_password_page.dart
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
-import '../../src/course _details/presentaion/course_details_page.dart';
+import '../../src/course _details/presentaion/pages/course_details_page.dart';
 import '../../src/department/presentation/department_page.dart';
 import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
+import '../../src/favorite/presentation/favorite_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
 import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
 import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
@@ -35,11 +36,12 @@ import '../../src/program/presentation/pages/programe_page.dart';
 import '../../src/quran/presentation/pages/quran_page.dart';
 import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.dart';
 import '../../src/rosary/presentation/pages/rosary_page.dart';
+import '../../src/scorecard/presentation/scorecard_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/support/pages/support_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
-import '../../src/teachers/presentation/teacher_details/teacher_details_page.dart';
-import '../../src/teachers/presentation/teachers_page.dart';
+import '../../src/teachers/presentation/pages/teacher_details/teacher_details_page.dart';
+import '../../src/teachers/presentation/pages/teachers_page.dart';
 
 class Routes {
 
@@ -120,6 +122,8 @@ class Routes {
   static const String teacherDetailsPage = 'teacherDetailsPage';
   static const String courseDetailsPage = 'courseDetailsPage';
   static const String lessonDetailsPage = 'lessonDetailsPage';
+  static const String scoreCardPage = 'scoreCardPage';
+  static const String favoritePage = 'favoritePage';
 
 
   /* ====================================================================== */
@@ -133,9 +137,11 @@ class Routes {
 
 
 
+    favoritePage: (context) => FavoritePage(),
+    scoreCardPage: (context) => ScoreCardPage(),
     lessonDetailsPage: (context) => LessonDetailsPage(),
-    courseDetailsPage: (context) => CourseDetailsPage(),
-    teacherDetailsPage: (context) => TeacherDetailsPage(),
+    courseDetailsPage: (context) => CourseDetailsPage(id: 1,),
+    teacherDetailsPage: (context) => TeacherDetailsPage(id: 1,),
     myCoursesPage: (context) => MyCoursesPage(),
     latestCoursesPage: (context) => LatestCoursesPage(),
     teachersPage: (context) => TeachersPage(),

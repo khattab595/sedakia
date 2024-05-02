@@ -1,21 +1,24 @@
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/department_dto.dart';
 import '../../../domain/entities/home.dart';
 import '../../bloc/home_bloc.dart';
 import 'home_screen.dart';
 
-class HomePage extends BaseBlocWidget<DataSuccess<Home>, HomeCubit> {
+class HomePage extends BaseBlocWidget<DataSuccess<List<DepartmentDto>>, HomeCubit> {
   HomePage({Key? key}) : super(key: key);
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchHomeData();
+    bloc.fetchDepartmentsData();
+    // bloc.fetchTeachersData();
+    // bloc.fetchRecentlyData();
   }
 
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<Home> state) {
+  Widget buildWidget(BuildContext context, DataSuccess<List<DepartmentDto>> state) {
     return HomeScreen(
-      home: state.data!,
+      departmentsList: state.data!,
     );
   }
 }
