@@ -2,14 +2,12 @@
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
-import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
-import '../../../../splash/presentation/widgets/intro_bg.dart';
 import '../../../data/models/login_params.dart';
 
 class LoginScreen extends BaseStatelessWidget {
@@ -25,7 +23,7 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(kDebugMode){
-      phoneNumberController.text = '7712345678';
+      phoneNumberController.text = '9647712345678';
       passwordController.text = '123456789';
     }
 //7712345678
@@ -93,7 +91,7 @@ class LoginScreen extends BaseStatelessWidget {
   onPressed() async {
    if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        phoneNumber: '964${phoneNumberController.text}',
+        phoneNumber: phoneNumberController.text,
         password: passwordController.text,
         fcmToken: 'harby',
       ));

@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/bloc/base_cubit.dart';
 import '../../../../core/commen/common_state.dart';
+import '../../../../core/resources/data_state.dart';
 import '../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../auth/domain/repositories/auth_repo.dart';
 import '../../data/models/profile_dto.dart';
@@ -18,6 +19,18 @@ class ProfileBloc extends BaseCubit {
 
   void fetchProfileData({bool isFromCash = true}) {
     executeSuccess(() => repo.fetchProfileData(isFromCash));
+  }
+
+  Future<void> fetchEditProfileData({bool isFromCash = true}) async {
+    try {
+      emit(DataLoading());
+      final response1 = await repo.fetchProfileData(isFromCash);
+      final response2 = await authRepo.fetchAcademicLevels();
+      emit(DoubleDataSuccess(data1: response1, data2: response2));
+      fetchStageLevels(response1.academicLevelId.toString() ?? '');
+    } catch (e) {
+      emit(DataFailed(e));
+    }
   }
 
   void editProfileData(ProfileDto params) {

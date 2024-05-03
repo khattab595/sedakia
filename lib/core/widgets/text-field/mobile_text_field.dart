@@ -8,14 +8,16 @@ import '../../utils/helper_methods.dart';
 import 'custom_text_field.dart';
 
 class MobileTextField extends BaseStatelessWidget {
+  final String? title;
   final String? hintText;
   final TextEditingController? controller;
-  MobileTextField({Key? key, this.hintText, this.controller}) : super(key: key);
+  MobileTextField({Key? key, this.title, this.hintText, this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
       controller: controller,
+      title: title,
       hintText: hintText ?? strings.mobile_number,
       keyboardType: TextInputType.number,
       suffixIcon: Container(
@@ -29,9 +31,9 @@ class MobileTextField extends BaseStatelessWidget {
       validator: (value) {
         if (value!.isEmpty) {
           return strings.this_field_is_required;
-        } else if (!value.startsWith('77')){
-          return strings.must_be_start_with_77;
-        } else if (value.length != 10) {
+        } else if (!value.startsWith('96477')){
+          return strings.must_be_start_with_96477;
+        } else if (value.length != 13) {
           return strings.must_be_10_digits;
         }
         return null;

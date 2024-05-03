@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import '../../../../core/utils/date_formatter.dart';
+import '../../../../core/utils/helper_methods.dart';
 import '../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../../core/widgets/drop_down/drop_down_stream.dart';
 import '../../../../core/widgets/text-field/custom_text_field.dart';
+import '../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../main_index.dart';
 import '../../data/models/profile_dto.dart';
 import '../../domain/entities/profile.dart';
@@ -23,9 +26,10 @@ class EditProfileScreen extends BaseStatelessWidget {
   TextEditingController parentPhoneController = TextEditingController();
   TextEditingController studyController = TextEditingController();
   TextEditingController stageController = TextEditingController();
-  TextEditingController dateController = TextEditingController();
-  String academicLevel = '';
+  TextEditingController birthDateController = TextEditingController();
+  String academicLevelId = '';
   String stageLevelId = '';
+  String gender = '';
 
   static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -42,43 +46,55 @@ class EditProfileScreen extends BaseStatelessWidget {
             CustomTextField(
               title: strings.serial_number,
               controller: serialNumberController,
+              enabled: false,
             ),
             CustomTextField(
               title: strings.name,
               controller: nameController,
             ),
-            CustomTextField(
-              title: strings.phone_number,
+            MobileTextField(
+              title: strings.mobile_number,
               controller: phoneController,
             ),
-            CustomTextField(
+            MobileTextField(
               title: strings.parent_mobile_number,
               controller: parentPhoneController,
             ),
-            CustomTextField(
-              title: strings.study,
-              controller: studyController,
-            ),
-            CustomTextField(
-              title: strings.mobile_number,
-              controller: phoneController,
-              keyboardType: TextInputType.phone,
-            ),
             DropDownField(
-              hint: strings.academic_level,
+              title: strings.study,
               items: items,
-              value: academicLevel,
+              value: academicLevelId,
               onChanged: (value) {
-                academicLevel = value.id ?? '';
-                onFetchStageLevels(academicLevel);
+                academicLevelId = value.id ?? '';
+                onFetchStageLevels(academicLevelId);
               },
             ),
             DropDownFieldStream(
-              hint: strings.choose_stage,
+              title: strings.stage,
               stream: stageLevelsStream,
               value: stageLevelId,
               onChanged: (value) {
                 stageLevelId = value.id ?? '';
+              },
+            ),
+            CustomTextField(
+              controller: birthDateController,
+              title: strings.birth_date,
+              onTap: () async {
+                DateTime? date = await HelperMethods.selectDate(context);
+                birthDateController.text =
+                    DateFormatter.formatTimestampString(date.toString());
+              } ,
+            ),
+            DropDownField(
+              title: strings.gender,
+              value: gender,
+              items: [
+                DropDownItem(id: strings.male, title: strings.male),
+                DropDownItem(id:  strings.female, title: strings.female),
+              ],
+              onChanged: (value) {
+                gender = value.title ?? '';
               },
             ),
             editButton(),
@@ -104,18 +120,25 @@ class EditProfileScreen extends BaseStatelessWidget {
           id: profile.id,
           name: nameController.text,
           parentPhone: parentPhoneController.text,
+          phoneNumber: phoneController.text,
+          academicLevelId: int.parse(academicLevelId),
+          stageLevelId: int.parse(stageLevelId),
+          birthDate: birthDateController.text,
+          gender: gender,
+          specialCode: serialNumberController.text,
         ),
       );
     }
   }
 
   _initData() {
+    gender = profile.gender ?? '';
     serialNumberController.text = profile.specialCode ?? '';
     nameController.text = profile.name ?? '';
     phoneController.text = profile.phoneNumber ?? '';
     parentPhoneController.text = profile.parentPhone ?? '';
-    academicLevel  = profile.academicLevel ?? '';
+    academicLevelId  = profile.academicLevelId.toString() ?? '';
     stageLevelId = profile.stageLevelId.toString();
-    dateController.text = profile.birthDate ?? '';
+    birthDateController.text = profile.birthDate ?? '';
   }
 }
