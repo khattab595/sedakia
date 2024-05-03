@@ -24,6 +24,6 @@ class ChangePasswordPage extends BaseBlocWidget<UnInitState, ForgotPasswordCubit
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
+    Navigators.pop();
   }
 }

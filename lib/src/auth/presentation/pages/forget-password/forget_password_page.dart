@@ -24,6 +24,6 @@ class ForgotPasswordPage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pop();
+    Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
   }
 }
