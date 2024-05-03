@@ -49,7 +49,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   url_launcher: ^6.1.14
   shared_preferences: ^2.2.1
-  pod_player: ^0.2.2
+  pod_player: ^0.2.1
 
   #  sqflite: ^2.3.0
   path: ^1.8.3

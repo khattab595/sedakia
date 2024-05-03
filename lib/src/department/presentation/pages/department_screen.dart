@@ -1,14 +1,11 @@
-import '../../../home/domain/entities/department.dart';
 import '../../../home/presentation/widgets/custom_latest_course_item.dart';
 import '../../../main_index.dart';
-import '../../../my_courses/data/models/course_dto.dart';
 import '../../../my_courses/domain/entities/course.dart';
 
 class DepartmentScreen extends BaseStatelessWidget {
   final List<Course> courses;
   DepartmentScreen({Key? key, required this.courses}) : super(key: key);
 
-//departmentScreen
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -23,14 +20,7 @@ class DepartmentScreen extends BaseStatelessWidget {
         itemBuilder: (context, index) {
           final course = courses[index];
           return CustomLatestCourseItem(
-              myCourse: Course(
-                percentage: 0.6,
-                name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
-                department: 'الكيمياء',
-                teacher: 'عبدالله مصطفي',
-                image: 'courseImageTest',
-                duration: '١ ساعة ٣٢ دقيقة',
-              ));
+              myCourse: course);
         }
     );
   }

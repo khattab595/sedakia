@@ -12,7 +12,6 @@ class DepartmentCubit extends BaseCubit {
   DepartmentCubit(this._repo);
 
   fetchDepartmentData({required int id}) async {
-    print('tttttttttttttttttttttttttttttt');
     executeSuccess(() => _repo.fetchDepartmentData(id: id));
   }
 

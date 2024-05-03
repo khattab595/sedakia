@@ -11,7 +11,6 @@ class DepartmentPage extends BaseBlocWidget<DataSuccess<List<Course>>, Departmen
 
   @override
   void loadInitialData(BuildContext context) {
-    print('ssstttttttttttttttttttttttttttttt');
     bloc.fetchDepartmentData(id: getArguments(context));
   }
   @override

@@ -2,9 +2,8 @@ import 'package:app/src/scorecard/presentation/widget/custom_scorecard_item.dart
 import '../../main_index.dart';
 
 class ScoreCardScreen extends BaseStatelessWidget {
-  final home;
 
-  ScoreCardScreen({Key? key, required this.home}) : super(key: key);
+  ScoreCardScreen({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,3 @@
-import 'package:app/src/course%20_details/data/models/course_details_dto.dart';
 import 'package:injectable/injectable.dart';
 import '../../domin/entities/course_details.dart';
 import '../../domin/repositories/base_course_details_repo.dart';
@@ -18,8 +17,14 @@ class CourseDetailsRepo extends BaseCourseDetailsRepo{
   }
 
   @override
-  Future subscribeCourse({required int courseId, required String courseCode})async {
+  Future<String> subscribeCourse({required int courseId, required String courseCode})async {
     final response =  await datasource.subscribeCourse(courseId, courseCode);
+    return response.data!;
+  }
+
+  @override
+  Future<String> attendingMin({required int id, required int min}) async{
+    final response =  await datasource.attendingMin(id, min);
     return response.data!;
   }
 

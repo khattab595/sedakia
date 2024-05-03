@@ -1,5 +1,5 @@
-import 'package:app/core/utils/navigator.dart';
 
+import '../../../../core/components/base_stateless_widget.dart';
 import '../../../../core/widgets/images/flip_asset_image.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';

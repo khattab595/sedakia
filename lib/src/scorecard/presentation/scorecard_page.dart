@@ -4,7 +4,7 @@ import '../../../../../../core/components/base_widget_bloc.dart';
 import '../../home/presentation/bloc/home_bloc.dart';
 import '../../main_index.dart';
 
-class ScoreCardPage extends BaseBlocWidget<DataSuccess, HomeCubit> {
+class ScoreCardPage extends BaseBlocWidget<UnInitState, HomeCubit> {
   ScoreCardPage({Key? key}) : super(key: key);
 
   @override
@@ -12,10 +12,8 @@ class ScoreCardPage extends BaseBlocWidget<DataSuccess, HomeCubit> {
     bloc.fetchInitialData();
   }
   @override
-  Widget buildWidget(BuildContext context, DataSuccess state) {
-    return ScoreCardScreen(
-      home: state.data!,
-    );
+  Widget buildWidget(BuildContext context, UnInitState state) {
+    return ScoreCardScreen();
   }
   @override
   String? title(BuildContext context) {

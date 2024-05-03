@@ -4,8 +4,7 @@ import '../../../data/models/department_dto.dart';
 import '../../bloc/home_bloc.dart';
 import 'home_screen.dart';
 
-class HomePage
-    extends BaseBlocWidget<UnInitState, HomeCubit> {
+class HomePage extends BaseBlocWidget<UnInitState, HomeCubit> {
   HomePage({Key? key}) : super(key: key);
 
   @override

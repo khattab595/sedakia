@@ -43,7 +43,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.grades_history,
             title: strings.grades_history,
-            route: 'Routes.gradesHistoryPage',
+            route: Routes.scoreCardPage,
           ),
           ProfileItem(
             icon: AppIcons.favorite,

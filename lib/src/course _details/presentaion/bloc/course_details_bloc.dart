@@ -15,4 +15,8 @@ class CourseDetailsCubit extends BaseCubit {
   subscribeCourse({required int courseId,required String courseCode}) async {
     executeSuccess(() => _repo.subscribeCourse(courseId: courseId, courseCode: courseCode));
   }
+
+  attendingMin({required int id,required int min}) async {
+    executeSuccess(() => _repo.attendingMin(id: id, min: min));
+  }
 }

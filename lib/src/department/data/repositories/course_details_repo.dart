@@ -15,6 +15,5 @@ class DepartmentRepo extends BaseDepartmentRepo{
     final response =  await datasource.fetchDepartmentCourses(id);
     return response.data?.map((e) => Course.fromDto(e)).toList()??[];
   }
-  // response.data?.map((e) => Department.fromDto(e)).toList() ?? []
 
 }
