@@ -2,6 +2,19 @@ class AppIcons{
 
 
   static const String home = "assets/icons/home.svg";
+  static const String camera = "assets/icons/camera.svg";
+  static const String arrow_lift = "assets/icons/arrow_lift.svg";
+  static const String profile = "assets/icons/profile.svg";
+  static const String lock = "assets/icons/lock.svg";
+  static const String scan = "assets/icons/scan.svg";
+  static const String grades_history = "assets/icons/grades_history.svg";
+  static const String favorite = "assets/icons/favorite.svg";
+  static const String warning = "assets/icons/warning.svg";
+  static const String message_question = "assets/icons/message_question.svg";
+  static const String terms = "assets/icons/terms.svg";
+
+
+
   static const String invoices = "assets/icons/invoices.svg";
   static const String qayd = "assets/icons/qayd.svg";
   static const String calender1 = "assets/icons/calender1.svg";
@@ -18,7 +31,6 @@ class AppIcons{
   static const String email_circle = "assets/icons/email_circle.svg";
   static const String edit = "assets/icons/edit.svg";
   static const String request_email = "assets/icons/request_email.svg";
-  static const String lock = "assets/icons/lock.svg";
   static const String support = "assets/icons/support.svg";
   static const String logout = "assets/icons/logout.svg";
   static const String dot = "assets/icons/dot.svg";
@@ -27,6 +39,7 @@ class AppIcons{
   static const String notificationEmpty = "assets/icons/notif_empty.svg";
   static const String video = "assets/icons/video.svg";
   static const String book = "assets/icons/book.svg";
+  static const String courses = "assets/icons/courses.svg";
 
   ///////////////////////////////////////////////////////////////////////
   static const String caf = "assets/icons/caf.svg";
@@ -51,8 +64,6 @@ class AppIcons{
   static const String filter2 = "assets/icons/filter2.svg";
   static const String filter4 = "assets/icons/filter4.svg";
   static const String close = "assets/icons/close.svg";
-  static const String notification = "assets/icons/notification.svg";
-  static const String profile = "assets/icons/profile.svg";
   static const String quran = "assets/icons/quran.svg";
   static const String direction = "assets/icons/direction.svg";
   static const String language_icon = "assets/icons/language_icon.svg";
@@ -118,7 +129,6 @@ class AppIcons{
   static const String rightArrow = "assets/icons/right_arrow.svg";
   static const String leftArrow = "assets/icons/left_arrow.svg";
   static const String notificationOutline = "assets/icons/notification_outline.svg";
-  static const String scan = "assets/icons/qr_scan.svg";
   static const String shipmentOutline = "assets/icons/shipments_outline.svg";
   static const String billOutline = "assets/icons/bills_outline.svg";
   static const String eye = "assets/icons/eye.svg";

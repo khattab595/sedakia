@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:injectable/injectable.dart';
 import 'package:app/src/auth/data/models/login_params.dart';
@@ -13,12 +14,13 @@ import '../models/register_params.dart';
 import '../models/verification_code_params.dart';
 
 @Injectable(as: AuthRepo)
-class AuthRepoImp extends AuthRepo{
-  final AuthDataSource  apiProvider;
+class AuthRepoImp extends AuthRepo {
+  final AuthDataSource apiProvider;
+
   AuthRepoImp(this.apiProvider);
 
   @override
-  Future<Profile> login(LoginParams params) async{
+  Future<Profile> login(LoginParams params) async {
     final response = await apiProvider.login(params);
     ProfileDto profileDto = ProfileDto(
       name: response.name,
@@ -29,36 +31,49 @@ class AuthRepoImp extends AuthRepo{
   }
 
   @override
-  Future<Profile> register(RegisterParams params) async{
+  Future<Profile> register(RegisterParams params) async {
     final response = await apiProvider.register(params);
     await HelperMethods.saveProfile(response.data!);
     return Profile.fromJson(response.data!);
   }
 
   @override
-  Future<Profile> verificationCode(VerificationCodeParams params) async{
+  Future<Profile> verificationCode(VerificationCodeParams params) async {
     final response = await apiProvider.verificationCode(params);
     await HelperMethods.saveProfile(response.data!);
     return Profile.fromJson(response.data!);
   }
 
   @override
-  Future<Profile> completeRegistration(CompleteRegistrationParams params) async{
-    final response = await apiProvider.completeRegistration(params);
+  Future<Profile> completeRegistration(
+      CompleteRegistrationParams params) async {
+    final response = await apiProvider.completeRegistration(
+      params.academicLevelId ?? '',
+      params.stageLevelId ?? '',
+      params.birthDate ?? '',
+      params.gender ?? '',
+      File(params.picIdentityF ?? ''),
+      File(params.picIdentityB ?? ''),
+    );
     await HelperMethods.saveProfile(response.data!);
     return Profile.fromJson(response.data!);
   }
 
   @override
-  Future<List<DropDownItem>> fetchAcademicLevels() async{
+  Future<List<DropDownItem>> fetchAcademicLevels() async {
     final response = await apiProvider.fetchAcademicLevels();
-    return response.data?.map((e) => DropDownItem(id: e.id.toString(), title: e.name)).toList() ?? [];
+    return response.data
+            ?.map((e) => DropDownItem(id: e.id.toString(), title: e.name))
+            .toList() ??
+        [];
   }
 
   @override
-  Future<List<DropDownItem>> fetchStageLevels(int academicLevelId) async{
+  Future<List<DropDownItem>> fetchStageLevels(String academicLevelId) async {
     final response = await apiProvider.fetchStageLevels(academicLevelId);
-    return response.data?.map((e) => DropDownItem(id: e.id.toString(), title: e.name)).toList() ?? [];
+    return response.data
+            ?.map((e) => DropDownItem(id: e.id.toString(), title: e.name))
+            .toList() ??
+        [];
   }
-
 }

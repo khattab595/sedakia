@@ -1,6 +1,6 @@
 
-import '../../data/models/my_courses_dto.dart';
+import '../../data/models/course_dto.dart';
 
 abstract class MyCoursesRepo {
-  Future<List<MyCoursesDto>> fetchMyCourses();
+  Future<List<CourseDto>> fetchMyCourses();
 }

@@ -1,11 +1,11 @@
-import '../../home/domain/entities/home.dart';
 import '../../home/presentation/widgets/custom_latest_course_item.dart';
 import '../../home/presentation/widgets/custom_text.dart';
 import '../../main_index.dart';
-import '../../my_courses/data/models/my_courses_dto.dart';
+import '../../my_courses/data/models/course_dto.dart';
+import '../../my_courses/domain/entities/course.dart';
 
 class LatestCoursesScreen extends BaseStatelessWidget {
-  final Home home;
+  final  home;
 
   LatestCoursesScreen({Key? key, required this.home}) : super(key: key);
 
@@ -37,7 +37,7 @@ class LatestCoursesScreen extends BaseStatelessWidget {
                 childAspectRatio: (1 / 0.95),
                 children: List.generate(20, (index) {
                   return  FittedBox(child:  CustomLatestCourseItem(
-                    myCourse: MyCoursesDto(
+                    myCourse: Course(
                       percentage: 0.6,
                       name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
                       department:'الكيمياء' ,

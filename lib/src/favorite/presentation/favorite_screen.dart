@@ -1,13 +1,11 @@
 
-import '../../../core/components/base_stateless_widget.dart';
-import '../../home/domain/entities/home.dart';
-import '../../home/presentation/widgets/custom_teacher_item.dart';
+
 import '../../main_index.dart';
-import '../../my_courses/data/models/my_courses_dto.dart';
+import '../../my_courses/data/models/course_dto.dart';
 import '../../my_courses/presentation/widgets/my_courses_item.dart';
 
 class FavoriteScreen extends BaseStatelessWidget {
-  final Home home;
+  final  home;
 
   FavoriteScreen({Key? key, required this.home}) : super(key: key);
 
@@ -25,7 +23,7 @@ class FavoriteScreen extends BaseStatelessWidget {
                 padding: 8.paddingVert,
                 hasNotProgress: true,
                 myCourse:
-                MyCoursesDto(
+                CourseDto(
                   percentage: 0.7,
                   name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
                   department:'الكيمياء' ,

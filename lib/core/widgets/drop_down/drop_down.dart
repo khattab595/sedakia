@@ -83,7 +83,7 @@ class DropDownField extends BaseStatelessWidget {
       ),
       hint: Text(
         hint ?? '',
-        style: hintStyle ?? context.labelSmall.copyWith(fontSize: 16),
+        style: hintStyle ?? context.displaySmall.copyWith(fontSize: 16),
       ),
       value: getInitialValue(),
       items: items

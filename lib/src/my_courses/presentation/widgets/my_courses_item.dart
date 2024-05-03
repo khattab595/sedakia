@@ -1,13 +1,16 @@
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
-import '../../data/models/my_courses_dto.dart';
+import '../../data/models/course_dto.dart';
+import '../../domain/entities/course.dart';
 
 class MyCoursesItem extends BaseStatelessWidget {
-   MyCoursesItem(  {super.key,this.padding,required this.myCourse,this.hasNotProgress, });
-   final MyCoursesDto myCourse;
-   final bool? hasNotProgress;
-   final EdgeInsetsGeometry? padding;
+  final CourseDto myCourse;
+  final bool? hasNotProgress;
+  final EdgeInsetsGeometry? padding;
+   MyCoursesItem({super.key,this.padding, required this.myCourse,this.hasNotProgress, });
+
+
   @override
   Widget build(BuildContext context) {
     return  Padding(

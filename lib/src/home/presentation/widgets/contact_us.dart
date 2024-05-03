@@ -6,11 +6,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/components/base_stateless_widget.dart';
 import '../../../../core/widgets/buttons/app_icon.dart';
 import '../../../../core/widgets/texts/texts.dart';
-import '../../data/models/home_dto.dart';
 
 ///  Created by harbey on 9/15/2023.
 class ContactUs extends BaseStatelessWidget {
-  final List<Statistic> statistics;
+  final List statistics;
   ContactUs({super.key, required this.statistics});
   @override
   Widget build(BuildContext context) {

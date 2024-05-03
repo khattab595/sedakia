@@ -21,13 +21,13 @@ class _MyCoursesDatasource implements MyCoursesDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<MyCoursesDto>>> fetchMyCourses() async {
+  Future<ApiResponse<List<CourseDto>>> fetchMyCourses() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<MyCoursesDto>>>(Options(
+        _setStreamType<ApiResponse<List<CourseDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,12 +43,12 @@ class _MyCoursesDatasource implements MyCoursesDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<MyCoursesDto>>.fromJson(
+    final value = ApiResponse<List<CourseDto>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
           ? json
-              .map<MyCoursesDto>(
-                  (i) => MyCoursesDto.fromJson(i as Map<String, dynamic>))
+              .map<CourseDto>(
+                  (i) => CourseDto.fromJson(i as Map<String, dynamic>))
               .toList()
           : List.empty(),
     );

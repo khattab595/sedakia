@@ -5,6 +5,7 @@ import 'package:app/core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
+import 'edit_profile_image.dart';
 
 class ProfileHeaderWidget extends BaseStatelessWidget {
   final Profile profile;
@@ -12,15 +13,14 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ImageNetworkCircle(
-          image: profile.image,
-          width: 70,
-          height: 70,
+        EditProfileImage(
+          image: profile.image ?? '',
+          onSelectImage: (file) {},
         ),
-        20.pw,
+        15.ph,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

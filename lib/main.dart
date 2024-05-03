@@ -2,9 +2,7 @@ import 'dart:io';
 
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
 import 'src/main_index.dart';
@@ -68,7 +66,7 @@ class MyApp extends StatelessWidget {
             ],
             routes: Routes.routes,
             initialRoute: state.isFirstTime
-                ? Routes.register
+                ? Routes.onboardingPage
                 : state.isLogin
                 ? Routes.register
                 : Routes.register,

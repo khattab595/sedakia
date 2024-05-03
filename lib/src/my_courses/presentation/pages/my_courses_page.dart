@@ -1,11 +1,11 @@
 
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
-import '../../data/models/my_courses_dto.dart';
+import '../../data/models/course_dto.dart';
 import '../bloc/my_courses_bloc.dart';
 import 'my_courses_screen.dart';
 
-class MyCoursesPage extends BaseBlocWidget<DataSuccess<List<MyCoursesDto>>, MyCoursesCubit> {
+class MyCoursesPage extends BaseBlocWidget<DataSuccess<List<CourseDto>>, MyCoursesCubit> {
   MyCoursesPage({Key? key}) : super(key: key);
 
 
@@ -15,7 +15,7 @@ class MyCoursesPage extends BaseBlocWidget<DataSuccess<List<MyCoursesDto>>, MyCo
   }
 
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<List<MyCoursesDto>> state) {
+  Widget buildWidget(BuildContext context, DataSuccess<List<CourseDto>> state) {
     return MyCoursesScreen(
       myCourses: state.data!,
     );

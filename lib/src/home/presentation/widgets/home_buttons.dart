@@ -3,10 +3,9 @@ import 'package:app/src/main_index.dart';
 import '../../../../core/utils/navigator.dart';
 import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../../core/widgets/texts/texts.dart';
-import '../../data/models/home_dto.dart';
 
 class HomeButtons extends BaseStatelessWidget {
-  final List<Statistic> statistics;
+  final List statistics;
 
   HomeButtons({super.key, required this.statistics});
 

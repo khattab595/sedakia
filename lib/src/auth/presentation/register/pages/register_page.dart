@@ -1,5 +1,6 @@
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/black_texts.dart';
+import 'package:app/src/auth/presentation/register/pages/complete_register_page.dart';
 
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../../core/utils/navigator.dart';
@@ -42,13 +43,14 @@ class RegisterPage extends BaseBlocWidget<UnInitState, AuthCubit> {
           Expanded(
               child: PageView(
             controller: controller,
+            physics: const NeverScrollableScrollPhysics(),
             children: [
+              CompleteRegisterPage(),
               RegisterScreen(onRegister: (RegisterParams params) {
                 controller.nextPage(
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.easeIn);
               }),
-              CompleteScreen(onRegister: (RegisterParams params) {}),
               ActivationCodeScreen(
                 onPinCode: (String pinCode) {
                   // context.read<AuthCubit>().registerUser(pinCode);

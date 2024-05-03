@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'my_courses_dto.g.dart';
+part 'course_dto.g.dart';
 @JsonSerializable(ignoreUnannotated: false)
-class MyCoursesDto {
+class CourseDto {
   @JsonKey(name: 'id')
   int? id;
   @JsonKey(name: 'name')
@@ -23,12 +23,12 @@ class MyCoursesDto {
   double? percentage;
 
 
-  MyCoursesDto({this.id, this.name, this.image, this.duration, this.department,
+  CourseDto({this.id, this.name, this.image, this.duration, this.department,
     this.description, this.teacher, this.isFavorite,this.percentage});
 
-  factory MyCoursesDto.fromJson(Map<String, dynamic> json) => _$MyCoursesDtoFromJson(json);
+  factory CourseDto.fromJson(Map<String, dynamic> json) => _$CourseDtoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MyCoursesDtoToJson(this);
+  Map<String, dynamic> toJson() => _$CourseDtoToJson(this);
 }
 
 

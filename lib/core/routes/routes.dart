@@ -38,7 +38,6 @@ import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.d
 import '../../src/rosary/presentation/pages/rosary_page.dart';
 import '../../src/scorecard/presentation/scorecard_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
-import '../../src/settings/presentation/support/pages/support_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
 import '../../src/teachers/presentation/pages/teacher_details/teacher_details_page.dart';
 import '../../src/teachers/presentation/pages/teachers_page.dart';
@@ -80,7 +79,7 @@ class Routes {
   static const String walletPage = 'wallet';
   static const String academy = 'academy';
   static const String settings = 'settings';
-  static const String aboutLogeste = 'aboutLogestePage';
+  static const String aboutPage = 'aboutLogestePage';
   static const String homePage = 'homePage';
   static const String qrCodePage = 'QrCodePage';
   static const String complaintsDetailsPage = 'complaintsDetailsPage';
@@ -149,13 +148,12 @@ class Routes {
     departmentPage: (context) => DepartmentPage(),
     loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
-    supportPage: (context) => SupportPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
     profile: (context) => ProfilePage(),
-    aboutLogeste: (context) => AboutLogestePage(),
+    aboutPage: (context) => AboutPage(),
     /* ====================================================================== */
     aboutCafPage: (context) => AboutCafPage(),
     programmePage: (context) => ProgramePage(),

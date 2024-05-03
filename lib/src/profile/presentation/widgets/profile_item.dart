@@ -17,7 +17,7 @@ class ProfileItem extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.route,
-    this.iconSize = 20,
+    this.iconSize = 16,
     this.args,
     this.onRefresh,
   }) : super(key: key);
@@ -31,26 +31,29 @@ class ProfileItem extends StatelessWidget {
           onRefresh!();
         }
       },
-      child: Column(
-        children: [
-          ContainerShapeShadow(
-            radius: 10,
-            height: 52,
-            padding: 0.paddingAll,
-            child: ListTile(
-                leading: AppIcon(
-                  icon: icon,
-                  size: iconSize,
-                ),
-                contentPadding: 25.paddingStart,
-                minLeadingWidth: 40,
-                title: BoldText(
-                  label: title,
-                  fontSize: 13,
-                ),
-            ),
+      child: ListTile(
+        visualDensity: const VisualDensity(horizontal: -2, vertical: -4),
+        contentPadding: 6.paddingVert + 10.paddingHoriz,
+        leading: Container(
+          padding: 10.paddingAll,
+          decoration: Decorations.kDecorationOnlyRadius(
+            radius: 6,
+            color: context.primaryColor.withOpacity(0.15),
           ),
-        ],
+          child: AppIcon(
+            icon: icon,
+            size: iconSize,
+            color: context.primaryColor,
+          ),
+        ),
+        minLeadingWidth: 40,
+        title: BoldText(
+          label: title,
+        ),
+        trailing: AppIcon(
+          icon: AppIcons.arrow_lift,
+          size: 16,
+        ),
       ),
     );
   }

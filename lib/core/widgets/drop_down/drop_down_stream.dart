@@ -1,3 +1,5 @@
+import 'package:app/core/widgets/texts/hint_texts.dart';
+
 import '../../../src/main_index.dart';
 import '../pagination/loading_widget.dart';
 import 'drop_down.dart';
@@ -41,10 +43,11 @@ class DropDownFieldStream extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder<List<DropDownItem>?>(
       stream: stream.stream,
+      initialData: [],
       builder: (context, snapshot) {
         return snapshot.data == null
             ? LoadingDropDown(hint: hint)
-            : DropDownFieldBorder(
+            : DropDownField(
                 items: snapshot.data ?? [],
                 hint: hint,
                 value: value,
@@ -95,7 +98,7 @@ class DropDownFieldChanged extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return isLoading
         ? LoadingDropDown(hint: hint, title: title)
-        : DropDownFieldBorder(
+        : DropDownField(
             title: title,
             items: items,
             hint: hint,
@@ -127,17 +130,14 @@ class LoadingDropDown extends StatelessWidget {
           5.ph,
         ],
         Container(
-          margin: 16.paddingHoriz + 6.paddingVert,
-          padding: 16.paddingHoriz + 12.paddingVert,
+          margin: 2.paddingVert,
+          padding: 16.paddingHoriz + 18.paddingVert,
           decoration: Decorations.kDecorationBorderRadius(
-              borderColor: context.primaryColor, color: context.hintColor),
+              borderColor: context.dividerColor, color: context.scaffoldBackgroundColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                hint ?? '',
-                style: context.headlineSmall.copyWith(fontSize: 16),
-              ),
+              HintRegularText(label: hint ?? ''),
               SmallLoading(),
             ],
           ),
