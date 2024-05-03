@@ -79,6 +79,7 @@
   "forgot_password_message": "ادخل رقم الموبايل لإعادة تعيين كلمة المرور",
   "remember_password": "تذكرت كلمة المرور؟",
   "forgot_password_verification_msg": "ادخل رمز أعادة تعيين كلمة المرور الذي تم ارساله لك في رسالة قصيرة",
+  "advertisement_details": "تفاصيل الاعلان",
 
 
 
@@ -113,6 +114,7 @@
   "remove": "مسح",
   "press_here": "اضغط هنا",
   "sign_out": "تسجيل الخروج",
+  "sign_out_mes": "هل انت متاكد من تسجيل الخروج؟",
   "send_to_the_campaign": "ارسل للحملة",
   "note": "ملاحظات",
   "hajj_messages": "رسائل الحاج",

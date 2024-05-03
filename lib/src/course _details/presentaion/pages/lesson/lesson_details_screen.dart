@@ -1,4 +1,5 @@
 import '../../../../../core/components/base_stateless_widget.dart';
+import '../../../../../core/utils/navigator.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
 import '../../../domin/entities/course_details.dart';
@@ -20,6 +21,7 @@ class LessonDetailsScreen extends BaseStatelessWidget {
       canPop: false,
       onPopInvoked: (_) async {
         onPressed();
+        pop();
       },
       child: SafeArea(
           child: SingleChildScrollView(
@@ -71,6 +73,6 @@ class LessonDetailsScreen extends BaseStatelessWidget {
   List items = [1, 2, 3];
 
   onPressed() async {
-    attendingMin!(id: subject.id!, min: 14);
+     attendingMin!(id: subject.id!, min: 14);
   }
 }
