@@ -58,7 +58,7 @@ class LoginScreen extends BaseStatelessWidget {
               alignment: AlignmentDirectional.centerEnd,
               child: LabelButton(
                 title: strings.forgot_password,
-                style: primaryMediumStyle,
+                style: primaryMediumStyle.copyWith(fontSize: 14),
                 onTap: () {
                   pushNamed(Routes.enterPhoneNumberPage);
                   // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);

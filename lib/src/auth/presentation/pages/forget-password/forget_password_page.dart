@@ -6,13 +6,12 @@ import '../../bloc/forgot_password_bloc.dart';
 import 'change_password_screen.dart';
 import 'forgot_password_screen.dart';
 
-class ForgotPasswordPage extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
+class ForgotPasswordPage
+    extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
   ForgotPasswordPage({Key? key}) : super(key: key);
-
 
   @override
   String? title(BuildContext context) => strings.forgot_password;
-
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
@@ -25,6 +24,6 @@ class ForgotPasswordPage extends BaseBlocWidget<UnInitState, ForgotPasswordCubit
 
   @override
   void onSuccessDismissed() {
-    Navigators.pop();
+    Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
   }
 }

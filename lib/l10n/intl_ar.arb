@@ -73,11 +73,12 @@
   "study": "الدراسة",
   "stage": "المرحلة",
   "confirm_password": "تأكيد كلمة المرور",
-  "must_be_start_with_96477": "يجب أن يبدأ بـ 77",
+  "must_be_start_with_96477": "يجب أن يبدأ بـ 96477",
   "must_be_10_digits": "يجب أن يكون 10 أرقام",
-  "advertisement_details": "تفاصيل الاعلان",
-
-
+  "back": "رجوع",
+  "forgot_password_message": "ادخل رقم الموبايل لإعادة تعيين كلمة المرور",
+  "remember_password": "تذكرت كلمة المرور؟",
+  "forgot_password_verification_msg": "ادخل رمز أعادة تعيين كلمة المرور الذي تم ارساله لك في رسالة قصيرة",
 
 
 
@@ -365,7 +366,6 @@
   "id_card": "ID card",
   "criminal_status_newspaper": "Criminal status newspaper",
   "delete_image": "Delete image",
-  "forget_password_message": "Enter the registered phone number\nto recover your account",
   "enter_code_recover_your_account": "Enter the code to recover your account",
   "text_message_has_been_sent_your_registered_phone_number": "A text message has been sent to your registered phone number",
   "your_account_has_been_recovered_set_new_password": "Your account has been recovered\nSet a new password",
@@ -437,7 +437,6 @@
   "shipment_cancel": "Shipment cancel",
   "notes_on_shipment": "Notes on the shipment",
   "shipment_delay": "Shipment delay",
-  "back": "Back",
   "total2": "Total",
   "partial": "Partial",
   "replacing": "Replacing",

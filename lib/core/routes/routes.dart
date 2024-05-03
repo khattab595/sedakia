@@ -137,7 +137,7 @@ class Routes {
     intro: (context) => IntroductionPage(),
     onboardingPage: (context) => const OnBoardingPage(),
     register: (context) => RegisterPage(),
-
+    enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
 
 
 

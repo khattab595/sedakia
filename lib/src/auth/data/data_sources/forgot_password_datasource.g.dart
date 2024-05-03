@@ -21,11 +21,13 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<dynamic>> enterPhoneNumber(String phoneNumber) async {
+  Future<ApiResponse<dynamic>> enterPhoneNumber(
+      ForgotPasswordParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = phoneNumber;
+    final _data = <String, dynamic>{};
+    _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
@@ -51,38 +53,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> enterCode(String code) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = code;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/resetPassword',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<dynamic>.fromJson(
-      _result.data!,
-      (json) => json as dynamic,
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<dynamic>> forgotPassword(
-      ForgotPasswordParams params) async {
+  Future<ApiResponse<dynamic>> resetPassword(ResetPasswordParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -96,7 +67,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     )
             .compose(
               _dio.options,
-              '/updatePassword',
+              '/resetPassword',
               queryParameters: queryParameters,
               data: _data,
             )
