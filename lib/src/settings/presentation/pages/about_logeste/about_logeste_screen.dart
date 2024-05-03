@@ -1,17 +1,28 @@
-import 'package:flutter/material.dart';
 
-class AboutLogesteScreen extends StatelessWidget {
-  final String aboutLogeste;
-  const AboutLogesteScreen({Key? key, required this.aboutLogeste}) : super(key: key);
+import 'package:app/core/widgets/texts/black_texts.dart';
+import 'package:app/core/widgets/texts/hint_texts.dart';
+
+import '../../../../main_index.dart';
+import '../../../domain/entities/about.dart';
+
+class AboutScreen extends StatelessWidget {
+  final About about;
+  const AboutScreen({Key? key, required this.about}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-      child: Text(
-        aboutLogeste,
-        style: Theme.of(context).textTheme.displayMedium,
-        textAlign: TextAlign.center,
+    return SingleChildScrollView(
+      padding: 16.paddingHoriz + 20.paddingTop,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BlackBoldText(
+            label: about.name ?? '',
+          ),
+          10.ph,
+          HintRegularText(label: about.description ?? '')
+
+        ],
       ),
     );
   }

@@ -13,7 +13,7 @@ class _SettingsDatasource implements SettingsDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'kBASE_URL';
+    baseUrl ??= 'https://wezary.online/api';
   }
 
   final Dio _dio;
@@ -21,20 +21,20 @@ class _SettingsDatasource implements SettingsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<String>> fetchAboutLogeste() async {
+  Future<ApiResponse<AboutDto>> fetchAboutUs() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<String>>(Options(
+        _setStreamType<ApiResponse<AboutDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/api/v1/Operations/GetAllOperations',
+              '/AboutUs',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,9 +43,69 @@ class _SettingsDatasource implements SettingsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<String>.fromJson(
+    final value = ApiResponse<AboutDto>.fromJson(
       _result.data!,
-      (json) => json as String,
+      (json) => AboutDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<AboutDto>> fetchTermsConditions() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<AboutDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/TermsConditions',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<AboutDto>.fromJson(
+      _result.data!,
+      (json) => AboutDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<CommunicationDto>> fetchAboutLogeste() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<CommunicationDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/Communication',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<CommunicationDto>.fromJson(
+      _result.data!,
+      (json) => CommunicationDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

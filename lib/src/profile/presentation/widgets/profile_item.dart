@@ -32,25 +32,25 @@ class ProfileItem extends StatelessWidget {
         }
       },
       child: ListTile(
-        visualDensity: const VisualDensity(horizontal: -4, vertical: -3),
-          contentPadding: 0.paddingVert,
-          leading: Container(
-            padding: 10.paddingAll,
-            decoration: Decorations.kDecorationOnlyRadius(
-              radius: 10,
-              color: context.primaryColor.withOpacity(0.22),
-            ),
-            child: AppIcon(
-              icon: icon,
-              size: iconSize,
-              color: context.primaryColor,
-            ),
+        visualDensity: const VisualDensity(horizontal: -2, vertical: -4),
+        contentPadding: 6.paddingVert + 10.paddingHoriz,
+        leading: Container(
+          padding: 10.paddingAll,
+          decoration: Decorations.kDecorationOnlyRadius(
+            radius: 6,
+            color: context.primaryColor.withOpacity(0.15),
           ),
-          minLeadingWidth: 40,
-          title: BoldText(
-            label: title,
+          child: AppIcon(
+            icon: icon,
+            size: iconSize,
+            color: context.primaryColor,
           ),
-        trailing: const AppIcon(
+        ),
+        minLeadingWidth: 40,
+        title: BoldText(
+          label: title,
+        ),
+        trailing: AppIcon(
           icon: AppIcons.arrow_lift,
           size: 16,
         ),

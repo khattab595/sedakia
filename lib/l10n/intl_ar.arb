@@ -60,6 +60,15 @@
   "show_test": "عرض الاختبار",
   "degree": "الدرجة",
   "favorite": "المفضلة",
+  "about_us": "من نحن",
+  "terms_conditions": "الشروط والأحكام",
+  "grades_history": "سجل الدرجات",
+  "show_qr": "عرض رمز الكيو ار",
+  "change_password": "تغيير كلمة المرور",
+  "personal_information": "المعلومات الشخصية",
+  "male": "ذكر",
+  "female": "أنثى",
+
 
 
 
@@ -131,7 +140,6 @@
 
 
 
-
   "test": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   "password": "كلمة المرور",
   "login": "الدخول",
@@ -188,7 +196,6 @@
   "paid_date": "",
   "edit_account": "تعديل الحساب",
   "request_csv_file": "طلب ملف CSV",
-  "change_password": "تغيير كلمة المرور",
   "language": "اللغة",
   "technical_support": "الدعم الفني",
   "not_data_found": "لا توجد بيانات",

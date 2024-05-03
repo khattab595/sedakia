@@ -13,6 +13,8 @@ CompleteRegistrationParams _$CompleteRegistrationParamsFromJson(
       birthDate: json['birth_date'] as String?,
       academicLevelId: json['academic_level_id'] as String?,
       stageLevelId: json['stage_level_id'] as String?,
+      picIdentityF: json['pic_identityF'] as String?,
+      picIdentityB: json['pic_identityB'] as String?,
     );
 
 Map<String, dynamic> _$CompleteRegistrationParamsToJson(
@@ -22,4 +24,6 @@ Map<String, dynamic> _$CompleteRegistrationParamsToJson(
       'birth_date': instance.birthDate,
       'academic_level_id': instance.academicLevelId,
       'stage_level_id': instance.stageLevelId,
+      'pic_identityF': instance.picIdentityF,
+      'pic_identityB': instance.picIdentityB,
     };

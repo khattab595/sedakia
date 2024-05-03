@@ -12,8 +12,13 @@ class CompleteRegistrationParams {
   String? academicLevelId;
   @JsonKey(name: 'stage_level_id')
   String? stageLevelId;
+  @JsonKey(name: 'pic_identityF')
+  String? picIdentityF;
+  @JsonKey(name: 'pic_identityB')
+  String? picIdentityB;
 
-  CompleteRegistrationParams({this.gender, this.birthDate, this.academicLevelId, this.stageLevelId});
+
+  CompleteRegistrationParams({this.gender, this.birthDate, this.academicLevelId, this.stageLevelId, this.picIdentityF, this.picIdentityB});
 
    factory CompleteRegistrationParams.fromJson(Map<String, dynamic> json) => _$CompleteRegistrationParamsFromJson(json);
 

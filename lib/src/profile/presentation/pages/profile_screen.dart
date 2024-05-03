@@ -1,6 +1,6 @@
-
 import '../../../../core/widgets/buttons/primary_icon_button.dart';
 import '../../../main_index.dart';
+import '../../../settings/domain/entities/about.dart';
 import '../../domain/entities/profile.dart';
 import '../widgets/profile_header_widget.dart';
 import '../widgets/profile_item.dart';
@@ -10,58 +10,71 @@ class ProfileScreen extends BaseStatelessWidget {
   final VoidCallback onLogout;
   final VoidCallback onRefresh;
 
-  ProfileScreen({Key? key, required this.profile, required this.onLogout, required this.onRefresh})
+  ProfileScreen(
+      {Key? key,
+      required this.profile,
+      required this.onLogout,
+      required this.onRefresh})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: 10.paddingHoriz,
-      child:  Column(
+    return SingleChildScrollView(
+      child: Column(
         children: [
           50.ph,
           ProfileHeaderWidget(profile: profile),
-          Divider(),
+          const Divider(height: 20),
           ProfileItem(
             icon: AppIcons.profile,
-            title: strings.change_the_language,
+            title: strings.personal_information,
             route: Routes.editProfilePage,
           ),
           ProfileItem(
             icon: AppIcons.lang,
-            title: strings.change_the_language,
+            title: strings.change_password,
+            route: Routes.changePasswordPage,
+          ),
+          ProfileItem(
+            icon: AppIcons.scan,
+            title: strings.show_qr,
             route: Routes.changeLanguagePage,
           ),
           ProfileItem(
-            icon: AppIcons.lang,
-            title: strings.change_the_language,
-            route: Routes.changeLanguagePage,
+            icon: AppIcons.grades_history,
+            title: strings.grades_history,
+            route: 'Routes.gradesHistoryPage',
           ),
           ProfileItem(
-            icon: AppIcons.lang,
-            title: strings.change_the_language,
-            route: Routes.changeLanguagePage,
+            icon: AppIcons.favorite,
+            title: strings.favorite,
+            route: Routes.favoritePage,
           ),
           ProfileItem(
-            icon: AppIcons.lang,
-            title: strings.change_the_language,
-            route: Routes.changeLanguagePage,
-          ),
-          10.ph,
-           ProfileItem(
-            icon: AppIcons.setting,
-            title: strings.program_settings,
+            icon: AppIcons.warning,
+            title: strings.support,
             route: Routes.supportPage,
           ),
-          10.ph,
-           ProfileItem(
-            icon: AppIcons.communication,
-            title: strings.call_us,
-            route: Routes.loginPage,
+          ProfileItem(
+            icon: AppIcons.message_question,
+            title: strings.about_us,
+            route: Routes.aboutPage,
+              args: AboutType.aboutUs,
           ),
-          const Spacer(),
-          PrimaryIconButton(title:strings.sign_in ,icon: AppIcons.register,onPressed: (){},height: 50,borderRadius: 6,),
-           20.ph,
+          ProfileItem(
+            icon: AppIcons.terms,
+            title: strings.terms_conditions,
+            route: Routes.aboutPage,
+            args: AboutType.terms,
+          ),
+          PrimaryButton(
+            title: strings.sign_in,
+            onPressed: onLogout,
+            style: primaryBoldStyle.copyWith(color: errorColor),
+            margin: 10.paddingHoriz + 20.paddingTop,
+            backgroundColor: primaryColor.withOpacity(0.1),
+          ),
+          20.ph,
         ],
       ),
     );

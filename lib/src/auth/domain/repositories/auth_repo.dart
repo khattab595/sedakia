@@ -14,5 +14,5 @@ abstract class AuthRepo {
   Future<Profile> verificationCode(VerificationCodeParams params);
   Future<Profile> completeRegistration(CompleteRegistrationParams params);
   Future<List<DropDownItem>> fetchAcademicLevels();
-  Future<List<DropDownItem>> fetchStageLevels(int academicLevelId);
+  Future<List<DropDownItem>> fetchStageLevels(String academicLevelId);
 }

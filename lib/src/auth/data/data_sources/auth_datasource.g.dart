@@ -116,17 +116,53 @@ class _AuthDataSource implements AuthDataSource {
 
   @override
   Future<ApiResponse<ProfileDto>> completeRegistration(
-      CompleteRegistrationParams params) async {
+    String academicLevelId,
+    String stageId,
+    String birthDate,
+    String gender,
+    File image,
+    File idImage,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'academic_level_id',
+      academicLevelId,
+    ));
+    _data.fields.add(MapEntry(
+      'stage_level_id',
+      stageId,
+    ));
+    _data.fields.add(MapEntry(
+      'birth_date',
+      birthDate,
+    ));
+    _data.fields.add(MapEntry(
+      'gender',
+      gender,
+    ));
+    _data.files.add(MapEntry(
+      'pic_identityF',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
+    _data.files.add(MapEntry(
+      'pic_identityB',
+      MultipartFile.fromFileSync(
+        idImage.path,
+        filename: idImage.path.split(Platform.pathSeparator).last,
+      ),
+    ));
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<ProfileDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
             .compose(
               _dio.options,
@@ -154,7 +190,7 @@ class _AuthDataSource implements AuthDataSource {
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<List<AcademicLevelDto>>>(Options(
-      method: 'POST',
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
@@ -183,7 +219,7 @@ class _AuthDataSource implements AuthDataSource {
 
   @override
   Future<ApiResponse<List<AcademicLevelDto>>> fetchStageLevels(
-      int academicLevelId) async {
+      String academicLevelId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'academic_level_id': academicLevelId
@@ -192,7 +228,7 @@ class _AuthDataSource implements AuthDataSource {
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<List<AcademicLevelDto>>>(Options(
-      method: 'POST',
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )

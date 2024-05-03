@@ -1,22 +1,16 @@
+import 'package:app/src/settings/domain/repositories/settings_repo.dart';
 import 'package:injectable/injectable.dart';
-import 'package:app/core/resources/data_state.dart';
 
 import '../../../../core/bloc/base_cubit.dart';
-import '../../domain/use_cases/settings_usecase.dart';
+import '../../domain/entities/about.dart';
 
 @Injectable()
-class AboutLogesteCubit extends BaseCubit {
-  final SettingsUseCase usecase;
+class AboutCubit extends BaseCubit {
+  final SettingsRepo usecase;
 
-  AboutLogesteCubit(this.usecase);
+  AboutCubit(this.usecase);
 
-  fetchAboutLogeste() async {
-    try {
-      emit(LoadingStateListener());
-     final aboutLogeste = await usecase.fetchAboutLogeste();
-      emit(DataSuccess<String>(aboutLogeste));
-    }  catch (e) {
-      emit(FailureStateListener(e));
-    }
+  fetchAbout(AboutType type ) async {
+   executeSuccess(() => type == AboutType.aboutUs ? usecase.fetchAboutUs() : usecase.fetchTermsConditions());
   }
 }

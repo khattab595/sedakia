@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:app/src/profile/data/models/profile_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -12,10 +15,10 @@ import '../models/register_params.dart';
 import '../models/verification_code_params.dart';
 
 part 'auth_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  AuthDataSource{
-
+abstract class AuthDataSource {
   @factoryMethod
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
@@ -26,14 +29,24 @@ abstract class  AuthDataSource{
   Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
 
   @POST('/verificationCode')
-  Future<ApiResponse<ProfileDto>> verificationCode(@Body() VerificationCodeParams params);
+  Future<ApiResponse<ProfileDto>> verificationCode(
+      @Body() VerificationCodeParams params);
 
+  @MultiPart()
   @POST('/completeRegistration')
-  Future<ApiResponse<ProfileDto>> completeRegistration(@Body() CompleteRegistrationParams params);
+  Future<ApiResponse<ProfileDto>> completeRegistration(
+    @Part(name: 'academic_level_id') String academicLevelId,
+    @Part(name: 'stage_level_id') String stageId,
+    @Part(name: 'birth_date') String birthDate,
+    @Part(name: 'gender') String gender,
+    @Part(name: 'pic_identityF') File image,
+    @Part(name: 'pic_identityB') File idImage,
+  );
 
-  @POST('/academicLevels')
+  @GET('/academicLevels')
   Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels();
 
-  @POST('/stageLevels')
-  Future<ApiResponse<List<AcademicLevelDto>>> fetchStageLevels(@Query('academic_level_id') int academicLevelId);
+  @GET('/stageLevels')
+  Future<ApiResponse<List<AcademicLevelDto>>> fetchStageLevels(
+      @Query('academic_level_id') String academicLevelId);
 }
