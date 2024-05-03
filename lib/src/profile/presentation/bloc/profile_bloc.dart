@@ -21,7 +21,7 @@ class ProfileBloc extends BaseCubit {
     executeSuccess(() => repo.fetchProfileData(isFromCash));
   }
 
-  Future<void> fetchEditProfileData({bool isFromCash = true}) async {
+  Future<void> fetchEditProfileData({bool isFromCash = false}) async {
     try {
       emit(DataLoading());
       final response1 = await repo.fetchProfileData(isFromCash);

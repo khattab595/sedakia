@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'forgot_password_datasource.dart';
+part of 'favorite_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'forgot_password_datasource.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
-  _ForgotPasswordDataSource(
+class _FavoriteDatasource implements FavoriteDatasource {
+  _FavoriteDatasource(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,50 +21,55 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<dynamic>> enterPhoneNumber(String phoneNumber) async {
+  Future<ApiResponse<List<CourseDto>>> fetchFavoriteData() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = phoneNumber;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/forgot-password',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<dynamic>.fromJson(
-      _result.data!,
-      (json) => json as dynamic,
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<dynamic>> enterCode(String code) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = code;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
+        _setStreamType<ApiResponse<List<CourseDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/resetPassword',
+              '/myFavoriteCourses',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<List<CourseDto>>.fromJson(
+      _result.data!,
+      (json) => json is List<dynamic>
+          ? json
+              .map<CourseDto>(
+                  (i) => CourseDto.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> addFavorite(int id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/addToFavorites?course_id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -81,13 +86,11 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> forgotPassword(
-      ForgotPasswordParams params) async {
+  Future<ApiResponse<dynamic>> removeFavorite(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
@@ -96,39 +99,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/updatePassword',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<dynamic>.fromJson(
-      _result.data!,
-      (json) => json as dynamic,
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<dynamic>> updatePassword(
-      ChangePasswordParams params) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/change-password',
+              '/removeFromFavorites?course_id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )

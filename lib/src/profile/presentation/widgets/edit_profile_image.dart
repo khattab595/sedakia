@@ -53,6 +53,7 @@ class EditProfileImage extends BaseStatelessWidget {
             ),
             child: AppIconButton(
               icon: AppIcons.camera,
+              padding: 5.paddingAll,
               onPressed: () async {
                 final file = await HelperMethods.getImagePicker();
                 _imageStream.setData(File(file!.path));

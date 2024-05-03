@@ -1,7 +1,7 @@
 
 import '../../src/about_caf/presentation/pages/about_cafe_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
-import '../../src/auth/presentation/pages/forget-password/new_password_page.dart';
+import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';

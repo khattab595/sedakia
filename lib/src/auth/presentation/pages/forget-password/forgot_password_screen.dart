@@ -3,13 +3,13 @@ import '../../../../main_index.dart';
 import '../../../data/models/change_password_params.dart';
 import '../../../data/models/forgot_password_params.dart';
 
-class ChangePasswordScreen extends BaseStatelessWidget {
+class ForgotPasswordScreen extends BaseStatelessWidget {
   final Function(ChangePasswordParams) onChangePassword;
 
-  ChangePasswordScreen({Key? key, required this.onChangePassword})
+  ForgotPasswordScreen({Key? key, required this.onChangePassword})
       : super(key: key);
 
-  TextEditingController oldPasswordController = TextEditingController();
+  TextEditingController currentPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
 
@@ -25,22 +25,22 @@ class ChangePasswordScreen extends BaseStatelessWidget {
           children: [
             40.ph,
             CustomTextField(
-              controller: oldPasswordController,
-              title: strings.current_password,
+              controller: currentPasswordController,
+              hintText: strings.current_password,
               isPassword: true,
             ),
             CustomTextField(
               controller: newPasswordController,
-              title: strings.new_password,
+              hintText: strings.new_password,
               isPassword: true,
             ),
             CustomTextField(
               controller: confirmNewPasswordController,
-              title: strings.confirm_new_password,
+              hintText: strings.confirm_new_password,
               isPassword: true,
             ),
             PrimaryButton(
-              title: strings.change,
+              title: strings.save,
               margin: 40.paddingTop,
               onPressed: () {
                 onSelectedPressed();
@@ -55,7 +55,7 @@ class ChangePasswordScreen extends BaseStatelessWidget {
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
       onChangePassword(ChangePasswordParams(
-        oldPassword: oldPasswordController.text,
+        currentPassword: currentPasswordController.text,
         newPassword: newPasswordController.text,
         newPasswordConfirmation: confirmNewPasswordController.text,
       ));

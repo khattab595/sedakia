@@ -4,14 +4,14 @@ part 'change_password_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ChangePasswordParams {
-  @JsonKey(name: 'old_password')
-  String? oldPassword;
+  @JsonKey(name: 'current_password')
+  String? currentPassword;
   @JsonKey(name: 'new_password')
   String? newPassword;
   @JsonKey(name: 'new_password_confirmation')
   String? newPasswordConfirmation;
 
-  ChangePasswordParams({this.oldPassword, this.newPassword, this.newPasswordConfirmation});
+  ChangePasswordParams({this.currentPassword, this.newPassword, this.newPasswordConfirmation});
 
    factory ChangePasswordParams.fromJson(Map<String, dynamic> json) => _$ChangePasswordParamsFromJson(json);
 

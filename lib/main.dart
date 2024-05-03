@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                 ? Routes.onboardingPage
                 : state.isLogin
                 ? Routes.navigationPages
-                : Routes.register,
+                : Routes.loginPage,
           );
         },
       ),
