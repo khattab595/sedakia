@@ -1,3 +1,5 @@
+import 'package:app/core/widgets/images/image_network.dart';
+
 import '../../../../core/utils/navigator.dart';
 import '../../../../core/widgets/custom_empty_widget.dart';
 import '../../../main_index.dart';
@@ -13,7 +15,9 @@ class MyCoursesScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     if(myCourses.isEmpty){
       return CustomEmptyWidget(image:AppImages.myCoursesEmpty, text: strings.my_courses_empty_text,
-        title:strings.my_courses_empty_title,hasButton: true,onPressed: (){},titleButton: strings.my_courses_checked,);
+        title:strings.my_courses_empty_title,hasButton: true,onPressed: (){
+          pushNamed(Routes.homePage);
+        },titleButton: strings.my_courses_checked,);
     }
     else{
       return ListView.builder(

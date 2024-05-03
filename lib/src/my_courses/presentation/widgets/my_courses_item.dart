@@ -15,7 +15,7 @@ class MyCoursesItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: padding??16.paddingVert,
+      padding: padding??8.paddingVert,
       child: InkWell(
         onTap: (){
           pushNamed(Routes.courseDetailsPage,arguments: myCourse.id);

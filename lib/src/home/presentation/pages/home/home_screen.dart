@@ -38,7 +38,7 @@ class HomeScreen extends BaseStatelessWidget {
           children: [
             PersonalInformationWidget(),
             Padding(
-              padding: 10.paddingVert,
+              padding: 0.paddingVert,
               child: CustomSliderWidget(
                 slidesStream: slidesStream,
               ),

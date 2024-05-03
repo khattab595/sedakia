@@ -4,7 +4,7 @@ import '../../data/models/notification_dto.dart';
 import '../../domain/entities/notification.dart';
 import '../widgets/notification_item.dart';
 class NotificationsScreen extends BaseStatelessWidget {
-  final List<NotificationDto> notifications;
+  final List<Notifications> notifications;
    NotificationsScreen({Key? key, required this.notifications}) : super(key: key);
 
   @override

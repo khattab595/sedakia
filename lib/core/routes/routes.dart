@@ -10,10 +10,12 @@ import '../../src/course _details/presentaion/pages/lesson/lesson_details_page.d
 import '../../src/department/presentation/pages/department_page.dart';
 import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
 import '../../src/favorite/presentation/pages/favorite_page.dart';
+import '../../src/grades/presentation/pages/grades_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
 import '../../src/hajj_messages/presentation/page/hajj_messages_page.dart';
 import '../../src/hajj_transportation/presentation/pages/hajj_transportation_page.dart';
 import '../../src/healthy/presentation/pages/healthy_page.dart';
+import '../../src/home/presentation/pages/advertisement/advertisement_page.dart';
 import '../../src/home/presentation/pages/home/home_page.dart';
 import '../../src/language/presentation/pages/change_language_page.dart';
 import '../../src/latest_courses/presentaion/latest_courses_page.dart';
@@ -36,7 +38,6 @@ import '../../src/program/presentation/pages/programe_page.dart';
 import '../../src/quran/presentation/pages/quran_page.dart';
 import '../../src/rosary/presentation/pages/rosary_counter/rosary_counter_page.dart';
 import '../../src/rosary/presentation/pages/rosary_page.dart';
-import '../../src/scorecard/presentation/scorecard_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
 import '../../src/teachers/presentation/pages/teacher_details/teacher_details_page.dart';
@@ -123,6 +124,7 @@ class Routes {
   static const String lessonDetailsPage = 'lessonDetailsPage';
   static const String scoreCardPage = 'scoreCardPage';
   static const String favoritePage = 'favoritePage';
+  static const String advertisementPage = 'advertisementPage';
 
 
   /* ====================================================================== */
@@ -137,7 +139,8 @@ class Routes {
 
 
     favoritePage: (context) => FavoritePage(),
-    scoreCardPage: (context) => ScoreCardPage(),
+    advertisementPage: (context) => AdvertisementPage(),
+    scoreCardPage: (context) => GradesPage(),
     lessonDetailsPage: (context) => LessonDetailsPage(),
     courseDetailsPage: (context) => CourseDetailsPage(),
     teacherDetailsPage: (context) => TeacherDetailsPage(),

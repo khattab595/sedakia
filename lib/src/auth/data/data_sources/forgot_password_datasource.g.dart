@@ -96,7 +96,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/updatePassword',
+              '/updatePassword',
               queryParameters: queryParameters,
               data: _data,
             )

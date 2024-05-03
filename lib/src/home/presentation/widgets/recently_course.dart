@@ -25,6 +25,7 @@ class RecentlyCourse extends BaseStatelessWidget {
           return snapshot.data?.id == null
               ? 0.ph
               : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BoldText(
                     label: strings.new_mes,

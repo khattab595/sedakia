@@ -28,10 +28,18 @@ class CustomLatestCourseItem extends BaseStatelessWidget {
             child:  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                    height:imageHeight??115,
-                    width: double.infinity,
-                    child: ImageNetwork(image: myCourse.image!,radius: 12,)),
+                Stack(
+                  children: [
+                    SizedBox(
+                        height:imageHeight??115,
+                        width: double.infinity,
+                        child: ImageNetwork(image: myCourse.image!,radius: 12,)),
+                    const Positioned(
+                        top: 8,
+                        left: 8,
+                        child: Icon(Icons.favorite_outline,color: Color(0xffDCDCDC),))
+                  ],
+                ),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

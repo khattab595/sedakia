@@ -1,11 +1,10 @@
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
+import '../../domain/entities/grade.dart';
 
-class CustomScoreCardItem extends BaseStatelessWidget {
-   CustomScoreCardItem( {super.key,required this.title, required this.description, required this.degree,this.onPressed,});
-  final String title;
-  final String description;
-  final String degree;
+class CustomGradeItem extends BaseStatelessWidget {
+   CustomGradeItem( {super.key , required this.grade ,this.onPressed,});
+    final Grade grade;
    dynamic Function()? onPressed;
    @override
   Widget build(BuildContext context) {
@@ -25,11 +24,11 @@ class CustomScoreCardItem extends BaseStatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BoldText(
-                        label:title,
+                        label:grade.name!,
                         fontSize: 14,
                       ),
                       MediumText(
-                        label:description,
+                        label:grade.courseName!,
                         fontSize: 10,
                       ),
                     ],
@@ -41,7 +40,7 @@ class CustomScoreCardItem extends BaseStatelessWidget {
                         fontSize: 14,
                       ),
                       PrimaryBoldText(
-                        label:degree,
+                        label:grade.grade!.toString(),
                         fontSize: 24,
                       ),
                     ],

@@ -1,7 +1,7 @@
+import 'package:app/core/utils/navigator.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../../../src/home/domain/entities/slide.dart';
 import '../../../src/main_index.dart';
-import '../images/custom_image.dart';
 import '../images/image_network.dart';
 
 class CustomSliderWidget extends StatelessWidget {
@@ -26,9 +26,9 @@ class CustomSliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 250,
+      height: height ?? 210,
       child: Padding(
-        padding: 20.paddingHoriz,
+        padding: 0.paddingHoriz,
         child: StreamBuilder<List<Slide>?>(
             stream: slidesStream.stream,
             builder: (context, snapshot) {
@@ -39,33 +39,43 @@ class CustomSliderWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           SizedBox(
-                            height: height ?? 200,
+                            height: height ?? 175,
                             // width: double.infinity,
                             child: CarouselSlider(
                               carouselController: carouselController,
                               items: snapshot.data
                                   ?.map(
                                     (e) => isHasRadius == true
-                                        ? SizedBox(
-                                            width: double.infinity,
-                                            child: ImageNetwork(
-                                              image: e.images ?? '',
-                                              fit: BoxFit.cover,
-                                              radius: radius ?? 10,
-                                            ))
-                                        : SizedBox(
-                                            width: double.infinity,
-                                            child: ImageNetwork(
-                                              margin: 5.paddingHoriz,
-                                              image: e.images ?? '',
-                                              fit: BoxFit.cover,
-                                            )),
+                                        ? InkWell(
+                                      onTap: (){
+                                        pushNamed(Routes.advertisementPage,arguments: e);
+                                      },
+                                          child: SizedBox(
+                                              width: double.infinity,
+                                              child: ImageNetwork(
+                                                image: e.images ?? '',
+                                                fit: BoxFit.cover,
+                                                radius: radius ?? 10,
+                                              )),
+                                        )
+                                        : InkWell(
+                                      onTap: (){
+                                        pushNamed(Routes.advertisementPage,arguments: e);
+                                      },
+                                          child: SizedBox(
+                                              width: double.infinity,
+                                              child: ImageNetwork(
+                                                margin: 5.paddingHoriz,
+                                                image: e.images ?? '',
+                                                fit: BoxFit.cover,
+                                              )),
+                                        ),
                                   )
                                   .toList(),
                               options: CarouselOptions(
-                                height: height ?? 200,
+                                height: height ?? 175,
                                 aspectRatio: 16 / 9,
-                                viewportFraction:1,
+                                viewportFraction:0.9,
                                 enableInfiniteScroll: true,
                                 reverse: false,
                                 autoPlay: true,
@@ -82,10 +92,10 @@ class CustomSliderWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          2.ph,
+                          1.ph,
                           Center(
                             child: SizedBox(
-                              height: 30,
+                              height: 25,
                               width: 60,
                               child: ListView.builder(
                                    scrollDirection: Axis.horizontal,

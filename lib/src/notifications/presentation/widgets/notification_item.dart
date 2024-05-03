@@ -11,7 +11,7 @@ import '../../data/models/notification_dto.dart';
 import '../../domain/entities/notification.dart';
 
 class NotificationItem extends BaseStatelessWidget {
-  final NotificationDto notification;
+  final Notifications notification;
   final bool isFirst;
   final bool isLast;
 
@@ -61,8 +61,8 @@ class NotificationItem extends BaseStatelessWidget {
                   ),
                   5.ph,
                   RowTexts(
-                    title: notification.time!,
-                    value: "02:00am",
+                    title: notification.date!,
+                    value: notification.time!,
                     titleStyle: blackMediumStyle.copyWith(fontSize: 12),
                     valueStyle: blackMediumStyle.copyWith(fontSize: 12),
                   )
