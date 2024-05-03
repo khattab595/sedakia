@@ -31,7 +31,7 @@ class Validation {
 
   static String? validateRequired(String value) {
     if (value.isEmpty) {
-      return 'This field is required';
+      return 'هذا الحقل مطلوب';
     }
     return null;
   }
@@ -50,7 +50,7 @@ class Validation {
     if (value.isEmpty) {
       return 'This field is required';
     }
-    if (value.length < 6) {
+    if (value.length < 8) {
       return 'Password must be at least 6 characters';
     }
     return null;

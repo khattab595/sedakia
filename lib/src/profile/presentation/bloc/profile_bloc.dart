@@ -41,7 +41,7 @@ class ProfileBloc extends BaseCubit {
     executeEmitterListener(() => repo.changeImage(file));
   }
 
-  void deleteProfileData() {
+  void logout() {
     executeSuccessState(() => repo.logout());
   }
 

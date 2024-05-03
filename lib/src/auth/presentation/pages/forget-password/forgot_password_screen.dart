@@ -23,7 +23,6 @@ class ForgotPasswordScreen extends BaseStatelessWidget {
         padding: 16.paddingAll,
         child: Column(
           children: [
-            40.ph,
             CustomTextField(
               controller: currentPasswordController,
               hintText: strings.current_password,

@@ -7,18 +7,26 @@ class StepperLines extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: 20.paddingVert,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          buildLine(true),
-          20.pw,
-          buildLine(controllerStream.data == 0),
-          20.pw,
-          buildLine(controllerStream.data == 0),
-        ],
-      ),
+    return StreamBuilder<int>(
+      stream: controllerStream.stream,
+      initialData: 0,
+      builder: (context, snapshot) {
+        int page = snapshot.data ?? 0;
+        print('page: $page');
+        return Padding(
+          padding: 20.paddingVert,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              buildLine(true),
+              20.pw,
+              buildLine(page >= 1),
+              20.pw,
+              buildLine(page >= 2),
+            ],
+          ),
+        );
+      }
     );
   }
 

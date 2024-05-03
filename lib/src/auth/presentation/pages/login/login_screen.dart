@@ -3,6 +3,7 @@ import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
+import '../../../../../core/resources/validation.dart';
 import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/text-field/mobile_text_field.dart';
@@ -51,6 +52,7 @@ class LoginScreen extends BaseStatelessWidget {
               hintText: strings.password,
               keyboardType: TextInputType.number,
               margin: 7.paddingBottom,
+              validator: (value) => Validation.validatePassword(value ?? ''),
             ),
             Align(
               alignment: AlignmentDirectional.centerEnd,

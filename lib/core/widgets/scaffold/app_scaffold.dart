@@ -1,3 +1,4 @@
+import 'package:app/core/widgets/icons/icon_text.dart';
 import 'package:app/src/main_index.dart';
 
 class AppScaffold extends StatelessWidget {
@@ -66,37 +67,35 @@ class AppScaffold extends StatelessWidget {
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
-                leadingWidth: 30,
+                // leadingWidth: 30,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarColor:
                       backgroundAppBar ?? theme.appBarTheme.backgroundColor,
                   statusBarBrightness: Brightness.light,
                 ),
-                actions: [
-                  if(Navigator.canPop(context))
-                  RotatedBox(
-                    quarterTurns: 2,
-                    child: BackButton(
-                      color: context.primaryColor,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
+                bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(1),
+                    child: Divider(),
+                ),
+                leading: Navigator.canPop(context)
+                    ?
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: IconText(
+                    iconData: Icons.arrow_back_ios_new_rounded,
+                    isIconData: true,
+                    iconColor: context.hintColor,
+                    text: context.strings.back,
+                    sizedBoxWidth: 0,
+                    iconSize: 20,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    textStyle: context.displayLarge.copyWith(
+                      fontSize: 16,
                     ),
                   ),
-                ],
-                // leading: leading ?? (isDrawer!
-                //     ? AppIconButton(
-                //   icon: AppIcons.menu,
-                //   padding: 10.paddingStart,
-                //   onPressed: () {
-                //     if (globalKey.currentState?.isDrawerOpen == false) {
-                //       globalKey.currentState?.openDrawer();
-                //     } else {
-                //       globalKey.currentState?.openEndDrawer();
-                //     }
-                //   },
-                // )
-                //     : null),
+                ) : leading,
               ),
     );
   }

@@ -39,6 +39,7 @@ class CustomPinCode extends BaseStatelessWidget {
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,
       controller: pinCodeController,
+      errorTextStyle: hintRegularStyle.copyWith(color: Colors.red),
     );
   }
 }

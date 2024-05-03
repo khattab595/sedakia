@@ -1,4 +1,6 @@
 
+import 'package:app/core/utils/navigator.dart';
+
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
@@ -18,8 +20,14 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
     return ProfileScreen(
       profile: state.data ?? Profile(),
       onRefresh: () => bloc.fetchProfileData(),
-      onLogout: () => bloc.deleteProfileData(),
+      onLogout: () => bloc.logout(),
     );
+  }
+
+
+  @override
+  void onSuccessDismissed() {
+    Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
   }
 
 }

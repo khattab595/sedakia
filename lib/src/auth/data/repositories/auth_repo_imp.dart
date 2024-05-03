@@ -22,6 +22,7 @@ class AuthRepoImp extends AuthRepo {
 
   @override
   Future<Profile> login(LoginParams params) async {
+    params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.login(params);
     ProfileDto profileDto = ProfileDto(
       name: response.name,
