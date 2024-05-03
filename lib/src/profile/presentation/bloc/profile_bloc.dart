@@ -25,9 +25,6 @@ class ProfileBloc extends BaseCubit {
   }
 
   void deleteProfileData() {
-    executeSuccessState(() => repo.deleteProfileData(),
-        onSuccess: (data) async {
-      await HelperMethods.clearCashData();
-    });
+    executeSuccessState(() => repo.logout());
   }
 }

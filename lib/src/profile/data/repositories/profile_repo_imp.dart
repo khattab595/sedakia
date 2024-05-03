@@ -50,8 +50,8 @@ class ProfileRepoImp extends ProfileRepo{
 
   @override
   Future<String> logout() async {
-    final response = await apiProvider.logout();
-    return response.message ?? '';
+    final response = await HelperMethods.clearCashData();
+    return '';
   }
 
 }
