@@ -42,6 +42,7 @@ class RegisterScreen extends BaseStatelessWidget {
               controller: passwordController,
               hintText: strings.password,
               isPassword: true,
+              validator: (value) => Validation.validatePassword(value ?? ''),
             ),
             CustomTextField(
               controller: confirmPasswordController,

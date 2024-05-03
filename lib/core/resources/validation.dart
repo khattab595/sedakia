@@ -50,7 +50,7 @@ class Validation {
     if (value.isEmpty) {
       return 'This field is required';
     }
-    if (value.length < 6) {
+    if (value.length < 8) {
       return 'Password must be at least 6 characters';
     }
     return null;
