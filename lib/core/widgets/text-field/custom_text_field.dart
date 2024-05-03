@@ -34,7 +34,7 @@ class CustomTextField extends BaseStatelessWidget {
     // if
     Color? borderColor = colorBorderSide ?? primaryColorDark.withOpacity(0.1);
     return Padding(
-      padding: margin ?? 0.paddingBottom,
+      padding: margin ?? 10.paddingBottom,
       child: SizedBox(
         height: minHeight,
         child: TextFormField(

@@ -50,10 +50,6 @@ class HomeScreen extends BaseStatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BoldText(
-                    label: strings.new_mes,
-                    fontSize: 20,
-                  ),
                   RecentlyCourse(
                     recentlyCourseStream: recentlyStream,
                   ),

@@ -8,31 +8,37 @@ part of 'profile_dto.dart';
 
 ProfileDto _$ProfileDtoFromJson(Map<String, dynamic> json) => ProfileDto(
       id: json['id'] as int?,
-      num: json['num'] as String?,
       name: json['name'] as String?,
-      email: json['email'] as String?,
-      phone: json['phone'] as String?,
-      address: json['address'] as String?,
-      facility: json['facility'] == null
-          ? null
-          : FacilityDto.fromJson(json['facility'] as Map<String, dynamic>),
-      city: json['city'] == null
-          ? null
-          : CityDto.fromJson(json['city'] as Map<String, dynamic>),
-      image: json['image'] as String?,
       token: json['token'] as String?,
+      phoneNumber: json['phone_number'] as String?,
+      parentPhone: json['parent_phone'] as String?,
+      specialCode: json['special_code'] as String?,
+      picIdentityF: json['pic_identityF'] as String?,
+      picIdentityB: json['pic_identityB'] as String?,
+      gender: json['gender'] as String?,
+      birthDate: json['birth_date'] as String?,
+      image: json['image'] as String?,
+      academicLevel: json['academicLevel'] as String?,
+      academicLevelId: json['academicLevel_id'] as int?,
+      stageLevel: json['stageLevel'] as String?,
+      stageLevelId: json['stageLevel_id'] as int?,
     );
 
 Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'num': instance.num,
-      'name': instance.name,
-      'email': instance.email,
-      'phone': instance.phone,
-      'address': instance.address,
-      'facility': instance.facility,
-      'city': instance.city,
-      'image': instance.image,
       'token': instance.token,
+      'name': instance.name,
+      'phone_number': instance.phoneNumber,
+      'parent_phone': instance.parentPhone,
+      'special_code': instance.specialCode,
+      'pic_identityF': instance.picIdentityF,
+      'pic_identityB': instance.picIdentityB,
+      'gender': instance.gender,
+      'birth_date': instance.birthDate,
+      'image': instance.image,
+      'academicLevel': instance.academicLevel,
+      'academicLevel_id': instance.academicLevelId,
+      'stageLevel': instance.stageLevel,
+      'stageLevel_id': instance.stageLevelId,
     };

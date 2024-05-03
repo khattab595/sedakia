@@ -6,30 +6,26 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
-import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';
 
-
 part 'profile_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  ProfileDataSource{
-
+abstract class ProfileDataSource {
   @factoryMethod
   factory ProfileDataSource(Dio dio) = _ProfileDataSource;
 
-  @GET('/app/setting')
+  @GET('/profile')
   Future<ApiResponse<ProfileDto>> fetchProfileData();
 
-  @POST('/v1/editprofile')
-  Future<ApiResponse<ProfileDto>> editProfileData(@Body() EditProfileParams params);
+  @POST('/updateProfile')
+  Future<ApiResponse<ProfileDto>> editProfileData(@Body() ProfileDto params,);
 
-  @POST('/v1/editprofile')
-  Future<ApiResponse<ProfileDto>> changeImage(
-    @Part(name: 'image') File image,
-      );
+  @POST('/pic_identityF')
+  Future<ApiResponse<ProfileDto>> changeImage(@Part(name: 'image') File image);
 
-  @POST('/app/setting/delete')
+  @POST('/destroy')
   Future<ApiResponse<String>> deleteProfileData();
 
   @POST('/v1/logout')

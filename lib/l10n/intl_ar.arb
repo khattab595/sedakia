@@ -68,8 +68,13 @@
   "personal_information": "المعلومات الشخصية",
   "male": "ذكر",
   "female": "أنثى",
-
-
+  "serial_number": "الرقم التسلسلي",
+  "parent_mobile_number": "رقم موبايل ولي الامر",
+  "study": "الدراسة",
+  "stage": "المرحلة",
+  "confirm_password": "تأكيد كلمة المرور",
+  "must_be_start_with_77": "يجب أن يبدأ بـ 77",
+  "must_be_10_digits": "يجب أن يكون 10 أرقام",
 
 
 
@@ -224,12 +229,6 @@
   "amount": "المبلغ",
   "save": "حفظ",
 
-
-
-
-
-  "testtttttttttttttttttttttttttttttttttttttttttttttttttttttttt": "testtttttttttttttttttttttttttttttttttttttttttttttttttttttttt",
-
   "welcome_back": "Welcome Back",
   "sign_up": "SIGN UP",
   "phone": "Phone",
@@ -280,7 +279,6 @@
   "product_details": "Product Details",
   "general": "General",
   "store": "Store",
-  "confirm_password": "Confirm Password",
   "store_name": "Store Name",
   "store_link": "Store Link",
   "edit": "Edit",

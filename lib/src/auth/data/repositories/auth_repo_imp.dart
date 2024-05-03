@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/core/firebase/notification_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:app/src/auth/data/models/login_params.dart';
 
@@ -27,26 +28,34 @@ class AuthRepoImp extends AuthRepo {
       token: response.token,
     );
     await HelperMethods.saveProfile(profileDto);
-    return Profile.fromJson(profileDto);
+    return Profile.fromDto(profileDto);
   }
 
   @override
-  Future<Profile> register(RegisterParams params) async {
+  Future<String> register(RegisterParams params) async {
+    params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.register(params);
-    await HelperMethods.saveProfile(response.data!);
-    return Profile.fromJson(response.data!);
+    ProfileDto profileDto = ProfileDto(
+      name: response.name,
+      token: response.token,
+    );
+    await HelperMethods.saveProfile(profileDto);
+    return response.message ?? '';
   }
 
   @override
-  Future<Profile> verificationCode(VerificationCodeParams params) async {
+  Future<String> verificationCode(VerificationCodeParams params) async {
     final response = await apiProvider.verificationCode(params);
-    await HelperMethods.saveProfile(response.data!);
-    return Profile.fromJson(response.data!);
+    ProfileDto profileDto = ProfileDto(
+      name: response.name,
+      token: response.token,
+    );
+    await HelperMethods.saveProfile(profileDto);
+    return response.message ?? '';
   }
 
   @override
-  Future<Profile> completeRegistration(
-      CompleteRegistrationParams params) async {
+  Future<String> completeRegistration(CompleteRegistrationParams params) async {
     final response = await apiProvider.completeRegistration(
       params.academicLevelId ?? '',
       params.stageLevelId ?? '',
@@ -55,8 +64,10 @@ class AuthRepoImp extends AuthRepo {
       File(params.picIdentityF ?? ''),
       File(params.picIdentityB ?? ''),
     );
-    await HelperMethods.saveProfile(response.data!);
-    return Profile.fromJson(response.data!);
+    ProfileDto profileDto = ProfileDto.fromJson(response['user']);
+    profileDto.token = response['token'];
+    await HelperMethods.saveProfile(profileDto);
+    return response['message'];
   }
 
   @override

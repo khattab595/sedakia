@@ -41,12 +41,8 @@ class HeaderInterceptor extends Interceptor {
       RequestOptions options, RequestInterceptorHandler handler) async {
     String token = await HelperMethods.getToken();
     options.headers[keyAuthorization] = 'Bearer $token';
-    options.headers[keyType] = 'application/json';
+    // options.headers[keyType] = 'application/json';
     options.headers[keyAccept] = 'application/json';
-    options.headers[keyLanguage] = injector<ServicesLocator>().languageCode;
-    options.headers[keyCountry] = 1;
-    options.headers[keyVersion] = '1.0.0';
-    // options.headers['platform'] = Platform.isAndroid ? 'Android' : 'IOS';
 
     print('options.headers => ${options.headers}');
     print('options.queryParameters => ${options.queryParameters}');
@@ -62,7 +58,7 @@ class HeaderInterceptor extends Interceptor {
 
     if (err.response != null) {
       Map<String, dynamic> data = json.decode(err.response.toString());
-      String message = data.containsKey('error') ? data['error'] : "Error";
+      String message = data.containsKey('message') ? data['message'] : "Error";
       // final status = data.containsKey('status') ? data['status'] : "Error";
       int code = data.containsKey('code') ? data['code'] : 0;
       if (err.response?.statusCode == 401) {
@@ -84,11 +80,11 @@ class HeaderInterceptor extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     super.onResponse(response, handler);
     Map<String, dynamic> data = response.data;
-    final message = data.containsKey('message') ? data['message'] : "Error";
-    // final status = data.containsKey('status') ? data['status'] : "Error";
-    String code =
-        data.containsKey('code') ? response.data['code'].toString() : "E";
-    print('onRespons ${response.toString()} => ${code != 'Ok'}');
+    // final message = data.containsKey('message') ? data['message'] : "Error";
+    // // final status = data.containsKey('status') ? data['status'] : "Error";
+    // String code =
+    //     data.containsKey('code') ? response.data['code'].toString() : "E";
+    // print('onRespons ${response.toString()} => ${code != 'Ok'}');
     // if (status != SUCCESS_CODE) {
     //   throw ApiException(message, code);
     // }

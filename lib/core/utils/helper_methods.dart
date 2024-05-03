@@ -218,25 +218,4 @@ class HelperMethods {
       print('e $e');
     }
   }
-
-  static Future<PlatformDto> getPlatform() async {
-    DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-    final deviceInfo = await deviceInfoPlugin.deviceInfo;
-    // IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
-    debugPrint('version ${Platform.version}');
-    debugPrint('localeName ${Platform.localeName}');
-    debugPrint('operatingSystem ${Platform.operatingSystem}');
-    debugPrint('operatingSystemVersion ${Platform.operatingSystemVersion}');
-    debugPrint('environment ${Platform.environment}');
-    debugPrint('operatingSystemVersion ${Platform.operatingSystemVersion}');
-    debugPrint('androidInfo ${deviceInfo.data['id']}');
-    debugPrint('iosInfo ${deviceInfo.data}');
-    return PlatformDto(
-      id: deviceInfo.data['id'],
-      name: deviceInfo.data['invoices'],
-      type: (Platform.isAndroid || Platform.isIOS) ? 'mobile' : 'web',
-      ver: Platform.version,
-      os: Platform.operatingSystem,
-    );
-  }
 }

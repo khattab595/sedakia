@@ -1,35 +1,44 @@
-
-import '../../data/models/city_dto.dart';
-import '../../data/models/facility_dto.dart';
 import '../../data/models/profile_dto.dart';
-import 'city.dart';
-import 'facility.dart';
 
 class Profile {
   int? id;
-  String? num;
   String? name;
-  String? email;
-  String? phone;
-  String? address;
-  Facility? facility;
-  City? city;
+  String? phoneNumber;
+  String? parentPhone;
+  String? specialCode;
+  String? picIdentityF;
+  String? picIdentityB;
+  String? gender;
+  String? birthDate;
   String? image;
-  String? token;
+  String? academicLevel;
+  int? academicLevelId;
+  String? stageLevel;
+  int? stageLevelId;
 
-  Profile({this.id, this.num, this.name, this.email, this.phone, this.address, this.facility, this.city, this.image, this.token});
+  Profile(
+      {this.id,
+      this.name,
+      this.phoneNumber,
+      this.parentPhone,
+      this.specialCode,
+      this.picIdentityF,
+      this.picIdentityB,
+      this.gender,
+      this.birthDate,
+      this.image,
+      this.academicLevel,
+      this.academicLevelId,
+      this.stageLevel,
+      this.stageLevelId});
 
-   factory Profile.fromJson(ProfileDto json) => Profile(
+  factory Profile.fromDto(ProfileDto json) => Profile(
         id: json.id,
-        num: json.num,
         name: json.name,
-        email: json.email,
-        phone: json.phone,
-        address: json.address,
-        facility: Facility.fromJson(json.facility ?? FacilityDto()),
-        city: City.fromJson(json.city ?? CityDto()),
-        image: json.image,
-        token: json.token,
+        phoneNumber: json.phoneNumber,
+        parentPhone: json.parentPhone,
+        specialCode: json.specialCode,
+        picIdentityF: json.picIdentityF,
+        picIdentityB: json.picIdentityB,
       );
 }
-

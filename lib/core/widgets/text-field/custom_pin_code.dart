@@ -34,7 +34,7 @@ class CustomPinCode extends BaseStatelessWidget {
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
-      length: 5,
+      length: 6,
       validator: (value) => Validation.validateRequired(value ?? ''),
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,

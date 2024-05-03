@@ -3,12 +3,13 @@ import 'dart:io';
 import 'package:app/core/widgets/drop_down/drop_down.dart';
 import 'package:app/core/widgets/drop_down/drop_down_stream.dart';
 
+import '../../../../../core/utils/date_formatter.dart';
+import '../../../../../core/utils/helper_methods.dart';
+import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/complete_registration_params.dart';
-import '../../../data/models/register_params.dart';
-import '../../widgets/check_box_terms_conditions.dart';
 import '../widgets/select_image.dart';
 
 class CompleteScreen extends BaseStatelessWidget {
@@ -27,7 +28,7 @@ class CompleteScreen extends BaseStatelessWidget {
   String academicLevel = '';
   String stage = '';
   String gender = '';
-  String birthDate = '';
+  TextEditingController birthDateController = TextEditingController();
   File forwardImage = File('');
   File backwardImage = File('');
 
@@ -65,6 +66,15 @@ class CompleteScreen extends BaseStatelessWidget {
             onChanged: (value) {
               gender = value.title ?? '';
             },
+          ),
+          CustomTextField(
+            controller: birthDateController,
+            hintText: strings.birth_date,
+            onTap: () async {
+              DateTime? date = await HelperMethods.selectDate(context);
+              birthDateController.text =
+                  DateFormatter.formatTimestampString(date.toString());
+            } ,
           ),
           HintMediumText(label: strings.adding_unified_card),
           Row(
@@ -105,7 +115,7 @@ class CompleteScreen extends BaseStatelessWidget {
         academicLevelId: academicLevel,
         stageLevelId: stage,
         gender: gender,
-        birthDate: birthDate,
+        birthDate: birthDateController.text,
         picIdentityB: backwardImage.path,
         picIdentityF: forwardImage.path,
       ));

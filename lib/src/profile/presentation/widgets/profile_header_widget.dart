@@ -1,7 +1,4 @@
 
-
-import 'package:app/core/widgets/images/image_network.dart';
-
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
@@ -29,7 +26,7 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
             ),
             5.ph,
             RegularHintText(
-              label: profile.email ?? '',
+              label: profile.specialCode ?? '',
             ),
           ],
         ),

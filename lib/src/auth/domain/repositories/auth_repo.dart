@@ -10,9 +10,9 @@ import '../../data/models/verification_code_params.dart';
 
 abstract class AuthRepo {
   Future<Profile> login(LoginParams params);
-  Future<Profile> register(RegisterParams params);
-  Future<Profile> verificationCode(VerificationCodeParams params);
-  Future<Profile> completeRegistration(CompleteRegistrationParams params);
+  Future<String> register(RegisterParams params);
+  Future<String> verificationCode(VerificationCodeParams params);
+  Future<String> completeRegistration(CompleteRegistrationParams params);
   Future<List<DropDownItem>> fetchAcademicLevels();
   Future<List<DropDownItem>> fetchStageLevels(String academicLevelId);
 }

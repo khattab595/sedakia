@@ -159,7 +159,10 @@ Future<_i1.GetIt> $initGetIt(
       () => _i49.NotificationsCubit(gh<_i20.NotificationsRepo>()));
   gh.factory<_i50.PhotoGalleryBloc>(
       () => _i50.PhotoGalleryBloc(gh<_i23.ProfileRepo>()));
-  gh.factory<_i51.ProfileBloc>(() => _i51.ProfileBloc(gh<_i23.ProfileRepo>()));
+  gh.factory<_i51.ProfileBloc>(() => _i51.ProfileBloc(
+        gh<_i23.ProfileRepo>(),
+        gh<_i5.AuthRepo>(),
+      ));
   gh.factory<_i52.SplashUseCase>(
       () => _i52.SplashUseCase(gh<_i37.BaseSplashRepo>()));
   gh.factory<_i53.TeacherCubit>(

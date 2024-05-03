@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
 import 'src/main_index.dart';
@@ -20,7 +22,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp();
 
   await configureDependencies();
 
@@ -39,8 +41,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // FirebaseNotification firebase = FirebaseNotification();
-    // firebase.initialize(context);
+    FirebaseNotification firebase = FirebaseNotification();
+    firebase.initialize(context);
     return BlocProvider(
       create: (BuildContext context) => LocaleCubit()..getLanguageData(),
       child: BlocBuilder<LocaleCubit, LocalState>(
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
             initialRoute: state.isFirstTime
                 ? Routes.onboardingPage
                 : state.isLogin
-                ? Routes.register
+                ? Routes.navigationPages
                 : Routes.register,
           );
         },

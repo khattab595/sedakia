@@ -13,7 +13,9 @@ class StepperLines extends BaseStatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           buildLine(true),
+          20.pw,
           buildLine(controllerStream.data == 0),
+          20.pw,
           buildLine(controllerStream.data == 0),
         ],
       ),
@@ -21,12 +23,13 @@ class StepperLines extends BaseStatelessWidget {
   }
 
   buildLine(bool isActive) {
-    return Container(
-      height: 5,
-      width: (MediaQuery.of(context!).size.width / 3) - 20,
-      margin: 5.paddingVert,
-      decoration: Decorations.kDecorationOnlyRadius(
-        color: isActive ? primaryColor : dividerColor,
+    return Expanded(
+      child: Container(
+        height: 5,
+        margin: 5.paddingVert,
+        decoration: Decorations.kDecorationOnlyRadius(
+          color: isActive ? primaryColor : dividerColor,
+        ),
       ),
     );
   }

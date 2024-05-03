@@ -34,7 +34,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/app/setting',
+              '/profile',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -51,8 +51,7 @@ class _ProfileDataSource implements ProfileDataSource {
   }
 
   @override
-  Future<ApiResponse<ProfileDto>> editProfileData(
-      EditProfileParams params) async {
+  Future<ApiResponse<ProfileDto>> editProfileData(ProfileDto params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -66,7 +65,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/editprofile',
+              '/updateProfile',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -103,7 +102,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/v1/editprofile',
+              '/pic_identityF',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -133,7 +132,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/app/setting/delete',
+              '/destroy',
               queryParameters: queryParameters,
               data: _data,
             )

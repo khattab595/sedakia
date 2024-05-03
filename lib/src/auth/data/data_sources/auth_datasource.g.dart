@@ -52,14 +52,14 @@ class _AuthDataSource implements AuthDataSource {
   }
 
   @override
-  Future<ApiResponse<ProfileDto>> register(RegisterParams params) async {
+  Future<ApiResponse<dynamic>> register(RegisterParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<ProfileDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -75,9 +75,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<ProfileDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
     );
     return value;
   }
@@ -115,7 +115,7 @@ class _AuthDataSource implements AuthDataSource {
   }
 
   @override
-  Future<ApiResponse<ProfileDto>> completeRegistration(
+  Future<dynamic> completeRegistration(
     String academicLevelId,
     String stageId,
     String birthDate,
@@ -157,28 +157,24 @@ class _AuthDataSource implements AuthDataSource {
         filename: idImage.path.split(Platform.pathSeparator).last,
       ),
     ));
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<ProfileDto>>(Options(
+    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
       contentType: 'multipart/form-data',
     )
-            .compose(
-              _dio.options,
-              '/completeRegistration',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<ProfileDto>.fromJson(
-      _result.data!,
-      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
-    );
+        .compose(
+          _dio.options,
+          '/completeRegistration',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final value = _result.data;
     return value;
   }
 

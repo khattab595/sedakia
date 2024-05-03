@@ -1,11 +1,12 @@
 
+import 'dart:io';
+
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/helper_methods.dart';
 import '../../domain/entities/profile.dart';
 import '../../domain/repositories/profile_repo.dart';
 import '../data_sources/profile_datasource.dart';
-import '../models/edit_profile_params.dart';
 import '../models/profile_dto.dart';
 
 
@@ -25,19 +26,19 @@ class ProfileRepoImp extends ProfileRepo{
       profile = data.data!;
       await HelperMethods.saveProfile(profile);
     }
-    return Profile.fromJson(profile);
+    return Profile.fromDto(profile);
   }
 
   @override
-  Future<String> editProfileData(EditProfileParams params) async {
+  Future<String> editProfileData(ProfileDto params) async {
     final data = await apiProvider.editProfileData(params);
     await HelperMethods.saveProfile(data.data!);
     return data.message ?? '';
   }
 
   @override
-  Future<String> changeImage(EditProfileParams params) async {
-    final data = await apiProvider.changeImage(params.image!);
+  Future<String> changeImage(File file) async {
+    final data = await apiProvider.changeImage(file);
     await HelperMethods.saveProfile(data.data!);
     return data.message ?? '';
   }

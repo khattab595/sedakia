@@ -2,6 +2,7 @@
 import 'package:app/src/my_courses/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../my_courses/data/models/course_dto.dart';
 import '../../domain/entities/department.dart';
 import '../../domain/entities/slide.dart';
 import '../../domain/entities/teacher.dart';
@@ -25,7 +26,7 @@ class HomeRepoImp extends HomeRepo{
   @override
   Future<Course> fetchRecentlyData() async {
     final response = await datasource.fetchRecentlyData();
-    return Course.fromDto(response.data!);
+    return Course.fromDto(response.data ?? CourseDto());
   }
 
   @override

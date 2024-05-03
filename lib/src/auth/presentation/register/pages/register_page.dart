@@ -7,6 +7,7 @@ import '../../../../../core/utils/navigator.dart';
 import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/register_params.dart';
+import '../../../data/models/verification_code_params.dart';
 import '../../bloc/auth_bloc.dart';
 import '../widgets/stepper_lines.dart';
 import 'complete_screen.dart';
@@ -21,6 +22,7 @@ class RegisterPage extends BaseBlocWidget<UnInitState, AuthCubit> {
 
   StreamStateInitial<int> controllerStream = StreamStateInitial<int>();
 
+  String phone = '';
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return Padding(
@@ -45,20 +47,19 @@ class RegisterPage extends BaseBlocWidget<UnInitState, AuthCubit> {
             controller: controller,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              CompleteRegisterPage(),
               RegisterScreen(onRegister: (RegisterParams params) {
-                controller.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeIn);
+                phone = params.phone ?? '';
+                bloc.register(params);
               }),
               ActivationCodeScreen(
                 onPinCode: (String pinCode) {
-                  // context.read<AuthCubit>().registerUser(pinCode);
+                  bloc.verificationCode(VerificationCodeParams(
+                      phoneNumber: phone, code: pinCode));
                 },
                 onResend: (String pinCode) {
-                  // context.read<AuthCubit>().registerUser(pinCode);
                 },
               ),
+              CompleteRegisterPage(),
             ],
           ))
         ],
@@ -68,6 +69,8 @@ class RegisterPage extends BaseBlocWidget<UnInitState, AuthCubit> {
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.homePage);
+    controller.nextPage(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeIn);
   }
 }

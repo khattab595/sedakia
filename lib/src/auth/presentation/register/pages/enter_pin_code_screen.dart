@@ -41,15 +41,15 @@ class ActivationCodeScreen extends BaseStatelessWidget {
                 }
               },
             ),
-            10.ph,
-            LabelButton(
-              title: strings.resend,
-              style: hintMediumStyle,
-              onTap: () {
-                pinCodeController.clear();
-                onResend(pinCodeController.text);
-              },
-            ),
+            // 10.ph,
+            // LabelButton(
+            //   title: strings.resend,
+            //   style: hintMediumStyle,
+            //   onTap: () {
+            //     pinCodeController.clear();
+            //     onResend(pinCodeController.text);
+            //   },
+            // ),
           ],
         ),
       ),

@@ -26,7 +26,7 @@ abstract class AuthDataSource {
   Future<ApiResponse<ProfileDto>> login(@Body() LoginParams params);
 
   @POST('/register')
-  Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
+  Future<ApiResponse> register(@Body() RegisterParams params);
 
   @POST('/verificationCode')
   Future<ApiResponse<ProfileDto>> verificationCode(
@@ -34,7 +34,7 @@ abstract class AuthDataSource {
 
   @MultiPart()
   @POST('/completeRegistration')
-  Future<ApiResponse<ProfileDto>> completeRegistration(
+  Future completeRegistration(
     @Part(name: 'academic_level_id') String academicLevelId,
     @Part(name: 'stage_level_id') String stageId,
     @Part(name: 'birth_date') String birthDate,

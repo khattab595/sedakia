@@ -1,24 +1,32 @@
 import 'dart:io';
 
+import '../../../../core/widgets/drop_down/drop_down.dart';
+import '../../../../core/widgets/drop_down/drop_down_stream.dart';
 import '../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../main_index.dart';
-import '../../data/models/edit_profile_params.dart';
+import '../../data/models/profile_dto.dart';
 import '../../domain/entities/profile.dart';
-import '../widgets/edit_profile_image.dart';
 
 class EditProfileScreen extends BaseStatelessWidget {
   final Profile profile;
-  final Function(EditProfileParams params) onEdit;
+  final List<DropDownItem> items;
+  final StreamStateInitial<List<DropDownItem>?> stageLevelsStream;
+  final Function(String academicLevelId) onFetchStageLevels;
+  final Function(ProfileDto) onEdit;
   final Function(File file) onEditImage;
 
-  EditProfileScreen({Key? key, required this.profile, required this.onEdit, required this.onEditImage}) : super(key: key);
+  EditProfileScreen({Key? key, required this.items, required this.stageLevelsStream, required this.onFetchStageLevels, required this.profile, required this.onEdit, required this.onEditImage}) : super(key: key);
 
-  TextEditingController facilityNameController = TextEditingController();
-  TextEditingController facilityNoController = TextEditingController();
-  TextEditingController pointSaleNumberController = TextEditingController();
-  TextEditingController pointSaleAddressController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController serialNumberController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  TextEditingController parentPhoneController = TextEditingController();
+  TextEditingController studyController = TextEditingController();
+  TextEditingController stageController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
+  String academicLevel = '';
+  String stageLevelId = '';
+
   static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -31,42 +39,47 @@ class EditProfileScreen extends BaseStatelessWidget {
         child: Column(
           children: [
             20.ph,
-            EditProfileImage(
-              image: profile.image ?? '',
-              onSelectImage: (file){
-                onEditImage(file);
-              },
-            ),
-            20.ph,
             CustomTextField(
-              title: strings.facility_name,
-              controller: facilityNameController,
-                enabled: false,
+              title: strings.serial_number,
+              controller: serialNumberController,
             ),
             CustomTextField(
-              title: strings.no_facility,
-              controller: facilityNoController,
-              enabled: false,
+              title: strings.name,
+              controller: nameController,
             ),
             CustomTextField(
-              title: strings.home,
-              controller: pointSaleNumberController,
-              enabled: false,
+              title: strings.phone_number,
+              controller: phoneController,
             ),
             CustomTextField(
-              title: strings.point_sale_address,
-              controller: pointSaleAddressController,
-              enabled: false,
+              title: strings.parent_mobile_number,
+              controller: parentPhoneController,
             ),
             CustomTextField(
-              title: strings.email,
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
+              title: strings.study,
+              controller: studyController,
             ),
             CustomTextField(
               title: strings.mobile_number,
               controller: phoneController,
               keyboardType: TextInputType.phone,
+            ),
+            DropDownField(
+              hint: strings.academic_level,
+              items: items,
+              value: academicLevel,
+              onChanged: (value) {
+                academicLevel = value.id ?? '';
+                onFetchStageLevels(academicLevel);
+              },
+            ),
+            DropDownFieldStream(
+              hint: strings.choose_stage,
+              stream: stageLevelsStream,
+              value: stageLevelId,
+              onChanged: (value) {
+                stageLevelId = value.id ?? '';
+              },
             ),
             editButton(),
           ],
@@ -77,9 +90,8 @@ class EditProfileScreen extends BaseStatelessWidget {
 
   editButton(){
    return PrimaryButton(
-     title: strings.save,
+     title: strings.edit,
       onPressed: onEditPressed,
-
       margin:20.paddingVert,
     //  padding: const EdgeInsets.symmetric(vertical: 12),
     );
@@ -88,20 +100,22 @@ class EditProfileScreen extends BaseStatelessWidget {
   onEditPressed(){
     if (formKey.currentState!.validate()) {
       onEdit(
-        EditProfileParams(
-          email: emailController.text,
-          phone: phoneController.text,
+        ProfileDto(
+          id: profile.id,
+          name: nameController.text,
+          parentPhone: parentPhoneController.text,
         ),
       );
     }
   }
 
   _initData() {
-    facilityNameController.text = profile.facility?.name ?? '';
-    facilityNoController.text = profile.facility?.num ?? '';
-    pointSaleNumberController.text = profile.num  ?? '';
-    pointSaleAddressController.text = profile.address ?? '';
-    emailController.text = profile.email ?? '';
-    phoneController.text = profile.phone ?? '';
+    serialNumberController.text = profile.specialCode ?? '';
+    nameController.text = profile.name ?? '';
+    phoneController.text = profile.phoneNumber ?? '';
+    parentPhoneController.text = profile.parentPhone ?? '';
+    academicLevel  = profile.academicLevel ?? '';
+    stageLevelId = profile.stageLevelId.toString();
+    dateController.text = profile.birthDate ?? '';
   }
 }

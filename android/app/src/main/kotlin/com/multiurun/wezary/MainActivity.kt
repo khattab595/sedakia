@@ -1,4 +1,4 @@
-package com.wezary.app
+package com.multiurun.wezary
 
 import io.flutter.embedding.android.FlutterActivity
 
