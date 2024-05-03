@@ -97,7 +97,7 @@ class RegisterScreen extends BaseStatelessWidget {
   }
 
   onPressed() async {
- //   if (formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       onRegister!(RegisterParams(
         name: nameController.text,
         phone: phoneController.text,
@@ -105,6 +105,6 @@ class RegisterScreen extends BaseStatelessWidget {
         parentPhone: parentPhoneController.text,
         passwordConfirmation: passwordController.text,
       ));
- //   }
+    }
   }
 }

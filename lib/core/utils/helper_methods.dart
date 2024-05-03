@@ -146,7 +146,7 @@ class HelperMethods {
       return ProfileDto.fromJson(decoded);
     } on Exception catch (e) {
       print('getProfile error $e');
-      rethrow;
+      return ProfileDto();
     }
   }
 
