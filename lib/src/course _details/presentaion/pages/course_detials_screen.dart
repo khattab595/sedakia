@@ -1,15 +1,18 @@
 import 'package:app/src/course%20_details/presentaion/widget/custom_details_widget.dart';
 import 'package:app/src/course%20_details/presentaion/widget/custom_lessons_widget.dart';
+import '../../../../core/widgets/button_sheet/custom_bottom_sheet.dart';
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/tabview/tabbar_widget.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
-import '../../data/models/course_details_dto.dart';
+import '../../domin/entities/course_details.dart';
 
 class CourseDetailsScreen extends BaseStatelessWidget {
-  final CourseDetailsDto courseDetailsDto;
-
-  CourseDetailsScreen({Key? key, required this.courseDetailsDto}) : super(key: key);
+  final CourseDetails courseDetails;
+  final Function({required int courseId,required String courseCode})? subscribeCourse;
+  GlobalKey<FormState> formKeyButtonSheet=GlobalKey<FormState>();
+  TextEditingController buttonSheetController=TextEditingController();
+  CourseDetailsScreen( {Key? key, required this.courseDetails,this.subscribeCourse,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,35 +27,55 @@ class CourseDetailsScreen extends BaseStatelessWidget {
                   height:200,
                   width: double.infinity,
                   child:
-                  ImageNetwork(image: courseImageTest,radius: 12,)),
+                  ImageNetwork(image: courseDetails.image!,radius: 12,)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  15.ph,
-                  const MediumText(
-                    label:'الكيمياء',
+                  8.ph,
+                   MediumText(
+                    label:courseDetails.department!,
                     fontSize: 14,
                   ),
-                  5.ph,
-                  const BoldText(
+                  4.ph,
+                   BoldText(
                     fontSize: 20,
                     textAlign: TextAlign.start,
-                    label: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
+                    label: courseDetails.name!,
                   ),
                 ],
               ),
               Expanded(
                 child: TabBarWidget(tabs: [
-                  TabItemModel(label: strings.details, page: CustomDetailsWidget()),
-                  TabItemModel(label: strings.lessons, page: CustomLessonsWidget()),
+                  TabItemModel(label: strings.details, page: CustomDetailsWidget(courseDetails: courseDetails,)),
+                  TabItemModel(label: strings.lessons, page: CustomLessonsWidget(courseDetails: courseDetails,)),
 
                 ]),
+              ),
+              10.ph,
+              PrimaryButton(
+                title: strings.subscription,
+                onPressed: (){
+                  showModalBottomSheet(
+                    backgroundColor:Colors.white,
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (context) =>   CustomBottomSheet(
+                      onPressed:onPressed, formKeyButtonSheet: formKeyButtonSheet,
+                      buttonSheetController: buttonSheetController,),
+                  );
+
+                },
               ),
             ],
           ),
         )
     );
   }
-  String courseImageTest='https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/438733737_948519656830553_8918195012094984290_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G1JUxOIBt0EQ7kNvgEXOL8_&_nc_ht=scontent.fcai20-5.fna&oh=00_AfD2Xhzte39iBbqctJrvpdFMocbfLvqVK3p_nrtggDWIjg&oe=66370D01';
+  onPressed() async {
+    if(formKeyButtonSheet.currentState!.validate()){
+      subscribeCourse!(courseId:courseDetails.id! ,courseCode:buttonSheetController.text );
+    }
+  }
+
 }

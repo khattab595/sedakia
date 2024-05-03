@@ -13,7 +13,7 @@ class CustomLatestCoursesWidget extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 220,
+      height: 203,
       child: StreamBuilder<List<Course>?>(
         stream: recentlyCoursesStream.stream,
         builder: (context, snapshot) {
@@ -24,7 +24,7 @@ class CustomLatestCoursesWidget extends BaseStatelessWidget {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: 10.paddingEnd,
+                      padding: 16.paddingEnd,
                       child: CustomLatestCourseItem(
                         myCourse: snapshot.data![index],
                       ),

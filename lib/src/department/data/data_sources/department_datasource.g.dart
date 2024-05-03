@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'course_details_datasource.dart';
+part of 'department_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'course_details_datasource.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _CourseDetailsDatasource implements CourseDetailsDatasource {
-  _CourseDetailsDatasource(
+class _DepartmentDatasource implements DepartmentDatasource {
+  _DepartmentDatasource(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,20 +21,20 @@ class _CourseDetailsDatasource implements CourseDetailsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<CourseDetailsDto>> fetchCourseDetailsData(int id) async {
+  Future<ApiResponse<List<CourseDto>>> fetchDepartmentCourses(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<CourseDetailsDto>>(Options(
+        _setStreamType<ApiResponse<List<CourseDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/CourseDetails?course_id=${id}',
+              '/departmentCourses?department_id=${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,42 +43,14 @@ class _CourseDetailsDatasource implements CourseDetailsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<CourseDetailsDto>.fromJson(
+    final value = ApiResponse<List<CourseDto>>.fromJson(
       _result.data!,
-      (json) => CourseDetailsDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<CourseDetailsDto>> subscribeCourse(
-    int courseId,
-    String courseCode,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<CourseDetailsDto>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/CourseSubscription?course_id=${courseId}&courseCode=${courseCode}}',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<CourseDetailsDto>.fromJson(
-      _result.data!,
-      (json) => CourseDetailsDto.fromJson(json as Map<String, dynamic>),
+      (json) => json is List<dynamic>
+          ? json
+              .map<CourseDto>(
+                  (i) => CourseDto.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
     );
     return value;
   }

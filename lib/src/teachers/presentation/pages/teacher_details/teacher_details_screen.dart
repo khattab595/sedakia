@@ -6,11 +6,11 @@ import '../../../../main_index.dart';
 import '../../../../my_courses/data/models/course_dto.dart';
 import '../../../../my_courses/presentation/widgets/my_courses_item.dart';
 import '../../../data/models/teacher_details_dto.dart';
+import '../../../domin/entities/teacher_details.dart';
 
 class TeacherDetailsScreen extends BaseStatelessWidget {
-  final TeacherDetailsDto teacherDetails;
-
-  TeacherDetailsScreen({Key? key, required this.teacherDetails}) : super(key: key);
+  final TeacherDetails teacherDetails;
+  TeacherDetailsScreen({Key? key,required this.teacherDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,17 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
             Stack(
               children: [
                 SizedBox(
-                  height: 400,
+                  height: 395,
                   width: double.infinity,
-                  child: ImageNetwork(image: courseImageTest2,radius: 12,fit: BoxFit.cover,)
+                  child: ImageNetwork(image: teacherDetails.image!,radius: 12,fit: BoxFit.cover,)
                 ),
                 SingleChildScrollView(
                   child:
                   Column(
                     children: [
-                      350.ph,
+                      320.ph,
                       Container(
+                        width: double.infinity,
                         decoration: Decorations.decorationStartEndBorder(
                           topEnd: 20,
                           topStart: 20,
@@ -43,47 +44,57 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const BoldText(
-                                label:'مازن محمد',
+                               BoldText(
+                                label:teacherDetails.name!=null?teacherDetails.name!:'',
                                 fontSize: 26,
                               ),
                               MediumText(
-                                label:'فيزياء',
+                                label:teacherDetails.department!=null?teacherDetails.department!:'',
                                 fontSize: 18,
                                 labelColor: context.hintColor,
                               ),
                               8.ph,
-                               SemiBoldText(
-                                label:strings.about_the_teacher,
-                                fontSize: 20,
-                              ),
-                              8.ph,
-                              MediumText(
-                                label:'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.',
-                                fontSize: 16,
-                                labelColor: context.hintColor,
-                              ),
+                              teacherDetails.description!=null?
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SemiBoldText(
+                                    label:strings.about_the_teacher,
+                                    fontSize: 20,
+                                  ),
+                                  8.ph,
+                                  MediumText(
+                                    label:teacherDetails.description!,
+                                    fontSize: 16,
+                                    labelColor: context.hintColor,
+                                  ),
+                                ],
+                              ):
+                              const SizedBox.shrink(),
                               16.ph,
-                               SemiBoldText(
-                                label:strings.courses,
-                                fontSize: 20,
-                              ),
-                              ...item.map((e) =>  InkWell(
+                              teacherDetails.courses!=null&&teacherDetails.courses!.isNotEmpty?
+                               Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   SemiBoldText(
+                                     label:strings.courses,
+                                     fontSize: 20,
+                                   ),
+                                   ...teacherDetails.courses!.map((e) =>
+                                       InkWell(
                                 onTap: (){
-                                  pushNamed(Routes.courseDetailsPage);
+                                  pushNamed(Routes.courseDetailsPage,arguments: teacherDetails.id);
                                 },
                                 child: MyCoursesItem(
                                   padding: 8.paddingVert,
                                   hasNotProgress: true,
-                                  myCourse: CourseDto(
-                                    percentage: 0.7,
-                                    name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
-                                    department:'الكيمياء' ,
-                                    teacher: 'عبدالله مصطفي',
-                                    image: courseImageTest2,
-                                    duration: '١ ساعة ٣٢ دقيقة',
-                                  ),),
-                              ),)
+                                  myCourse: e,),
+                              ),
+                                   )
+                                 ],
+                               ):
+                                  const SizedBox.shrink()
+
 
                             ],
                           ),
@@ -101,6 +112,5 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
   }
   List item =[1,2,3];
   String courseImageTest2='https://internationalteacherstraining.com/blog/wp-content/uploads/2018/08/171219-teacher-stock.jpg';
-
 
 }

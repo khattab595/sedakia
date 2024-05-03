@@ -16,7 +16,7 @@ CourseDetailsDto _$CourseDetailsDtoFromJson(Map<String, dynamic> json) =>
       department: json['department'] as String?,
       teacherId: json['teacher'] as int?,
       subjects: (json['subjects'] as List<dynamic>?)
-          ?.map((e) => Subjects.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SubjectsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -32,7 +32,7 @@ Map<String, dynamic> _$CourseDetailsDtoToJson(CourseDetailsDto instance) =>
       'subjects': instance.subjects,
     };
 
-Subjects _$SubjectsFromJson(Map<String, dynamic> json) => Subjects(
+SubjectsDto _$SubjectsDtoFromJson(Map<String, dynamic> json) => SubjectsDto(
       id: json['id'] as int?,
       name: json['name'] as String?,
       link: json['link'] as String?,
@@ -44,7 +44,8 @@ Subjects _$SubjectsFromJson(Map<String, dynamic> json) => Subjects(
       department: json['department'] as String?,
     );
 
-Map<String, dynamic> _$SubjectsToJson(Subjects instance) => <String, dynamic>{
+Map<String, dynamic> _$SubjectsDtoToJson(SubjectsDto instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'link': instance.link,

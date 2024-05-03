@@ -1,24 +1,32 @@
 import '../../../../../../../core/components/base_widget_bloc.dart';
+import '../../../../core/utils/navigator.dart';
 import '../../../main_index.dart';
-import '../../data/models/course_details_dto.dart';
+import '../../domin/entities/course_details.dart';
 import '../bloc/course_details_bloc.dart';
 import 'course_detials_screen.dart';
 
-class CourseDetailsPage extends BaseBlocWidget<DataSuccess<CourseDetailsDto>, CourseDetailsCubit> {
-  CourseDetailsPage({Key? key,required this.id, }) : super(key: key);
-  final int id;
+class CourseDetailsPage extends BaseBlocWidget<DataSuccess<CourseDetails>, CourseDetailsCubit> {
+  CourseDetailsPage({Key? key,}) : super(key: key);
+
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchTeacherDetailsData(id: id);
+    bloc.fetchTeacherDetailsData(id: getArguments(context));
   }
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<CourseDetailsDto> state) {
+  Widget buildWidget(BuildContext context, DataSuccess<CourseDetails> state) {
     return CourseDetailsScreen(
-      courseDetailsDto: state.data!,
+      courseDetails: state.data!,
+      subscribeCourse: ({required int courseId,required String courseCode}) {
+        bloc.subscribeCourse(courseId: courseId, courseCode: courseCode);
+      },
     );
   }
   @override
   String? title(BuildContext context) {
     return strings.course_details;
+  }
+  @override
+  void onSuccessDismissed() {
+   pop();
   }
 }

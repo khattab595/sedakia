@@ -9,7 +9,7 @@ class LatestCoursesPage extends BaseBlocWidget<UnInitState, HomeCubit> {
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return LatestCoursesScreen(
-      home: getArguments(context)
+        courses: getArguments(context)
     );
   }
   @override

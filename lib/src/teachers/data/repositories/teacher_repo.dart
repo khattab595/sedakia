@@ -1,5 +1,6 @@
 import 'package:app/src/teachers/data/models/teacher_details_dto.dart';
 import 'package:injectable/injectable.dart';
+import '../../domin/entities/teacher_details.dart';
 import '../../domin/repositories/base_teacher_repo.dart';
 import '../data_sources/teacher_datasource.dart';
 
@@ -11,9 +12,9 @@ class TeacherRepo extends BaseTeacherRepo{
 
 
   @override
-  Future<TeacherDetailsDto> fetchTeacherDetailsData({required int id})async {
+  Future<TeacherDetails> fetchTeacherDetailsData({required int id})async {
     final response =  await datasource.fetchTeacherDetailsData(id);
-    return response.data!;
+    return TeacherDetails.fromDto(response.data!);
   }
 
 

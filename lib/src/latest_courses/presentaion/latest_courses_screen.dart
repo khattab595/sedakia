@@ -5,9 +5,9 @@ import '../../my_courses/data/models/course_dto.dart';
 import '../../my_courses/domain/entities/course.dart';
 
 class LatestCoursesScreen extends BaseStatelessWidget {
-  final  home;
+  final  List<Course>? courses;
 
-  LatestCoursesScreen({Key? key, required this.home}) : super(key: key);
+  LatestCoursesScreen({Key? key, required this.courses}) : super(key: key);
 
   List item =['الكل','التربية الاسلامية','اللغة العربية','الكيمياء'];
   @override
@@ -16,38 +16,35 @@ class LatestCoursesScreen extends BaseStatelessWidget {
       child:
       Column(
         children: [
-          8.ph,
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                ...item.map((e) =>  CustomText(text: e,),)
-              ],
-            ),
-          ),
-          16.ph,
+          // 8.ph,
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     children: [
+          //       ...item.map((e) =>  CustomText(text: e,),)
+          //     ],
+          //   ),
+          // ),
           Expanded(
-            child: GridView.count(
-                shrinkWrap: true,
-                padding: 16.paddingHoriz,
-                physics: const BouncingScrollPhysics(),
-                crossAxisCount: 2,
-                crossAxisSpacing: 0,
-                mainAxisSpacing: 10,
-                childAspectRatio: (1 / 0.95),
-                children: List.generate(20, (index) {
-                  return  FittedBox(child:  CustomLatestCourseItem(
-                    myCourse: Course(
-                      percentage: 0.6,
-                      name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
-                      department:'الكيمياء' ,
-                      teacher: 'عبدالله مصطفي',
-                      image: courseImageTest,
-                      duration: '١ ساعة ٣٢ دقيقة',
-                    ),));
-                })
+            child: Padding(
+              padding: 20.paddingHoriz+0.paddingVert,
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.95,
+                  mainAxisSpacing:16,
+                 crossAxisSpacing:15
+                ),
+                itemCount: courses!.length,
+                itemBuilder: (BuildContext context, int index) {
+                   return
+                     CustomLatestCourseItem(
+                         imageHeight: 85,
+                          myCourse: courses![index]);
+                },
+              ),
             ),
-          ),
+          )
         ],
       )
     );

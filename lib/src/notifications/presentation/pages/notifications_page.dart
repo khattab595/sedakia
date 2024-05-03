@@ -2,7 +2,6 @@
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
 import '../../data/models/notification_dto.dart';
-import '../../domain/entities/notification.dart';
 import '../bloc/notification_bloc.dart';
 import 'notifications_screen.dart';
 

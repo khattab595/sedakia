@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../my_courses/data/models/course_dto.dart';
+
 
 part 'teacher_details_dto.g.dart';
 
@@ -15,10 +17,11 @@ class TeacherDetailsDto {
   String? department;
   @JsonKey(name: 'description')
   String? description;
-
+  @JsonKey(name: 'courses')
+  List<CourseDto>? courses;
 
   TeacherDetailsDto(
-      {this.id, this.name, this.image, this.department, this.description});
+      {this.id, this.name, this.image, this.department, this.description,this.courses});
 
   factory TeacherDetailsDto.fromJson(Map<String, dynamic> json) => _$TeacherDetailsDtoFromJson(json);
 

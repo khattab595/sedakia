@@ -9,7 +9,8 @@ class TeachersPage extends BaseBlocWidget<UnInitState, HomeCubit> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return TeachersScreen(teachers: getArguments(context));
+    return TeachersScreen(
+        teachers: getArguments(context));
   }
 
   @override

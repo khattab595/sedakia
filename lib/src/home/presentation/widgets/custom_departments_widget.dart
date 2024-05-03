@@ -27,7 +27,8 @@ class CustomDepartmentsWidget extends BaseStatelessWidget {
                     Department department = snapshot.data![index];
                     return InkWell(
                       onTap: () {
-                        pushNamed(Routes.departmentPage);
+                        print('rrrr${department.id}');
+                         pushNamed(Routes.departmentPage,arguments:department.id );
                       },
                       child: CustomDepartmentItem(
                         department: department,

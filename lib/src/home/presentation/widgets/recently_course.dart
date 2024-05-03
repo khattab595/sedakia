@@ -1,3 +1,4 @@
+import '../../../../core/utils/navigator.dart';
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
@@ -21,56 +22,58 @@ class RecentlyCourse extends BaseStatelessWidget {
         stream: recentlyCourseStream.stream,
         builder: (context, snapshot) {
           Course myCourse = snapshot.data ?? Course();
-          return snapshot.data?.id == null
+          return snapshot.data == null
               ? 0.ph
-              : Column(
-                children: [
-                  BoldText(
-                    label: strings.new_mes,
-                    fontSize: 20,
-                  ),
-                  Padding(
-                      padding: padding ?? 16.paddingVert,
-                      child: Container(
-                        decoration: Decorations.kDecorationBorderRadius(
-                          radius: 20,
-                          color: const Color(0xffEFF0F9),
-                          borderColor: const Color(0xffEFF0F9),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            ImageNetwork(
-                              margin: 8.paddingAll,
+              : Padding(
+                  padding: padding ?? 16.paddingVert,
+                  child: InkWell(
+                    onTap: (){
+                      pushNamed(Routes.courseDetailsPage,arguments: myCourse.id);
+                    },
+                    child: Container(
+                      height: 98,
+                      decoration: Decorations.kDecorationBorderRadius(
+                        radius: 20,
+                        color: const Color(0xffEFF0F9),
+                        borderColor: const Color(0xffEFF0F9),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: 8.paddingAll,
+                            child: ImageNetwork(
                               width: 121,
-                              radius: 20,
-                              height: 90,
+                              radius: 12,
+                              height: 82,
                               fit: BoxFit.cover,
                               image: myCourse.image,
                             ),
-                            Expanded(
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: 12.5.paddingVert+8.paddingEnd,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  5.ph,
                                   MediumText(
                                     label: myCourse.department!,
                                     fontSize: 12,
                                   ),
-                                  5.ph,
-                                  BoldText(
-                                    fontSize: 14,
-                                    textAlign: TextAlign.start,
-                                    label: myCourse.name!,
+                                  Flexible(
+                                    child: BoldText(
+                                      fontSize: 14,
+                                      textAlign: TextAlign.start,
+                                      label: myCourse.name!,
+                                    ),
                                   ),
-                                  5.ph,
                                   FittedBox(
                                     child: Row(
                                       children: [
                                         MediumText(
                                           label: myCourse.teacher!,
-                                          fontSize: 15,
+                                          fontSize: 10,
                                         ),
                                         10.pw,
                                         MediumText(
@@ -96,13 +99,13 @@ class RecentlyCourse extends BaseStatelessWidget {
                                 ],
                               ),
                             ),
-                            30.pw
-                          ],
-                        ),
+                          ),
+                          30.pw
+                        ],
                       ),
                     ),
-                ],
-              );
+                  ),
+                );
         });
   }
 }

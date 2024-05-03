@@ -1,7 +1,5 @@
 
 import 'package:injectable/injectable.dart';
-
-import '../../domain/entities/notification.dart';
 import '../../domain/repositories/notifications_repo.dart';
 import '../data_sources/notifications_datasource.dart';
 import '../models/notification_dto.dart';

@@ -16,5 +16,11 @@ abstract class  CourseDetailsDatasource{
   @GET('/CourseDetails?course_id={id}')
   Future<ApiResponse<CourseDetailsDto>> fetchCourseDetailsData(@Path('id') int id);
 
+@POST('/CourseSubscription?course_id={courseId}&courseCode={courseCode}}')
+  Future<ApiResponse<CourseDetailsDto>> subscribeCourse(
+    @Path('courseId') int courseId,
+    @Path('courseCode') String courseCode,
+    );
+
 
 }

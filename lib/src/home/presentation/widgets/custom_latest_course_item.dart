@@ -1,3 +1,5 @@
+import 'package:app/core/utils/navigator.dart';
+
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
@@ -6,59 +8,66 @@ import '../../../my_courses/domain/entities/course.dart';
 
 class CustomLatestCourseItem extends BaseStatelessWidget {
   final Course myCourse;
-   CustomLatestCourseItem( {super.key,required this.myCourse,});
+  final double? imageHeight;
+   CustomLatestCourseItem( {super.key,required this.myCourse,this.imageHeight, });
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: 16.paddingEnd,
+    return InkWell(
+      onTap: (){
+        pushNamed(Routes.courseDetailsPage,arguments: myCourse.id);
+      },
       child: Container(
-          width: 230,
+          width: 226,
           decoration:  Decorations.kDecorationRadius(
               borderColor: context.dividerColor,
+              radius: 20,
               borderWidth: 1
           ),
           child: Padding(
-            padding: 10.paddingAll,
+            padding: 10.paddingHoriz+10.paddingTop+7.paddingBottom,
             child:  Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                    height:115,
+                    height:imageHeight??115,
                     width: double.infinity,
-                    child: ImageNetwork(image: courseImageTest2,radius: 12,)),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    5.ph,
-                    MediumText(
-                      label:myCourse.department!,
-                      fontSize: 12,
-                    ),
-                    5.ph,
-                    BoldText(
-                      fontSize: 14,
-                      textAlign: TextAlign.start,
-                      label: myCourse.name!,
-                    ),
-                    5.ph,
-                    FittedBox(
-                      child: Row(
-                        children: [
-                          MediumText(
-                            label:myCourse.teacher!,
-                            fontSize: 15,
-                          ),
-                          10.pw,
-                          MediumText(
-                            label:myCourse.duration!,
-                            fontSize: 10,
-                            labelColor: context.primaryColor,
-                          ),
-                        ],
+                    child: ImageNetwork(image: myCourse.image!,radius: 12,)),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      4.ph,
+                      MediumText(
+                        label:myCourse.department!,
+                        fontSize: 12,
                       ),
-                    ),
+                      Flexible(
+                        child: BoldText(
+                          fontSize: 14,
+                          textAlign: TextAlign.start,
+                          label:myCourse.name!,
+                        ),
+                      ),
+                      FittedBox(
+                        child: Row(
+                          children: [
+                            MediumText(
+                              label:myCourse.teacher!,
+                              fontSize: 10,
+                            ),
+                            10.pw,
+                            MediumText(
+                              label:myCourse.duration!,
+                              fontSize: 10,
+                              labelColor: context.primaryColor,
+                            ),
+                          ],
+                        ),
+                      ),
 
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
