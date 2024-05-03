@@ -41,7 +41,7 @@ class RegisterScreen extends BaseStatelessWidget {
             CustomTextField(
               controller: passwordController,
               hintText: strings.password,
-              isPassword: false,
+              isPassword: true,
             ),
             CustomTextField(
               controller: confirmPasswordController,
@@ -97,14 +97,14 @@ class RegisterScreen extends BaseStatelessWidget {
   }
 
   onPressed() async {
-    if (formKey.currentState!.validate()) {
+ //   if (formKey.currentState!.validate()) {
       onRegister!(RegisterParams(
         name: nameController.text,
-        phone: '964${phoneController.text}',
+        phone: phoneController.text,
         password: passwordController.text,
-        parentPhone: '964${parentPhoneController.text}',
+        parentPhone: parentPhoneController.text,
         passwordConfirmation: passwordController.text,
       ));
-    }
+ //   }
   }
 }

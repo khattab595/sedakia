@@ -1,3 +1,5 @@
+import 'package:qr_flutter/qr_flutter.dart';
+
 import '../../../../core/widgets/buttons/primary_icon_button.dart';
 import '../../../main_index.dart';
 import '../../../settings/domain/entities/about.dart';
@@ -38,7 +40,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.scan,
             title: strings.show_qr,
-            route: Routes.changeLanguagePage,
+            onTap: showQRCodeImage,
           ),
           ProfileItem(
             icon: AppIcons.grades_history,
@@ -77,6 +79,29 @@ class ProfileScreen extends BaseStatelessWidget {
           20.ph,
         ],
       ),
+    );
+  }
+
+  showQRCodeImage() {
+    return showDialog(
+      context: context!,
+      builder: (context) {
+        return Dialog(
+          alignment: Alignment.center,
+          insetPadding: EdgeInsets.symmetric(horizontal: 50),
+          child: Container(
+            padding: 30.paddingVert + 10 .paddingEnd,
+            alignment: AlignmentDirectional.center,
+            height: 250,
+            child: QrImageView(
+              padding: EdgeInsets.zero,
+              data: profile.specialCode ?? "",
+              version: QrVersions.auto,
+              size: 200.0,
+            ),
+          ),
+        );
+      },
     );
   }
 }

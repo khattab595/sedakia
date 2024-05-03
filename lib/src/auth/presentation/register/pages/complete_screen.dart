@@ -38,73 +38,75 @@ class CompleteScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          DropDownField(
-            hint: strings.academic_level,
-            items: items,
-            onChanged: (value) {
-              academicLevel = value.id ?? '';
-              onFetchStageLevels(academicLevel);
-            },
-          ),
-          DropDownFieldStream(
-            hint: strings.choose_stage,
-            stream: stageLevelsStream,
-            onChanged: (value) {
-              stage = value.id ?? '';
-            },
-          ),
-          DropDownField(
-            hint: strings.gender,
-            items: [
-              DropDownItem(id: strings.male, title: strings.male),
-              DropDownItem(id: strings.female, title: strings.female),
-            ],
-            onChanged: (value) {
-              gender = value.title ?? '';
-            },
-          ),
-          CustomTextField(
-            controller: birthDateController,
-            hintText: strings.birth_date,
-            onTap: () async {
-              DateTime? date = await HelperMethods.selectDate(context);
-              birthDateController.text =
-                  DateFormatter.formatTimestampString(date.toString());
-            },
-          ),
-          HintMediumText(label: strings.adding_unified_card),
-          Row(
-            children: [
-              Expanded(
-                child: SelectImage(
-                  title: strings.forward_face,
-                  onSelectImage: (file) {
-                    forwardImage = file;
-                  },
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DropDownField(
+              hint: strings.academic_level,
+              items: items,
+              onChanged: (value) {
+                academicLevel = value.id ?? '';
+                onFetchStageLevels(academicLevel);
+              },
+            ),
+            DropDownFieldStream(
+              hint: strings.choose_stage,
+              stream: stageLevelsStream,
+              onChanged: (value) {
+                stage = value.id ?? '';
+              },
+            ),
+            DropDownField(
+              hint: strings.gender,
+              items: [
+                DropDownItem(id: strings.male, title: strings.male),
+                DropDownItem(id: strings.female, title: strings.female),
+              ],
+              onChanged: (value) {
+                gender = value.title ?? '';
+              },
+            ),
+            CustomTextField(
+              controller: birthDateController,
+              hintText: strings.birth_date,
+              onTap: () async {
+                DateTime? date = await HelperMethods.selectDate(context);
+                birthDateController.text =
+                    DateFormatter.formatTimestampString(date.toString());
+              },
+            ),
+            HintMediumText(label: strings.adding_unified_card),
+            Row(
+              children: [
+                Expanded(
+                  child: SelectImage(
+                    title: strings.forward_face,
+                    onSelectImage: (file) {
+                      forwardImage = file;
+                    },
+                  ),
                 ),
-              ),
-              10.pw,
-              Expanded(
-                child: SelectImage(
-                  title: strings.back_face,
-                  onSelectImage: (file) {
-                    backwardImage = file;
-                  },
+                10.pw,
+                Expanded(
+                  child: SelectImage(
+                    title: strings.back_face,
+                    onSelectImage: (file) {
+                      backwardImage = file;
+                    },
+                  ),
                 ),
-              ),
-            ],
-          ),
-          PrimaryButton(
-            title: strings.next,
-            margin: 10.paddingTop,
-            onPressed: () => onPressed(),
-            //buttonTextColor: AppColors.appTextColorWhite,
-          ),
-        ],
+              ],
+            ),
+            PrimaryButton(
+              title: strings.next,
+              margin: 10.paddingTop,
+              onPressed: () => onPressed(),
+              //buttonTextColor: AppColors.appTextColorWhite,
+            ),
+          ],
+        ),
       ),
     );
   }

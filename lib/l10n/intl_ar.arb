@@ -73,8 +73,9 @@
   "study": "الدراسة",
   "stage": "المرحلة",
   "confirm_password": "تأكيد كلمة المرور",
-  "must_be_start_with_96477": "يجب أن يبدأ بـ 77",
+  "must_be_start_with_96477": "يجب أن يبدأ بـ 96477",
   "must_be_10_digits": "يجب أن يكون 10 أرقام",
+  "back": "رجوع",
 
 
 
@@ -436,7 +437,6 @@
   "shipment_cancel": "Shipment cancel",
   "notes_on_shipment": "Notes on the shipment",
   "shipment_delay": "Shipment delay",
-  "back": "Back",
   "total2": "Total",
   "partial": "Partial",
   "replacing": "Replacing",

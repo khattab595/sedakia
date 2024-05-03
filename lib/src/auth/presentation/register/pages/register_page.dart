@@ -69,6 +69,7 @@ class RegisterPage extends BaseBlocWidget<UnInitState, AuthCubit> {
 
   @override
   void onSuccessDismissed() {
+    controllerStream.setData(controller.page!.toInt() + 1);
     controller.nextPage(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeIn);
