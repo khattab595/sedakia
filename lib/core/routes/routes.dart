@@ -1,7 +1,9 @@
 
 import '../../src/about_caf/presentation/pages/about_cafe_page.dart';
+import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
+import '../../src/auth/presentation/pages/forget-password/forget_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
@@ -105,6 +107,7 @@ class Routes {
   static const String liveBroadcastPage = 'liveBroadcastPage';
   static const String detailsLiveBroadcastPage = 'detailsLiveBroadcastPage';
   static const String healthyPage = 'healthyPage';
+  static const String forgotPasswordPage = 'forgotPasswordPage';
   static const String rosaryPage = 'rosaryPage';
   static const String rosaryCounterPage = 'rosaryCounterPage';
   static const String changeLanguagePage = 'changeLanguagePage';
@@ -138,6 +141,8 @@ class Routes {
 
 
 
+    enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
+    forgotPasswordPage: (context) => ForgotPasswordPage(),
     favoritePage: (context) => FavoritePage(),
     advertisementPage: (context) => AdvertisementPage(),
     scoreCardPage: (context) => GradesPage(),

@@ -30,5 +30,6 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
     Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
   }
 
+
 }
 

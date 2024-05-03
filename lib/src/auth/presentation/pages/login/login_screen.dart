@@ -1,4 +1,5 @@
 
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
@@ -25,9 +26,8 @@ class LoginScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     if(kDebugMode){
       phoneNumberController.text = '9647712345678';
-      passwordController.text = '12345678';
+      passwordController.text = '123456789';
     }
-//7712345678
     return  Form(
       key: formKey,
       child: SingleChildScrollView(
@@ -60,7 +60,8 @@ class LoginScreen extends BaseStatelessWidget {
                 title: strings.forgot_password,
                 style: primaryMediumStyle,
                 onTap: () {
-                  Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
+                  pushNamed(Routes.enterPhoneNumberPage);
+                  // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
                 },
               ),
             ),

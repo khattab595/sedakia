@@ -42,6 +42,7 @@ class ProfileBloc extends BaseCubit {
   }
 
   void logout() {
+
     executeSuccessState(() => repo.logout());
   }
 
