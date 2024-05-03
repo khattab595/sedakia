@@ -1,45 +1,30 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/bloc/base_cubit.dart';
-import '../../../../core/resources/data_state.dart';
 import '../../data/models/change_password_params.dart';
 import '../../data/models/forgot_password_params.dart';
+import '../../data/models/reset_password_params.dart';
+import '../../data/models/verification_code_params.dart';
+import '../../domain/repositories/auth_repo.dart';
 import '../../domain/repositories/forgot_password_repo.dart';
 
 @Injectable()
 class ForgotPasswordCubit extends BaseCubit {
   final ForgotPasswordRepo repo;
+  final AuthRepo authRepo;
 
-  ForgotPasswordCubit(this.repo);
+  ForgotPasswordCubit(this.repo, this.authRepo);
 
   enterPhoneNumber(String phoneNumber) async {
-    emit(DataLoading());
-    try {
-      final response = await repo.enterPhoneNumber(phoneNumber);
-      emit(DataSuccess(response));
-    } catch (e) {
-      emit(DataFailed(e));
-    }
+    executeEmitterListener(() => repo.enterPhoneNumber(ForgotPasswordParams(phoneNumber: phoneNumber)));
   }
 
-  enterPinCode(String code) async {
-    emit(DataLoading());
-    try {
-      final response = await repo.enterCode(code);
-      emit(DataSuccess(response));
-    } catch (e) {
-      emit(DataFailed(e));
-    }
+  void verificationCode(VerificationCodeParams params) async {
+    executeEmitterListener(() => authRepo.verificationCode(params));
   }
 
-  forgotPassword(ForgotPasswordParams params) async {
-    emit(DataLoading());
-    try {
-      final response = await repo.forgotPassword(params);
-      emit(DataSuccess(response));
-    } catch (e) {
-      emit(DataFailed(e));
-    }
+  forgotPassword(ResetPasswordParams params) async {
+    executeEmitterListener(() => repo.resetPassword(params));
   }
 
   changePassword(ChangePasswordParams params) async {

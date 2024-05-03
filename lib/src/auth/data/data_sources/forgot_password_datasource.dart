@@ -6,6 +6,7 @@ import 'package:app/core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
 import '../models/change_password_params.dart';
 import '../models/forgot_password_params.dart';
+import '../models/reset_password_params.dart';
 
 part 'forgot_password_datasource.g.dart';
 @Injectable()
@@ -16,13 +17,10 @@ abstract class  ForgotPasswordDataSource{
   factory ForgotPasswordDataSource(Dio dio) = _ForgotPasswordDataSource;
 
   @POST('/forgot-password')
-  Future<ApiResponse> enterPhoneNumber(@Body() String phoneNumber);
+  Future<ApiResponse> enterPhoneNumber(@Body() ForgotPasswordParams params);
 
-  @GET('/resetPassword')
-  Future<ApiResponse> enterCode(@Body() String code);
-
-  @POST('/updatePassword')
-  Future<ApiResponse> forgotPassword(@Body() ForgotPasswordParams params);
+  @POST('/resetPassword')
+  Future<ApiResponse> resetPassword(@Body() ResetPasswordParams params);
 
   @POST('/change-password')
   Future<ApiResponse> updatePassword(@Body() ChangePasswordParams params);

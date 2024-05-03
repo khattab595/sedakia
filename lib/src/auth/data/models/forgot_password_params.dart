@@ -4,12 +4,10 @@ part 'forgot_password_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ForgotPasswordParams {
-  @JsonKey(name: 'new_password')
-  String? newPassword;
-  @JsonKey(name: 'new_password_confirmation')
-  String? newPasswordConfirmation;
+  @JsonKey(name: 'phone_number')
+  String? phoneNumber;
 
-  ForgotPasswordParams({this.newPassword, this.newPasswordConfirmation});
+  ForgotPasswordParams({this.phoneNumber});
 
    factory ForgotPasswordParams.fromJson(Map<String, dynamic> json) => _$ForgotPasswordParamsFromJson(json);
 

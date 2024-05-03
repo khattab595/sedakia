@@ -1,5 +1,6 @@
 
 import '../../src/about_caf/presentation/pages/about_cafe_page.dart';
+import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
@@ -132,7 +133,7 @@ class Routes {
     intro: (context) => IntroductionPage(),
     onboardingPage: (context) => const OnBoardingPage(),
     register: (context) => RegisterPage(),
-
+    enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
 
 
 

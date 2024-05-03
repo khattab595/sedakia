@@ -18,7 +18,7 @@ import '../../src/auth/data/data_sources/auth_datasource.dart' as _i3;
 import '../../src/auth/data/data_sources/forgot_password_datasource.dart'
     as _i15;
 import '../../src/auth/data/repositories/auth_repo_imp.dart' as _i6;
-import '../../src/auth/data/repositories/forgot_password_repo.dart' as _i17;
+import '../../src/auth/data/repositories/forgot_password_repo_imp.dart' as _i17;
 import '../../src/auth/domain/repositories/auth_repo.dart' as _i5;
 import '../../src/auth/domain/repositories/forgot_password_repo.dart' as _i16;
 import '../../src/auth/presentation/bloc/auth_bloc.dart' as _i40;
@@ -168,8 +168,10 @@ Future<_i1.GetIt> $initGetIt(
       () => _i49.CourseDetailsCubit(gh<_i41.BaseCourseDetailsRepo>()));
   gh.factory<_i50.FavoriteCubit>(
       () => _i50.FavoriteCubit(gh<_i13.FavoriteRepo>()));
-  gh.factory<_i51.ForgotPasswordCubit>(
-      () => _i51.ForgotPasswordCubit(gh<_i16.ForgotPasswordRepo>()));
+  gh.factory<_i51.ForgotPasswordCubit>(() => _i51.ForgotPasswordCubit(
+        gh<_i16.ForgotPasswordRepo>(),
+        gh<_i5.AuthRepo>(),
+      ));
   gh.factory<_i52.HajjTransportationBloc>(
       () => _i52.HajjTransportationBloc(gh<_i29.ProfileRepo>()));
   gh.factory<_i53.HomeCubit>(() => _i53.HomeCubit(gh<_i19.HomeRepo>()));

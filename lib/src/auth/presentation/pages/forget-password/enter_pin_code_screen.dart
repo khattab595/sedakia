@@ -1,3 +1,4 @@
+import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
 import '../../../../../core/widgets/text-field/custom_pin_code.dart';
@@ -19,50 +20,26 @@ class EnterPinCodeScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            30.ph,
-            SemiBoldHintText(
-              label: strings.confirm_register_qayd_desc,
-              textAlign: TextAlign.center,
+            kToolbarHeight.ph,
+            PrimaryBoldText(label: strings.forgot_password, fontSize: 22),
+            16.ph,
+            HintRegularText(
+                label: strings.forgot_password_verification_msg,
+                fontSize: 16,
+                textAlign: TextAlign.center,
             ),
             30.ph,
             CustomPinCode(
               pinCodeController: pinCodeController,
             ),
-            20.ph,
-            // GestureDetector(
-            //   onTap: () {
-            //     pinCodeController.clear();
-            //   },
-            //   child: Text(
-            //     strings.resend,
-            //     textAlign: TextAlign.center,
-            //   ),
-            //
-            // ),
             PrimaryButton(
-              title: strings.confirm,
+              title: strings.next,
+              margin: 30.paddingTop,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   onPinCode(pinCodeController.text);
                 }
               },
-            ),
-            100.ph,
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SemiBoldHintText(
-                  label: '00:24',
-                  textAlign: TextAlign.center,
-                  fontSize: 14,
-                ),
-                5.pw,
-                const AppIcon(
-                  icon: AppIcons.timer,
-                  size: 14,
-                ),
-              ],
             ),
           ],
         ),
