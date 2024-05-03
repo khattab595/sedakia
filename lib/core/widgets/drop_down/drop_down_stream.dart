@@ -46,10 +46,11 @@ class DropDownFieldStream extends BaseStatelessWidget {
       initialData: [],
       builder: (context, snapshot) {
         return snapshot.data == null
-            ? LoadingDropDown(hint: hint)
+            ? LoadingDropDown(hint: hint, title: title,)
             : DropDownField(
                 items: snapshot.data ?? [],
                 hint: hint,
+                title: title,
                 value: value,
                 onChanged: onChanged,
               );

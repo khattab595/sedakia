@@ -60,8 +60,8 @@ class CompleteScreen extends BaseStatelessWidget {
           DropDownField(
             hint: strings.gender,
             items: [
-              DropDownItem(id: '1', title: strings.male),
-              DropDownItem(id: '2', title: strings.female),
+              DropDownItem(id: strings.male, title: strings.male),
+              DropDownItem(id: strings.female, title: strings.female),
             ],
             onChanged: (value) {
               gender = value.title ?? '';
@@ -74,7 +74,7 @@ class CompleteScreen extends BaseStatelessWidget {
               DateTime? date = await HelperMethods.selectDate(context);
               birthDateController.text =
                   DateFormatter.formatTimestampString(date.toString());
-            } ,
+            },
           ),
           HintMediumText(label: strings.adding_unified_card),
           Row(

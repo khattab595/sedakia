@@ -40,5 +40,12 @@ class Profile {
         specialCode: json.specialCode,
         picIdentityF: json.picIdentityF,
         picIdentityB: json.picIdentityB,
-      );
+        stageLevelId: json.stageLevelId,
+        birthDate: json.birthDate,
+        gender: json.academicLevel,
+        academicLevel: json.academicLevel,
+        academicLevelId: json.academicLevelId,
+        stageLevel: json.stageLevel,
+        image: json.image,
+  );
 }
