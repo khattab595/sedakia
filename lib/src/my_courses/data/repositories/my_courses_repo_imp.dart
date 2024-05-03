@@ -1,8 +1,8 @@
 
 import 'package:injectable/injectable.dart';
+import '../../domain/entities/course.dart';
 import '../../domain/repositories/my_courses_repo.dart';
 import '../data_sources/my_courses_datasource.dart';
-import '../models/course_dto.dart';
 
 
 @Injectable(as: MyCoursesRepo)
@@ -11,9 +11,9 @@ class MyCoursesRepoImp extends MyCoursesRepo{
   MyCoursesRepoImp(this.datasource);
 
   @override
-  Future<List<CourseDto>> fetchMyCourses() async{
+  Future<List<Course>> fetchMyCourses() async{
     final response = await datasource.fetchMyCourses();
-    return response.data!;
+    return response.data?.map((e) => Course.fromDto(e)).toList() ?? [];
   }
 
 }

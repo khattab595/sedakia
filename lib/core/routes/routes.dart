@@ -6,7 +6,7 @@ import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/campaign_terms/presentation/pages/campaign_terms_page.dart';
 import '../../src/course _details/presentaion/pages/course_details_page.dart';
-import '../../src/department/presentation/department_page.dart';
+import '../../src/department/presentation/pages/department_page.dart';
 import '../../src/digital_identity/presentation/pages/digital_identity_page.dart';
 import '../../src/favorite/presentation/favorite_page.dart';
 import '../../src/hajj_messages/presentation/page/details_message/details_message_page.dart';
@@ -139,8 +139,8 @@ class Routes {
     favoritePage: (context) => FavoritePage(),
     scoreCardPage: (context) => ScoreCardPage(),
     lessonDetailsPage: (context) => LessonDetailsPage(),
-    courseDetailsPage: (context) => CourseDetailsPage(id: 1,),
-    teacherDetailsPage: (context) => TeacherDetailsPage(id: 1,),
+    courseDetailsPage: (context) => CourseDetailsPage(),
+    teacherDetailsPage: (context) => TeacherDetailsPage(),
     myCoursesPage: (context) => MyCoursesPage(),
     latestCoursesPage: (context) => LatestCoursesPage(),
     teachersPage: (context) => TeachersPage(),

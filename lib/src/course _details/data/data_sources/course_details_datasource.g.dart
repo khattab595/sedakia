@@ -50,6 +50,39 @@ class _CourseDetailsDatasource implements CourseDetailsDatasource {
     return value;
   }
 
+  @override
+  Future<ApiResponse<CourseDetailsDto>> subscribeCourse(
+    int courseId,
+    String courseCode,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<CourseDetailsDto>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/CourseSubscription?course_id=${courseId}&courseCode=${courseCode}}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<CourseDetailsDto>.fromJson(
+      _result.data!,
+      (json) => CourseDetailsDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

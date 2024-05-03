@@ -15,26 +15,44 @@ class CustomTeacherItem extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        pushNamed(Routes.teacherDetailsPage);
+        pushNamed(Routes.teacherDetailsPage,arguments: teacher.id);
       },
       child: Stack(
         children: [
           SizedBox(
-              height:height??150,
-              width:width?? 120,
-              child: ImageNetwork(image: courseImageTest2,radius: 12,fit: BoxFit.cover,)),
-          const Positioned(
-              bottom: 2,
-              right: 5,
+              height:height??130,
+              width:width?? 104,
+              child: ImageNetwork(image: teacher.image!,radius: 12,fit: BoxFit.cover,)),
+            Container(
+              height:height??130,
+              width:width?? 104,
+             decoration: BoxDecoration(
+               borderRadius: const BorderRadius.all(Radius.circular(12)),
+               gradient: LinearGradient(
+                 begin: Alignment.bottomCenter,
+                 end: Alignment.center,
+                 colors: [
+                   context.primaryColorDark.withOpacity(0.75),
+                   context.primaryColorDark.withOpacity(0.4),
+                   context.primaryColorDark.withOpacity(0.1),
+                 ]
+               )
+             ),
+            ),
+           Positioned(
+              bottom: 4,
+              right: 12,
               child:
-              Column(children: [
-                MediumText(
-                  label:'مازن محمد',
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                SemiBoldText(
+                  label:teacher.name!,
                   fontSize: 10,
                   labelColor: Colors.white,
                 ),
                 MediumText(
-                  label:'فيزياء',
+                  label:teacher.department!,
                   fontSize: 8,
                   labelColor: Colors.white,
                 ),

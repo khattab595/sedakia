@@ -14,19 +14,22 @@ class CustomDepartmentItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: 10.paddingEnd,
+      padding: 8.paddingEnd,
       child: Column(
         children: [
           Container(
               decoration: Decorations.kDecorationRadius(
-                  borderColor: context.dividerColor, borderWidth: 1),
-              child: ImageNetwork(
-                image: department.icon,
-                fit: BoxFit.cover,
-                height: 100,
-                width: 100,
+                  borderColor: context.dividerColor, borderWidth: 1,radius: 12),
+              child: Padding(
+                padding: 12.paddingHoriz+10.paddingVert,
+                child: ImageNetwork(
+                  image: department.icon,
+                  fit: BoxFit.cover,
+                  height: 80,
+                  width: 76,
+                ),
               )),
-          5.ph,
+          8.ph,
           SemiBoldText(
             label: department.name!,
             fontSize: 12,

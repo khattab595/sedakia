@@ -10,7 +10,7 @@ class CustomTeachersWidget extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 130,
       child: StreamBuilder<List<Teacher>?>(
         stream: teachersStream.stream,
         builder: (context, snapshot) {

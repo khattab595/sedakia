@@ -65,11 +65,12 @@ class MyApp extends StatelessWidget {
               Locale('ar'), // Arabic, no country code
             ],
             routes: Routes.routes,
-            initialRoute: state.isFirstTime
-                ? Routes.onboardingPage
-                : state.isLogin
-                ? Routes.register
-                : Routes.register,
+            initialRoute:Routes.loginPage
+            // state.isFirstTime
+            //     ? Routes.onboardingPage
+            //     : state.isLogin
+            //     ? Routes.register
+            //     : Routes.register,
           );
         },
       ),

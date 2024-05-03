@@ -1,7 +1,9 @@
 
-import '../../data/models/course_details_dto.dart';
+
+import '../entities/course_details.dart';
 
 abstract class BaseCourseDetailsRepo {
-  Future<CourseDetailsDto> fetchCourseDetailsData({required int id});
+  Future<CourseDetails> fetchCourseDetailsData({required int id});
+  Future<dynamic> subscribeCourse({required int courseId,required String courseCode});
 
 }

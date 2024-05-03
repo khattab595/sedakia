@@ -2,6 +2,7 @@
 
 import '../../main_index.dart';
 import '../../my_courses/data/models/course_dto.dart';
+import '../../my_courses/domain/entities/course.dart';
 import '../../my_courses/presentation/widgets/my_courses_item.dart';
 
 class FavoriteScreen extends BaseStatelessWidget {
@@ -23,7 +24,7 @@ class FavoriteScreen extends BaseStatelessWidget {
                 padding: 8.paddingVert,
                 hasNotProgress: true,
                 myCourse:
-                CourseDto(
+                Course(
                   percentage: 0.7,
                   name: 'الدورة التاهيلية للكيمياء للصف الرابع العلمي',
                   department:'الكيمياء' ,

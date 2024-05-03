@@ -1,3 +1,4 @@
+import 'package:app/core/exceptions/extensions.dart';
 import 'package:app/core/widgets/texts/texts.dart';
 import 'package:flutter/material.dart';
 import '../components/base_stateless_widget.dart';
@@ -8,23 +9,26 @@ class CustomTitleRow extends BaseStatelessWidget {
  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      children: [
-        Expanded(
-          child: BoldText(
-            label: title,
-            fontSize: 20,
+    return  Padding(
+      padding: 20.paddingEnd,
+      child: Row(
+        children: [
+          Expanded(
+            child: BoldText(
+              label: title,
+              fontSize: 20,
+            ),
           ),
-        ),
-        InkWell(
-          onTap:onTap,
-          child:
-          PrimaryBoldText(
-            label:strings.see_all,
-            fontSize: 12,
+          InkWell(
+            onTap:onTap,
+            child:
+            PrimaryBoldText(
+              label:strings.see_all,
+              fontSize: 12,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
