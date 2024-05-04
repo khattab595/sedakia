@@ -6,10 +6,12 @@ import '../../../../main_index.dart';
 import '../../../domain/entities/course_details.dart';
 
 class CustomDetailsWidget extends BaseStatelessWidget {
+  final String teacher;
   final CourseDetails courseDetails;
 
   CustomDetailsWidget({
     super.key,
+    required this.teacher,
     required this.courseDetails,
   });
 
@@ -36,31 +38,40 @@ class CustomDetailsWidget extends BaseStatelessWidget {
           ),
           Padding(
             padding: 10.paddingVert,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ImageNetworkCircle(
-                  image: courseDetails.image ?? '',
-                  size: 60,
-                ),
-                10.pw,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BlackBoldText(
-                        label: courseDetails.name ?? '',
-                        fontSize: 14,
-                      ),
-                      5.ph,
-                      HintMediumText(
-                        label: courseDetails.department ?? '',
-                        fontSize: 14,
-                      ),
-                    ],
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  Routes.teacherDetailsPage,
+                  arguments: courseDetails.teacherId,
+                );
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ImageNetworkCircle(
+                    image: courseDetails.image ?? '',
+                    size: 60,
                   ),
-                )
-              ],
+                  10.pw,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        BlackBoldText(
+                          label: teacher ?? '',
+                          fontSize: 14,
+                        ),
+                        5.ph,
+                        HintMediumText(
+                          label: courseDetails.department ?? '',
+                          fontSize: 14,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],

@@ -16,7 +16,7 @@ class CustomLessonItem extends BaseStatelessWidget {
       padding: 5.paddingVert,
       child: InkWell(
         onTap: (){
-          pushNamed(Routes.lessonDetailsPage, arguments: subject);
+          subject.navigate();
         },
         child: Container(
           width: double.infinity,

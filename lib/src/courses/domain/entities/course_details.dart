@@ -1,5 +1,10 @@
 
+import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/src/courses/data/models/course_details_dto.dart';
+import 'package:app/src/main_index.dart';
+
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/navigator.dart';
 
 class CourseDetails {
   int? id;
@@ -78,5 +83,13 @@ class Lesson {
   }
 
   Duration get duration => Duration(minutes: m!.toInt(), seconds: s!.toInt());
+
+  navigate() {
+    if(status == 'free') {
+      pushNamed(Routes.lessonDetailsPage, arguments: this);
+    } else {
+      HelperMethods.showErrorToast('يجب الاشتراك لمشاهدة الدرس');
+    }
+  }
 }
 

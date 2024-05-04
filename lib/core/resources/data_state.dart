@@ -36,6 +36,8 @@ class SuccessStateListener<T> extends DataStateFListener<T> {
 
 class SuccessState extends DataStateFListener {}
 
+class NoActionState extends DataStateFListener {}
+
 
 
 

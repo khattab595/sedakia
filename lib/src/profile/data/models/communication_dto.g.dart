@@ -14,6 +14,7 @@ CommunicationDto _$CommunicationDtoFromJson(Map<String, dynamic> json) =>
       Telegram: json['Telegram'] as String?,
       Whatsapp: json['Whatsapp'] as String?,
       Google: json['Google'] as String?,
+      updatedAt: json['updated_at'] as String?,
     );
 
 Map<String, dynamic> _$CommunicationDtoToJson(CommunicationDto instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$CommunicationDtoToJson(CommunicationDto instance) =>
       'Telegram': instance.Telegram,
       'Whatsapp': instance.Whatsapp,
       'Google': instance.Google,
+      'updated_at': instance.updatedAt,
     };

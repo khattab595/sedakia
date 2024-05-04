@@ -23,7 +23,7 @@ class _DepartmentsDatasource implements DepartmentsDatasource {
   @override
   Future<ApiResponse<List<CourseDto>>> fetchDepartmentCourses(int id) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'department_id': id};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -34,7 +34,7 @@ class _DepartmentsDatasource implements DepartmentsDatasource {
     )
             .compose(
               _dio.options,
-              '/departmentCourses?department_id=${id}',
+              '/departmentCourses',
               queryParameters: queryParameters,
               data: _data,
             )

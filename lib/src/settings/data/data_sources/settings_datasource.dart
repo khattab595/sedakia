@@ -5,7 +5,6 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
-import '../models/communication_dto.dart';
 
 part 'settings_datasource.g.dart';
 @Injectable()
@@ -20,7 +19,4 @@ abstract class  SettingsDatasource{
 
   @GET('/TermsConditions')
   Future<ApiResponse<AboutDto>> fetchTermsConditions();
-
-  @GET('/Communication')
-  Future<ApiResponse<CommunicationDto>> fetchAboutLogeste();
 }

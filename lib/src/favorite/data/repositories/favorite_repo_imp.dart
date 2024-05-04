@@ -21,14 +21,14 @@ class FavoriteRepoImp extends FavoriteRepo{
   @override
   Future<String> addFavorite({required int id}) async{
     final response = await datasource.addFavorite(id);
-    return response.data!;
+    return response.message ?? '';
   }
 
 
   @override
   Future<String> removeFavorite({required int id}) async{
     final response = await datasource.removeFavorite(id);
-    return response.data!;
+    return response.message ?? '';
   }
 
 }

@@ -2,7 +2,7 @@
 import 'package:app/core/utils/navigator.dart';
 import '../../../../../core/widgets/images/image_network.dart';
 import '../../../../../core/widgets/texts/texts.dart';
-import '../../../../courses/presentation/widgets/my_courses_item.dart';
+import '../../../../courses/presentation/view/widgets/my_courses_item.dart';
 import '../../../../main_index.dart';
 import '../../../domin/entities/teacher_details.dart';
 

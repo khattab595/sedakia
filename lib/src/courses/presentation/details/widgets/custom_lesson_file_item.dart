@@ -1,12 +1,16 @@
 
+import 'package:app/core/utils/helper_methods.dart';
+
 import '../../../../../core/components/base_stateless_widget.dart';
 import '../../../../../core/widgets/images/flip_asset_image.dart';
 import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../main_index.dart';
+import '../../../domain/entities/course_details.dart';
 
 class CustomLessonFileItem extends BaseStatelessWidget {
-  CustomLessonFileItem({super.key});
+  final Lesson lesson;
+  CustomLessonFileItem({super.key, required this.lesson});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class CustomLessonFileItem extends BaseStatelessWidget {
       padding: 5.paddingVert,
       child: InkWell(
         onTap: (){
-          // pushNamed(Routes.lessonDetailsPage);
+          HelperMethods.launchURL(lesson.driveLink ?? '');
         },
         child: Container(
           height: 50,
@@ -31,7 +35,7 @@ class CustomLessonFileItem extends BaseStatelessWidget {
                 child: const FlipAssetImage(image: AppImages.file,),
               ),
               HintBoldText(
-                label:'ملف الدرس الاول | شرح',
+                label:'ملف ${lesson.name}',
                 fontSize: 16,
               ),
 

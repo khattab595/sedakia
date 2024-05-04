@@ -43,6 +43,9 @@ abstract class BaseBlocWidget<T, B extends BlocBase<DataState>>
       dismissProgress();
       onSuccessDismissed();
     }
+    if (state is NoActionState) {
+      dismissProgress();
+    }
   }
 
   showProgress() {

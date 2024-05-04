@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
@@ -6,7 +8,8 @@ import 'edit_profile_image.dart';
 
 class ProfileHeaderWidget extends BaseStatelessWidget {
   final Profile profile;
-   ProfileHeaderWidget({super.key, required this.profile});
+  final Function(File) onSelectImage;
+   ProfileHeaderWidget({super.key, required this.profile, required this.onSelectImage});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
       children: [
         EditProfileImage(
           image: profile.image ?? '',
-          onSelectImage: (file) {},
+          onSelectImage: onSelectImage,
         ),
         15.ph,
         Column(

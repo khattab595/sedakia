@@ -19,7 +19,7 @@ class CustomDepartmentsWidget extends BaseStatelessWidget {
         stream: departmentsStream.stream,
         builder: (context, snapshot) {
           return snapshot.data == null
-              ? const Center(child: CircularProgressIndicator())
+              ? LoadingView()
               : ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data!.length,

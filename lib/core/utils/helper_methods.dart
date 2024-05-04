@@ -78,6 +78,16 @@ class HelperMethods {
     }
   }
 
+  // telegram
+  static Future<void> launchTelegram(String phoneNumber) async {
+    Uri telegramUrl = Uri.parse("https://t.me/$phoneNumber");
+    if (await canLaunchUrl(telegramUrl)) {
+      await launchUrl(telegramUrl);
+    } else {
+      showErrorToast('حدث خطأ اثناء الاتصال بالتليجرام');
+    }
+  }
+
   static Future<void> launchURL(String url) async {
     Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -119,7 +129,12 @@ class HelperMethods {
   static Future<void> saveProfile(ProfileDto dto) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('profile', jsonEncode(dto.toJson()));
+      if(dto.token != null && dto.token!.isNotEmpty) {
+        prefs.setString('profile', jsonEncode(dto.toJson()));
+      } else {
+        dto.token = await getToken();
+        prefs.setString('profile', jsonEncode(dto.toJson()));
+      }
     } on Exception catch (e) {
       print('e $e');
       rethrow;

@@ -21,6 +21,7 @@ class LessonDetailsScreen extends BaseStatelessWidget {
   PodPlayerController? controller;
   @override
   Widget build(BuildContext context) {
+    handleAppLifecycleState();
     initData();
     return PopScope(
       canPop: false,
@@ -45,13 +46,10 @@ class LessonDetailsScreen extends BaseStatelessWidget {
                   5.ph,
                   HintMediumText(
                     label: subject.department ?? '',
-                    fontSize: 16,
-                    labelColor: context.hintColor,
                   ),
                   5.ph,
                   BlackBoldText(
                     label: subject.name ?? '',
-                    fontSize: 20,
                   ),
                   8.ph,
                   HintRegularText(
@@ -64,9 +62,9 @@ class LessonDetailsScreen extends BaseStatelessWidget {
                     fontSize: 16,
                   ),
                   10.ph,
-                  ...items.map((e) => CustomLessonFileItem(
-
-                  ))
+                  CustomLessonFileItem(
+                    lesson: subject,
+                  ),
                 ],
               ),
             )
@@ -75,8 +73,6 @@ class LessonDetailsScreen extends BaseStatelessWidget {
       ),
     );
   }
-
-  List items = [1, 2, 3];
 
   onAttending() async {
     params = AttendingLessonParams(
@@ -99,5 +95,20 @@ class LessonDetailsScreen extends BaseStatelessWidget {
     controller?.dispose();
     onAttending();
     pop();
+  }
+
+  handleAppLifecycleState() {
+    SystemChannels.lifecycle.setMessageHandler((msg) {
+      print('SystemChannels> $msg');
+      switch (msg) {
+        case "AppLifecycleState.paused":
+          controller?.dispose();
+          onAttending();
+          break;
+
+        default:
+      }
+      return Future.value();
+    });
   }
 }

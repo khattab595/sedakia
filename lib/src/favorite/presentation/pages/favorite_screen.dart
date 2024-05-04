@@ -1,6 +1,6 @@
 import '../../../../core/widgets/custom_empty_widget.dart';
 import '../../../courses/domain/entities/course.dart';
-import '../../../courses/presentation/widgets/my_courses_item.dart';
+import '../../../courses/presentation/view/widgets/my_courses_item.dart';
 import '../../../main_index.dart';
 
 class FavoriteScreen extends BaseStatelessWidget {

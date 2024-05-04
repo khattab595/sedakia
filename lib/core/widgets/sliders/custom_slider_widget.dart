@@ -33,7 +33,7 @@ class CustomSliderWidget extends StatelessWidget {
             stream: slidesStream.stream,
             builder: (context, snapshot) {
               return snapshot.data == null
-                  ? const Center(child: CircularProgressIndicator())
+                  ? LoadingView()
                   : StatefulBuilder(builder: (context, setState) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.center,

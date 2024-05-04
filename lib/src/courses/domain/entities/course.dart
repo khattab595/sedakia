@@ -27,6 +27,8 @@ class Course {
       isFavorite: json.isFavorite,
       percentage: json.percentage,
   );
+
+  double get percentageValue => (percentage??0.0) / 100;
 }
 
 

@@ -11,6 +11,7 @@ import '../widgets/custom_details_widget.dart';
 import '../widgets/custom_lessons_widget.dart';
 
 class CourseDetailsScreen extends BaseStatelessWidget {
+  final String teacher;
   final CourseDetails courseDetails;
   final Function(CourseSubscriptionParams)? subscribeCourse;
   GlobalKey<FormState> formKeyButtonSheet = GlobalKey<FormState>();
@@ -18,6 +19,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
 
   CourseDetailsScreen({
     Key? key,
+    required this.teacher,
     required this.courseDetails,
     this.subscribeCourse,
   }) : super(key: key);
@@ -53,11 +55,12 @@ class CourseDetailsScreen extends BaseStatelessWidget {
               ),
             ],
           ),
-          Flexible(
+          Expanded(
             child: TabBarWidget(tabs: [
               TabItemModel(
                   label: strings.details,
                   page: CustomDetailsWidget(
+                    teacher: teacher,
                     courseDetails: courseDetails,
                   )),
               TabItemModel(

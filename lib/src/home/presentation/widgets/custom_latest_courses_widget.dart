@@ -1,5 +1,5 @@
 import '../../../courses/domain/entities/course.dart';
-import '../../../favorite/models/favorite_params.dart';
+import '../../../favorite/data/models/favorite_params.dart';
 import '../../../main_index.dart';
 import 'custom_latest_course_item.dart';
 
@@ -12,12 +12,12 @@ class CustomLatestCoursesWidget extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 203,
+      height: 210,
       child: StreamBuilder<List<Course>?>(
         stream: recentlyCoursesStream.stream,
         builder: (context, snapshot) {
           return snapshot.data == null
-              ? const Center(child: CircularProgressIndicator())
+              ? LoadingView()
               : ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data!.length,

@@ -9,24 +9,22 @@ class TeachersScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: 20.paddingAll,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 0.8,
-          mainAxisSpacing: 14,
-          crossAxisSpacing: 14
-        ),
-        itemCount: teachers.length,
-        itemBuilder: (context, index) {
-          return CustomTeacherItem(
-            width: double.infinity,
-            teacher: teachers[index],
-            height: 250,
-          );
-        },
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.8,
+        mainAxisSpacing: 14,
+        crossAxisSpacing: 14
       ),
+      padding: 20.paddingAll,
+      itemCount: teachers.length,
+      itemBuilder: (context, index) {
+        return CustomTeacherItem(
+          width: double.infinity,
+          teacher: teachers[index],
+          height: 250,
+        );
+      },
     );
   }
 }

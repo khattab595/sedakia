@@ -15,21 +15,20 @@ class CustomTeachersWidget extends BaseStatelessWidget {
         stream: teachersStream.stream,
         builder: (context, snapshot) {
           return snapshot.data == null
-              ? Center(child: CircularProgressIndicator())
-              :
-            ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: snapshot.data!.length,
-            itemBuilder: (context, index) {
-              Teacher teacher = snapshot.data![index];
-              return Padding(
-                padding: 10.paddingEnd,
-                child: CustomTeacherItem(
-                  teacher: teacher,
-                ),
-              );
-            },
-          );
+              ? LoadingView()
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    Teacher teacher = snapshot.data![index];
+                    return Padding(
+                      padding: 10.paddingEnd,
+                      child: CustomTeacherItem(
+                        teacher: teacher,
+                      ),
+                    );
+                  },
+                );
         },
       ),
     );

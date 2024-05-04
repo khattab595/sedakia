@@ -81,11 +81,18 @@ abstract class BaseCubit extends Cubit<DataState> {
     }
   }
 
-  executeSuccessState(Future<dynamic> Function() invoke,
-      {Function? onSuccess}) {
+  executeSuccessState<T>(Future<dynamic> Function() invoke,
+      {ValueChanged<T>? onSuccess}) {
     executeListener(() => invoke(), onSuccess: (v) {
       onSuccess?.call(v);
       emit((SuccessState()));
+    });
+  }
+  executeSuccessNoActionState<T>(Future<T> Function() invoke,
+      {ValueChanged<T>? onSuccess}) {
+    executeListener(() => invoke(), onSuccess: (v) {
+      onSuccess?.call(v);
+      emit((NoActionState()));
     });
   }
 

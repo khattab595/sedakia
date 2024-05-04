@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/src/profile/domain/repositories/profile_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -38,11 +39,13 @@ class ProfileBloc extends BaseCubit {
   }
 
   void editProfileImage(File file) {
-    executeEmitterListener(() => repo.changeImage(file));
+    executeSuccessNoActionState(() => repo.editProfileImage(file),
+        onSuccess: (response) {
+          fetchProfileData(isFromCash: false);
+        });
   }
 
   void logout() {
-
     executeSuccessState(() => repo.logout());
   }
 
@@ -61,5 +64,12 @@ class ProfileBloc extends BaseCubit {
     } catch (e) {
       stageLevelsStream.setError(e);
     }
+  }
+
+  void lunchSupport() {
+    executeSuccessNoActionState(() => repo.fetchCommunicationData(),
+        onSuccess: (response) {
+      HelperMethods.launchTelegram(response.Telegram ?? '');
+    });
   }
 }

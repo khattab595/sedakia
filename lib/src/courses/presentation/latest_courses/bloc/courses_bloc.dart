@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../../../core/bloc/base_cubit.dart';
 import '../../../../../../core/resources/data_state.dart';
 import '../../../../favorite/domin/repositories/favorite_repo.dart';
-import '../../../../favorite/models/favorite_params.dart';
+import '../../../../favorite/data/models/favorite_params.dart';
 
 @Injectable()
 class CoursesCubit extends BaseCubit {

@@ -1,6 +1,7 @@
+import 'dart:io';
+
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../../../../core/widgets/buttons/primary_icon_button.dart';
 import '../../../main_index.dart';
 import '../../../settings/domain/entities/about.dart';
 import '../../domain/entities/profile.dart';
@@ -11,12 +12,17 @@ class ProfileScreen extends BaseStatelessWidget {
   final Profile profile;
   final VoidCallback onLogout;
   final VoidCallback onRefresh;
+  final VoidCallback onSupport;
+  final Function(File) onSelectImage;
 
   ProfileScreen(
       {Key? key,
       required this.profile,
       required this.onLogout,
-      required this.onRefresh})
+      required this.onRefresh,
+      required this.onSupport,
+      required this.onSelectImage,
+})
       : super(key: key);
 
   @override
@@ -25,7 +31,9 @@ class ProfileScreen extends BaseStatelessWidget {
       child: Column(
         children: [
           50.ph,
-          ProfileHeaderWidget(profile: profile),
+          ProfileHeaderWidget(profile: profile,
+            onSelectImage: onSelectImage,
+          ),
           const Divider(height: 20),
           ProfileItem(
             icon: AppIcons.profile,
@@ -55,7 +63,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.warning,
             title: strings.support,
-            // route: Routes.supportPage,
+            onTap: onSupport,
           ),
           ProfileItem(
             icon: AppIcons.message_question,

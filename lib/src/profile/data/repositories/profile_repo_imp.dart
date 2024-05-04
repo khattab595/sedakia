@@ -7,6 +7,7 @@ import '../../../../core/utils/helper_methods.dart';
 import '../../domain/entities/profile.dart';
 import '../../domain/repositories/profile_repo.dart';
 import '../data_sources/profile_datasource.dart';
+import '../models/communication_dto.dart';
 import '../models/profile_dto.dart';
 
 
@@ -37,8 +38,8 @@ class ProfileRepoImp extends ProfileRepo{
   }
 
   @override
-  Future<String> changeImage(File file) async {
-    final data = await apiProvider.changeImage(file);
+  Future<String> editProfileImage(File file) async {
+    final data = await apiProvider.editProfileImage(file);
     await HelperMethods.saveProfile(data.data!);
     return data.message ?? '';
   }
@@ -53,6 +54,12 @@ class ProfileRepoImp extends ProfileRepo{
   Future<String> logout() async {
     final response = await HelperMethods.clearCashData();
     return '';
+  }
+
+  @override
+  Future<CommunicationDto> fetchCommunicationData() async {
+    final response = await apiProvider.fetchCommunicationData();
+    return response.data!;
   }
 
 }

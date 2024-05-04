@@ -6,26 +6,26 @@ class LoadingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: AppColors.backgroundColor,
-        child: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 30,
-                width: 30,
+      color: AppColors.backgroundColor,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 30,
+              width: 30,
 /*
                 child: Image.asset('images/loading_gify.gif'),
 */
-                child: CircularProgressIndicator(
-                  strokeWidth: 3,
-                  color: AppColors.primaryLight,
-                ),
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                color: context.primaryColor,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
@@ -38,23 +38,23 @@ class SmallLoadingView extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: height ?? MediaQuery.of(context).size.height,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                height: 15.0,
-                width: 15.0,
-                child: CircularProgressIndicator(
-                  strokeWidth: 1,
-                  color: primaryColor,
-                ),
+      height: height ?? MediaQuery.of(context).size.height,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              height: 15.0,
+              width: 15.0,
+              child: CircularProgressIndicator(
+                strokeWidth: 1,
+                color: primaryColor,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+      ),
     );
   }
 }

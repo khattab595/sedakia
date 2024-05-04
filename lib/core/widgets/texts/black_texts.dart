@@ -60,6 +60,8 @@ class BlackMediumText extends BaseStatelessWidget {
   final TextStyle? labelStyle;
   final Color? labelColor;
   final double? fontSize;
+  final int maxLines;
+  final TextOverflow overflow;
 
   BlackMediumText({
     Key? key,
@@ -68,6 +70,8 @@ class BlackMediumText extends BaseStatelessWidget {
     this.labelStyle,
     this.labelColor,
     this.fontSize,
+    this.maxLines = 1,
+    this.overflow = TextOverflow.ellipsis,
   }) : super(key: key);
 
   @override
@@ -75,6 +79,8 @@ class BlackMediumText extends BaseStatelessWidget {
     return Text(
       label,
       textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
       style: labelStyle ??
           blackMediumStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );

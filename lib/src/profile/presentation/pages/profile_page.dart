@@ -6,7 +6,7 @@ import '../bloc/profile_bloc.dart';
 import '../widgets/custom_dialog_body.dart';
 import 'profile_screen.dart';
 
-class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
+class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
   ProfilePage({Key? key}) : super(key: key);
 
   @override
@@ -19,23 +19,22 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc>{
     return ProfileScreen(
       profile: state.data ?? Profile(),
       onRefresh: () => bloc.fetchProfileData(),
-      onLogout: (){
-        DialogsManager.showAlertDialog(
-            context,
-            CustomDialogBody(
-              onLogout: () {
-              bloc.logout(); },));
-      }
+      onSupport: () => bloc.lunchSupport(),
+      onSelectImage: (file) => bloc.editProfileImage(file),
+      onLogout: onLogout,
     );
   }
 
-
   @override
   void onSuccessDismissed() {
-
     Navigators.pushNamedAndRemoveUntil(Routes.loginPage);
   }
 
-
+  onLogout() {
+    DialogsManager.showAlertDialog(context!, CustomDialogBody(
+      onLogout: () {
+        bloc.logout();
+      },
+    ));
+  }
 }
-

@@ -2,12 +2,13 @@
 import 'package:injectable/injectable.dart';
 import '../../../../core/bloc/base_cubit.dart';
 import '../../data/repositories/departments_repo_imp.dart';
+import '../../domin/repositories/departments_repo.dart';
 
 
 
 @Injectable()
 class DepartmentCubit extends BaseCubit {
-  final DepartmentsRepoImp _repo;
+  final DepartmentsRepo _repo;
 
   DepartmentCubit(this._repo);
 

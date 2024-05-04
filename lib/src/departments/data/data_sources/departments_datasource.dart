@@ -12,8 +12,6 @@ abstract class  DepartmentsDatasource{
   @factoryMethod
   factory DepartmentsDatasource(Dio dio) = _DepartmentsDatasource;
 
-  @GET('/departmentCourses?department_id={id}')
-  Future<ApiResponse<List<CourseDto>>> fetchDepartmentCourses(
-      @Path('id') int id,
-      );
+  @GET('/departmentCourses')
+  Future<ApiResponse<List<CourseDto>>> fetchDepartmentCourses(@Query('department_id') int id,);
 }

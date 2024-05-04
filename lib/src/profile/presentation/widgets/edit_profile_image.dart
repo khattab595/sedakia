@@ -43,22 +43,24 @@ class EditProfileImage extends BaseStatelessWidget {
         PositionedDirectional(
           start: 30,
           bottom: 0,
-          child: Container(
-            height: 30,
-            width: 30,
-            decoration: BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.circular(50),
-              border: Border.all(color: context.cardColor, width: 1.5,),
-            ),
-            child: AppIconButton(
-              icon: AppIcons.camera,
-              padding: 5.paddingAll,
-              onPressed: () async {
-                final file = await HelperMethods.getImagePicker();
-                _imageStream.setData(File(file!.path));
-                onSelectImage(File(file.path));
-              },
+          child: InkWell(
+            onTap: () async {
+              final file = await HelperMethods.getImagePicker();
+              _imageStream.setData(File(file!.path));
+              onSelectImage(File(file.path));
+            },
+            child: Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(color: context.cardColor, width: 1.5,),
+              ),
+              child: AppIcon(
+                icon: AppIcons.camera,
+                padding: 5.paddingAll,
+              ),
             ),
           ),
         ),

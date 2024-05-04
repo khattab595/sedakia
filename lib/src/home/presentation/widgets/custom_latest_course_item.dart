@@ -1,9 +1,12 @@
 import 'package:app/core/utils/navigator.dart';
 
 import '../../../../core/widgets/images/image_network.dart';
+import '../../../../core/widgets/texts/black_texts.dart';
+import '../../../../core/widgets/texts/hint_texts.dart';
+import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../core/widgets/texts/texts.dart';
 import '../../../courses/domain/entities/course.dart';
-import '../../../favorite/models/favorite_params.dart';
+import '../../../favorite/data/models/favorite_params.dart';
 import '../../../main_index.dart';
 
 class CustomLatestCourseItem extends BaseStatelessWidget {
@@ -22,35 +25,39 @@ class CustomLatestCourseItem extends BaseStatelessWidget {
     bool isFavorite = myCourse.isFavorite!;
     return InkWell(
       onTap: () {
-        pushNamed(Routes.courseDetailsPage, arguments: myCourse.id);
+        pushNamed(Routes.courseDetailsPage, arguments: myCourse);
       },
       child: Container(
           width: 226,
+          padding: 8.paddingAll,
           decoration: Decorations.kDecorationRadius(
               borderColor: context.dividerColor, radius: 20, borderWidth: 1),
-          child: Padding(
-            padding: 10.paddingHoriz + 10.paddingTop + 7.paddingBottom,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
-                  children: [
-                    SizedBox(
-                        height: imageHeight ?? 115,
-                        width: double.infinity,
-                        child: ImageNetwork(
-                          image: myCourse.image!,
-                          radius: 12,
-                        )),
-                    Positioned(
-                      top: 8,
-                      left: 8,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                      height: imageHeight ?? 115,
+                      width: double.infinity,
+                      child: ImageNetwork(
+                        image: myCourse.image!,
+                        radius: 12,
+                      )),
+                  Positioned(
+                    top: 4,
+                    left: 4,
+                    child: Container(
+                      padding: 4.paddingAll,
+                      decoration: Decorations.kDecorationOnlyRadius(
+                          radius: 500, color: context.primaryColor),
                       child: StatefulBuilder(builder: (context, setState) {
                         return AppIconButton(
                           icon: isFavorite == true
-                              ? AppIcons.favorite_bold
-                              : AppIcons.favorite_outline,
+                              ? Icons.favorite
+                              : Icons.favorite_outline,
                           color: context.cardColor,
+                          size: 20,
                           onPressed: () async {
                             isFavorite = await onFavorite(FavoriteParams(
                               id: myCourse.id ?? 0,
@@ -60,51 +67,52 @@ class CustomLatestCourseItem extends BaseStatelessWidget {
                           },
                         );
                       }),
-                    )
+                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    7.ph,
+                    HintMediumText(
+                      label: myCourse.department ?? '',
+                      fontSize: 12,
+                    ),
+                    Expanded(
+                      child: BlackMediumText(
+                        fontSize: 14,
+                        textAlign: TextAlign.start,
+                        label: myCourse.name ?? '',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    4.ph,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Row(
+                        children: [
+                          HintMediumText(
+                            label: myCourse.teacher ?? '',
+                            fontSize: 10,
+                          ),
+                          10.pw,
+                          PrimaryMediumText(
+                            label: myCourse.duration ?? '',
+                            fontSize: 10,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      4.ph,
-                      MediumText(
-                        label: myCourse.department!,
-                        fontSize: 12,
-                      ),
-                      Flexible(
-                        child: BoldText(
-                          fontSize: 14,
-                          textAlign: TextAlign.start,
-                          label: myCourse.name!,
-                        ),
-                      ),
-                      FittedBox(
-                        child: Row(
-                          children: [
-                            MediumText(
-                              label: myCourse.teacher!,
-                              fontSize: 10,
-                            ),
-                            10.pw,
-                            MediumText(
-                              label: myCourse.duration!,
-                              fontSize: 10,
-                              labelColor: context.primaryColor,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           )),
     );
   }
 
-  String courseImageTest2 =
-      'https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/440976310_122170194302033769_5263769102648781001_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=NgsDMHpmuVcQ7kNvgHfHuU7&_nc_ht=scontent.fcai20-5.fna&oh=00_AfCev4LJ8StPAObhGsTcozk3mhhkI18Wgb-LsGACIHspaw&oe=66371DD2';
-}
+ }

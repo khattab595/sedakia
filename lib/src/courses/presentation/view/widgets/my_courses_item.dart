@@ -1,9 +1,9 @@
-import '../../../../core/utils/navigator.dart';
-import '../../../../core/widgets/images/image_network.dart';
-import '../../../../core/widgets/texts/texts.dart';
-import '../../../main_index.dart';
-import '../../data/models/course_dto.dart';
-import '../../domain/entities/course.dart';
+import '../../../../../core/utils/navigator.dart';
+import '../../../../../core/widgets/images/image_network.dart';
+import '../../../../../core/widgets/texts/texts.dart';
+import '../../../../main_index.dart';
+import '../../../data/models/course_dto.dart';
+import '../../../domain/entities/course.dart';
 
 class MyCoursesItem extends BaseStatelessWidget {
   final Course myCourse;
@@ -14,11 +14,12 @@ class MyCoursesItem extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('myCourse.percentage: ${myCourse.percentage}');
     return  Padding(
       padding: padding??8.paddingVert,
       child: InkWell(
         onTap: (){
-          pushNamed(Routes.courseDetailsPage,arguments: myCourse.id);
+          pushNamed(Routes.courseDetailsPage,arguments: myCourse);
         },
         child: Container(
           decoration:Decorations.kDecorationBorderRadius(radius: 20,
@@ -72,10 +73,11 @@ class MyCoursesItem extends BaseStatelessWidget {
                     hasNotProgress==true?
                     const SizedBox.shrink():
                     Padding(
-                      padding: 16.paddingEnd+5.paddingVert,
+                      padding: 5.paddingEnd + 5.paddingVert,
                       child:  LinearProgressIndicator(
-                        value: double.parse(myCourse.percentage.toString()),
+                        value: myCourse.percentageValue,
                         color: primaryColor, //<-- SEE HERE
+                        borderRadius: BorderRadius.circular(10),
                         backgroundColor: const Color(0xffDCDCDC), //<-- SEE HERE
                       ),
                     ),

@@ -16,8 +16,10 @@ class CommunicationDto {
   String? Whatsapp;
   @JsonKey(name: 'Google')
   String? Google;
+  @JsonKey(name: 'updated_at')
+  String? updatedAt;
 
-  CommunicationDto({this.id, this.Linkedin, this.Facebook, this.Telegram, this.Whatsapp, this.Google});
+  CommunicationDto({this.id, this.Linkedin, this.Facebook, this.Telegram, this.Whatsapp, this.Google, this.updatedAt});
 
    factory CommunicationDto.fromJson(Map<String, dynamic> json) => _$CommunicationDtoFromJson(json);
 

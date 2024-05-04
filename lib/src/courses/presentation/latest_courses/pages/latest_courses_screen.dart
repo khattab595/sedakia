@@ -1,5 +1,5 @@
 import '../../../domain/entities/course.dart';
-import '../../../../favorite/models/favorite_params.dart';
+import '../../../../favorite/data/models/favorite_params.dart';
 import '../../../../home/presentation/widgets/custom_latest_course_item.dart';
 import '../../../../main_index.dart';
 

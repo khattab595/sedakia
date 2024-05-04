@@ -12,7 +12,10 @@ class PersonalInformationWidget extends BaseStatelessWidget {
     return FutureBuilder(
       future: HelperMethods.getProfile(),
       builder: (context, snapshot) {
-        return Padding(
+        return snapshot.data == null
+            ? 0.ph
+            :
+          Padding(
           padding: 10.paddingAll,
           child: Row(
             children: [

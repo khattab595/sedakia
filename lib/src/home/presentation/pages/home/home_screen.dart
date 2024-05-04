@@ -3,7 +3,7 @@ import '../../../../../core/widgets/custom_title_row.dart';
 import '../../../../../core/widgets/sliders/custom_slider_widget.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../courses/domain/entities/course.dart';
-import '../../../../favorite/models/favorite_params.dart';
+import '../../../../favorite/data/models/favorite_params.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/department.dart';
 import '../../../domain/entities/slide.dart';
@@ -53,7 +53,6 @@ class HomeScreen extends BaseStatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RecentlyCourse(
-                  padding: 5.paddingTop+30.paddingBottom+22.paddingEnd,
                   recentlyCourseStream: recentlyStream,
                 ),
                 BoldText(

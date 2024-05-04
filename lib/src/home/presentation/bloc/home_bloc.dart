@@ -5,7 +5,7 @@ import '../../../../core/bloc/base_cubit.dart';
 import '../../../../core/resources/data_state.dart';
 import '../../../courses/domain/entities/course.dart';
 import '../../../favorite/domin/repositories/favorite_repo.dart';
-import '../../../favorite/models/favorite_params.dart';
+import '../../../favorite/data/models/favorite_params.dart';
 import '../../domain/entities/department.dart';
 import '../../domain/entities/teacher.dart';
 import '../../domain/repositories/home_repo.dart';

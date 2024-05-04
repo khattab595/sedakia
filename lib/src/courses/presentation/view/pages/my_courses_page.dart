@@ -1,8 +1,8 @@
 
-import '../../../../core/components/base_widget_bloc.dart';
-import '../../../main_index.dart';
-import '../../data/models/course_dto.dart';
-import '../../domain/entities/course.dart';
+import '../../../../../core/components/base_widget_bloc.dart';
+import '../../../../main_index.dart';
+import '../../../data/models/course_dto.dart';
+import '../../../domain/entities/course.dart';
 import '../bloc/my_courses_bloc.dart';
 import 'my_courses_screen.dart';
 
