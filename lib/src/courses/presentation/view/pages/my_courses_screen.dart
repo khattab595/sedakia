@@ -13,6 +13,7 @@ class MyCoursesScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     if(myCourses.isEmpty){
       return CustomEmptyWidget(image:AppImages.myCoursesEmpty, text: strings.my_courses_empty_text,
         title:strings.my_courses_empty_title,hasButton: true,onPressed: (){

@@ -13,17 +13,20 @@ class LessonDetailsScreen extends BaseStatelessWidget {
   final Lesson subject;
   final Function(AttendingLessonParams) attendingMin;
 
-  LessonDetailsScreen(
-      {Key? key, required this.attendingMin, required this.subject})
-      : super(key: key);
+  LessonDetailsScreen({
+    Key? key,
+    required this.attendingMin,
+    required this.subject,
+  }) : super(key: key);
 
   AttendingLessonParams params = AttendingLessonParams();
   PodPlayerController? controller;
+
   @override
   Widget build(BuildContext context) {
-    handleAppLifecycleState();
     initData();
-    return WillPopScope(
+    return
+      WillPopScope(
       onWillPop: () async {
         onPop();
         return false;
@@ -33,38 +36,34 @@ class LessonDetailsScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-                height: 225,
-                width: double.infinity,
-                child: PlayVideoFromNetwork(url: subject.link!,
-                  controller: controller,
-                )),
+              height: 225,
+              width: double.infinity,
+              child: PlayVideoFromNetwork(
+                url: subject.link ?? '',
+                controller: controller,
+              ),
+            ),
             Padding(
-              padding: 16.paddingHoriz,
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  5.ph,
-                  HintMediumText(
-                    label: subject.department ?? '',
-                  ),
-                  5.ph,
-                  BlackBoldText(
-                    label: subject.name ?? '',
-                  ),
-                  8.ph,
+                  SizedBox(height: 5),
+                  HintMediumText(label: subject.department ?? ''),
+                  SizedBox(height: 5),
+                  BlackBoldText(label: subject.name ?? ''),
+                  SizedBox(height: 8),
                   HintRegularText(
                     label: subject.description ?? '',
                     fontSize: 16,
                   ),
-                  20.ph,
+                  SizedBox(height: 20),
                   BlackBoldText(
                     label: strings.lesson_files,
                     fontSize: 16,
                   ),
-                  10.ph,
-                  CustomLessonFileItem(
-                    lesson: subject,
-                  ),
+                  SizedBox(height: 10),
+                  CustomLessonFileItem(lesson: subject),
                 ],
               ),
             )
@@ -74,41 +73,34 @@ class LessonDetailsScreen extends BaseStatelessWidget {
     );
   }
 
-  onAttending() async {
+  void onAttending() async {
     params = AttendingLessonParams(
-        subjectId: subject.id!,
-        attendingMin: controller?.currentVideoPosition.inMinutes);
-     attendingMin(params);
+      subjectId: subject.id!,
+      attendingMin: controller?.currentVideoPosition?.inMinutes,
+    );
+    attendingMin(params);
   }
 
-  initData() {
+  void initData() {
     controller = PodPlayerController(
-      playVideoFrom: PlayVideoFrom.youtube(
-          subject.link ?? ''
-      ),
+      playVideoFrom: PlayVideoFrom.youtube(subject.link ?? ''),
     )..initialise();
     controller?.videoSeekTo(subject.duration);
-    params = AttendingLessonParams(subjectId: subject.id ?? 0, attendingMin: subject.m?.toInt());
+    params = AttendingLessonParams(
+      subjectId: subject.id ?? 0,
+      attendingMin: subject.m?.toInt(),
+    );
   }
 
-  onPop() {
+  void onPop() {
     controller?.dispose();
     onAttending();
     pop();
   }
 
-  handleAppLifecycleState() {
-    SystemChannels.lifecycle.setMessageHandler((msg) {
-      print('SystemChannels> $msg');
-      switch (msg) {
-        case "AppLifecycleState.paused":
-          controller?.dispose();
-          onAttending();
-          break;
-
-        default:
-      }
-      return Future.value();
-    });
+  @override
+  void dispose() {
+    controller?.dispose();
+    // super.dispose();
   }
 }

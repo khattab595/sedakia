@@ -1,6 +1,8 @@
 import 'package:app/core/widgets/icons/icon_text.dart';
 import 'package:app/src/main_index.dart';
 
+import '../custom_back_appbar.dart';
+
 class AppScaffold extends StatelessWidget {
   final String? title;
   final Widget? titleWidget;
@@ -58,8 +60,12 @@ class AppScaffold extends StatelessWidget {
           ? null
           : appBar ??
               AppBar(
-                title: Text(title ?? '',
-                    style: titleStyle ?? theme.appBarTheme.titleTextStyle),
+                title:
+                Text(title ?? '',
+                    style: titleStyle ?? theme.appBarTheme.titleTextStyle,
+                maxLines: 2,
+                  textAlign: TextAlign.center,
+                ),
                 automaticallyImplyLeading: false,
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
@@ -79,23 +85,7 @@ class AppScaffold extends StatelessWidget {
                 ),
                 leading: Navigator.canPop(context)
                     ?
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: IconText(
-                    iconData: Icons.arrow_back_ios_new_rounded,
-                    isIconData: true,
-                    iconColor: context.hintColor,
-                    text: context.strings.back,
-                    sizedBoxWidth: 0,
-                    iconSize: 20,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    textStyle: context.displayLarge.copyWith(
-                      fontSize: 16,
-                    ),
-                  ),
-                ) : leading,
+                CustomBackAppBar(): leading,
               ),
     );
   }

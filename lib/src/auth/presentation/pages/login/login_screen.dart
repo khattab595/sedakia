@@ -25,7 +25,7 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(kDebugMode){
-      phoneNumberController.text = '9647712345678';
+      phoneNumberController.text = '7712345678';
       passwordController.text = '123456789';
     }
     return  Form(
@@ -79,9 +79,13 @@ class LoginScreen extends BaseStatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    HintMediumText(label: strings.dont_have_an_account),
+                    HintMediumText(label: strings.dont_have_an_account,
+                    fontSize: 14,
+                    ),
                     5.pw,
-                    PrimaryMediumText(label: strings.create_new_account),
+                    PrimaryMediumText(label: strings.create_new_account,
+                      fontSize: 14,
+                    ),
                   ],
                 ),
               ),

@@ -15,35 +15,46 @@ class CustomEmptyWidget extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: AppIcon(
-              icon: image,
-              size: 200,
+      child: Padding(
+        padding: 20.paddingHoriz,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: AppIcon(
+                icon: image,
+                size: 200,
+              ),
             ),
-          ),
-          30.ph,
-          BlackBoldText(
-            fontSize: 25,
-            textAlign: TextAlign.center,
-            label: title,
-          ),
-          8.ph,
-          HintMediumText(
-            label: text,
-            textAlign: TextAlign.center,
-          ),
-          hasButton==true?
-          PrimaryButton(
-            title: titleButton??strings.not_data_found,
-            margin: 30.paddingVert+10.paddingHoriz,
-            onPressed: onPressed,
-          ):const SizedBox.shrink()
-        ],
+            30.ph,
+            BlackBoldText(
+              fontSize: 20,
+              textAlign: TextAlign.center,
+              label: title,
+            ),
+            8.ph,
+            Padding(
+              padding:10.paddingHoriz,
+              child: HintMediumText(
+                label: text,
+                fontSize: 14,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            hasButton==true?
+            Padding(
+              padding: 70.paddingTop,
+              child: PrimaryButton(
+                height: 54,
+                title: titleButton??strings.not_data_found,
+                margin: 30.paddingVert+10.paddingHoriz,
+                onPressed: onPressed,
+              ),
+            ):const SizedBox.shrink()
+          ],
+        ),
       ),
     );
   }

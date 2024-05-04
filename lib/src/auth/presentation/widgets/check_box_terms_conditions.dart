@@ -41,6 +41,7 @@ class CheckBoxTermsConditions extends BaseStatelessWidget {
           5.pw,
           Flexible(
             child: MediumText(
+              fontSize: 14,
               label: strings.i_read_and_agree_msg,
             ),
           ),

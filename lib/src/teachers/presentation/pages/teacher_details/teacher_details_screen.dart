@@ -1,5 +1,6 @@
 
 import 'package:app/core/utils/navigator.dart';
+import '../../../../../core/widgets/custom_back_appbar.dart';
 import '../../../../../core/widgets/images/image_network.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../courses/presentation/view/widgets/my_courses_item.dart';
@@ -24,6 +25,7 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
                   width: double.infinity,
                   child: ImageNetwork(image: teacherDetails.image!,radius: 12,fit: BoxFit.cover,)
                 ),
+
                 SingleChildScrollView(
                   child:
                   Column(
@@ -100,7 +102,19 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                Positioned(
+                    top: 30,
+                    right: 20,
+                    child: Container(
+                        decoration: Decorations.baseDecorationRadius(
+                            radius: 12,
+                            color: context.cardColor
+                        ),
+                        child: Padding(
+                          padding: 5.paddingAll+5.paddingEnd,
+                          child: CustomBackAppBar(),
+                        ))),
               ],
             ),
           ],
@@ -108,7 +122,4 @@ class TeacherDetailsScreen extends BaseStatelessWidget {
       ),
     );
   }
-  List item =[1,2,3];
-  String courseImageTest2='https://internationalteacherstraining.com/blog/wp-content/uploads/2018/08/171219-teacher-stock.jpg';
-
 }

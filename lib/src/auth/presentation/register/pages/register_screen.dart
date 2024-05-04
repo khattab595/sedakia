@@ -84,9 +84,13 @@ class RegisterScreen extends BaseStatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    HintMediumText(label: strings.dont_have_an_account),
+                    HintMediumText(
+                        fontSize: 14,
+                        label: strings.dont_have_an_account),
                     5.pw,
-                    PrimaryMediumText(label: strings.sign_in),
+                    PrimaryMediumText(
+                        fontSize: 14,
+                        label: strings.sign_in),
                   ],
                 ),
               ),

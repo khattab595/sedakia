@@ -79,7 +79,7 @@ class ProfileScreen extends BaseStatelessWidget {
             args: AboutType.terms,
           ),
           PrimaryButton(
-            title: strings.sign_in,
+            title: strings.sign_out,
             onPressed: onLogout,
             style: primaryBoldStyle.copyWith(color: errorColor),
             margin: 10.paddingHoriz + 20.paddingTop,
