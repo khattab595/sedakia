@@ -1,5 +1,5 @@
 
-import '../../../my_courses/domain/entities/course.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../entities/department.dart';
 import '../entities/slide.dart';
 import '../entities/teacher.dart';

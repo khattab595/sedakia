@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
-import '../../../my_courses/data/models/course_dto.dart';
+import '../../../courses/data/models/course_dto.dart';
 
 part 'favorite_datasource.g.dart';
 @Injectable()
@@ -17,13 +17,13 @@ abstract class FavoriteDatasource{
   @GET('/myFavoriteCourses')
   Future<ApiResponse<List<CourseDto>>> fetchFavoriteData();
 
- @POST('/addToFavorites?course_id={id}')
+ @POST('/addToFavorites')
   Future<ApiResponse> addFavorite(
-     @Path('id') int id);
+     @Query('course_id') int id);
 
- @POST('/removeFromFavorites?course_id={id}')
+ @POST('/removeFromFavorites')
   Future<ApiResponse> removeFavorite(
-     @Path('id') int id);
+     @Query('course_id') int id);
 
 
 }

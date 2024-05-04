@@ -2,10 +2,8 @@
 import 'package:app/core/utils/navigator.dart';
 import '../../../../../core/widgets/images/image_network.dart';
 import '../../../../../core/widgets/texts/texts.dart';
+import '../../../../courses/presentation/widgets/my_courses_item.dart';
 import '../../../../main_index.dart';
-import '../../../../my_courses/data/models/course_dto.dart';
-import '../../../../my_courses/presentation/widgets/my_courses_item.dart';
-import '../../../data/models/teacher_details_dto.dart';
 import '../../../domin/entities/teacher_details.dart';
 
 class TeacherDetailsScreen extends BaseStatelessWidget {

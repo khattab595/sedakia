@@ -21,6 +21,7 @@ class HomePage extends BaseBlocWidget<UnInitState, HomeCubit> {
       recentlyStream: bloc.recentlyStream,
       slidesStream: bloc.slidesStream,
       teachersStream: bloc.teachersStream,
+      onFavorite: (params) => bloc.toggleFavorite(params),
     );
   }
 }

@@ -1,6 +1,5 @@
 
-import '../../../my_courses/data/models/course_dto.dart';
-import '../../../my_courses/domain/entities/course.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../../data/models/teacher_details_dto.dart';
 
 

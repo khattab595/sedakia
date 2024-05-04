@@ -1,5 +1,6 @@
 
-import '../../../my_courses/domain/entities/course.dart';
+
+import '../../../courses/domain/entities/course.dart';
 
 abstract class FavoriteRepo {
   Future<List<Course>> fetchFavorite();

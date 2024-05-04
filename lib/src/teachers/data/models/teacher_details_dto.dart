@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../my_courses/data/models/course_dto.dart';
+import '../../../courses/data/models/course_dto.dart';
 
 
 part 'teacher_details_dto.g.dart';

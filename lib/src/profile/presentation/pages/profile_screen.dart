@@ -55,7 +55,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItem(
             icon: AppIcons.warning,
             title: strings.support,
-            route: Routes.supportPage,
+            // route: Routes.supportPage,
           ),
           ProfileItem(
             icon: AppIcons.message_question,

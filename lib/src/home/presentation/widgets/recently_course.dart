@@ -1,8 +1,8 @@
 import '../../../../core/utils/navigator.dart';
 import '../../../../core/widgets/images/image_network.dart';
 import '../../../../core/widgets/texts/texts.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../../../main_index.dart';
-import '../../../my_courses/domain/entities/course.dart';
 
 class RecentlyCourse extends BaseStatelessWidget {
   final StreamStateInitial<Course?> recentlyCourseStream;

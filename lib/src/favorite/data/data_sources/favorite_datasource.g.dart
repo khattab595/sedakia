@@ -58,7 +58,7 @@ class _FavoriteDatasource implements FavoriteDatasource {
   @override
   Future<ApiResponse<dynamic>> addFavorite(int id) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'course_id': id};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -69,7 +69,7 @@ class _FavoriteDatasource implements FavoriteDatasource {
     )
             .compose(
               _dio.options,
-              '/addToFavorites?course_id=${id}',
+              '/addToFavorites',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -88,7 +88,7 @@ class _FavoriteDatasource implements FavoriteDatasource {
   @override
   Future<ApiResponse<dynamic>> removeFavorite(int id) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'course_id': id};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -99,7 +99,7 @@ class _FavoriteDatasource implements FavoriteDatasource {
     )
             .compose(
               _dio.options,
-              '/removeFromFavorites?course_id=${id}',
+              '/removeFromFavorites',
               queryParameters: queryParameters,
               data: _data,
             )

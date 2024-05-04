@@ -1,14 +1,13 @@
+import '../../../courses/domain/entities/course.dart';
+import '../../../favorite/models/favorite_params.dart';
 import '../../../main_index.dart';
-import '../../../my_courses/data/models/course_dto.dart';
-import '../../../my_courses/domain/entities/course.dart';
-import '../../domain/entities/department.dart';
-import 'custom_department_item.dart';
 import 'custom_latest_course_item.dart';
 
 class CustomLatestCoursesWidget extends BaseStatelessWidget {
   final StreamStateInitial<List<Course>?> recentlyCoursesStream;
+  final Function(FavoriteParams) onFavorite;
 
-  CustomLatestCoursesWidget({super.key, required this.recentlyCoursesStream});
+  CustomLatestCoursesWidget({super.key, required this.recentlyCoursesStream, required this.onFavorite});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +26,7 @@ class CustomLatestCoursesWidget extends BaseStatelessWidget {
                       padding: 16.paddingEnd,
                       child: CustomLatestCourseItem(
                         myCourse: snapshot.data![index],
+                        onFavorite: onFavorite,
                       ),
                     );
                   },

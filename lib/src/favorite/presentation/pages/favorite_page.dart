@@ -1,5 +1,5 @@
-import 'package:app/src/my_courses/domain/entities/course.dart';
 import '../../../../../../../core/components/base_widget_bloc.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../../../main_index.dart';
 import '../bloc/favorite_bloc.dart';
 import 'favorite_screen.dart';

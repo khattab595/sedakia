@@ -3,7 +3,6 @@ import '../../../../../core/utils/navigator.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/change_password_params.dart';
 import '../../bloc/forgot_password_bloc.dart';
-import 'change_password_screen.dart';
 import 'forgot_password_screen.dart';
 
 class ForgotPasswordPage

@@ -1,8 +1,8 @@
 
-import 'package:app/src/my_courses/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../my_courses/data/models/course_dto.dart';
+import '../../../courses/data/models/course_dto.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../../domain/entities/department.dart';
 import '../../domain/entities/slide.dart';
 import '../../domain/entities/teacher.dart';

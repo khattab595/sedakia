@@ -1,6 +1,6 @@
 
-import 'package:app/src/my_courses/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
+import '../../../courses/domain/entities/course.dart';
 import '../../domin/repositories/favorite_repo.dart';
 import '../data_sources/favorite_datasource.dart';
 

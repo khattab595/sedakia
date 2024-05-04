@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
-import '../../../my_courses/data/models/course_dto.dart';
+import '../../../courses/data/models/course_dto.dart';
 import '../models/department_dto.dart';
 import '../models/slide_dto.dart';
 import '../models/teacher_dto.dart';
