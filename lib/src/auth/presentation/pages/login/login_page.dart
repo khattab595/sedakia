@@ -5,7 +5,6 @@ import '../../../../../core/utils/navigator.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/login_params.dart';
 import '../../bloc/auth_bloc.dart';
-import '../../widgets/auth_widget.dart';
 import 'login_screen.dart';
 
 // ignore: must_be_immutable

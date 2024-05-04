@@ -36,7 +36,7 @@ class CustomEmptyWidget extends BaseStatelessWidget {
           ),
           hasButton==true?
           PrimaryButton(
-            title: titleButton??strings.store,
+            title: titleButton??strings.not_data_found,
             margin: 30.paddingVert+10.paddingHoriz,
             onPressed: onPressed,
           ):const SizedBox.shrink()

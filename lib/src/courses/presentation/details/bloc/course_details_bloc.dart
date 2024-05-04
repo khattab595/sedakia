@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import '../../../../../core/bloc/base_cubit.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/course_subscription_params.dart';
 import '../../../domain/repositories/courses_repo.dart';
 
 
@@ -12,11 +13,9 @@ class CourseDetailsCubit extends BaseCubit {
   fetchTeacherDetailsData({required int id}) async {
     executeSuccess(() => _repo.fetchCourseDetailsData(id: id));
   }
-  subscribeCourse({required int courseId,required String courseCode}) async {
-    executeSuccess(() => _repo.subscribeCourse(courseId: courseId, courseCode: courseCode));
+
+  subscribeCourse(CourseSubscriptionParams params) async {
+    executeEmitterListener(() => _repo.subscribeCourse(params));
   }
 
-  attendingMin({required int id,required int min}) async {
-    executeSuccess(() => _repo.attendingMin(id: id, min: min));
-  }
 }

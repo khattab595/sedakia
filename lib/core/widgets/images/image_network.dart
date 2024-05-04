@@ -54,7 +54,7 @@ class ImageNetwork extends StatelessWidget {
       margin: margin ?? EdgeInsets.zero,
       padding: padding ?? EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: context.hintColor,
+        color: context.dividerColor,
         borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 8),
       ),
       child: ClipRRect(

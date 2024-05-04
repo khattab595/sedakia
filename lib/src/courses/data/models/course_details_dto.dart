@@ -18,7 +18,7 @@ class CourseDetailsDto {
   @JsonKey(name: 'teacher')
   int? teacherId;
   @JsonKey(name: 'subjects')
-  List<SubjectsDto>? subjects;
+  List<LessonDto>? subjects;
 
   CourseDetailsDto(
       {this.id,
@@ -37,7 +37,7 @@ class CourseDetailsDto {
 
 
 @JsonSerializable(ignoreUnannotated: false)
-class SubjectsDto {
+class LessonDto {
   @JsonKey(name: 'id')
   int? id;
   @JsonKey(name: 'name')
@@ -57,7 +57,7 @@ class SubjectsDto {
   @JsonKey(name: 'department')
   String? department;
 
-  SubjectsDto(
+  LessonDto(
       {this.id,
       this.name,
       this.link,
@@ -68,8 +68,8 @@ class SubjectsDto {
       this.driveLink,
       this.department});
 
-  factory SubjectsDto.fromJson(Map<String, dynamic> json) => _$SubjectsDtoFromJson(json);
+  factory LessonDto.fromJson(Map<String, dynamic> json) => _$LessonDtoFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SubjectsDtoToJson(this);
+  Map<String, dynamic> toJson() => _$LessonDtoToJson(this);
 }
 

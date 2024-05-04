@@ -4,6 +4,8 @@ import '../../domain/entities/course.dart';
 import '../../domain/entities/course_details.dart';
 import '../../domain/repositories/courses_repo.dart';
 import '../data_sources/courses_datasource.dart';
+import '../models/attending_lesson_params.dart';
+import '../models/course_subscription_params.dart';
 
 
 @Injectable(as: CoursesRepo)
@@ -25,14 +27,20 @@ class CoursesRepoImp extends CoursesRepo{
   }
 
   @override
-  Future<String> subscribeCourse({required int courseId, required String courseCode})async {
-    final response =  await datasource.subscribeCourse(courseId, courseCode);
-    return response.data!;
+  Future<String> subscribeCourse(CourseSubscriptionParams params)async {
+    final response =  await datasource.subscribeCourse(params);
+    return response.message ?? '';
   }
 
   @override
-  Future<String> attendingMin({required int id, required int min}) async{
-    final response =  await datasource.attendingMin(id, min);
-    return response.data!;
+  Future<String> attendingMin(AttendingLessonParams params) async{
+    final response =  await datasource.attendingMin(params);
+    return response.message ?? '';
+  }
+
+  @override
+  Future<Lesson> fetchLessonDetails(int id) async {
+    final response =  await datasource.fetchLessonDetails(id);
+    return Lesson.fromDto(response.data!);
   }
 }

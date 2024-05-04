@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class PlayVideoFromNetwork extends StatefulWidget {
   final String url;
-  const PlayVideoFromNetwork({Key? key, required this.url, }) : super(key: key);
+  final PodPlayerController? controller;
+  const PlayVideoFromNetwork({Key? key, required this.url, this.controller}) : super(key: key);
 
   @override
   State<PlayVideoFromNetwork> createState() => _PlayVideoFromNetworkState();
@@ -14,10 +15,9 @@ class _PlayVideoFromNetworkState extends State<PlayVideoFromNetwork> {
 
   @override
   void initState() {
-    controller = PodPlayerController(
+    controller = widget.controller ?? PodPlayerController(
       playVideoFrom: PlayVideoFrom.youtube(
           widget.url
-        // 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
       ),
     )..initialise();
     super.initState();
@@ -32,7 +32,8 @@ class _PlayVideoFromNetworkState extends State<PlayVideoFromNetwork> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PodVideoPlayer(controller: controller,),
+      body: PodVideoPlayer(controller: controller,
+      ),
     );
   }
 }

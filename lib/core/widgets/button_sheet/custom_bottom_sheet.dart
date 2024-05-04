@@ -13,7 +13,7 @@ class CustomBottomSheet extends BaseStatelessWidget {
     return Container(
       decoration:Decorations.decorationStartEndBorder(topStart: 12,topEnd: 12,color: Colors.white),
       height:MediaQuery.of(context).viewInsets.bottom +
-      MediaQuery.of(context).size.height*0.45,
+      MediaQuery.of(context).size.height*0.5,
       width: double.infinity,
       child: Padding(
         padding: 16.paddingHoriz+25.paddingTop,

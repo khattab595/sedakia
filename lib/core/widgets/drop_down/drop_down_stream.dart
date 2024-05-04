@@ -1,9 +1,8 @@
 import 'package:app/core/widgets/texts/hint_texts.dart';
 
 import '../../../src/main_index.dart';
-import '../pagination/loading_widget.dart';
 import 'drop_down.dart';
-import 'drop_down_border.dart';
+import 'loading_widget.dart';
 
 class DropDownFieldStream extends BaseStatelessWidget {
   final StreamStateInitial<List<DropDownItem>?> stream;
@@ -139,7 +138,7 @@ class LoadingDropDown extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               HintRegularText(label: hint ?? ''),
-              SmallLoading(),
+              const SmallLoading(),
             ],
           ),
         ),

@@ -1,12 +1,17 @@
 
-import '../../../../../core/widgets/texts/texts.dart';
-import '../../../../home/presentation/widgets/personal_informatin_widget.dart';
+import '../../../../../core/widgets/images/image_network.dart';
+import '../../../../../core/widgets/texts/black_texts.dart';
+import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/course_details.dart';
 
 class CustomDetailsWidget extends BaseStatelessWidget {
   final CourseDetails courseDetails;
-   CustomDetailsWidget( {super.key,required this.courseDetails,});
+
+  CustomDetailsWidget({
+    super.key,
+    required this.courseDetails,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,37 +21,48 @@ class CustomDetailsWidget extends BaseStatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           10.ph,
-           SemiBoldText(
-            label:strings.description,
+          BlackBoldText(
+            label: strings.description,
             fontSize: 16,
           ),
-          8.ph,
-          MediumText(
-            label:courseDetails.description!,
+          HintRegularText(
+            label: courseDetails.description!,
             fontSize: 18,
-            labelColor: context.hintColor,
           ),
           16.ph,
-           SemiBoldText(
-            label:strings.provider,
+          BlackBoldText(
+            label: strings.provider,
             fontSize: 16,
           ),
-          10.ph,
-          PersonalInformationWidget(),
-          // 47.ph,
-          // PrimaryButton(
-          //   title: strings.subscription,
-          //   onPressed: (){
-          //     showModalBottomSheet(
-          //       backgroundColor:Colors.white,
-          //       context: context,
-          //       isScrollControlled: true,
-          //       builder: (context) =>   CustomBottomSheet(),
-          //     );
-          //
-          //   },
-          // ),
-
+          Padding(
+            padding: 10.paddingVert,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ImageNetworkCircle(
+                  image: courseDetails.image ?? '',
+                  size: 60,
+                ),
+                10.pw,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BlackBoldText(
+                        label: courseDetails.name ?? '',
+                        fontSize: 14,
+                      ),
+                      5.ph,
+                      HintMediumText(
+                        label: courseDetails.department ?? '',
+                        fontSize: 14,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

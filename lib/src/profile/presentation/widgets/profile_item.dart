@@ -1,7 +1,6 @@
 import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../../../core/utils/navigator.dart';
-import '../../../../core/widgets/shapes/rounded_shape.dart';
 import '../../../main_index.dart';
 
 class ProfileItem extends StatelessWidget {
@@ -52,7 +51,7 @@ class ProfileItem extends StatelessWidget {
         title: BoldText(
           label: title,
         ),
-        trailing: AppIcon(
+        trailing: const AppIcon(
           icon: AppIcons.arrow_lift,
           size: 16,
         ),

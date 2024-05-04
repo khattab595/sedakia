@@ -1,5 +1,5 @@
 import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/core/widgets/pagination/loading_widget.dart';
+import 'package:app/core/widgets/drop_down/loading_widget.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 

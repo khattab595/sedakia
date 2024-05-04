@@ -1,6 +1,7 @@
 import '../../../../../../../../core/components/base_widget_bloc.dart';
 import '../../../../../core/utils/navigator.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/course_subscription_params.dart';
 import '../../../domain/entities/course_details.dart';
 import '../bloc/course_details_bloc.dart';
 import 'course_detials_screen.dart';
@@ -20,8 +21,8 @@ class CourseDetailsPage
   Widget buildWidget(BuildContext context, DataSuccess<CourseDetails> state) {
     return CourseDetailsScreen(
       courseDetails: state.data!,
-      subscribeCourse: ({required int courseId, required String courseCode}) {
-        bloc.subscribeCourse(courseId: courseId, courseCode: courseCode);
+      subscribeCourse: (CourseSubscriptionParams params) {
+        bloc.subscribeCourse(params);
       },
     );
   }

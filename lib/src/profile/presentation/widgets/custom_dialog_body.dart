@@ -26,7 +26,6 @@ class CustomDialogBody extends BaseStatelessWidget {
             MediumText(
               label:strings.sign_out_mes,
               fontSize: 14,
-              labelColor: Colors.grey,
             ),
             24.ph,
             PrimaryButton(

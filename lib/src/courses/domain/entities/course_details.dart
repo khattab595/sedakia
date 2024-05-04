@@ -9,7 +9,7 @@ class CourseDetails {
   String? description;
   String? department;
   int? teacherId;
-  List<Subjects>? subjects;
+  List<Lesson>? subjects;
 
   CourseDetails(
       {this.id,
@@ -30,14 +30,14 @@ class CourseDetails {
       description: json.description,
       department: json.department,
       teacherId: json.teacherId,
-      subjects: Subjects.fromDtoList(json.subjects)
+      subjects: Lesson.fromDtoList(json.subjects)
     );
   }
 }
 
 
 
-class Subjects {
+class Lesson {
 
   int? id;
   String? name;
@@ -49,7 +49,7 @@ class Subjects {
   String? driveLink;
   String? department;
 
-  Subjects(
+  Lesson(
       {this.id,
       this.name,
       this.link,
@@ -60,7 +60,7 @@ class Subjects {
       this.driveLink,
       this.department});
 
-  factory Subjects.fromDto(SubjectsDto json) => Subjects(
+  factory Lesson.fromDto(LessonDto json) => Lesson(
     id: json.id,
     name: json.name,
     link: json.link,
@@ -72,9 +72,11 @@ class Subjects {
     department: json.department,
   );
 
-  static List<Subjects>? fromDtoList(List<SubjectsDto>? subjectsDtoList) {
+  static List<Lesson>? fromDtoList(List<LessonDto>? subjectsDtoList) {
     if (subjectsDtoList == null) return null;
-    return subjectsDtoList.map((subjectsDto) => Subjects.fromDto(subjectsDto)).toList();
+    return subjectsDtoList.map((subjectsDto) => Lesson.fromDto(subjectsDto)).toList();
   }
+
+  Duration get duration => Duration(minutes: m!.toInt(), seconds: s!.toInt());
 }
 
