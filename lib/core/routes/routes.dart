@@ -6,6 +6,7 @@ import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/auth/presentation/register/pages/register_page.dart';
 import '../../src/courses/presentation/details/pages/course_details_page.dart';
 import '../../src/courses/presentation/details/pages/lesson_details_page.dart';
+import '../../src/courses/presentation/latest_courses/pages/latest_courses_stream_page.dart';
 import '../../src/courses/presentation/view/pages/my_courses_page.dart';
 import '../../src/departments/presentation/pages/department_page.dart';
 import '../../src/favorite/presentation/pages/favorite_page.dart';
@@ -56,6 +57,7 @@ class Routes {
   static const String scoreCardPage = 'scoreCardPage';
   static const String favoritePage = 'favoritePage';
   static const String advertisementPage = 'advertisementPage';
+  static const String latestCoursesStreamPage = 'latestCoursesStreamPage';
 
 
   /* ====================================================================== */
@@ -86,5 +88,6 @@ class Routes {
     homePage: (context) => HomePage(),
     profile: (context) => ProfilePage(),
     aboutPage: (context) => AboutPage(),
+    latestCoursesStreamPage: (context) => LatestCoursesStreamPage(),
   };
 }

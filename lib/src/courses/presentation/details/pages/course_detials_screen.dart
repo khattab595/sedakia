@@ -14,15 +14,19 @@ class CourseDetailsScreen extends BaseStatelessWidget {
   final String teacher;
   final CourseDetails courseDetails;
   final Function(CourseSubscriptionParams)? subscribeCourse;
-  GlobalKey<FormState> formKeyButtonSheet = GlobalKey<FormState>();
-  TextEditingController buttonSheetController = TextEditingController();
+  final VoidCallback onContactUs;
 
   CourseDetailsScreen({
     Key? key,
     required this.teacher,
     required this.courseDetails,
     this.subscribeCourse,
+    required this.onContactUs,
   }) : super(key: key);
+
+
+  GlobalKey<FormState> formKeyButtonSheet = GlobalKey<FormState>();
+  TextEditingController buttonSheetController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +87,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
                   onPressed: onPressed,
                   formKeyButtonSheet: formKeyButtonSheet,
                   buttonSheetController: buttonSheetController,
+                  onContactUs: onContactUs,
                 ),
               );
             },

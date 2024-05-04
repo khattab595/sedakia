@@ -31,10 +31,8 @@ class MobileTextField extends BaseStatelessWidget {
       validator: (value) {
         if (value!.isEmpty) {
           return strings.this_field_is_required;
-        } else if (!value.startsWith('96477')){
-          return strings.must_be_start_with_96477;
-        } else if (value.length != 13) {
-          return strings.must_be_10_digits;
+        } else if (value.length < 6) {
+          return strings.must_be_more_than_6_digits;
         }
         return null;
       },

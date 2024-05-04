@@ -34,9 +34,11 @@ class CustomLessonFileItem extends BaseStatelessWidget {
                 padding: 16.paddingHoriz,
                 child: const FlipAssetImage(image: AppImages.file,),
               ),
-              HintBoldText(
-                label:'ملف ${lesson.name}',
-                fontSize: 16,
+              Expanded(
+                child: HintBoldText(
+                  label:'ملف ${lesson.name}',
+                  fontSize: 16,
+                ),
               ),
 
             ],

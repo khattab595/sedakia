@@ -101,9 +101,9 @@ class RegisterScreen extends BaseStatelessWidget {
     if (formKey.currentState!.validate()) {
       onRegister!(RegisterParams(
         name: nameController.text,
-        phone: phoneController.text,
+        phone: phoneController.text.toIraqCode,
         password: passwordController.text,
-        parentPhone: parentPhoneController.text,
+        parentPhone: parentPhoneController.text.toIraqCode,
         passwordConfirmation: passwordController.text,
       ));
     }

@@ -94,7 +94,7 @@ class LoginScreen extends BaseStatelessWidget {
   onPressed() async {
    if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        phoneNumber: phoneNumberController.text,
+        phoneNumber: phoneNumberController.text.toIraqCode,
         password: passwordController.text,
         fcmToken: 'harby',
       ));

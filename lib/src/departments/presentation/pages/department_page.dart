@@ -11,7 +11,7 @@ class DepartmentPage extends BaseBlocWidget<DataSuccess<List<Course>>, Departmen
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchDepartmentData(id: getArguments(context));
+    bloc.fetchDepartmentCourses(id: getArguments(context).id);
   }
   @override
   Widget buildWidget(BuildContext context, DataSuccess<List<Course>> state) {
@@ -23,6 +23,6 @@ class DepartmentPage extends BaseBlocWidget<DataSuccess<List<Course>>, Departmen
 
   @override
   String? title(BuildContext context) {
-    return strings.chemistry;
+    return getArguments(context).name;
   }
 }

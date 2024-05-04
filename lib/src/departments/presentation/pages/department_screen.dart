@@ -13,18 +13,18 @@ class DepartmentScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        padding: 16.paddingAll,
-        itemCount: courses.length,
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 226,
-            mainAxisExtent: 210,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-        ),
-        itemBuilder: (context, index) {
-          final course = courses[index];
-          return CustomLatestCourseItem(
-              myCourse: course, onFavorite: onFavorite);
-        });
+      padding: 16.paddingAll,
+      itemCount: courses.length,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 226,
+        mainAxisExtent: 210,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+      ),
+      itemBuilder: (context, index) {
+        final course = courses[index];
+        return CustomLatestCourseItem(myCourse: course, onFavorite: onFavorite);
+      },
+    );
   }
 }

@@ -37,7 +37,7 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
               radius: 8,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  onEnterPhoneNumber(phoneNumberController.text);
+                  onEnterPhoneNumber(phoneNumberController.text.toIraqCode);
                 }
               },
             ),

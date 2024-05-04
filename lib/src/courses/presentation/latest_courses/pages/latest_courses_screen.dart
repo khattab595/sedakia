@@ -11,44 +11,25 @@ class LatestCoursesScreen extends BaseStatelessWidget {
       {Key? key, required this.courses, required this.onFavorite})
       : super(key: key);
 
-  List item = ['الكل', 'التربية الاسلامية', 'اللغة العربية', 'الكيمياء'];
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Column(
-      children: [
-        // 8.ph,
-        // SingleChildScrollView(
-        //   scrollDirection: Axis.horizontal,
-        //   child: Row(
-        //     children: [
-        //       ...item.map((e) =>  CustomText(text: e,),)
-        //     ],
-        //   ),
-        // ),
-        Expanded(
-          child: Padding(
-            padding: 20.paddingHoriz + 0.paddingVert,
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.95,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 15),
-              itemCount: courses!.length,
-              itemBuilder: (BuildContext context, int index) {
-                return CustomLatestCourseItem(
-                  imageHeight: 85,
-                  myCourse: courses![index],
-                  onFavorite: onFavorite,
-                );
-              },
-            ),
-          ),
-        )
-      ],
-    ));
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 226,
+        mainAxisExtent: 185,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+      ),
+      itemCount: courses!.length,
+      padding: 10.paddingHoriz,
+      itemBuilder: (BuildContext context, int index) {
+        return CustomLatestCourseItem(
+          imageHeight: 85,
+          myCourse: courses![index],
+          onFavorite: onFavorite,
+        );
+      },
+    );
   }
 
   String courseImageTest =

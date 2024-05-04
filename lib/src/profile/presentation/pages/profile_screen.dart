@@ -39,6 +39,7 @@ class ProfileScreen extends BaseStatelessWidget {
             icon: AppIcons.profile,
             title: strings.personal_information,
             route: Routes.editProfilePage,
+            onRefresh: onRefresh,
           ),
           ProfileItem(
             icon: AppIcons.lang,
@@ -62,7 +63,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ),
           ProfileItem(
             icon: AppIcons.warning,
-            title: strings.support,
+            title: strings.technical_support,
             onTap: onSupport,
           ),
           ProfileItem(

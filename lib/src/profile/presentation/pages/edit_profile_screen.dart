@@ -119,8 +119,8 @@ class EditProfileScreen extends BaseStatelessWidget {
         ProfileDto(
           id: profile.id,
           name: nameController.text,
-          parentPhone: parentPhoneController.text,
-          phoneNumber: phoneController.text,
+          parentPhone: parentPhoneController.text.toIraqCode,
+          phoneNumber: phoneController.text.toIraqCode,
           academicLevelId: int.parse(academicLevelId),
           stageLevelId: int.parse(stageLevelId),
           birthDate: birthDateController.text,
@@ -132,13 +132,13 @@ class EditProfileScreen extends BaseStatelessWidget {
   }
 
   _initData() {
-    gender = profile.gender ?? '';
     serialNumberController.text = profile.specialCode ?? '';
     nameController.text = profile.name ?? '';
-    phoneController.text = profile.phoneNumber ?? '';
-    parentPhoneController.text = profile.parentPhone ?? '';
+    phoneController.text = (profile.phoneNumber ?? '').removeIraqCode;
+    parentPhoneController.text = (profile.parentPhone ?? '').removeIraqCode;
     academicLevelId  = profile.academicLevelId.toString() ?? '';
     stageLevelId = profile.stageLevelId.toString();
     birthDateController.text = profile.birthDate ?? '';
+    gender = profile.gender ?? '';
   }
 }

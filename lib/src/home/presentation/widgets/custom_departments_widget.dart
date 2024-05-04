@@ -28,7 +28,7 @@ class CustomDepartmentsWidget extends BaseStatelessWidget {
                     return InkWell(
                       onTap: () {
                         print('rrrr${department.id}');
-                         pushNamed(Routes.departmentPage,arguments:department.id );
+                         pushNamed(Routes.departmentPage,arguments: department );
                       },
                       child: CustomDepartmentItem(
                         department: department,

@@ -1,55 +1,71 @@
+import 'package:app/src/main_index.dart';
 import 'package:flutter/material.dart';
 
 class SelectionButtonChip extends StatelessWidget {
-  final List<String> types;
+  final List<SelectionItem> items;
   final EdgeInsetsGeometry? padding;
-  final void Function(bool)? onSelected;
-  const SelectionButtonChip({Key? key, required this.types, this.onSelected, this.padding}) : super(key: key);
+  final void Function(SelectionItem)? onSelected;
+
+  const SelectionButtonChip(
+      {Key? key, required this.items, this.onSelected, this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String _selectedType = '';
+    SelectionItem _selectedType =
+        items.isNotEmpty ? items.first : SelectionItem(id: '', title: '');
     ThemeData theme = Theme.of(context);
-    return   StatefulBuilder(
+    return StatefulBuilder(
       builder: (context, setState) {
-        return Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: types
-              .map((index) => Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: ChoiceChip(
-              label: Text(index,
-                  style: theme.textTheme.headlineMedium!.copyWith(
-                    color: _selectedType == index
-                        ? theme.cardColor
-                        : theme.primaryColor,
-                    fontSize: 15,
-                  )),
-              selected: _selectedType == index,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              selectedColor: theme.primaryColor,
-              backgroundColor: theme.cardColor,
-              side: BorderSide(
-                color: theme.primaryColor,
-                width: 1,
-              ),
-              padding: padding ?? const EdgeInsets.symmetric(vertical: 8, horizontal: 2),
-              onSelected: (selected) {
-                if (selected) {
-                  setState(() {
-                    _selectedType = index;
-                  });
-                  onSelected!(selected);
-                }
-              },
-            ),
-          ))
-              .toList(),
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: 10.paddingHoriz,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: items
+                .map((item) => Padding(
+                      padding: 10.paddingEnd,
+                      child: ChoiceChip(
+                        label: Text(item.title,
+                            style: context.headlineLarge.copyWith(
+                              color: _selectedType == item
+                                  ? context.labelMedium.color
+                                  : context.displaySmall.color,
+                              fontSize: 15,
+                            )),
+                        selected: _selectedType == item,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        showCheckmark: false,
+                        selectedColor: theme.primaryColor,
+                        backgroundColor: theme.primaryColor.withOpacity(0.1),
+                        side: BorderSide.none,
+                        padding: padding ??
+                            const EdgeInsets.symmetric(
+                                vertical: 0, horizontal: 10),
+                        onSelected: (selected) {
+                          if (selected) {
+                            setState(() {
+                              _selectedType = item;
+                            });
+                            onSelected!(_selectedType);
+                          }
+                        },
+                      ),
+                    ))
+                .toList(),
+          ),
         );
       },
     );
   }
+}
+
+class SelectionItem {
+  final String id;
+  final String title;
+
+  SelectionItem({required this.id, required this.title});
 }

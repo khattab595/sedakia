@@ -22,7 +22,7 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
         ),
         15.ph,
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BoldText(
               label: profile.name ?? '',

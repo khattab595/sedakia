@@ -20,19 +20,20 @@ extension AppResource on BuildContext {
   }
 
   String handleApiErrorMessage({required dynamic exception}) {
-    String message = injector<ServicesLocator>().appContext.strings.something_went_wrong;
+    final strings = getStrings();
+    String message = strings.something_went_wrong;
+    String messageWrong = message;
     String code = "0";
     print('handleApiError is dio   ${exception is DioException}');
     if (exception is DioException) {
 
-
       if (exception.error is WebSocketException ||
           exception.error is HandshakeException) {
-        message = 'error_internet_connection';
+        message = messageWrong;
       } else if (exception.error is SocketException ||
           exception.error is TimeoutException ||
           exception.error is TimeoutException || exception.type == DioErrorType.connectionTimeout) {
-        message = 'error_internet_connection';
+        message = message;
       }
       else if (exception.error is ApiException) {
         message = (exception.error as ApiException).message;
@@ -244,4 +245,9 @@ extension FirstWhereOrNullExtension<T> on Iterable<T> {
     }
     return null;
   }
+}
+
+extension AddIraqCode on String {
+  String get toIraqCode => '964$this';
+  String get removeIraqCode => replaceFirst('964', '');
 }

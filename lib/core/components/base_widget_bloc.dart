@@ -1,3 +1,5 @@
+import 'package:app/core/exceptions/empty_list_exception.dart';
+
 import '../../src/main_index.dart';
 
 abstract class BaseBlocWidget<T, B extends BlocBase<DataState>>
@@ -5,6 +7,7 @@ abstract class BaseBlocWidget<T, B extends BlocBase<DataState>>
   BuildContext? context =
       injector<ServicesLocator>().navigatorKey.currentContext;
   late B bloc = getBloc();
+
   B getBloc() {
     return injector.get<B>();
   }
@@ -105,10 +108,21 @@ abstract class BaseBlocWidget<T, B extends BlocBase<DataState>>
   }
 
   Widget handleApiErrorPlaceHolder(error, {Function()? onClickReload}) {
-    return ErrorPlaceHolderWidget(
-      exception: error,
-      onClickReload: onClickReload,
-    );
+    return error is EmptyListException
+        ? handleEmptyDataPlaceHolder() ??
+            ErrorPlaceHolderWidget(
+              exception: error,
+              onClickReload: onClickReload,
+            )
+        : ErrorPlaceHolderWidget(
+            exception: error,
+            onClickReload: onClickReload,
+          );
+  }
+
+  @protected
+  Widget? handleEmptyDataPlaceHolder() {
+    return null;
   }
 
   void handleApiError(error,

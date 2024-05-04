@@ -1,3 +1,5 @@
+import 'package:app/core/widgets/texts/black_texts.dart';
+import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../src/main_index.dart';
@@ -12,27 +14,28 @@ class CustomEmptyWidget extends BaseStatelessWidget {
   dynamic Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: 20.paddingHoriz,
+    return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppIcon(
-            icon: image,
-            size: 300,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: AppIcon(
+              icon: image,
+              size: 200,
+            ),
           ),
           30.ph,
-          BoldText(
+          BlackBoldText(
             fontSize: 25,
             textAlign: TextAlign.center,
             label: title,
           ),
           8.ph,
-          MediumText(
-            fontSize: 15,
-            textAlign: TextAlign.center,
+          HintMediumText(
             label: text,
+            textAlign: TextAlign.center,
           ),
           hasButton==true?
           PrimaryButton(

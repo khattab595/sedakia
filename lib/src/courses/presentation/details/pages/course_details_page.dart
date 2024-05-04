@@ -24,6 +24,9 @@ class CourseDetailsPage
     return CourseDetailsScreen(
       courseDetails: state.data!,
       teacher: getArguments(context).teacher ?? '',
+      onContactUs: () {
+        bloc.lunchSupport();
+      },
       subscribeCourse: (CourseSubscriptionParams params) {
         bloc.subscribeCourse(params);
       },

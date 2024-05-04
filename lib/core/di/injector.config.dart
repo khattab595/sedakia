@@ -146,10 +146,15 @@ Future<_i1.GetIt> $initGetIt(
       () => _i44.SplashRepo(gh<_i39.SplashDatasource>()));
   gh.factory<_i45.BaseTeacherRepo>(
       () => _i46.TeacherRepo(gh<_i40.TeacherDatasource>()));
-  gh.factory<_i47.CourseDetailsCubit>(
-      () => _i47.CourseDetailsCubit(gh<_i9.CoursesRepo>()));
-  gh.factory<_i48.CoursesCubit>(
-      () => _i48.CoursesCubit(gh<_i15.FavoriteRepo>()));
+  gh.factory<_i47.CourseDetailsCubit>(() => _i47.CourseDetailsCubit(
+        gh<_i9.CoursesRepo>(),
+        gh<_i33.ProfileRepo>(),
+      ));
+  gh.factory<_i48.CoursesCubit>(() => _i48.CoursesCubit(
+        gh<_i15.FavoriteRepo>(),
+        gh<_i12.DepartmentsRepo>(),
+        gh<_i24.HomeRepo>(),
+      ));
   gh.factory<_i49.DepartmentCubit>(
       () => _i49.DepartmentCubit(gh<_i12.DepartmentsRepo>()));
   gh.factory<_i50.FavoriteCubit>(

@@ -25,6 +25,6 @@ class EnterPinCodePage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamed(Routes.enterPinCodePage);
+    Navigators.pushNamed(Routes.changePasswordPage);
   }
 }

@@ -3,6 +3,7 @@ import '../../../../../core/widgets/custom_title_row.dart';
 import '../../../../../core/widgets/sliders/custom_slider_widget.dart';
 import '../../../../../core/widgets/texts/texts.dart';
 import '../../../../courses/domain/entities/course.dart';
+import '../../../../courses/domain/entities/latest_courses_args.dart';
 import '../../../../favorite/data/models/favorite_params.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/department.dart';
@@ -67,7 +68,10 @@ class HomeScreen extends BaseStatelessWidget {
                   title: strings.latest_courses,
                   onTap: () {
                     pushNamed(Routes.latestCoursesPage,
-                        arguments: recentlyCoursesStream.data);
+                        arguments: LatestCoursesArgs(
+                          courses: recentlyCoursesStream.data!,
+                          departments: departmentsStream.data!,
+                        ));
                   },
                 ),
                 8.ph,

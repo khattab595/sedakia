@@ -42,7 +42,7 @@ class Profile {
         picIdentityB: json.picIdentityB,
         stageLevelId: json.stageLevelId,
         birthDate: json.birthDate,
-        gender: json.academicLevel,
+        gender: json.gender,
         academicLevel: json.academicLevel,
         academicLevelId: json.academicLevelId,
         stageLevel: json.stageLevel,

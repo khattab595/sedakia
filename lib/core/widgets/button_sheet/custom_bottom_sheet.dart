@@ -1,13 +1,15 @@
 import 'package:app/core/utils/navigator.dart';
+import 'package:app/core/widgets/buttons/label_button.dart';
 import 'package:app/src/main_index.dart';
 import '../text-field/custom_text_field.dart';
 import '../texts/texts.dart';
 
 class CustomBottomSheet extends BaseStatelessWidget {
-   CustomBottomSheet({super.key,required this.onPressed,required this.formKeyButtonSheet, required this.buttonSheetController, });
+   CustomBottomSheet({super.key,required this.onPressed,required this.onContactUs,required this.formKeyButtonSheet, required this.buttonSheetController, });
    final GlobalKey<FormState> formKeyButtonSheet;
    final TextEditingController buttonSheetController;
-   dynamic Function()? onPressed;
+   final Function()? onPressed;
+   final VoidCallback onContactUs;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,10 +53,13 @@ class CustomBottomSheet extends BaseStatelessWidget {
                       labelColor: context.hintColor,
                     ),
                     2.pw,
-                    SemiBoldText(
-                      label:strings.contact_us,
+                    LabelButton(
+                      title: strings.contact_us,
                       fontSize: 14,
-                      labelColor: context.primaryColor,
+                      style: primaryMediumStyle,
+                      onTap: (){
+                        onContactUs();
+                      },
                     ),
                   ],
                 ),

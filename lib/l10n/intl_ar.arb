@@ -73,8 +73,8 @@
   "study": "الدراسة",
   "stage": "المرحلة",
   "confirm_password": "تأكيد كلمة المرور",
-  "must_be_start_with_96477": "يجب أن يبدأ بـ 96477",
-  "must_be_10_digits": "يجب أن يكون 10 أرقام",
+  "must_be_start_with_964": "يجب أن يبدأ بـ 964",
+  "must_be_more_than_6_digits": "يجب أن يكون أكثر من 6 أرقام",
   "back": "رجوع",
   "forgot_password_message": "ادخل رقم الموبايل لإعادة تعيين كلمة المرور",
   "remember_password": "تذكرت كلمة المرور؟",
@@ -87,6 +87,8 @@
   "support": "الدعم",
   "edit": "تعديل",
   "sign_out": "تسجيل الخروج",
+  "all": "الكل",
+  "error_internet_connection": "لا يوجد اتصال بالإنترنت",
 
 
 
