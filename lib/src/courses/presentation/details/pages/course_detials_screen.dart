@@ -46,7 +46,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
                   ),
                 ],
               ),
-              Expanded(
+              Flexible(
                 child: TabBarWidget(tabs: [
                   TabItemModel(label: strings.details, page: CustomDetailsWidget(courseDetails: courseDetails,)),
                   TabItemModel(label: strings.lessons, page: CustomLessonsWidget(courseDetails: courseDetails,)),
