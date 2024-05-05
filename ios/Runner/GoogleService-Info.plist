@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.multiurun.wazary</string>
+	<string>com.multiurun.wezary</string>
 	<key>PROJECT_ID</key>
 	<string>wezary-1218a</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1047696854826:ios:6b3a73717f4cca7a0b1853</string>
+	<string>1:1047696854826:ios:e4c859735ffb2d9e0b1853</string>
 </dict>
 </plist>
