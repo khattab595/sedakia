@@ -10,7 +10,7 @@ import FirebaseCore
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
     FirebaseApp.configure()
-  //  self.window.makeSecure()
+   self.window.makeSecure()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
