@@ -20,10 +20,13 @@ class LocaleCubit extends Cubit<LocalState> {
 
   Future getLanguageData() async {
     emit(LocalState(isLoading: true));
-    final String language = await HelperMethods.getLanguage();
-    lang = language;
-    bool isLogin = await HelperMethods.isLogin();
-    bool isFirstTime = await HelperMethods.isFirstTime();
-    emit(LocalState(language: language, isLogin: isLogin, isFirstTime: isFirstTime, isLoading: false));
-  }
+    Future.delayed(const Duration(seconds: 2)).then((value)async {
+      final String language = await HelperMethods.getLanguage();
+      lang = language;
+      bool isLogin = await HelperMethods.isLogin();
+      bool isFirstTime = await HelperMethods.isFirstTime();
+      emit(LocalState(language: language, isLogin: isLogin, isFirstTime: isFirstTime, isLoading: false));
+
+    });
+   }
 }

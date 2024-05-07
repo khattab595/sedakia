@@ -12,17 +12,8 @@ class LoadingView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 30,
-              width: 30,
-/*
-                child: Image.asset('images/loading_gify.gif'),
-*/
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: context.primaryColor,
-              ),
-            ),
+        Image.asset(AppImages.splash,
+          height: 400,fit: BoxFit.cover,)
           ],
         ),
       ),

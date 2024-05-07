@@ -22,6 +22,7 @@ import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/splash/presentation/pages/introduction_page.dart';
+import '../../src/splash/presentation/pages/spalsh_screen/splash_page.dart';
 import '../../src/teachers/presentation/pages/teacher_details/teacher_details_page.dart';
 import '../../src/teachers/presentation/pages/teachers_page.dart';
 
@@ -58,12 +59,14 @@ class Routes {
   static const String favoritePage = 'favoritePage';
   static const String advertisementPage = 'advertisementPage';
   static const String latestCoursesStreamPage = 'latestCoursesStreamPage';
+  static const String splashPage = 'splashPage';
 
 
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
 
   static final routes = <String, Widget Function(BuildContext)>{
+    splashPage: (context) => SplashPage(),
     intro: (context) => IntroductionPage(),
     onboardingPage: (context) => const OnBoardingPage(),
     register: (context) => RegisterPage(),

@@ -46,15 +46,13 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => LocaleCubit()..getLanguageData(),
       child: BlocBuilder<LocaleCubit, LocalState>(
-        //  bloc: LocaleCubit()..getLanguageData(),
         builder: (context, state) {
-          print('state.isFirstTime ${state.isFirstTime}');
           return state.isLoading
               ? LoadingView()
               : MaterialApp(
             theme: lightTheme,
             debugShowCheckedModeBanner: false,
-            locale: Locale('ar'),
+            locale: const Locale('ar'),
             navigatorKey: injector<ServicesLocator>().navigatorKey,
             localizationsDelegates: const [
               AppLocalizations.delegate,
@@ -67,7 +65,9 @@ class MyApp extends StatelessWidget {
               Locale('ar'), // Arabic, no country code
             ],
             routes: Routes.routes,
-            initialRoute: state.isFirstTime
+            initialRoute:
+            // Routes.splashPage
+            state.isFirstTime
                 ? Routes.onboardingPage
                 : state.isLogin
                 ? Routes.navigationPages
