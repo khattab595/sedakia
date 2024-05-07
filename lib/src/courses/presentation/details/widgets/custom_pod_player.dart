@@ -31,9 +31,7 @@ class _PlayVideoFromNetworkState extends State<PlayVideoFromNetwork> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PodVideoPlayer(controller: controller,
-      ),
+    return  PodVideoPlayer(controller: controller,
     );
   }
 }
