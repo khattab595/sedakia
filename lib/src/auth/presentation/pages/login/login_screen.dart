@@ -50,7 +50,6 @@ class LoginScreen extends BaseStatelessWidget {
             CustomTextField(
               controller: passwordController,
               hintText: strings.password,
-              keyboardType: TextInputType.number,
               margin: 7.paddingBottom,
               validator: (value) => Validation.validatePassword(value ?? ''),
             ),
