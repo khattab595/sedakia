@@ -120,5 +120,7 @@
   "bill": "الفاتورة",
   "amount": "المبلغ",
   "save": "حفظ",
-  "gender": "الجنس"
+  "gender": "الجنس",
+  "delete_account": "حذف الحساب",
+  "delete_account_message": "هل أنت متأكد من حذف الحساب؟"
 }

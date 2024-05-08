@@ -1,6 +1,8 @@
 
 import 'dart:async';
 import 'dart:math';
+import 'package:app/core/exceptions/extensions.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:flutter/material.dart';
 
 
@@ -38,9 +40,9 @@ class _RandomTextAnimationState extends State<RandomTextAnimation> {
           left: _left,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
-          child: Text(
-            widget.text,
-            style: const TextStyle(fontSize: 18, color: Colors.orange),
+          child: PrimaryRegularText(
+            label: widget.text,
+            labelColor: Color(0xff606CBF),
           ),
         ),
       ],

@@ -4,8 +4,10 @@ import '../../../main_index.dart';
 
 class CustomDialogBody extends BaseStatelessWidget {
   final VoidCallback onLogout;
+  final String? title;
+  final String? description;
 
-  CustomDialogBody( {super.key,required this.onLogout,});
+  CustomDialogBody( {super.key,required this.onLogout, this.title, this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +20,19 @@ class CustomDialogBody extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             BoldText(
-              label:strings.sign_out,
+              label: title ?? strings.sign_out,
               fontSize: 20,
               labelColor: Colors.red,
             ),
             8.ph,
             MediumText(
-              label:strings.sign_out_mes,
+              label: description ?? strings.sign_out_mes,
               fontSize: 14,
             ),
             24.ph,
             PrimaryButton(
               height: 35,
-              title: strings.sign_out,
+              title: title ?? strings.sign_out,
               onPressed: onLogout,
             ),
             PrimaryButton(

@@ -11,6 +11,7 @@ import '../widgets/profile_item.dart';
 class ProfileScreen extends BaseStatelessWidget {
   final Profile profile;
   final VoidCallback onLogout;
+  final VoidCallback onDeleteAccount;
   final VoidCallback onRefresh;
   final VoidCallback onSupport;
   final Function(File) onSelectImage;
@@ -19,6 +20,7 @@ class ProfileScreen extends BaseStatelessWidget {
       {Key? key,
       required this.profile,
       required this.onLogout,
+      required this.onDeleteAccount,
       required this.onRefresh,
       required this.onSupport,
       required this.onSelectImage,
@@ -77,6 +79,13 @@ class ProfileScreen extends BaseStatelessWidget {
             title: strings.terms_conditions,
             route: Routes.aboutPage,
             args: AboutType.terms,
+          ),
+          PrimaryButton(
+            title: strings.delete_account,
+            onPressed: onDeleteAccount,
+            style: primaryBoldStyle.copyWith(color: errorColor),
+            margin: 10.paddingHoriz + 20.paddingTop,
+            backgroundColor: primaryColor.withOpacity(0.1),
           ),
           PrimaryButton(
             title: strings.sign_out,

@@ -22,6 +22,7 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
       onSupport: () => bloc.lunchSupport(),
       onSelectImage: (file) => bloc.editProfileImage(file),
       onLogout: onLogout,
+      onDeleteAccount: onDelete,
     );
   }
 
@@ -32,6 +33,16 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
 
   onLogout() {
     DialogsManager.showAlertDialog(context!, CustomDialogBody(
+      onLogout: () {
+        bloc.logout();
+      },
+    ));
+  }
+
+  onDelete() {
+    DialogsManager.showAlertDialog(context!, CustomDialogBody(
+      title: strings.delete_account,
+      description: strings.delete_account_message,
       onLogout: () {
         bloc.logout();
       },

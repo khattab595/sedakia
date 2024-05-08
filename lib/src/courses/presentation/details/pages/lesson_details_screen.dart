@@ -42,7 +42,7 @@ class LessonDetailsScreen extends BaseStatelessWidget {
                 alignment: Alignment.topCenter,
                 children: [
                  PlayVideoFromNetwork(
-                   url: subject.link!,
+                   url: subject.link ??'',
                    controller: controller,
                  ),
                   CodeAnimation(),
