@@ -36,15 +36,15 @@ class LessonDetailsScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 200,
+              height: 250,
               width: double.infinity,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  PlayVideoFromNetwork(
-                    url: subject.link!,
-                    controller: controller,
-                  ),
+                 PlayVideoFromNetwork(
+                   url: subject.link!,
+                   controller: controller,
+                 ),
                   CodeAnimation(),
                 ],
               ),

@@ -40,7 +40,7 @@ class _RandomTextAnimationState extends State<RandomTextAnimation> {
           curve: Curves.easeInOut,
           child: Text(
             widget.text,
-            style: const TextStyle(fontSize: 24, color: Colors.orange),
+            style: const TextStyle(fontSize: 18, color: Colors.orange),
           ),
         ),
       ],
