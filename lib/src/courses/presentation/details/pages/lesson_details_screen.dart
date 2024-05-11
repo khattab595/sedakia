@@ -38,15 +38,10 @@ class LessonDetailsScreen extends BaseStatelessWidget {
             SizedBox(
               height: 250,
               width: double.infinity,
-              child: Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                 PlayVideoFromNetwork(
-                   url: subject.link ??'',
-                   controller: controller,
-                 ),
-                  CodeAnimation(),
-                ],
+              child: PlayVideoFromNetwork(
+                url: subject.link ??'',
+                controller: controller,
+
               ),
             ),
             Padding(

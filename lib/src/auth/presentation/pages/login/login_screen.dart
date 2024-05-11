@@ -25,8 +25,8 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(kDebugMode){
-      phoneNumberController.text = '7712345678';
-      passwordController.text = '123456789';
+      phoneNumberController.text = '7712345600';
+      passwordController.text = '12345678';
     }
     return  Form(
       key: formKey,

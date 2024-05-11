@@ -1,6 +1,6 @@
 import 'package:app/core/widgets/texts/black_texts.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
-import 'package:app/core/widgets/texts/texts.dart';
+
 
 import '../../src/main_index.dart';
 
@@ -14,6 +14,7 @@ class CustomEmptyWidget extends BaseStatelessWidget {
   dynamic Function()? onPressed;
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Padding(
         padding: 20.paddingHoriz,
@@ -25,7 +26,7 @@ class CustomEmptyWidget extends BaseStatelessWidget {
               fit: BoxFit.scaleDown,
               child: AppIcon(
                 icon: image,
-                size: 200,
+                size: 50,
               ),
             ),
             30.ph,

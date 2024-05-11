@@ -2,12 +2,16 @@ import 'dart:io';
 
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
+import 'package:app/src/test2.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
 import 'src/main_index.dart';
+import 'package:flutter/material.dart';
+import 'package:media_kit/media_kit.dart';                      // Provides [Player], [Media], [Playlist] etc.
+import 'package:media_kit_video/media_kit_video.dart';          // Provides [VideoController] & [Video] etc.
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -33,6 +37,8 @@ Future<void> main() async {
   )).create());
 
   HttpOverrides.global = MyHttpOverrides();
+  MediaKit.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -64,9 +70,12 @@ class MyApp extends StatelessWidget {
               Locale('en'), // English, no country code
               Locale('ar'), // Arabic, no country code
             ],
-            routes: Routes.routes,
-            initialRoute:
-            Routes.splashPage
+            // routes: Routes.routes,
+            // initialRoute:
+            // Routes.splashPage
+            home: Test2(),
+
+
             // state.isFirstTime
             //     ? Routes.onboardingPage
             //     : state.isLogin

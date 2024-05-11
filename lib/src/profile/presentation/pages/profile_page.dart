@@ -8,7 +8,8 @@ import 'profile_screen.dart';
 
 class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
   ProfilePage({Key? key}) : super(key: key);
-
+//9647712345600
+  //12345678
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchProfileData();

@@ -14,7 +14,7 @@ class CodeAnimation extends StatelessWidget {
             ? const CircularProgressIndicator()
             :
           RandomTextAnimation(
-          text: snapshot.data?.specialCode ?? '',
+          text: snapshot.data?.specialCode ?? 'yehyaaaaaaaa',
         );
       },
     );
