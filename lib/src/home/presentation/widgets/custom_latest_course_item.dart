@@ -43,6 +43,7 @@ class CustomLatestCourseItem extends BaseStatelessWidget {
                       child: ImageNetwork(
                         image: myCourse.image!,
                         radius: 12,
+                        fit: BoxFit.scaleDown,
                       )),
                   Positioned(
                     top: 4,

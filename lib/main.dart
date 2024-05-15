@@ -70,17 +70,17 @@ class MyApp extends StatelessWidget {
               Locale('en'), // English, no country code
               Locale('ar'), // Arabic, no country code
             ],
-            // routes: Routes.routes,
-            // initialRoute:
+            routes: Routes.routes,
+            initialRoute:
             // Routes.splashPage
-            home: Test2(),
+            // home: Test2(),
 
 
-            // state.isFirstTime
-            //     ? Routes.onboardingPage
-            //     : state.isLogin
-            //     ? Routes.navigationPages
-            //     : Routes.loginPage,
+            state.isFirstTime
+                ? Routes.onboardingPage
+                : state.isLogin
+                ? Routes.navigationPages
+                : Routes.loginPage,
           );
         },
       ),

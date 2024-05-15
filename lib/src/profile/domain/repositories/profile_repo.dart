@@ -8,6 +8,7 @@ import '../entities/profile.dart';
 
 abstract class ProfileRepo{
   Future<Profile> fetchProfileData(bool isFromCash);
+  Future<Profile> fetchProfile();
   Future<String> editProfileData(ProfileDto params);
   Future<String> editProfileImage(File file);
   Future<String> deleteProfileData();

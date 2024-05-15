@@ -29,7 +29,7 @@ class AuthRepoImp extends AuthRepo {
       token: response.token,
     );
     await HelperMethods.saveProfile(profileDto);
-    return Profile.fromDto(profileDto);
+    return Profile.fromDto(response.data ?? ProfileDto());
   }
 
   @override

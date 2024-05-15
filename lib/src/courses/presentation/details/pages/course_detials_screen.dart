@@ -41,6 +41,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
               child: ImageNetwork(
                 image: courseDetails.image!,
                 radius: 12,
+                fit: BoxFit.scaleDown,
               )),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
