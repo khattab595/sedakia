@@ -19,7 +19,8 @@ class CourseDetailsDto {
   int? teacherId;
   @JsonKey(name: 'subjects')
   List<LessonDto>? subjects;
-
+  @JsonKey(name: 'is_free')
+  int? isFree;
   CourseDetailsDto(
       {this.id,
       this.name,
@@ -28,7 +29,9 @@ class CourseDetailsDto {
       this.description,
       this.department,
       this.teacherId,
-      this.subjects});
+      this.subjects,
+      this.isFree,
+      });
 
   factory CourseDetailsDto.fromJson(Map<String, dynamic> json) => _$CourseDetailsDtoFromJson(json);
 

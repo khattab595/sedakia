@@ -76,6 +76,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
             ]),
           ),
           10.ph,
+          courseDetails.isFree==false?
           PrimaryButton(
             title: strings.subscription,
             onPressed: () {
@@ -91,7 +92,8 @@ class CourseDetailsScreen extends BaseStatelessWidget {
                 ),
               );
             },
-          ),
+          ):
+          const SizedBox.shrink(),
         ],
       ),
     );

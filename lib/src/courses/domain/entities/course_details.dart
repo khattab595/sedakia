@@ -15,6 +15,7 @@ class CourseDetails {
   String? department;
   int? teacherId;
   List<Lesson>? subjects;
+  bool? isFree;
 
   CourseDetails(
       {this.id,
@@ -24,7 +25,9 @@ class CourseDetails {
       this.description,
       this.department,
       this.teacherId,
-      this.subjects});
+      this.subjects,
+      this.isFree,
+      });
 
   factory CourseDetails.fromDto(CourseDetailsDto json) {
     return CourseDetails(
@@ -35,6 +38,7 @@ class CourseDetails {
       description: json.description,
       department: json.department,
       teacherId: json.teacherId,
+      isFree: json.isFree==0?true:false,
       subjects: Lesson.fromDtoList(json.subjects)
     );
   }
