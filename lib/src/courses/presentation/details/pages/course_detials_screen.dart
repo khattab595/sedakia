@@ -77,8 +77,8 @@ class CourseDetailsScreen extends BaseStatelessWidget {
             ]),
           ),
           10.ph,
-          courseDetails.isFree==false?
-          PrimaryButton(
+          if(courseDetails.isFree==false)
+            PrimaryButton(
             title: strings.subscription,
             onPressed: () {
               showModalBottomSheet(
@@ -93,8 +93,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
                 ),
               );
             },
-          ):
-          const SizedBox.shrink(),
+          )
         ],
       ),
     );
