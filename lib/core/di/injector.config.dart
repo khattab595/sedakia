@@ -166,6 +166,7 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i52.GradesCubit>(() => _i52.GradesCubit(gh<_i21.GradesRepo>()));
   gh.factory<_i53.HomeCubit>(() => _i53.HomeCubit(
         gh<_i24.HomeRepo>(),
+        gh<_i33.ProfileRepo>(),
         gh<_i15.FavoriteRepo>(),
       ));
   gh.factory<_i54.NotificationsCubit>(

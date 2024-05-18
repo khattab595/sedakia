@@ -7,16 +7,20 @@ import 'package:flutter/material.dart';
 class CodeAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: HelperMethods.getProfile(),
-      builder: (context, snapshot) {
-        return snapshot.connectionState == ConnectionState.waiting
-            ? const CircularProgressIndicator()
-            :
-          RandomTextAnimation(
-          text: snapshot.data?.specialCode ?? 'yehyaaaaaaaa',
-        );
-      },
+    return SizedBox(
+          height: 250,
+          width: double.infinity,
+      child: FutureBuilder(
+        future: HelperMethods.getProfile(),
+        builder: (context, snapshot) {
+          return snapshot.connectionState == ConnectionState.waiting
+              ? const CircularProgressIndicator()
+              :
+            RandomTextAnimation(
+            text: snapshot.data?.specialCode ?? '',
+          );
+        },
+      ),
     );
   }
 }

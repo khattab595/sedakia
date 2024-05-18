@@ -31,6 +31,19 @@ class ProfileRepoImp extends ProfileRepo{
   }
 
   @override
+  Future<Profile> fetchProfile() async {
+    ProfileDto profile = await HelperMethods.getProfile();
+    if (profile.id != null){
+      return Profile.fromDto(profile);
+    } else {
+      final data = await apiProvider.fetchProfileData();
+      profile = data.data!;
+      await HelperMethods.saveProfile(profile);
+    }
+    return Profile.fromDto(profile);
+  }
+
+  @override
   Future<String> editProfileData(ProfileDto params) async {
     final data = await apiProvider.editProfileData(params);
     await HelperMethods.saveProfile(data.data!);

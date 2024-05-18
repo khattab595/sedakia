@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:app/src/profile/data/models/profile_dto.dart';
@@ -10,7 +9,6 @@ import 'package:app/src/auth/data/models/login_params.dart';
 import 'package:app/core/network/api_response.dart';
 
 import '../models/academic_level_dto.dart';
-import '../models/complete_registration_params.dart';
 import '../models/register_params.dart';
 import '../models/verification_code_params.dart';
 
@@ -23,7 +21,7 @@ abstract class AuthDataSource {
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
   @POST('/login')
-  Future<ApiResponse<ProfileDto>> login(@Body() LoginParams params);
+  Future<ApiResponse> login(@Body() LoginParams params);
 
   @POST('/register')
   Future<ApiResponse> register(@Body() RegisterParams params);
