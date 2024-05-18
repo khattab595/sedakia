@@ -77,7 +77,7 @@ class CourseDetailsScreen extends BaseStatelessWidget {
             ]),
           ),
           10.ph,
-          if(courseDetails.isFree==false)
+          if(courseDetails.isFree == false)
             PrimaryButton(
             title: strings.subscription,
             onPressed: () {
