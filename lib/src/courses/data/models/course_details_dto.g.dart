@@ -18,6 +18,7 @@ CourseDetailsDto _$CourseDetailsDtoFromJson(Map<String, dynamic> json) =>
       subjects: (json['subjects'] as List<dynamic>?)
           ?.map((e) => LessonDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      isFree: json['is_free'] as int?,
     );
 
 Map<String, dynamic> _$CourseDetailsDtoToJson(CourseDetailsDto instance) =>
@@ -30,6 +31,7 @@ Map<String, dynamic> _$CourseDetailsDtoToJson(CourseDetailsDto instance) =>
       'department': instance.department,
       'teacher': instance.teacherId,
       'subjects': instance.subjects,
+      'is_free': instance.isFree,
     };
 
 LessonDto _$LessonDtoFromJson(Map<String, dynamic> json) => LessonDto(
