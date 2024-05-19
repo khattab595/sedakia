@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'package:app/core/utils/helper_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import '../../src/main_index.dart';
 
@@ -25,7 +22,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true, badge: true, sound: true);
-  await FlutterPhoneDirectCaller.callNumber('+201141475581');
 }
 
 class FirebaseNotification {

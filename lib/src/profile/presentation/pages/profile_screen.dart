@@ -54,16 +54,6 @@ class ProfileScreen extends BaseStatelessWidget {
             onTap: showQRCodeImage,
           ),
           ProfileItem(
-            icon: AppIcons.grades_history,
-            title: strings.grades_history,
-            route: Routes.scoreCardPage,
-          ),
-          ProfileItem(
-            icon: AppIcons.favorite,
-            title: strings.favorite,
-            route: Routes.favoritePage,
-          ),
-          ProfileItem(
             icon: AppIcons.warning,
             title: strings.technical_support,
             onTap: onSupport,

@@ -3,14 +3,14 @@ import 'package:app/core/utils/navigator.dart';
 import '../../../../core/utils/helper_methods.dart';
 import '../../../main_index.dart';
 
-class SplashScreen extends StatefulWidget {
-  SplashScreen({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  SplashPage({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
@@ -18,16 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 2),
       () async {
         bool isLogin = await HelperMethods.isLogin();
-        bool isFirstTime = await HelperMethods.isFirstTime();
-        if (isFirstTime) {
-          pushNamedAndRemoveUntil(Routes.onboardingPage);
-        } else {
           if (isLogin) {
             pushNamedAndRemoveUntil(Routes.navigationPages);
           } else {
             pushNamedAndRemoveUntil(Routes.loginPage);
           }
-        }
       },
     );
   }

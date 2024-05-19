@@ -21,42 +21,7 @@ class _HomeDatasource implements HomeDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<SlideDto>>> fetchSlides() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<SlideDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/allAdvertisement',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<List<SlideDto>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<SlideDto>(
-                  (i) => SlideDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<CourseDto>> fetchRecentlyData() async {
+  Future<ApiResponse<CourseDto>> fetchCurrentProject() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -69,7 +34,7 @@ class _HomeDatasource implements HomeDatasource {
     )
             .compose(
               _dio.options,
-              '/recently',
+              '/fetchCurrentProject',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -86,42 +51,7 @@ class _HomeDatasource implements HomeDatasource {
   }
 
   @override
-  Future<ApiResponse<List<DepartmentDto>>> fetchDepartmentsData() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<DepartmentDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/departments',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<List<DepartmentDto>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<DepartmentDto>(
-                  (i) => DepartmentDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<List<CourseDto>>> fetchRecentlyCoursesData() async {
+  Future<ApiResponse<List<CourseDto>>> fetchProjects() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -134,7 +64,7 @@ class _HomeDatasource implements HomeDatasource {
     )
             .compose(
               _dio.options,
-              '/recentlyCourses',
+              '/fetchProjects',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -149,41 +79,6 @@ class _HomeDatasource implements HomeDatasource {
           ? json
               .map<CourseDto>(
                   (i) => CourseDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<List<TeacherDto>>> fetchTeachersData() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<TeacherDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/teachers',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<List<TeacherDto>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<TeacherDto>(
-                  (i) => TeacherDto.fromJson(i as Map<String, dynamic>))
               .toList()
           : List.empty(),
     );

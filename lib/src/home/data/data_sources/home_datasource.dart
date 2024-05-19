@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
-import '../../../courses/data/models/course_dto.dart';
+import '../../../request_log/data/models/course_dto.dart';
 import '../models/department_dto.dart';
 import '../models/slide_dto.dart';
 import '../models/teacher_dto.dart';
@@ -16,20 +16,11 @@ abstract class  HomeDatasource{
   @factoryMethod
   factory HomeDatasource(Dio dio) = _HomeDatasource;
 
-  @GET('/allAdvertisement')
-  Future<ApiResponse<List<SlideDto>>> fetchSlides();
+  @GET('/fetchCurrentProject')
+  Future<ApiResponse<CourseDto>> fetchCurrentProject();
 
-  @GET('/recently')
-  Future<ApiResponse<CourseDto>> fetchRecentlyData();
-
-  @GET('/departments')
-  Future<ApiResponse<List<DepartmentDto>>> fetchDepartmentsData();
-
-  @GET('/recentlyCourses')
-  Future<ApiResponse<List<CourseDto>>> fetchRecentlyCoursesData();
-
-  @GET('/teachers')
-  Future<ApiResponse<List<TeacherDto>>> fetchTeachersData();
+  @GET('/fetchProjects')
+  Future<ApiResponse<List<CourseDto>>> fetchProjects();
 
 
 }

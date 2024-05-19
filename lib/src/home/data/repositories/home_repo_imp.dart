@@ -1,11 +1,8 @@
 
+import 'package:app/src/request_log/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../courses/data/models/course_dto.dart';
-import '../../../courses/domain/entities/course.dart';
-import '../../domain/entities/department.dart';
-import '../../domain/entities/slide.dart';
-import '../../domain/entities/teacher.dart';
+import '../../../request_log/data/models/course_dto.dart';
 import '../../domain/repositories/home_repo.dart';
 import '../data_sources/home_datasource.dart';
 
@@ -16,35 +13,17 @@ class HomeRepoImp extends HomeRepo{
   HomeRepoImp(this.datasource);
 
 
-
   @override
-  Future<List<Slide>> fetchSlides() async {
-    final response = await datasource.fetchSlides();
-    return response.data?.map((e) => Slide.fromDto(e)).toList() ?? [];
-  }
-
-  @override
-  Future<Course> fetchRecentlyData() async {
-    final response = await datasource.fetchRecentlyData();
+  Future<Course> fetchCurrentProject() async {
+    final response = await datasource.fetchCurrentProject();
     return Course.fromDto(response.data ?? CourseDto());
   }
 
   @override
-  Future<List<Department>> fetchDepartmentsData() async {
-    final response = await datasource.fetchDepartmentsData();
-    return response.data?.map((e) => Department.fromDto(e)).toList() ?? [];
-  }
-
-  @override
-  Future<List<Course>> fetchRecentlyCoursesData() async {
-    final response = await datasource.fetchRecentlyCoursesData();
+  Future<List<Course>> fetchProjects() async {
+    final response = await datasource.fetchProjects();
     return response.data?.map((e) => Course.fromDto(e)).toList() ?? [];
   }
 
-  @override
-  Future<List<Teacher>> fetchTeachersData() async {
-    final response = await datasource.fetchTeachersData();
-    return response.data?.map((e) => Teacher.fromDto(e)).toList() ?? [];
-  }
 
 }

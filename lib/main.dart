@@ -2,16 +2,12 @@ import 'dart:io';
 
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
-import 'package:app/src/test2.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
-import 'src/main_index.dart';
-import 'package:flutter/material.dart';
-import 'package:media_kit/media_kit.dart';                      // Provides [Player], [Media], [Playlist] etc.
-import 'package:media_kit_video/media_kit_video.dart';          // Provides [VideoController] & [Video] etc.
+import 'src/main_index.dart'; // Provides [VideoController] & [Video] etc.
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -37,7 +33,6 @@ Future<void> main() async {
   )).create());
 
   HttpOverrides.global = MyHttpOverrides();
-  MediaKit.ensureInitialized();
 
   runApp(const MyApp());
 }
@@ -56,30 +51,23 @@ class MyApp extends StatelessWidget {
           return state.isLoading
               ? LoadingView()
               : MaterialApp(
-            theme: lightTheme,
-            debugShowCheckedModeBanner: false,
-            locale: const Locale('ar'),
-            navigatorKey: injector<ServicesLocator>().navigatorKey,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: const [
-              Locale('en'), // English, no country code
-              Locale('ar'), // Arabic, no country code
-            ],
-             routes: Routes.routes,
-             initialRoute:
-            // Routes.splashPage
-
-            state.isFirstTime
-                ? Routes.onboardingPage
-                : state.isLogin
-                ? Routes.navigationPages
-                : Routes.loginPage,
-          );
+                  theme: lightTheme,
+                  debugShowCheckedModeBanner: false,
+                  locale: const Locale('ar'),
+                  navigatorKey: injector<ServicesLocator>().navigatorKey,
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: const [
+                    Locale('en'), // English, no country code
+                    Locale('ar'), // Arabic, no country code
+                  ],
+                  routes: Routes.routes,
+                  initialRoute: state.isLogin ? Routes.navigationPages : Routes.loginPage,
+                );
         },
       ),
     );

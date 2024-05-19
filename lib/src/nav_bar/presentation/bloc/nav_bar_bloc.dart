@@ -2,7 +2,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../home/presentation/pages/home/home_page.dart';
+import '../../../home/presentation/pages/home_page.dart';
 
 
 @Injectable()
