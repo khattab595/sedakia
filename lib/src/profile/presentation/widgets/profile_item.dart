@@ -1,6 +1,6 @@
-import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../../../core/utils/navigator.dart';
+import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
 
 class ProfileItem extends StatelessWidget {
@@ -48,7 +48,7 @@ class ProfileItem extends StatelessWidget {
           ),
         ),
         minLeadingWidth: 40,
-        title: BoldText(
+        title: BlackMediumText(
           label: title,
         ),
         trailing: const AppIcon(

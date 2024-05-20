@@ -1,5 +1,5 @@
-import 'package:app/core/widgets/texts/texts.dart';
 
+import '../widgets/texts/black_texts.dart';
 import '/src/main_index.dart';
 // ignore: must_be_immutable
 class ErrorPlaceHolderWidget extends StatelessWidget {
@@ -45,9 +45,9 @@ class ErrorPlaceHolderWidget extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 12),
                 child: placeHolderImage,
               ):Container(),
-              title!=null ? MediumText(label: title!,):Container(),
+              title!=null ? BlackMediumText(label: title!,):Container(),
 
-              RegularText(
+              BlackRegularText(
                 label: message.toString().trim(),
                 textAlign: TextAlign.center,
               ),

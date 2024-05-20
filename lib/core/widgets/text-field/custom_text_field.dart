@@ -1,6 +1,4 @@
-import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
-import 'package:app/core/widgets/texts/texts.dart';
 import 'package:app/src/main_index.dart';
 
 

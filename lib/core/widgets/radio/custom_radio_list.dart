@@ -1,6 +1,6 @@
-import 'package:app/core/widgets/texts/texts.dart';
 
 import '../../../src/main_index.dart';
+import '../texts/black_texts.dart';
 
 class CustomRadioList extends StatelessWidget {
   final String title;
@@ -27,7 +27,7 @@ class CustomRadioList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RadioListTile(
-      title: SemiBoldText(label: title ?? ''),
+      title: BlackSemiBoldText(label: title ?? ''),
       value: value,
       groupValue: groupValue,
       onChanged: onChanged,

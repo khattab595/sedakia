@@ -1,7 +1,5 @@
-import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/core/widgets/texts/texts.dart';
 
-import '../../../../../core/components/base_stateless_widget.dart';
+import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
 
 
@@ -40,7 +38,7 @@ class CheckBoxTermsConditions extends BaseStatelessWidget {
           ),
           5.pw,
           Flexible(
-            child: MediumText(
+            child: BlackSemiBoldText(
               fontSize: 14,
               label: strings.i_read_and_agree_msg,
             ),

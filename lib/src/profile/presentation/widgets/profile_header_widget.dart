@@ -1,7 +1,7 @@
 
 import 'dart:io';
 
-import '../../../../core/widgets/texts/texts.dart';
+import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
 import 'edit_profile_image.dart';
@@ -24,11 +24,11 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            BoldText(
+            BlackMediumText(
               label: profile.name ?? '',
             ),
             5.ph,
-            RegularHintText(
+            BlackMediumText(
               label: profile.specialCode ?? '',
             ),
           ],

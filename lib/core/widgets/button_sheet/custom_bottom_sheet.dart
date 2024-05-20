@@ -2,7 +2,7 @@ import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/buttons/label_button.dart';
 import 'package:app/src/main_index.dart';
 import '../text-field/custom_text_field.dart';
-import '../texts/texts.dart';
+import '../texts/black_texts.dart';
 
 class CustomBottomSheet extends BaseStatelessWidget {
    CustomBottomSheet({super.key,required this.onPressed,required this.onContactUs,required this.formKeyButtonSheet, required this.buttonSheetController, });
@@ -26,12 +26,12 @@ class CustomBottomSheet extends BaseStatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children:[
                 10.ph,
-                BoldText(
+                BlackSemiBoldText(
                   label:strings.do_subscription,
                   fontSize: 20,
                   labelColor: context.hintColor,
                 ),
-                SemiBoldText(
+                BlackSemiBoldText(
                   label:strings.subscription_mes,
                   fontSize: 14,
                   labelColor: context.hintColor,
@@ -47,7 +47,7 @@ class CustomBottomSheet extends BaseStatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SemiBoldText(
+                    BlackSemiBoldText(
                       label:strings.has_not_code,
                       fontSize: 14,
                       labelColor: context.hintColor,

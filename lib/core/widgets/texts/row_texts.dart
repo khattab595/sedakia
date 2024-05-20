@@ -1,8 +1,8 @@
-import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/core/widgets/texts/texts.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../themes/colors.dart';
+import 'black_texts.dart';
+
 
 class RowTexts extends StatelessWidget {
   final String title;
@@ -43,8 +43,8 @@ class RowTexts extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
         children: [
-          SemiBoldText(label: title, labelStyle: titleStyle, fontSize: 14),
-          RegularText(
+          BlackSemiBoldText(label: title, labelStyle: titleStyle, fontSize: 14),
+          BlackMediumText(
             labelStyle: valueStyle ,
             label: value,
             fontSize: 14,

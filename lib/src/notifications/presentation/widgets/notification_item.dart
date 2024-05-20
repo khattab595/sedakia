@@ -1,12 +1,6 @@
-import 'package:app/core/decorations/decorations.dart';
-import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/core/widgets/buttons/app_icon.dart';
-import 'package:flutter/material.dart';
 
-import '../../../../core/assets/app_icons.dart';
-import '../../../../core/components/base_stateless_widget.dart';
 import '../../../../core/widgets/texts/black_texts.dart';
-import '../../../../core/widgets/texts/texts.dart';
+import '../../../main_index.dart';
 import '../../domain/entities/notification.dart';
 
 class NotificationItem extends BaseStatelessWidget {
@@ -60,7 +54,7 @@ class NotificationItem extends BaseStatelessWidget {
                     ],
                   ),
                   4.ph,
-                  MediumText(
+                  BlackMediumText(
                     label: notification.description ?? '',
                     fontSize: 12,
                   ),

@@ -1,5 +1,5 @@
 import '../../../../../core/widgets/texts/hint_texts.dart';
-import '../../../../../core/widgets/texts/texts.dart';
+import '../../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../main_index.dart';
 import '../../../../../core/widgets/text-field/custom_pin_code.dart';
 
