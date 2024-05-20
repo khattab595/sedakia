@@ -40,7 +40,7 @@ class NotificationItem extends BaseStatelessWidget {
                 color: primaryColor.withOpacity(0.1),
               ),
               child: const AppIcon(
-                icon: AppIcons.noti,
+                icon: AppIcons.smartphone,
                 size: 20,
               ),
             ),

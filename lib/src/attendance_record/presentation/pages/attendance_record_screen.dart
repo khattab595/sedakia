@@ -2,10 +2,10 @@ import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 import '../widgets/attendance_record_item.dart';
 
-class DepartmentScreen extends BaseStatelessWidget {
+class AttendanceRecordScreen extends BaseStatelessWidget {
   final List<Course> courses;
 
-  DepartmentScreen({Key? key, required this.courses})
+  AttendanceRecordScreen({Key? key, required this.courses})
       : super(key: key);
 
   @override

@@ -10,7 +10,7 @@ class NotificationsScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(notifications.isEmpty){
-      return CustomEmptyWidget(image: AppIcons.notificationEmpty, text: strings.notification_empty_text, title:strings.notification_empty_title,);
+      return CustomEmptyWidget(image: AppIcons.smartphone, text: strings.notification_empty_text, title:strings.notification_empty_title,);
     }
     else{
       return ListView.builder(

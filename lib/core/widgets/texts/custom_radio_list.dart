@@ -32,7 +32,7 @@ class CustomRadioList extends StatelessWidget {
             ),
             const Spacer(),
             AppIcon(
-              icon: AppIcons.checkmarkCircle,
+              icon: AppIcons.home,
               color:
               value == groupValue ? theme.colorScheme.primary : theme.dividerColor,
             ),

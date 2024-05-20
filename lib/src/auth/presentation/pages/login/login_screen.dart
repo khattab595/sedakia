@@ -8,6 +8,7 @@ import '../../../../../core/resources/validation.dart';
 import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/text-field/mobile_text_field.dart';
+import '../../../../../core/widgets/text-field/password_text_field.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/login_params.dart';
@@ -47,11 +48,9 @@ class LoginScreen extends BaseStatelessWidget {
             MobileTextField(
               controller: phoneNumberController,
             ),
-            CustomTextField(
+            PasswordTextField(
               controller: passwordController,
-              hintText: strings.password,
-              margin: 7.paddingBottom,
-              validator: (value) => Validation.validatePassword(value ?? ''),
+              margin: 10.paddingBottom,
             ),
             Align(
               alignment: AlignmentDirectional.centerEnd,
@@ -69,26 +68,26 @@ class LoginScreen extends BaseStatelessWidget {
               margin: 30.paddingVert,
               onPressed: () => onPressed(),
             ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, Routes.register);
-              },
-              child: FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    HintMediumText(label: strings.dont_have_an_account,
-                    fontSize: 14,
-                    ),
-                    5.pw,
-                    PrimaryMediumText(label: strings.create_new_account,
-                      fontSize: 14,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // InkWell(
+            //   onTap: () {
+            //     Navigator.pushNamed(context, Routes.register);
+            //   },
+            //   child: FittedBox(
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       crossAxisAlignment: CrossAxisAlignment.center,
+            //       children: [
+            //         HintMediumText(label: strings.dont_have_an_account,
+            //         fontSize: 14,
+            //         ),
+            //         5.pw,
+            //         PrimaryMediumText(label: strings.create_new_account,
+            //           fontSize: 14,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

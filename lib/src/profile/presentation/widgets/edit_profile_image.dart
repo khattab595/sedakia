@@ -58,7 +58,7 @@ class EditProfileImage extends BaseStatelessWidget {
                 border: Border.all(color: context.cardColor, width: 1.5,),
               ),
               child: AppIcon(
-                icon: AppIcons.camera,
+                icon: AppIcons.smartphone,
                 padding: 5.paddingAll,
               ),
             ),

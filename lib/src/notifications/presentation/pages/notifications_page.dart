@@ -31,7 +31,7 @@ class NotificationsPage extends BaseBlocWidget<DataSuccess<List<Notifications>>,
    @override
    Widget handleEmptyDataPlaceHolder() {
      return CustomEmptyWidget(
-       image: AppIcons.notificationEmpty,
+       image: AppIcons.notification,
        text: strings.notification_empty_text,
        title: strings.notification_empty_title,
      );

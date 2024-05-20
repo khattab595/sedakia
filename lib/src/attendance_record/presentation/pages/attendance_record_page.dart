@@ -6,8 +6,8 @@ import '../bloc/attendance_record_bloc.dart';
 import 'attendance_record_screen.dart';
 
 
-class DepartmentPage extends BaseBlocWidget<DataSuccess<List<Course>>, AttendanceRecordCubit> {
-  DepartmentPage({Key? key}) : super(key: key);
+class AttendanceRecordPage extends BaseBlocWidget<DataSuccess<List<Course>>, AttendanceRecordCubit> {
+  AttendanceRecordPage({Key? key}) : super(key: key);
 
   @override
   void loadInitialData(BuildContext context) {
@@ -15,7 +15,7 @@ class DepartmentPage extends BaseBlocWidget<DataSuccess<List<Course>>, Attendanc
   }
   @override
   Widget buildWidget(BuildContext context, DataSuccess<List<Course>> state) {
-    return DepartmentScreen(
+    return AttendanceRecordScreen(
       courses: state.data!,
     );
   }

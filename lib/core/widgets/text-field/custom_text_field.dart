@@ -1,4 +1,5 @@
 import 'package:app/core/widgets/texts/hint_texts.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/texts.dart';
 import 'package:app/src/main_index.dart';
 
@@ -34,14 +35,14 @@ class CustomTextField extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     bool isVisibility = false;
     // if
-    Color? borderColor = colorBorderSide ?? primaryColorDark.withOpacity(0.1);
+    Color? borderColor = colorBorderSide ?? primaryColorDark.withOpacity(0.0);
     return Padding(
-      padding: margin ?? 12.paddingBottom,
+      padding: margin ?? 15.paddingBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[HintMediumText(label: title!, fontSize: 14),
-            5.ph],
+          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 18,),
+            8.ph],
           SizedBox(
             height: minHeight,
             child:  StatefulBuilder(

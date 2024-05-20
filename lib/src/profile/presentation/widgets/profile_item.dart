@@ -52,7 +52,7 @@ class ProfileItem extends StatelessWidget {
           label: title,
         ),
         trailing: const AppIcon(
-          icon: AppIcons.arrow_lift,
+          icon: AppIcons.smartphone,
           size: 16,
         ),
       ),

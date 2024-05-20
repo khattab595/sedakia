@@ -58,38 +58,38 @@ final lightTheme = ThemeData(
   ),
   inputDecorationTheme: const InputDecorationTheme(
     filled: true,
-    fillColor: Color(0xffffffff),
+    fillColor: Color(0xffF2F2F2),
     hintStyle: TextStyle(
       fontSize: 14,
-      fontFamily: 'Cairo-Regular',
+      fontFamily: Fonts.regular,
     ),
 
   ),
   fontFamily: Fonts.bold,
   textTheme:  const TextTheme(
     titleLarge: TextStyle(
-      fontSize: 32,
-      fontFamily: Fonts.bold,
-      fontWeight: FontWeight.bold,
-      color: AppColors.primaryLightText,
-    ),
-    titleMedium: TextStyle(
       fontSize: 22,
       fontFamily: Fonts.bold,
       fontWeight: FontWeight.bold,
       color: AppColors.primaryLightText,
     ),
-    titleSmall: TextStyle(
-      fontSize: 20.0,
+    titleMedium: TextStyle(
+      fontSize: 20,
+      fontFamily: Fonts.bold,
+      fontWeight: FontWeight.bold,
       color: AppColors.primaryLightText,
-      fontFamily: Fonts.regular,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 18.0,
+      color: AppColors.primaryLightText,
+      fontFamily: Fonts.bold,
       fontWeight: FontWeight.bold,
     ),
 
     bodyLarge: TextStyle(
       fontSize: 16.0,
       color: AppColors.primaryLightText,
-      fontFamily: Fonts.regular,
+      fontFamily: Fonts.semiBold,
       fontWeight: FontWeight.w600,
     ),
     bodyMedium: TextStyle(
@@ -125,7 +125,7 @@ final lightTheme = ThemeData(
     labelLarge: TextStyle(
       fontSize: 16.0,
       color: Colors.white,
-      fontFamily: Fonts.bold,
+      fontFamily: Fonts.semiBold,
       fontWeight: FontWeight.w600,
     ),
     labelMedium: TextStyle(
@@ -139,8 +139,6 @@ final lightTheme = ThemeData(
       color: Colors.white,
       fontFamily: Fonts.regular,
       fontWeight: FontWeight.w400,
-      letterSpacing: 1.0,
-      wordSpacing: 0.0,
     ),
     headlineSmall: TextStyle(
       fontSize: 14.0,
@@ -157,7 +155,7 @@ final lightTheme = ThemeData(
     headlineLarge: TextStyle(
       fontSize: 18.0,
       color: AppColors.primaryLight,
-      fontFamily: Fonts.bold,
+      fontFamily: Fonts.semiBold,
       fontWeight: FontWeight.w600,
     ),
 

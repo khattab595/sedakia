@@ -17,17 +17,10 @@ class MobileTextField extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextField(
       controller: controller,
-      title: title,
-      hintText: hintText ?? strings.mobile_number,
+      title: title ?? strings.mobile_number,
+      hintText: hintText,
       keyboardType: TextInputType.number,
-      suffixIcon: Container(
-        alignment: AlignmentDirectional.centerEnd,
-        width: 50,
-        padding: 10.paddingEnd,
-        child: HintMediumText(
-         label: '964+',
-        ),
-      ),
+      prefixIconPath: AppIcons.smartphone,
       validator: (value) {
         if (value!.isEmpty) {
           return strings.this_field_is_required;

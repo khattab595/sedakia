@@ -36,7 +36,7 @@ class SuccessWidget extends BaseStatelessWidget {
             ),
           ),
         const SizedBox(height: 30),
-        const AppIcon(icon: AppIcons.done, size: 100),
+        const AppIcon(icon: AppIcons.unlock, size: 100),
         const SizedBox(height: 20),
         Text(message, style: Theme.of(context).textTheme.headlineLarge),
         Spacer(),

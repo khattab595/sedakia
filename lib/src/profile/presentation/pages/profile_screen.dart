@@ -38,38 +38,38 @@ class ProfileScreen extends BaseStatelessWidget {
           ),
           const Divider(height: 20),
           ProfileItem(
-            icon: AppIcons.profile,
+            icon: AppIcons.smartphone,
             title: strings.personal_information,
             route: Routes.editProfilePage,
             onRefresh: onRefresh,
           ),
-          ProfileItem(
-            icon: AppIcons.lang,
-            title: strings.change_password,
-            route: Routes.changePasswordPage,
-          ),
-          ProfileItem(
-            icon: AppIcons.scan,
-            title: strings.show_qr,
-            onTap: showQRCodeImage,
-          ),
-          ProfileItem(
-            icon: AppIcons.warning,
-            title: strings.technical_support,
-            onTap: onSupport,
-          ),
-          ProfileItem(
-            icon: AppIcons.message_question,
-            title: strings.about_us,
-            route: Routes.aboutPage,
-              args: AboutType.aboutUs,
-          ),
-          ProfileItem(
-            icon: AppIcons.terms,
-            title: strings.terms_conditions,
-            route: Routes.aboutPage,
-            args: AboutType.terms,
-          ),
+          // ProfileItem(
+          //   icon: AppIcons.smartphone,
+          //   title: strings.change_password,
+          //   route: Routes.changePasswordPage,
+          // ),
+          // ProfileItem(
+          //   icon: AppIcons.scan,
+          //   title: strings.show_qr,
+          //   onTap: showQRCodeImage,
+          // ),
+          // ProfileItem(
+          //   icon: AppIcons.warning,
+          //   title: strings.technical_support,
+          //   onTap: onSupport,
+          // ),
+          // ProfileItem(
+          //   icon: AppIcons.message_question,
+          //   title: strings.about_us,
+          //   route: Routes.aboutPage,
+          //     args: AboutType.aboutUs,
+          // ),
+          // ProfileItem(
+          //   icon: AppIcons.terms,
+          //   title: strings.terms_conditions,
+          //   route: Routes.aboutPage,
+          //   args: AboutType.terms,
+          // ),
           PrimaryButton(
             title: strings.delete_account,
             onPressed: onDeleteAccount,

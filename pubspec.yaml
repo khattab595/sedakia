@@ -150,27 +150,27 @@ flutter:
 
 
   fonts:
-    - family: Cairo-Black
+    - family: Black
       fonts:
         - asset: assets/fonts/Cairo-Black.ttf
-    - family: Cairo-Bold
+    - family: Bold
       fonts:
         - asset: assets/fonts/Cairo-Bold.ttf
-    - family: Cairo-ExtraBold
+    - family: ExtraBold
       fonts:
         - asset: assets/fonts/Cairo-ExtraBold.ttf
-    - family: Cairo-ExtraLight
+    - family: ExtraLight
       fonts:
         - asset: assets/fonts/Cairo-ExtraLight.ttf
-    - family: Cairo-Light
+    - family: Light
       fonts:
         - asset: assets/fonts/Cairo-Light.ttf
-    - family: Cairo-Medium
+    - family: Medium
       fonts:
         - asset: assets/fonts/Cairo-Medium.ttf
-    - family: Cairo-Regular
+    - family: Regular
       fonts:
         - asset: assets/fonts/Cairo-Regular.ttf
-    - family: Cairo-SemiBold
+    - family: SemiBold
       fonts:
         - asset: assets/fonts/Cairo-SemiBold.ttf

@@ -13,8 +13,8 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       AppImages.spashLogo,
-      width: size ?? width ?? 90,
-      height: size ?? height ?? 90,
+      width: size ?? width ?? 120,
+      height: size ?? height ?? 120,
     );
   }
 }
