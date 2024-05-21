@@ -1,4 +1,6 @@
 
+import 'package:app/src/profile/presentation/bloc/profile_bloc.dart';
+
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
@@ -6,22 +8,23 @@ import '../bloc/attendance_record_bloc.dart';
 import 'attendance_record_screen.dart';
 
 
-class AttendanceRecordPage extends BaseBlocWidget<DataSuccess<List<Course>>, AttendanceRecordCubit> {
+class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
   AttendanceRecordPage({Key? key}) : super(key: key);
 
+  // @override
+  // void loadInitialData(BuildContext context) {
+  //   bloc.fetchDepartmentCourses();
+  // }
   @override
-  void loadInitialData(BuildContext context) {
-    bloc.fetchDepartmentCourses();
-  }
-  @override
-  Widget buildWidget(BuildContext context, DataSuccess<List<Course>> state) {
+  Widget buildWidget(BuildContext context, UnInitState state) {
     return AttendanceRecordScreen(
-      courses: state.data!,
+     // courses: state.data!,
     );
   }
 
   @override
   String? title(BuildContext context) {
-    return getArguments(context).name;
+    return strings.attendance;
+  //  return getArguments(context).name;
   }
 }

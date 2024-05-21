@@ -10,6 +10,8 @@ class AppIcons{
   static const String home = "assets/icons/home.svg";
   static const String profile = "assets/icons/profile.svg";
   static const String request = "assets/icons/request.svg";
+  static const String desc = "assets/icons/desc.svg";
+  static const String date = "assets/icons/date.svg";
 
 
 }
