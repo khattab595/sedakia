@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import '../../../../core/widgets/texts/black_texts.dart';
@@ -9,30 +8,53 @@ import 'edit_profile_image.dart';
 class ProfileHeaderWidget extends BaseStatelessWidget {
   final Profile profile;
   final Function(File) onSelectImage;
-   ProfileHeaderWidget({super.key, required this.profile, required this.onSelectImage});
+  ProfileHeaderWidget(
+      {super.key, required this.profile, required this.onSelectImage});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+    return Stack(
       children: [
-        EditProfileImage(
-          image: profile.image ?? '',
-          onSelectImage: onSelectImage,
+        Container(
+          height: 180,
+          color: Colors.white,
         ),
-        15.ph,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            BlackMediumText(
-              label: profile.name ?? '',
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 135,
+            padding: 10.paddingAll,
+            decoration: Decorations.baseDecorationRadius(
+                color: AppColors.primaryLight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                30.ph,
+                Text("محمد محمد القحطاني ",style: whiteMediumStyle.copyWith(fontSize: 22),),
+                Text("مراقب امن",style: whiteRegularStyle.copyWith(fontSize: 14),),
+                Text("${strings.code} #125480",style: whiteRegularStyle.copyWith(fontSize: 12),),
+              ],
             ),
-            5.ph,
-            BlackMediumText(
-              label: profile.specialCode ?? '',
-            ),
-          ],
+          ),
         ),
+        PositionedDirectional(
+            top: 0,
+            start: 30,
+            child: Container(
+                height: 80,
+                width: 80,
+                decoration: const BoxDecoration(shape: BoxShape.circle),
+                child: const CircleAvatar(
+                  radius: 35,
+                  backgroundColor: AppColors.greyColorB1,
+                  child: AppIcon(
+                      icon: AppIcons.profile,
+                      color: Colors.white,
+                      size: 40),
+                ))),
       ],
     );
   }

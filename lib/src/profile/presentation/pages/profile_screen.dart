@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:app/core/utils/navigator.dart';
+import 'package:app/src/profile/presentation/widgets/person_widget.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../main_index.dart';
@@ -7,6 +9,7 @@ import '../../../settings/domain/entities/about.dart';
 import '../../domain/entities/profile.dart';
 import '../widgets/profile_header_widget.dart';
 import '../widgets/profile_item.dart';
+import '../widgets/salary_widget.dart';
 
 class ProfileScreen extends BaseStatelessWidget {
   final Profile profile;
@@ -16,100 +19,45 @@ class ProfileScreen extends BaseStatelessWidget {
   final VoidCallback onSupport;
   final Function(File) onSelectImage;
 
-  ProfileScreen(
-      {Key? key,
-      required this.profile,
-      required this.onLogout,
-      required this.onDeleteAccount,
-      required this.onRefresh,
-      required this.onSupport,
-      required this.onSelectImage,
-})
-      : super(key: key);
+  ProfileScreen({
+    Key? key,
+    required this.profile,
+    required this.onLogout,
+    required this.onDeleteAccount,
+    required this.onRefresh,
+    required this.onSupport,
+    required this.onSelectImage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: 15.paddingHoriz,
       child: Column(
         children: [
-          50.ph,
-          ProfileHeaderWidget(profile: profile,
+          ProfileHeaderWidget(
+            profile: profile,
             onSelectImage: onSelectImage,
           ),
-          const Divider(height: 20),
-          ProfileItem(
-            icon: AppIcons.smartphone,
-            title: strings.personal_information,
-            route: Routes.editProfilePage,
-            onRefresh: onRefresh,
-          ),
-          // ProfileItem(
-          //   icon: AppIcons.smartphone,
-          //   title: strings.change_password,
-          //   route: Routes.changePasswordPage,
-          // ),
-          // ProfileItem(
-          //   icon: AppIcons.scan,
-          //   title: strings.show_qr,
-          //   onTap: showQRCodeImage,
-          // ),
-          // ProfileItem(
-          //   icon: AppIcons.warning,
-          //   title: strings.technical_support,
-          //   onTap: onSupport,
-          // ),
-          // ProfileItem(
-          //   icon: AppIcons.message_question,
-          //   title: strings.about_us,
-          //   route: Routes.aboutPage,
-          //     args: AboutType.aboutUs,
-          // ),
-          // ProfileItem(
-          //   icon: AppIcons.terms,
-          //   title: strings.terms_conditions,
-          //   route: Routes.aboutPage,
-          //   args: AboutType.terms,
-          // ),
-          PrimaryButton(
-            title: strings.delete_account,
-            onPressed: onDeleteAccount,
-            style: primaryBoldStyle.copyWith(color: errorColor),
-            margin: 10.paddingHoriz + 20.paddingTop,
-            backgroundColor: primaryColor.withOpacity(0.1),
-          ),
-          PrimaryButton(
-            title: strings.sign_out,
-            onPressed: onLogout,
-            style: primaryBoldStyle.copyWith(color: errorColor),
-            margin: 10.paddingHoriz + 20.paddingTop,
-            backgroundColor: primaryColor.withOpacity(0.1),
-          ),
+         30.ph,
+          PersonWidget(),
+          SalaryWidget(),
+          ProfileItemV2(
+              icon: AppIcons.lock,
+              onTap: () {
+                pushNamed(Routes.changePasswordPage);
+              },
+              title: strings.change_password),
+          10.ph,
+          ProfileItemV2(
+              icon: AppIcons.language,
+              onTap: () {
+                 //pushNamed(Routes.lan);
+              },
+              title: strings.language),
           20.ph,
         ],
       ),
-    );
-  }
-
-  showQRCodeImage() {
-    return showDialog(
-      context: context!,
-      builder: (context) {
-        return Dialog(
-          alignment: Alignment.center,
-          insetPadding: EdgeInsets.symmetric(horizontal: 50),
-          child: Container(
-            padding: 30.paddingVert + 10 .paddingEnd,
-            alignment: AlignmentDirectional.center,
-            height: 250,
-            child: QrImageView(
-              padding: EdgeInsets.zero,
-              data: profile.specialCode ?? "",
-              version: QrVersions.auto,
-              size: 200.0,
-            ),
-          ),
-        );
-      },
     );
   }
 }

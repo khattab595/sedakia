@@ -20,9 +20,33 @@
   "rejected": "Rejected",
   "approved": "Approved",
   "waiting": "Waiting",
-
-
-
+  "not_active": "not active",
+  "active": "Active",
+  "current_project": "Current Project",
+  "past_project": "past Project",
+  "code": "Code",
+  "phone_number": "phone number",
+  "date_birth": "date of birth",
+  "years_experience": "years experience",
+  "qualified": "qualified",
+  "id_number": "ID number",
+  "starting_date": "starting date",
+  "category": "category",
+  "marital_status": "marital status ",
+  "religion": "religion",
+  "gender": "gender",
+  "salary_details": "salary details",
+  "basic_salary": "basic salary",
+  "housing_allowance": "housing allowance",
+  "transport_allowance": "transport allowance",
+  "exchange_method": "exchange method",
+  "bank_name": "bank name",
+  "iban_number": "IBAN number",
+  "bank_account_number": "bank account number",
+  "total_salary": "total salary",
+  "nationality": "Nationality",
+  "city": "city",
+  "language": "language",
 
 
 

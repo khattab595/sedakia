@@ -19,7 +19,7 @@ class Decorations {
   }) {
     return BoxDecoration(
       color: color ?? injector<ServicesLocator>().appContext.hintColor,
-      borderRadius: BorderRadius.all(Radius.circular(radius ?? 8)),
+      borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
     );
   }
 

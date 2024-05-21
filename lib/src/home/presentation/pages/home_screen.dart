@@ -15,28 +15,29 @@ class HomeScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: 15.paddingAll + 10.paddingTop,
+      padding: 15.paddingAll + 20.paddingTop,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           headerHome(),
-
+          15.ph,
           Text(
-            "Current Project",
-            style: primaryBoldStyle.copyWith(
-                fontSize: 22, fontWeight: FontWeight.w600),
+            strings.current_project,
+            style: primarySemiBoldStyle.copyWith(
+                fontSize: 20, fontWeight: FontWeight.w600),
           ),
           10.ph,
           ProjectItem(),
+          10.ph,
           Text(
-            "Past projects",
-            style: primaryBoldStyle.copyWith(
-                fontSize: 22, fontWeight: FontWeight.w600),
+            strings.past_project,
+            style: primarySemiBoldStyle.copyWith(
+                fontSize: 20, fontWeight: FontWeight.w600),
           ),
           Expanded(
               child: ListView.builder(
             itemCount: 10,
+            padding: 5.paddingTop,
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return ProjectItem();
@@ -47,16 +48,37 @@ class HomeScreen extends BaseStatelessWidget {
     );
   }
 
-  headerHome(){
-    return  Row(
+  headerHome() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Hi Mahytab",style: primarySemiBoldStyle.copyWith(fontSize: 25),)
+            Text(
+              "محمدالقحطاني علي",
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: primarySemiBoldStyle.copyWith(fontSize: 22),
+            ),
+            5.ph,
+            Container(
+              decoration: Decorations.baseDecorationRadius(
+                  color: const Color(0xffE7FFEE), radius: 6),
+              padding: 8.paddingAll,
+              child: Text(
+                strings.active,
+                style: primaryRegularStyle.copyWith(fontSize: 15),
+              ),
+            )
           ],
-        )
+        ),
+         Spacer(),
+        const AppIcon(icon: AppIcons.notification),
+        10.pw,
+        const AppIcon(icon: AppIcons.avatar),
       ],
     );
-
   }
 }

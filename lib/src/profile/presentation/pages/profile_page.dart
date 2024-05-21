@@ -14,7 +14,11 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
   void loadInitialData(BuildContext context) {
     bloc.fetchProfileData();
   }
-
+@override
+  String? title(BuildContext context) {
+    // TODO: implement title
+    return strings.profile;
+  }
   @override
   Widget buildWidget(BuildContext context, DataSuccess<Profile> state) {
     return ProfileScreen(

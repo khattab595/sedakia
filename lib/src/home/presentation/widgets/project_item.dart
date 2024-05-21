@@ -13,16 +13,18 @@ class ProjectItem extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: Decorations.kDecorationBorderRadius(),
-      width:context.width,
+      width: context.width,
       padding: 10.paddingAll,
- margin: 10.paddingBottom,
+      margin: 10.paddingBottom,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Panda market",
-            style: primaryMediumStyle.copyWith(fontSize: 20,height: 1.5),
+            "مشروع تضاريس نجد",
+            style: primaryMediumStyle.copyWith(
+              fontSize: 20,
+            ),
           ),
           7.ph,
           Row(
@@ -33,20 +35,39 @@ class ProjectItem extends BaseStatelessWidget {
                 size: 17,
               ),
               10.pw,
-              Text(
-                "blueColorff",
-                style: primaryRegularStyle.copyWith(fontSize: 14,color: AppColors.blueColorff),
+              SizedBox(
+                height: 40,
+                width: context.width - 80,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "شارع حمد الجاسر، حي الروضة، جدة ",
+                        style: primaryRegularStyle.copyWith(
+                            fontSize: 14, color: AppColors.blueColorff),
+                      ),
+                    ),
+                    const Icon(
+                      Icons.map,
+                      color: AppColors.blueColorff,
+                    )
+                  ],
+                ),
               ),
             ],
           ),
           7.ph,
           Row(
             children: [
-             const AppIcon(icon: AppIcons.calendar,size: 16,),
+              const AppIcon(
+                icon: AppIcons.calendar,
+                size: 16,
+              ),
               10.pw,
               Text(
-                "22 Apr 2024",
-                style: primaryRegularStyle.copyWith(fontSize: 12,color: AppColors.greyColor),
+                "22 أبريل 2024",
+                style: primaryRegularStyle.copyWith(
+                    fontSize: 12, color: AppColors.greyColor),
               ),
             ],
           ),

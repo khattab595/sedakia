@@ -1,59 +1,91 @@
-
 import '../../../../core/utils/navigator.dart';
 import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
 
-class ProfileItem extends StatelessWidget {
+class ProfileItem extends BaseStatelessWidget {
   final String icon;
   final String title;
-  final String? route;
-  final double iconSize;
-  final dynamic args;
-  final VoidCallback? onRefresh;
-  final VoidCallback? onTap;
+  final String subtitle;
 
-  const ProfileItem({
+  final double iconSize;
+
+  ProfileItem({
     Key? key,
     required this.icon,
+    required this.subtitle,
     required this.title,
-     this.route,
-    this.iconSize = 16,
-    this.args,
-    this.onRefresh,
-    this.onTap,
-  }) : super(key: key);
+    this.iconSize = 20,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap ?? () async {
-        final isRefresh = await Navigators.pushNamed(route ?? '', arguments: args);
-        if (isRefresh != null && isRefresh && onRefresh != null) {
-          onRefresh!();
-        }
-      },
-      child: ListTile(
-        visualDensity: const VisualDensity(horizontal: -2, vertical: -4),
-        contentPadding: 6.paddingVert + 10.paddingHoriz,
-        leading: Container(
-          padding: 10.paddingAll,
-          decoration: Decorations.kDecorationOnlyRadius(
-            radius: 6,
-            color: context.primaryColor.withOpacity(0.15),
-          ),
-          child: AppIcon(
+    return Container(
+      margin: 5.paddingBottom,
+        decoration: Decorations.kDecorationBorderRadius(
+            borderColor: AppColors.dividerColor.withOpacity(.7)),
+        child: ListTile(
+          visualDensity: const VisualDensity(horizontal: -2, vertical: -4),
+          contentPadding: 0.paddingVert + 10.paddingHoriz,
+          leading: AppIcon(
             icon: icon,
             size: iconSize,
             color: context.primaryColor,
           ),
-        ),
-        minLeadingWidth: 40,
-        title: BlackMediumText(
-          label: title,
-        ),
-        trailing: const AppIcon(
-          icon: AppIcons.smartphone,
-          size: 16,
+          minLeadingWidth: 20,
+          title: Text(
+            title,
+            style: primaryRegularStyle.copyWith(
+                fontSize: 13, color: AppColors.greyColorB1),
+          ),
+          subtitle: Text(
+            subtitle,
+            style: primaryRegularStyle.copyWith(
+              fontSize: 16,
+            ),
+          ),
+        ));
+  }
+}
+
+class ProfileItemV2 extends BaseStatelessWidget {
+  final String icon;
+  final String title;
+Widget? trailing;
+  final Function()? onTap;
+  final double iconSize;
+
+  ProfileItemV2({
+    Key? key,
+    required this.icon,
+    required this.onTap,
+    required this.title,
+    this.iconSize = 20,
+    this.trailing,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: Decorations.kDecorationBorderRadius(
+            borderColor: AppColors.dividerColor.withOpacity(.7)),
+        child: ListTile(
+          visualDensity: const VisualDensity(horizontal: -2, vertical: -4),
+          contentPadding: 0.paddingVert + 10.paddingHoriz,
+          leading: AppIcon(
+            icon: icon,
+            size: iconSize,
+            color: context.primaryColor,
+          ),
+          minLeadingWidth: 20,
+          title: Text(
+            title,
+            style: primaryRegularStyle.copyWith(
+              fontSize: 16,
+            ),
+          ),
+          trailing: trailing??const Icon(Icons.arrow_forward_ios_sharp,size: 14,color: AppColors.primaryLight,),
         ),
       ),
     );
