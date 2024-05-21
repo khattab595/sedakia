@@ -1,4 +1,6 @@
 
+import 'package:app/src/profile/presentation/bloc/profile_bloc.dart';
+
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../../core/widgets/custom_empty_widget.dart';
 import '../../../main_index.dart';
@@ -7,19 +9,19 @@ import '../../domain/entities/notification.dart';
 import '../bloc/notification_bloc.dart';
 import 'notifications_screen.dart';
 
-class NotificationsPage extends BaseBlocWidget<DataSuccess<List<Notifications>>, NotificationsCubit> {
+class NotificationsPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
    NotificationsPage({Key? key}) : super(key: key);
 
 
-   @override
-   void loadInitialData(BuildContext context) {
-     bloc.fetchNotifications();
-   }
+   // @override
+   // void loadInitialData(BuildContext context) {
+   //   bloc.fetchNotifications();
+   // }
 
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<List<Notifications>> state) {
+  Widget buildWidget(BuildContext context, UnInitState state) {
     return NotificationsScreen(
-     notifications: state.data!,
+    // notifications: state.data!,
    );
   }
 
