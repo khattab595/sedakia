@@ -30,13 +30,16 @@ abstract class BaseStatelessWidget extends StatelessWidget {
   Color get errorColor => theme.colorScheme.error;
   Color get scaffoldBackgroundColor => theme.scaffoldBackgroundColor;
   Color get dividerColor => theme.dividerColor;
+  //primary
   Color get primaryColor => theme.primaryColor;
   Color get kOrange => theme.iconTheme.color!;
   Color get hintColor => theme.hintColor;
   Color get primaryContainer => theme.colorScheme.primaryContainer;
   Color get secondaryContainer => theme.colorScheme.secondaryContainer;
   Color get primaryColorDark => theme.primaryColorDark;
+  //white
   Color get cardColor => theme.cardColor;
+
   Color get onPrimary => theme.colorScheme.onPrimary;
   Color get whiteTextColor => whiteRegularStyle.color!;
   Color get blackTextColor => blackRegularStyle.color!;
