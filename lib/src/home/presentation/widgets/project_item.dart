@@ -50,6 +50,7 @@ class ProjectItem extends BaseStatelessWidget {
                     const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.greyColorB1,
+                      size: 16,
                     )
                   ],
                 ),

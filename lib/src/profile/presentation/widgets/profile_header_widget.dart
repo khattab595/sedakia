@@ -34,7 +34,9 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
               children: [
                 30.ph,
                 Text("محمد محمد القحطاني ",style: whiteMediumStyle.copyWith(fontSize: 22),),
+              5.ph,
                 Text("مراقب امن",style: whiteRegularStyle.copyWith(fontSize: 14),),
+                5.ph,
                 Text("${strings.code} #125480",style: whiteRegularStyle.copyWith(fontSize: 12),),
               ],
             ),

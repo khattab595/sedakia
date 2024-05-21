@@ -11,13 +11,13 @@ import 'request_log_screen.dart';
 
 class RequestLogPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
   RequestLogPage({Key? key}) : super(key: key);
-int id=1;
+  int id = 1;
   // @override
   // void loadInitialData(BuildContext context) {
   //   bloc.fetchRequestLog();
   // }
   @override
-  Widget buildWidget(BuildContext context, UnInitState state) {
+  Widget build(BuildContext context) {
     return mainFrame(
       floatingActionButton: InkWell(
         onTap: () {
@@ -28,60 +28,43 @@ int id=1;
             width: 50,
             decoration: Decorations.kDecorationBorderRadius(
               radius: 100,
-              borderColor: primaryColor,
-              color: primaryColor,
+              borderColor: AppColors.primaryLight,
+              color: AppColors.primaryLight,
             ),
             child: const Icon(
               Icons.add,
               color: AppColors.backgroundColor,
             )),
       ),
-      body: Column(
-        children: [
-          StatefulBuilder(
-            builder: (context,setState) {
-              return TabBarWidget(
-                page: RequestLogScreen(
-                  //   myCourses: state.data!,
-                  index: id,
-                ),
-                onTap: (index) {
-                  setState((){
-                    id=index;
-                  });
-
-                },
-                tabs: [
-                  TabItemModel(
-                    label:strings.waiting,
-                  ),
-                  TabItemModel(
-                    label: strings.rejected,
-                  ),
-                  TabItemModel(
-                    label: strings.approved,
-
-                  ),
-                ],
-              );
-            }
-          ),
-         // Expanded(child: buildConsumer(context)),
-        ],
-      ),
+      body: StatefulBuilder(builder: (context, setState) {
+        return TabBarWidget(
+          page: buildConsumer(context),
+          initialIndex: id,
+          onTap: (index) {
+            id = index;
+            print(id);
+            print("iioioioioio");
+            setState(() {});
+          },
+          tabs: [
+            TabItemModel(label: strings.waiting, id: 0),
+            TabItemModel(label: strings.rejected, id: 1),
+            TabItemModel(label: strings.approved, id: 2),
+          ],
+        );
+      }),
     );
   }
 
-  // @override
-  // Widget buildWidget(BuildContext context, UnInitState state) {
-  //   return RequestLogScreen(
-  //       //   myCourses: state.data!,
-  //     index: id,
-  //       );
-  // }
+  @override
+  Widget buildWidget(BuildContext context, UnInitState state) {
+    return RequestLogScreen(
+      id: id,
+    );
+  }
 
   @override
   String? title(BuildContext context) {
-    return strings.activity;
+    return strings.request_log;
   }
 }

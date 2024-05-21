@@ -12,7 +12,7 @@ import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/request_log/presentation/add_request/pages/add_request_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
-import '../../src/splash/presentation/pages/splash_page.dart';
+ import '../../src/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
 

@@ -17,6 +17,6 @@ class AppImages{
   static const String videoTest = 'assets/images/vid.png';
   static const String file = 'assets/images/file.png';
   static const String book = 'assets/images/book2.png';
-  static const String splash = 'assets/images/splash.gif';
+  static const String splash = 'assets/logo/logo.png';
 
 }

@@ -8,14 +8,14 @@ import '../../../domain/entities/course.dart';
 import '../widgets/request_log.dart';
 
 class RequestLogScreen extends BaseStatelessWidget {
-  //final List<Course> myCourses;
-  RequestLogScreen({Key? key,required this.index
- //   required this.myCourses,
-  }) : super(key: key);
-  int index ;
+  int id;
+  RequestLogScreen({Key? key, required this.id
+      //   required this.myCourses,
+      })
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-
     // if(myCourses.isEmpty){
     //   return CustomEmptyWidget(image:AppImages.myCoursesEmpty, text: strings.my_courses_empty_text,
     //     title:strings.my_courses_empty_title,hasButton: true,onPressed: (){
@@ -23,16 +23,15 @@ class RequestLogScreen extends BaseStatelessWidget {
     //     },titleButton: strings.my_courses_checked,);
     // }
     // else{
-      return
-        ListView.builder(
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return RequestLogItem(
-            index: index,
-           //  log: myCourses[index],
-          );
-        },
-      );
-  //  }
+    return ListView.builder(
+      itemCount: 4,
+      itemBuilder: (context, index) {
+        return RequestLogItem(
+          index: id,
+          //  log: myCourses[index],
+        );
+      },
+    );
+    //  }
   }
 }

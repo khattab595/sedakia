@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:app/src/auth/presentation/pages/login/login_page.dart';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
+import 'package:app/src/splash/presentation/pages/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'core/firebase/notification_service.dart';
@@ -65,8 +67,9 @@ class MyApp extends StatelessWidget {
                     Locale('en'), // English, no country code
                     Locale('ar'), // Arabic, no country code
                   ],
-                  routes: Routes.routes,
-                  initialRoute: state.isLogin ? Routes.navigationPages : Routes.loginPage,
+                 //  home: SplashScreen(widgetPage: LoginPage()),
+                    routes: Routes.routes,
+                 initialRoute:  Routes.splashPage,
                 );
         },
       ),

@@ -38,42 +38,42 @@ class RequestLogItem extends BaseStatelessWidget {
           RowTexts(
             title: strings.order_history,
             value: "25 Apr 2024",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 14),
+                color: Color(0xffB1B1B1), fontSize: 12),
           ),
           5.ph,
           RowTexts(
             title: strings.reply_date,
             value: "25 Apr 2024",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 14),
+                color: Color(0xffB1B1B1), fontSize: 12),
           ),
           5.ph,
-           (index == 1)? 0.pw:
+           (index == 0)? 0.pw:
             RowTexts(
               title: strings.starting_date,
               value: "25 Apr 2024",
-              titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+              titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
-                  color: Color(0xffB1B1B1), fontSize: 14),
+                  color: Color(0xffB1B1B1), fontSize: 12),
             ),
           5.ph,
           RowTexts(
             title: strings.expiry_date,
             value: "25 Apr 2024",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 14),
+                color: Color(0xffB1B1B1), fontSize: 12),
           ),
-          if(index ==3)
+          if(index ==2)
             RowTexts(
               title: "سبب الرفض",
               value: "لم يتم رفع المرفقات",
-              titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+              titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
-                  color: Color(0xffB1B1B1), fontSize: 14),
+                  color: Color(0xffB1B1B1), fontSize: 12),
             ),
         ],
       ),

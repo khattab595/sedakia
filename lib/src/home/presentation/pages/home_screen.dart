@@ -38,7 +38,7 @@ class HomeScreen extends BaseStatelessWidget {
               child: ListView.builder(
             itemCount: 10,
             padding: 5.paddingTop,
-            shrinkWrap: true,
+
             itemBuilder: (context, index) {
               return ProjectItem();
             },
