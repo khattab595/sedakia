@@ -1,3 +1,5 @@
+import 'package:app/core/utils/navigator.dart';
+
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 import '../widgets/project_item.dart';
@@ -75,7 +77,11 @@ class HomeScreen extends BaseStatelessWidget {
           ],
         ),
          Spacer(),
-        const AppIcon(icon: AppIcons.notification),
+        InkWell(
+            onTap: (){
+              pushNamed(Routes.notifications);
+            },
+            child: const AppIcon(icon: AppIcons.notification)),
         10.pw,
         const AppIcon(icon: AppIcons.avatar),
       ],
