@@ -9,6 +9,7 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/splash/presentation/pages/splash_page.dart';
 
 class Routes {
@@ -21,6 +22,7 @@ class Routes {
   static const String register = 'registerPage';
   static const String favoritesPage = 'favoritesPage';
   static const String changePasswordPage = 'ChangePasswordPage';
+  static const String changLanguagePage = 'ChangLanguagePage';
 
   static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
   static const String enterPinCodePage = 'enterPinCodePage';
@@ -50,5 +52,6 @@ class Routes {
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
     profile: (context) => ProfilePage(),
+    changLanguagePage: (context) => ChangLanguagePage(),
   };
 }

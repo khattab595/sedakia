@@ -18,7 +18,7 @@ class AppIcons{
   static const String gender = "assets/icons/gender.svg";
   static const String id_number = "assets/icons/id_number.svg";
   static const String language = "assets/icons/language.svg";
-  static const String location = "assets/icons/location.svg";
+  static const String location = "assets/icons/map-pin 1.svg";
   static const String nationality = "assets/icons/nationality.svg";
   static const String phone = "assets/icons/phone.svg";
   static const String religion = "assets/icons/religion.svg";

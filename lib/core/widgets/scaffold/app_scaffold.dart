@@ -66,23 +66,23 @@ class AppScaffold extends StatelessWidget {
                 maxLines: 2,
                   textAlign: TextAlign.center,
                 ),
-                automaticallyImplyLeading: false,
+
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                centerTitle: true,
+                centerTitle: false,
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
                 // leadingWidth: 30,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor:
-                      backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                  statusBarBrightness: Brightness.light,
-                ),
-                bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(1),
-                    child: Divider(),
-                ),
+                // systemOverlayStyle: SystemUiOverlayStyle(
+                //   statusBarColor:
+                //       backgroundAppBar ?? theme.appBarTheme.backgroundColor,
+                //   statusBarBrightness: Brightness.light,
+                // ),
+                // bottom: PreferredSize(
+                //     preferredSize: Size.fromHeight(1),
+                //     child: Divider(),
+                // ),
                 leading: Navigator.canPop(context)
                     ?
                 CustomBackAppBar(): leading,

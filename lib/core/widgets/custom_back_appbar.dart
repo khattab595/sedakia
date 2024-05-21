@@ -9,18 +9,6 @@ class CustomBackAppBar extends BaseStatelessWidget {
       onTap: () {
         Navigator.of(context).pop();
       },
-      child: IconText(
-        iconData: Icons.arrow_back_ios_new_rounded,
-        isIconData: true,
-        iconColor: context.hintColor,
-        text: context.strings.back,
-        sizedBoxWidth: 0,
-        iconSize: 20,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        textStyle: context.displayLarge.copyWith(
-          fontSize: 16,
-        ),
-      ),
-    );
+      child:  Icon(Icons.arrow_back_ios,size: 20,color: AppColors.primaryLight));
   }
 }

@@ -49,7 +49,7 @@ class ProjectItem extends BaseStatelessWidget {
                     ),
                     const Icon(
                       Icons.map,
-                      color: AppColors.blueColorff,
+                      color: AppColors.greyColorB1,
                     )
                   ],
                 ),

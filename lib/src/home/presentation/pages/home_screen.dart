@@ -57,7 +57,7 @@ class HomeScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "محمدالقحطاني علي",
+              "محمد القحطاني",
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: primarySemiBoldStyle.copyWith(fontSize: 22),

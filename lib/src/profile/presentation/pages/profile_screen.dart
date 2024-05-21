@@ -52,7 +52,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItemV2(
               icon: AppIcons.language,
               onTap: () {
-                 //pushNamed(Routes.lan);
+            pushNamed(Routes.changLanguagePage);
               },
               title: strings.language),
           20.ph,
