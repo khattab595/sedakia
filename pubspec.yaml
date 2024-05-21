@@ -152,25 +152,25 @@ flutter:
   fonts:
     - family: Black
       fonts:
-        - asset: assets/fonts/Cairo-Black.ttf
+        - asset: assets/fonts/Inter-Black.ttf
     - family: Bold
       fonts:
-        - asset: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
     - family: ExtraBold
       fonts:
-        - asset: assets/fonts/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/Inter-ExtraBold.ttf
     - family: ExtraLight
       fonts:
-        - asset: assets/fonts/Cairo-ExtraLight.ttf
+        - asset: assets/fonts/Inter-ExtraLight.ttf
     - family: Light
       fonts:
-        - asset: assets/fonts/Cairo-Light.ttf
+        - asset: assets/fonts/Inter-Light.ttf
     - family: Medium
       fonts:
-        - asset: assets/fonts/Cairo-Medium.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
     - family: Regular
       fonts:
-        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
     - family: SemiBold
       fonts:
-        - asset: assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Inter-SemiBold.ttf

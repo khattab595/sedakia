@@ -1,4 +1,34 @@
 {
+  "activity": "Activity",
+  "description": "Description",
+  "holiday": "Holiday",
+  "reply_date": "Reply date",
+  "starting_date": "Starting date",
+  "expiry_date": "Expiry date",
+  "attendance": "Attendance Record",
+  "reason": "Reason",
+  "your_salary": "Your Salary",
+  "vacation_request": "Vacation Request",
+  "set_your_absent_time": "Set Your Absent Time",
+  "from": "From",
+  "no_file_chosen": "No file Chosen",
+  "sick_leave": "Sick leave ...",
+  "send_request": "Send Request",
+  "attachments": "Attachments",
+  "order_history": "Order History",
+  "to": "To",
+  "rejected": "Rejected",
+  "approved": "Approved",
+  "waiting": "Waiting",
+
+
+
+
+
+
+
+
+
   "about_elcaf": "About El Caf",
   "programs": "Programs",
   "campaign_terms": "Campaign terms",
