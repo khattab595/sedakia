@@ -12,6 +12,7 @@ class AppIcons{
   static const String request = "assets/icons/request.svg";
   static const String desc = "assets/icons/desc.svg";
   static const String date = "assets/icons/date.svg";
+  static const String search = "assets/icons/search.svg";
 
 
 }

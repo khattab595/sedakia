@@ -40,12 +40,16 @@
   "from": "من",
   "no_file_chosen": "لم تقم باختيار ملف",
   "sick_leave": "أجازة مرضية ...",
-  "send_request": "ارسل طلب",
+  "send_request": "أرسل طلب",
   "attachments": "المرفقات",
   "to": "الي",
   "rejected": "مرفوض",
   "approved": "موافقة",
   "waiting": "منتظر",
+  "search_by_date": "ابحث بالتاريخ",
+  "language": "اللغة",
+  "english": "انجليزي",
+  "arabic": "عربي",
 
 
 
