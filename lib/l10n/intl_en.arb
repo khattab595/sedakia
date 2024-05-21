@@ -20,6 +20,14 @@
   "rejected": "Rejected",
   "approved": "Approved",
   "waiting": "Waiting",
+  "search_by_date": "Search by date",
+  "language": "Language",
+  "english": "English",
+  "arabic":"Arabic",
+
+
+
+
   "not_active": "not active",
   "active": "Active",
   "current_project": "Current Project",

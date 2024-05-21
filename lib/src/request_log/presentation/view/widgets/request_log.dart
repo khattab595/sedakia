@@ -9,18 +9,20 @@ class RequestLogItem extends BaseStatelessWidget {
   //final Course log;
   RequestLogItem({
     super.key,
+   required this.index
     //  required this.log
   });
-
+  int index ;
   @override
   Widget build(BuildContext context) {
+    print("nnhh${index}");
     // print('myCourse.percentage: ${log.percentage}');
     return Container(
-     padding: 15.paddingAll,
-      margin: 20.paddingHoriz + 10.paddingTop,
+      padding: 15.paddingAll,
+      margin: 20.paddingHoriz + 10.paddingBottom,
       decoration: Decorations.kDecorationBorderRadius(
         radius: 10,
-        borderColor:dividerColor,
+        borderColor: dividerColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,18 +30,53 @@ class RequestLogItem extends BaseStatelessWidget {
         children: [
           RomIconAndText(),
           3.ph,
-          PrimaryRegularText(label:"كان لدي موعد مع الطبيب",labelColor: Color(0xffB1B1B1),),
+          PrimaryRegularText(
+            label: "كان لدي موعد مع الطبيب",
+            labelColor: Color(0xffB1B1B1),
+          ),
           10.ph,
-          RowTexts(title: strings.order_history, value: "25 Apr 2024",titleStyle: primaryMediumStyle.copyWith(fontSize: 16 ),valueStyle: primaryRegularStyle.copyWith(color:Color(0xffB1B1B1),fontSize: 14 ),),
+          RowTexts(
+            title: strings.order_history,
+            value: "25 Apr 2024",
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            valueStyle: primaryRegularStyle.copyWith(
+                color: Color(0xffB1B1B1), fontSize: 14),
+          ),
           5.ph,
-          RowTexts(title: strings.reply_date, value: "25 Apr 2024",titleStyle: primaryMediumStyle.copyWith(fontSize: 16 ),valueStyle: primaryRegularStyle.copyWith(color:Color(0xffB1B1B1),fontSize: 14 ),),
+          RowTexts(
+            title: strings.reply_date,
+            value: "25 Apr 2024",
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            valueStyle: primaryRegularStyle.copyWith(
+                color: Color(0xffB1B1B1), fontSize: 14),
+          ),
           5.ph,
-          RowTexts(title: strings.starting_date, value: "25 Apr 2024",titleStyle: primaryMediumStyle.copyWith(fontSize: 16 ),valueStyle: primaryRegularStyle.copyWith(color:Color(0xffB1B1B1),fontSize: 14 ),),
+           (index == 1)? 0.pw:
+            RowTexts(
+              title: strings.starting_date,
+              value: "25 Apr 2024",
+              titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+              valueStyle: primaryRegularStyle.copyWith(
+                  color: Color(0xffB1B1B1), fontSize: 14),
+            ),
           5.ph,
-          RowTexts(title: strings.expiry_date, value: "25 Apr 2024",titleStyle: primaryMediumStyle.copyWith(fontSize: 16 ),valueStyle: primaryRegularStyle.copyWith(color:Color(0xffB1B1B1),fontSize: 14 ),),
+          RowTexts(
+            title: strings.expiry_date,
+            value: "25 Apr 2024",
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            valueStyle: primaryRegularStyle.copyWith(
+                color: Color(0xffB1B1B1), fontSize: 14),
+          ),
+          if(index ==3)
+            RowTexts(
+              title: "سبب الرفض",
+              value: "لم يتم رفع المرفقات",
+              titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+              valueStyle: primaryRegularStyle.copyWith(
+                  color: Color(0xffB1B1B1), fontSize: 14),
+            ),
         ],
       ),
     );
   }
-
 }

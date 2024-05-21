@@ -4,11 +4,13 @@ import '../../src/auth/presentation/pages/forget-password/change_password_page.d
 import '../../src/auth/presentation/pages/forget-password/forget_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
+import '../../src/language/presentation/pages/language_page.dart';
 import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
 import '../../src/profile/presentation/pages/edit_profile_page.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/request_log/presentation/add_request/pages/add_request_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/splash/presentation/pages/splash_page.dart';
 
@@ -35,6 +37,8 @@ class Routes {
   static const String homePage = 'homePage';
   static const String forgotPasswordPage = 'forgotPasswordPage';
   static const String splashPage = 'splashPage';
+  static const String addRequestPage = 'addRequestPage';
+  static const String languagePage = 'languagePage';
 
 
   /* ====================================================================== */
@@ -53,5 +57,7 @@ class Routes {
     homePage: (context) => HomePage(),
     profile: (context) => ProfilePage(),
     changLanguagePage: (context) => ChangLanguagePage(),
+    addRequestPage: (context) => AddRequestPage(),
+    languagePage: (context) => LanguagePage(),
   };
 }

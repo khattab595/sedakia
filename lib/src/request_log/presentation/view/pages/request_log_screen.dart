@@ -9,10 +9,10 @@ import '../widgets/request_log.dart';
 
 class RequestLogScreen extends BaseStatelessWidget {
   //final List<Course> myCourses;
-  RequestLogScreen({Key? key,
+  RequestLogScreen({Key? key,required this.index
  //   required this.myCourses,
   }) : super(key: key);
-
+  int index ;
   @override
   Widget build(BuildContext context) {
 
@@ -28,6 +28,7 @@ class RequestLogScreen extends BaseStatelessWidget {
         itemCount: 4,
         itemBuilder: (context, index) {
           return RequestLogItem(
+            index: index,
            //  log: myCourses[index],
           );
         },

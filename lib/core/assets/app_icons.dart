@@ -33,6 +33,7 @@ class AppIcons{
   static const String bank3 = "assets/icons/bank 3.svg";
   static const String house_building = "assets/icons/house-building 3.svg";
   static const String creditCardBuyer = "assets/icons/credit-card-buyer 3.svg";
+  static const String search = "assets/icons/search.svg";
 
 
 }
