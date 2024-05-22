@@ -60,10 +60,13 @@ class AppScaffold extends StatelessWidget {
           ? null
           : appBar ??
               AppBar(
-                title:
-                Text(title ?? '',
-                    style: titleStyle ?? theme.appBarTheme.titleTextStyle,
-                maxLines: 2,
+                title: Text(
+                  title ?? '',
+                  style: titleStyle ??
+                      theme.appBarTheme.titleTextStyle?.copyWith(
+                          color: AppColors.primaryLight,
+                          fontWeight: FontWeight.w600),
+                  maxLines: 2,
                   textAlign: TextAlign.center,
                 ),
 
@@ -83,9 +86,8 @@ class AppScaffold extends StatelessWidget {
                 //     preferredSize: Size.fromHeight(1),
                 //     child: Divider(),
                 // ),
-                leading: Navigator.canPop(context)
-                    ?
-                CustomBackAppBar(): leading,
+                leading:
+                    Navigator.canPop(context) ? CustomBackAppBar() : leading,
               ),
     );
   }

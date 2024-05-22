@@ -1,4 +1,3 @@
-
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/row_texts.dart';
 
@@ -11,25 +10,34 @@ class NotificationItem extends BaseStatelessWidget {
   // final bool isFirst;
   // final bool isLast;
 
-  NotificationItem({Key? key,
+  NotificationItem({
+    Key? key,
     // required this.isFirst,
     // required this.isLast,
     // required this.notification}
-  } )
-      : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: 15.paddingAll,
-      margin: 10.paddingHoriz+10.paddingTop,
-      decoration: Decorations.kDecorationBorderRadius(borderColor: dividerColor,radius: 10),
+      margin: 10.paddingHoriz + 10.paddingTop,
+      decoration: Decorations.kDecorationBorderRadius(
+          borderColor: dividerColor, radius: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         RowTexts(title: strings.your_salary, value: "منذ دقيقة واحدة.",titleStyle: primaryMediumStyle.copyWith(fontSize: 16),valueStyle: primaryRegularStyle.copyWith(fontSize: 11),),
-         2.ph,
-          PrimaryRegularText(label: "لقد تم تنزيل راتب اليوم إلى حسابك",fontSize: 12,),
+          RowTexts(
+            title: strings.your_salary,
+            value: "منذ دقيقة واحدة.",
+            titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
+            valueStyle: primaryRegularStyle.copyWith(fontSize: 11),
+          ),
+          2.ph,
+          PrimaryRegularText(
+            label: "لقد تم تنزيل راتب اليوم إلى حسابك",
+            fontSize: 12,
+          ),
         ],
       ),
     );

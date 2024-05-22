@@ -1,3 +1,5 @@
+import 'package:app/core/widgets/texts/primary_texts.dart';
+
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 
@@ -20,12 +22,7 @@ class ProjectItem extends BaseStatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "مشروع تضاريس نجد",
-            style: primaryMediumStyle.copyWith(
-              fontSize: 20,
-            ),
-          ),
+          PrimaryMediumText(label: "مشروع تضاريس نجد",fontSize: 16,),
           7.ph,
           Row(
             children: [
@@ -41,11 +38,7 @@ class ProjectItem extends BaseStatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Text(
-                        "شارع حمد الجاسر، حي الروضة، جدة ",
-                        style: primaryRegularStyle.copyWith(
-                            fontSize: 14, color: AppColors.blueColorff),
-                      ),
+                      child:PrimaryRegularText(label: "شارع حمد الجاسر، حي الروضة، جدة",fontSize: 14,labelColor:blueColorOff ,)
                     ),
                     const Icon(
                       Icons.arrow_forward_ios,
@@ -65,11 +58,7 @@ class ProjectItem extends BaseStatelessWidget {
                 size: 16,
               ),
               10.pw,
-              Text(
-                "22 أبريل 2024",
-                style: primaryRegularStyle.copyWith(
-                    fontSize: 12, color: AppColors.greyColor),
-              ),
+              PrimaryRegularText(label: "22 أبريل 2024",fontSize: 12,labelColor:greyColor ,)
             ],
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:app/core/utils/navigator.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
@@ -23,23 +24,15 @@ class HomeScreen extends BaseStatelessWidget {
         children: [
           headerHome(),
           15.ph,
-          Text(
-            strings.current_project,
-            style: primarySemiBoldStyle.copyWith(
-                fontSize: 20, fontWeight: FontWeight.w600),
-          ),
+          SemiBoldPrimaryText(label:  strings.current_project,fontSize: 19,),
           10.ph,
           ProjectItem(),
           10.ph,
-          Text(
-            strings.past_project,
-            style: primarySemiBoldStyle.copyWith(
-                fontSize: 20, fontWeight: FontWeight.w600),
-          ),
+          SemiBoldPrimaryText(label:  strings.past_project,fontSize: 19,),
           Expanded(
               child: ListView.builder(
             itemCount: 10,
-            padding: 5.paddingTop,
+            padding: 10.paddingTop,
 
             itemBuilder: (context, index) {
               return ProjectItem();
@@ -58,12 +51,7 @@ class HomeScreen extends BaseStatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "محمد القحطاني",
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: primarySemiBoldStyle.copyWith(fontSize: 22),
-            ),
+            SemiBoldPrimaryText(label: "محمد القحطاني",fontSize: 21,),
             5.ph,
             Container(
               decoration: Decorations.baseDecorationRadius(
@@ -76,7 +64,7 @@ class HomeScreen extends BaseStatelessWidget {
             )
           ],
         ),
-         Spacer(),
+         const Spacer(),
         InkWell(
             onTap: (){
               pushNamed(Routes.notifications);

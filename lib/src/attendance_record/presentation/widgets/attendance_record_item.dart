@@ -31,11 +31,11 @@ class AttendanceRecordItem extends BaseStatelessWidget {
               ),
               const Spacer(),
               RowIconText(
-                containerColor: const Color(0xffFFE9D4),
+                containerColor: orangeLight,
                 icon: AppIcons.desc,
                 value: "أجازة",
                 valueStyle: primaryMediumStyle.copyWith(
-                    fontSize: 14, color: const Color(0xffFF6B00)),
+                    fontSize: 14, color: orangeColor),
               ),
             ],
           ),
@@ -47,7 +47,7 @@ class AttendanceRecordItem extends BaseStatelessWidget {
           5.ph,
           PrimaryRegularText(
             label: "كان لدي موعد مع الطبيب",
-            labelColor: const Color(0xffB1B1B1),
+            labelColor: greyColorB1,
           ),
         ],
       ),

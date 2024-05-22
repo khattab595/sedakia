@@ -59,30 +59,50 @@ class FilterDateWidget extends BaseStatelessWidget {
 class FilterDate extends BaseStatelessWidget {
   final TextEditingController controller;
 
-  final Function() ?onFilter;
+  //final Function() ?onFilter;
+  final Function(String date) onFilter;
 
-  FilterDate({super.key, required this.controller,this.onFilter});
+  FilterDate({super.key, required this.controller,required this.onFilter});
 
   @override
   Widget build(BuildContext context) {
     //  InvoicesFilterParams params = InvoicesFilterParams(status: 1);
     TextEditingController insideController = TextEditingController();
-    return Row(
-      children: [
-        Expanded(
-          child: CustomTextField(
-            margin: 20.paddingHoriz,
-            hintText: strings.search_by_date,
-            suffixIconPath: AppIcons.search,
-            keyboardType: TextInputType.number,
-            controller: controller,
-            isValidator: false,
-            onChanged: (value) {
-              // params = InvoicesFilterParams(qaydNumber: value);
-              // onFilter(params);
-            },
-          ),
-        ),
+    return StatefulBuilder(builder: (context, setSate) {
+      return CustomTextField(
+        hintText: strings.search_by_date,
+        suffixIconPath: AppIcons.date,
+        controller: insideController,
+        margin: 20.paddingHoriz,
+        // margin: 16.paddingEnd,
+        minHeight: 55,
+        title: '',
+        isValidator: false,
+        onTap: () async {
+          DateTime? date = await HelperMethods.selectDate(context);
+          insideController.text =
+              DateFormatter.formatTimestampString(date.toString());
+          onFilter( insideController.text);
+        },
+      );
+    });
+
+      // Row(
+      // children: [
+      //   Expanded(
+      //     child: CustomTextField(
+      //       margin: 20.paddingHoriz,
+      //       hintText: strings.search_by_date,
+      //       suffixIconPath: AppIcons.search,
+      //       keyboardType: TextInputType.number,
+      //       controller: insideController,
+      //       isValidator: false,
+      //       onChanged: (value) {
+      //         // params = InvoicesFilterParams(qaydNumber: value);
+      //         // onFilter(params);
+      //       },
+      //     ),
+      //   ),
         // AppIconButton(
         //   icon: AppIcons.filter,
         //   padding: 16.paddingEnd,
@@ -144,7 +164,7 @@ class FilterDate extends BaseStatelessWidget {
         //         });
         //   },
         // )
-      ],
-    );
+     // ],
+   // );
   }
 }

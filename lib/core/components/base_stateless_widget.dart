@@ -41,6 +41,10 @@ abstract class BaseStatelessWidget extends StatelessWidget {
   Color get cardColor => theme.cardColor;
 
   Color get orangeColor => AppColors.orangeColor;
+  Color get blueColorOff => AppColors.blueColorff;
+  Color get greyColor => AppColors.greyColor;
+  Color get orangeLight => AppColors.orangeLight;
+  Color get greyColorB1 => AppColors.greyColorB1;
   Color get onPrimary => theme.colorScheme.onPrimary;
   Color get whiteTextColor => whiteRegularStyle.color!;
   Color get blackTextColor => blackRegularStyle.color!;

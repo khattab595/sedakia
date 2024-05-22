@@ -22,12 +22,11 @@ class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
     return mainFrame(
       body: Column(
         children: [
-          25.ph,
           FilterDate(
-            onFilter: () {},
+            onFilter: (date) {},
             controller: controller,
           ),
-          20.ph,
+          15.ph,
           Expanded(child: buildConsumer(context)),
         ],
       ),
