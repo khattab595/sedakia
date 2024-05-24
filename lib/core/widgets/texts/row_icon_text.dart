@@ -4,13 +4,14 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 import '../../../src/main_index.dart';
 
 class RowIconText extends BaseStatelessWidget {
-   RowIconText({super.key,required this.icon,this.containerColor,required this.value, this.valueStyle,this.labelColor,this.iconSize});
-String icon;
-   final String value;
-   final TextStyle? valueStyle;
-   final Color? labelColor;
-   final Color? containerColor;
-   final double? iconSize;
+  String icon;
+  final String value;
+  final TextStyle? valueStyle;
+  final Color? labelColor;
+  final Color? containerColor;
+  final double? iconSize;
+  final EdgeInsetsGeometry padding;
+   RowIconText({super.key,required this.icon,this.containerColor,required this.value, this.valueStyle,this.labelColor,this.iconSize, this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 2)});
   @override
   Widget build(BuildContext context) {
     return  Row(
@@ -22,8 +23,7 @@ String icon;
               radius: 5,
               color: containerColor,
               borderColor: containerColor),
-          height: 23,
-         width: 73,
+          padding: padding,
           child: Center(
             child: PrimaryRegularText(
               labelColor: labelColor,

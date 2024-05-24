@@ -1,4 +1,4 @@
-
+import 'package:app/core/utils/date_formatter.dart';
 import 'package:app/src/profile/presentation/bloc/profile_bloc.dart';
 
 import '../../../../core/components/base_widget_bloc.dart';
@@ -8,7 +8,6 @@ import '../../../request_log/presentation/add_request/widgets/filter_date_widget
 import '../bloc/attendance_record_bloc.dart';
 import 'attendance_record_screen.dart';
 
-
 class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
   AttendanceRecordPage({Key? key}) : super(key: key);
 
@@ -16,33 +15,38 @@ class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
   // void loadInitialData(BuildContext context) {
   //   bloc.fetchDepartmentCourses();
   // }
-  TextEditingController controller = TextEditingController();
+  TextEditingController controller = TextEditingController(
+      text: DateFormatter.formatTimestampString(
+        DateTime.now().toString(),
+          format: DateFormatter.DATE_FORMAT_MOUNTH,
+      ));
+
   @override
   Widget build(BuildContext context) {
     return mainFrame(
       body: Column(
         children: [
-          25.ph,
           FilterDate(
             onFilter: () {},
             controller: controller,
           ),
-          20.ph,
+          10.ph,
           Expanded(child: buildConsumer(context)),
         ],
       ),
     );
   }
+
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return AttendanceRecordScreen(
-     // courses: state.data!,
-    );
+        // courses: state.data!,
+        );
   }
 
   @override
   String? title(BuildContext context) {
     return strings.attendance;
-  //  return getArguments(context).name;
+    //  return getArguments(context).name;
   }
 }

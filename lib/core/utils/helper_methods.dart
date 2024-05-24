@@ -170,8 +170,9 @@ class HelperMethods {
     return await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
+      firstDate: DateTime(1000),
       lastDate: DateTime(3555),
+      keyboardType: TextInputType.datetime,
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(

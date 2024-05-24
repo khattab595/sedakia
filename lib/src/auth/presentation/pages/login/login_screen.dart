@@ -29,6 +29,7 @@ class LoginScreen extends BaseStatelessWidget {
       phoneNumberController.text = '7788996655';
       passwordController.text = '123123123';
     }
+    bool value = false;
     return  Form(
       key: formKey,
       child: SingleChildScrollView(
@@ -50,18 +51,58 @@ class LoginScreen extends BaseStatelessWidget {
             ),
             PasswordTextField(
               controller: passwordController,
-              margin: 10.paddingBottom,
+              margin: 0.paddingBottom,
             ),
-            Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: LabelButton(
-                title: strings.forgot_password,
-                style: primaryMediumStyle.copyWith(fontSize: 14),
-                onTap: () {
-                  pushNamed(Routes.enterPhoneNumberPage);
-                  // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Expanded(
+                  child: Row(
+                    children: [
+                      StatefulBuilder(
+                        builder: (context, setState) {
+                          return Transform.scale(
+                            scale: 1.2,
+                            child: Checkbox(
+                              value: value,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              activeColor: context.primaryColor,
+                              side: BorderSide(
+                                color: context.dividerColor,
+                                width: 1,
+                              ),
+                              visualDensity: VisualDensity.compact,
+                              onChanged: (s) {
+                                setState(() {
+                                  value = s!;
+                                });
+                              },
+                            ),
+                          );
+                        }
+                      ),
+                      Flexible(
+                        child: BlackSemiBoldText(
+                          fontSize: 14,
+                          label: strings.remember_me,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                LabelButton(
+                  title: strings.forgot_password,
+                  style: primaryMediumStyle.copyWith(fontSize: 14),
+                  onTap: () {
+                    pushNamed(Routes.enterPhoneNumberPage);
+                    // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
+                  },
+                ),
+              ],
             ),
             PrimaryButton(
               title: strings.sign_in,

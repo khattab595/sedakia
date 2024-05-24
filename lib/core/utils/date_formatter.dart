@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 
 class DateFormatter {
   static String DATE_FORMAT = 'dd-MM-yyyy';
+  static String DATE_FORMAT_MOUNTH = 'MMMM yyyy';
+  static String DATE_FORMAT_MOUNTH_DAY = 'EEEE, d MMM, yyyy';
   static String formatDate(DateTime date) {
     final now = DateTime.now();
     final diff = now.difference(date);
@@ -50,13 +52,13 @@ class DateFormatter {
   }
 
   static String formatTimestampString(String dateString, {String format = 'yyyy-MM-dd'}){
-    // final lang = injector<ServicesLocator>().languageCode;
+    final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
       final DateFormat _inputFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
-      final DateFormat _outputFormat = DateFormat(format);
+      final DateFormat _outputFormat = DateFormat(format, lang);
       DateTime date = _inputFormat.parse(dateString);
-      String formattedDate = _outputFormat.format(date);
+      String formattedDate = _outputFormat.format(date );
       return formattedDate;
     } on Exception catch (e) {
       print('formatTimestampString error: $e');

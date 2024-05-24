@@ -1,6 +1,4 @@
 import '../../../main_index.dart';
-import '../../../request_log/domain/entities/course.dart';
-import '../../../request_log/presentation/add_request/widgets/filter_date_widget.dart';
 import '../widgets/attendance_record_item.dart';
 
 class AttendanceRecordScreen extends BaseStatelessWidget {
@@ -21,6 +19,7 @@ class AttendanceRecordScreen extends BaseStatelessWidget {
         // final course = courses[index];
         return AttendanceRecordItem(
             //  item: course
+          index: index,
             );
       },
     );
