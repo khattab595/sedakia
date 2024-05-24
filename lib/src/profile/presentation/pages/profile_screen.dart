@@ -57,7 +57,7 @@ class ProfileScreen extends BaseStatelessWidget {
               title: strings.language),
           10.ph,
           ProfileItemV2(
-              icon: AppIcons.lock,
+              icon: AppIcons.logout,
               onTap: () {
                 pushNamed(Routes.loginPage);
               },

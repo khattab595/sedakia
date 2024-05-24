@@ -43,7 +43,7 @@ class HomeScreen extends BaseStatelessWidget {
                 10.ph,
                 Container(
                   decoration: Decorations.kDecorationBorderRadius(),
-                  width: context.width,
+                  // width: context.width,
                   padding: 10.paddingAll,
                   margin: 10.paddingBottom,
                   child: Column(
@@ -58,22 +58,21 @@ class HomeScreen extends BaseStatelessWidget {
                             blackRegularStyle.copyWith(color: greyColor),
                       ),
                       7.ph,
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.location_on_outlined,
-                            color: AppColors.blueColorff,
-                            size: 17,
-                          ),
-                          10.pw,
-                          InkWell(
-                            onTap: () {
-                              print("open map");
-                              HelperMethods.launchURL('https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
-                            },
-                            child: SizedBox(
-                              height: 40,
-                              width: context.width - 80,
+                      InkWell(
+                        onTap: () {
+                          print("open map");
+                          HelperMethods.launchURL(
+                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+                        },
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.location_on_outlined,
+                              color: AppColors.blueColorff,
+                              size: 17,
+                            ),
+                            10.pw,
+                            Expanded(
                               child: Row(
                                 children: [
                                   Expanded(
@@ -90,8 +89,8 @@ class HomeScreen extends BaseStatelessWidget {
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       7.ph,
                       Row(
@@ -113,7 +112,6 @@ class HomeScreen extends BaseStatelessWidget {
                 ),
                 Container(
                   decoration: Decorations.kDecorationBorderRadius(),
-                  width: context.width,
                   padding: 10.paddingAll,
                   margin: 10.paddingBottom,
                   child: Column(
@@ -128,34 +126,39 @@ class HomeScreen extends BaseStatelessWidget {
                             blackRegularStyle.copyWith(color: greyColor),
                       ),
                       7.ph,
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.location_on_outlined,
-                            color: AppColors.blueColorff,
-                            size: 17,
-                          ),
-                          10.pw,
-                          SizedBox(
-                            height: 40,
-                            width: context.width - 80,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    child: PrimaryRegularText(
-                                  label: "لوكشين حمد الجاسر",
-                                  fontSize: 14,
-                                  labelColor: blueColorOff,
-                                )),
-                                const Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: AppColors.greyColorB1,
-                                  size: 16,
-                                )
-                              ],
+                      InkWell(
+                        onTap: () {
+                          print("open map");
+                          HelperMethods.launchURL(
+                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+                        },
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.location_on_outlined,
+                              color: AppColors.blueColorff,
+                              size: 17,
                             ),
-                          ),
-                        ],
+                            10.pw,
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      child: PrimaryRegularText(
+                                    label: "لوكشين حمد الجاسر",
+                                    fontSize: 14,
+                                    labelColor: blueColorOff,
+                                  )),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: AppColors.greyColorB1,
+                                    size: 16,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       7.ph,
                       Row(
@@ -177,7 +180,7 @@ class HomeScreen extends BaseStatelessWidget {
                 ),
                 Container(
                   decoration: Decorations.kDecorationBorderRadius(),
-                  width: context.width,
+                  // width: context.width,
                   padding: 10.paddingAll,
                   margin: 10.paddingBottom,
                   child: Column(
@@ -192,34 +195,39 @@ class HomeScreen extends BaseStatelessWidget {
                             blackRegularStyle.copyWith(color: greyColor),
                       ),
                       7.ph,
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.location_on_outlined,
-                            color: AppColors.blueColorff,
-                            size: 17,
-                          ),
-                          10.pw,
-                          SizedBox(
-                            height: 40,
-                            width: context.width - 80,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                    child: PrimaryRegularText(
-                                  label: "لوكشين حمد الجاسر",
-                                  fontSize: 14,
-                                  labelColor: blueColorOff,
-                                )),
-                                const Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: AppColors.greyColorB1,
-                                  size: 16,
-                                )
-                              ],
+                      InkWell(
+                        onTap: () {
+                          print("open map");
+                          HelperMethods.launchURL(
+                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+                        },
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.location_on_outlined,
+                              color: AppColors.blueColorff,
+                              size: 17,
                             ),
-                          ),
-                        ],
+                            10.pw,
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      child: PrimaryRegularText(
+                                    label: "لوكشين حمد الجاسر",
+                                    fontSize: 14,
+                                    labelColor: blueColorOff,
+                                  )),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: AppColors.greyColorB1,
+                                    size: 16,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       7.ph,
                       Row(

@@ -19,26 +19,31 @@ class RequestLogPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
         onPressed: () {
           pushNamed(Routes.addRequestPage);
         },
-        backgroundColor: primaryColor,
+        backgroundColor: context.primaryColor,
         shape: const StadiumBorder(),
         child: const Icon(
           Icons.add,
         ),
       ),
       body: StatefulBuilder(builder: (context, setState) {
-        return TabBarWidget(
-          page: buildConsumer(context),
-          initialIndex: id,
-          onTap: (index) {
-            id = index;
-            print(id);
-            print("iioioioioio");
-            setState(() {});
-          },
-          tabs: [
-            TabItemModel(label: strings.waiting, id: 0),
-            TabItemModel(label: strings.rejected, id: 1),
-            TabItemModel(label: strings.approved, id: 2),
+        return Column(
+          children: [
+            TabBarWidget(
+              // page: buildConsumer(context),
+              initialIndex: id,
+              onTap: (index) {
+                id = index;
+                print(id);
+                print("iioioioioio");
+                setState(() {});
+              },
+              tabs: [
+                TabItemModel(label: strings.waiting, id: 0),
+                TabItemModel(label: strings.rejected, id: 1),
+                TabItemModel(label: strings.approved, id: 2),
+              ],
+            ),
+            Expanded(child: buildConsumer(context)),
           ],
         );
       }),

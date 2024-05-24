@@ -52,7 +52,7 @@ class RequestLogItem extends BaseStatelessWidget {
                             padding: const EdgeInsets.only(top: 50),
                             child: Image.asset(
                              "assets/images/test.jpg",
-                              width: context.width,
+                              // width: context.width,
                             ),
                           ),
                          PrimaryButton(

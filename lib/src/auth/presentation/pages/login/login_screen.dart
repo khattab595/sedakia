@@ -108,7 +108,7 @@ class LoginScreen extends BaseStatelessWidget {
               title: strings.sign_in,
               margin: 30.paddingVert,
               onPressed: (){
-                pushNamed(Routes.navigationPages);
+                pushNamedAndRemoveUntil(Routes.navigationPages);
               },
             ),
             // InkWell(

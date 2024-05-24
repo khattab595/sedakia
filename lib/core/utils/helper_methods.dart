@@ -19,7 +19,7 @@ class HelperMethods {
     imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     return await ImageCropper().cropImage(
       sourcePath: imageFile!.path,
-      aspectRatio: const CropAspectRatio(ratioX: 2, ratioY: 1),
+      // aspectRatio: const CropAspectRatio(ratioX: 2, ratioY: 1),
       uiSettings: [
         AndroidUiSettings(
             toolbarColor: Colors.black,

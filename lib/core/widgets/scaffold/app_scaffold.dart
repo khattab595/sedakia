@@ -41,7 +41,6 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
     ThemeData theme = Theme.of(context);
     return Scaffold(
@@ -86,8 +85,7 @@ class AppScaffold extends StatelessWidget {
                 //     preferredSize: Size.fromHeight(1),
                 //     child: Divider(),
                 // ),
-                leading:
-                    Navigator.canPop(context) ? CustomBackAppBar() : leading,
+                leading: Navigator.canPop(context) ? CustomBackAppBar() : leading,
               ),
     );
   }
