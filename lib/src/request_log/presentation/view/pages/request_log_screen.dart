@@ -27,7 +27,7 @@ class RequestLogScreen extends BaseStatelessWidget {
       itemCount: 4,
       itemBuilder: (context, index) {
         return RequestLogItem(
-          index: id,
+          index: index,
           //  log: myCourses[index],
         );
       },

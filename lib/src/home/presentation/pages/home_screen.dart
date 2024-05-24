@@ -1,3 +1,4 @@
+import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
@@ -26,70 +27,90 @@ class HomeScreen extends BaseStatelessWidget {
           children: [
             headerHome(),
             15.ph,
-            SemiBoldPrimaryText(label:  strings.current_project,fontSize: 19,),
+            SemiBoldPrimaryText(
+              label: strings.current_project,
+              fontSize: 19,
+            ),
             10.ph,
             ProjectItem(),
             10.ph,
-            SemiBoldPrimaryText(label:  strings.past_project,fontSize: 19,),
+            SemiBoldPrimaryText(
+              label: strings.past_project,
+              fontSize: 19,
+            ),
             Column(
               children: [
                 10.ph,
                 Container(
-                decoration: Decorations.kDecorationBorderRadius(),
-        width: context.width,
-        padding: 10.paddingAll,
-        margin: 10.paddingBottom,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RowTexts(
-              value: "#8796541",
-              title: "مشروع هايبر بندة",
-              titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-              valueStyle: blackRegularStyle.copyWith(color: greyColor),
-            ),
-            7.ph,
-            Row(
-              children: [
-                const Icon(
-                  Icons.location_on_outlined,
-                  color: AppColors.blueColorff,
-                  size: 17,
-                ),
-                10.pw,
-                SizedBox(
-                  height: 40,
-                  width: context.width - 80,
-                  child: Row(
+                  decoration: Decorations.kDecorationBorderRadius(),
+                  width: context.width,
+                  padding: 10.paddingAll,
+                  margin: 10.paddingBottom,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                          child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
+                      RowTexts(
+                        value: "#8796541",
+                        title: "مشروع هايبر بندة",
+                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+                        valueStyle:
+                            blackRegularStyle.copyWith(color: greyColor),
                       ),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: AppColors.greyColorB1,
-                        size: 16,
-                      )
+                      7.ph,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            color: AppColors.blueColorff,
+                            size: 17,
+                          ),
+                          10.pw,
+                          InkWell(
+                            onTap: () {
+                              print("open map");
+                              HelperMethods.launchURL('https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+                            },
+                            child: SizedBox(
+                              height: 40,
+                              width: context.width - 80,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                      child: PrimaryRegularText(
+                                    label: "لوكشين حمد الجاسر",
+                                    fontSize: 14,
+                                    labelColor: blueColorOff,
+                                  )),
+                                  const Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: AppColors.greyColorB1,
+                                    size: 16,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      7.ph,
+                      Row(
+                        children: [
+                          const AppIcon(
+                            icon: AppIcons.calendar,
+                            size: 16,
+                          ),
+                          10.pw,
+                          PrimaryRegularText(
+                            label: "23 مارس 2024",
+                            fontSize: 12,
+                            labelColor: greyColor,
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),
-              ],
-            ),
-            7.ph,
-            Row(
-              children: [
-                const AppIcon(
-                  icon: AppIcons.calendar,
-                  size: 16,
-                ),
-                10.pw,
-                PrimaryRegularText(label: "23 مارس 2024",fontSize: 12,labelColor:greyColor ,)
-              ],
-            ),
-          ],
-        ),
-            ),
                 Container(
                   decoration: Decorations.kDecorationBorderRadius(),
                   width: context.width,
@@ -103,7 +124,8 @@ class HomeScreen extends BaseStatelessWidget {
                         value: "#149632",
                         title: "مشروع فورمال 1",
                         titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-                        valueStyle: blackRegularStyle.copyWith(color: greyColor),
+                        valueStyle:
+                            blackRegularStyle.copyWith(color: greyColor),
                       ),
                       7.ph,
                       Row(
@@ -120,8 +142,11 @@ class HomeScreen extends BaseStatelessWidget {
                             child: Row(
                               children: [
                                 Expanded(
-                                    child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
-                                ),
+                                    child: PrimaryRegularText(
+                                  label: "لوكشين حمد الجاسر",
+                                  fontSize: 14,
+                                  labelColor: blueColorOff,
+                                )),
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: AppColors.greyColorB1,
@@ -140,7 +165,11 @@ class HomeScreen extends BaseStatelessWidget {
                             size: 16,
                           ),
                           10.pw,
-                          PrimaryRegularText(label: "5 فبراير 2024",fontSize: 12,labelColor:greyColor ,)
+                          PrimaryRegularText(
+                            label: "5 فبراير 2024",
+                            fontSize: 12,
+                            labelColor: greyColor,
+                          )
                         ],
                       ),
                     ],
@@ -159,7 +188,8 @@ class HomeScreen extends BaseStatelessWidget {
                         value: "#741258",
                         title: "مشروع لولو هايبر ماركت",
                         titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-                        valueStyle: blackRegularStyle.copyWith(color: greyColor),
+                        valueStyle:
+                            blackRegularStyle.copyWith(color: greyColor),
                       ),
                       7.ph,
                       Row(
@@ -176,8 +206,11 @@ class HomeScreen extends BaseStatelessWidget {
                             child: Row(
                               children: [
                                 Expanded(
-                                    child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
-                                ),
+                                    child: PrimaryRegularText(
+                                  label: "لوكشين حمد الجاسر",
+                                  fontSize: 14,
+                                  labelColor: blueColorOff,
+                                )),
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: AppColors.greyColorB1,
@@ -196,7 +229,11 @@ class HomeScreen extends BaseStatelessWidget {
                             size: 16,
                           ),
                           10.pw,
-                          PrimaryRegularText(label: "1 يناير 2024",fontSize: 12,labelColor:greyColor ,)
+                          PrimaryRegularText(
+                            label: "1 يناير 2024",
+                            fontSize: 12,
+                            labelColor: greyColor,
+                          )
                         ],
                       ),
                     ],
@@ -223,11 +260,13 @@ class HomeScreen extends BaseStatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SemiBoldPrimaryText(label: "محمد القحطاني",fontSize: 21,),
+            SemiBoldPrimaryText(
+              label: "محمد القحطاني",
+              fontSize: 21,
+            ),
             5.ph,
             Container(
               decoration: Decorations.baseDecorationRadius(
@@ -240,18 +279,24 @@ class HomeScreen extends BaseStatelessWidget {
             )
           ],
         ),
-         const Spacer(),
+        const Spacer(),
         InkWell(
-            onTap: (){
+            onTap: () {
               pushNamed(Routes.notifications);
             },
-            child: const AppIcon(icon: AppIcons.notification,size: 32,)),
+            child: const AppIcon(
+              icon: AppIcons.notification,
+              size: 32,
+            )),
         10.pw,
         InkWell(
-            onTap: (){
+            onTap: () {
               pushNamed(Routes.profile);
             },
-            child: const AppIcon(icon: AppIcons.avatar,size: 40,)),
+            child: const AppIcon(
+              icon: AppIcons.avatar,
+              size: 40,
+            )),
       ],
     );
   }
