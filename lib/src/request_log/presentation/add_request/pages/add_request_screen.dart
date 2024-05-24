@@ -54,65 +54,81 @@ class AddRequestScreen extends BaseStatelessWidget {
                     controller: reasonController,
                   ),
                   15.ph,
-                 Container(
-                   padding: 10.paddingHoriz,
-                   height: 70,
-                   margin: 20.paddingBottom,
-                   decoration: Decorations.kDecorationOnlyRadius(
-                     radius: 10,
-                     color: greyColor.withOpacity(0.1),
-                   ),
-                   child: StatefulBuilder(
-                     builder: (context, setState) {
-                       return Row(
-                         children: [
-                           AppIconButton(
+                  Container(
+                    padding: 10.paddingHoriz,
+                    height: 70,
+                    margin: 20.paddingBottom,
+                    decoration: Decorations.kDecorationOnlyRadius(
+                      radius: 10,
+                      color: greyColor.withOpacity(0.1),
+                    ),
+                    child: StatefulBuilder(
+                      builder: (context, setState) {
+                        return Row(
+                          children: [
+                            AppIconButton(
                               icon: AppIcons.desc,
                               size: 30,
                               onPressed: () async {
-                                final picker = await HelperMethods.getImagePicker();
+                                final picker =
+                                    await HelperMethods.getImagePicker();
                                 if (picker != null) {
                                   setState(() {
                                     files.add(File(picker.path));
                                   });
                                 }
                               },
-                           ),
+                            ),
                             10.pw,
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
-                                children: files.map((e) => Stack(
-                                  alignment: AlignmentDirectional.topEnd,
-                                  children: [
-                                    Container(
-                                      margin: 15.paddingVert + 15.paddingEnd,
-                                      child: Image.file(e, width: 50, height: 50, fit: BoxFit.fill,),
-                                    ),
-                                    PositionedDirectional(
-                                      end: 0,
-                                      top: 0,
-                                      child: SizedBox(
-                                        height: 20,
-                                        width: 20,
-                                        child: IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              files.remove(e);
-                                            });
-                                            },
-                                          icon: const Icon(Icons.remove_circle,  size: 20,), color: Colors.red,),
+                                children: files
+                                    .map(
+                                      (e) => Stack(
+                                        alignment: AlignmentDirectional.topEnd,
+                                        children: [
+                                          Container(
+                                            margin:
+                                                15.paddingVert + 15.paddingEnd,
+                                            child: Image.file(
+                                              e,
+                                              width: 50,
+                                              height: 50,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          PositionedDirectional(
+                                            end: 0,
+                                            top: 0,
+                                            child: SizedBox(
+                                              height: 20,
+                                              width: 20,
+                                              child: IconButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    files.remove(e);
+                                                  });
+                                                },
+                                                icon: const Icon(
+                                                  Icons.remove_circle,
+                                                  size: 20,
+                                                ),
+                                                color: Colors.red,
+                                              ),
+                                            ),
+                                          )
+                                        ],
                                       ),
                                     )
-                                  ],
-                                )).toList(),
+                                    .toList(),
                               ),
                             )
-                         ],
-                                        );
-                     }
-                   ),
-                 ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
