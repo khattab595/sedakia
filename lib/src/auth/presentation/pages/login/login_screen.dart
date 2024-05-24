@@ -107,7 +107,9 @@ class LoginScreen extends BaseStatelessWidget {
             PrimaryButton(
               title: strings.sign_in,
               margin: 30.paddingVert,
-              onPressed: () => onPressed(),
+              onPressed: (){
+                pushNamed(Routes.navigationPages);
+              },
             ),
             // InkWell(
             //   onTap: () {
@@ -134,13 +136,13 @@ class LoginScreen extends BaseStatelessWidget {
       ),
     );
   }
-  onPressed() async {
-   if (formKey.currentState!.validate()) {
-      onLogin!(LoginParams(
-        phoneNumber: phoneNumberController.text.toIraqCode,
-        password: passwordController.text,
-        fcmToken: 'harby',
-      ));
-   }
-  }
+  // onPressed() async {
+  //  if (formKey.currentState!.validate()) {
+  //     onLogin!(LoginParams(
+  //       phoneNumber: phoneNumberController.text.toIraqCode,
+  //       password: passwordController.text,
+  //       fcmToken: 'harby',
+  //     ));
+  //  }
+  // }
 }

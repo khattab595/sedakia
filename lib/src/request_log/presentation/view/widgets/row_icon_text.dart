@@ -18,11 +18,11 @@ class RomIconAndText extends BaseStatelessWidget {
         ),
         const Spacer(),
         RowIconText(
-          containerColor: const Color(0xffFFE9D4),
+          containerColor: orangeLight,
           icon: AppIcons.desc,
-          value: "أجازة",
+          value: "إجازة",
           valueStyle: primaryMediumStyle.copyWith(
-              fontSize: 14, color: const Color(0xffFF6B00)),
+              fontSize: 14, color: orangeColor),
         ),
       ],
     );

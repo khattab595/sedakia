@@ -1,5 +1,7 @@
 import 'package:app/core/utils/navigator.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
 
+import '../../../../core/widgets/texts/row_texts.dart';
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 import '../widgets/project_item.dart';
@@ -18,34 +20,201 @@ class HomeScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: 15.paddingAll + 20.paddingTop,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          headerHome(),
-          15.ph,
-          Text(
-            strings.current_project,
-            style: primarySemiBoldStyle.copyWith(
-                fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          10.ph,
-          ProjectItem(),
-          10.ph,
-          Text(
-            strings.past_project,
-            style: primarySemiBoldStyle.copyWith(
-                fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          Expanded(
-              child: ListView.builder(
-            itemCount: 10,
-            padding: 5.paddingTop,
-
-            itemBuilder: (context, index) {
-              return ProjectItem();
-            },
-          ))
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            headerHome(),
+            15.ph,
+            SemiBoldPrimaryText(label:  strings.current_project,fontSize: 19,),
+            10.ph,
+            ProjectItem(),
+            10.ph,
+            SemiBoldPrimaryText(label:  strings.past_project,fontSize: 19,),
+            Column(
+              children: [
+                10.ph,
+                Container(
+                decoration: Decorations.kDecorationBorderRadius(),
+        width: context.width,
+        padding: 10.paddingAll,
+        margin: 10.paddingBottom,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RowTexts(
+              value: "#8796541",
+              title: "مشروع هايبر بندة",
+              titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+              valueStyle: blackRegularStyle.copyWith(color: greyColor),
+            ),
+            7.ph,
+            Row(
+              children: [
+                const Icon(
+                  Icons.location_on_outlined,
+                  color: AppColors.blueColorff,
+                  size: 17,
+                ),
+                10.pw,
+                SizedBox(
+                  height: 40,
+                  width: context.width - 80,
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
+                      ),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: AppColors.greyColorB1,
+                        size: 16,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            7.ph,
+            Row(
+              children: [
+                const AppIcon(
+                  icon: AppIcons.calendar,
+                  size: 16,
+                ),
+                10.pw,
+                PrimaryRegularText(label: "23 مارس 2024",fontSize: 12,labelColor:greyColor ,)
+              ],
+            ),
+          ],
+        ),
+            ),
+                Container(
+                  decoration: Decorations.kDecorationBorderRadius(),
+                  width: context.width,
+                  padding: 10.paddingAll,
+                  margin: 10.paddingBottom,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RowTexts(
+                        value: "#149632",
+                        title: "مشروع فورمال 1",
+                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+                        valueStyle: blackRegularStyle.copyWith(color: greyColor),
+                      ),
+                      7.ph,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            color: AppColors.blueColorff,
+                            size: 17,
+                          ),
+                          10.pw,
+                          SizedBox(
+                            height: 40,
+                            width: context.width - 80,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: AppColors.greyColorB1,
+                                  size: 16,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      7.ph,
+                      Row(
+                        children: [
+                          const AppIcon(
+                            icon: AppIcons.calendar,
+                            size: 16,
+                          ),
+                          10.pw,
+                          PrimaryRegularText(label: "5 فبراير 2024",fontSize: 12,labelColor:greyColor ,)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: Decorations.kDecorationBorderRadius(),
+                  width: context.width,
+                  padding: 10.paddingAll,
+                  margin: 10.paddingBottom,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RowTexts(
+                        value: "#741258",
+                        title: "مشروع لولو هايبر ماركت",
+                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+                        valueStyle: blackRegularStyle.copyWith(color: greyColor),
+                      ),
+                      7.ph,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            color: AppColors.blueColorff,
+                            size: 17,
+                          ),
+                          10.pw,
+                          SizedBox(
+                            height: 40,
+                            width: context.width - 80,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    child:PrimaryRegularText(label: "لوكشين حمد الجاسر",fontSize: 14,labelColor:blueColorOff ,)
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: AppColors.greyColorB1,
+                                  size: 16,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      7.ph,
+                      Row(
+                        children: [
+                          const AppIcon(
+                            icon: AppIcons.calendar,
+                            size: 16,
+                          ),
+                          10.pw,
+                          PrimaryRegularText(label: "1 يناير 2024",fontSize: 12,labelColor:greyColor ,)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+            // Expanded(
+            //     child: ListView.builder(
+            //   itemCount: 10,
+            //   padding: 10.paddingTop,
+            //
+            //   itemBuilder: (context, index) {
+            //     return ProjectItem();
+            //   },
+            // ))
+          ],
+        ),
       ),
     );
   }
@@ -58,12 +227,7 @@ class HomeScreen extends BaseStatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "محمد القحطاني",
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: primarySemiBoldStyle.copyWith(fontSize: 22),
-            ),
+            SemiBoldPrimaryText(label: "محمد القحطاني",fontSize: 21,),
             5.ph,
             Container(
               decoration: Decorations.baseDecorationRadius(
@@ -76,14 +240,18 @@ class HomeScreen extends BaseStatelessWidget {
             )
           ],
         ),
-         Spacer(),
+         const Spacer(),
         InkWell(
             onTap: (){
               pushNamed(Routes.notifications);
             },
-            child: const AppIcon(icon: AppIcons.notification)),
+            child: const AppIcon(icon: AppIcons.notification,size: 32,)),
         10.pw,
-        const AppIcon(icon: AppIcons.avatar),
+        InkWell(
+            onTap: (){
+              pushNamed(Routes.profile);
+            },
+            child: const AppIcon(icon: AppIcons.avatar,size: 40,)),
       ],
     );
   }

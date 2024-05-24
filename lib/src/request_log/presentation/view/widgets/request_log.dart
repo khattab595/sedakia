@@ -32,7 +32,7 @@ class RequestLogItem extends BaseStatelessWidget {
           3.ph,
           PrimaryRegularText(
             label: "كان لدي موعد مع الطبيب",
-            labelColor: Color(0xffB1B1B1),
+            labelColor: greyColorB1,
           ),
           10.ph,
           RowTexts(
@@ -40,40 +40,41 @@ class RequestLogItem extends BaseStatelessWidget {
             value: "25 Apr 2024",
             titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 12),
+                color: greyColorB1, fontSize: 12),
           ),
           5.ph,
+          (index == 0)? 0.pw:
           RowTexts(
             title: strings.reply_date,
             value: "25 Apr 2024",
             titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 12),
+                color:greyColorB1, fontSize: 12),
           ),
           5.ph,
-           (index == 0)? 0.pw:
             RowTexts(
-              title: strings.starting_date,
+              title: strings.leave_start_date,
               value: "25 Apr 2024",
               titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
-                  color: Color(0xffB1B1B1), fontSize: 12),
+                  color: greyColorB1, fontSize: 12),
             ),
           5.ph,
           RowTexts(
-            title: strings.expiry_date,
+            title: strings.leave_end_date,
             value: "25 Apr 2024",
             titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(
-                color: Color(0xffB1B1B1), fontSize: 12),
+                color: greyColorB1, fontSize: 12),
           ),
-          if(index ==2)
+          5.ph,
+          if(index ==1)
             RowTexts(
               title: "سبب الرفض",
               value: "لم يتم رفع المرفقات",
               titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
-                  color: Color(0xffB1B1B1), fontSize: 12),
+                  color: greyColorB1, fontSize: 12),
             ),
         ],
       ),

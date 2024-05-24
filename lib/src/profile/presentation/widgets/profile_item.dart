@@ -79,7 +79,8 @@ Widget? trailing;
             color: context.primaryColor,
           ),
           minLeadingWidth: 20,
-          title: Text(
+          title:
+          Text(
             title,
             style: primaryRegularStyle.copyWith(
               fontSize: 16,

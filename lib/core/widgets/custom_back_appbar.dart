@@ -9,6 +9,9 @@ class CustomBackAppBar extends BaseStatelessWidget {
       onTap: () {
         Navigator.of(context).pop();
       },
-      child:  Icon(Icons.arrow_back_ios,size: 20,color: AppColors.primaryLight));
+      child:
+     // const AppIcon(icon: AppIcons.back,),
+      Icon(Icons.arrow_back_ios,size: 20,color: AppColors.primaryLight)
+    );
   }
 }

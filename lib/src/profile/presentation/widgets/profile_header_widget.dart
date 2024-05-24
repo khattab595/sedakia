@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:app/core/widgets/texts/primary_texts.dart';
+
 import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/profile.dart';
@@ -33,11 +35,11 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 30.ph,
-                Text("محمد محمد القحطاني ",style: whiteMediumStyle.copyWith(fontSize: 22),),
+                PrimaryMediumText(label: "محمد محمد القحطاني ",fontSize: 20,labelColor: cardColor,),
               5.ph,
                 Text("مراقب امن",style: whiteRegularStyle.copyWith(fontSize: 14),),
                 5.ph,
-                Text("${strings.code} #125480",style: whiteRegularStyle.copyWith(fontSize: 12),),
+                Text("${strings.code} #125480",style: whiteRegularStyle.copyWith(fontSize: 10),),
               ],
             ),
           ),

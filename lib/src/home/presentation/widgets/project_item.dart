@@ -1,3 +1,6 @@
+import 'package:app/core/widgets/texts/primary_texts.dart';
+import 'package:app/core/widgets/texts/row_texts.dart';
+
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 
@@ -20,11 +23,11 @@ class ProjectItem extends BaseStatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "مشروع تضاريس نجد",
-            style: primaryMediumStyle.copyWith(
-              fontSize: 20,
-            ),
+          RowTexts(
+            value: "#123546",
+            title: "مشروع هايبر بندة",
+            titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+            valueStyle: blackRegularStyle.copyWith(color: greyColor),
           ),
           7.ph,
           Row(
@@ -41,12 +44,11 @@ class ProjectItem extends BaseStatelessWidget {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Text(
-                        "شارع حمد الجاسر، حي الروضة، جدة ",
-                        style: primaryRegularStyle.copyWith(
-                            fontSize: 14, color: AppColors.blueColorff),
-                      ),
-                    ),
+                        child: PrimaryRegularText(
+                      label: "لوكشين حمد الجاسر",
+                      fontSize: 14,
+                      labelColor: blueColorOff,
+                    )),
                     const Icon(
                       Icons.arrow_forward_ios,
                       color: AppColors.greyColorB1,
@@ -65,11 +67,11 @@ class ProjectItem extends BaseStatelessWidget {
                 size: 16,
               ),
               10.pw,
-              Text(
-                "22 أبريل 2024",
-                style: primaryRegularStyle.copyWith(
-                    fontSize: 12, color: AppColors.greyColor),
-              ),
+              PrimaryRegularText(
+                label: "223 مارس 2024",
+                fontSize: 12,
+                labelColor: greyColor,
+              )
             ],
           ),
         ],
