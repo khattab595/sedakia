@@ -58,7 +58,7 @@ class _PersonWidgetState extends State<PersonWidget> {
                   ProfileItem(
                     icon: AppIcons.id_number,
                     title: strings.id_number,
-                    subtitle: "123*******",
+                    subtitle: "2***** 2625",
                   ),
                   ProfileItem(
                     icon: AppIcons.nationality,
@@ -72,7 +72,7 @@ class _PersonWidgetState extends State<PersonWidget> {
                   ), ProfileItem(
                     icon: AppIcons.location,
                     title: strings.religion,
-                    subtitle: "شارع الصحي",
+                    subtitle: "مكة المكرمة",
                   ),
                   ProfileItem(
                     icon: AppIcons.gender,

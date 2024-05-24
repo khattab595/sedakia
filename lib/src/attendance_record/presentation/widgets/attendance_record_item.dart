@@ -33,7 +33,7 @@ class AttendanceRecordItem extends BaseStatelessWidget {
               RowIconText(
                 containerColor: orangeLight,
                 icon: AppIcons.desc,
-                value: "أجازة",
+                value: "إجازة",
                 valueStyle: primaryMediumStyle.copyWith(
                     fontSize: 14, color: orangeColor),
               ),

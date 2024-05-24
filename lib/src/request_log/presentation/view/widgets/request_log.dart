@@ -43,6 +43,7 @@ class RequestLogItem extends BaseStatelessWidget {
                 color: greyColorB1, fontSize: 12),
           ),
           5.ph,
+          (index == 0)? 0.pw:
           RowTexts(
             title: strings.reply_date,
             value: "25 Apr 2024",
@@ -51,9 +52,8 @@ class RequestLogItem extends BaseStatelessWidget {
                 color:greyColorB1, fontSize: 12),
           ),
           5.ph,
-           (index == 0)? 0.pw:
             RowTexts(
-              title: strings.starting_date,
+              title: strings.leave_start_date,
               value: "25 Apr 2024",
               titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
@@ -61,7 +61,7 @@ class RequestLogItem extends BaseStatelessWidget {
             ),
           5.ph,
           RowTexts(
-            title: strings.expiry_date,
+            title: strings.leave_end_date,
             value: "25 Apr 2024",
             titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
             valueStyle: primaryRegularStyle.copyWith(

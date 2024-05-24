@@ -67,7 +67,7 @@ class _SalaryWidgetState extends State<SalaryWidget> {
                   ProfileItem(
                     icon: AppIcons.hastag,
                     title: strings.iban_number,
-                    subtitle: "RS125**************",
+                    subtitle: "123xxxxxxxSA",
                   ),
                   ProfileItem(
                     icon: AppIcons.bank3,
@@ -77,7 +77,7 @@ class _SalaryWidgetState extends State<SalaryWidget> {
                   ProfileItem(
                     icon: AppIcons.creditCardBuyer,
                     title: strings.exchange_method,
-                    subtitle: "يحول الي الحساب",
+                    subtitle: "تحويل بنكي",
                   ),
                 ],
               )
