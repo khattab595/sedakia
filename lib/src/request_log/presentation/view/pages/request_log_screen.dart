@@ -25,9 +25,11 @@ class RequestLogScreen extends BaseStatelessWidget {
     // else{
     return ListView.builder(
       itemCount: 4,
+      padding: 70.paddingBottom,
       itemBuilder: (context, index) {
         return RequestLogItem(
           index: index,
+          tabIndex: id,
           //  log: myCourses[index],
         );
       },

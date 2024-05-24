@@ -12,12 +12,14 @@ import '../../../domain/entities/course.dart';
 
 class RequestLogItem extends BaseStatelessWidget {
   //final Course log;
+  int index ;
+  int tabIndex ;
   RequestLogItem({
     super.key,
-   required this.index
+   required this.index,
+    required this.tabIndex,
     //  required this.log
   });
-  int index ;
   @override
   Widget build(BuildContext context) {
     print("nnhh${index}");
@@ -133,13 +135,13 @@ class RequestLogItem extends BaseStatelessWidget {
                 color: greyColorB1, fontSize: 12),
           ),
           5.ph,
-          if(index ==1)
+          if(tabIndex == 1)
             RowTexts(
               title: "سبب الرفض",
               value: "لم يتم رفع المرفقات",
               titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
               valueStyle: primaryRegularStyle.copyWith(
-                  color: greyColorB1, fontSize: 12),
+                  color: errorColor, fontSize: 12),
             ),
         ],
       ),
