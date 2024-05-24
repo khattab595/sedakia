@@ -58,7 +58,7 @@ class _PersonWidgetState extends State<PersonWidget> {
                   ProfileItem(
                     icon: AppIcons.id_number,
                     title: strings.id_number,
-                    subtitle: "2***** 2625",
+                    subtitle: "5435*********2",
                   ),
                   ProfileItem(
                     icon: AppIcons.nationality,

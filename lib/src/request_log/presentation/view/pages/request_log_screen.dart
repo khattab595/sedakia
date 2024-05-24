@@ -28,8 +28,8 @@ class RequestLogScreen extends BaseStatelessWidget {
       padding: 70.paddingBottom,
       itemBuilder: (context, index) {
         return RequestLogItem(
-          index: index,
-          tabIndex: id,
+          id: id,
+          tabIndex: index,
           //  log: myCourses[index],
         );
       },

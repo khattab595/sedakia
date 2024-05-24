@@ -77,7 +77,7 @@ class HomeScreen extends BaseStatelessWidget {
                                 children: [
                                   Expanded(
                                       child: PrimaryRegularText(
-                                    label: "لوكشين حمد الجاسر",
+                                    label: " شارع الرياض, حي الروضة, جدة ",
                                     fontSize: 14,
                                     labelColor: blueColorOff,
                                   )),
@@ -145,7 +145,7 @@ class HomeScreen extends BaseStatelessWidget {
                                 children: [
                                   Expanded(
                                       child: PrimaryRegularText(
-                                    label: "لوكشين حمد الجاسر",
+                                    label: " شارع الملك  سلمان، حي الروضة، جدة ",
                                     fontSize: 14,
                                     labelColor: blueColorOff,
                                   )),
@@ -214,7 +214,7 @@ class HomeScreen extends BaseStatelessWidget {
                                 children: [
                                   Expanded(
                                       child: PrimaryRegularText(
-                                    label: "لوكشين حمد الجاسر",
+                                    label: " شارع حمد الجاسر, حي الروضة, جدة ",
                                     fontSize: 14,
                                     labelColor: blueColorOff,
                                   )),

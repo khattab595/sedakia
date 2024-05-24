@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 6),
       vsync: this,
     )..repeat(reverse: true);
 
@@ -29,7 +29,7 @@ class _SplashPageState extends State<SplashPage>
       curve: Curves.easeInOut,
     );
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 6),
       () async {
         bool isLogin = await HelperMethods.isLogin();
         if (isLogin) {
@@ -46,18 +46,33 @@ class _SplashPageState extends State<SplashPage>
     return Scaffold(
       body: Center(
         child: AnimatedContainer(
-          duration: const Duration(seconds: 5),
-          curve: Curves.decelerate,
+            duration: const Duration(seconds: 6),
+            curve: Curves.decelerate,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(AppImages.splash, width: 200, height: 200),
+                AnimatedBuilder(
+                  animation: _animation!,
+                  child: Image.asset(AppImages.splash, width: 200, height: 200),
+                  builder: (context, child) {
+                    return Transform.scale(
+                      scale: _animation?.value,
+                      child: Transform.rotate(
+                        angle: _animation!.value * 2.0 * 3.14,
+                        child: child,
+                      ),
+                    );
+                  },
+                ),
                 Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: PrimaryBoldText(label: 'مؤسسة الوسيط للحراسات الأمنية المدنية', fontSize: 20,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: PrimaryBoldText(
+                    label: 'مؤسسة الوسيط للحراسات الأمنية المدنية',
+                    fontSize: 20,
                     textAlign: TextAlign.center,
-                    ),)
+                  ),
+                )
               ],
             )), // Set image
       ),

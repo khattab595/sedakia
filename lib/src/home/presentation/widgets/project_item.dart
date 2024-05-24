@@ -48,10 +48,11 @@ class ProjectItem extends BaseStatelessWidget {
                   child: Row(
                     children: [
                       PrimaryRegularText(
-                                              label: "لوكشين حمد الجاسر",
+                                              label: "ل شارع حمد الجاسر، حي الروضة، جدة ",
                                               fontSize: 14,
                                               labelColor: blueColorOff,
                                             ),
+                      Spacer(),
                       const Icon(
                         Icons.arrow_forward_ios,
                         color: AppColors.greyColorB1,
@@ -72,7 +73,7 @@ class ProjectItem extends BaseStatelessWidget {
               ),
               10.pw,
               PrimaryRegularText(
-                label: "223 مارس 2024",
+                label: "23 مارس 2024",
                 fontSize: 12,
                 labelColor: greyColor,
               )

@@ -51,7 +51,7 @@ class DropDownField extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     Color? borderColor = colorBorderSide ?? context.dividerColor;
     return Padding(
-      padding: 12.paddingBottom,
+      padding: 0.paddingBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -70,7 +70,7 @@ class DropDownField extends BaseStatelessWidget {
               fillColor:
                   fillColor ?? context.theme.inputDecorationTheme.fillColor,
               contentPadding:
-                  const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+                  const EdgeInsets.symmetric(vertical: 2, horizontal: 0),
               border: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: borderColor,

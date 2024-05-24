@@ -12,17 +12,17 @@ import '../../../domain/entities/course.dart';
 
 class RequestLogItem extends BaseStatelessWidget {
   //final Course log;
-  int index ;
+  int id ;
   int tabIndex ;
   RequestLogItem({
     super.key,
-   required this.index,
+   required this.id,
     required this.tabIndex,
     //  required this.log
   });
   @override
   Widget build(BuildContext context) {
-    print("nnhh${index}");
+    print("nnhh${id}");
     // print('myCourse.percentage: ${log.percentage}');
     return Container(
       padding: 15.paddingAll,
@@ -86,7 +86,7 @@ class RequestLogItem extends BaseStatelessWidget {
               const Spacer(),
               BlackMediumText(
                 // generated code that contains 6 number
-                label: '#${index+100000}',
+                label: '#${id+100000}',
                 fontSize: 16,
               ),
             ],
@@ -110,7 +110,7 @@ class RequestLogItem extends BaseStatelessWidget {
                 color: greyColorB1, fontSize: 12),
           ),
           5.ph,
-          (index == 0)? 0.pw:
+           (id == 0)? 0.pw:
           RowTexts(
             title: strings.reply_date,
             value: "25 Apr 2024",
@@ -135,7 +135,7 @@ class RequestLogItem extends BaseStatelessWidget {
                 color: greyColorB1, fontSize: 12),
           ),
           5.ph,
-          if(tabIndex == 1)
+          if(id == 1)
             RowTexts(
               title: "سبب الرفض",
               value: "لم يتم رفع المرفقات",

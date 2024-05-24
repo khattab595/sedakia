@@ -1,4 +1,5 @@
 import 'package:app/core/exceptions/extensions.dart';
+import 'package:app/core/widgets/drop_down/drop_down.dart';
 import 'package:app/core/widgets/text-field/custom_text_field.dart';
 
 import '../../../../../core/utils/date_formatter.dart';
@@ -63,25 +64,76 @@ class FilterDate extends BaseStatelessWidget {
   final Function()? onFilter;
 
   FilterDate({super.key, required this.controller, this.onFilter});
-
+  List years = [
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024"
+  ];
+  List monthAr = [
+    "يناير",
+    "فبراير",
+    "مارس",
+    "أبريل",
+    "مايو",
+    "يونيو",
+    "يوليو",
+    "أغسطس",
+    "سبتمبر",
+    "أكتوبر",
+    "نوفمبر",
+    "ديسمبر"
+  ];
+  List monthEn = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
   @override
   Widget build(BuildContext context) {
     //  InvoicesFilterParams params = InvoicesFilterParams(status: 1);
-    TextEditingController insideController = TextEditingController();
-    return CustomTextField(
-      margin: 20.paddingHoriz,
-      hintText: strings.search_by_date,
-      suffixIconPath: AppIcons.search,
-      controller: controller,
-      isValidator: false,
-        minHeight: 55,
-      onTap: () async {
-        DateTime? date = await HelperMethods.selectDate(context);
-        if (date != null) {
-          controller.text = DateFormatter.formatTimestampString(date.toString());
-          onFilter!();
-        }
-      },
+    return Padding(
+      padding: 20.paddingHoriz + 10.paddingTop,
+      child: SizedBox(
+        height: 48,
+        child: Row(
+          children: [
+            Expanded(
+                child: DropDownField(
+                    value: years.last,
+                    items: years.map((e) => DropDownItem(title: e,id: e)).toList(),
+                    onChanged: (onChanged) {})),
+            10.pw,
+            Expanded(
+                child: DropDownField(
+                  value: isRtl()?monthAr[4]:monthEn[4],
+                    items: isRtl()
+                        ? monthAr.map((e) => DropDownItem(title: e,id: e)).toList()
+                        : monthEn.map((e) => DropDownItem(title: e,id: e)).toList(),
+                    onChanged: (onChanged) {})),
+          ],
+        ),
+      ),
     );
   }
 }

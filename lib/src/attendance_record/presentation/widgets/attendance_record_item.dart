@@ -20,7 +20,7 @@ class AttendanceRecordItem extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: 15.paddingHoriz + 13.paddingVert,
-      margin: 20.paddingHoriz + 10.paddingTop,
+      margin: 15.paddingHoriz + 10.paddingTop,
       decoration:
           Decorations.kDecorationBorderRadius(borderColor: dividerColor),
       child: Column(
@@ -49,17 +49,17 @@ class AttendanceRecordItem extends BaseStatelessWidget {
           containerColor: cardColor,
             valueStyle: primaryMediumStyle.copyWith(fontSize: 18),
         ),
-       if(index.isOdd)
-       ...[   10.ph,
-          PrimaryRegularText(
-            label: "${strings.reason} :",
-            fontSize: 14,
-            labelColor: const Color(0xffFF6B00),
-          ),
-          5.ph,
-          HintRegularText(
-            label: "كان لدي موعد مع الطبيب",
-          ),]
+       // if(index.isOdd)
+       // ...[   10.ph,
+       //    PrimaryRegularText(
+       //      label: "${strings.reason} :",
+       //      fontSize: 14,
+       //      labelColor: const Color(0xffFF6B00),
+       //    ),
+       //    5.ph,
+       //    HintRegularText(
+       //      label: "كان لدي موعد مع الطبيب",
+       //    ),]
         ],
       ),
     );
