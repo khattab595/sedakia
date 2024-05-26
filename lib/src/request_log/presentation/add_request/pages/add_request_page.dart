@@ -22,6 +22,6 @@ class AddRequestPage
 
   @override
   String? title(BuildContext context) {
-    return strings.vacation_request;
+    return strings.my_requests;
   }
 }

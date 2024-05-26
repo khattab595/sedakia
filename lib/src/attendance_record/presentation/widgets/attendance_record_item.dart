@@ -23,21 +23,21 @@ class AttendanceRecordItem extends BaseStatelessWidget {
       margin: 15.paddingHoriz + 10.paddingTop,
       decoration:
           Decorations.kDecorationBorderRadius(borderColor: dividerColor),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RowIconText(
-            containerColor: index.isEven
-                ? primaryColor.withOpacity(0.1)
-                : index == 3
-                    ? const Color(0xffFFD4D4)
-                    : Color(0xffFF6B00).withOpacity(0.1),
-            icon: AppIcons.desc,
-            value: index.isEven ? "حضور" : index == 3 ? "إجازة" : "غياب",
-            valueStyle: primaryMediumStyle.copyWith(
-                fontSize: 14, color: index.isEven ? primaryColor : const Color(0xffFF6B00),
-            ),
-          ),
+          // RowIconText(
+          //   containerColor: index.isEven
+          //       ? primaryColor.withOpacity(0.1)
+          //       : index == 3
+          //           ? const Color(0xffFFD4D4)
+          //           : const Color(0xffFF6B00).withOpacity(0.1),
+          //   icon: "",
+          //   value: index.isEven ? "حضور" : index == 3 ? "إجازة" : "غياب",
+          //   valueStyle: primaryMediumStyle.copyWith(
+          //       fontSize: 14, color: index.isEven ? primaryColor : const Color(0xffFF6B00),
+          //   ),
+          // ),
           5.ph,
           RowIconText(
           icon: AppIcons.date,
@@ -49,6 +49,12 @@ class AttendanceRecordItem extends BaseStatelessWidget {
           containerColor: cardColor,
             valueStyle: primaryMediumStyle.copyWith(fontSize: 18),
         ),
+       Spacer(),
+       PrimaryMediumText(label: index.isEven ? "حضور" : index == 3 ? "إجازة" : "غياب",labelStyle:primaryMediumStyle.copyWith(
+         fontSize: 14, color: index.isEven ? primaryColor : const Color(0xffFF6B00),
+       ) ,)
+
+
        // if(index.isOdd)
        // ...[   10.ph,
        //    PrimaryRegularText(

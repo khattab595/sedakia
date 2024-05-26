@@ -48,7 +48,7 @@ class ProjectItem extends BaseStatelessWidget {
                   child: Row(
                     children: [
                       PrimaryRegularText(
-                                              label: "ل شارع حمد الجاسر، حي الروضة، جدة ",
+                                              label: "شارع حمد الجاسر، حي الروضة، جدة",
                                               fontSize: 14,
                                               labelColor: blueColorOff,
                                             ),

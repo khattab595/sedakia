@@ -6,6 +6,7 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../main_index.dart';
 import '../widgets/filter_date_widget.dart';
+import '../widgets/request_type.dart';
 
 class AddRequestScreen extends BaseStatelessWidget {
   // final List<Course>? courses;
@@ -16,7 +17,7 @@ class AddRequestScreen extends BaseStatelessWidget {
     //  required this.courses, required this.onAddRequest
   }) : super(key: key);
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  String type = '';
   TextEditingController reasonController = TextEditingController();
   TextEditingController attachmentsController = TextEditingController();
 
@@ -44,6 +45,12 @@ class AddRequestScreen extends BaseStatelessWidget {
                   13.ph,
                   FilterDateWidget(
                     onFilter: (date, app) {},
+                  ),
+                  13.ph,
+                  RequestType(
+                    onChanged: (item) {
+                      type = item ?? '';
+                    },
                   ),
                   15.ph,
                   CustomTextField(

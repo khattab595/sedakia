@@ -34,221 +34,221 @@ class HomeScreen extends BaseStatelessWidget {
             10.ph,
             ProjectItem(),
             10.ph,
-            SemiBoldPrimaryText(
-              label: strings.past_project,
-              fontSize: 19,
-            ),
-            Column(
-              children: [
-                10.ph,
-                Container(
-                  decoration: Decorations.kDecorationBorderRadius(),
-                  // width: context.width,
-                  padding: 10.paddingAll,
-                  margin: 10.paddingBottom,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RowTexts(
-                        value: "#8796541",
-                        title: "مشروع هايبر بندة",
-                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-                        valueStyle:
-                            blackRegularStyle.copyWith(color: greyColor),
-                      ),
-                      7.ph,
-                      InkWell(
-                        onTap: () {
-                          print("open map");
-                          HelperMethods.launchURL(
-                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
-                        },
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on_outlined,
-                              color: AppColors.blueColorff,
-                              size: 17,
-                            ),
-                            10.pw,
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                      child: PrimaryRegularText(
-                                    label: " شارع الرياض, حي الروضة, جدة ",
-                                    fontSize: 14,
-                                    labelColor: blueColorOff,
-                                  )),
-                                  const Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: AppColors.greyColorB1,
-                                    size: 16,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      7.ph,
-                      Row(
-                        children: [
-                          const AppIcon(
-                            icon: AppIcons.calendar,
-                            size: 16,
-                          ),
-                          10.pw,
-                          PrimaryRegularText(
-                            label: "23 مارس 2024",
-                            fontSize: 12,
-                            labelColor: greyColor,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: Decorations.kDecorationBorderRadius(),
-                  padding: 10.paddingAll,
-                  margin: 10.paddingBottom,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RowTexts(
-                        value: "#149632",
-                        title: "مشروع فورمال 1",
-                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-                        valueStyle:
-                            blackRegularStyle.copyWith(color: greyColor),
-                      ),
-                      7.ph,
-                      InkWell(
-                        onTap: () {
-                          print("open map");
-                          HelperMethods.launchURL(
-                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
-                        },
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on_outlined,
-                              color: AppColors.blueColorff,
-                              size: 17,
-                            ),
-                            10.pw,
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                      child: PrimaryRegularText(
-                                    label: " شارع الملك  سلمان، حي الروضة، جدة ",
-                                    fontSize: 14,
-                                    labelColor: blueColorOff,
-                                  )),
-                                  const Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: AppColors.greyColorB1,
-                                    size: 16,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      7.ph,
-                      Row(
-                        children: [
-                          const AppIcon(
-                            icon: AppIcons.calendar,
-                            size: 16,
-                          ),
-                          10.pw,
-                          PrimaryRegularText(
-                            label: "5 فبراير 2024",
-                            fontSize: 12,
-                            labelColor: greyColor,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  decoration: Decorations.kDecorationBorderRadius(),
-                  // width: context.width,
-                  padding: 10.paddingAll,
-                  margin: 10.paddingBottom,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RowTexts(
-                        value: "#741258",
-                        title: "مشروع لولو هايبر ماركت",
-                        titleStyle: blackMediumStyle.copyWith(fontSize: 16),
-                        valueStyle:
-                            blackRegularStyle.copyWith(color: greyColor),
-                      ),
-                      7.ph,
-                      InkWell(
-                        onTap: () {
-                          print("open map");
-                          HelperMethods.launchURL(
-                              'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
-                        },
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on_outlined,
-                              color: AppColors.blueColorff,
-                              size: 17,
-                            ),
-                            10.pw,
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                      child: PrimaryRegularText(
-                                    label: " شارع حمد الجاسر, حي الروضة, جدة ",
-                                    fontSize: 14,
-                                    labelColor: blueColorOff,
-                                  )),
-                                  const Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: AppColors.greyColorB1,
-                                    size: 16,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      7.ph,
-                      Row(
-                        children: [
-                          const AppIcon(
-                            icon: AppIcons.calendar,
-                            size: 16,
-                          ),
-                          10.pw,
-                          PrimaryRegularText(
-                            label: "1 يناير 2024",
-                            fontSize: 12,
-                            labelColor: greyColor,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )
+            // SemiBoldPrimaryText(
+            //   label: strings.past_project,
+            //   fontSize: 19,
+            // ),
+            // Column(
+            //   children: [
+            //     10.ph,
+            //     Container(
+            //       decoration: Decorations.kDecorationBorderRadius(),
+            //       // width: context.width,
+            //       padding: 10.paddingAll,
+            //       margin: 10.paddingBottom,
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           RowTexts(
+            //             value: "#879654",
+            //             title: "مشروع هايبر بندة",
+            //             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+            //             valueStyle:
+            //                 blackRegularStyle.copyWith(color: greyColor),
+            //           ),
+            //           7.ph,
+            //           InkWell(
+            //             onTap: () {
+            //               print("open map");
+            //               HelperMethods.launchURL(
+            //                   'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+            //             },
+            //             child: Row(
+            //               children: [
+            //                 const Icon(
+            //                   Icons.location_on_outlined,
+            //                   color: AppColors.blueColorff,
+            //                   size: 17,
+            //                 ),
+            //                 10.pw,
+            //                 Expanded(
+            //                   child: Row(
+            //                     children: [
+            //                       Expanded(
+            //                           child: PrimaryRegularText(
+            //                         label: "شارع الرياض, حي الروضة, جدة",
+            //                         fontSize: 14,
+            //                         labelColor: blueColorOff,
+            //                       )),
+            //                       const Icon(
+            //                         Icons.arrow_forward_ios,
+            //                         color: AppColors.greyColorB1,
+            //                         size: 16,
+            //                       )
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           7.ph,
+            //           Row(
+            //             children: [
+            //               const AppIcon(
+            //                 icon: AppIcons.calendar,
+            //                 size: 16,
+            //               ),
+            //               10.pw,
+            //               PrimaryRegularText(
+            //                 label: "23 مارس 2024",
+            //                 fontSize: 12,
+            //                 labelColor: greyColor,
+            //               )
+            //             ],
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     Container(
+            //       decoration: Decorations.kDecorationBorderRadius(),
+            //       padding: 10.paddingAll,
+            //       margin: 10.paddingBottom,
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           RowTexts(
+            //             value: "#149632",
+            //             title: "مشروع فورمال 1",
+            //             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+            //             valueStyle:
+            //                 blackRegularStyle.copyWith(color: greyColor),
+            //           ),
+            //           7.ph,
+            //           InkWell(
+            //             onTap: () {
+            //               print("open map");
+            //               HelperMethods.launchURL(
+            //                   'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+            //             },
+            //             child: Row(
+            //               children: [
+            //                 const Icon(
+            //                   Icons.location_on_outlined,
+            //                   color: AppColors.blueColorff,
+            //                   size: 17,
+            //                 ),
+            //                 10.pw,
+            //                 Expanded(
+            //                   child: Row(
+            //                     children: [
+            //                       Expanded(
+            //                           child: PrimaryRegularText(
+            //                         label: "شارع الملك  سلمان، حي الروضة، جدة",
+            //                         fontSize: 14,
+            //                         labelColor: blueColorOff,
+            //                       )),
+            //                       const Icon(
+            //                         Icons.arrow_forward_ios,
+            //                         color: AppColors.greyColorB1,
+            //                         size: 16,
+            //                       )
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           7.ph,
+            //           Row(
+            //             children: [
+            //               const AppIcon(
+            //                 icon: AppIcons.calendar,
+            //                 size: 16,
+            //               ),
+            //               10.pw,
+            //               PrimaryRegularText(
+            //                 label: "5 فبراير 2024",
+            //                 fontSize: 12,
+            //                 labelColor: greyColor,
+            //               )
+            //             ],
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     Container(
+            //       decoration: Decorations.kDecorationBorderRadius(),
+            //       // width: context.width,
+            //       padding: 10.paddingAll,
+            //       margin: 10.paddingBottom,
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           RowTexts(
+            //             value: "#741258",
+            //             title: "مشروع لولو هايبر ماركت",
+            //             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
+            //             valueStyle:
+            //                 blackRegularStyle.copyWith(color: greyColor),
+            //           ),
+            //           7.ph,
+            //           InkWell(
+            //             onTap: () {
+            //               print("open map");
+            //               HelperMethods.launchURL(
+            //                   'https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+            //             },
+            //             child: Row(
+            //               children: [
+            //                 const Icon(
+            //                   Icons.location_on_outlined,
+            //                   color: AppColors.blueColorff,
+            //                   size: 17,
+            //                 ),
+            //                 10.pw,
+            //                 Expanded(
+            //                   child: Row(
+            //                     children: [
+            //                       Expanded(
+            //                           child: PrimaryRegularText(
+            //                         label: "شارع حمد الجاسر, حي الروضة, جدة",
+            //                         fontSize: 14,
+            //                         labelColor: blueColorOff,
+            //                       )),
+            //                       const Icon(
+            //                         Icons.arrow_forward_ios,
+            //                         color: AppColors.greyColorB1,
+            //                         size: 16,
+            //                       )
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           7.ph,
+            //           Row(
+            //             children: [
+            //               const AppIcon(
+            //                 icon: AppIcons.calendar,
+            //                 size: 16,
+            //               ),
+            //               10.pw,
+            //               PrimaryRegularText(
+            //                 label: "1 يناير 2024",
+            //                 fontSize: 12,
+            //                 labelColor: greyColor,
+            //               )
+            //             ],
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // )
             // Expanded(
             //     child: ListView.builder(
             //   itemCount: 10,

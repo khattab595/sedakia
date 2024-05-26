@@ -21,6 +21,7 @@ class FilterDateWidget extends BaseStatelessWidget {
         children: [
           Expanded(
             child: CustomTextField(
+              radius: 10,
               suffixIconPath: AppIcons.date,
               controller: fromController,
               title: strings.from,
@@ -38,6 +39,7 @@ class FilterDateWidget extends BaseStatelessWidget {
           10.pw,
           Expanded(
             child: CustomTextField(
+              radius: 10,
               suffixIconPath: AppIcons.date,
               controller: toController,
               // margin: 16.paddingEnd,

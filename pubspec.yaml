@@ -128,14 +128,14 @@ flutter_native_splash:
   android: true
   ios: true
   color: "#ffffff"
-  background_image: "assets/logo/logo.png"
+  background_image: "assets/images/splash.png"
   android_12:
-    background_image: "assets/logo/logo.png"
+    background_image: "assets/images/splash.png"
 
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/logo/logo.png"
+  image_path: "assets/images/splash.png"
   remove_alpha_ios: true
 
 # The following section is specific to Flutter packages.
