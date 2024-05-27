@@ -44,7 +44,7 @@ class FilterDateWidget extends BaseStatelessWidget {
               controller: toController,
               // margin: 16.paddingEnd,
               minHeight: 55,
-              title: '',
+              title: strings.to,
               isValidator: false,
               onTap: () async {
                 DateTime? date = await HelperMethods.selectDate(context);

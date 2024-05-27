@@ -30,7 +30,7 @@ class ProjectItem extends BaseStatelessWidget {
             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
             valueStyle: blackRegularStyle.copyWith(color: greyColor),
           ),
-          7.ph,
+          10.ph,
           InkWell(
             onTap: () {
               print("open map");
@@ -41,7 +41,7 @@ class ProjectItem extends BaseStatelessWidget {
                 const Icon(
                   Icons.location_on_outlined,
                   color: AppColors.blueColorff,
-                  size: 17,
+                  size: 20,
                 ),
                 10.pw,
                 Expanded(
@@ -64,12 +64,12 @@ class ProjectItem extends BaseStatelessWidget {
               ],
             ),
           ),
-          7.ph,
+          10.ph,
           Row(
             children: [
               const AppIcon(
                 icon: AppIcons.calendar,
-                size: 16,
+                size: 18,
               ),
               10.pw,
               PrimaryRegularText(
