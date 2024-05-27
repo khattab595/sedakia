@@ -6,6 +6,7 @@ import '../../../../core/widgets/texts/row_texts.dart';
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
 import '../widgets/project_item.dart';
+import '../widgets/sliders_home.dart';
 
 class HomeScreen extends BaseStatelessWidget {
   // final StreamStateInitial<Course?> currentProjectStream;
@@ -26,7 +27,9 @@ class HomeScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             headerHome(),
-            15.ph,
+            30.ph,
+            SlidersHome(),
+            20.ph,
             SemiBoldPrimaryText(
               label: strings.current_project,
               fontSize: 19,

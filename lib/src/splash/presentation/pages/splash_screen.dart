@@ -68,7 +68,7 @@ class _SplashPageState extends State<SplashPage>
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: PrimaryBoldText(
-                    label: 'مؤسسة الوسيط للحراسات الأمنية المدنية',
+                    label: 'شركة الوسيط',
                     fontSize: 20,
                     textAlign: TextAlign.center,
                   ),
