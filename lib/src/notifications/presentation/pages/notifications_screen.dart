@@ -31,7 +31,7 @@ class NotificationsScreen extends BaseStatelessWidget {
             children: [
               RowTexts(
                 title: "نقل المشروع",
-                value: "منذ دقيقة واحدة.",
+                value: "8 مارس 2024",
                 titleStyle: primaryMediumStyle.copyWith(fontSize: 16),
                 valueStyle: primaryRegularStyle.copyWith(fontSize: 11),
               ),
