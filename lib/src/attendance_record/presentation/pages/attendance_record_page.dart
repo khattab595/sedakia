@@ -26,11 +26,6 @@ class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
     return mainFrame(
       body: Column(
         children: [
-          FilterDate(
-            onFilter: () {},
-            controller: controller,
-          ),
-          10.ph,
           Expanded(child: buildConsumer(context)),
         ],
       ),
@@ -39,9 +34,14 @@ class AttendanceRecordPage extends BaseBlocWidget<UnInitState, ProfileBloc> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return AttendanceRecordScreen(
-        // courses: state.data!,
-        );
+    return StreamBuilder<Object>(
+      stream: null,
+      builder: (context, snapshot) {
+        return AttendanceRecordScreen(
+            // courses: state.data!,
+            );
+      }
+    );
   }
 
   @override

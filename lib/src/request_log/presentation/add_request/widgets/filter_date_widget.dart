@@ -64,10 +64,11 @@ class FilterDateWidget extends BaseStatelessWidget {
 
 class FilterDate extends BaseStatelessWidget {
   final TextEditingController controller;
+  final int value;
 
-  final Function()? onFilter;
+  final Function(int )? onFilter;
 
-  FilterDate({super.key, required this.controller, this.onFilter});
+  FilterDate({super.key, required this.controller, this.onFilter, required this.value});
   List years = [
     "2010",
     "2011",
@@ -130,11 +131,17 @@ class FilterDate extends BaseStatelessWidget {
             10.pw,
             Expanded(
                 child: DropDownField(
-                  value: isRtl()?monthAr[4]:monthEn[4],
+                  value: value == 1
+                      ? monthAr[value - 1]
+                      : monthAr[value - 1],
                     items: isRtl()
                         ? monthAr.map((e) => DropDownItem(title: e,id: e)).toList()
                         : monthEn.map((e) => DropDownItem(title: e,id: e)).toList(),
-                    onChanged: (onChanged) {})),
+                    onChanged: (onChanged) {
+                    int index = monthAr.indexOf(onChanged.id);
+                    print("monthAr : $index");
+                      onFilter?.call(index + 1);
+                    })),
           ],
         ),
       ),
