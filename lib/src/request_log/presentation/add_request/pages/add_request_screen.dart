@@ -20,7 +20,7 @@ class AddRequestScreen extends BaseStatelessWidget {
   String type = '';
   TextEditingController reasonController = TextEditingController();
   TextEditingController attachmentsController = TextEditingController();
-
+  StreamStateInitial<String> isShowTime = StreamStateInitial();
   @override
   Widget build(BuildContext context) {
     List<File> files = [];
@@ -43,15 +43,22 @@ class AddRequestScreen extends BaseStatelessWidget {
                     fontSize: 20,
                   ),
                   13.ph,
-                  FilterDateWidget(
-                    onFilter: (date, app) {},
-                  ),
-                  13.ph,
                   RequestType(
                     onChanged: (item) {
                       type = item ?? '';
+                      isShowTime.setData(type);
                     },
                   ),
+                  13.ph,
+                  StreamBuilder<String>(
+                      stream: isShowTime.stream,
+                      builder: (context, snapshot) {
+                        return snapshot.data == "سلفة" || snapshot.data == null
+                            ? 0.pw
+                            : FilterDateWidget(
+                                onFilter: (from, to) {},
+                              );
+                      }),
                   15.ph,
                   CustomTextField(
                     hintText: strings.sick_leave,
@@ -87,7 +94,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                               },
                             ),
                             10.pw,
-                            SingleChildScrollView(
+                            files.length==0?Text(strings.choose_file,style: context.displaySmall.copyWith(fontSize: 16),):    SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: files

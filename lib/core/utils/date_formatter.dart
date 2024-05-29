@@ -5,6 +5,7 @@ class DateFormatter {
   static String DATE_FORMAT = 'dd-MM-yyyy';
   static String DATE_FORMAT_MOUNTH = 'MMMM yyyy';
   static String DATE_FORMAT_MOUNTH_DAY = 'EEEE, d MMM, yyyy';
+  static const MONTH_NAME_YEAR ='MMM yyyy ' ;
   static String formatDate(DateTime date) {
     final now = DateTime.now();
     final diff = now.difference(date);
@@ -16,10 +17,26 @@ class DateFormatter {
       return '${date.hour}:${date.minute}';
     }
   }
+  static String monthNameYear(DateTime date){
+    return formatDateV2(date, 'MMM yyyy ');
+  }
   static String formatToTime(String date) {
     DateTime dateTime = DateFormat('yyyy-MM-ddThh:mm:ss').parse(date);
     return DateFormat('yyyy-MM-dd').format(dateTime);
   }
+
+
+  static String formatDateV2(DateTime dateTime ,String pattern , ){
+
+    try {
+      return DateFormat(pattern).format(dateTime);
+    }catch(e){
+      return '' ;
+    }
+  }
+
+
+
   static String formatChatDate(String dateChat){
     try {
       final date = DateTime.parse(dateChat);
