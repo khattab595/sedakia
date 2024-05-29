@@ -21,6 +21,7 @@ class AddRequestScreen extends BaseStatelessWidget {
   TextEditingController reasonController = TextEditingController();
   TextEditingController attachmentsController = TextEditingController();
   StreamStateInitial<String> isShowTime = StreamStateInitial();
+
   @override
   Widget build(BuildContext context) {
     List<File> files = [];
@@ -53,26 +54,27 @@ class AddRequestScreen extends BaseStatelessWidget {
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
-                        return snapshot.data == "سلفة" || snapshot.data == null
-                            ? 0.pw
-                            : FilterDateWidget(
-                                onFilter: (from, to) {},
-                              );
+                        return snapshot.data == "سلفة"
+                            ? CustomTextField(
+                                hintText: strings.enter_the_advance_amount,
+                                radius: 10,
+                                title:
+                                    "${strings.enter_the_advance_amount} (ريال سعودي)",
+                                controller: reasonController,
+                              )
+                            : snapshot.data == null
+                                ? 0.ph
+                                : FilterDateWidget(
+                                    onFilter: (from, to) {},
+                                  );
                       }),
-                  15.ph,
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
-                        return snapshot.data == "سلفة"
-                            ?  CustomTextField(
-                          hintText: "سداد دين عاجل ..",
-                          radius: 10,
-                          title:"${strings.enter_the_advance_amount} (ريال سعودي)",
-                          maxLines: 2,
-                          controller: reasonController,
-                        )
-                            :  CustomTextField(
-                          hintText: strings.sick_leave,
+                        return CustomTextField(
+                          hintText: snapshot.data == "سلفة"
+                              ? strings.urgent_debt_payment
+                              : strings.sick_leave,
                           radius: 10,
                           title: strings.reason,
                           maxLines: 2,
@@ -87,7 +89,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                   //   maxLines: 2,
                   //   controller: reasonController,
                   // ),
-                  15.ph,
+                  5.ph,
                   Container(
                     padding: 10.paddingHoriz,
                     height: 70,
@@ -114,50 +116,57 @@ class AddRequestScreen extends BaseStatelessWidget {
                               },
                             ),
                             10.pw,
-                            files.length==0?Text(strings.choose_file,style: context.displaySmall.copyWith(fontSize: 16),):    SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: files
-                                    .map(
-                                      (e) => Stack(
-                                        alignment: AlignmentDirectional.topEnd,
-                                        children: [
-                                          Container(
-                                            margin:
-                                                15.paddingVert + 15.paddingEnd,
-                                            child: Image.file(
-                                              e,
-                                              width: 50,
-                                              height: 50,
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ),
-                                          PositionedDirectional(
-                                            end: 0,
-                                            top: 0,
-                                            child: SizedBox(
-                                              height: 20,
-                                              width: 20,
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    files.remove(e);
-                                                  });
-                                                },
-                                                icon: const Icon(
-                                                  Icons.remove_circle,
-                                                  size: 20,
+                            files.length == 0
+                                ? Text(
+                                    strings.choose_file,
+                                    style: context.displaySmall
+                                        .copyWith(fontSize: 16),
+                                  )
+                                : SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      children: files
+                                          .map(
+                                            (e) => Stack(
+                                              alignment:
+                                                  AlignmentDirectional.topEnd,
+                                              children: [
+                                                Container(
+                                                  margin: 15.paddingVert +
+                                                      15.paddingEnd,
+                                                  child: Image.file(
+                                                    e,
+                                                    width: 50,
+                                                    height: 50,
+                                                    fit: BoxFit.fill,
+                                                  ),
                                                 ),
-                                                color: Colors.red,
-                                              ),
+                                                PositionedDirectional(
+                                                  end: 0,
+                                                  top: 0,
+                                                  child: SizedBox(
+                                                    height: 20,
+                                                    width: 20,
+                                                    child: IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          files.remove(e);
+                                                        });
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons.remove_circle,
+                                                        size: 20,
+                                                      ),
+                                                      color: Colors.red,
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
                                             ),
                                           )
-                                        ],
-                                      ),
-                                    )
-                                    .toList(),
-                              ),
-                            )
+                                          .toList(),
+                                    ),
+                                  )
                           ],
                         );
                       },

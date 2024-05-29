@@ -388,6 +388,7 @@ class RequestLogScreen extends BaseStatelessWidget {
               ],
             ),
           ),
+          100.ph,
         ],
       ),
     );

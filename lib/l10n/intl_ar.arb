@@ -43,7 +43,7 @@
   "sick_leave": "إجازة مرضية ...",
   "send_request": "أرسل طلب",
   "attachments": "المرفقات",
-  "to": "الي",
+  "to": "إلى",
   "rejected": "مرفوض",
   "approved": "موافقة",
   "waiting": "انتظار",
@@ -89,6 +89,7 @@
   "alwaseet_company": "شركة الوسيط",
   "select_the_request_type": "حدد نوع الطلب",
   "enter_the_advance_amount": "ادخل مبلغ السلفة",
+  "urgent_debt_payment": "سداد دين عاجل",
 
 
 
