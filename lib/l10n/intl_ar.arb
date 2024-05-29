@@ -87,6 +87,8 @@
   "type_of_request": "نوع الطلب",
   "advance_payment": "سلفة",
   "alwaseet_company": "شركة الوسيط",
+  "select_the_request_type": "حدد نوع الطلب",
+  "enter_the_advance_amount": "ادخل مبلغ السلفة",
 
 
 

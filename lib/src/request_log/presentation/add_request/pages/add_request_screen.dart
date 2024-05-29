@@ -39,7 +39,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PrimaryMediumText(
-                    label: strings.set_your_absent_time,
+                    label: strings.select_the_request_type,
                     fontSize: 20,
                   ),
                   13.ph,
@@ -60,13 +60,33 @@ class AddRequestScreen extends BaseStatelessWidget {
                               );
                       }),
                   15.ph,
-                  CustomTextField(
-                    hintText: strings.sick_leave,
-                    radius: 10,
-                    title: strings.reason,
-                    maxLines: 2,
-                    controller: reasonController,
-                  ),
+                  StreamBuilder<String>(
+                      stream: isShowTime.stream,
+                      builder: (context, snapshot) {
+                        return snapshot.data == "سلفة"
+                            ?  CustomTextField(
+                          hintText: "سداد دين عاجل ..",
+                          radius: 10,
+                          title:"${strings.enter_the_advance_amount} (ريال سعودي)",
+                          maxLines: 2,
+                          controller: reasonController,
+                        )
+                            :  CustomTextField(
+                          hintText: strings.sick_leave,
+                          radius: 10,
+                          title: strings.reason,
+                          maxLines: 2,
+                          controller: reasonController,
+                        );
+                      }),
+
+                  // CustomTextField(
+                  //   hintText: strings.sick_leave,
+                  //   radius: 10,
+                  //   title: strings.reason,
+                  //   maxLines: 2,
+                  //   controller: reasonController,
+                  // ),
                   15.ph,
                   Container(
                     padding: 10.paddingHoriz,

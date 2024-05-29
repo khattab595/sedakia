@@ -24,7 +24,7 @@ class FilterDateWidget extends BaseStatelessWidget {
               radius: 10,
               suffixIconPath: AppIcons.date,
               controller: fromController,
-              title: strings.from,
+              title: strings.set_your_absent_time,
               hintText: strings.from,
               // margin: 16.paddingStart,
               minHeight: 55,
@@ -46,7 +46,7 @@ class FilterDateWidget extends BaseStatelessWidget {
               hintText: strings.to,
               // margin: 16.paddingEnd,
               minHeight: 55,
-              title: strings.to,
+              title: "",
               isValidator: false,
               onTap: () async {
                 DateTime? date = await HelperMethods.selectDate(context);

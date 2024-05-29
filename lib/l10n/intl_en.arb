@@ -33,6 +33,8 @@
   "type_of_request": "Type of Request",
   "advance_payment": "Advance Payment",
   "alwaseet_company": "Alwaseet Company",
+  "select_the_request_type": "Select the request type",
+  "enter_the_advance_amount": "Enter the advance amount",
 
 
 
