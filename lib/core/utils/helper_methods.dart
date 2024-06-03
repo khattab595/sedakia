@@ -29,6 +29,12 @@ class HelperMethods {
       ],
     );
   }
+  static Future<List<File>> getListImagePicker() async {
+
+  List<XFile>? imageFile = await ImagePicker().pickMultiImage( );
+  List<File> data=  imageFile.map((e) => File(e.path)).toList();
+    return data;
+  }
 
   static Future<File> getImageFromGallery() async {
     final pickedFile =

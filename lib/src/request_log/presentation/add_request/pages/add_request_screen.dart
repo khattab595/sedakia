@@ -19,6 +19,7 @@ class AddRequestScreen extends BaseStatelessWidget {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String type = '';
   TextEditingController reasonController = TextEditingController();
+  TextEditingController moneyController = TextEditingController();
   TextEditingController attachmentsController = TextEditingController();
   StreamStateInitial<String> isShowTime = StreamStateInitial();
 
@@ -54,19 +55,34 @@ class AddRequestScreen extends BaseStatelessWidget {
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
+                        return snapshot.data == "إجازة"
+                            ? Column(
+                                children: [
+                                  HolidayType(
+                                    onChanged: (value) {},
+                                  ),
+                                  13.ph,
+                                  FilterDateWidget(
+                                    onFilter: (from, to) {},
+                                  )
+                                ],
+                              )
+                            : 0.pw;
+                      }),
+                  13.ph,
+                  StreamBuilder<String>(
+                      stream: isShowTime.stream,
+                      builder: (context, snapshot) {
                         return snapshot.data == "سلفة"
                             ? CustomTextField(
                                 hintText: strings.enter_the_advance_amount,
                                 radius: 10,
+                                keyboardType: TextInputType.number,
                                 title:
                                     "${strings.enter_the_advance_amount} (ريال سعودي)",
-                                controller: reasonController,
+                                controller: moneyController,
                               )
-                            : snapshot.data == null
-                                ? 0.ph
-                                : FilterDateWidget(
-                                    onFilter: (from, to) {},
-                                  );
+                            : 0.ph;
                       }),
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
@@ -81,14 +97,6 @@ class AddRequestScreen extends BaseStatelessWidget {
                           controller: reasonController,
                         );
                       }),
-
-                  // CustomTextField(
-                  //   hintText: strings.sick_leave,
-                  //   radius: 10,
-                  //   title: strings.reason,
-                  //   maxLines: 2,
-                  //   controller: reasonController,
-                  // ),
                   5.ph,
                   Container(
                     padding: 10.paddingHoriz,
@@ -106,13 +114,10 @@ class AddRequestScreen extends BaseStatelessWidget {
                               icon: AppIcons.desc,
                               size: 30,
                               onPressed: () async {
-                                final picker =
-                                    await HelperMethods.getImagePicker();
-                                if (picker != null) {
-                                  setState(() {
-                                    files.add(File(picker.path));
-                                  });
-                                }
+                                files =
+                                    await HelperMethods.getListImagePicker();
+
+                                setState(() {});
                               },
                             ),
                             10.pw,
