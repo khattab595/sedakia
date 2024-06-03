@@ -141,6 +141,14 @@ class RequestLogScreen extends BaseStatelessWidget {
                       color: greyColorB1, fontSize: 12),
                 ),
                 5.ph,
+                RowTexts(
+                  title: strings.kind_of_holiday,
+                  value: strings.annual_vacation,
+                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
+                  valueStyle: primaryRegularStyle.copyWith(
+                      color: greyColorB1, fontSize: 12),
+                ),
+                5.ph,
                 if(id == 1)
                   RowTexts(
                     title: "سبب الرفض",
@@ -318,7 +326,7 @@ class RequestLogScreen extends BaseStatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                       child: Center(
                         child: PrimaryRegularText(
-                          label: "إجازة",
+                          label: strings.resignation,
                           fontSize: 12,
                           labelStyle: primaryMediumStyle.copyWith(
                               fontSize: 14, color: orangeColor),
@@ -339,13 +347,22 @@ class RequestLogScreen extends BaseStatelessWidget {
                     HintRegularText(label: "${strings.description} : ", fontSize: 14),
                     5.pw,
                     HintRegularText(
-                      label: "كان لدي موعد مع الطبيب",
+                      label: "للسفر خارج البلاد",
                     ),
                   ],
                 ),
                 10.ph,
                 RowTexts(
                   title: strings.order_history,
+                  value: "25 Apr 2024",
+                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
+                  valueStyle: primaryRegularStyle.copyWith(
+                      color: greyColorB1, fontSize: 12),
+                ),
+
+                5.ph,
+                RowTexts(
+                  title: strings.date_of_resignation,
                   value: "25 Apr 2024",
                   titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                   valueStyle: primaryRegularStyle.copyWith(
@@ -359,22 +376,6 @@ class RequestLogScreen extends BaseStatelessWidget {
                   titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                   valueStyle: primaryRegularStyle.copyWith(
                       color:greyColorB1, fontSize: 12),
-                ),
-                5.ph,
-                RowTexts(
-                  title: strings.leave_start_date,
-                  value: "25 Apr 2024",
-                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-                  valueStyle: primaryRegularStyle.copyWith(
-                      color: greyColorB1, fontSize: 12),
-                ),
-                5.ph,
-                RowTexts(
-                  title: strings.leave_end_date,
-                  value: "25 Apr 2024",
-                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-                  valueStyle: primaryRegularStyle.copyWith(
-                      color: greyColorB1, fontSize: 12),
                 ),
                 5.ph,
                 if(id == 1)

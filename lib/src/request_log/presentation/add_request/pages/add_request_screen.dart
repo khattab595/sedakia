@@ -73,6 +73,15 @@ class AddRequestScreen extends BaseStatelessWidget {
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
+                        return snapshot.data == "إستقالة"
+                            ? FilterSearchDate(
+                          onFilter: (search) {},
+                        )
+                            : 0.pw;
+                      }),
+                  StreamBuilder<String>(
+                      stream: isShowTime.stream,
+                      builder: (context, snapshot) {
                         return snapshot.data == "سلفة"
                             ? CustomTextField(
                                 hintText: strings.enter_the_advance_amount,
@@ -88,9 +97,10 @@ class AddRequestScreen extends BaseStatelessWidget {
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
                         return CustomTextField(
-                          hintText: snapshot.data == "سلفة"
-                              ? strings.urgent_debt_payment
-                              : strings.sick_leave,
+                          hintText:"ادخل الوصف",
+                          // snapshot.data == "سلفة"
+                          //     ? strings.urgent_debt_payment
+                          //     : strings.sick_leave,
                           radius: 10,
                           title: strings.reason,
                           maxLines: 2,

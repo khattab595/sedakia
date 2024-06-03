@@ -148,3 +148,33 @@ class FilterDate extends BaseStatelessWidget {
     );
   }
 }
+class FilterSearchDate extends BaseStatelessWidget {
+  final Function(String search) onFilter;
+
+  FilterSearchDate({super.key, required this.onFilter});
+
+  TextEditingController searchController = TextEditingController();
+
+
+  @override
+  Widget build(BuildContext context) {
+    return StatefulBuilder(builder: (context, setSate) {
+      return CustomTextField(
+        radius: 10,
+        suffixIconPath: AppIcons.date,
+        controller: searchController,
+       hintText: strings.date_of_resignation,
+        // margin: 16.paddingEnd,
+        minHeight: 55,
+     //   title: strings.date_of_resignation,
+        isValidator: false,
+        onTap: () async {
+          DateTime? date = await HelperMethods.selectDate(context);
+          searchController.text =
+              DateFormatter.formatTimestampString(date.toString());
+          onFilter(searchController.text);
+        },
+      );
+    });
+  }
+}

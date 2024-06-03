@@ -45,7 +45,7 @@
   "sick_leave": "إجازة مرضية",
   "emergenc_leave": " إجازة اضطرارية ",
   "pune_salary": "بيون راتب",
-  "resignation": "استقالة",
+  "resignation": "إستقالة",
   "no_file_chosen": "لم تقم باختيار ملف",
 
   "send_request": "أرسل طلب",
@@ -97,6 +97,8 @@
   "select_the_request_type": "حدد نوع الطلب",
   "enter_the_advance_amount": "ادخل مبلغ السلفة",
   "urgent_debt_payment": "سداد دين عاجل",
+  "kind_of_holiday": "نوع الإجازة",
+  "date_of_resignation": "تاريخ الإستقالة",
 
 
 

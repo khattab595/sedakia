@@ -17,7 +17,7 @@ class RequestType extends BaseStatelessWidget {
         id: 'سلفة',
         title: strings.advance_payment,
       ),  DropDownItem(
-        id: 'استقالة',
+        id: 'إستقالة',
         title: strings.resignation,
       ),
     ];
