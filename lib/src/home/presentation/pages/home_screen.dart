@@ -5,6 +5,7 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 import '../../../../core/widgets/texts/row_texts.dart';
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
+import '../widgets/attachment_item.dart';
 import '../widgets/project_item.dart';
 import '../widgets/sliders_home.dart';
 
@@ -36,7 +37,14 @@ class HomeScreen extends BaseStatelessWidget {
             ),
             10.ph,
             ProjectItem(),
-            10.ph,
+            20.ph,
+           //  SemiBoldPrimaryText(
+           //    label: strings.attachments,
+           //    fontSize: 19,
+           //  ),
+           // 10.ph,
+           // AttachmentItem(),
+
             // SemiBoldPrimaryText(
             //   label: strings.past_project,
             //   fontSize: 19,
