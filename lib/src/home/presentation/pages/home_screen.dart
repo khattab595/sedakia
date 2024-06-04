@@ -22,7 +22,7 @@ class HomeScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: 15.paddingAll + 20.paddingTop,
+      padding: 15.paddingAll + 30.paddingTop,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class HomeScreen extends BaseStatelessWidget {
             ),
             10.ph,
             ProjectItem(),
-            20.ph,
+            //20.ph,
            //  SemiBoldPrimaryText(
            //    label: strings.attachments,
            //    fontSize: 19,
