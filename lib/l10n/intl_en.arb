@@ -43,6 +43,14 @@
   "urgent_debt_payment": "Urgent Debt Payment",
   "kind_of_holiday": "Kind of Holiday",
   "date_of_resignation": "Date of Resignation",
+  "advance_amount": "Advance Amount",
+  "reason_of_refuse": "Reason of Refuse",
+  "enter_description": "Enter Description",
+  "change_password": "Change Password",
+  "personal_information": "Personal Information",
+  "request_log": "Request Log",
+  "attendance_record": "Attendance Record",
+  "profile": "Profile",
 
 
   "not_active": "not active",

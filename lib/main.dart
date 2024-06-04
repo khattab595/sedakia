@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
               : MaterialApp(
                   theme: lightTheme,
                   debugShowCheckedModeBanner: false,
-                  locale: const Locale('ar'),
+                  locale:  Locale(state.language),
                   navigatorKey: injector<ServicesLocator>().navigatorKey,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,

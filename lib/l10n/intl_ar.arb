@@ -99,6 +99,10 @@
   "urgent_debt_payment": "سداد دين عاجل",
   "kind_of_holiday": "نوع الإجازة",
   "date_of_resignation": "تاريخ الإستقالة",
+  "advance_amount": "مبلغ السلفة",
+  "reason_of_refuse": "سبب الرفض",
+  "enter_description": "ادخل الوصف",
+  "change_password": "تغيير كلمة المرور",
 
 
 
@@ -161,7 +165,6 @@
   "terms_conditions": "الشروط والأحكام",
   "grades_history": "سجل الدرجات",
   "show_qr": "عرض رمز الكيو ار",
-  "change_password": "تغيير كلمة المرور",
   "personal_information": "المعلومات الشخصية",
   "male": "ذكر",
   "female": "أنثى",

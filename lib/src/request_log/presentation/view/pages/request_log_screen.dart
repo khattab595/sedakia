@@ -151,7 +151,7 @@ class RequestLogScreen extends BaseStatelessWidget {
                 5.ph,
                 if(id == 1)
                   RowTexts(
-                    title: "سبب الرفض",
+                    title: strings.reason_of_refuse,
                     value: "لم يتم رفع المرفقات",
                     titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                     valueStyle: primaryRegularStyle.copyWith(
@@ -256,7 +256,7 @@ class RequestLogScreen extends BaseStatelessWidget {
                 ),
                 5.ph,
                 RowTexts(
-                  title: "مبلغ السلفة",
+                  title: strings.advance_amount,
                   value: "500 ريال سعودي",
                   titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                   valueStyle: primaryRegularStyle.copyWith(
@@ -265,7 +265,7 @@ class RequestLogScreen extends BaseStatelessWidget {
                 5.ph,
                 if(id == 1)
                   RowTexts(
-                    title: "سبب الرفض",
+                    title: strings.reason_of_refuse,
                     value: "لم يتم رفع المرفقات",
                     titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                     valueStyle: primaryRegularStyle.copyWith(
@@ -380,7 +380,7 @@ class RequestLogScreen extends BaseStatelessWidget {
                 5.ph,
                 if(id == 1)
                   RowTexts(
-                    title: "سبب الرفض",
+                    title: strings.reason_of_refuse,
                     value: "لم يتم رفع المرفقات",
                     titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                     valueStyle: primaryRegularStyle.copyWith(

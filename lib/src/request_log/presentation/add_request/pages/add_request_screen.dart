@@ -97,7 +97,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
                         return CustomTextField(
-                          hintText:"ادخل الوصف",
+                          hintText:strings.enter_description,
                           // snapshot.data == "سلفة"
                           //     ? strings.urgent_debt_payment
                           //     : strings.sick_leave,
