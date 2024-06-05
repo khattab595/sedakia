@@ -36,7 +36,7 @@
   "choose_file": "choose file",
   "my_requests": "My Requests",
   "type_of_request": "Type of Request",
-  "advance_payment": "Advance Payment",
+  "advance_payment": "Advance",
   "alwaseet_company": "Alwaseet Company",
   "select_the_request_type": "Select the request type",
   "enter_the_advance_amount": "Enter the advance amount",
@@ -51,6 +51,8 @@
   "request_log": "Request Log",
   "attendance_record": "Attendance Record",
   "profile": "Profile",
+  "models": "Models",
+  "request": "Request",
 
 
   "not_active": "not active",

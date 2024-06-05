@@ -39,7 +39,7 @@ class HomeScreen extends BaseStatelessWidget {
             ProjectItem(),
             20.ph,
             SemiBoldPrimaryText(
-              label: strings.attachments,
+              label: strings.models,
               fontSize: 19,
             ),
            10.ph,

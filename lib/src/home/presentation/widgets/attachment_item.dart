@@ -18,15 +18,16 @@ class AttachmentItem extends BaseStatelessWidget {
   }
    Widget attachment ({required String text}){
      return  Container(
-       margin: 5.paddingHoriz,
-       padding: 12.paddingAll,
+       margin: 4.paddingHoriz,
+       padding: 10.paddingVert+3.paddingHoriz,
        width: 100,
        decoration: Decorations.kDecorationBorderRadius(borderColor: dividerColor),
        child: Column(
          crossAxisAlignment: CrossAxisAlignment.center,
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
-           SemiBoldPrimaryText(label: text,fontSize: 18,),
+           SemiBoldPrimaryText(label: strings.request,fontSize: 16,),
+           SemiBoldPrimaryText(label: text,fontSize: 16,),
            10.ph,
            const Icon(Icons.download_rounded,size: 30,)
          ],
