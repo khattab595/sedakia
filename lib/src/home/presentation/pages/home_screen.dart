@@ -37,13 +37,13 @@ class HomeScreen extends BaseStatelessWidget {
             ),
             10.ph,
             ProjectItem(),
-            //20.ph,
-           //  SemiBoldPrimaryText(
-           //    label: strings.attachments,
-           //    fontSize: 19,
-           //  ),
-           // 10.ph,
-           // AttachmentItem(),
+            20.ph,
+            SemiBoldPrimaryText(
+              label: strings.attachments,
+              fontSize: 19,
+            ),
+           10.ph,
+           AttachmentItem(),
 
             // SemiBoldPrimaryText(
             //   label: strings.past_project,

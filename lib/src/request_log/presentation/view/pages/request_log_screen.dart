@@ -361,14 +361,6 @@ class RequestLogScreen extends BaseStatelessWidget {
                 ),
 
                 5.ph,
-                RowTexts(
-                  title: strings.date_of_resignation,
-                  value: "25 Apr 2024",
-                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-                  valueStyle: primaryRegularStyle.copyWith(
-                      color: greyColorB1, fontSize: 12),
-                ),
-                5.ph,
                 (id == 0)? 0.pw:
                 RowTexts(
                   title: strings.reply_date,
@@ -376,6 +368,14 @@ class RequestLogScreen extends BaseStatelessWidget {
                   titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
                   valueStyle: primaryRegularStyle.copyWith(
                       color:greyColorB1, fontSize: 12),
+                ),
+                5.ph,
+                RowTexts(
+                  title: strings.date_of_resignation,
+                  value: "25 Apr 2024",
+                  titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
+                  valueStyle: primaryRegularStyle.copyWith(
+                      color: greyColorB1, fontSize: 12),
                 ),
                 5.ph,
                 if(id == 1)
