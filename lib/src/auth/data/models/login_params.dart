@@ -5,14 +5,14 @@ part 'login_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: true)
 class LoginParams {
-  @JsonKey(name: 'phone_number')
-  String? phoneNumber;
+  @JsonKey(name: 'phone')
+  String? phone;
   @JsonKey(name: 'password')
   String? password;
   @JsonKey(name: 'fcm_token')
   String? fcmToken;
 
-  LoginParams({this.phoneNumber, this.password, this.fcmToken});
+  LoginParams({this.phone, this.password, this.fcmToken});
 
    factory LoginParams.fromJson(Map<String, dynamic> json) => _$LoginParamsFromJson(json);
 

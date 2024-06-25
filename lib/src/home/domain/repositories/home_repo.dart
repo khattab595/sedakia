@@ -1,8 +1,6 @@
 
-import '../../../request_log/domain/entities/course.dart';
-
+import '../entities/home_data.dart';
 
 abstract class HomeRepo {
-  Future<List<Course>> fetchProjects();
-  Future<Course> fetchCurrentProject();
+  Future<HomeData> fetchHomeData();
 }

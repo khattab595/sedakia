@@ -24,11 +24,7 @@ class AuthRepoImp extends AuthRepo {
   Future<Profile> login(LoginParams params) async {
     params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.login(params);
-    ProfileDto profileDto = ProfileDto(
-      name: response.name,
-      token: response.token,
-    );
-    await HelperMethods.saveProfile(profileDto);
+    await HelperMethods.saveProfile(response.data ?? ProfileDto());
     return Profile.fromDto(response.data ?? ProfileDto());
   }
 
@@ -36,22 +32,14 @@ class AuthRepoImp extends AuthRepo {
   Future<String> register(RegisterParams params) async {
     params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.register(params);
-    ProfileDto profileDto = ProfileDto(
-      name: response.name,
-      token: response.token,
-    );
-    await HelperMethods.saveProfile(profileDto);
+    await HelperMethods.saveProfile(response.data ?? ProfileDto());
     return response.message ?? '';
   }
 
   @override
   Future<String> verificationCode(VerificationCodeParams params) async {
     final response = await apiProvider.verificationCode(params);
-    ProfileDto profileDto = ProfileDto(
-      name: response.name,
-      token: response.token,
-    );
-    await HelperMethods.saveProfile(profileDto);
+    await HelperMethods.saveProfile(response.data ?? ProfileDto());
     return response.message ?? '';
   }
 

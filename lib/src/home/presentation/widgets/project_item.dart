@@ -4,14 +4,15 @@ import 'package:app/core/widgets/texts/row_texts.dart';
 import '../../../../core/utils/helper_methods.dart';
 import '../../../main_index.dart';
 import '../../../request_log/domain/entities/course.dart';
+import '../../data/models/home_data_dto.dart';
 
 class ProjectItem extends BaseStatelessWidget {
-  // final StreamStateInitial<Course?> currentProjectStream;
-  //
-  // ProjectItem({
-  //   super.key,
-  //   required this.currentProjectStream,
-  // });
+  final CurrentProjectDto project;
+
+  ProjectItem({
+    super.key,
+    required this.project,
+  });
 
   @override
   Widget build(BuildContext context) {

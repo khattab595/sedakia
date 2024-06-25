@@ -20,11 +20,11 @@ abstract class AuthDataSource {
   @factoryMethod
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
-  @POST('/login')
-  Future<ApiResponse> login(@Body() LoginParams params);
+  @POST('v1/login')
+  Future<ApiResponse<ProfileDto>> login(@Body() LoginParams params);
 
   @POST('/register')
-  Future<ApiResponse> register(@Body() RegisterParams params);
+  Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
 
   @POST('/verificationCode')
   Future<ApiResponse<ProfileDto>> verificationCode(
@@ -44,7 +44,7 @@ abstract class AuthDataSource {
   @GET('/academicLevels')
   Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels();
 
-  @GET('/stageLevels')
+  @GET('/logout')
   Future<ApiResponse<List<AcademicLevelDto>>> fetchStageLevels(
       @Query('academic_level_id') String academicLevelId);
 }

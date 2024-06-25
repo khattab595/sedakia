@@ -2,36 +2,71 @@ import 'package:app/core/components/base_stateless_widget.dart';
 
 import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../main_index.dart';
+import '../../data/models/home_data_dto.dart';
 
-class AttachmentItem extends BaseStatelessWidget {
-   AttachmentItem({super.key});
+class AttachmentList extends BaseStatelessWidget {
+  final List<ModelDto> models;
+  final Function(String)? onDownload;
+
+  AttachmentList({super.key, required this.models, this.onDownload});
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      children: [
-        attachment(text:strings.holiday),
-        attachment(text:strings.advance_payment),
-        attachment(text:strings.resignation),
-      ],
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: models.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return AttachmentItem(
+            model: models[index],
+            onDownload: onDownload,
+          );
+        },
+      ),
     );
   }
-   Widget attachment ({required String text}){
-     return  Container(
-       margin: 4.paddingHoriz,
-       padding: 10.paddingVert+3.paddingHoriz,
-       width: 100,
-       decoration: Decorations.kDecorationBorderRadius(borderColor: dividerColor),
-       child: Column(
-         crossAxisAlignment: CrossAxisAlignment.center,
-         mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-           SemiBoldPrimaryText(label: strings.request,fontSize: 16,),
-           SemiBoldPrimaryText(label: text,fontSize: 16,),
-           10.ph,
-           const Icon(Icons.download_rounded,size: 30,)
-         ],
-       ),
-     );
-   }
+}
+
+class AttachmentItem extends BaseStatelessWidget {
+  final ModelDto model;
+  final Function(String)? onDownload;
+
+  AttachmentItem({super.key, required this.model, this.onDownload});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        onDownload?.call(model.url ?? '');
+      },
+      child: Container(
+        margin: 4.paddingHoriz,
+        padding: 10.paddingVert + 20.paddingHoriz,
+        decoration:
+            Decorations.kDecorationBorderRadius(borderColor: dividerColor),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SemiBoldPrimaryText(
+              label: strings.request,
+              fontSize: 16,
+            ),
+            SemiBoldPrimaryText(
+              label: model.name ?? '',
+              fontSize: 16,
+            ),
+            10.ph,
+            const Icon(
+              Icons.download_rounded,
+              size: 30,
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }

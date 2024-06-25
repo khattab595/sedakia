@@ -13,7 +13,7 @@ class _AuthDataSource implements AuthDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://wezary.online/api';
+    baseUrl ??= 'https://alwaseet-sa.online/api/';
   }
 
   final Dio _dio;
@@ -21,21 +21,21 @@ class _AuthDataSource implements AuthDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<dynamic>> login(LoginParams params) async {
+  Future<ApiResponse<ProfileDto>> login(LoginParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
+        _setStreamType<ApiResponse<ProfileDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/login',
+              'v1/login',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,22 +44,22 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<dynamic>.fromJson(
+    final value = ApiResponse<ProfileDto>.fromJson(
       _result.data!,
-      (json) => json as dynamic,
+      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<ApiResponse<dynamic>> register(RegisterParams params) async {
+  Future<ApiResponse<ProfileDto>> register(RegisterParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
+        _setStreamType<ApiResponse<ProfileDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -75,9 +75,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<dynamic>.fromJson(
+    final value = ApiResponse<ProfileDto>.fromJson(
       _result.data!,
-      (json) => json as dynamic,
+      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
@@ -230,7 +230,7 @@ class _AuthDataSource implements AuthDataSource {
     )
             .compose(
               _dio.options,
-              '/stageLevels',
+              '/logout',
               queryParameters: queryParameters,
               data: _data,
             )

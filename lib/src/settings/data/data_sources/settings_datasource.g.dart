@@ -13,7 +13,7 @@ class _SettingsDatasource implements SettingsDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://wezary.online/api';
+    baseUrl ??= 'https://alwaseet-sa.online/api/';
   }
 
   final Dio _dio;

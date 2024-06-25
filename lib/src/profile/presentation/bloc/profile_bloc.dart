@@ -28,7 +28,6 @@ class ProfileBloc extends BaseCubit {
       final response1 = await repo.fetchProfileData(isFromCash);
       final response2 = await authRepo.fetchAcademicLevels();
       emit(DoubleDataSuccess(data1: response1, data2: response2));
-      fetchStageLevels(response1.academicLevelId.toString() ?? '');
     } catch (e) {
       emit(DataFailed(e));
     }

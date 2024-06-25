@@ -3,6 +3,7 @@ import 'package:app/src/request_log/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../request_log/data/models/course_dto.dart';
+import '../../domain/entities/home_data.dart';
 import '../../domain/repositories/home_repo.dart';
 import '../data_sources/home_datasource.dart';
 
@@ -14,16 +15,9 @@ class HomeRepoImp extends HomeRepo{
 
 
   @override
-  Future<Course> fetchCurrentProject() async {
-    final response = await datasource.fetchCurrentProject();
-    return Course.fromDto(response.data ?? CourseDto());
+  Future<HomeData> fetchHomeData() async {
+    final response = await datasource.fetchHomeData();
+    return HomeData.fromJson(response.data!);
   }
-
-  @override
-  Future<List<Course>> fetchProjects() async {
-    final response = await datasource.fetchProjects();
-    return response.data?.map((e) => Course.fromDto(e)).toList() ?? [];
-  }
-
 
 }

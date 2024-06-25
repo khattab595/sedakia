@@ -115,30 +115,10 @@ class EditProfileScreen extends BaseStatelessWidget {
 
   onEditPressed(){
     if (formKey.currentState!.validate()) {
-      onEdit(
-        ProfileDto(
-          id: profile.id,
-          name: nameController.text,
-          parentPhone: parentPhoneController.text.toIraqCode,
-          phoneNumber: phoneController.text.toIraqCode,
-          academicLevelId: int.parse(academicLevelId),
-          stageLevelId: int.parse(stageLevelId),
-          birthDate: birthDateController.text,
-          gender: gender,
-          specialCode: serialNumberController.text,
-        ),
-      );
     }
   }
 
   _initData() {
-    serialNumberController.text = profile.specialCode ?? '';
-    nameController.text = profile.name ?? '';
-    phoneController.text = (profile.phoneNumber ?? '').removeIraqCode;
-    parentPhoneController.text = (profile.parentPhone ?? '').removeIraqCode;
-    academicLevelId  = profile.academicLevelId.toString() ?? '';
-    stageLevelId = profile.stageLevelId.toString();
-    birthDateController.text = profile.birthDate ?? '';
     gender = profile.gender ?? '';
   }
 }

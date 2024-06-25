@@ -1,22 +1,22 @@
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../main_index.dart';
+import '../../domain/entities/home_data.dart';
 import '../bloc/home_bloc.dart';
 import 'home_screen.dart';
 
-class HomePage extends BaseBlocWidget<UnInitState, HomeCubit> {
+class HomePage extends BaseBlocWidget<DataSuccess<HomeData>, HomeCubit> {
   HomePage({Key? key}) : super(key: key);
 
-  // @override
-  // void loadInitialData(BuildContext context) {
-  //   bloc.fetchInitialData();
-  // }
+  @override
+  void loadInitialData(BuildContext context) {
+    bloc.fetchInitialData();
+  }
 
   @override
   Widget buildWidget(
-      BuildContext context, UnInitState state) {
+      BuildContext context, DataSuccess<HomeData> state) {
     return HomeScreen(
-      // currentProjectStream: bloc.currentProjectStream,
-      // projectsStream: bloc.projectsStream,
+      homeData: state.data!,
     );
   }
 }

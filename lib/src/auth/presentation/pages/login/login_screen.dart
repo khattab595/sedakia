@@ -26,8 +26,8 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(kDebugMode){
-      phoneNumberController.text = '7788996655';
-      passwordController.text = '123123123';
+      phoneNumberController.text = '0553563556';
+      passwordController.text = '12345678';
     }
     bool value = false;
     return  Form(
@@ -108,7 +108,7 @@ class LoginScreen extends BaseStatelessWidget {
               title: strings.sign_in,
               margin: 30.paddingVert,
               onPressed: (){
-                pushNamedAndRemoveUntil(Routes.navigationPages);
+                onPressed();
               },
             ),
             // InkWell(
@@ -136,13 +136,13 @@ class LoginScreen extends BaseStatelessWidget {
       ),
     );
   }
-  // onPressed() async {
-  //  if (formKey.currentState!.validate()) {
-  //     onLogin!(LoginParams(
-  //       phoneNumber: phoneNumberController.text.toIraqCode,
-  //       password: passwordController.text,
-  //       fcmToken: 'harby',
-  //     ));
-  //  }
-  // }
+  onPressed() async {
+   if (formKey.currentState!.validate()) {
+      onLogin!(LoginParams(
+        phone: phoneNumberController.text,
+        password: passwordController.text,
+        fcmToken: 'harby',
+      ));
+   }
+  }
 }

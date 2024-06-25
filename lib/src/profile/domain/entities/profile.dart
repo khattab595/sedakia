@@ -2,50 +2,74 @@ import '../../data/models/profile_dto.dart';
 
 class Profile {
   int? id;
-  String? name;
-  String? phoneNumber;
-  String? parentPhone;
-  String? specialCode;
-  String? picIdentityF;
-  String? picIdentityB;
+  String? code;
+  String? firstName;
+  String? secondName;
+  String? lastName;
+  String? nationalId;
+  String? dateBirth;
+  String? dateOfCommencement;
+  EducationLevel? educationLevel;
+  String? phone;
+  String? address;
+  int? yearsOfExperience;
+  Religion? religion;
+  City? city;
+  Nationality? nationality;
+  Job? job;
   String? gender;
-  String? birthDate;
-  String? image;
-  String? academicLevel;
-  int? academicLevelId;
-  String? stageLevel;
-  int? stageLevelId;
+  String? maritalStatus;
+  SalaryCategory? salaryCategory;
+  String? dateDocumentItInQawwa;
+  int? childrenCount;
+  String? token;
 
   Profile(
       {this.id,
-      this.name,
-      this.phoneNumber,
-      this.parentPhone,
-      this.specialCode,
-      this.picIdentityF,
-      this.picIdentityB,
+      this.code,
+      this.firstName,
+      this.secondName,
+      this.lastName,
+      this.nationalId,
+      this.dateBirth,
+      this.dateOfCommencement,
+      this.educationLevel,
+      this.phone,
+      this.address,
+      this.yearsOfExperience,
+      this.religion,
+      this.city,
+      this.nationality,
+      this.job,
       this.gender,
-      this.birthDate,
-      this.image,
-      this.academicLevel,
-      this.academicLevelId,
-      this.stageLevel,
-      this.stageLevelId});
+      this.maritalStatus,
+      this.salaryCategory,
+      this.dateDocumentItInQawwa,
+      this.childrenCount,
+      this.token});
 
   factory Profile.fromDto(ProfileDto json) => Profile(
         id: json.id,
-        name: json.name,
-        phoneNumber: json.phoneNumber,
-        parentPhone: json.parentPhone,
-        specialCode: json.specialCode,
-        picIdentityF: json.picIdentityF,
-        picIdentityB: json.picIdentityB,
-        stageLevelId: json.stageLevelId,
-        birthDate: json.birthDate,
+        code: json.code,
+        firstName: json.firstName,
+        secondName: json.secondName,
+        lastName: json.lastName,
+        nationalId: json.nationalId,
+        dateBirth: json.dateBirth,
+        dateOfCommencement: json.dateOfCommencement,
+        educationLevel: json.educationLevel,
+        phone: json.phone,
+        address: json.address,
+        yearsOfExperience: json.yearsOfExperience,
+        religion: json.religion,
+        city: json.city,
         gender: json.gender,
-        academicLevel: json.academicLevel,
-        academicLevelId: json.academicLevelId,
-        stageLevel: json.stageLevel,
-        image: json.image,
-  );
+        maritalStatus: json.maritalStatus,
+        salaryCategory: json.salaryCategory,
+        dateDocumentItInQawwa: json.dateDocumentItInQawwa,
+        childrenCount: json.childrenCount,
+        job: json.job,
+        nationality: json.nationality,
+        token: json.token,
+      );
 }

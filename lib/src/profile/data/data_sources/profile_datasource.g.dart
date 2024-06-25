@@ -13,7 +13,7 @@ class _ProfileDataSource implements ProfileDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://wezary.online/api';
+    baseUrl ??= 'https://alwaseet-sa.online/api/';
   }
 
   final Dio _dio;
