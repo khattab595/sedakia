@@ -3,25 +3,33 @@ import 'dart:io';
 import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/core/widgets/text-field/custom_text_field.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
+import 'package:app/src/request_log/data/models/add_request_params.dart';
 
+import '../../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../../main_index.dart';
+import '../../../domain/entities/leave_type.dart';
 import '../widgets/filter_date_widget.dart';
 import '../widgets/request_type.dart';
 
 class AddRequestScreen extends BaseStatelessWidget {
-  // final List<Course>? courses;
-  //final Function(dynamic) onAddRequest;
+  final List<DropDownItem>? leaveTypes;
+  final List<DropDownItem>? leaveSubTypes;
+  final Function(AddRequestParams) onAddRequest;
 
   AddRequestScreen({
     Key? key,
-    //  required this.courses, required this.onAddRequest
+    this.leaveTypes,
+    this.leaveSubTypes,
+    required this.onAddRequest,
   }) : super(key: key);
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String type = '';
   TextEditingController reasonController = TextEditingController();
   TextEditingController moneyController = TextEditingController();
   TextEditingController attachmentsController = TextEditingController();
   StreamStateInitial<String> isShowTime = StreamStateInitial();
+  AddRequestParams params = AddRequestParams();
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +54,10 @@ class AddRequestScreen extends BaseStatelessWidget {
                   ),
                   13.ph,
                   RequestType(
-                    onChanged: (item) {
-                      type = item ?? '';
+                    leaveTypes: leaveTypes,
+                    onChanged: (id) {
+                      type = id ?? '';
+                      params.leaveType = id;
                       isShowTime.setData(type);
                     },
                   ),
@@ -55,15 +65,21 @@ class AddRequestScreen extends BaseStatelessWidget {
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
-                        return snapshot.data == "إجازة"
+                        return snapshot.data == LeaveType.vacation
                             ? Column(
                                 children: [
                                   HolidayType(
-                                    onChanged: (value) {},
+                                    leaveSubTypes: leaveSubTypes,
+                                    onChanged: (value) {
+                                      params.vacationType = value;
+                                    },
                                   ),
                                   13.ph,
                                   FilterDateWidget(
-                                    onFilter: (from, to) {},
+                                    onFilter: (from, to) {
+                                      params.startDate = from;
+                                      params.endDate = to;
+                                    },
                                   )
                                 ],
                               )
@@ -73,23 +89,27 @@ class AddRequestScreen extends BaseStatelessWidget {
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
-                        return snapshot.data == "إستقالة"
+                        return snapshot.data == LeaveType.resignation
                             ? FilterSearchDate(
-                          onFilter: (search) {},
-                        )
+                                onFilter: (search) {
+                                  params.resignationDate = search;
+                                },
+                              )
                             : 0.pw;
                       }),
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
-                        return snapshot.data == "سلفة"
+                        return snapshot.data == LeaveType.advance
                             ? CustomTextField(
                                 hintText: strings.enter_the_advance_amount,
                                 radius: 10,
                                 keyboardType: TextInputType.number,
                                 title:
                                     "${strings.enter_the_advance_amount} (ريال سعودي)",
-                                controller: moneyController,
+                                onChanged: (value) {
+                                  params.advanceAmount = value;
+                                },
                               )
                             : 0.ph;
                       }),
@@ -97,14 +117,13 @@ class AddRequestScreen extends BaseStatelessWidget {
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
                         return CustomTextField(
-                          hintText:strings.enter_description,
-                          // snapshot.data == "سلفة"
-                          //     ? strings.urgent_debt_payment
-                          //     : strings.sick_leave,
+                          hintText: strings.enter_description,
                           radius: 10,
                           title: strings.reason,
                           maxLines: 2,
-                          controller: reasonController,
+                          onChanged: (value) {
+                            params.description = value;
+                          },
                         );
                       }),
                   5.ph,
@@ -126,12 +145,12 @@ class AddRequestScreen extends BaseStatelessWidget {
                               onPressed: () async {
                                 files =
                                     await HelperMethods.getListImagePicker();
-
+                                params.files = files;
                                 setState(() {});
                               },
                             ),
                             10.pw,
-                            files.length == 0
+                            files.isEmpty
                                 ? Text(
                                     strings.choose_file,
                                     style: context.displaySmall
@@ -157,15 +176,16 @@ class AddRequestScreen extends BaseStatelessWidget {
                                                   ),
                                                 ),
                                                 PositionedDirectional(
-                                                  end: 0,
+                                                  end: 20,
                                                   top: 0,
                                                   child: SizedBox(
                                                     height: 20,
-                                                    width: 20,
+                                                    width: 15,
                                                     child: IconButton(
                                                       onPressed: () {
                                                         setState(() {
                                                           files.remove(e);
+                                                          params.files = files;
                                                         });
                                                       },
                                                       icon: const Icon(
@@ -194,12 +214,20 @@ class AddRequestScreen extends BaseStatelessWidget {
             PrimaryButton(
               title: strings.send_request,
               margin: 20.paddingHoriz,
-              onPressed: () {},
               fontSize: 20,
+              onPressed: () {
+                onPressed();
+              },
             )
           ],
         ),
       ),
     );
+  }
+
+  onPressed() {
+    if (formKey.currentState!.validate()) {
+      onAddRequest(params);
+    }
   }
 }

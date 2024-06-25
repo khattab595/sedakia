@@ -8,15 +8,23 @@ import '../bloc/add_request_bloc.dart';
 import 'add_request_screen.dart';
 
 class AddRequestPage
-    extends BaseBlocWidget<UnInitState, AuthCubit> {
+    extends BaseBlocWidget<DoubleDataSuccess, AddRequestCubit> {
   AddRequestPage({Key? key}) : super(key: key);
 
 
   @override
-  Widget buildWidget(BuildContext context, UnInitState state) {
+  void loadInitialData(BuildContext context) {
+    bloc.fetchLeaveTypes();
+  }
+
+  @override
+  Widget buildWidget(BuildContext context, DoubleDataSuccess state) {
     return AddRequestScreen(
-      // courses: state.data ?? [],
-      // onAddRequest: (params) => bloc.addRequest(),
+      leaveTypes: state.data1,
+      leaveSubTypes: state.data2,
+      onAddRequest: (params) {
+        bloc.addRequest(params);
+      },
     );
   }
 

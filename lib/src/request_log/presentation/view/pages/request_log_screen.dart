@@ -1,15 +1,10 @@
-import 'package:app/core/widgets/images/image_network.dart';
 
-import '../../../../../core/utils/navigator.dart';
-import '../../../../../core/widgets/custom_empty_widget.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../../core/widgets/texts/row_texts.dart';
 import '../../../../main_index.dart';
-import '../../../data/models/course_dto.dart';
-import '../../../domain/entities/course.dart';
-import '../widgets/request_log.dart';
+
 
 class RequestLogScreen extends BaseStatelessWidget {
   int id;

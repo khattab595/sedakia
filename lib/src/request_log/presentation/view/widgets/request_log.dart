@@ -2,13 +2,8 @@
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/row_texts.dart';
-import 'package:app/src/request_log/presentation/view/widgets/row_icon_text.dart';
-
-import '../../../../../core/widgets/images/image_network.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
-import '../../../../../core/widgets/texts/row_icon_text.dart';
 import '../../../../main_index.dart';
-import '../../../domain/entities/course.dart';
 
 class RequestLogItem extends BaseStatelessWidget {
   //final Course log;
@@ -22,8 +17,6 @@ class RequestLogItem extends BaseStatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    print("nnhh${id}");
-    // print('myCourse.percentage: ${log.percentage}');
     return Container(
       padding: 15.paddingAll,
       margin: 20.paddingHoriz + 10.paddingBottom,

@@ -21,13 +21,13 @@ class _AttendanceRecordDatasource implements AttendanceRecordDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<CourseDto>>> fetchAttendanceRecord() async {
+  Future<ApiResponse<List<String>>> fetchAttendanceRecord() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<CourseDto>>>(Options(
+        _setStreamType<ApiResponse<List<String>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,13 +43,10 @@ class _AttendanceRecordDatasource implements AttendanceRecordDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<CourseDto>>.fromJson(
+    final value = ApiResponse<List<String>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
-          ? json
-              .map<CourseDto>(
-                  (i) => CourseDto.fromJson(i as Map<String, dynamic>))
-              .toList()
+          ? json.map<String>((i) => i as String).toList()
           : List.empty(),
     );
     return value;

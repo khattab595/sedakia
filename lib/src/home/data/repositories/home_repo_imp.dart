@@ -1,8 +1,5 @@
-
-import 'package:app/src/request_log/domain/entities/course.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../request_log/data/models/course_dto.dart';
 import '../../domain/entities/home_data.dart';
 import '../../domain/repositories/home_repo.dart';
 import '../data_sources/home_datasource.dart';
