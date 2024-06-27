@@ -10,15 +10,16 @@ import '../../../../core/resources/data_state.dart';
 import '../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../auth/data/repositories/forgot_password_repo_imp.dart';
 import '../../../auth/domain/repositories/auth_repo.dart';
+import '../../../auth/domain/repositories/forgot_password_repo.dart';
 import '../../data/models/profile_dto.dart';
 
 @Injectable()
 class ProfileBloc extends BaseCubit {
   final ProfileRepo repo;
   final AuthRepo authRepo;
-  final ForgotPasswordRepoImp forgotPasswordRepoImp;
+  final ForgotPasswordRepo forgotPasswordRepo;
 
-  ProfileBloc(this.repo, this.authRepo, this.forgotPasswordRepoImp);
+  ProfileBloc(this.repo, this.authRepo, this.forgotPasswordRepo);
 
   void fetchProfileData({bool isFromCash = true}) {
     executeSuccess(() => repo.fetchProfileData(isFromCash));
@@ -41,7 +42,7 @@ class ProfileBloc extends BaseCubit {
 
   void logOut() {
     executeEmitterListener(
-      () => forgotPasswordRepoImp.logout(),
+      () => forgotPasswordRepo.logout(),
     );
   }
 
