@@ -29,6 +29,7 @@ class ProfileScreen extends BaseStatelessWidget {
     required this.onSelectImage,
   }) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
