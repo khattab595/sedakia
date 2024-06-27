@@ -8,8 +8,7 @@ import '../../src/language/presentation/pages/language_page.dart';
 import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/notifications/presentation/pages/notifications_page.dart';
-import '../../src/profile/presentation/pages/edit_profile_page.dart';
-import '../../src/profile/presentation/pages/profile_page.dart';
+ import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/request_log/presentation/add_request/pages/add_request_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
  import '../../src/splash/presentation/pages/splash_screen.dart';
@@ -19,7 +18,6 @@ class Routes {
 
   static const String intro = '/';
   static const String loginPage = 'loginUI';
-  static const String editProfilePage = 'editProfilePage';
 
   static const String register = 'registerPage';
   static const String favoritesPage = 'favoritesPage';
@@ -48,8 +46,7 @@ class Routes {
     splashPage: (context) => SplashPage(),
     enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
     forgotPasswordPage: (context) => ForgotPasswordPage(),
-    editProfilePage: (context) => EditProfilePage(),
-    loginPage: (context) => LoginPage(),
+     loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),

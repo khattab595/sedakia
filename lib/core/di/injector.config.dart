@@ -132,6 +132,7 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i40.ProfileBloc>(() => _i40.ProfileBloc(
         gh<_i21.ProfileRepo>(),
         gh<_i8.AuthRepo>(),
+        gh<_i11.ForgotPasswordRepo>(),
       ));
   gh.factory<_i41.RequestLogCubit>(
       () => _i41.RequestLogCubit(gh<_i24.RequestLogRepo>()));

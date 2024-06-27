@@ -70,10 +70,6 @@ class AuthRepoImp extends AuthRepo {
 
   @override
   Future<List<DropDownItem>> fetchStageLevels(String academicLevelId) async {
-    final response = await apiProvider.fetchStageLevels(academicLevelId);
-    return response.data
-            ?.map((e) => DropDownItem(id: e.id.toString(), title: e.name))
-            .toList() ??
-        [];
+    return [];
   }
 }

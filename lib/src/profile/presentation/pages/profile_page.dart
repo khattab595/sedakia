@@ -14,11 +14,13 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
   void loadInitialData(BuildContext context) {
     bloc.fetchProfileData();
   }
-@override
+
+  @override
   String? title(BuildContext context) {
     // TODO: implement title
     return strings.profile;
   }
+
   @override
   Widget buildWidget(BuildContext context, DataSuccess<Profile> state) {
     return ProfileScreen(
@@ -39,18 +41,20 @@ class ProfilePage extends BaseBlocWidget<DataSuccess<Profile>, ProfileBloc> {
   onLogout() {
     DialogsManager.showAlertDialog(context!, CustomDialogBody(
       onLogout: () {
-        bloc.logout();
+        bloc.logOut();
       },
     ));
   }
 
   onDelete() {
-    DialogsManager.showAlertDialog(context!, CustomDialogBody(
-      title: strings.delete_account,
-      description: strings.delete_account_message,
-      onLogout: () {
-        bloc.logout();
-      },
-    ));
+    DialogsManager.showAlertDialog(
+        context!,
+        CustomDialogBody(
+          title: strings.delete_account,
+          description: strings.delete_account_message,
+          onLogout: () {
+            bloc.logOut();
+          },
+        ));
   }
 }

@@ -29,6 +29,7 @@ class ProfileScreen extends BaseStatelessWidget {
     required this.onSelectImage,
   }) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -59,7 +60,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItemV2(
               icon: AppIcons.logout,
               onTap: () {
-                pushNamed(Routes.loginPage);
+                onLogout();
               },
               title: strings.sign_out),
           20.ph,

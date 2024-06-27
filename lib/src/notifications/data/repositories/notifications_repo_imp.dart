@@ -1,9 +1,10 @@
 
 import 'package:injectable/injectable.dart';
-import '../../domain/entities/notification.dart';
-import '../../domain/repositories/notifications_repo.dart';
+import '../../../../core/network/api_response.dart';
+ import '../../domain/repositories/notifications_repo.dart';
 import '../data_sources/notifications_datasource.dart';
 import '../models/notification_dto.dart';
+import '../models/notification_prams.dart';
 
 
 @Injectable(as: NotificationsRepo)
@@ -12,9 +13,9 @@ class NotificationsRepoImp extends NotificationsRepo{
   NotificationsRepoImp(this.datasource);
 
   @override
-  Future<List<Notifications>> fetchNotifications() async{
-    final response = await datasource.fetchNotifications();
-    return response.data?.map((e) => Notifications.fromDto(e)).toList()??[];
+  Future<ApiResponse<List<NotificationDto>>> fetchNotifications(NotificationPrams notificationPrams) async{
+    final response = await datasource.fetchNotifications(notificationPrams);
+    return response ;
   }
 
 }

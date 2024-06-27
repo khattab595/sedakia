@@ -9,10 +9,12 @@ class NotificationDto {
   String? title;
  @JsonKey(name: 'created_at')
   String? time;
- @JsonKey(name: 'body')
-  String? description;
+ @JsonKey(name: 'message')
+  String? message;
+ @JsonKey(name: 'ago')
+  String? ago;
 
-  NotificationDto({this.id, this.title, this.time, this.description});
+  NotificationDto({this.id, this.title, this.time, this.message,this.ago});
 
   factory NotificationDto.fromJson(Map<String, dynamic> json) => _$NotificationDtoFromJson(json);
 

@@ -1,7 +1,8 @@
 
+import '../../../../core/network/api_response.dart';
 import '../../data/models/notification_dto.dart';
-import '../entities/notification.dart';
+import '../../data/models/notification_prams.dart';
 
 abstract class NotificationsRepo {
-  Future<List<Notifications>> fetchNotifications();
+  Future<ApiResponse<List<NotificationDto>>>  fetchNotifications(NotificationPrams notificationPrams);
 }

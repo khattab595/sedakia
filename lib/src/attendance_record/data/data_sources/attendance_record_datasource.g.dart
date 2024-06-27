@@ -21,20 +21,22 @@ class _AttendanceRecordDatasource implements AttendanceRecordDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<String>>> fetchAttendanceRecord() async {
+  Future<ApiResponse<List<AttendanceRecordDto>>> fetchAttendanceRecord(
+      AttendanceRecordPrams attendanceRecordPrams) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(attendanceRecordPrams.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<String>>>(Options(
+        _setStreamType<ApiResponse<List<AttendanceRecordDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/departmentCourses',
+              'v1/attendance',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,10 +45,13 @@ class _AttendanceRecordDatasource implements AttendanceRecordDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<String>>.fromJson(
+    final value = ApiResponse<List<AttendanceRecordDto>>.fromJson(
       _result.data!,
       (json) => json is List<dynamic>
-          ? json.map<String>((i) => i as String).toList()
+          ? json
+              .map<AttendanceRecordDto>((i) =>
+                  AttendanceRecordDto.fromJson(i as Map<String, dynamic>))
+              .toList()
           : List.empty(),
     );
     return value;
