@@ -9,12 +9,11 @@ class ApiResponse<T> {
   // String? status;
   int? code;
   String? message;
-  String? name;
-  String? token;
+  Pagination? pagination;
   T? data;
 
 
-  ApiResponse({this.code, this.message, this.data, this.name, this.token});
+  ApiResponse({this.code, this.message, this.data, this.pagination});
 
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,

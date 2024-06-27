@@ -25,7 +25,7 @@ class ProjectItem extends BaseStatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           RowTexts(
-            value: "#123546",
+            value: "#${project.code}",
             title: "مشروع هايبر بندة",
             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
             valueStyle: blackRegularStyle.copyWith(color: greyColor),
@@ -34,7 +34,7 @@ class ProjectItem extends BaseStatelessWidget {
           InkWell(
             onTap: () {
               print("open map");
-              HelperMethods.launchURL('https://maps.app.goo.gl/DZPX2VFKKSaJkDrr9');
+              HelperMethods.launchURL(project.mapLink ?? "");
             },
             child: Row(
               children: [
@@ -48,7 +48,7 @@ class ProjectItem extends BaseStatelessWidget {
                   child: Row(
                     children: [
                       PrimaryRegularText(
-                                              label: "شارع حمد الجاسر، حي الروضة، جدة",
+                                              label: project.city?.name ?? "",
                                               fontSize: 14,
                                               labelColor: blueColorOff,
                                             ),
@@ -73,7 +73,7 @@ class ProjectItem extends BaseStatelessWidget {
               ),
               10.pw,
               PrimaryRegularText(
-                label: "23 مارس 2024",
+                label: project.description ?? "",
                 fontSize: 12,
                 labelColor: greyColor,
               )

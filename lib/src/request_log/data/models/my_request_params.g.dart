@@ -8,12 +8,12 @@ part of 'my_request_params.dart';
 
 MyRequestParams _$MyRequestParamsFromJson(Map<String, dynamic> json) =>
     MyRequestParams(
-      id: json['status'] as String?,
-      name: json['page'] as String?,
+      status: json['status'] as int?,
+      page: json['page'] as String?,
     );
 
 Map<String, dynamic> _$MyRequestParamsToJson(MyRequestParams instance) =>
     <String, dynamic>{
-      'status': instance.id,
-      'page': instance.name,
+      'status': instance.status,
+      'page': instance.page,
     };

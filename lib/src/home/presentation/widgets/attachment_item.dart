@@ -16,7 +16,6 @@ class AttachmentList extends BaseStatelessWidget {
       height: 100,
       child: ListView.builder(
         shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
         itemCount: models.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
@@ -44,7 +43,7 @@ class AttachmentItem extends BaseStatelessWidget {
       },
       child: Container(
         margin: 4.paddingHoriz,
-        padding: 10.paddingVert + 20.paddingHoriz,
+        padding: 18.paddingHoriz,
         decoration:
             Decorations.kDecorationBorderRadius(borderColor: dividerColor),
         child: Column(

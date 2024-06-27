@@ -2,6 +2,11 @@
 import '../../data/models/my_request_dto.dart';
 
 class MyRequest {
+  static const int waiting = 1;
+  static const int rejected = 2;
+  static const int approved = 3;
+
+  /////////////////////////////////////////////////////////////////
   int? id;
   String? code;
   String? startDate;

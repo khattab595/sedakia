@@ -5,11 +5,11 @@ part 'my_request_params.g.dart';
 @JsonSerializable(ignoreUnannotated: false)
 class MyRequestParams {
   @JsonKey(name: 'status')
-  String? id;
+  int? status;
   @JsonKey(name: 'page')
-  String? name;
+  String? page;
 
-  MyRequestParams({this.id, this.name});
+  MyRequestParams({this.status, this.page});
 
    factory MyRequestParams.fromJson(Map<String, dynamic> json) => _$MyRequestParamsFromJson(json);
 
