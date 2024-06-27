@@ -21,9 +21,11 @@ class _NotificationsDatasource implements NotificationsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<NotificationDto>>> fetchNotifications() async {
+  Future<ApiResponse<List<NotificationDto>>> fetchNotifications(
+      NotificationPrams notificationPrams) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(notificationPrams.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -34,7 +36,7 @@ class _NotificationsDatasource implements NotificationsDatasource {
     )
             .compose(
               _dio.options,
-              '/notifications',
+              'v1/notifications',
               queryParameters: queryParameters,
               data: _data,
             )

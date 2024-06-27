@@ -22,7 +22,8 @@ abstract class  ForgotPasswordDataSource{
   @POST('/resetPassword')
   Future<ApiResponse> resetPassword(@Body() ResetPasswordParams params);
 
-  @POST('/change-password')
+  @POST('v1/updatePassword')
   Future<ApiResponse> updatePassword(@Body() ChangePasswordParams params);
-
+  @POST('v1/logout')
+  Future<ApiResponse> logout( );
 }

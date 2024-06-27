@@ -8,6 +8,7 @@ import '../../../../core/bloc/base_cubit.dart';
 import '../../../../core/commen/common_state.dart';
 import '../../../../core/resources/data_state.dart';
 import '../../../../core/widgets/drop_down/drop_down.dart';
+import '../../../auth/data/repositories/forgot_password_repo_imp.dart';
 import '../../../auth/domain/repositories/auth_repo.dart';
 import '../../data/models/profile_dto.dart';
 
@@ -15,8 +16,9 @@ import '../../data/models/profile_dto.dart';
 class ProfileBloc extends BaseCubit {
   final ProfileRepo repo;
   final AuthRepo authRepo;
+  final ForgotPasswordRepoImp forgotPasswordRepoImp;
 
-  ProfileBloc(this.repo, this.authRepo);
+  ProfileBloc(this.repo, this.authRepo, this.forgotPasswordRepoImp);
 
   void fetchProfileData({bool isFromCash = true}) {
     executeSuccess(() => repo.fetchProfileData(isFromCash));
@@ -37,16 +39,19 @@ class ProfileBloc extends BaseCubit {
     executeEmitterListener(() => repo.editProfileData(params));
   }
 
+  void logOut() {
+    executeEmitterListener(
+      () => forgotPasswordRepoImp.logout(),
+    );
+  }
+
   void editProfileImage(File file) {
     executeSuccessNoActionState(() => repo.editProfileImage(file),
         onSuccess: (response) {
-          fetchProfileData(isFromCash: false);
-        });
+      fetchProfileData(isFromCash: false);
+    });
   }
 
-  void logout() {
-    executeSuccessState(() => repo.logout());
-  }
 
   StreamStateInitial<List<DropDownItem>?> stageLevelsStream =
       StreamStateInitial();

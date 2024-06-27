@@ -9,7 +9,7 @@ part of 'change_password_params.dart';
 ChangePasswordParams _$ChangePasswordParamsFromJson(
         Map<String, dynamic> json) =>
     ChangePasswordParams(
-      currentPassword: json['current_password'] as String?,
+      currentPassword: json['old_password'] as String?,
       newPassword: json['new_password'] as String?,
       newPasswordConfirmation: json['new_password_confirmation'] as String?,
     );
@@ -17,7 +17,7 @@ ChangePasswordParams _$ChangePasswordParamsFromJson(
 Map<String, dynamic> _$ChangePasswordParamsToJson(
         ChangePasswordParams instance) =>
     <String, dynamic>{
-      'current_password': instance.currentPassword,
+      'old_password': instance.currentPassword,
       'new_password': instance.newPassword,
       'new_password_confirmation': instance.newPasswordConfirmation,
     };

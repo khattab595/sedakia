@@ -11,7 +11,8 @@ NotificationDto _$NotificationDtoFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int?,
       title: json['title'] as String?,
       time: json['created_at'] as String?,
-      description: json['body'] as String?,
+      message: json['message'] as String?,
+      ago: json['ago'] as String?,
     );
 
 Map<String, dynamic> _$NotificationDtoToJson(NotificationDto instance) =>
@@ -19,5 +20,6 @@ Map<String, dynamic> _$NotificationDtoToJson(NotificationDto instance) =>
       'id': instance.id,
       'title': instance.title,
       'created_at': instance.time,
-      'body': instance.description,
+      'message': instance.message,
+      'ago': instance.ago,
     };

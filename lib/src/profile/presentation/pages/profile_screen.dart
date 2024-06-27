@@ -60,7 +60,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItemV2(
               icon: AppIcons.logout,
               onTap: () {
-                pushNamed(Routes.loginPage);
+                onLogout();
               },
               title: strings.sign_out),
           20.ph,

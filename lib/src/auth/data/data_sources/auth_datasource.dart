@@ -44,7 +44,5 @@ abstract class AuthDataSource {
   @GET('/academicLevels')
   Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels();
 
-  @GET('/logout')
-  Future<ApiResponse<List<AcademicLevelDto>>> fetchStageLevels(
-      @Query('academic_level_id') String academicLevelId);
+
 }

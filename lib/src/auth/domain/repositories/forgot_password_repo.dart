@@ -9,4 +9,5 @@ abstract class ForgotPasswordRepo {
   Future<String> enterPhoneNumber(ForgotPasswordParams params);
   Future<String> resetPassword(ResetPasswordParams params);
   Future<String> updatePassword(ChangePasswordParams params);
+  Future<String> logout();
 }
