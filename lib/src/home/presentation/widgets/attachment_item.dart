@@ -44,7 +44,7 @@ class AttachmentItem extends BaseStatelessWidget {
       },
       child: Container(
         margin: 4.paddingHoriz,
-        padding: 10.paddingVert + 20.paddingHoriz,
+        padding: 9.paddingVert + 20.paddingHoriz,
         decoration:
             Decorations.kDecorationBorderRadius(borderColor: dividerColor),
         child: Column(

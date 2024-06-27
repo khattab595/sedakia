@@ -106,7 +106,12 @@
   "models": "النماذج",
   "request": "طلب",
 
-
+  "load_more": "تحميل المزيد",
+  "loading": "جاري التحميل",
+  "no_more_data": "لا يوجد المزيد من البيانات",
+  "load_failed_refresh_data": "فشل التحميل، يرجى تحديث البيانات",
+  "reload": "إعادة تحميل",
+  "something_went_wrong": "حدث خطأ ما",
 
 
 

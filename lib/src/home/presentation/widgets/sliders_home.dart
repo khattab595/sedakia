@@ -12,7 +12,7 @@ class SlidersHome extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return sliders.length==0?SizedBox():SizedBox(
       height: 200,
       child: Swiper(
         itemCount: sliders.length,

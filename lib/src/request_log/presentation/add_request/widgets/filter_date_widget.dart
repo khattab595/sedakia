@@ -66,9 +66,15 @@ class FilterDate extends BaseStatelessWidget {
   final TextEditingController controller;
   final int value;
 
-  final Function(int )? onFilter;
+  final Function(String data) onFilterYears;
+  final Function(String data) onFilterMonth;
 
-  FilterDate({super.key, required this.controller, this.onFilter, required this.value});
+  FilterDate(
+      {super.key,
+      required this.controller,
+      required this.onFilterMonth,
+      required this.onFilterYears,
+      required this.value});
   List years = [
     "2010",
     "2011",
@@ -126,21 +132,29 @@ class FilterDate extends BaseStatelessWidget {
             Expanded(
                 child: DropDownField(
                     value: years.last,
-                    items: years.map((e) => DropDownItem(title: e,id: e)).toList(),
-                    onChanged: (onChanged) {})),
+                    items: years
+                        .map((e) => DropDownItem(title: e, id: e))
+                        .toList(),
+                    onChanged: (onChanged) {
+                      onFilterYears(onChanged.title ?? "");
+                    })),
             10.pw,
             Expanded(
                 child: DropDownField(
-                  value: value == 1
-                      ? monthAr[value - 1]
-                      : monthAr[value - 1],
+                    value: value == 1 ? monthAr[value - 1] : monthAr[value - 1],
                     items: isRtl()
-                        ? monthAr.map((e) => DropDownItem(title: e,id: e)).toList()
-                        : monthEn.map((e) => DropDownItem(title: e,id: e)).toList(),
+                        ? monthAr
+                            .map((e) => DropDownItem(title: e, id: e))
+                            .toList()
+                        : monthEn
+                            .map((e) => DropDownItem(title: e, id: e))
+                            .toList(),
                     onChanged: (onChanged) {
-                    int index = monthAr.indexOf(onChanged.id);
-                    print("monthAr : $index");
-                      onFilter?.call(index + 1);
+                      int index = isRtl()
+                          ? monthAr.indexOf(onChanged.id)
+                          : monthEn.indexOf(onChanged.id);
+                      print("monthAr : $index");
+                      onFilterMonth("${index + 1}");
                     })),
           ],
         ),
@@ -148,13 +162,13 @@ class FilterDate extends BaseStatelessWidget {
     );
   }
 }
+
 class FilterSearchDate extends BaseStatelessWidget {
   final Function(String search) onFilter;
 
   FilterSearchDate({super.key, required this.onFilter});
 
   TextEditingController searchController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -163,10 +177,10 @@ class FilterSearchDate extends BaseStatelessWidget {
         radius: 10,
         suffixIconPath: AppIcons.date,
         controller: searchController,
-       hintText: strings.date_of_resignation,
+        hintText: strings.date_of_resignation,
         // margin: 16.paddingEnd,
         minHeight: 55,
-     //   title: strings.date_of_resignation,
+        //   title: strings.date_of_resignation,
         isValidator: false,
         onTap: () async {
           DateTime? date = await HelperMethods.selectDate(context);
