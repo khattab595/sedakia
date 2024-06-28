@@ -43,6 +43,9 @@ ProfileDto _$ProfileDtoFromJson(Map<String, dynamic> json) => ProfileDto(
       dateDocumentItInQawwa: json['date_document_it_in_qawwa'] as String?,
       childrenCount: json['children_count'] as int?,
       token: json['token'] as String?,
+      salaryData: json['salary_data'] == null
+          ? null
+          : SalaryData.fromJson(json['salary_data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
@@ -69,6 +72,7 @@ Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
       'date_document_it_in_qawwa': instance.dateDocumentItInQawwa,
       'children_count': instance.childrenCount,
       'token': instance.token,
+      'salary_data': instance.salaryData,
     };
 
 EducationLevel _$EducationLevelFromJson(Map<String, dynamic> json) =>
@@ -134,4 +138,33 @@ Map<String, dynamic> _$SalaryCategoryToJson(SalaryCategory instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+    };
+
+SalaryData _$SalaryDataFromJson(Map<String, dynamic> json) => SalaryData(
+      baseSalary: json['base_salary'] as String?,
+      housingAllowance: json['housing_allowance'] as String?,
+      transportAllowance: json['transport_allowance'] as String?,
+      grossMonthlySalary: json['gross_monthly_salary'] as String?,
+      netMonthlySalary: json['net_monthly_salary'] as String?,
+      housingAllowanceType: json['housing_allowance_type'] as String?,
+      paymentMethod: json['payment_method'] as String?,
+      bankName: json['bank_name'] as String?,
+      bankNumber: json['bank_number'] as String?,
+      bankIban: json['bank_iban'] as String?,
+      insuranceActivationDate: json['insurance_activation_date'] as String?,
+    );
+
+Map<String, dynamic> _$SalaryDataToJson(SalaryData instance) =>
+    <String, dynamic>{
+      'base_salary': instance.baseSalary,
+      'housing_allowance': instance.housingAllowance,
+      'transport_allowance': instance.transportAllowance,
+      'gross_monthly_salary': instance.grossMonthlySalary,
+      'net_monthly_salary': instance.netMonthlySalary,
+      'housing_allowance_type': instance.housingAllowanceType,
+      'payment_method': instance.paymentMethod,
+      'bank_name': instance.bankName,
+      'bank_number': instance.bankNumber,
+      'bank_iban': instance.bankIban,
+      'insurance_activation_date': instance.insuranceActivationDate,
     };

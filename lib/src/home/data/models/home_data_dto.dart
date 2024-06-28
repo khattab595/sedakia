@@ -10,8 +10,10 @@ class HomeDataDto {
   CurrentProjectDto? currentProject;
   @JsonKey(name: 'models')
   List<ModelDto>? models;
+  @JsonKey(name: 'employee_status')
+  String? employeeStatus;
 
-  HomeDataDto({this.sliders, this.currentProject, this.models});
+  HomeDataDto({this.sliders, this.currentProject, this.models, this.employeeStatus});
 
    factory HomeDataDto.fromJson(Map<String, dynamic> json) => _$HomeDataDtoFromJson(json);
 
@@ -52,8 +54,12 @@ class CurrentProjectDto {
   CityDto? city;
   @JsonKey(name: 'location')
   LocationDto? location;
+  @JsonKey(name: 'start_date')
+  String? startDate;
+  @JsonKey(name: 'end_date')
+  String? endDate;
 
-  CurrentProjectDto({this.id, this.code, this.name, this.clientName, this.mapLink, this.description, this.city, this.location});
+  CurrentProjectDto({this.id, this.code, this.name, this.clientName, this.mapLink, this.description, this.city, this.location, this.startDate, this.endDate});
 
    factory CurrentProjectDto.fromJson(Map<String, dynamic> json) => _$CurrentProjectDtoFromJson(json);
 

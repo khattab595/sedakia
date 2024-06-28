@@ -1,8 +1,8 @@
-import 'package:app/core/widgets/images/image_network.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/row_texts.dart';
 import 'package:app/src/request_log/domain/entities/my_request.dart';
+import 'package:app/src/request_log/presentation/view/widgets/request_attachments_sheet.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
 
@@ -30,43 +30,7 @@ class RequestLogItem extends BaseStatelessWidget {
           Row(
             children: [
               AppIconButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) => Container(
-                            color: Colors.white,
-                            height: context.height,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                // SingleChildScrollView(
-                                //   padding: const EdgeInsets.only(top: 50),
-                                //   scrollDirection: Axis.horizontal,
-                                //   child: Row(
-                                //     children: request.?.map((e) => ImageNetwork(
-                                //               image: e,
-                                //               width: 200,
-                                //               height: 200,
-                                //               padding:
-                                //                   const EdgeInsets.all(8.0),
-                                //             ))
-                                //         .toList(),
-                                //   ),
-                                // ),
-                                PrimaryButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 20),
-                                  title: strings.close,
-                                ),
-                              ],
-                            ),
-                          ));
-                },
+                onPressed: () => showAttachmentsSheet(context),
                 icon: AppIcons.desc,
                 size: 25,
               ),
@@ -78,7 +42,7 @@ class RequestLogItem extends BaseStatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                 child: Center(
                   child: PrimaryRegularText(
-                    label: request.status ?? "",
+                    label: request.leaveType ?? "",
                     fontSize: 12,
                     labelStyle: primaryMediumStyle.copyWith(
                         fontSize: 14, color: orangeColor),
@@ -88,11 +52,22 @@ class RequestLogItem extends BaseStatelessWidget {
               const Spacer(),
               BlackMediumText(
                 // generated code that contains 6 number
-                label: request.id.toString(),
+                label: '#${request.code ?? ""}',
                 fontSize: 16,
               ),
             ],
           ),
+          10.ph,
+          if (request.createdAt != null)
+            rowText(strings.order_history, request.createdAt),
+          if (request.responseDate != null)
+            rowText(strings.response_date, request.responseDate),
+          if (request.startDate != null)
+            rowText(strings.leave_start_date, request.startDate),
+          if (request.endDate != null)
+            rowText(strings.leave_end_date, request.endDate),
+          if (request.advanceAmount != null)
+            rowText(strings.advance_amount, request.advanceAmount),
           9.ph,
           Row(
             children: [
@@ -103,44 +78,27 @@ class RequestLogItem extends BaseStatelessWidget {
               ),
             ],
           ),
-          10.ph,
-          if (request.startDate != null)
-          RowTexts(
-            title: strings.order_history,
-            value: request.startDate ?? "",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-            valueStyle:
-                primaryRegularStyle.copyWith(color: greyColorB1, fontSize: 12),
-          ),
-          5.ph,
-          if (request.endDate != null)
-          RowTexts(
-            title: strings.reply_date,
-            value: request.responseDate ?? "",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-            valueStyle:
-                primaryRegularStyle.copyWith(color: greyColorB1, fontSize: 12),
-          ),
-          5.ph,
-          if (request.startDate != null)
-          RowTexts(
-            title: strings.advance_amount,
-            value: request.startDate ?? "",
-            titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-            valueStyle:
-                primaryRegularStyle.copyWith(color: greyColorB1, fontSize: 12),
-          ),
-          // 5.ph,
-          // //   if (id == 1)
-          // RowTexts(
-          //   title: strings.reason_of_refuse,
-          //   value: request.responseDate ?? "",
-          //   titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
-          //   valueStyle:
-          //       primaryRegularStyle.copyWith(color: errorColor, fontSize: 12),
-          // ),
         ],
       ),
+    );
+  }
+
+  Widget rowText(String title, String? value) {
+    return RowTexts(
+      title: title,
+      value: value ?? "",
+      titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
+      valueStyle:
+          primaryRegularStyle.copyWith(color: greyColorB1, fontSize: 12),
+      padding: 2.paddingVert,
+    );
+  }
+
+  void showAttachmentsSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => RequestAttachmentsSheet(files: request.files ?? []),
     );
   }
 }

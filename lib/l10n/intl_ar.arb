@@ -1,6 +1,4 @@
 {
-
-
   "sign_in": "تسجيل الدخول",
   "log_in_using_your_mobile_number": "تسجيل الدخول بواسطة رقم الجوال",
   "this_field_is_required": "هذا الحقل مطلوب",
@@ -103,22 +101,20 @@
   "change_password": "تغيير كلمة المرور",
   "models": "النماذج",
   "request": "طلب",
-
   "load_more": "تحميل المزيد",
   "loading": "جاري التحميل",
   "no_more_data": "لا يوجد المزيد من البيانات",
   "load_failed_refresh_data": "فشل التحميل، يرجى تحديث البيانات",
   "reload": "إعادة تحميل",
   "something_went_wrong": "حدث خطأ ما",
-
   "load_failed_refresh_data": "فشل التحميل، اعد تحميل البيانات",
   "load_more": "تحميل المزيد",
-
+  "unlisted": "غير مدرج",
+  "response_date": "تاريخ الرد",
+  "start_date": "تاريخ البدء",
 
   "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-
-
-"skip": "تخطي",
+  "skip": "تخطي",
   "onboarding_title1": "وزاري: تطبيق التعليم المتنقل",
   "onboarding_description1": "اكتشف مجموعة واسعة من الدورات التعليمية في مختلف المجالات بمساعدة وزاري، حيث يمكنك تعلم المهارات الجديدة وتطوير نفسك في أي وقت ومن أي مكان.",
   "onboarding_title2": "استكشف تنوع الدورات",
@@ -190,15 +186,12 @@
   "sign_out_mes": "هل انت متاكد من تسجيل الخروج؟",
   "next": "التالي",
   "something_went_wrong": "حدث خطأ ما",
-"ok": "موافق",
+  "ok": "موافق",
   "support": "الدعم",
   "edit": "تعديل",
   "sign_out": "تسجيل الخروج",
   "all": "الكل",
   "error_internet_connection": "لا يوجد اتصال بالإنترنت",
-
-
-
   "edit_account": "تعديل الحساب",
   "technical_support": "الدعم الفني",
   "not_data_found": "لا توجد بيانات",

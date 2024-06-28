@@ -21,19 +21,18 @@ class AttendanceRecordItem extends BaseStatelessWidget {
       decoration:
           Decorations.kDecorationBorderRadius(borderColor: dividerColor),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           5.ph,
           RowIconText(
             icon: AppIcons.date,
-            value: data.createdAt ?? "",
+            value: data.getCreatedAt(),
             padding: 0.paddingAll,
             containerColor: cardColor,
-            valueStyle: primaryMediumStyle.copyWith(fontSize: 18),
+            valueStyle: primaryMediumStyle.copyWith(fontSize: 14),
           ),
           const Spacer(),
           PrimaryMediumText(
-            label: data.movementName ?? "",
+            label: data.getMovementName(context),
             labelStyle: primaryMediumStyle.copyWith(
               fontSize: 14,
               color: data.movementName != "Presence"

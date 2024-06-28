@@ -6,6 +6,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../main_index.dart';
 import '../../../settings/domain/entities/about.dart';
+import '../../data/models/profile_dto.dart';
 import '../../domain/entities/profile.dart';
 import '../widgets/profile_header_widget.dart';
 import '../widgets/profile_item.dart';
@@ -29,7 +30,6 @@ class ProfileScreen extends BaseStatelessWidget {
     required this.onSelectImage,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -40,9 +40,13 @@ class ProfileScreen extends BaseStatelessWidget {
             profile: profile,
             onSelectImage: onSelectImage,
           ),
-         30.ph,
-          PersonWidget(),
-          SalaryWidget(),
+          30.ph,
+          PersonWidget(
+            profile: profile,
+          ),
+          SalaryWidget(
+            salaryData: profile.salaryData ?? SalaryData(),
+          ),
           ProfileItemV2(
               icon: AppIcons.lock,
               onTap: () {
@@ -53,7 +57,7 @@ class ProfileScreen extends BaseStatelessWidget {
           ProfileItemV2(
               icon: AppIcons.language,
               onTap: () {
-            pushNamed(Routes.changLanguagePage);
+                pushNamed(Routes.changLanguagePage);
               },
               title: strings.language),
           10.ph,

@@ -31,7 +31,7 @@ class CustomTextField extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isVisibility = false;
+    bool isVisibility = isPassword;
     // if
     Color? borderColor = colorBorderSide ?? primaryColorDark.withOpacity(0.0);
     return Padding(
@@ -76,8 +76,8 @@ class CustomTextField extends BaseStatelessWidget {
                     suffixIcon: isPassword ?
                     IconButton(
                       icon: Icon(
-                        isVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-                        color: isVisibility ? primaryColor : hintColor,
+                        isVisibility ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                        color: isVisibility ? hintColor : primaryColor,
                       ),
                       onPressed: () {
                         isVisibility = !isVisibility;

@@ -26,7 +26,7 @@ class ProjectItem extends BaseStatelessWidget {
         children: [
           RowTexts(
             value: "#${project.code}",
-            title: "مشروع هايبر بندة",
+            title: project.name ?? "",
             titleStyle: blackMediumStyle.copyWith(fontSize: 16),
             valueStyle: blackRegularStyle.copyWith(color: greyColor),
           ),
@@ -48,11 +48,11 @@ class ProjectItem extends BaseStatelessWidget {
                   child: Row(
                     children: [
                       PrimaryRegularText(
-                                              label: project.city?.name ?? "",
-                                              fontSize: 14,
-                                              labelColor: blueColorOff,
-                                            ),
-                      Spacer(),
+                        label: '${project.location?.name ?? ""} - ${project.city?.name ?? ""}',
+                        fontSize: 14,
+                        labelColor: blueColorOff,
+                      ),
+                      const Spacer(),
                       const Icon(
                         Icons.arrow_forward_ios,
                         color: AppColors.greyColorB1,
@@ -73,8 +73,8 @@ class ProjectItem extends BaseStatelessWidget {
               ),
               10.pw,
               PrimaryRegularText(
-                label: project.description ?? "",
-                fontSize: 12,
+                label: '${project.startDate ?? ""} - ${project.endDate ?? ""}',
+                fontSize: 14,
                 labelColor: greyColor,
               )
             ],

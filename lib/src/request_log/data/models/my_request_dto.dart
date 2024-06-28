@@ -1,4 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
+
+import '../../../home/data/models/home_data_dto.dart';
 
 part 'my_request_dto.g.dart'; 
 
@@ -14,6 +16,12 @@ class MyRequestDto {
   String? endDate;
   @JsonKey(name: 'response_date')
   String? responseDate;
+  @JsonKey(name: 'resignation_date')
+  String? resignationDate;
+  @JsonKey(name: 'created_at')
+  String? createdAt;
+  @JsonKey(name: 'advance_amount')
+  String? advanceAmount;
   @JsonKey(name: 'status')
   String? status;
   @JsonKey(name: 'leave_type')
@@ -22,8 +30,24 @@ class MyRequestDto {
   String? vacationType;
   @JsonKey(name: 'description')
   String? description;
+  @JsonKey(name: 'files')
+  List<ModelDto>? files;
 
-  MyRequestDto({this.id, this.code, this.startDate, this.endDate, this.responseDate, this.status, this.leaveType, this.vacationType, this.description});
+  MyRequestDto({
+    this.id,
+    this.code,
+    this.startDate,
+    this.endDate,
+    this.responseDate,
+    this.resignationDate,
+    this.createdAt,
+    this.advanceAmount,
+    this.status,
+    this.leaveType,
+    this.vacationType,
+    this.description,
+    this.files,
+  });
 
    factory MyRequestDto.fromJson(Map<String, dynamic> json) => _$MyRequestDtoFromJson(json);
 

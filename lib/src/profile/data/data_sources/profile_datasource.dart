@@ -17,7 +17,7 @@ abstract class ProfileDataSource {
   @factoryMethod
   factory ProfileDataSource(Dio dio) = _ProfileDataSource;
 
-  @GET('/profile')
+  @GET('v1/viewprofile')
   Future<ApiResponse<ProfileDto>> fetchProfileData();
 
   @POST('/updateProfile')

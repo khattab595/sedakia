@@ -1,4 +1,7 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:app/src/main_index.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+import '../../../../core/utils/date_formatter.dart';
 
 part 'attendance_record_dto.g.dart'; 
 
@@ -14,5 +17,15 @@ class AttendanceRecordDto {
    factory AttendanceRecordDto.fromJson(Map<String, dynamic> json) => _$AttendanceRecordDtoFromJson(json);
 
    Map<String, dynamic> toJson() => _$AttendanceRecordDtoToJson(this);
+
+
+
+   String getMovementName(BuildContext context){
+     return movementName ?? context.strings.unlisted;
+   }
+
+   String getCreatedAt(){
+     return DateFormatter.formatTimestampString(createdAt ?? "");
+   }
 }
 

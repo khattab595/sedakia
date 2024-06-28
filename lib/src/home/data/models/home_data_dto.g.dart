@@ -17,6 +17,7 @@ HomeDataDto _$HomeDataDtoFromJson(Map<String, dynamic> json) => HomeDataDto(
       models: (json['models'] as List<dynamic>?)
           ?.map((e) => ModelDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      employeeStatus: json['employee_status'] as String?,
     );
 
 Map<String, dynamic> _$HomeDataDtoToJson(HomeDataDto instance) =>
@@ -24,6 +25,7 @@ Map<String, dynamic> _$HomeDataDtoToJson(HomeDataDto instance) =>
       'sliders': instance.sliders,
       'current_project': instance.currentProject,
       'models': instance.models,
+      'employee_status': instance.employeeStatus,
     };
 
 SliderDto _$SliderDtoFromJson(Map<String, dynamic> json) => SliderDto(
@@ -52,6 +54,8 @@ CurrentProjectDto _$CurrentProjectDtoFromJson(Map<String, dynamic> json) =>
       location: json['location'] == null
           ? null
           : LocationDto.fromJson(json['location'] as Map<String, dynamic>),
+      startDate: json['start_date'] as String?,
+      endDate: json['end_date'] as String?,
     );
 
 Map<String, dynamic> _$CurrentProjectDtoToJson(CurrentProjectDto instance) =>
@@ -64,6 +68,8 @@ Map<String, dynamic> _$CurrentProjectDtoToJson(CurrentProjectDto instance) =>
       'description': instance.description,
       'city': instance.city,
       'location': instance.location,
+      'start_date': instance.startDate,
+      'end_date': instance.endDate,
     };
 
 CityDto _$CityDtoFromJson(Map<String, dynamic> json) => CityDto(

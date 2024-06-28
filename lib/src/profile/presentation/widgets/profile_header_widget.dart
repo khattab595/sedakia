@@ -10,6 +10,7 @@ import 'edit_profile_image.dart';
 class ProfileHeaderWidget extends BaseStatelessWidget {
   final Profile profile;
   final Function(File) onSelectImage;
+
   ProfileHeaderWidget(
       {super.key, required this.profile, required this.onSelectImage});
 
@@ -28,18 +29,28 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
           child: Container(
             height: 135,
             padding: 10.paddingAll,
-            decoration: Decorations.baseDecorationRadius(
-                color: AppColors.primaryLight),
+            decoration:
+                Decorations.baseDecorationRadius(color: AppColors.primaryLight),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 30.ph,
-                PrimaryMediumText(label: "محمد محمد القحطاني ",fontSize: 20,labelColor: cardColor,),
-              5.ph,
-                Text("مراقب امن",style: whiteRegularStyle.copyWith(fontSize: 14),),
+                PrimaryMediumText(
+                  label: profile.fullName(),
+                  fontSize: 20,
+                  labelColor: cardColor,
+                ),
                 5.ph,
-                Text("${strings.code} #125480",style: whiteRegularStyle.copyWith(fontSize: 10),),
+                Text(
+                  profile.job?.name ?? "",
+                  style: whiteRegularStyle.copyWith(fontSize: 14),
+                ),
+                5.ph,
+                Text(
+                  "${strings.code} #${profile.code ?? ""}",
+                  style: whiteRegularStyle.copyWith(fontSize: 10),
+                ),
               ],
             ),
           ),
@@ -55,9 +66,7 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
                   radius: 35,
                   backgroundColor: AppColors.greyColorB1,
                   child: AppIcon(
-                      icon: AppIcons.profile,
-                      color: Colors.white,
-                      size: 40),
+                      icon: AppIcons.profile, color: Colors.white, size: 40),
                 ))),
       ],
     );

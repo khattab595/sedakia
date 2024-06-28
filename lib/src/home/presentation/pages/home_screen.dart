@@ -64,16 +64,16 @@ class HomeScreen extends BaseStatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SemiBoldPrimaryText(
-              label: "محمد القحطاني",
+              label: homeData.employeeName ?? "",
               fontSize: 21,
             ),
-            5.ph,
             Container(
               decoration: Decorations.baseDecorationRadius(
                   color: const Color(0xffE7FFEE), radius: 6),
-              padding: 8.paddingAll,
+              padding: 5.paddingHoriz + 2.paddingVert,
+              margin: 10.paddingTop,
               child: Text(
-                strings.active,
+                homeData.employeeStatus ?? "",
                 style: primaryRegularStyle.copyWith(fontSize: 15),
               ),
             )

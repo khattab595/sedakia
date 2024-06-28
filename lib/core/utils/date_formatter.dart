@@ -20,6 +20,7 @@ class DateFormatter {
   static String monthNameYear(DateTime date){
     return formatDateV2(date, 'MMM yyyy ');
   }
+
   static String formatToTime(String date) {
     DateTime dateTime = DateFormat('yyyy-MM-ddThh:mm:ss').parse(date);
     return DateFormat('yyyy-MM-dd').format(dateTime);
@@ -68,18 +69,18 @@ class DateFormatter {
     }
   }
 
-  static String formatTimestampString(String dateString, {String format = 'yyyy-MM-dd'}){
+  static String formatTimestampString(String dateString, {String format = 'MMM d, yyyy'}){
     final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
-      final DateFormat _inputFormat = DateFormat('yyyy-MM-dd hh:mm:ss');
+      final DateFormat _inputFormat = DateFormat('yy-MM-dd');
       final DateFormat _outputFormat = DateFormat(format, lang);
       DateTime date = _inputFormat.parse(dateString);
       String formattedDate = _outputFormat.format(date );
       return formattedDate;
     } on Exception catch (e) {
       print('formatTimestampString error: $e');
-      return '';
+      return dateString;
     }
   }
 }

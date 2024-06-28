@@ -1,3 +1,4 @@
+
 import '../../data/models/profile_dto.dart';
 
 class Profile {
@@ -23,6 +24,7 @@ class Profile {
   String? dateDocumentItInQawwa;
   int? childrenCount;
   String? token;
+  SalaryData? salaryData;
 
   Profile(
       {this.id,
@@ -46,7 +48,8 @@ class Profile {
       this.salaryCategory,
       this.dateDocumentItInQawwa,
       this.childrenCount,
-      this.token});
+      this.token,
+      this.salaryData});
 
   factory Profile.fromDto(ProfileDto json) => Profile(
         id: json.id,
@@ -63,13 +66,18 @@ class Profile {
         yearsOfExperience: json.yearsOfExperience,
         religion: json.religion,
         city: json.city,
+        job: json.job,
         gender: json.gender,
         maritalStatus: json.maritalStatus,
         salaryCategory: json.salaryCategory,
         dateDocumentItInQawwa: json.dateDocumentItInQawwa,
         childrenCount: json.childrenCount,
-        job: json.job,
-        nationality: json.nationality,
         token: json.token,
+        salaryData: json.salaryData,
       );
+
+
+  String fullName() {
+    return "$firstName $secondName $lastName";
+  }
 }

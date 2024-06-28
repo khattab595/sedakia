@@ -34,7 +34,7 @@ class _ProfileDataSource implements ProfileDataSource {
     )
             .compose(
               _dio.options,
-              '/profile',
+              'v1/viewprofile',
               queryParameters: queryParameters,
               data: _data,
             )

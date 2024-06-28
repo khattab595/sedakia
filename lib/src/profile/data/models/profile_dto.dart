@@ -48,8 +48,10 @@ class ProfileDto {
   int? childrenCount;
   @JsonKey(name: 'token')
   String? token;
+  @JsonKey(name: 'salary_data')
+  SalaryData? salaryData;
 
-  ProfileDto({this.id, this.code, this.firstName, this.secondName, this.lastName, this.nationalId, this.dateBirth, this.dateOfCommencement, this.educationLevel, this.phone, this.address, this.yearsOfExperience, this.religion, this.city, this.nationality, this.job, this.gender, this.maritalStatus, this.salaryCategory, this.dateDocumentItInQawwa, this.childrenCount, this.token});
+  ProfileDto({this.id, this.code, this.firstName, this.secondName, this.lastName, this.nationalId, this.dateBirth, this.dateOfCommencement, this.educationLevel, this.phone, this.address, this.yearsOfExperience, this.religion, this.city, this.nationality, this.job, this.gender, this.maritalStatus, this.salaryCategory, this.dateDocumentItInQawwa, this.childrenCount, this.token, this.salaryData});
 
    factory ProfileDto.fromJson(Map<String, dynamic> json) => _$ProfileDtoFromJson(json);
 
@@ -138,5 +140,37 @@ class SalaryCategory {
    factory SalaryCategory.fromJson(Map<String, dynamic> json) => _$SalaryCategoryFromJson(json);
 
    Map<String, dynamic> toJson() => _$SalaryCategoryToJson(this);
+}
+
+@JsonSerializable(ignoreUnannotated: false)
+class SalaryData {
+  @JsonKey(name: 'base_salary')
+  String? baseSalary;
+  @JsonKey(name: 'housing_allowance')
+  String? housingAllowance;
+  @JsonKey(name: 'transport_allowance')
+  String? transportAllowance;
+  @JsonKey(name: 'gross_monthly_salary')
+  String? grossMonthlySalary;
+  @JsonKey(name: 'net_monthly_salary')
+  String? netMonthlySalary;
+  @JsonKey(name: 'housing_allowance_type')
+  String? housingAllowanceType;
+  @JsonKey(name: 'payment_method')
+  String? paymentMethod;
+  @JsonKey(name: 'bank_name')
+  String? bankName;
+  @JsonKey(name: 'bank_number')
+  String? bankNumber;
+  @JsonKey(name: 'bank_iban')
+  String? bankIban;
+  @JsonKey(name: 'insurance_activation_date')
+  String? insuranceActivationDate;
+
+  SalaryData({this.baseSalary, this.housingAllowance, this.transportAllowance, this.grossMonthlySalary, this.netMonthlySalary, this.housingAllowanceType, this.paymentMethod, this.bankName, this.bankNumber, this.bankIban, this.insuranceActivationDate});
+
+   factory SalaryData.fromJson(Map<String, dynamic> json) => _$SalaryDataFromJson(json);
+
+   Map<String, dynamic> toJson() => _$SalaryDataToJson(this);
 }
 
