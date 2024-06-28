@@ -19,7 +19,7 @@ class AttendanceRecordCubit extends BaseCubit {
   List<AttendanceRecordDto> allOrigin = [];
   int page = 0;
   bool isLastPage = false;
-  AttendanceRecordPrams params = AttendanceRecordPrams();
+  AttendanceRecordPrams params = AttendanceRecordPrams(month: DateTime.now().month.toString(), year: DateTime.now().year.toString());
   RefreshController refreshController = RefreshController();
 
   fetchAttendanceRecord(

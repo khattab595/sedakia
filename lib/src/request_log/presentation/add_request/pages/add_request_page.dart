@@ -1,4 +1,5 @@
 
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/src/profile/presentation/bloc/profile_bloc.dart';
 
 import '../../../../../../../../core/components/base_widget_bloc.dart';
@@ -31,5 +32,10 @@ class AddRequestPage
   @override
   String? title(BuildContext context) {
     return strings.my_requests;
+  }
+
+  @override
+  void onSuccessDismissed() {
+    pop(arguments: true);
   }
 }

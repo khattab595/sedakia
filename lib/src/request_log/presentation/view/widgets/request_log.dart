@@ -95,10 +95,13 @@ class RequestLogItem extends BaseStatelessWidget {
   }
 
   void showAttachmentsSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (context) => RequestAttachmentsSheet(files: request.files ?? []),
-    );
+    if (request.files != null && request.files!.isNotEmpty) {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) =>
+            RequestAttachmentsSheet(files: request.files ?? []),
+      );
+    }
   }
 }

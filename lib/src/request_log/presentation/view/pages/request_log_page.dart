@@ -11,11 +11,13 @@ import '../../../domain/entities/my_request.dart';
 import '../bloc/request_log_bloc.dart';
 import 'request_log_screen.dart';
 
-class RequestLogPage extends BaseBlocWidget<DataSuccess<List<MyRequest>>, RequestLogCubit> {
+class RequestLogPage
+    extends BaseBlocWidget<DataSuccess<List<MyRequest>>, RequestLogCubit> {
   RequestLogPage({Key? key}) : super(key: key);
   int id = 0;
 
   int status = MyRequest.waiting;
+
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchRequestLog(status);
@@ -25,8 +27,11 @@ class RequestLogPage extends BaseBlocWidget<DataSuccess<List<MyRequest>>, Reques
   Widget build(BuildContext context) {
     return mainFrame(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          pushNamed(Routes.addRequestPage);
+        onPressed: () async {
+          final isRefresh = await pushNamed(Routes.addRequestPage);
+          if (isRefresh == true) {
+            bloc.fetchRequestLog(status);
+          }
         },
         backgroundColor: context.primaryColor,
         shape: const StadiumBorder(),

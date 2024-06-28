@@ -26,7 +26,7 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(kDebugMode){
-      phoneNumberController.text = '0553563556';
+      phoneNumberController.text = '0538562269';
       passwordController.text = '12345678';
     }
     bool value = false;

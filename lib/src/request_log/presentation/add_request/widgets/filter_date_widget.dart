@@ -122,7 +122,7 @@ class FilterDate extends BaseStatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    //  InvoicesFilterParams params = InvoicesFilterParams(status: 1);
+    int month = DateTime.now().month;
     return Padding(
       padding: 20.paddingHoriz + 10.paddingTop,
       child: SizedBox(
@@ -141,7 +141,9 @@ class FilterDate extends BaseStatelessWidget {
             10.pw,
             Expanded(
                 child: DropDownField(
-                    value: value == 1 ? monthAr[value - 1] : monthAr[value - 1],
+                    value: isRtl()
+                        ? monthAr[month - 1]
+                        : monthEn[month - 1],
                     items: isRtl()
                         ? monthAr
                             .map((e) => DropDownItem(title: e, id: e))
