@@ -65,6 +65,16 @@ final lightTheme = ThemeData(
     ),
 
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(AppColors.primaryLight),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    ),
+  ),
   fontFamily: Fonts.bold,
   textTheme:  const TextTheme(
     titleLarge: TextStyle(

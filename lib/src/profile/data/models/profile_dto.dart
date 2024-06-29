@@ -50,8 +50,10 @@ class ProfileDto {
   String? token;
   @JsonKey(name: 'salary_data')
   SalaryData? salaryData;
+  @JsonKey(name: 'image')
+  String? image;
 
-  ProfileDto({this.id, this.code, this.firstName, this.secondName, this.lastName, this.nationalId, this.dateBirth, this.dateOfCommencement, this.educationLevel, this.phone, this.address, this.yearsOfExperience, this.religion, this.city, this.nationality, this.job, this.gender, this.maritalStatus, this.salaryCategory, this.dateDocumentItInQawwa, this.childrenCount, this.token, this.salaryData});
+  ProfileDto({this.id, this.code, this.firstName, this.secondName, this.lastName, this.nationalId, this.dateBirth, this.dateOfCommencement, this.educationLevel, this.phone, this.address, this.yearsOfExperience, this.religion, this.city, this.nationality, this.job, this.gender, this.maritalStatus, this.salaryCategory, this.dateDocumentItInQawwa, this.childrenCount, this.token, this.salaryData, this.image});
 
    factory ProfileDto.fromJson(Map<String, dynamic> json) => _$ProfileDtoFromJson(json);
 

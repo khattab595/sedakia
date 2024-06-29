@@ -19,6 +19,7 @@ class HomeRepoImp extends HomeRepo {
     HomeData data = HomeData.fromJson(response.data!);
     data.employeeName =
         '${profile.firstName} ${profile.secondName} ${profile.lastName}';
+    data.employeeImage = profile.image;
     return data;
   }
 }

@@ -21,7 +21,7 @@ class ProfileBloc extends BaseCubit {
 
   ProfileBloc(this.repo, this.authRepo, this.forgotPasswordRepo);
 
-  void fetchProfileData({bool isFromCash = true}) {
+  void fetchProfileData({bool isFromCash = false}) {
     executeSuccess(() => repo.fetchProfileData(isFromCash));
   }
 

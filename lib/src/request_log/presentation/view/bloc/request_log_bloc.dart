@@ -1,3 +1,4 @@
+import 'package:app/core/exceptions/empty_list_exception.dart';
 import 'package:app/src/request_log/domain/entities/my_request.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
@@ -27,12 +28,9 @@ class RequestLogCubit extends BaseCubit {
       onSuccess: (res) {
         isLastPage = res.pagination?.totalPages == page;
         final data = res.data?.map((e) => MyRequest.fromDto(e)).toList() ?? [];
-        if (isLastPage) {
-          refreshController.loadNoData();
-        } else {
-          refreshController.loadComplete();
-        }
+        isLastPage ? refreshController.loadNoData() : refreshController.loadComplete();
         allRequests.addAll(data);
+        if(allRequests.isEmpty) throw EmptyListException();
         emit(DataSuccess<List<MyRequest>>(allRequests));
       },
     );

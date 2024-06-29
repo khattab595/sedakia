@@ -25,6 +25,7 @@ class Profile {
   int? childrenCount;
   String? token;
   SalaryData? salaryData;
+  String? image;
 
   Profile(
       {this.id,
@@ -49,7 +50,9 @@ class Profile {
       this.dateDocumentItInQawwa,
       this.childrenCount,
       this.token,
-      this.salaryData});
+      this.salaryData,
+      this.image,
+      });
 
   factory Profile.fromDto(ProfileDto json) => Profile(
         id: json.id,
@@ -74,6 +77,7 @@ class Profile {
         childrenCount: json.childrenCount,
         token: json.token,
         salaryData: json.salaryData,
+        image: json.image,
       );
 
 

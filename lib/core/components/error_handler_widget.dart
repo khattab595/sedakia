@@ -51,6 +51,15 @@ class ErrorPlaceHolderWidget extends StatelessWidget {
                 label: message.toString().trim(),
                 textAlign: TextAlign.center,
               ),
+              10.ph,
+              ElevatedButton(
+                onPressed: onClickReload,
+                child: BlackMediumText(
+                  label: context.strings.reload,
+                  fontSize: 16,
+                  labelColor: Colors.white,
+                ),
+              )
             ],
           ),
         ),

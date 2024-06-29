@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:app/core/widgets/images/image_network.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../core/widgets/texts/black_texts.dart';
@@ -62,12 +63,11 @@ class ProfileHeaderWidget extends BaseStatelessWidget {
                 height: 80,
                 width: 80,
                 decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: const CircleAvatar(
-                  radius: 35,
-                  backgroundColor: AppColors.greyColorB1,
-                  child: AppIcon(
-                      icon: AppIcons.profile, color: Colors.white, size: 40),
-                ))),
+                child: ImageNetworkCircle(
+                  image: profile.image,
+                  size: 80,
+                  fit: BoxFit.fill,
+                ),),),
       ],
     );
   }

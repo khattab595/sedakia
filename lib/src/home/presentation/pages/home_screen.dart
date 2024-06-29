@@ -1,4 +1,5 @@
 import 'package:app/core/utils/navigator.dart';
+import 'package:app/core/widgets/images/image_network.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
@@ -93,10 +94,11 @@ class HomeScreen extends BaseStatelessWidget {
             onTap: () {
               pushNamed(Routes.profile);
             },
-            child: const AppIcon(
-              icon: AppIcons.avatar,
+            child: ImageNetworkCircle(
+              image: homeData.employeeImage ?? "",
               size: 40,
-            )),
+            )
+        ),
       ],
     );
   }

@@ -46,6 +46,7 @@ ProfileDto _$ProfileDtoFromJson(Map<String, dynamic> json) => ProfileDto(
       salaryData: json['salary_data'] == null
           ? null
           : SalaryData.fromJson(json['salary_data'] as Map<String, dynamic>),
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
@@ -73,6 +74,7 @@ Map<String, dynamic> _$ProfileDtoToJson(ProfileDto instance) =>
       'children_count': instance.childrenCount,
       'token': instance.token,
       'salary_data': instance.salaryData,
+      'image': instance.image,
     };
 
 EducationLevel _$EducationLevelFromJson(Map<String, dynamic> json) =>

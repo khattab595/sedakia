@@ -5,6 +5,7 @@ class HomeData {
   CurrentProjectDto? currentProject;
   List<ModelDto>? models;
   String? employeeName;
+  String? employeeImage;
   String? employeeStatus;
 
   HomeData(
@@ -12,6 +13,7 @@ class HomeData {
       this.currentProject,
       this.models,
       this.employeeName,
+      this.employeeImage,
       this.employeeStatus});
 
   factory HomeData.fromJson(HomeDataDto json) => HomeData(
@@ -19,6 +21,7 @@ class HomeData {
         currentProject: json.currentProject,
         models: json.models,
         employeeName: '',
+        employeeImage: '',
         employeeStatus: json.employeeStatus,
       );
 }

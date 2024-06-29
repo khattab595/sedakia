@@ -139,7 +139,9 @@ abstract class BaseBlocWidget<T, B extends BlocBase<DataState>>
         context, context.handleApiErrorMessage(exception: error));
   }
 
-  onClickReload() {}
+  onClickReload() {
+    loadInitialData(context!);
+  }
 
   void onRequestFail() {}
 
