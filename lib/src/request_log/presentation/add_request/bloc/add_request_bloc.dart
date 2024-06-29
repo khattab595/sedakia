@@ -17,6 +17,7 @@ class AddRequestCubit extends BaseCubit {
   }
 
   void addRequest(AddRequestParams params) {
+    print('AddRequestCubit.addRequest ${params.toJson()}');
     executeEmitterListener(() => _repo.addRequest(params));
   }
 }

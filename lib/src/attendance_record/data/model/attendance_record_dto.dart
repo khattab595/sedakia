@@ -25,7 +25,7 @@ class AttendanceRecordDto {
    }
 
    String getCreatedAt(){
-     return DateFormatter.formatTimestampString(createdAt ?? "");
+     return DateFormatter.formatString(createdAt ?? "");
    }
 }
 

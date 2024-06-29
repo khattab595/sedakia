@@ -68,6 +68,10 @@ class RequestLogItem extends BaseStatelessWidget {
             rowText(strings.leave_end_date, request.endDate),
           if (request.advanceAmount != null)
             rowText(strings.advance_amount, request.advanceAmount),
+          if (request.advanceAmount != null)
+            rowText(strings.advance_amount, request.advanceAmount),
+          if (request.vacationType != null && request.vacationType!.isNotEmpty)
+            rowText(strings.type_of_holiday, request.vacationType),
           9.ph,
           Row(
             children: [

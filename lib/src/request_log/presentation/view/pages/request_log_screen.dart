@@ -12,6 +12,7 @@ class RequestLogScreen extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: requests.length,
+      padding: 80.paddingBottom,
       itemBuilder: (context, index) {
         return RequestLogItem(request: requests[index]);
       },

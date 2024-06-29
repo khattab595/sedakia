@@ -69,12 +69,27 @@ class DateFormatter {
     }
   }
 
-  static String formatTimestampString(String dateString, {String format = 'MMM d, yyyy'}){
+  static String formatString(String dateString, {String format = 'MMM d, yyyy'}){
     final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
       final DateFormat _inputFormat = DateFormat('yy-MM-dd');
       final DateFormat _outputFormat = DateFormat(format, lang);
+      DateTime date = _inputFormat.parse(dateString);
+      String formattedDate = _outputFormat.format(date );
+      return formattedDate;
+    } on Exception catch (e) {
+      print('formatTimestampString error: $e');
+      return dateString;
+    }
+  }
+
+  static String formatTimestampString(String dateString, {String format = 'dd-MM-yyyy'}){
+    // final lang = injector<ServicesLocator>().languageCode;
+    try {
+      print('formatTimestampString dateString: $dateString');
+      final DateFormat _inputFormat = DateFormat('yy-MM-dd');
+      final DateFormat _outputFormat = DateFormat(format);
       DateTime date = _inputFormat.parse(dateString);
       String formattedDate = _outputFormat.format(date );
       return formattedDate;

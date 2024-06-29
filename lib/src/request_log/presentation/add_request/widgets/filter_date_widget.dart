@@ -1,6 +1,7 @@
 import 'package:app/core/exceptions/extensions.dart';
 import 'package:app/core/widgets/drop_down/drop_down.dart';
 import 'package:app/core/widgets/text-field/custom_text_field.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../core/utils/date_formatter.dart';
 import '../../../../../core/utils/helper_methods.dart';
@@ -13,6 +14,8 @@ class FilterDateWidget extends BaseStatelessWidget {
 
   TextEditingController fromController = TextEditingController();
   TextEditingController toController = TextEditingController();
+  String from = DateTime.now().toString();
+  String to = DateTime.now().toString();
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +27,18 @@ class FilterDateWidget extends BaseStatelessWidget {
               radius: 10,
               suffixIconPath: AppIcons.date,
               controller: fromController,
-              title: strings.set_your_absent_time,
               hintText: strings.from,
               // margin: 16.paddingStart,
               minHeight: 55,
-              isValidator: false,
+             isValidator: false,
               onTap: () async {
                 DateTime? date = await HelperMethods.selectDate(context);
+                from = date.toString();
                 fromController.text =
-                    DateFormatter.formatTimestampString(date.toString());
-                onFilter(fromController.text, toController.text);
+                    DateFormatter.formatTimestampString(from);
+                to = '';
+                toController.text = '';
+                onFilter(from, toController.text);
               },
             ),
           ),
@@ -46,13 +51,22 @@ class FilterDateWidget extends BaseStatelessWidget {
               hintText: strings.to,
               // margin: 16.paddingEnd,
               minHeight: 55,
-              title: "",
-              isValidator: false,
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return null;
+              //   }
+              //   if (DateFormat(context.languageCode).parse(from).isAfter(
+              //       DateFormat(context.languageCode).parse(value ?? ""))) {
+              //     return strings.invalid_date_range;
+              //   }
+              //   return null;
+              // },
               onTap: () async {
-                DateTime? date = await HelperMethods.selectDate(context);
+                DateTime? date = await HelperMethods.selectDate(context, firstDate: DateTime.parse(from));
+                to = date.toString();
                 toController.text =
-                    DateFormatter.formatTimestampString(date.toString());
-                onFilter(fromController.text, toController.text);
+                DateFormatter.formatTimestampString(to);
+                onFilter(fromController.text, to);
               },
             ),
           ),
@@ -186,8 +200,7 @@ class FilterSearchDate extends BaseStatelessWidget {
         isValidator: false,
         onTap: () async {
           DateTime? date = await HelperMethods.selectDate(context);
-          searchController.text =
-              DateFormatter.formatTimestampString(date.toString());
+          searchController.text = DateFormatter.formatString(date?.toString() ?? "");
           onFilter(searchController.text);
         },
       );

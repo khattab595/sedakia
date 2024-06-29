@@ -32,13 +32,28 @@ class _SplashPageState extends State<SplashPage>
       const Duration(seconds: 6),
       () async {
         bool isLogin = await HelperMethods.isLogin();
-        if (isLogin) {
+        // bool isFirstTime = await HelperMethods.isFirstTime();
+        bool isRememberMe = await HelperMethods.getRememberMe();
+        if (isRememberMe && isLogin) {
           pushNamedAndRemoveUntil(Routes.navigationPages);
         } else {
           pushNamedAndRemoveUntil(Routes.loginPage);
         }
+        // if (isLogin) {
+        //   pushNamedAndRemoveUntil(Routes.navigationPages);
+        // } else {
+        //   pushNamedAndRemoveUntil(Routes.loginPage);
+        // }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller?.dispose();
+    _animation = null;
+    super.dispose();
   }
 
   @override

@@ -43,6 +43,7 @@ class HeaderInterceptor extends Interceptor {
     options.headers[keyAuthorization] = 'Bearer $token';
     // options.headers[keyType] = 'application/json';
     options.headers[keyAccept] = 'application/json';
+    options.headers[keyLanguage] = injector<ServicesLocator>().languageCode;
 
     print('options.headers => ${options.headers}');
     print('options.queryParameters => ${options.queryParameters}');
@@ -61,9 +62,9 @@ class HeaderInterceptor extends Interceptor {
       String message = data.containsKey('message') ? data['message'] : "Error";
       // final status = data.containsKey('status') ? data['status'] : "Error";
       int code = data.containsKey('code') ? data['code'] : 0;
-      if (err.response?.statusCode == 401) {
-        pushNamedAndRemoveUntil(Routes.loginPage);
-      }
+      // if (err.response?.statusCode == 401) {
+      //   pushNamedAndRemoveUntil(Routes.loginPage);
+      // }
       /*throw DioError(
         error: message,
         response: err.response,

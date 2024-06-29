@@ -17,7 +17,6 @@ class PasswordTextField extends BaseStatelessWidget {
       controller: controller,
       title: title ?? strings.password,
       hintText: hintText,
-      keyboardType: TextInputType.number,
       prefixIconPath: AppIcons.unlock,
       isPassword: true,
       margin: margin,

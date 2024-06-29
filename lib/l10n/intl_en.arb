@@ -22,7 +22,7 @@
   "order_history": "Order History",
   "to": "To",
   "rejected": "Rejected",
-  "type_of_holiday": "type of holiday",
+  "type_of_holiday": "Type of holiday",
   "approved": "Approved",
   "waiting": "Waiting",
   "search_by_date": "Search by date",
@@ -53,6 +53,8 @@
   "profile": "Profile",
   "models": "Models",
   "request": "Request",
+  "response_date": "Response Date",
+  "invalid_date_range": "Invalid date range",
 
 
   "not_active": "not active",
@@ -85,6 +87,7 @@
   "english": "english",
   "arabic": "arabic",
   "unlisted": "Unlisted",
+  "please_choose_file": "Please choose file",
 
 
 

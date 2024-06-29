@@ -95,6 +95,7 @@ class HelperMethods {
   }
 
   static Future<void> launchURL(String url) async {
+    print('url $url');
     Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
@@ -129,7 +130,7 @@ class HelperMethods {
 
   static Future<String> getLanguage() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('language') ?? 'en';
+    return prefs.getString('language') ?? 'ar';
   }
 
   static Future<void> saveProfile(ProfileDto dto) async {
@@ -171,12 +172,12 @@ class HelperMethods {
     }
   }
 
-  static Future<DateTime?> selectDate(BuildContext context) async {
+  static Future<DateTime?> selectDate(BuildContext context, {DateTime? firstDate}) async {
     ThemeData theme = Theme.of(context);
     return await showDatePicker(
       context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1000),
+      initialDate: firstDate ?? DateTime.now(),
+      firstDate: firstDate ?? DateTime(1000),
       lastDate: DateTime(3555),
       keyboardType: TextInputType.datetime,
       builder: (BuildContext context, Widget? child) {
@@ -212,6 +213,16 @@ class HelperMethods {
     } on Exception catch (e) {
       return false;
     }
+  }
+
+  static void setRememberMe(bool isRememberMe) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isRememberMe', isRememberMe);
+  }
+
+  static Future<bool> getRememberMe() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isRememberMe') ?? false;
   }
 
   // remove token

@@ -19,7 +19,7 @@
   "account": "الحساب",
   "rs": "رس",
   "search": "بحث",
-  "request_log": "سجل الطلب",
+  "request_log": "سجل الطلبات",
   "settings": "الإعدادات",
   "attendance_record": "سجل الحضور",
   "profile": "الملف الشخصي",
@@ -112,6 +112,8 @@
   "unlisted": "غير مدرج",
   "response_date": "تاريخ الرد",
   "start_date": "تاريخ البدء",
+  "please_choose_file": "الرجاء اختيار ملف",
+  "invalid_date_range": "نطاق التاريخ غير صالح",
 
   "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   "skip": "تخطي",

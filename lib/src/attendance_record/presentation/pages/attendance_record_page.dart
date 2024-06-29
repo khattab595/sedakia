@@ -21,7 +21,7 @@ class AttendanceRecordPage extends BaseBlocWidget<
   }
 
   TextEditingController controller = TextEditingController(
-      text: DateFormatter.formatTimestampString(
+      text: DateFormatter.formatString(
     DateTime.now().toString(),
     format: DateFormatter.DATE_FORMAT_MOUNTH,
   ));

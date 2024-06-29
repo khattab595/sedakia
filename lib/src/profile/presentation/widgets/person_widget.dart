@@ -27,7 +27,7 @@ class PersonWidget extends StatelessWidget {
 
                 onTap: () {
                   isShow = !isShow;
-                  // setState(() {});
+                  setState(() {});
                 },
                 title: strings.personal_information),
             10.ph,

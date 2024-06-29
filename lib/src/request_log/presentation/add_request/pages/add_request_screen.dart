@@ -67,6 +67,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                       builder: (context, snapshot) {
                         return snapshot.data == LeaveType.vacation
                             ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   HolidayType(
                                     leaveSubTypes: leaveSubTypes,
@@ -75,6 +76,8 @@ class AddRequestScreen extends BaseStatelessWidget {
                                     },
                                   ),
                                   13.ph,
+                                  PrimaryMediumText(label: strings.set_your_absent_time, fontSize: 18,),
+                                  5.ph,
                                   FilterDateWidget(
                                     onFilter: (from, to) {
                                       params.startDate = from;
@@ -85,7 +88,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                               )
                             : 0.pw;
                       }),
-                  13.ph,
+                  5.ph,
                   StreamBuilder<String>(
                       stream: isShowTime.stream,
                       builder: (context, snapshot) {
@@ -226,7 +229,16 @@ class AddRequestScreen extends BaseStatelessWidget {
   }
 
   onPressed() {
-    if (formKey.currentState!.validate()) {
+    // if (params.files == null || params.files!.isEmpty) {
+    //   ScaffoldMessenger.of(context!).showSnackBar(
+    //     SnackBar(
+    //       content: Text(strings.please_choose_file),
+    //       backgroundColor: context!.errorColor,
+    //     ),
+    //   );
+    // }
+    // else
+      if (formKey.currentState!.validate()) {
       onAddRequest(params);
     }
   }
