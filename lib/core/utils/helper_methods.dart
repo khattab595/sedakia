@@ -31,7 +31,7 @@ class HelperMethods {
   }
   static Future<List<File>> getListImagePicker() async {
 
-  List<XFile>? imageFile = await ImagePicker().pickMultiImage( );
+  List<XFile>? imageFile = await ImagePicker().pickMultipleMedia( );
   List<File> data=  imageFile.map((e) => File(e.path)).toList();
     return data;
   }

@@ -78,6 +78,7 @@ class Profile {
         token: json.token,
         salaryData: json.salaryData,
         image: json.image,
+      nationality: json.nationality,
       );
 
 
