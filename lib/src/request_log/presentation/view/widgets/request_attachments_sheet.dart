@@ -12,7 +12,7 @@ class RequestAttachmentsSheet extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      height: context.height,
+      height: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +29,7 @@ class RequestAttachmentsSheet extends BaseStatelessWidget {
                     ImageNetwork(
                   image: e.url ?? "",
                   height: 500,
-                  width: context.width * 0.9,
+                  width: MediaQuery.of(context).size.width - 50,
                   margin:
                   const EdgeInsets.all(8.0),
                   fit: BoxFit.scaleDown,

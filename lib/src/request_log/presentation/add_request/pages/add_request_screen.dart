@@ -30,10 +30,10 @@ class AddRequestScreen extends BaseStatelessWidget {
   TextEditingController attachmentsController = TextEditingController();
   StreamStateInitial<String> isShowTime = StreamStateInitial();
   AddRequestParams params = AddRequestParams();
+  List<File> files = [];
 
   @override
   Widget build(BuildContext context) {
-    List<File> files = [];
     return Form(
       key: formKey,
       child: SingleChildScrollView(
@@ -67,7 +67,7 @@ class AddRequestScreen extends BaseStatelessWidget {
                       builder: (context, snapshot) {
                         return snapshot.data == LeaveType.vacation
                             ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   HolidayType(
                                     leaveSubTypes: leaveSubTypes,
@@ -76,7 +76,10 @@ class AddRequestScreen extends BaseStatelessWidget {
                                     },
                                   ),
                                   13.ph,
-                                  PrimaryMediumText(label: strings.set_your_absent_time, fontSize: 18,),
+                                  PrimaryMediumText(
+                                    label: strings.set_your_absent_time,
+                                    fontSize: 18,
+                                  ),
                                   5.ph,
                                   FilterDateWidget(
                                     onFilter: (from, to) {
@@ -146,9 +149,10 @@ class AddRequestScreen extends BaseStatelessWidget {
                               icon: AppIcons.desc,
                               size: 30,
                               onPressed: () async {
-                                files =
+                               final filesList =
                                     await HelperMethods.getListImagePicker();
-                                params.files = files;
+                                files.addAll(filesList);
+                                print('files: $files');
                                 setState(() {});
                               },
                             ),
@@ -164,40 +168,55 @@ class AddRequestScreen extends BaseStatelessWidget {
                                     child: Row(
                                       children: files
                                           .map(
-                                            (e) => Column(
-
-                                              crossAxisAlignment: CrossAxisAlignment.end,
-
+                                            (e) => Stack(
+                                              alignment:
+                                                  AlignmentDirectional.topEnd,
                                               children: [
-                                                10.ph,
-                                                SizedBox(
-                                                  width: 15,
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        files.remove(e);
-                                                        params.files = files;
-                                                      });
-                                                    },
-                                                    child: const Icon(
-                                                      Icons.remove_circle,
-                                                      size: 20,color: Colors.red,
-                                                    ),
-
+                                                Container(
+                                                  margin: 15.paddingVert +
+                                                      15.paddingEnd,
+                                                  child: e.path.contains('.png') ||
+                                                          e.path.contains('.jpg') ||
+                                                          e.path.contains('.jpeg')
+                                                      ?
+                                                  Image.file(
+                                                    e,
+                                                    width: 50,
+                                                    height: 50,
+                                                    fit: BoxFit.fill,
+                                                  ) : const Icon(
+                                                    Icons.file_present_rounded,
+                                                    size: 50,
+                                                    color: Colors.grey,
                                                   ),
                                                 ),
-                                                Container(
-                                                  margin:
-                                                      10.paddingEnd,
-                                                  child: Text(strings.add_file_scss)
-                                                ),
-
+                                                PositionedDirectional(
+                                                  end: 20,
+                                                  top: 0,
+                                                  child: SizedBox(
+                                                    height: 20,
+                                                    width: 15,
+                                                    child: IconButton(
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          files.remove(e);
+                                                          params.files = files;
+                                                        });
+                                                      },
+                                                      icon: const Icon(
+                                                        Icons.highlight_remove_outlined,
+                                                        size: 20,
+                                                      ),
+                                                      color: Colors.red,
+                                                    ),
+                                                  ),
+                                                )
                                               ],
                                             ),
                                           )
                                           .toList(),
                                     ),
-                                  )
+                                  ),
                           ],
                         );
                       },
@@ -222,16 +241,18 @@ class AddRequestScreen extends BaseStatelessWidget {
   }
 
   onPressed() {
-    // if (params.files == null || params.files!.isEmpty) {
-    //   ScaffoldMessenger.of(context!).showSnackBar(
-    //     SnackBar(
-    //       content: Text(strings.please_choose_file),
-    //       backgroundColor: context!.errorColor,
-    //     ),
-    //   );
-    // }
-    // else
-      if (formKey.currentState!.validate()) {
+    params.files = files;
+    if (params.files == null || params.files!.isEmpty) {
+      ScaffoldMessenger.of(context!).showSnackBar(
+        SnackBar(
+          content: Text(strings.please_choose_file),
+          backgroundColor: context!.errorColor,
+        ),
+      );
+    }
+    else
+    if (formKey.currentState!.validate()) {
+      print('params: ${params.toJson()}');
       onAddRequest(params);
     }
   }

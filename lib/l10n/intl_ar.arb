@@ -116,6 +116,7 @@
   "start_date": "تاريخ البدء",
   "please_choose_file": "الرجاء اختيار ملف",
   "invalid_date_range": "نطاق التاريخ غير صالح",
+  "no_attachments_found": "لم يتم العثور على مرفقات",
 
   "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
   "skip": "تخطي",

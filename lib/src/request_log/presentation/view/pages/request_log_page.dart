@@ -51,8 +51,8 @@ class RequestLogPage
               },
               tabs: [
                 TabItemModel(label: strings.waiting, id: MyRequest.waiting),
-                TabItemModel(label: strings.rejected, id: MyRequest.rejected),
                 TabItemModel(label: strings.approved, id: MyRequest.approved),
+                TabItemModel(label: strings.rejected, id: MyRequest.rejected),
               ],
             ),
             Expanded(child: buildConsumer(context)),

@@ -11,25 +11,25 @@ class SplashPage extends StatefulWidget {
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage>
-    with SingleTickerProviderStateMixin {
-  AnimationController? _controller;
-  Animation<double>? _animation;
+class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin{
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
+
+
+  late Widget startWidget;
 
   @override
   void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 6),
-      vsync: this,
-    )..repeat(reverse: true);
 
-    _animation = CurvedAnimation(
-      parent: _controller ?? AnimationController(vsync: this),
-      curve: Curves.easeInOut,
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
     );
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+
+    _animationController.forward();
     Future.delayed(
-      const Duration(seconds: 6),
+      const Duration(seconds: 2),
       () async {
         bool isLogin = await HelperMethods.isLogin();
         // bool isFirstTime = await HelperMethods.isFirstTime();
@@ -51,8 +51,7 @@ class _SplashPageState extends State<SplashPage>
   @override
   void dispose() {
     // TODO: implement dispose
-    _controller?.dispose();
-    _animation = null;
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -67,18 +66,12 @@ class _SplashPageState extends State<SplashPage>
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AnimatedBuilder(
-                  animation: _animation!,
+    AnimatedBuilder(
+    animation: _opacityAnimation,
+    builder: (context, child) {
+    return Opacity(opacity: _opacityAnimation.value,
                   child: Image.asset(AppImages.splash, width: 200, height: 200),
-                  builder: (context, child) {
-                    return Transform.scale(
-                      scale: _animation?.value,
-                      child: Transform.rotate(
-                        angle: _animation!.value * 2.0 * 3.14,
-                        child: child,
-                      ),
-                    );
-                  },
+    );},
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),

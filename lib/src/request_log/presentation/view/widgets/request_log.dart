@@ -1,8 +1,10 @@
+import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/row_texts.dart';
 import 'package:app/src/request_log/domain/entities/my_request.dart';
 import 'package:app/src/request_log/presentation/view/widgets/request_attachments_sheet.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
 
@@ -99,6 +101,8 @@ class RequestLogItem extends BaseStatelessWidget {
         builder: (context) =>
             RequestAttachmentsSheet(files: request.files ?? []),
       );
+    } else {
+      HelperMethods.showErrorToast(strings.no_attachments_found, gravity: ToastGravity.CENTER);
     }
   }
 }
