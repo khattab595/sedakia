@@ -20,12 +20,16 @@ class RequestAttachmentsSheet extends BaseStatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.only(top: 50),
-              scrollDirection: Axis.horizontal,
-              child: Row(
+              // scrollDirection: Axis.horizontal,
+              child: Column(
                 children: files.map((e) =>
-                e.url!.contains('.pdf') ? const PDF(
-                  swipeHorizontal: true,
-                ).cachedFromUrl(e.url ?? "") :
+                e.url!.contains('.pdf') ? SizedBox(
+                  width: MediaQuery.of(context).size.width - 50,
+                  height: 500,
+                  child: const PDF(
+                    swipeHorizontal: true,
+                  ).cachedFromUrl(e.url ?? ""),
+                ) :
                     ImageNetwork(
                   image: e.url ?? "",
                   height: 500,

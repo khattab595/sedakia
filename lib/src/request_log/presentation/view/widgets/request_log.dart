@@ -1,4 +1,5 @@
 import 'package:app/core/utils/helper_methods.dart';
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/core/widgets/texts/row_texts.dart';
@@ -7,6 +8,7 @@ import 'package:app/src/request_log/presentation/view/widgets/request_attachment
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
+import '../pages/request_attashments_screen.dart';
 
 class RequestLogItem extends BaseStatelessWidget {
   final MyRequest request;
@@ -95,12 +97,13 @@ class RequestLogItem extends BaseStatelessWidget {
 
   void showAttachmentsSheet(BuildContext context) {
     if (request.files != null && request.files!.isNotEmpty) {
-      showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        builder: (context) =>
-            RequestAttachmentsSheet(files: request.files ?? []),
-      );
+      push(RequestAttachmentsScreen(files: request.files ?? []));
+      // showModalBottomSheet(
+      //   context: context,
+      //   isScrollControlled: true,
+      //   builder: (context) =>
+      //       RequestAttachmentsSheet(files: request.files ?? []),
+      // );
     } else {
       HelperMethods.showErrorToast(strings.no_attachments_found, gravity: ToastGravity.CENTER);
     }

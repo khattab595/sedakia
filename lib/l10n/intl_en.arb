@@ -59,6 +59,7 @@
   "response_date": "Response Date",
   "invalid_date_range": "Invalid date range",
   "no_attachments_found": "No attachments found",
+  "attachment": "Attachment",
 
 
   "not_active": "not active",

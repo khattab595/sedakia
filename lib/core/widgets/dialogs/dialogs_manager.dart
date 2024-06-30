@@ -61,7 +61,7 @@ class DialogsManager {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(message, style: context.bodyMedium),
+                Text(message, style: context.bodyMedium, textAlign: TextAlign.center),
               ],
             ),
           ),
