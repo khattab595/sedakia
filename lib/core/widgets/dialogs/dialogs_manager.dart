@@ -52,7 +52,7 @@ class DialogsManager {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          title: Icon(icon, size: 60, color: icon == Icons.error ? Colors.red : Colors.green),
+          title: Icon(icon, size: 60, color: icon == Icons.error ? Colors.red : Color(0xff1E3350)),
           actionsPadding: 10.paddingBottom ,
           content: WillPopScope(
             onWillPop: () async {
@@ -76,7 +76,7 @@ class DialogsManager {
               },
               child: Text(
                 confirmButtonName ?? context.strings.ok,
-                style:  context.bodyMedium.copyWith(color: Colors.green, fontSize: 18),
+                style:  context.bodyMedium.copyWith(color: Color(0xff1E3350), fontSize: 18),
               ),
             ),
             hideCancelButton == true

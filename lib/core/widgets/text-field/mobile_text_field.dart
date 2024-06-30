@@ -24,7 +24,7 @@ class MobileTextField extends BaseStatelessWidget {
       validator: (value) {
         if (value!.isEmpty) {
           return strings.this_field_is_required;
-        } else if (value.length < 6) {
+        } else if (value.length < 9) {
           return strings.must_be_more_than_6_digits;
         }
         return null;

@@ -164,41 +164,34 @@ class AddRequestScreen extends BaseStatelessWidget {
                                     child: Row(
                                       children: files
                                           .map(
-                                            (e) => Stack(
-                                              alignment:
-                                                  AlignmentDirectional.topEnd,
+                                            (e) => Column(
+
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+
                                               children: [
-                                                Container(
-                                                  margin: 15.paddingVert +
-                                                      15.paddingEnd,
-                                                  child: Image.file(
-                                                    e,
-                                                    width: 50,
-                                                    height: 50,
-                                                    fit: BoxFit.fill,
+                                                10.ph,
+                                                SizedBox(
+                                                  width: 15,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      setState(() {
+                                                        files.remove(e);
+                                                        params.files = files;
+                                                      });
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.remove_circle,
+                                                      size: 20,color: Colors.red,
+                                                    ),
+
                                                   ),
                                                 ),
-                                                PositionedDirectional(
-                                                  end: 20,
-                                                  top: 0,
-                                                  child: SizedBox(
-                                                    height: 20,
-                                                    width: 15,
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          files.remove(e);
-                                                          params.files = files;
-                                                        });
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons.remove_circle,
-                                                        size: 20,
-                                                      ),
-                                                      color: Colors.red,
-                                                    ),
-                                                  ),
-                                                )
+                                                Container(
+                                                  margin:
+                                                      10.paddingEnd,
+                                                  child: Text(strings.add_file_scss)
+                                                ),
+
                                               ],
                                             ),
                                           )
