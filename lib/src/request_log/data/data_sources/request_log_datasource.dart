@@ -36,6 +36,6 @@ abstract class RequestLogDatasource {
     @Part(name: 'leave_type') String leaveType,
     @Part(name: 'vacation_type') String vacationType,
     @Part(name: 'description') String description,
-    @Part(name: 'files') List<File> files,
+    @Part(name: 'files[]') List<File> files,
   );
 }

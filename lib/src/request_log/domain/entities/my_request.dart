@@ -20,6 +20,7 @@ class MyRequest {
   String? leaveType;
   String? vacationType;
   String? description;
+  String? reasonRejectionLeaveRequest;
   List<ModelDto>? files;
 
   MyRequest({
@@ -35,6 +36,7 @@ class MyRequest {
     this.leaveType,
     this.vacationType,
     this.description,
+    this.reasonRejectionLeaveRequest,
     this.files,
   });
 
@@ -52,6 +54,7 @@ class MyRequest {
         leaveType: json.leaveType,
         vacationType: json.vacationType,
         description: json.description,
+        reasonRejectionLeaveRequest: json.reasonRejectionLeaveRequest,
         files: json.files,
      );
    }

@@ -30,6 +30,8 @@ class MyRequestDto {
   String? vacationType;
   @JsonKey(name: 'description')
   String? description;
+  @JsonKey(name: 'reason_rejection_leave_request')
+  String? reasonRejectionLeaveRequest;
   @JsonKey(name: 'files')
   List<ModelDto>? files;
 
@@ -46,6 +48,7 @@ class MyRequestDto {
     this.leaveType,
     this.vacationType,
     this.description,
+    this.reasonRejectionLeaveRequest,
     this.files,
   });
 

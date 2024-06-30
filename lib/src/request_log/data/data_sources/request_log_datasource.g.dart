@@ -171,7 +171,7 @@ class _RequestLogDatasource implements RequestLogDatasource {
       description,
     ));
     _data.files.addAll(files.map((i) => MapEntry(
-        'files',
+        'files[]',
         MultipartFile.fromFileSync(
           i.path,
           filename: i.path.split(Platform.pathSeparator).last,

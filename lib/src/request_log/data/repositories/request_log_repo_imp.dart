@@ -34,6 +34,7 @@ class RequestLogImp extends RequestLogRepo {
 
   @override
   Future<String> addRequest(AddRequestParams params) async {
+    print('RequestLogImp.addRequest ${params.toJson()}');
     final response = await datasource.addRequest(
       params.startDate ?? '',
       params.endDate ?? '',

@@ -90,22 +90,9 @@ class FilterDate extends BaseStatelessWidget {
       required this.onFilterYears,
       required this.value});
   List years = [
-    "2010",
-    "2011",
-    "2012",
-    "2013",
-    "2014",
-    "2015",
-    "2016",
-    "2017",
-    "2018",
-    "2019",
-    "2020",
-    "2021",
-    "2022",
-    "2023",
     "2024"
   ];
+
   List monthAr = [
     "يناير",
     "فبراير",
@@ -146,7 +133,7 @@ class FilterDate extends BaseStatelessWidget {
             Expanded(
                 child: DropDownField(
                     value: years.last,
-                    items: years
+                    items: getListOfYears()
                         .map((e) => DropDownItem(title: e, id: e))
                         .toList(),
                     onChanged: (onChanged) {
@@ -177,6 +164,14 @@ class FilterDate extends BaseStatelessWidget {
       ),
     );
   }
+
+  List<String> getListOfYears() {
+    List<String> years = [];
+    for (int i = 2024; i <= DateTime.now().year; i++) {
+      years.add(i.toString());
+    }
+    return years;
+  }
 }
 
 class FilterSearchDate extends BaseStatelessWidget {
@@ -200,7 +195,7 @@ class FilterSearchDate extends BaseStatelessWidget {
         isValidator: false,
         onTap: () async {
           DateTime? date = await HelperMethods.selectDate(context);
-          searchController.text = DateFormatter.formatString(date?.toString() ?? "");
+          searchController.text = DateFormatter.formatTimestampString(date?.toString() ?? "");
           onFilter(searchController.text);
         },
       );

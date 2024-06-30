@@ -68,30 +68,23 @@ class RequestLogItem extends BaseStatelessWidget {
             rowText(strings.leave_end_date, request.endDate),
           if (request.advanceAmount != null)
             rowText(strings.advance_amount, request.advanceAmount),
-          if (request.advanceAmount != null)
-            rowText(strings.advance_amount, request.advanceAmount),
           if (request.vacationType != null && request.vacationType!.isNotEmpty)
             rowText(strings.type_of_holiday, request.vacationType),
+          if (request.reasonRejectionLeaveRequest != null)
+            rowText(strings.reason_of_refuse, request.reasonRejectionLeaveRequest, textColor: context.errorColor),
+          if (request.description != null)
+            rowText(strings.description, request.description),
           9.ph,
-          Row(
-            children: [
-              HintRegularText(label: "${strings.description} : ", fontSize: 14),
-              5.pw,
-              HintRegularText(
-                label: request.description ?? "",
-              ),
-            ],
-          ),
         ],
       ),
     );
   }
 
-  Widget rowText(String title, String? value) {
+  Widget rowText(String title, String? value, {Color? textColor}) {
     return RowTexts(
       title: title,
       value: value ?? "",
-      titleStyle: primaryMediumStyle.copyWith(fontSize: 14),
+      titleStyle: primaryMediumStyle.copyWith(fontSize: 14, color: textColor),
       valueStyle:
           primaryRegularStyle.copyWith(color: greyColorB1, fontSize: 12),
       padding: 2.paddingVert,
