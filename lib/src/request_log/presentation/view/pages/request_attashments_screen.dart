@@ -15,6 +15,8 @@ class RequestAttachmentsScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(files[0].name);
+    print("kjkjkjkjk");
     List<String> onlyPdf = files
         .where((element) => element.url!.contains('.pdf'))
         .map((e) => e.url!)
@@ -23,9 +25,9 @@ class RequestAttachmentsScreen extends BaseStatelessWidget {
       title: strings.attachments,
       body: GridView.builder(
         itemCount: files.length,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 150,
-          mainAxisExtent: 150,
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 175,
+          mainAxisExtent: 175,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
         ),
@@ -36,18 +38,25 @@ class RequestAttachmentsScreen extends BaseStatelessWidget {
             onTap: () {
               push(RequestFileScreen(file: e));
             },
-            child: Container(
-              decoration: Decorations.kDecorationBorderRadius(),
-              child: e.url!.contains('.pdf')
-                  ? Icon(
-                      Icons.picture_as_pdf,
-                      size: 150,
-                    )
-                  : ImageNetwork(
-                      image: e.url ?? "",
-                      margin: const EdgeInsets.all(8.0),
-                      fit: BoxFit.scaleDown,
-                    ),
+            child: Column(
+              children: [
+                Text(e.url?.split("/").last??"",style: primaryMediumStyle.copyWith(
+                    fontSize: 14, color: orangeColor),),
+               5.ph,
+                Container(
+                  decoration: Decorations.kDecorationBorderRadius(),
+                  child: e.url!.contains('.pdf')
+                      ? const Icon(
+                          Icons.picture_as_pdf,
+                          size: 150,
+                        )
+                      : ImageNetwork(
+                          image: e.url ?? "",
+                          margin: const EdgeInsets.all(8.0),
+                          fit: BoxFit.scaleDown,
+                        ),
+                ),
+              ],
             ),
           );
         },

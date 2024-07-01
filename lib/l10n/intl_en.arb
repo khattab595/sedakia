@@ -85,7 +85,7 @@
   "bank_name": "bank name",
   "iban_number": "IBAN number",
   "bank_account_number": "bank account number",
-  "total_salary": "total salary",
+  "total_salary": "net salary",
   "nationality": "Nationality",
   "city": "city",
   "language": "language",

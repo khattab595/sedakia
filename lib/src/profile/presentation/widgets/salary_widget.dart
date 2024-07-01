@@ -56,7 +56,7 @@ class SalaryWidget extends StatelessWidget {
                     ProfileItem(
                       icon: AppIcons.coin,
                       title: strings.total_salary,
-                      subtitle: salaryData.grossMonthlySalary?.toString() ?? "",
+                      subtitle: salaryData.netMonthlySalary?.toString() ?? "",
                     ),
                     ProfileItem(
                       icon: AppIcons.creditCard,
