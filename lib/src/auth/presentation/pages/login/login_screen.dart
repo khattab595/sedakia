@@ -54,58 +54,58 @@ class LoginScreen extends BaseStatelessWidget {
               controller: passwordController,
               margin: 0.paddingBottom,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-
-                Expanded(
-                  child: Row(
-                    children: [
-                      StatefulBuilder(
-                        builder: (context, setState) {
-                          return Transform.scale(
-                            scale: 1.2,
-                            child: Checkbox(
-                              value: value,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              activeColor: context.primaryColor,
-                              side: BorderSide(
-                                color: context.dividerColor,
-                                width: 1,
-                              ),
-                              visualDensity: VisualDensity.compact,
-                              onChanged: (value) {
-                                setState(() {
-                                  this.value = value!;
-                                  HelperMethods.setRememberMe(value);
-                                });
-                              },
-                            ),
-                          );
-                        }
-                      ),
-                      Flexible(
-                        child: BlackSemiBoldText(
-                          fontSize: 14,
-                          label: strings.remember_me,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                LabelButton(
-                  title: strings.forgot_password,
-                  style: primaryMediumStyle.copyWith(fontSize: 14),
-                  onTap: () {
-                    pushNamed(Routes.enterPhoneNumberPage);
-                    // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
-                  },
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //
+            //     Expanded(
+            //       child: Row(
+            //         children: [
+            //           StatefulBuilder(
+            //             builder: (context, setState) {
+            //               return Transform.scale(
+            //                 scale: 1.2,
+            //                 child: Checkbox(
+            //                   value: value,
+            //                   shape: RoundedRectangleBorder(
+            //                     borderRadius: BorderRadius.circular(6),
+            //                   ),
+            //                   activeColor: context.primaryColor,
+            //                   side: BorderSide(
+            //                     color: context.dividerColor,
+            //                     width: 1,
+            //                   ),
+            //                   visualDensity: VisualDensity.compact,
+            //                   onChanged: (value) {
+            //                     setState(() {
+            //                       this.value = value!;
+            //                       HelperMethods.setRememberMe(value);
+            //                     });
+            //                   },
+            //                 ),
+            //               );
+            //             }
+            //           ),
+            //           Flexible(
+            //             child: BlackSemiBoldText(
+            //               fontSize: 14,
+            //               label: strings.remember_me,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //
+            //     LabelButton(
+            //       title: strings.forgot_password,
+            //       style: primaryMediumStyle.copyWith(fontSize: 14),
+            //       onTap: () {
+            //         pushNamed(Routes.enterPhoneNumberPage);
+            //         // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
+            //       },
+            //     ),
+            //   ],
+            // ),
             PrimaryButton(
               title: strings.sign_in,
               margin: 30.paddingVert,

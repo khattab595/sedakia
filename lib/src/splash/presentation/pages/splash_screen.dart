@@ -34,7 +34,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
         bool isLogin = await HelperMethods.isLogin();
         // bool isFirstTime = await HelperMethods.isFirstTime();
         bool isRememberMe = await HelperMethods.getRememberMe();
-        if (isRememberMe && isLogin) {
+        if ( isLogin) {
           pushNamedAndRemoveUntil(Routes.navigationPages);
         } else {
           pushNamedAndRemoveUntil(Routes.loginPage);
