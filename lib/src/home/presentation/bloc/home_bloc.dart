@@ -24,7 +24,7 @@ class HomeCubit extends BaseCubit {
 
       File? file = await saveFile(url);
       String? msg = await FileSaver.instance.saveAs(
-        name: file!.path.split('/').last,
+        name: file!.path.split('/').last.split(".").first,
         file: file,
         ext: file.path.split('.').last,
         mimeType: MimeType.other,

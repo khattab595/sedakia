@@ -47,6 +47,7 @@ class SlidersHome extends BaseStatelessWidget {
         viewportFraction: 0.9,
         scale: 0.99,
         autoplay: true,
+         duration: Duration.secondsPerMinute,
         allowImplicitScrolling: false,
       ),
     );
