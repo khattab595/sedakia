@@ -194,8 +194,8 @@ class AddRequestScreen extends BaseStatelessWidget {
                                                   end: 20,
                                                   top: 0,
                                                   child: SizedBox(
-                                                    height: 20,
-                                                    width: 15,
+                                                    height:30,
+                                                    width: 30,
                                                     child: IconButton(
                                                       onPressed: () {
                                                         setState(() {
