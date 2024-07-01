@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:app/src/auth/presentation/pages/login/login_page.dart';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
@@ -22,7 +24,9 @@ class MyHttpOverrides extends HttpOverrides {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
