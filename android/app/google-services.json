@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1047696854826",
-    "project_id": "wezary-1218a",
-    "storage_bucket": "wezary-1218a.appspot.com"
+    "project_number": "514577903675",
+    "project_id": "alwaseet-7098c",
+    "storage_bucket": "alwaseet-7098c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1047696854826:android:9e13cda55516f03d0b1853",
+        "mobilesdk_app_id": "1:514577903675:android:e8fb371e5cfa9326196c1e",
         "android_client_info": {
           "package_name": "com.alwaseet.hr"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAd3Y7CkgVY0ELaUo90yIJ05t4wcPfZh94"
+          "current_key": "AIzaSyA_2wYi6KSU_RlyBAVYwU3Z7E1akJVo5II"
         }
       ],
       "services": {
