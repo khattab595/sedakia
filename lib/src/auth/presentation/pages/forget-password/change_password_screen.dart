@@ -2,11 +2,13 @@ import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/change_password_params.dart';
 import '../../../data/models/forgot_password_params.dart';
+import '../../../data/models/reset_password_params.dart';
+import '../../../data/models/verification_code_params.dart';
 
 class ChangePasswordScreen extends BaseStatelessWidget {
-  final Function(ChangePasswordParams) onChangePassword;
-
-  ChangePasswordScreen({Key? key, required this.onChangePassword})
+  final Function(ResetPasswordParams) onChangePassword;
+  VerificationCodeParams verificationCodeParams;
+  ChangePasswordScreen({Key? key, required this.onChangePassword, required this.verificationCodeParams})
       : super(key: key);
 
   TextEditingController currentPasswordController = TextEditingController();
@@ -23,11 +25,7 @@ class ChangePasswordScreen extends BaseStatelessWidget {
         padding: 16.paddingAll,
         child: Column(
           children: [
-            CustomTextField(
-              controller: currentPasswordController,
-              hintText: strings.current_password,
-              isPassword: true,
-            ),
+
             CustomTextField(
               controller: newPasswordController,
               hintText: strings.new_password,
@@ -53,9 +51,12 @@ class ChangePasswordScreen extends BaseStatelessWidget {
 
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
-      onChangePassword(ChangePasswordParams(
+      onChangePassword(ResetPasswordParams(
          newPassword: newPasswordController.text,
         newPasswordConfirmation: confirmNewPasswordController.text,
+        phone: verificationCodeParams.phoneNumber??"",
+        otp: verificationCodeParams.code,
+
       ));
     }
   }

@@ -8,12 +8,14 @@ import 'enter_pin_code_screen.dart';
 class EnterPinCodePage
     extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
   EnterPinCodePage({Key? key}) : super(key: key);
-
+  VerificationCodeParams? data;
   @override
   Widget buildWidget(
       BuildContext context, UnInitState state) {
     return EnterPinCodeScreen(
       onPinCode: (String code) {
+        data=VerificationCodeParams( phoneNumber: getArguments(context),
+          code: code,);
         bloc.verificationCode(VerificationCodeParams(
           phoneNumber: getArguments(context),
           code: code,
@@ -25,6 +27,6 @@ class EnterPinCodePage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamed(Routes.changePasswordPage);
+    Navigators.pushNamed(Routes.changePasswordPage,arguments: data);
   }
 }

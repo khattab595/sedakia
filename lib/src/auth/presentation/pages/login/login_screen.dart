@@ -3,6 +3,7 @@ import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import '../../../../../core/resources/validation.dart';
 import '../../../../../core/widgets/buttons/label_button.dart';
@@ -27,8 +28,8 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      phoneNumberController.text = '0538562269';
-      passwordController.text = '12345678';
+      phoneNumberController.text = '0530097954';
+      passwordController.text = '123456789';
     }
     return Form(
       key: formKey,
@@ -153,11 +154,14 @@ class LoginScreen extends BaseStatelessWidget {
   }
 
   onPressed() async {
+    FirebaseMessaging messaging =   FirebaseMessaging.instance;
+
+    String? token = await messaging.getToken();
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
         phone: phoneNumberController.text,
         password: passwordController.text,
-        fcmToken: 'harby',
+        fcmToken: token,
       ));
     }
   }

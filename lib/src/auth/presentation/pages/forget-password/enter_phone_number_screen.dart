@@ -4,9 +4,10 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/forgot_password_params.dart';
 
 class EnterPhoneNumberScreen extends BaseStatelessWidget {
-  final Function(String) onEnterPhoneNumber;
+  final Function(ForgotPasswordParams forgotPasswordParams) onEnterPhoneNumber;
 
   EnterPhoneNumberScreen({Key? key, required this.onEnterPhoneNumber})
       : super(key: key);
@@ -16,6 +17,7 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Form(
@@ -36,8 +38,10 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
               margin: 20.paddingTop + 10.paddingBottom,
               radius: 8,
               onPressed: () {
+                print(phoneNumberController.text);
+                print("phoneNumberControlle-----------------");
                 if (formKey.currentState!.validate()) {
-                  onEnterPhoneNumber(phoneNumberController.text.toIraqCode);
+                  onEnterPhoneNumber( ForgotPasswordParams(phone: phoneNumberController.text ));
                 }
               },
             ),

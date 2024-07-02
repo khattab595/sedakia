@@ -15,8 +15,8 @@ class ForgotPasswordCubit extends BaseCubit {
 
   ForgotPasswordCubit(this.repo, this.authRepo);
 
-  enterPhoneNumber(String phoneNumber) async {
-    executeEmitterListener(() => repo.enterPhoneNumber(ForgotPasswordParams(phoneNumber: phoneNumber)));
+  enterPhoneNumber(ForgotPasswordParams forgotPasswordParams) async {
+    executeEmitterListener(() => repo.enterPhoneNumber( forgotPasswordParams));
   }
 
   void verificationCode(VerificationCodeParams params) async {

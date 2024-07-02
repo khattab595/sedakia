@@ -15,8 +15,8 @@ class EnterPhoneNumberPage extends BaseBlocWidget<UnInitState, ForgotPasswordCub
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return EnterPhoneNumberScreen(
-      onEnterPhoneNumber: (String phoneNumber) {
-        phone = phoneNumber;
+      onEnterPhoneNumber: (  phoneNumber) {
+        phone = phoneNumber.phone??"";
         bloc.enterPhoneNumber(phoneNumber);
       },
     );

@@ -9,11 +9,11 @@ part of 'forgot_password_params.dart';
 ForgotPasswordParams _$ForgotPasswordParamsFromJson(
         Map<String, dynamic> json) =>
     ForgotPasswordParams(
-      phoneNumber: json['phone'] as String?,
+      phone: json['phone'] as String?,
     );
 
 Map<String, dynamic> _$ForgotPasswordParamsToJson(
         ForgotPasswordParams instance) =>
     <String, dynamic>{
-      'phone': instance.phoneNumber,
+      'phone': instance.phone,
     };

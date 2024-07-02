@@ -66,6 +66,8 @@ class RequestLogItem extends BaseStatelessWidget {
             rowText(strings.order_history, request.createdAt),
           if (request.responseDate != null)
             rowText(strings.response_date, request.responseDate),
+          if (request.resignationDate != null)
+            rowText(strings.date_resignation, request.resignationDate),
           if (request.startDate != null)
             rowText(strings.leave_start_date, request.startDate),
           if (request.endDate != null)

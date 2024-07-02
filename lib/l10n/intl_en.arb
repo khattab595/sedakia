@@ -89,6 +89,7 @@
   "nationality": "Nationality",
   "city": "city",
   "language": "language",
+  "date_resignation": "Date of resignation",
   "english": "english",
   "arabic": "arabic",
   "unlisted": "Unlisted",

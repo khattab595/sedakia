@@ -1,8 +1,7 @@
 import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
-import '../../src/auth/presentation/pages/forget-password/forget_password_page.dart';
-import '../../src/auth/presentation/pages/login/login_page.dart';
+ import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/language/presentation/pages/language_page.dart';
 import '../../src/main_index.dart';
@@ -45,8 +44,7 @@ class Routes {
   static final routes = <String, Widget Function(BuildContext)>{
     splashPage: (context) => SplashPage(),
     enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
-    forgotPasswordPage: (context) => ForgotPasswordPage(),
-     loginPage: (context) => LoginPage(),
+      loginPage: (context) => LoginPage(),
     notifications: (context) => NotificationsPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     enterPinCodePage: (context) => EnterPinCodePage(),

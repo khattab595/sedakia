@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
 import 'package:app/src/auth/presentation/pages/login/login_page.dart';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
@@ -31,7 +32,16 @@ Future<void> main() async {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   await configureDependencies();
-
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
   ServicesLocator().init();
   injector.registerSingleton(ClientCreator(
       interceptor: HeaderInterceptor(
@@ -39,6 +49,8 @@ Future<void> main() async {
   )).create());
 
   HttpOverrides.global = MyHttpOverrides();
+
+
 
   runApp(const MyApp());
 }
