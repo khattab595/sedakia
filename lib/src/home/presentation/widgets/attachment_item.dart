@@ -43,7 +43,7 @@ class AttachmentItem extends BaseStatelessWidget {
       },
       child: Container(
         margin: 4.paddingHoriz,
-        padding: 18.paddingHoriz,
+         width: MediaQuery.of(context).size.width/3.5,
         decoration:
             Decorations.kDecorationBorderRadius(borderColor: dividerColor),
         child: Column(
