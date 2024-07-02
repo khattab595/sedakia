@@ -23,11 +23,7 @@ class ForgotPasswordScreen extends BaseStatelessWidget {
         padding: 16.paddingAll,
         child: Column(
           children: [
-            CustomTextField(
-              controller: currentPasswordController,
-              hintText: strings.current_password,
-              isPassword: true,
-            ),
+
             CustomTextField(
               controller: newPasswordController,
               hintText: strings.new_password,
@@ -54,8 +50,7 @@ class ForgotPasswordScreen extends BaseStatelessWidget {
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
       onChangePassword(ChangePasswordParams(
-        currentPassword: currentPasswordController.text,
-        newPassword: newPasswordController.text,
+         newPassword: newPasswordController.text,
         newPasswordConfirmation: confirmNewPasswordController.text,
       ));
     }

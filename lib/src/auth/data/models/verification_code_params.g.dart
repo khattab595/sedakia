@@ -9,13 +9,13 @@ part of 'verification_code_params.dart';
 VerificationCodeParams _$VerificationCodeParamsFromJson(
         Map<String, dynamic> json) =>
     VerificationCodeParams(
-      code: json['code'] as String?,
-      phoneNumber: json['phone_number'] as String?,
+      code: json['otp'] as String?,
+      phoneNumber: json['phone'] as String?,
     );
 
 Map<String, dynamic> _$VerificationCodeParamsToJson(
         VerificationCodeParams instance) =>
     <String, dynamic>{
-      'code': instance.code,
-      'phone_number': instance.phoneNumber,
+      'otp': instance.code,
+      'phone': instance.phoneNumber,
     };

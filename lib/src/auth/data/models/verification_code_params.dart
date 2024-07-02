@@ -4,9 +4,9 @@ part 'verification_code_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class VerificationCodeParams {
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'otp')
   String? code;
-  @JsonKey(name: 'phone_number')
+  @JsonKey(name: 'phone')
   String? phoneNumber;
 
   VerificationCodeParams({this.code, this.phoneNumber});

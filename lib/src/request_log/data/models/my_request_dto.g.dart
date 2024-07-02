@@ -19,7 +19,8 @@ MyRequestDto _$MyRequestDtoFromJson(Map<String, dynamic> json) => MyRequestDto(
       leaveType: json['leave_type'] as String?,
       vacationType: json['vacation_type'] as String?,
       description: json['description'] as String?,
-      reasonRejectionLeaveRequest: json['reason_rejection_leave_request'] as String?,
+      reasonRejectionLeaveRequest:
+          json['reason_rejection_leave_request'] as String?,
       files: (json['files'] as List<dynamic>?)
           ?.map((e) => ModelDto.fromJson(e as Map<String, dynamic>))
           .toList(),

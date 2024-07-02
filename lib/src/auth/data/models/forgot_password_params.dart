@@ -4,7 +4,7 @@ part 'forgot_password_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ForgotPasswordParams {
-  @JsonKey(name: 'phone_number')
+  @JsonKey(name: 'phone')
   String? phoneNumber;
 
   ForgotPasswordParams({this.phoneNumber});

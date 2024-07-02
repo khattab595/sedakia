@@ -26,8 +26,8 @@ abstract class AuthDataSource {
   @POST('/register')
   Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
 
-  @POST('/verificationCode')
-  Future<ApiResponse<ProfileDto>> verificationCode(
+  @POST('v1/validate_otp')
+  Future<ApiResponse> verificationCode(
       @Body() VerificationCodeParams params);
 
   @MultiPart()

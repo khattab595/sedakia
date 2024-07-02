@@ -1,4 +1,3 @@
-
 import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/images/logo.dart';
@@ -27,11 +26,11 @@ class LoginScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(kDebugMode){
+    if (kDebugMode) {
       phoneNumberController.text = '0538562269';
       passwordController.text = '12345678';
     }
-    return  Form(
+    return Form(
       key: formKey,
       child: SingleChildScrollView(
         padding: 20.paddingAll,
@@ -45,7 +44,8 @@ class LoginScreen extends BaseStatelessWidget {
               fontSize: 20,
             ),
             10.ph,
-            HintMediumText(label: strings.log_in_using_your_mobile_number, fontSize: 14),
+            HintMediumText(
+                label: strings.log_in_using_your_mobile_number, fontSize: 14),
             30.ph,
             MobileTextField(
               controller: phoneNumberController,
@@ -53,6 +53,19 @@ class LoginScreen extends BaseStatelessWidget {
             PasswordTextField(
               controller: passwordController,
               margin: 0.paddingBottom,
+            ),
+            10.ph,
+            Row(
+              children: [
+                LabelButton(
+                  title: strings.forgot_password,
+                  style: primaryMediumStyle.copyWith(fontSize: 14),
+                  onTap: () {
+                    pushNamed(Routes.enterPhoneNumberPage);
+                    // Navigator.pushNamed(context, Routes.enterPhoneNumberPage);
+                  },
+                ),
+              ],
             ),
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +122,7 @@ class LoginScreen extends BaseStatelessWidget {
             PrimaryButton(
               title: strings.sign_in,
               margin: 30.paddingVert,
-              onPressed: (){
+              onPressed: () {
                 onPressed();
               },
             ),
@@ -138,13 +151,14 @@ class LoginScreen extends BaseStatelessWidget {
       ),
     );
   }
+
   onPressed() async {
-   if (formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
         phone: phoneNumberController.text,
         password: passwordController.text,
         fcmToken: 'harby',
       ));
-   }
+    }
   }
 }

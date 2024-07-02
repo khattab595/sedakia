@@ -83,7 +83,7 @@ class _AuthDataSource implements AuthDataSource {
   }
 
   @override
-  Future<ApiResponse<ProfileDto>> verificationCode(
+  Future<ApiResponse<dynamic>> verificationCode(
       VerificationCodeParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -91,14 +91,14 @@ class _AuthDataSource implements AuthDataSource {
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<ProfileDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/verificationCode',
+              'v1/validate_otp',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -107,9 +107,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<ProfileDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
     );
     return value;
   }

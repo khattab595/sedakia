@@ -54,8 +54,7 @@ class ChangePasswordScreen extends BaseStatelessWidget {
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
       onChangePassword(ChangePasswordParams(
-        currentPassword: currentPasswordController.text,
-        newPassword: newPasswordController.text,
+         newPassword: newPasswordController.text,
         newPasswordConfirmation: confirmNewPasswordController.text,
       ));
     }
