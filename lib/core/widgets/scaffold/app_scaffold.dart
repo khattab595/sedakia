@@ -85,7 +85,7 @@ class AppScaffold extends StatelessWidget {
                 //     preferredSize: Size.fromHeight(1),
                 //     child: Divider(),
                 // ),
-                leading: Navigator.canPop(context) ? CustomBackAppBar() : leading,
+                iconTheme: IconThemeData(color: AppColors.primaryDark),
               ),
     );
   }

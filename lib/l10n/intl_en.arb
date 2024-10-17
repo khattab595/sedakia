@@ -2,10 +2,12 @@
   "activity": "Activity",
 
   "add_product": "Add Product",
+  "add_image": "Add Image",
+
    "add_categories": "Add categories",
   "description": "Description",
   "holiday": "Holiday",
-  "delete": "delete",
+  "product_name": "Product Name",
   "reply_date": "Reply date",
    "expiry_date": "Expiry date",
   "attendance": "Attendance",

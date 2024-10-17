@@ -1,13 +1,59 @@
+import 'package:app/core/widgets/buttons/custom_button.dart';
+import 'package:app/core/widgets/drop_down/drop_down.dart';
 
-
-
+import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
-
-
+  TextEditingController nameController = TextEditingController();
+  TextEditingController imageController = TextEditingController();
+  TextEditingController priceController = TextEditingController();
+  TextEditingController quantityController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+  int? category;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SingleChildScrollView(
+      padding: 15.paddingAll,
+      child: Form(
+        child: Column(
+          children: [
+            CustomTextField(
+              title: strings.product_name,
+              controller: nameController,
+            ),
+            CustomTextField(
+              title: strings.add_image,
+              controller: imageController,
+            ),
+            CustomTextField(
+              title: strings.price,
+              controller: priceController,
+            ),
+            DropDownField(
+                title: strings.category,
+                items: [DropDownItem(title: "بنطلون")],
+                onChanged: (item) {}),
+            10.ph,
+            CustomTextField(
+              title: strings.quantity,
+              controller: quantityController,
+            ),
+            CustomTextField(
+              title: strings.description,
+              maxLines: 5,
+              minHeight: 120,
+              controller: descriptionController,
+            ),
+            20.ph,
+            customButton(
+                buttonText: strings.save,
+                buttonColor: primaryColor,
+                buttonTextColor: whiteTextColor,
+                buttonFunc: () {})
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -71,7 +71,7 @@ class OptionsMenuButton extends BaseStatelessWidget {
 
   Widget menuItemWidget(String name) {
     return
-      PrimaryRegularText(label: name,fontSize: 13,);
+      PrimaryMediumText(label: name,fontSize: 13,);
 
   }
 
@@ -105,7 +105,7 @@ class BuildPopupMenuItemContent extends StatelessWidget {
                 width: 8,
               ),
             ],
-            PrimaryRegularText(label: title,fontSize: 12,)
+            PrimaryMediumText(label: title,fontSize: 12,)
 
           ],
         ),

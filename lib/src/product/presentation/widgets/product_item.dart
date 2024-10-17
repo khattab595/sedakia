@@ -1,3 +1,4 @@
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/main_index.dart';
 
@@ -89,7 +90,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle titleStyle =
-    primaryRegularStyle.copyWith(fontSize: 10, color: primaryColor);
+    primaryMediumStyle.copyWith(fontSize: 10, color: primaryColor);
     double iconSize = 16;
     return OptionsMenuButton(
 
@@ -108,7 +109,11 @@ class _OptionsMenuButton extends BaseStatelessWidget {
         ),
       ],
       onSelect: (value) async {
-        if (value == 0) {} else if (value == 1) {}
+        if (value == 0) {
+
+          pushNamed(Routes.addProductPage);
+
+        } else if (value == 1) {}
       },
     );
   }
