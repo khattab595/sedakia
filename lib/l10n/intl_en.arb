@@ -1,7 +1,13 @@
 {
   "activity": "Activity",
+
+  "add_product": "Add Product",
+  "add_image": "Add Image",
+
+   "add_categories": "Add categories",
   "description": "Description",
   "holiday": "Holiday",
+  "product_name": "Product Name",
   "reply_date": "Reply date",
   "starting_date": "Starting date",
   "expiry_date": "Expiry date",
