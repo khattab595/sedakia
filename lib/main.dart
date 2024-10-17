@@ -3,11 +3,9 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
-import 'package:app/src/auth/presentation/pages/login/login_page.dart';
-import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
+ import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
-import 'package:app/src/splash/presentation/pages/splash_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 
 import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';

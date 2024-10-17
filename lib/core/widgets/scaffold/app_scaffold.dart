@@ -68,7 +68,7 @@ class AppScaffold extends StatelessWidget {
                   maxLines: 2,
                   textAlign: TextAlign.center,
                 ),
-
+                actions:actions,
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
                 centerTitle: false,
