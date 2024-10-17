@@ -3,7 +3,7 @@
 
 import '../../../main_index.dart';
 
-class ProductScreen extends BaseStatelessWidget {
+class CustomersScreen extends BaseStatelessWidget {
 
 
   @override

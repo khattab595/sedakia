@@ -1,7 +1,7 @@
 
 
 
-import '../../../main_index.dart';
+import '../../../../main_index.dart';
 
 class CategoriesScreen extends BaseStatelessWidget {
 

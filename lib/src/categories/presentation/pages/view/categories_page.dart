@@ -1,6 +1,6 @@
-import '../../../../core/components/base_widget_bloc.dart';
-import '../../../main_index.dart';
- import '../bloc/categories_bloc.dart';
+import '../../../../../core/components/base_widget_bloc.dart';
+import '../../../../main_index.dart';
+ import '../../bloc/categories_bloc.dart';
 import 'categories_screen.dart';
 
 
