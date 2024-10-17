@@ -1,5 +1,50 @@
 {
-  "activity": "Activity",
+  "welcome_back": "Welcome Back",
+  "sign_in_to_continue": "sign in to continue",
+  "more": "More",
+  "customers": "Customers",
+  "about_us": "About Us",
+  "privacy_policy": "Privacy Policy",
+  "arabic": "Arabic",
+  "category": "Category",
+  "sign_out": "Sign out",
+  "delete_account": "Delete Account",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "description": "Description",
   "holiday": "Holiday",
   "reply_date": "Reply date",

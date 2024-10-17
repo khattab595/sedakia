@@ -16,11 +16,13 @@ class MobileTextField extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      radius: 15,
+      minHeight: 55,
       controller: controller,
       title: title ?? strings.mobile_number,
       hintText: hintText,
       keyboardType: TextInputType.number,
-      prefixIconPath: AppIcons.smartphone,
+    //  prefixIconPath: AppIcons.smartphone,
       validator: (value) {
         if (value!.isEmpty) {
           return strings.this_field_is_required;

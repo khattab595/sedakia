@@ -39,7 +39,7 @@ class CustomTextField extends BaseStatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 18,),
+          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 16,),
             8.ph],
           SizedBox(
             height: minHeight,
@@ -76,8 +76,9 @@ class CustomTextField extends BaseStatelessWidget {
                     suffixIcon: isPassword ?
                     IconButton(
                       icon: Icon(
+                        size: 18,
                         isVisibility ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                        color: isVisibility ? hintColor : primaryColor,
+                        color: isVisibility ? hintColor : AppColors.blueLight,
                       ),
                       onPressed: () {
                         isVisibility = !isVisibility;

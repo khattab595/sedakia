@@ -1,8 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:app/src/auth/data/models/register_params.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../src/main_index.dart';
-import '../../src/profile/data/models/profile_dto.dart';
+import '../../src/more/data/models/profile_dto.dart';
 
 class HelperMethods {
   static Future<CroppedFile?> getImagePicker() async {

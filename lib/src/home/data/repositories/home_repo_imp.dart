@@ -1,7 +1,6 @@
 import 'package:app/core/utils/helper_methods.dart';
-import 'package:app/src/profile/data/models/profile_dto.dart';
 import 'package:injectable/injectable.dart';
-
+import '../../../more/data/models/profile_dto.dart';
 import '../../domain/entities/home_data.dart';
 import '../../domain/repositories/home_repo.dart';
 import '../data_sources/home_datasource.dart';

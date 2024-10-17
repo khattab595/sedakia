@@ -6,8 +6,8 @@ import 'package:app/src/auth/data/models/login_params.dart';
 
 import '../../../../core/utils/helper_methods.dart';
 import '../../../../core/widgets/drop_down/drop_down.dart';
-import '../../../profile/data/models/profile_dto.dart';
-import '../../../profile/domain/entities/profile.dart';
+import '../../../more/data/models/profile_dto.dart';
+import '../../../more/domain/entities/more.dart';
 import '../../domain/repositories/auth_repo.dart';
 import '../data_sources/auth_datasource.dart';
 import '../models/complete_registration_params.dart';

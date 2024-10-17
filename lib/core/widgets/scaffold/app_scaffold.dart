@@ -71,7 +71,7 @@ class AppScaffold extends StatelessWidget {
 
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                centerTitle: false,
+                centerTitle: true,
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
