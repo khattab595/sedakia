@@ -3,7 +3,7 @@ class AppImages{
   static const String on_boarding2 = 'assets/images/on_boarding2.png';
   static const String on_boarding3 = 'assets/images/on_boarding3.png';
   static const String intro = 'assets/images/intro.png';
-  static const String spashLogo = 'assets/images/splash.png';
+  static const String spashLogo = 'assets/logo/logo.png';
   static const String health = 'assets/images/health.png';
   static const String quran = 'assets/images/quran.png';
   static const String test = 'assets/images/test.png';
@@ -17,6 +17,6 @@ class AppImages{
   static const String videoTest = 'assets/images/vid.png';
   static const String file = 'assets/images/file.png';
   static const String book = 'assets/images/book2.png';
-  static const String splash = 'assets/images/splash.png';
+  static const String splash = 'assets/logo/logo.png';
 
 }

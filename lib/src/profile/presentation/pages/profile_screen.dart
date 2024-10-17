@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:app/core/utils/navigator.dart';
 import 'package:app/src/profile/presentation/widgets/person_widget.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../../main_index.dart';
 import '../../../settings/domain/entities/about.dart';

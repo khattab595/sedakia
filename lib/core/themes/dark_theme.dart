@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 final darkTheme = ThemeData(
-  primaryColor: const Color(0xff0376d9),
+  primaryColor: const Color(0xff1A138E),
   brightness: Brightness.dark,
   dividerColor: Colors.black12,
   scaffoldBackgroundColor: const Color(0xff121212),
@@ -50,17 +50,17 @@ final darkTheme = ThemeData(
     ),
     bodyLarge: TextStyle(
       fontSize: 18.0,
-      color: Color(0xff0376d9),
+      color: Color(0xff1A138E),
       fontFamily: 'Tajawal-Bold',
     ),
     bodyMedium: TextStyle(
       fontSize: 16.0,
-      color: Color(0xff0376d9),
+      color: Color(0xff1A138E),
       fontFamily: 'Tajawal-Medium',
     ),
     bodySmall: TextStyle(
       fontSize: 14.0,
-      color: Color(0xff0376d9),
+      color: Color(0xff1A138E),
       fontFamily: 'Tajawal-Regular',
     ),
     labelLarge: TextStyle(

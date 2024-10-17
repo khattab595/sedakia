@@ -16,10 +16,7 @@ class HomePage extends BaseBlocWidget<DataSuccess<HomeData>, HomeCubit> {
   Widget buildWidget(
       BuildContext context, DataSuccess<HomeData> state) {
     return HomeScreen(
-      homeData: state.data!,
-      onDownload: (url) {
-        bloc.downloadFile(url);
-      },
+
     );
   }
 }

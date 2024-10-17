@@ -73,14 +73,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                   child: Image.asset(AppImages.splash, width: 200, height: 200),
     );},
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: PrimaryBoldText(
-                    label: 'شركة الوسيط',
-                    fontSize: 20,
-                    textAlign: TextAlign.center,
-                  ),
-                )
+
               ],
             )), // Set image
       ),
