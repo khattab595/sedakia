@@ -40,7 +40,6 @@ class Routes {
   static const String settings = 'settings';
   static const String homePage = 'homePage';
   static const String splashPage = 'splashPage';
-
   static const String productPage = 'productPage';
   static const String addProductPage = 'addProductPage';
   static const String categoriesPage = 'categoriesPage';
