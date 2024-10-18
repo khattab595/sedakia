@@ -12,6 +12,12 @@ class AddProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
   // }
 
   @override
+  String? title(BuildContext context) {
+    // TODO: implement title
+    return strings.add_product;
+  }
+
+  @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return AddProductScreen();
   }

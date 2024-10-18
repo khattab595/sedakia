@@ -39,10 +39,10 @@ class CustomTextField extends BaseStatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 18,),
+          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 16,),
             8.ph],
           SizedBox(
-            height: minHeight,
+            height:  minHeight??50,
             child:  StatefulBuilder(
                 builder: (context, setState) {
                 return TextFormField(

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../components/base_stateless_widget.dart';
 import '../../resources/validation.dart';
 import '../texts/hint_texts.dart';
+import '../texts/primary_texts.dart';
 
 class DropDownField extends BaseStatelessWidget {
   final List<DropDownItem> items;
@@ -58,7 +59,7 @@ class DropDownField extends BaseStatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (title != null) ...[
-            HintMediumText(label: title!, fontSize: 14),
+            PrimaryMediumText(label: title!, fontSize: 16),
             5.ph
           ],
           DropdownButtonFormField2<DropDownItem>(
