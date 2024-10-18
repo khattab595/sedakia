@@ -4,8 +4,8 @@ import '../../../../main_index.dart';
 import 'add_categories_screen.dart';
 
 
-class CategoriesPage extends BaseBlocWidget<UnInitState, CategoriesBloc> {
-  CategoriesPage({Key? key}) : super(key: key);
+class AddCategoriesPage extends BaseBlocWidget<UnInitState, CategoriesBloc> {
+  AddCategoriesPage({Key? key}) : super(key: key);
 
   // @override
   // void loadInitialData(BuildContext context) {
@@ -15,7 +15,7 @@ class CategoriesPage extends BaseBlocWidget<UnInitState, CategoriesBloc> {
   @override
   Widget buildWidget(
       BuildContext context,UnInitState state) {
-    return CategoriesScreen(
+    return AddCategoriesScreen(
 
     );
   }
