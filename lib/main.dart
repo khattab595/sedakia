@@ -25,23 +25,13 @@ class MyHttpOverrides extends HttpOverrides {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //     const SystemUiOverlayStyle(statusBarColor: Colors.purple));
 
   await configureDependencies();
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  await messaging.requestPermission(
-    alert: true,
-    announcement: false,
-    badge: true,
-    carPlay: false,
-    criticalAlert: false,
-    provisional: false,
-    sound: true,
-  );
   ServicesLocator().init();
   injector.registerSingleton(ClientCreator(
       interceptor: HeaderInterceptor(
@@ -60,8 +50,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseNotification firebase = FirebaseNotification();
-    firebase.initialize(context);
+    // FirebaseNotification firebase = FirebaseNotification();
+    // firebase.initialize(context);
     return BlocProvider(
       create: (BuildContext context) => LocaleCubit()..getLanguageData(),
       child: BlocBuilder<LocaleCubit, LocalState>(
@@ -85,7 +75,7 @@ class MyApp extends StatelessWidget {
                   ],
                  //  home: SplashScreen(widgetPage: LoginPage()),
                     routes: Routes.routes,
-                 initialRoute:  Routes.homePage,
+                 initialRoute:  Routes.requestsPage,
                 );
         },
       ),

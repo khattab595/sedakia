@@ -1,7 +1,7 @@
 import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
-import '../../../main_index.dart';
+import '../../../../main_index.dart';
 
 class RequestItem extends StatelessWidget {
   const RequestItem({super.key});

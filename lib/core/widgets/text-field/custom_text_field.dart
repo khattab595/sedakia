@@ -87,7 +87,7 @@ class CustomTextField extends BaseStatelessWidget {
                     ) :
                     (suffixIconPath != null ? AppIcon(
                         padding: const EdgeInsets.all(12),
-                        icon: suffixIconPath!, size: 0) : suffixIcon),
+                        icon: suffixIconPath!, size: 20) : suffixIcon),
                     // contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                     border:  OutlineInputBorder(
                       borderRadius:  BorderRadius.all(Radius.circular(radius)),

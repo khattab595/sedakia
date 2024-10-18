@@ -258,6 +258,11 @@ class BarChartSample2State extends State<BarChartSample2> {
           color: widget.leftBarColor,
           width: width,
         ),
+        BarChartRodData(
+          toY: y2,
+          color: widget.rightBarColor,
+          width: width,
+        ),
       ],
     );
   }

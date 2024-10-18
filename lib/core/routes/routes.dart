@@ -6,7 +6,7 @@ import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/profile/presentation/pages/profile_page.dart';
 import '../../src/requests/presentation/details/pages/request_details_page.dart';
-import '../../src/requests/presentation/pages/requests_page.dart';
+import '../../src/requests/presentation/view/pages/requests_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/splash/presentation/pages/splash_screen.dart';
 

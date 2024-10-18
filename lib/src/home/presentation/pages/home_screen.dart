@@ -3,6 +3,7 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
+import '../widgets/filter_date_widget.dart';
 import '../widgets/orders_statistics.dart';
 import '../widgets/charts_statistics.dart';
 
@@ -13,25 +14,37 @@ class HomeScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: 15.paddingAll + 30.paddingTop,
+      padding: 10.paddingAll + (kToolbarHeight - 20).paddingTop,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            popUpMenu(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SemiBoldPrimaryText(
+                  label: 'Statistics',
+                  fontSize: 20,
+                ),
+                popUpMenu(),
+              ],
+            ),
+            20.ph,
+            FilterDateWidget(
+              onFilter: (from, to) {},
+            ),
             OrdersStatistics(
               models: List.generate(6, (index) => ModelDto()),
               onDownload: (url) {},
             ),
-            20.ph,
             Container(
               padding: 14.paddingAll,
               decoration: Decorations.shapeDecorationShadow(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SemiBoldPrimaryText(label: 'Statistics', fontSize: 20),
-                  20.ph,
+                  // SemiBoldPrimaryText(label: 'Statistics', fontSize: 20),
+                  // 20.ph,
                   ChartsStatistics(
                     sliders: List.generate(6, (index) => SliderDto()),
                   ),
