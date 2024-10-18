@@ -6,7 +6,9 @@ import '../../src/categories/presentation/pages/view/categories_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
  import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
-  import '../../src/profile/presentation/pages/profile_page.dart';
+  import '../../src/product/presentation/pages/add/add_product_page.dart';
+import '../../src/product/presentation/pages/view/product_page.dart';
+import '../../src/profile/presentation/pages/profile_page.dart';
  import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
  import '../../src/splash/presentation/pages/splash_screen.dart';
 
