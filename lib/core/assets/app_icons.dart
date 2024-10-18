@@ -14,6 +14,10 @@ class AppIcons{
   static const String home = "assets/icons/home.svg";
 
   ////////////////////////////---------------------
+  static const String menu = "assets/icons/menu.svg";
+  static const String menu2 = "assets/icons/more_2.svg";
+
+  ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";
   static const String unlock = "assets/icons/unlock.svg";
   static const String calendar = "assets/icons/calendar.svg";

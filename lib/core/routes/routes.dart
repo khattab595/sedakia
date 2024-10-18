@@ -5,11 +5,15 @@ import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/categories/presentation/pages/add/add_categories_page.dart';
 import '../../src/categories/presentation/pages/view/categories_page.dart';
  import '../../src/customers/presentation/pages/customers_page.dart';
+import '../../src/categories/presentation/pages/add/add_categories_page.dart';
+import '../../src/categories/presentation/pages/view/categories_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/main_index.dart';
 import '../../src/main_index.dart';
 import '../../src/more/presentation/pages/more_page.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
+import '../../src/product/presentation/pages/add/add_product_page.dart';
+import '../../src/product/presentation/pages/view/product_page.dart';
 import '../../src/product/presentation/pages/add/add_product_page.dart';
 import '../../src/product/presentation/pages/view/product_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
@@ -41,6 +45,11 @@ class Routes {
    static const String addProductPage = 'addProductPage';
    static const String categoriesPage = 'categoriesPage';
    static const String addCategoriesPage = 'addCategoriesPage';
+
+   static const String productPage = 'productPage';
+   static const String addProductPage = 'addProductPage';
+   static const String categoriesPage = 'categoriesPage';
+   static const String addCategoriesPage = 'addCategoriesPage';
   static const String customersPage = 'customersPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
@@ -59,6 +68,11 @@ class Routes {
     homePage: (context) => HomePage(),
     more: (context) => MorePage(),
     changLanguagePage: (context) => ChangLanguagePage(),
+    productPage: (context) => ProductPage(),
+    addProductPage: (context) => AddProductPage(),
+    categoriesPage: (context) => CategoriesPage(),
+    addCategoriesPage: (context) => AddCategoriesPage(),
+   };
     requestsPage: (context) => RequestsPage(),
     requestDetailsPage: (context) => RequestDetailsPage(),
     productPage: (context) => ProductPage(),
