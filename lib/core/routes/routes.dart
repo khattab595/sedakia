@@ -3,8 +3,7 @@ import '../../src/auth/presentation/pages/forget-password/change_password_page.d
  import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/categories/presentation/pages/add/add_categories_page.dart';
 import '../../src/categories/presentation/pages/view/categories_page.dart';
-import '../../src/auth/presentation/pages/login/login_page.dart';
-import '../../src/customers/presentation/pages/customers_page.dart';
+ import '../../src/customers/presentation/pages/customers_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/main_index.dart';
 import '../../src/more/presentation/pages/more_page.dart';
@@ -14,8 +13,7 @@ import '../../src/product/presentation/pages/view/product_page.dart';
 import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/privacy_policy/privacy_policy_page.dart';
-import '../../src/settings/presentation/pages/privacy_policy/privacy_policy_screen.dart';
-import '../../src/splash/presentation/pages/splash_screen.dart';
+ import '../../src/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
   static const String intro = '/';
@@ -57,7 +55,6 @@ class Routes {
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),
     addCategoriesPage: (context) => AddCategoriesPage(),
-
     customersPage: (context) => CustomersPage(),
     aboutPage: (context) => AboutPage(),
     privacyPolicyPage: (context) => PrivacyPolicyPage(),
