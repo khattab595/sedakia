@@ -3,7 +3,7 @@ import 'package:app/src/main_index.dart';
 import 'custom_text_field.dart';
 
 
-class TextFieldBorder extends StatelessWidget {
+class SearchTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
   final String? labelText;
@@ -24,16 +24,16 @@ class TextFieldBorder extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? contentPadding;
   final double? radius;
-  final bool? isValidator;
-  const TextFieldBorder({Key? key, this.controller, this.hintText, this.labelText, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = true}) : super(key: key);
+  final bool isValidator;
+  const SearchTextField({Key? key, this.controller, this.hintText, this.labelText, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // if
-    Color? borderColor = colorBorderSide ?? context.backgroundColor ?? context.backgroundColor;
+    Color? borderColor = colorBorderSide ?? context.dividerColor ?? context.backgroundColor;
     return CustomTextField(
-      hintText: hintText,
-      fillColor: fillColor ?? context.hintColor,
+      hintText: hintText ?? 'Search',
+      fillColor: fillColor ?? context.cardColor,
       colorBorderSide: borderColor,
       controller: controller,
       title: labelText,
@@ -50,9 +50,10 @@ class TextFieldBorder extends StatelessWidget {
       maxLines: maxLines,
       margin: margin ?? 16.paddingHoriz + 6.paddingVert,
       contentPadding: contentPadding,
-      radius: radius ?? 12,
-      prefixIconPath: iconPath,
+      radius: radius ?? 55,
+      prefixIconPath: iconPath ?? AppIcons.search,
       isValidator: isValidator,
+      minHeight: 45,
     );
   }
 }

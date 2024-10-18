@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
               : MaterialApp(
                   theme: lightTheme,
                   debugShowCheckedModeBanner: false,
-                  locale:  Locale(state.language),
+                  locale:  Locale('en'),
                   navigatorKey: injector<ServicesLocator>().navigatorKey,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,
@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
                   ],
                  //  home: SplashScreen(widgetPage: LoginPage()),
                     routes: Routes.routes,
-                 initialRoute:  Routes.splashPage,
+                 initialRoute:  Routes.homePage,
                 );
         },
       ),

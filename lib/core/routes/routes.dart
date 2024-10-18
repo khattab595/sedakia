@@ -1,10 +1,12 @@
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
+import '../../src/auth/presentation/pages/login/login_page.dart';
  import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/categories/presentation/pages/add/add_categories_page.dart';
 import '../../src/categories/presentation/pages/view/categories_page.dart';
  import '../../src/customers/presentation/pages/customers_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
+import '../../src/main_index.dart';
 import '../../src/main_index.dart';
 import '../../src/more/presentation/pages/more_page.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
@@ -14,6 +16,11 @@ import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.d
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/privacy_policy/privacy_policy_page.dart';
  import '../../src/splash/presentation/pages/splash_screen.dart';
+import '../../src/profile/presentation/pages/profile_page.dart';
+import '../../src/requests/presentation/details/pages/request_details_page.dart';
+import '../../src/requests/presentation/pages/requests_page.dart';
+import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
+import '../../src/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
   static const String intro = '/';
@@ -28,6 +35,7 @@ class Routes {
   static const String newPasswordPage = 'newPasswordPage';
   static const String navigationPages = 'navigationPages';
   static const String more = 'more';
+  static const String profile = 'profile';
   static const String settings = 'settings';
    static const String homePage = 'homePage';
    static const String splashPage = 'splashPage';
@@ -38,6 +46,10 @@ class Routes {
   static const String customersPage = 'customersPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
+  static const String homePage = 'homePage';
+  static const String splashPage = 'splashPage';
+  static const String requestsPage = 'RequestsPage';
+  static const String requestDetailsPage = 'RequestDetailsPage';
 
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
@@ -51,6 +63,9 @@ class Routes {
     homePage: (context) => HomePage(),
     more: (context) => MorePage(),
     changLanguagePage: (context) => ChangLanguagePage(),
+    requestsPage: (context) => RequestsPage(),
+    requestDetailsPage: (context) => RequestDetailsPage(),
+  };
     productPage: (context) => ProductPage(),
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),

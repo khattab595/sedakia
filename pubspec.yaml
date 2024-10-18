@@ -104,7 +104,7 @@ dependencies:
 
 
   page_transition: ^2.1.0
-
+  fl_chart: ^0.69.0
 
 
 

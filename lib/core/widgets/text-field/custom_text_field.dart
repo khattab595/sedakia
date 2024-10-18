@@ -70,6 +70,7 @@ class CustomTextField extends BaseStatelessWidget {
                     //   minWidth: minHeight?? 35,
                     //   minHeight: minHeight ?? 35,
                     // ),
+                    contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16),
                     prefixIcon:  prefixIconPath != null ? AppIcon(
                       padding: const EdgeInsets.all(12),
                       icon: prefixIconPath!,  size: 20,) : prefixIcon,
@@ -90,24 +91,24 @@ class CustomTextField extends BaseStatelessWidget {
                         icon: suffixIconPath!, size: 0) : suffixIcon),
                     // contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                     border:  OutlineInputBorder(
-                      borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
+                      borderRadius:  BorderRadius.all(Radius.circular(radius)),
                       borderSide: BorderSide(color: borderColor),
                     ),
                     focusedBorder:  OutlineInputBorder(
-                      borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
+                      borderRadius:  BorderRadius.all(Radius.circular(radius)),
                       borderSide: BorderSide(color: primaryColor),
                     ),
 
                     enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                      borderRadius: BorderRadius.all(Radius.circular(radius)),
                       borderSide: BorderSide(color: borderColor),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                      borderRadius: BorderRadius.all(Radius.circular(radius)),
                       borderSide: BorderSide(color: errorColor),
                     ),
                     disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
+                      borderRadius: BorderRadius.all(Radius.circular(radius)),
                       borderSide: BorderSide(color: borderColor),
                     ),
                   ),

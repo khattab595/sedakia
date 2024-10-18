@@ -17,7 +17,7 @@ final lightTheme = ThemeData(
   hintColor: AppColors.greyColor,
   cardColor: AppColors.cardColor,
   dividerColor: AppColors.borderColor,
-  shadowColor: AppColors.primaryDark.withOpacity(0.29),
+  shadowColor: AppColors.primaryDark.withOpacity(0.25),
   dividerTheme: const DividerThemeData(
     space: 0,
     thickness: 1,

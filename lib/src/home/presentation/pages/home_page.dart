@@ -4,17 +4,17 @@ import '../../domain/entities/home_data.dart';
 import '../bloc/home_bloc.dart';
 import 'home_screen.dart';
 
-class HomePage extends BaseBlocWidget<DataSuccess<HomeData>, HomeCubit> {
+class HomePage extends BaseBlocWidget<UnInitState, HomeCubit> {
   HomePage({Key? key}) : super(key: key);
 
-  @override
-  void loadInitialData(BuildContext context) {
-    bloc.fetchInitialData();
-  }
+  // @override
+  // void loadInitialData(BuildContext context) {
+  //   bloc.fetchInitialData();
+  // }
 
   @override
   Widget buildWidget(
-      BuildContext context, DataSuccess<HomeData> state) {
+      BuildContext context, UnInitState state) {
     return HomeScreen(
 
     );
