@@ -51,7 +51,9 @@ import '../../src/requests/data/data_sources/requests_datasource.dart' as _i29;
 import '../../src/requests/data/repositories/requests_repo_imp.dart' as _i31;
 import '../../src/requests/domain/repositories/requests_repo.dart' as _i30;
 import '../../src/requests/domain/use_cases/product_usecase.dart' as _i32;
-import '../../src/requests/presentation/bloc/requests_bloc.dart' as _i48;
+import '../../src/requests/presentation/bloc/requests_bloc.dart' as _i49;
+import '../../src/requests/presentation/details/bloc/request_details_bloc.dart'
+    as _i48;
 import '../../src/settings/data/data_sources/settings_datasource.dart' as _i33;
 import '../../src/settings/data/repositories/settings_repo_imp.dart' as _i35;
 import '../../src/settings/domain/repositories/settings_repo.dart' as _i34;
@@ -59,9 +61,9 @@ import '../../src/settings/presentation/bloc/about_logeste_bloc.dart' as _i38;
 import '../../src/splash/data/data_sources/splash_datasource.dart' as _i37;
 import '../../src/splash/data/repositories/splash_repo.dart' as _i41;
 import '../../src/splash/domain/repositories/base_splash_repo.dart' as _i40;
-import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i49;
-import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i50;
-import 'injection_module.dart' as _i51;
+import '../../src/splash/domain/use_cases/splash_usecase.dart' as _i50;
+import '../../src/splash/presentation/bloc/splash_bloc.dart' as _i51;
+import 'injection_module.dart' as _i52;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> $initGetIt(
@@ -141,13 +143,15 @@ Future<_i1.GetIt> $initGetIt(
         gh<_i5.AuthRepo>(),
         gh<_i16.ForgotPasswordRepo>(),
       ));
-  gh.factory<_i48.RequestsBloc>(
-      () => _i48.RequestsBloc(gh<_i32.RequestsUseCase>()));
-  gh.factory<_i49.SplashUseCase>(
-      () => _i49.SplashUseCase(gh<_i40.BaseSplashRepo>()));
-  gh.factory<_i50.SplashCubit>(
-      () => _i50.SplashCubit(gh<_i49.SplashUseCase>()));
+  gh.factory<_i48.RequestDetailsBloc>(
+      () => _i48.RequestDetailsBloc(gh<_i32.RequestsUseCase>()));
+  gh.factory<_i49.RequestsBloc>(
+      () => _i49.RequestsBloc(gh<_i32.RequestsUseCase>()));
+  gh.factory<_i50.SplashUseCase>(
+      () => _i50.SplashUseCase(gh<_i40.BaseSplashRepo>()));
+  gh.factory<_i51.SplashCubit>(
+      () => _i51.SplashCubit(gh<_i50.SplashUseCase>()));
   return getIt;
 }
 
-class _$InjectionModule extends _i51.InjectionModule {}
+class _$InjectionModule extends _i52.InjectionModule {}
