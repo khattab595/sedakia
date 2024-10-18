@@ -2,6 +2,7 @@
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
  import '../../src/auth/presentation/pages/login/login_page.dart';
 import '../../src/categories/presentation/pages/add/add_categories_page.dart';
+import '../../src/categories/presentation/pages/view/categories_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
  import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
@@ -32,6 +33,7 @@ class Routes {
    static const String productPage = 'productPage';
    static const String addProductPage = 'addProductPage';
    static const String categoriesPage = 'categoriesPage';
+   static const String addCategoriesPage = 'addCategoriesPage';
 
 
   /* ====================================================================== */
@@ -49,5 +51,6 @@ class Routes {
     productPage: (context) => ProductPage(),
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),
+    addCategoriesPage: (context) => AddCategoriesPage(),
    };
 }

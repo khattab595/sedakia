@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:app/core/widgets/buttons/custom_button.dart';
 import 'package:app/core/widgets/drop_down/drop_down.dart';
 
+import '../../../../../core/utils/helper_methods.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 
@@ -11,6 +14,7 @@ class AddProductScreen extends BaseStatelessWidget {
   TextEditingController quantityController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   int? category;
+  File? file;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -22,17 +26,24 @@ class AddProductScreen extends BaseStatelessWidget {
               title: strings.product_name,
               controller: nameController,
             ),
-            CustomTextField(
-              title: strings.add_image,
-              controller: imageController,
-            ),
+            StatefulBuilder(builder: (context, setState) {
+              return CustomTextField(
+                title: strings.add_image,
+                controller: imageController,
+                onTap: () async {
+                    file = await HelperMethods.getImageFromGallery();
+                  imageController.text = file?.path ?? "";
+                  setState(() {});
+                },
+              );
+            }),
             CustomTextField(
               title: strings.price,
               controller: priceController,
             ),
             DropDownField(
                 title: strings.category,
-                items: [DropDownItem(title: "بنطلون")],
+                items: const [DropDownItem(title: "بنطلون")],
                 onChanged: (item) {}),
             10.ph,
             CustomTextField(
