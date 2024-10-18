@@ -9,6 +9,7 @@
   "category": "المنتجات",
   "sign_out": "تسجيل الخروج",
   "delete_account": "حذف الحساب",
+  "status": "الحالة",
 
 
 
@@ -68,6 +69,8 @@
   "account": "الحساب",
   "rs": "رس",
   "search": "بحث",
+  "total": "المجموع",
+  "update_status": "تحديث الحاله",
   "request_log": "سجل الطلبات",
   "settings": "الإعدادات",
   "attendance_record": "سجل الحضور",

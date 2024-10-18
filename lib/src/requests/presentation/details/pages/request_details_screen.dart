@@ -1,5 +1,6 @@
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
+import '../../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../../main_index.dart';
 import '../widgets/request_details_item.dart';
 
@@ -11,15 +12,27 @@ class RequestDetailsScreen extends BaseStatelessWidget {
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: 3,
             itemBuilder: (context, index) {
               return const RequestDetailsItem();
             },
           ),
         ),
         totalAmount(),
+
+        Padding(
+          padding: 15.paddingAll,
+          child: DropDownField(
+              title: strings.update_status,
+              value: "مكتمل",
+              items: const [
+                DropDownItem(title: "مكتمل"),
+                DropDownItem(title: "مرفوض"),
+              ],
+              onChanged: (item) {}),
+        ),
         PrimaryButton(
-          title: 'Complete',
+          title: strings.save,
           margin: 16.paddingHoriz + 10.paddingBottom,
           onPressed: () {
             // bloc.approveRequest();
@@ -37,8 +50,8 @@ class RequestDetailsScreen extends BaseStatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SemiBoldPrimaryText(
-            label: 'Total',
+          PrimaryBoldText(
+            label: strings.total,
             fontSize: 16,
           ),
           PrimaryMediumText(

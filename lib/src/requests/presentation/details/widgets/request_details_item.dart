@@ -11,8 +11,8 @@ class RequestDetailsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: 10.paddingAll,
-      padding: 14.paddingAll,
+      margin: 15.paddingHoriz+10.paddingTop,
+       padding: 14.paddingAll,
       decoration: Decorations.shapeDecorationShadow(),
       child: Row(
         children: [
@@ -26,11 +26,11 @@ class RequestDetailsItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SemiBoldPrimaryText(label: 'Hijab'),
+              PrimaryBoldText(label: 'Hijab',fontSize: 16,),
               5.ph,
-              HintRegularText(label: 'Clothes', fontSize: 12),
+              HintRegularText(label: 'Clothes', fontSize: 13),
               5.ph,
-              PrimaryRegularText(label: '10 Pieces', fontSize: 12),
+              PrimaryRegularText(label: '10 Pieces', fontSize: 13),
             ],
           ),
           const Spacer(),

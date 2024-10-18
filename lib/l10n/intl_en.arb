@@ -10,6 +10,10 @@
   "sign_out": "Sign out",
   "delete_account": "Delete Account",
   "available": "Is the product available?",
+  "status": "Status",
+  "update_status": "Update Status",
+  "search": "Search",
+  "total": "Total",
 
 
 
