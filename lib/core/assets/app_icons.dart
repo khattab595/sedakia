@@ -8,7 +8,10 @@ class AppIcons{
   static const String arrow = "assets/icons/arrow.svg";
 
   static const String menu = "assets/icons/menu.svg";
+  static const String more = "assets/icons/more.svg";
+  static const String reservation = "assets/icons/reservation.svg";
   static const String menu2 = "assets/icons/more_2.svg";
+  static const String home = "assets/icons/home.svg";
 
   ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";
@@ -17,7 +20,6 @@ class AppIcons{
   static const String map_pin = "assets/icons/map_pin.svg";
   static const String notification = "assets/icons/notification.svg";
   static const String activity = "assets/icons/activity.svg";
-  static const String home = "assets/icons/home.svg";
   static const String profile = "assets/icons/profile.svg";
   static const String request = "assets/icons/request.svg";
   static const String desc = "assets/icons/desc.svg";

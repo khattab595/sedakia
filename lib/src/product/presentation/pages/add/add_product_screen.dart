@@ -31,7 +31,7 @@ class AddProductScreen extends BaseStatelessWidget {
                 title: strings.add_image,
                 controller: imageController,
                 onTap: () async {
-                    file = await HelperMethods.getImageFromGallery();
+                  file = await HelperMethods.getImageFromGallery();
                   imageController.text = file?.path ?? "";
                   setState(() {});
                 },
@@ -40,15 +40,25 @@ class AddProductScreen extends BaseStatelessWidget {
             CustomTextField(
               title: strings.price,
               controller: priceController,
+              keyboardType: TextInputType.number,
             ),
             DropDownField(
                 title: strings.category,
                 items: const [DropDownItem(title: "بنطلون")],
                 onChanged: (item) {}),
             10.ph,
+            DropDownField(
+                title: strings.available,
+                items: const [
+                  DropDownItem(title: "نعم"),
+                  DropDownItem(title: "لا"),
+                ],
+                onChanged: (item) {}),
+            10.ph,
             CustomTextField(
               title: strings.quantity,
               controller: quantityController,
+              keyboardType: TextInputType.number,
             ),
             CustomTextField(
               title: strings.description,

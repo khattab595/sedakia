@@ -8,19 +8,19 @@ class CustomerItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      height: 100,
+
       width: double.infinity,
-      decoration: Decorations.kDecorationBorderRadius(radius: 30,borderColor: scaffoldBackgroundColor,color: scaffoldBackgroundColor),
+       decoration: Decorations.shapeDecorationShadow(),
       padding: 16.paddingAll,
-      margin: 20.paddingHoriz+20.paddingBottom,
+      margin: 20.paddingHoriz+10.paddingBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PrimaryMediumText(label: "ماهيتاب عادل",fontSize: 15,),
+          PrimaryMediumText(label: "ماهيتاب عادل",fontSize: 16,),
           7.ph,
-          PrimaryRegularText(label: "01120484981",fontSize: 12,),
+          PrimaryRegularText(label: "01120484981",fontSize: 14,),
           5.ph,
-          PrimaryRegularText(label: "mahytabadel25@gmail.com",fontSize:11,),
+          PrimaryRegularText(label: "mahytabadel25@gmail.com",fontSize:13,),
 
 
         ],

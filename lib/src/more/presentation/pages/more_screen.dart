@@ -14,7 +14,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.people,
             title: strings.customers,
-            //route: Routes.loginPage,
+             route: Routes.customersPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 16,
@@ -25,7 +25,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.messages,
             title: strings.about_us,
-            //route: Routes.loginPage,
+             route: Routes.aboutPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -36,7 +36,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.privacy,
             title: strings.privacy_policy,
-            //route: Routes.loginPage,
+             route: Routes.privacyPolicyPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -46,8 +46,8 @@ class MoreScreen extends BaseStatelessWidget {
           line(),
           MoreItem(
             icon: AppIcons.lang,
-            title: strings.arabic,
-            //route: Routes.loginPage,
+            title: strings.language,
+             route: Routes.changLanguagePage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -57,8 +57,8 @@ class MoreScreen extends BaseStatelessWidget {
           line(),
           MoreItem(
             icon: AppIcons.category,
-            title: strings.category,
-            //route: Routes.loginPage,
+            title: strings.categories,
+            route: Routes.categoriesPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -70,7 +70,6 @@ class MoreScreen extends BaseStatelessWidget {
             icon: AppIcons.logout,
             title: strings.delete_account,
             //route: Routes.loginPage,
-
           ),
           line(),
           MoreItem(
@@ -82,8 +81,9 @@ class MoreScreen extends BaseStatelessWidget {
       ),
     );
   }
-  Widget line(){
-    return  Padding(
+
+  Widget line() {
+    return Padding(
       padding: 16.paddingHoriz,
       child: const Divider(
         color: Color(0xffF1F1F1),

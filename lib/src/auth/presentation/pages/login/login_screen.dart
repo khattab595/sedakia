@@ -1,3 +1,4 @@
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
@@ -33,7 +34,9 @@ class LoginScreen extends BaseStatelessWidget {
         child: Column(
           children: [
             50.ph,
-            const Logo(size: 190,),
+            const Logo(
+              size: 190,
+            ),
             BlackSemiBoldText(
               label: strings.welcome_back,
               fontSize: 26,
@@ -70,7 +73,8 @@ class LoginScreen extends BaseStatelessWidget {
               title: strings.sign_in,
               margin: 85.paddingTop,
               onPressed: () {
-                onPressed();
+               // onPressed();
+                pushNamed(Routes.navigationPages);
               },
             ),
           ],

@@ -37,9 +37,6 @@ class Routes {
    static const String addProductPage = 'addProductPage';
    static const String categoriesPage = 'categoriesPage';
    static const String addCategoriesPage = 'addCategoriesPage';
-
-  static const String homePage = 'homePage';
-  static const String splashPage = 'splashPage';
   static const String customersPage = 'customersPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
@@ -60,7 +57,7 @@ class Routes {
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),
     addCategoriesPage: (context) => AddCategoriesPage(),
-   };
+
     customersPage: (context) => CustomersPage(),
     aboutPage: (context) => AboutPage(),
     privacyPolicyPage: (context) => PrivacyPolicyPage(),
