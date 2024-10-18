@@ -1,5 +1,11 @@
 class AppIcons{
-
+  static const String people = "assets/icons/people.svg";
+  static const String messages = "assets/icons/messages.svg";
+  static const String privacy = "assets/icons/privacy.svg";
+  static const String lang = "assets/icons/lang.svg";
+  static const String logout = "assets/icons/logout.svg";
+  static const String category = "assets/icons/category.svg";
+  static const String arrow = "assets/icons/arrow.svg";
 
   static const String menu = "assets/icons/menu.svg";
   static const String menu2 = "assets/icons/more_2.svg";
@@ -17,7 +23,6 @@ class AppIcons{
   static const String desc = "assets/icons/desc.svg";
   static const String date = "assets/icons/date.svg";
   static const String avatar = "assets/icons/avatar.svg";
-  static const String category = "assets/icons/category.svg";
   static const String coin = "assets/icons/coin.svg";
   static const String gender = "assets/icons/gender.svg";
   static const String id_number = "assets/icons/id_number.svg";
@@ -39,7 +44,7 @@ class AppIcons{
   static const String creditCardBuyer = "assets/icons/credit-card-buyer 3.svg";
   static const String search = "assets/icons/search.svg";
   static const String back = "assets/icons/back.svg";
-  static const String logout = "assets/icons/logout.svg";
+
 
 
 }

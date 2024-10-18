@@ -14,10 +14,12 @@ class PasswordTextField extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      minHeight: 55,
+      radius: 15,
       controller: controller,
       title: title ?? strings.password,
       hintText: hintText,
-      prefixIconPath: AppIcons.unlock,
+     // prefixIconPath: AppIcons.unlock,
       isPassword: true,
       margin: margin,
       validator: (value)=> Validation.validatePassword(value ?? ''),

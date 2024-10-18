@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'profile_datasource.dart';
+part of 'more_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator

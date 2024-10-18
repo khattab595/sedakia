@@ -1,9 +1,9 @@
-
 import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/hint_texts.dart';
- import 'package:firebase_messaging/firebase_messaging.dart';
- import '../../../../../core/widgets/buttons/label_button.dart';
- import '../../../../../core/widgets/text-field/mobile_text_field.dart';
+import 'package:app/core/widgets/texts/primary_texts.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import '../../../../../core/widgets/buttons/label_button.dart';
+import '../../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../../../core/widgets/text-field/password_text_field.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
@@ -33,19 +33,23 @@ class LoginScreen extends BaseStatelessWidget {
         child: Column(
           children: [
             50.ph,
-            const Logo(),
-            20.ph,
-            BlackBoldText(
-              label: strings.sign_in,
-              fontSize: 20,
+            const Logo(size: 190,),
+            BlackSemiBoldText(
+              label: strings.welcome_back,
+              fontSize: 26,
+              labelColor: primaryColorDark,
             ),
-            10.ph,
-            HintMediumText(
-                label: strings.log_in_using_your_mobile_number, fontSize: 14),
-            30.ph,
+            11.ph,
+            PrimaryMediumText(
+              label: strings.sign_in_to_continue,
+              fontSize: 14,
+              labelColor: greyColorB1,
+            ),
+            50.ph,
             MobileTextField(
               controller: phoneNumberController,
             ),
+            8.ph,
             PasswordTextField(
               controller: passwordController,
               margin: 0.paddingBottom,
@@ -55,21 +59,20 @@ class LoginScreen extends BaseStatelessWidget {
               children: [
                 LabelButton(
                   title: strings.forgot_password,
-                  style: primaryMediumStyle.copyWith(fontSize: 14),
-                  onTap: () {
-                   },
+                  style: primaryMediumStyle.copyWith(fontSize: 12),
+                  onTap: () {},
                 ),
               ],
             ),
-
             PrimaryButton(
+              radius: 15,
+              height: 50,
               title: strings.sign_in,
-              margin: 30.paddingVert,
+              margin: 85.paddingTop,
               onPressed: () {
                 onPressed();
               },
             ),
-
           ],
         ),
       ),
@@ -77,7 +80,7 @@ class LoginScreen extends BaseStatelessWidget {
   }
 
   onPressed() async {
-    FirebaseMessaging messaging =   FirebaseMessaging.instance;
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
 
     String? token = await messaging.getToken();
     if (formKey.currentState!.validate()) {

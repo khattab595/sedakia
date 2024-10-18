@@ -1,13 +1,13 @@
 
 import 'package:app/core/components/base_widget_bloc.dart';
+import 'package:app/src/settings/presentation/pages/privacy_policy/privacy_policy_screen.dart';
 
 import '../../../../main_index.dart';
 import '../../../domain/entities/about.dart';
 import '../../bloc/about_logeste_bloc.dart';
-import 'about_logeste_screen.dart';
 
-class AboutPage extends BaseBlocWidget<UnInitState, AboutCubit> {
-  AboutPage({Key? key}) : super(key: key);
+class PrivacyPolicyPage extends BaseBlocWidget<UnInitState, AboutCubit> {
+  PrivacyPolicyPage({Key? key}) : super(key: key);
 
   // @override
   // void loadInitialData(BuildContext context) {
@@ -16,13 +16,13 @@ class AboutPage extends BaseBlocWidget<UnInitState, AboutCubit> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return const AboutScreen(
-   //   about: state.data!,
+    return  PrivacyPolicyScreen(
+      //   about: state.data!,
     );
   }
 
   @override
   String? title(BuildContext context) {
-    return getArguments(context) == AboutType.aboutUs ? strings.about_us : strings.terms_conditions;
+    return strings.privacy_policy;
   }
 }
