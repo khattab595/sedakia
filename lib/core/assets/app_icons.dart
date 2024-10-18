@@ -1,4 +1,4 @@
-class AppIcons{
+class AppIcons {
   static const String people = "assets/icons/people.svg";
   static const String messages = "assets/icons/messages.svg";
   static const String privacy = "assets/icons/privacy.svg";
@@ -13,9 +13,6 @@ class AppIcons{
   static const String menu2 = "assets/icons/more_2.svg";
   static const String home = "assets/icons/home.svg";
 
-  ////////////////////////////---------------------
-  static const String menu = "assets/icons/menu.svg";
-  static const String menu2 = "assets/icons/more_2.svg";
 
   ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";
@@ -50,7 +47,4 @@ class AppIcons{
   static const String creditCardBuyer = "assets/icons/credit-card-buyer 3.svg";
   static const String search = "assets/icons/search.svg";
   static const String back = "assets/icons/back.svg";
-
-
-
 }
