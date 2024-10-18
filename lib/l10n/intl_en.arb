@@ -14,8 +14,15 @@
   "update_status": "Update Status",
   "search": "Search",
   "total": "Total",
-
-
+  "sign_in": "Sign in",
+  "forgot_password": "Forgot Password?",
+  "phone_number": "phone number",
+  "password": "Password",
+  "this_app": "This App ",
+  "desc_about": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company.",
+  "features": "Features",
+  "services": "Services",
+  "content_privacy": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website.",
 
 
 
@@ -122,7 +129,6 @@
   "current_project": "Current Project",
   "past_project": "past Project",
   "code": "Employee Code ",
-  "phone_number": "phone number",
   "date_birth": "date of birth",
   "years_experience": "years experience",
   "qualified": "qualified",
@@ -187,7 +193,6 @@
   "note": "Notes",
   "hajj_messages": "Hajj messages",
   "the_note": "Notes",
-  "category": "التصنيف",
   "send": "ارسال",
   "write_a_message": "Write a message",
   "message_content": "Message content",
@@ -201,7 +206,6 @@
   "nationality": "Nationality",
   "gender": "Gender",
   "iD_number": "ID Number",
-  "mobile_number": "Mobile number",
   "reservation_number": "Reservation number",
   "status": "Status",
   "package_number": "Package number",
@@ -227,9 +231,7 @@
   "sign_up": "SIGN UP",
   "email": "Email",
   "phone": "Phone",
-  "forgot_password": "Forgot Password?",
   "name": "Name",
-  "password": "Password",
   "password_note": "The password should contain at least 2 symbols",
   "onboarding_title1": "Start your journey",
   "onboarding_description1": "simple  fast  affordable",
