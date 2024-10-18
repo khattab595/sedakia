@@ -37,13 +37,9 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
         if ( isLogin) {
           pushNamedAndRemoveUntil(Routes.navigationPages);
         } else {
-          pushNamedAndRemoveUntil(Routes.loginPage);
+          pushNamedAndRemoveUntil(Routes.productPage);
         }
-        // if (isLogin) {
-        //   pushNamedAndRemoveUntil(Routes.navigationPages);
-        // } else {
-        //   pushNamedAndRemoveUntil(Routes.loginPage);
-        // }
+
       },
     );
   }
