@@ -16,11 +16,9 @@ import '../../src/settings/presentation/pages/about_logeste/about_logeste_page.d
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
 import '../../src/settings/presentation/pages/privacy_policy/privacy_policy_page.dart';
  import '../../src/splash/presentation/pages/splash_screen.dart';
-import '../../src/profile/presentation/pages/profile_page.dart';
-import '../../src/requests/presentation/details/pages/request_details_page.dart';
+ import '../../src/requests/presentation/details/pages/request_details_page.dart';
 import '../../src/requests/presentation/pages/requests_page.dart';
-import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
-import '../../src/splash/presentation/pages/splash_screen.dart';
+
 
 class Routes {
   static const String intro = '/';
@@ -46,8 +44,6 @@ class Routes {
   static const String customersPage = 'customersPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
-  static const String homePage = 'homePage';
-  static const String splashPage = 'splashPage';
   static const String requestsPage = 'RequestsPage';
   static const String requestDetailsPage = 'RequestDetailsPage';
 
@@ -65,7 +61,6 @@ class Routes {
     changLanguagePage: (context) => ChangLanguagePage(),
     requestsPage: (context) => RequestsPage(),
     requestDetailsPage: (context) => RequestDetailsPage(),
-  };
     productPage: (context) => ProductPage(),
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),

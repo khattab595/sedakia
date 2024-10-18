@@ -1,8 +1,5 @@
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:fl_chart/fl_chart.dart';
-
-import 'dart:async';
-import 'dart:math';
 import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
 
