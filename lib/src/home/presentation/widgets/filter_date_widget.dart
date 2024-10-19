@@ -82,6 +82,7 @@ class FilterInvoices extends BaseStatelessWidget {
         Expanded(
           child: SearchTextField(
             controller: controller,
+            hintText: strings.search,
             onChanged: (value) {
 
             },

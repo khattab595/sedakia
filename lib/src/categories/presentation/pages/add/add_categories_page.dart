@@ -13,6 +13,11 @@ class AddCategoriesPage extends BaseBlocWidget<UnInitState, CategoriesBloc> {
   // }
 
   @override
+  String? title(BuildContext context) {
+    // TODO: implement title
+    return strings.add_categories;
+  }
+  @override
   Widget buildWidget(
       BuildContext context,UnInitState state) {
     return AddCategoriesScreen(

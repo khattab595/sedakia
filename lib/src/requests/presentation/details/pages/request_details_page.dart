@@ -15,7 +15,7 @@ class RequestDetailsPage extends BaseBlocWidget<UnInitState, RequestDetailsBloc>
 
   @override
   String? title(BuildContext context) {
-    return 'Order Details';
+    return strings.order_details;
   }
 
   @override

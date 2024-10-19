@@ -13,6 +13,15 @@ class HomeScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<ModelDto> data =[
+      ModelDto(name: strings.number_order,value: "100"),
+      ModelDto(name: strings.number_client,value: "100"),
+      ModelDto(name: strings.number_product,value: "100"),
+      ModelDto(name: strings.number_refunds,value: "100"),
+      ModelDto(name: strings.number_sales,value: "100"),
+      ModelDto(name: strings.average_order_value,value: "100"),
+
+    ];
     return Padding(
       padding: 10.paddingAll + (kToolbarHeight - 20).paddingTop,
       child: SingleChildScrollView(
@@ -23,10 +32,11 @@ class HomeScreen extends BaseStatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SemiBoldPrimaryText(
-                  label: 'Statistics',
+                  label: strings.statistics,
                   fontSize: 20,
                 ),
                 popUpMenu(),
+
               ],
             ),
             20.ph,
@@ -34,7 +44,7 @@ class HomeScreen extends BaseStatelessWidget {
               onFilter: (from, to) {},
             ),
             OrdersStatistics(
-              models: List.generate(6, (index) => ModelDto()),
+              models: List.generate(data.length, (index) => data[index]),
               onDownload: (url) {},
             ),
             Container(
@@ -46,7 +56,7 @@ class HomeScreen extends BaseStatelessWidget {
                   // SemiBoldPrimaryText(label: 'Statistics', fontSize: 20),
                   // 20.ph,
                   ChartsStatistics(
-                    sliders: List.generate(6, (index) => SliderDto()),
+                    sliders: List.generate(6, (index) => ModelDto()),
                   ),
                 ],
               ),
@@ -86,17 +96,17 @@ class HomeScreen extends BaseStatelessWidget {
             ),
           ),
           dropdownMenuEntries: [
-        const DropdownMenuEntry(
+          DropdownMenuEntry(
           value: '1',
-          label: 'Weekly',
+          label: strings.weakly,
         ),
-        const DropdownMenuEntry(
+          DropdownMenuEntry(
           value: '2',
-          label: 'Monthly',
+          label: strings.monthly,
         ),
-        const DropdownMenuEntry(
+          DropdownMenuEntry(
           value: '3',
-          label: 'Yearly',
+          label: strings.yearly,
         ),
       ]),
     );

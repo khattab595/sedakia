@@ -20,7 +20,7 @@ class AppScaffold extends StatelessWidget {
   final List<Widget>? actions;
   final Widget? leading;
 
-  const AppScaffold(
+    AppScaffold(
       {Key? key,
       this.title,
       this.titleWidget,
@@ -38,7 +38,7 @@ class AppScaffold extends StatelessWidget {
       this.foregroundColor,
       this.leading})
       : super(key: key);
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
 
@@ -47,7 +47,7 @@ class AppScaffold extends StatelessWidget {
       // resizeToAvoidBottomInset: false, // this code remove the keyboard overflow.
       // drawer: isDrawer! ? SideMenuPage(isCaptain: true) : null,
       // primary: true,
-
+key:_scaffoldKey ,
       //SafeArea to save content from the phone top par.
       body: body,
       extendBody: true,

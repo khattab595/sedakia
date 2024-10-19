@@ -61,7 +61,7 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
       body: Column(
         children: [
           Padding(
-            padding: 15.paddingHoriz+10.paddingTop,
+            padding: 15.paddingHoriz + 10.paddingTop,
             child: CustomTextField(
               hintText: strings.search,
               minHeight: 45,

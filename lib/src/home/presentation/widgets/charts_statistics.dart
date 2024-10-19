@@ -4,7 +4,7 @@ import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
 
 class ChartsStatistics extends BaseStatelessWidget {
-  final List<SliderDto> sliders;
+  final List<ModelDto> sliders;
 
   ChartsStatistics({super.key, required this.sliders});
 
@@ -17,8 +17,8 @@ class ChartsStatistics extends BaseStatelessWidget {
 class BarChartSample2 extends StatefulWidget {
   BarChartSample2({super.key});
 
-  final Color leftBarColor = AppColors.orangeColor;
-  final Color rightBarColor = AppColors.errorColor;
+  final Color leftBarColor = AppColors.blueColor;
+  final Color rightBarColor = AppColors.cafColor2;
   final Color avgColor = AppColors.primaryLight;
 
   @override

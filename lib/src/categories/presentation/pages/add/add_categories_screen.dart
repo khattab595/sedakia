@@ -16,7 +16,7 @@ class AddCategoriesScreen extends BaseStatelessWidget {
       padding: 20.paddingAll,
       child: Column(children: [
         CustomTextField(
-          title: strings.product_name,
+          title: strings.name,
           controller: nameController,
         ),
         StatefulBuilder(builder: (context, setState) {

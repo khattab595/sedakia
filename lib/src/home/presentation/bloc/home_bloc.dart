@@ -11,9 +11,9 @@ class HomeCubit extends BaseCubit {
 
   HomeCubit(this._repo);
 
-  void fetchInitialData() {
-    executeSuccess(() => _repo.fetchHomeData());
-  }
+  // void fetchInitialData() {
+  //   executeSuccess(() => _repo.fetchHomeData());
+  // }
 
 
 }

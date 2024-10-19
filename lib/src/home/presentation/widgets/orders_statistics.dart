@@ -49,12 +49,12 @@ class OrderStatistic extends BaseStatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SemiBoldPrimaryText(
-            label: '300',
+            label: model.value??"",
             fontSize: 20
           ),
           5.ph,
           PrimaryMediumText(
-            label: 'Number of orders',
+            label: model.name??"",
             fontSize: 12,
           ),
         ],

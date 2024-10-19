@@ -19,11 +19,13 @@ class RequestItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PrimaryBoldText(label: 'Request Title',fontSize: 16,),
+            PrimaryBoldText(label: 'محمد احمد ابراهيم',fontSize: 16,),
             5.ph,
             PrimaryRegularText(label: '+01120484981', fontSize: 13,),
             5.ph,
-            PrimaryRegularText(label: '25 Apr 2024', fontSize: 13,),
+            PrimaryRegularText(label: '25 أبريل 2024', fontSize: 13,),
+            5.ph,
+            PrimaryRegularText(label: 'مدفوع', fontSize: 13),
           ],
         ),
       ),

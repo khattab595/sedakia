@@ -4,11 +4,10 @@
   "more": "المزيد",
   "customers": "العملاء",
   "privacy_policy": "سياسة الخصوصية",
-  "arabic": "العربية",
+
   "available": "هل المنتج متاح",
   "category": "التصنيف",
-  "sign_out": "تسجيل الخروج",
-  "delete_account": "حذف الحساب",
+
   "status": "الحالة",
   "forgot_password": "نسيت كلمة المرور؟",
   "phone_number": "رقم الجوال",
@@ -17,6 +16,16 @@
   "desc_about": "وتشمل هذه الاتفاقية جميع المشتركين في خدمة Whats Loop وموقعها الإلكتروني، الذي تملكه وتديره شركة الخوادم الرقمية للاتصالات وتقنية المعلومات.",
   "features": "سمات",
   "services": "خدمات",
+  "weakly": "اسبوعي",
+  "monthly": "شهري",
+  "yearly": "سنوي",
+  "order_details": "تفاصيل الطلب",
+  "number_order": "عدد  الطلبات",
+  "number_client": "عدد  العملاء",
+  "number_product": "عدد  المنتجات",
+  "number_refunds": "عدد  المرتجعات",
+  "number_sales": "اجمالي المبيعات",
+  "average_order_value": "متوسط قيمة الطلب",
 
 
 
@@ -54,6 +63,7 @@
   "name": "الاسم",
   "delete": "حذف",
   "price": "السعر",
+  "statistics": "الاحصئيات",
   "quantity": "الكمية",
    "products": "المنتجات",
   "add_product": "اضافة  منتج",

@@ -26,11 +26,11 @@ class RequestDetailsItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PrimaryBoldText(label: 'Hijab',fontSize: 16,),
+              PrimaryBoldText(label: 'حجاب',fontSize: 16,),
               5.ph,
-              HintRegularText(label: 'Clothes', fontSize: 13),
+              HintRegularText(label: 'ملابس', fontSize: 13),
               5.ph,
-              PrimaryRegularText(label: '10 Pieces', fontSize: 13),
+              PrimaryRegularText(label: '10 قطع', fontSize: 13),
             ],
           ),
           const Spacer(),

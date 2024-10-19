@@ -12,7 +12,7 @@
         </intent>
     </queries>
     <application
-        android:label="Alwaseet HR"
+        android:label="Motkaml"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

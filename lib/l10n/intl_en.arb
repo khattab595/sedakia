@@ -15,18 +15,24 @@
   "search": "Search",
   "total": "Total",
   "sign_in": "Sign in",
+  "statistics": "Statistics",
   "forgot_password": "Forgot Password?",
-  "phone_number": "phone number",
-  "password": "Password",
+   "password": "Password",
   "this_app": "This App ",
   "desc_about": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company.",
   "features": "Features",
   "services": "Services",
   "content_privacy": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website.",
+  "weakly": "Weakly",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
 
-
-
-
+  "number_order": "Number of orders",
+  "number_client": "Number of clients",
+  "number_product": "Number of products",
+  "number_refunds": "Total Refunds",
+  "number_sales": "Total Sales",
+  "average_order_value": "Average order value",
 
 
 
