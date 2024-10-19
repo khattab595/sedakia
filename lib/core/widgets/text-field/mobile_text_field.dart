@@ -19,7 +19,7 @@ class MobileTextField extends BaseStatelessWidget {
       radius: 15,
       minHeight: 55,
       controller: controller,
-      title: title ?? strings.mobile_number,
+      title: title ?? strings.phone_number,
       hintText: hintText,
       keyboardType: TextInputType.number,
     //  prefixIconPath: AppIcons.smartphone,

@@ -18,9 +18,10 @@ class CustomerItem extends BaseStatelessWidget {
         children: [
           PrimaryMediumText(label: "ماهيتاب عادل",fontSize: 16,),
           7.ph,
-          PrimaryRegularText(label: "01120484981",fontSize: 14,),
+          PrimaryRegularText(label: "01120484981",fontSize: 12
+            ,),
           5.ph,
-          PrimaryRegularText(label: "mahytabadel25@gmail.com",fontSize:13,),
+          PrimaryRegularText(label: "mahytabadel25@gmail.com",fontSize:12,),
 
 
         ],

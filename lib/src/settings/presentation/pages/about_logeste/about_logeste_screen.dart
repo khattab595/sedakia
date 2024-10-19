@@ -6,9 +6,9 @@ import 'package:app/src/settings/presentation/widgets/about_logeste_item.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/about.dart';
 
-class AboutScreen extends StatelessWidget {
+class AboutScreen extends BaseStatelessWidget {
   // final About about;
-  const AboutScreen({
+   AboutScreen({
     Key? key,
     //  required this.about
   }) : super(key: key);
@@ -20,18 +20,18 @@ class AboutScreen extends StatelessWidget {
       child: Column(
         children: [
           AboutLogesteItem(
-            title: 'هذا التطبيق',
-            subTitle:'وتشمل هذه الاتفاقية جميع المشتركين في خدمة Whats Loop وموقعها الإلكتروني، الذي تملكه وتديره شركة الخوادم الرقمية للاتصالات وتقنية المعلومات.',
+            title: strings.this_app,
+            subTitle:strings.desc_about,
           ),
           20.ph,
           AboutLogesteItem(
-            title:"سمات",
-            subTitle: "تشمل هذه الاتفاقية جميع المشتركين في خدمة Whats خدمة الحلقة وموقعها الإلكتروني تملكها وتديرها شركة الخوادم الرقمية للاتصالات شركة تكنولوجيا المعلومات.",
+            title:strings.features,
+            subTitle: strings.desc_about,
           ),
           20.ph,
           AboutLogesteItem(
-            title: "خدمات",
-            subTitle: "تشمل هذه الاتفاقية جميع المشتركين في خدمة Whats خدمة الحلقة وموقعها الإلكتروني تملكها وتديرها شركة الخوادم الرقمية للاتصالات شركة تكنولوجيا المعلومات.",
+            title: strings.services,
+            subTitle: strings.desc_about,
           )
         ],
       )
