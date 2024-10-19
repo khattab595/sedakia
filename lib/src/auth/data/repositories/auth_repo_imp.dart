@@ -24,22 +24,22 @@ class AuthRepoImp extends AuthRepo {
   Future<Profile> login(LoginParams params) async {
     params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.login(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
-    return Profile.fromDto(response.data ?? ProfileDto());
+    await HelperMethods.saveProfile(response.payload ?? ProfileDto());
+    return Profile.fromDto(response.payload ?? ProfileDto());
   }
 
   @override
   Future<String> register(RegisterParams params) async {
     params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.register(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
+    await HelperMethods.saveProfile(response.payload ?? ProfileDto());
     return response.message ?? '';
   }
 
   @override
   Future<String> verificationCode(VerificationCodeParams params) async {
     final response = await apiProvider.verificationCode(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
+    await HelperMethods.saveProfile(response.payload ?? ProfileDto());
     return response.message ?? '';
   }
 
@@ -62,7 +62,7 @@ class AuthRepoImp extends AuthRepo {
   @override
   Future<List<DropDownItem>> fetchAcademicLevels() async {
     final response = await apiProvider.fetchAcademicLevels();
-    return response.data
+    return response.payload
             ?.map((e) => DropDownItem(id: e.id.toString(), title: e.name))
             .toList() ??
         [];
