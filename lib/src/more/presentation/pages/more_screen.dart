@@ -69,13 +69,13 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.logout,
             title: strings.delete_account,
-            //route: Routes.loginPage,
+            route: Routes.loginPage,
           ),
           line(),
           MoreItem(
             icon: AppIcons.logout,
             title: strings.sign_out,
-            //route: Routes.loginPage,
+            route: Routes.loginPage,
           ),
         ],
       ),
