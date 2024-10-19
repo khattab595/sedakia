@@ -13,7 +13,7 @@ ApiResponse<T> _$ApiResponseFromJson<T>(
     ApiResponse<T>(
       code: json['code'] as int?,
       message: json['message'] as String?,
-      data: _$nullableGenericFromJson(json['data'], fromJsonT),
+      payload: _$nullableGenericFromJson(json['payload'], fromJsonT),
       pagination: json['pagination'] == null
           ? null
           : Pagination.fromJson(json['pagination'] as Map<String, dynamic>),
@@ -27,7 +27,7 @@ Map<String, dynamic> _$ApiResponseToJson<T>(
       'code': instance.code,
       'message': instance.message,
       'pagination': instance.pagination,
-      'data': _$nullableGenericToJson(instance.data, toJsonT),
+      'payload': _$nullableGenericToJson(instance.payload, toJsonT),
     };
 
 T? _$nullableGenericFromJson<T>(

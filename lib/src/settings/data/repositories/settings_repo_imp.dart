@@ -14,13 +14,13 @@ class SettingsRepoImp extends SettingsRepo{
   @override
   Future<About> fetchAboutUs() async {
     final response = await apiProvider.fetchAboutUs();
-    return About.fromDto(response.data ?? AboutDto());
+    return About.fromDto(response.payload ?? AboutDto());
   }
 
   @override
   Future<About> fetchTermsConditions() async {
     final response = await apiProvider.fetchTermsConditions();
-    return About.fromDto(response.data ?? AboutDto());
+    return About.fromDto(response.payload ?? AboutDto());
   }
 
 

@@ -14,7 +14,7 @@ class SplashRepo extends BaseSplashRepo{
   @override
   Future<List<Splash>> fetchSplashData() async {
     final response = await datasource.fetchSplashData();
-    return response.data!;
+    return response.payload!;
   }
 
 }

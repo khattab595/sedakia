@@ -10,10 +10,10 @@ class ApiResponse<T> {
   int? code;
   String? message;
   Pagination? pagination;
-  T? data;
+  T? payload;
 
 
-  ApiResponse({this.code, this.message, this.data, this.pagination});
+  ApiResponse({this.code, this.message, this.payload, this.pagination});
 
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,
