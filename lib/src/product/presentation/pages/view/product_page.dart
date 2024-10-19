@@ -30,11 +30,11 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
               width: 95,
               height: 30,
               decoration: Decorations.kDecorationBorderRadius(
-                  radius: 7, color: primaryColor),
+                  radius: 7, color:  context.theme.primaryColor),
               child: PrimaryRegularText(
                 label: strings.add_product,
                 fontSize: 12,
-                labelColor: whiteTextColor,
+                labelColor: context.textTheme.labelSmall!.color,
                 textAlign: TextAlign.center,
               ),
             )),
@@ -52,7 +52,7 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
               child: PrimaryRegularText(
                 label: strings.categories,
                 fontSize: 12,
-                labelColor: whiteTextColor,
+                labelColor: context.textTheme.labelSmall!.color,
                 textAlign: TextAlign.center,
               ),
             )),
