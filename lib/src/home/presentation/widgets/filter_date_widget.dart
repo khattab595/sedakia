@@ -66,7 +66,6 @@ class FilterInvoices extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController insideController = TextEditingController();
-    SelectionItem initialItem = SelectionItem(id: '1', title: 'All');
     List<SelectionItem> items = [
       SelectionItem(id: '1', title: 'All'),
       SelectionItem(id: '2', title: 'Processing'),
@@ -75,6 +74,8 @@ class FilterInvoices extends BaseStatelessWidget {
       SelectionItem(id: '5', title: 'Cancelled'),
       SelectionItem(id: '6', title: 'Rejected'),
     ];
+
+    SelectionItem initialItem = items.first;
 
     return Row(
       children: [
