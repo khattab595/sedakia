@@ -1,5 +1,7 @@
 
 
+import '../../data/models/customer_dto.dart';
+
 abstract class CustomersRepo {
-  // Future<HomeData> fetchHomeData();
+   Future<List<CustomerDto>> fetchCustomer();
 }

@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:app/core/widgets/buttons/custom_button.dart';
@@ -6,8 +7,13 @@ import 'package:app/core/widgets/drop_down/drop_down.dart';
 import '../../../../../core/utils/helper_methods.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
+ // final Function(ProductParams) onCreate;
+  AddProductScreen({Key? key,
+   // required this.onCreate
+  }) : super(key: key);
   TextEditingController nameController = TextEditingController();
   TextEditingController imageController = TextEditingController();
   TextEditingController priceController = TextEditingController();
@@ -71,7 +77,17 @@ class AddProductScreen extends BaseStatelessWidget {
                 buttonText: strings.save,
                 buttonColor: primaryColor,
                 buttonTextColor: whiteTextColor,
-                buttonFunc: () {})
+                buttonFunc: () {
+                  // onCreate(ProductParams(
+                  //   name: nameController.text,
+                  //   regularPrice: double.parse(priceController.text),
+                  //   salePrice: double.parse(quantityController.text),
+                  //   shortDescription: descriptionController.text,
+                  //   stockStatus:"تبؤمنا",
+                  //   categories:"fhj",
+                  //
+                  // ));
+                })
           ],
         ),
       ),

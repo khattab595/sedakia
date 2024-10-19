@@ -26,13 +26,14 @@
   "weakly": "Weakly",
   "monthly": "Monthly",
   "yearly": "Yearly",
-
+  "email": "Email",
   "number_order": "Number of orders",
   "number_client": "Number of clients",
   "number_product": "Number of products",
   "number_refunds": "Total Refunds",
   "number_sales": "Total Sales",
   "average_order_value": "Average order value",
+  "forgot_password_message": "Enter your email to reset your password\n",
 
 
 
@@ -235,7 +236,6 @@
   "welcome": "Welcome",
   "login": "LOGIN",
   "sign_up": "SIGN UP",
-  "email": "Email",
   "phone": "Phone",
   "name": "Name",
   "password_note": "The password should contain at least 2 symbols",

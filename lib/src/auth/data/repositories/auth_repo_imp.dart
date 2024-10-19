@@ -11,6 +11,7 @@ import '../../../more/domain/entities/more.dart';
 import '../../domain/repositories/auth_repo.dart';
 import '../data_sources/auth_datasource.dart';
 import '../models/complete_registration_params.dart';
+import '../models/login_dto.dart';
 import '../models/register_params.dart';
 import '../models/verification_code_params.dart';
 
@@ -21,11 +22,11 @@ class AuthRepoImp extends AuthRepo {
   AuthRepoImp(this.apiProvider);
 
   @override
-  Future<Profile> login(LoginParams params) async {
-    params.fcmToken = await FirebaseNotification().getToken();
+  Future<String> login(LoginParams params) async {
+   // params.fcmToken = await FirebaseNotification().getToken();
     final response = await apiProvider.login(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
-    return Profile.fromDto(response.data ?? ProfileDto());
+   // await HelperMethods.saveProfile(response.data ?? ProfileDto());
+    return response.message!;
   }
 
   @override

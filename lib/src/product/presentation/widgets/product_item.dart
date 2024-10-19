@@ -3,8 +3,13 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/main_index.dart';
 
 import '../../../../core/widgets/buttons/options_menu_button.dart';
+import '../../data/models/product_dto.dart';
 
 class ProductItem extends BaseStatelessWidget {
+  ProductItem({super.key,
+   // required this.data
+  });
+  //final ProductDto data;
   @override
   Widget build(BuildContext context) {
     return Container(

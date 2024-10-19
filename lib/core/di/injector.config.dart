@@ -130,14 +130,13 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i42.CategoriesBloc>(
       () => _i42.CategoriesBloc(gh<_i10.CategoriesUseCase>()));
   gh.factory<_i43.CustomersBloc>(
-      () => _i43.CustomersBloc(gh<_i14.CustomersUseCase>()));
+      () => _i43.CustomersBloc(gh<_i12.CustomersRepo>()));
   gh.factory<_i44.ForgotPasswordCubit>(() => _i44.ForgotPasswordCubit(
         gh<_i16.ForgotPasswordRepo>(),
         gh<_i5.AuthRepo>(),
       ));
   gh.factory<_i45.HomeCubit>(() => _i45.HomeCubit(gh<_i19.HomeRepo>()));
-  gh.factory<_i46.ProductBloc>(
-      () => _i46.ProductBloc(gh<_i25.ProductUseCase>()));
+  gh.factory<_i46.ProductBloc>(() => _i46.ProductBloc(gh<_i23.ProductRepo>()));
   gh.factory<_i47.ProfileBloc>(() => _i47.ProfileBloc(
         gh<_i27.ProfileRepo>(),
         gh<_i5.AuthRepo>(),

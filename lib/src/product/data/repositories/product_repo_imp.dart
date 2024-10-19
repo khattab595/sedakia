@@ -1,8 +1,10 @@
 
+import 'package:app/src/product/data/models/product_params.dart';
 import 'package:injectable/injectable.dart';
 
   import '../../domain/repositories/product_repo.dart';
  import '../data_sources/product_datasource.dart';
+import '../models/product_dto.dart';
 
 @Injectable(as: ProductRepo)
 class ProductRepoImp extends ProductRepo {
@@ -10,14 +12,21 @@ class ProductRepoImp extends ProductRepo {
 
   ProductRepoImp(this.datasource);
 
-  // @override
-  // Future<HomeData> fetchHomeData() async {
-  //   final response = await datasource.fetchHomeData();
-  //   ProfileDto profile = await HelperMethods.getProfile();
-  //   HomeData data = HomeData.fromJson(response.data!);
-  //   data.employeeName =
-  //       '${profile.firstName} ${profile.secondName} ${profile.lastName}';
-  //   data.employeeImage = profile.image;
-  //   return data;
-  // }
+   @override
+  Future<List<ProductDto>> fetchGetProduct() async {
+    final response = await datasource.fetchGetProduct();
+    return response.data!;
+  }
+
+  @override
+  Future<String> createProduct(ProductParams params)async {
+   final response =await datasource.createProduct(params);
+   return response.message!;
+  }
+
+  @override
+  Future<String> deleteProduct(ProductParams params) async{
+    final response =await datasource.deleteProduct(params);
+    return response.message!;
+  }
 }

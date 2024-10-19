@@ -17,14 +17,14 @@ class LoginScreen extends BaseStatelessWidget {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool value = false;
 
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      phoneNumberController.text = '0530097954';
+      emailController.text = 'motkamel@gmail.com';
       passwordController.text = '123456789';
     }
     return Form(
@@ -50,7 +50,7 @@ class LoginScreen extends BaseStatelessWidget {
             ),
             50.ph,
             MobileTextField(
-              controller: phoneNumberController,
+              controller: emailController,
             ),
             8.ph,
             PasswordTextField(
@@ -63,7 +63,9 @@ class LoginScreen extends BaseStatelessWidget {
                 LabelButton(
                   title: strings.forgot_password,
                   style: primaryMediumStyle.copyWith(fontSize: 12),
-                  onTap: () {},
+                  onTap: () {
+                    pushNamed(Routes.enterPhoneNumberPage);
+                  },
                 ),
               ],
             ),
@@ -89,7 +91,7 @@ class LoginScreen extends BaseStatelessWidget {
     String? token = await messaging.getToken();
     if (formKey.currentState!.validate()) {
       onLogin!(LoginParams(
-        phone: phoneNumberController.text,
+        email: emailController.text,
         password: passwordController.text,
         fcmToken: token,
       ));

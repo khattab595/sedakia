@@ -13,7 +13,7 @@ class _ForgotPasswordDataSource implements ForgotPasswordDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://alwaseet-sa.online/api/';
+    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
   }
 
   final Dio _dio;

@@ -13,7 +13,7 @@ class _AuthDataSource implements AuthDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://alwaseet-sa.online/api/';
+    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
   }
 
   final Dio _dio;
@@ -21,21 +21,21 @@ class _AuthDataSource implements AuthDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<ProfileDto>> login(LoginParams params) async {
+  Future<ApiResponse<dynamic>> login(LoginParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<ProfileDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'v1/login',
+              'api/v1/to-dash',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,9 +44,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<ProfileDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
     );
     return value;
   }

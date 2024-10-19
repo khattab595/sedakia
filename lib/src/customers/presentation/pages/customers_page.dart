@@ -1,16 +1,17 @@
 import '../../../../core/components/base_widget_bloc.dart';
 import '../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../main_index.dart';
+import '../../data/models/customer_dto.dart';
 import '../bloc/customers_bloc.dart';
 import 'customers_screen.dart';
 
-class CustomersPage extends BaseBlocWidget<UnInitState, CustomersBloc> {
+class CustomersPage extends BaseBlocWidget<DataSuccess<List<CustomerDto>>, CustomersBloc> {
   CustomersPage({Key? key}) : super(key: key);
 
-  // @override
-  // void loadInitialData(BuildContext context) {
-  //   bloc.fetchInitialData();
-  // }
+  @override
+  void loadInitialData(BuildContext context) {
+    bloc.fetchCustomer();
+  }
   @override
   String? title(BuildContext context) {
     return strings.customers;
@@ -36,7 +37,9 @@ class CustomersPage extends BaseBlocWidget<UnInitState, CustomersBloc> {
   }
 
   @override
-  Widget buildWidget(BuildContext context, UnInitState state) {
-    return  CustomersScreen();
+  Widget buildWidget(BuildContext context, DataSuccess<List<CustomerDto>> state) {
+    return  CustomersScreen(
+      data: state.data!,
+    );
   }
 }

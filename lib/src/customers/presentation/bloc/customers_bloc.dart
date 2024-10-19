@@ -1,13 +1,15 @@
  import 'package:injectable/injectable.dart';
 import '../../../../../core/bloc/base_cubit.dart';
-import '../../domain/use_cases/customers_usecase.dart';
+import '../../domain/repositories/customers_repo.dart';
 
 
 @Injectable()
 class CustomersBloc extends BaseCubit {
-  final CustomersUseCase productUseCase;
-  CustomersBloc(this.productUseCase);
+  final CustomersRepo _repo;
+  CustomersBloc(this._repo);
 
-
+  void fetchCustomer() {
+    executeSuccess(() => _repo.fetchCustomer());
+  }
 
 }

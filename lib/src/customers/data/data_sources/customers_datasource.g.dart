@@ -13,12 +13,47 @@ class _CustomersDatasource implements CustomersDatasource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://alwaseet-sa.online/api/';
+    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
   }
 
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<ApiResponse<List<CustomerDto>>> fetchCustomer() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<List<CustomerDto>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'products/v1/get-customers',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<List<CustomerDto>>.fromJson(
+      _result.data!,
+      (json) => json is List<dynamic>
+          ? json
+              .map<CustomerDto>(
+                  (i) => CustomerDto.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
+    );
+    return value;
+  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&

@@ -6,6 +6,7 @@ import 'package:app/src/product/presentation/pages/view/product_screen.dart';
 
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/product_dto.dart';
 import '../../bloc/product_bloc.dart';
 
 class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
@@ -13,7 +14,7 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
 
   // @override
   // void loadInitialData(BuildContext context) {
-  //   bloc.fetchInitialData();
+  //   bloc.fetchGetProduct();
   // }
   @override
   Widget build(BuildContext context) {
@@ -76,6 +77,8 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return ProductScreen();
+    return ProductScreen(
+   //   data: state.data!,
+    );
   }
 }

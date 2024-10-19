@@ -1,10 +1,11 @@
 
 import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../main_index.dart';
+import '../../data/models/customer_dto.dart';
 
 class CustomerItem extends BaseStatelessWidget {
-   CustomerItem({super.key});
-
+   CustomerItem({super.key,required this.data});
+final CustomerDto data;
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -16,12 +17,12 @@ class CustomerItem extends BaseStatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PrimaryMediumText(label: "ماهيتاب عادل",fontSize: 16,),
+          PrimaryMediumText(label: data.userLogin??"",fontSize: 16,),
           7.ph,
           PrimaryRegularText(label: "01120484981",fontSize: 12
             ,),
           5.ph,
-          PrimaryRegularText(label: "mahytabadel25@gmail.com",fontSize:12,),
+          PrimaryRegularText(label: data.email??"",fontSize:12,),
 
 
         ],

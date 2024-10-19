@@ -1,3 +1,4 @@
+import '../../src/auth/presentation/pages/forget-password/enter_phone_number_page.dart';
 import '../../src/auth/presentation/pages/forget-password/enter_pin_code_page.dart';
 import '../../src/auth/presentation/pages/forget-password/change_password_page.dart';
 import '../../src/auth/presentation/pages/login/login_page.dart';
@@ -43,6 +44,7 @@ class Routes {
   static const String customersPage = 'customersPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
+  static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
 
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
@@ -65,5 +67,6 @@ class Routes {
     customersPage: (context) => CustomersPage(),
     aboutPage: (context) => AboutPage(),
     privacyPolicyPage: (context) => PrivacyPolicyPage(),
+    enterPhoneNumberPage: (context) => EnterPhoneNumberPage(),
   };
 }

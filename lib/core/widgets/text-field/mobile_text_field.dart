@@ -19,18 +19,18 @@ class MobileTextField extends BaseStatelessWidget {
       radius: 15,
       minHeight: 55,
       controller: controller,
-      title: title ?? strings.phone_number,
+      title: title ?? strings.email,
       hintText: hintText,
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.text,
     //  prefixIconPath: AppIcons.smartphone,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return strings.this_field_is_required;
-        } else if (value.length < 9) {
-          return strings.must_be_more_than_6_digits;
-        }
-        return null;
-      },
+    //   validator: (value) {
+    //     if (value!.isEmpty) {
+    //       return strings.this_field_is_required;
+    //     } else if (value.length < 9) {
+    //       return strings.must_be_more_than_6_digits;
+    //     }
+    //     return null;
+    //   },
     );
   }
 }
