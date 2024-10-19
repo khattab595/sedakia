@@ -51,7 +51,7 @@ import '../../src/requests/data/data_sources/requests_datasource.dart' as _i29;
 import '../../src/requests/data/repositories/requests_repo_imp.dart' as _i31;
 import '../../src/requests/domain/repositories/requests_repo.dart' as _i30;
 import '../../src/requests/domain/use_cases/product_usecase.dart' as _i32;
-import '../../src/requests/presentation/bloc/requests_bloc.dart' as _i49;
+import '../../src/requests/presentation/view/bloc/requests_bloc.dart' as _i49;
 import '../../src/requests/presentation/details/bloc/request_details_bloc.dart'
     as _i48;
 import '../../src/settings/data/data_sources/settings_datasource.dart' as _i33;

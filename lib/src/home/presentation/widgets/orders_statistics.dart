@@ -15,6 +15,8 @@ class OrdersStatistics extends BaseStatelessWidget {
     return GridView.builder(
       itemCount: 6,
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: 0.paddingAll,
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
         mainAxisExtent: 100,

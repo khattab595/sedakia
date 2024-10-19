@@ -12,6 +12,11 @@ class HomePage extends BaseBlocWidget<UnInitState, HomeCubit> {
   //   bloc.fetchInitialData();
   // }
 
+  // @override
+  // String? title(BuildContext context) {
+  //   return 'Statistics';
+  // }
+
   @override
   Widget buildWidget(
       BuildContext context, UnInitState state) {
