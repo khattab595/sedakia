@@ -21,13 +21,13 @@ class _ProductDatasource implements ProductDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<ProductDto>>> fetchGetProduct() async {
+  Future<ApiResponse<ProductDto>> fetchGetProduct() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<ProductDto>>>(Options(
+        _setStreamType<ApiResponse<ProductDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,14 +43,9 @@ class _ProductDatasource implements ProductDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<ProductDto>>.fromJson(
+    final value = ApiResponse<ProductDto>.fromJson(
       _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<ProductDto>(
-                  (i) => ProductDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => ProductDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

@@ -4,16 +4,32 @@ part 'product_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ProductDto {
+  @JsonKey(name: 'data')
+  List<ProductData>? data;
+  @JsonKey(name: 'total_products')
+  int? totalProducts;
+  @JsonKey(name: 'total_pages')
+  int? totalPages;
+  @JsonKey(name: 'current_page')
+  int? currentPage;
+
+  ProductDto({this.data, this.totalProducts, this.totalPages, this.currentPage});
+
+   factory ProductDto.fromJson(Map<String, dynamic> json) => _$ProductDtoFromJson(json);
+
+   Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
+}
+
+@JsonSerializable(ignoreUnannotated: false)
+class ProductData {
   @JsonKey(name: 'id')
-  double? id;
+  int? id;
   @JsonKey(name: 'name')
   String? name;
   @JsonKey(name: 'slug')
   String? slug;
   @JsonKey(name: 'date_created')
   DateCreated? dateCreated;
-  @JsonKey(name: 'date_modified')
-  DateModified? dateModified;
   @JsonKey(name: 'status')
   String? status;
   @JsonKey(name: 'featured')
@@ -34,14 +50,20 @@ class ProductDto {
   String? regularPrice;
   @JsonKey(name: 'sale_price')
   String? salePrice;
+  @JsonKey(name: 'date_on_sale_from')
+  String? dateOnSaleFrom;
+  @JsonKey(name: 'date_on_sale_to')
+  String? dateOnSaleTo;
   @JsonKey(name: 'total_sales')
-  double? totalSales;
+  int? totalSales;
   @JsonKey(name: 'tax_status')
   String? taxStatus;
   @JsonKey(name: 'tax_class')
   String? taxClass;
   @JsonKey(name: 'manage_stock')
   bool? manageStock;
+  @JsonKey(name: 'stock_quantity')
+  String? stockQuantity;
   @JsonKey(name: 'stock_status')
   String? stockStatus;
   @JsonKey(name: 'backorders')
@@ -59,13 +81,13 @@ class ProductDto {
   @JsonKey(name: 'height')
   String? height;
   @JsonKey(name: 'parent_id')
-  double? parentId;
+  int? parentId;
   @JsonKey(name: 'reviews_allowed')
   bool? reviewsAllowed;
   @JsonKey(name: 'purchase_note')
   String? purchaseNote;
   @JsonKey(name: 'menu_order')
-  double? menuOrder;
+  int? menuOrder;
   @JsonKey(name: 'post_password')
   String? postPassword;
   @JsonKey(name: 'virtual')
@@ -73,29 +95,27 @@ class ProductDto {
   @JsonKey(name: 'downloadable')
   bool? downloadable;
   @JsonKey(name: 'category_ids')
-  List<double>? categoryIds;
+  List<int>? categoryIds;
   @JsonKey(name: 'shipping_class_id')
-  double? shippingClassId;
+  int? shippingClassId;
   @JsonKey(name: 'image_id')
   String? imageId;
-  @JsonKey(name: 'gallery_image_ids')
-  List<double>? galleryImageIds;
   @JsonKey(name: 'download_limit')
-  double? downloadLimit;
+  int? downloadLimit;
   @JsonKey(name: 'download_expiry')
-  double? downloadExpiry;
+  int? downloadExpiry;
   @JsonKey(name: 'average_rating')
   String? averageRating;
   @JsonKey(name: 'review_count')
-  double? reviewCount;
+  int? reviewCount;
   @JsonKey(name: 'categories')
   List<String>? categories;
 
-  ProductDto({this.id, this.name, this.slug, this.dateCreated, this.dateModified, this.status, this.featured, this.catalogVisibility, this.description, this.shortDescription, this.sku, this.globalUniqueId, this.price, this.regularPrice, this.salePrice, this.totalSales, this.taxStatus, this.taxClass, this.manageStock, this.stockStatus, this.backorders, this.lowStockAmount, this.soldIndividually, this.weight, this.length, this.width, this.height, this.parentId, this.reviewsAllowed, this.purchaseNote, this.menuOrder, this.postPassword, this.virtual, this.downloadable, this.categoryIds, this.shippingClassId, this.imageId, this.galleryImageIds, this.downloadLimit, this.downloadExpiry, this.averageRating, this.reviewCount, this.categories});
+  ProductData({this.id, this.name, this.slug, this.dateCreated, this.status, this.featured, this.catalogVisibility, this.description, this.shortDescription, this.sku, this.globalUniqueId, this.price, this.regularPrice, this.salePrice, this.dateOnSaleFrom, this.dateOnSaleTo, this.totalSales, this.taxStatus, this.taxClass, this.manageStock, this.stockQuantity, this.stockStatus, this.backorders, this.lowStockAmount, this.soldIndividually, this.weight, this.length, this.width, this.height, this.parentId, this.reviewsAllowed, this.purchaseNote, this.menuOrder, this.postPassword, this.virtual, this.downloadable, this.categoryIds, this.shippingClassId, this.imageId, this.downloadLimit, this.downloadExpiry, this.averageRating, this.reviewCount, this.categories});
 
-   factory ProductDto.fromJson(Map<String, dynamic> json) => _$ProductDtoFromJson(json);
+   factory ProductData.fromJson(Map<String, dynamic> json) => _$ProductDataFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ProductDtoToJson(this);
+   Map<String, dynamic> toJson() => _$ProductDataToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -103,7 +123,7 @@ class DateCreated {
   @JsonKey(name: 'date')
   String? date;
   @JsonKey(name: 'timezone_type')
-  double? timezoneType;
+  int? timezoneType;
   @JsonKey(name: 'timezone')
   String? timezone;
 
@@ -114,19 +134,4 @@ class DateCreated {
    Map<String, dynamic> toJson() => _$DateCreatedToJson(this);
 }
 
-@JsonSerializable(ignoreUnannotated: false)
-class DateModified {
-  @JsonKey(name: 'date')
-  String? date;
-  @JsonKey(name: 'timezone_type')
-  double? timezoneType;
-  @JsonKey(name: 'timezone')
-  String? timezone;
-
-  DateModified({this.date, this.timezoneType, this.timezone});
-
-   factory DateModified.fromJson(Map<String, dynamic> json) => _$DateModifiedFromJson(json);
-
-   Map<String, dynamic> toJson() => _$DateModifiedToJson(this);
-}
 

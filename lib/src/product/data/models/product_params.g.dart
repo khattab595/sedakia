@@ -13,7 +13,9 @@ ProductParams _$ProductParamsFromJson(Map<String, dynamic> json) =>
       salePrice: (json['sale_price'] as num?)?.toDouble(),
       stockStatus: json['stock_status'] as String?,
       shortDescription: json['short_description'] as String?,
-      categories: json['categories'] as String?,
+      categories: (json['categories'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$ProductParamsToJson(ProductParams instance) =>

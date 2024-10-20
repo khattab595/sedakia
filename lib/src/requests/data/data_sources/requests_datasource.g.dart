@@ -21,20 +21,20 @@ class _RequestsDatasource implements RequestsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<OrderDto>>> fetchGetOrder() async {
+  Future<ApiResponse<OrderDto>> fetchOrder() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<OrderDto>>>(Options(
+        _setStreamType<ApiResponse<OrderDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'products/mobile/v1/orders?status=processing',
+              'products/mobile/v1/orders',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,14 +43,39 @@ class _RequestsDatasource implements RequestsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<OrderDto>>.fromJson(
+    final value = ApiResponse<OrderDto>.fromJson(
       _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<OrderDto>(
-                  (i) => OrderDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => OrderDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> changeStatus(int id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'products/v1/orders/${id}/change-status',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
     );
     return value;
   }

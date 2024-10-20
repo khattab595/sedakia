@@ -1,8 +1,9 @@
-
+import 'package:app/src/categories/data/models/category_params.dart';
 import 'package:injectable/injectable.dart';
 
-  import '../../domain/repositories/categories_repo.dart';
+import '../../domain/repositories/categories_repo.dart';
 import '../data_sources/catagory_datasource.dart';
+import '../models/category_dto.dart';
 
 @Injectable(as: CategoriesRepo)
 class CategoriesRepoImp extends CategoriesRepo {
@@ -10,14 +11,21 @@ class CategoriesRepoImp extends CategoriesRepo {
 
   CategoriesRepoImp(this.datasource);
 
-  // @override
-  // Future<HomeData> fetchHomeData() async {
-  //   final response = await datasource.fetchHomeData();
-  //   ProfileDto profile = await HelperMethods.getProfile();
-  //   HomeData data = HomeData.fromJson(response.data!);
-  //   data.employeeName =
-  //       '${profile.firstName} ${profile.secondName} ${profile.lastName}';
-  //   data.employeeImage = profile.image;
-  //   return data;
-  // }
+  @override
+  Future<CategoryDto> fetchCategory() async {
+    final response = await datasource.fetchCategory();
+    return response.payload!;
+  }
+
+  @override
+  Future<String> addCategory(CategoryParams params)async {
+    final response = await datasource.addCategory(params);
+    return response.message!;
+  }
+
+  @override
+  Future<String> deleteCategory(int id)async {
+   final response=await datasource.deleteCategory(id);
+   return response.message!;
+  }
 }

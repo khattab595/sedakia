@@ -19,6 +19,8 @@ class AddProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return AddProductScreen();
+    return AddProductScreen(
+      onCreate:(params)=>bloc.createProduct(params),
+    );
   }
 }

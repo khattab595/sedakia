@@ -29,48 +29,5 @@ class AuthRepoImp extends AuthRepo {
     return response.message!;
   }
 
-  @override
-  Future<String> register(RegisterParams params) async {
-    params.fcmToken = await FirebaseNotification().getToken();
-    final response = await apiProvider.register(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
-    return response.message ?? '';
-  }
 
-  @override
-  Future<String> verificationCode(VerificationCodeParams params) async {
-    final response = await apiProvider.verificationCode(params);
-    await HelperMethods.saveProfile(response.data ?? ProfileDto());
-    return response.message ?? '';
-  }
-
-  @override
-  Future<String> completeRegistration(CompleteRegistrationParams params) async {
-    final response = await apiProvider.completeRegistration(
-      params.academicLevelId ?? '',
-      params.stageLevelId ?? '',
-      params.birthDate ?? '',
-      params.gender ?? '',
-      File(params.picIdentityF ?? ''),
-      File(params.picIdentityB ?? ''),
-    );
-    ProfileDto profileDto = ProfileDto.fromJson(response['user']);
-    profileDto.token = response['token'];
-    await HelperMethods.saveProfile(profileDto);
-    return response['message'];
-  }
-
-  @override
-  Future<List<DropDownItem>> fetchAcademicLevels() async {
-    final response = await apiProvider.fetchAcademicLevels();
-    return response.data
-            ?.map((e) => DropDownItem(id: e.id.toString(), title: e.name))
-            .toList() ??
-        [];
-  }
-
-  @override
-  Future<List<DropDownItem>> fetchStageLevels(String academicLevelId) async {
-    return [];
-  }
 }

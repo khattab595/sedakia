@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
   import '../../domain/repositories/requests_repo.dart';
 import '../data_sources/requests_datasource.dart';
+import '../models/order_dto.dart';
 
 @Injectable(as: RequestsRepo)
 class RequestsRepoImp extends RequestsRepo {
@@ -10,14 +11,15 @@ class RequestsRepoImp extends RequestsRepo {
 
   RequestsRepoImp(this.datasource);
 
-  // @override
-  // Future<HomeData> fetchHomeData() async {
-  //   final response = await datasource.fetchHomeData();
-  //   ProfileDto profile = await HelperMethods.getProfile();
-  //   HomeData data = HomeData.fromJson(response.data!);
-  //   data.employeeName =
-  //       '${profile.firstName} ${profile.secondName} ${profile.lastName}';
-  //   data.employeeImage = profile.image;
-  //   return data;
-  // }
+  @override
+  Future<OrderDto> fetchOrder() async {
+    final response = await datasource.fetchOrder();
+    return response.payload!;
+  }
+
+  @override
+  Future<String> changeStatus(int id) async {
+    final response = await datasource.changeStatus(id);
+    return response.message!;
+  }
 }

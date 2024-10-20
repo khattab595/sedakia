@@ -9,13 +9,13 @@ import '../../../../main_index.dart';
 import '../../../data/models/product_dto.dart';
 import '../../bloc/product_bloc.dart';
 
-class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
+class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   ProductPage({Key? key}) : super(key: key);
 
-  // @override
-  // void loadInitialData(BuildContext context) {
-  //   bloc.fetchGetProduct();
-  // }
+  @override
+  void loadInitialData(BuildContext context) {
+    bloc.fetchGetProduct();
+  }
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -76,9 +76,16 @@ class ProductPage extends BaseBlocWidget<UnInitState, ProductBloc> {
   }
 
   @override
-  Widget buildWidget(BuildContext context, UnInitState state) {
+  Widget buildWidget(BuildContext context, DataSuccess<ProductDto> state) {
     return ProductScreen(
-   //   data: state.data!,
+      data: state.data!,
+      onDelete: (params)=>bloc.deleteProduct(params),
     );
+  }
+
+
+  @override
+  void onSuccessDismissed() {
+    Navigators.pushNamedAndRemoveUntil(Routes.productPage);
   }
 }

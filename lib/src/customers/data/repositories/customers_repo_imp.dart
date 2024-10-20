@@ -14,6 +14,6 @@ class CustomersRepoImp extends CustomersRepo {
   @override
   Future<List<CustomerDto>> fetchCustomer() async {
     final response = await datasource.fetchCustomer();
-    return response.data!;
+    return response.payload!;
   }
 }

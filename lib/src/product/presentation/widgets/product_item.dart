@@ -4,12 +4,15 @@ import 'package:app/src/main_index.dart';
 
 import '../../../../core/widgets/buttons/options_menu_button.dart';
 import '../../data/models/product_dto.dart';
+import '../../data/models/product_params.dart';
 
 class ProductItem extends BaseStatelessWidget {
   ProductItem({super.key,
-   // required this.data
+    required this.data,
+    required this.onDelete
   });
-  //final ProductDto data;
+  final ProductData data;
+  final Function(ProductParams) onDelete;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,9 +43,13 @@ class ProductItem extends BaseStatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SemiBoldPrimaryText(
-                      label: "قطنيل",
-                      fontSize: 16,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width *0.50,
+                      child: SemiBoldPrimaryText(
+                        label: data.name??"",
+                        fontSize: 16,
+                        labelStyle: primarySemiBoldStyle.copyWith(overflow: TextOverflow.ellipsis),
+                      ),
                     ),
                     5.ph,
                     PrimaryRegularText(
@@ -74,7 +81,7 @@ class ProductItem extends BaseStatelessWidget {
           PositionedDirectional(
               top: 0,
               end: 0,
-              child:  _OptionsMenuButton(onDelete: () {}))
+              child:  _OptionsMenuButton(onDelete: onDelete,data: data,))
         ],
       ),
     );
@@ -82,13 +89,14 @@ class ProductItem extends BaseStatelessWidget {
 }
 
 class _OptionsMenuButton extends BaseStatelessWidget {
-  final Function() onDelete;
-
+  final Function(ProductParams) onDelete;
+  final  ProductData data;
   _OptionsMenuButton({
     Key? key,
 
     // required this.onChangeStatus,
     required this.onDelete,
+    required this.data,
   }) : super(key: key);
 
 
@@ -118,7 +126,18 @@ class _OptionsMenuButton extends BaseStatelessWidget {
 
           pushNamed(Routes.addProductPage);
 
-        } else if (value == 1) {}
+        } else if (value == 1) {
+          onDelete(
+            ProductParams(
+              name: data.name,
+              stockStatus: data.stockStatus,
+              shortDescription: data.shortDescription,
+              salePrice: double.parse(data.salePrice.toString()),
+              regularPrice: double.parse(data.regularPrice.toString()),
+              categories: data.categories
+            )
+          );
+        }
       },
     );
   }

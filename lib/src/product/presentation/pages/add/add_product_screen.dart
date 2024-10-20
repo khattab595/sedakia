@@ -10,9 +10,8 @@ import '../../../../main_index.dart';
 import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
- // final Function(ProductParams) onCreate;
-  AddProductScreen({Key? key,
-   // required this.onCreate
+  final Function(ProductParams) onCreate;
+  AddProductScreen({Key? key, required this.onCreate
   }) : super(key: key);
   TextEditingController nameController = TextEditingController();
   TextEditingController imageController = TextEditingController();
@@ -20,6 +19,7 @@ class AddProductScreen extends BaseStatelessWidget {
   TextEditingController quantityController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   int? category;
+  String?  available;
   File? file;
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,10 @@ class AddProductScreen extends BaseStatelessWidget {
                   DropDownItem(title: "نعم"),
                   DropDownItem(title: "لا"),
                 ],
-                onChanged: (item) {}),
+                value: available,
+                onChanged: (item) {
+                  available=item.id;
+                }),
             10.ph,
             CustomTextField(
               title: strings.quantity,
@@ -78,15 +81,15 @@ class AddProductScreen extends BaseStatelessWidget {
                 buttonColor: primaryColor,
                 buttonTextColor: whiteTextColor,
                 buttonFunc: () {
-                  // onCreate(ProductParams(
-                  //   name: nameController.text,
-                  //   regularPrice: double.parse(priceController.text),
-                  //   salePrice: double.parse(quantityController.text),
-                  //   shortDescription: descriptionController.text,
-                  //   stockStatus:"تبؤمنا",
-                  //   categories:"fhj",
-                  //
-                  // ));
+                  onCreate(ProductParams(
+                    name: nameController.text,
+                    regularPrice: double.parse(priceController.text),
+                    salePrice: double.parse(quantityController.text),
+                    shortDescription: descriptionController.text,
+                    stockStatus:available,
+                    categories:["fhj","fs"],
+
+                  ));
                 })
           ],
         ),

@@ -15,7 +15,7 @@ class ProductParams {
   @JsonKey(name: 'short_description')
   String? shortDescription;
   @JsonKey(name: 'categories')
-  String? categories;
+  List<String> ?categories;
 
   ProductParams({this.name, this.regularPrice, this.salePrice, this.stockStatus, this.shortDescription, this.categories});
 

@@ -21,6 +21,7 @@ class AddCategoriesPage extends BaseBlocWidget<UnInitState, CategoriesBloc> {
   Widget buildWidget(
       BuildContext context,UnInitState state) {
     return AddCategoriesScreen(
+      addCategory: (params)=>bloc.addCategory(params),
 
     );
   }

@@ -11,9 +11,5 @@ import '../../data/models/verification_code_params.dart';
 
 abstract class AuthRepo {
   Future<String> login(LoginParams params);
-  Future<String> register(RegisterParams params);
-  Future<String> verificationCode(VerificationCodeParams params);
-  Future<String> completeRegistration(CompleteRegistrationParams params);
-  Future<List<DropDownItem>> fetchAcademicLevels();
-  Future<List<DropDownItem>> fetchStageLevels(String academicLevelId);
+
 }

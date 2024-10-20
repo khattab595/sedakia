@@ -32,7 +32,14 @@ class HelperMethods {
   List<File> data=  imageFile.map((e) => File(e.path)).toList();
     return data;
   }
-
+  static  String getDate(String now) {
+    if (now == "") {
+      return "";
+    } else {
+      DateTime dateTime = DateTime.parse(now);
+      return DateFormat('yyyy-MM-dd').format(dateTime);
+    }
+  }
   static Future<File> getImageFromGallery() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);

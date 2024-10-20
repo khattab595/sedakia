@@ -7,16 +7,29 @@ part of 'product_dto.dart';
 // **************************************************************************
 
 ProductDto _$ProductDtoFromJson(Map<String, dynamic> json) => ProductDto(
-      id: (json['id'] as num?)?.toDouble(),
+      data: (json['data'] as List<dynamic>?)
+          ?.map((e) => ProductData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      totalProducts: json['total_products'] as int?,
+      totalPages: json['total_pages'] as int?,
+      currentPage: json['current_page'] as int?,
+    );
+
+Map<String, dynamic> _$ProductDtoToJson(ProductDto instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'total_products': instance.totalProducts,
+      'total_pages': instance.totalPages,
+      'current_page': instance.currentPage,
+    };
+
+ProductData _$ProductDataFromJson(Map<String, dynamic> json) => ProductData(
+      id: json['id'] as int?,
       name: json['name'] as String?,
       slug: json['slug'] as String?,
       dateCreated: json['date_created'] == null
           ? null
           : DateCreated.fromJson(json['date_created'] as Map<String, dynamic>),
-      dateModified: json['date_modified'] == null
-          ? null
-          : DateModified.fromJson(
-              json['date_modified'] as Map<String, dynamic>),
       status: json['status'] as String?,
       featured: json['featured'] as bool?,
       catalogVisibility: json['catalog_visibility'] as String?,
@@ -27,10 +40,13 @@ ProductDto _$ProductDtoFromJson(Map<String, dynamic> json) => ProductDto(
       price: json['price'] as String?,
       regularPrice: json['regular_price'] as String?,
       salePrice: json['sale_price'] as String?,
-      totalSales: (json['total_sales'] as num?)?.toDouble(),
+      dateOnSaleFrom: json['date_on_sale_from'] as String?,
+      dateOnSaleTo: json['date_on_sale_to'] as String?,
+      totalSales: json['total_sales'] as int?,
       taxStatus: json['tax_status'] as String?,
       taxClass: json['tax_class'] as String?,
       manageStock: json['manage_stock'] as bool?,
+      stockQuantity: json['stock_quantity'] as String?,
       stockStatus: json['stock_status'] as String?,
       backorders: json['backorders'] as String?,
       lowStockAmount: json['low_stock_amount'] as String?,
@@ -39,37 +55,33 @@ ProductDto _$ProductDtoFromJson(Map<String, dynamic> json) => ProductDto(
       length: json['length'] as String?,
       width: json['width'] as String?,
       height: json['height'] as String?,
-      parentId: (json['parent_id'] as num?)?.toDouble(),
+      parentId: json['parent_id'] as int?,
       reviewsAllowed: json['reviews_allowed'] as bool?,
       purchaseNote: json['purchase_note'] as String?,
-      menuOrder: (json['menu_order'] as num?)?.toDouble(),
+      menuOrder: json['menu_order'] as int?,
       postPassword: json['post_password'] as String?,
       virtual: json['virtual'] as bool?,
       downloadable: json['downloadable'] as bool?,
       categoryIds: (json['category_ids'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
+          ?.map((e) => e as int)
           .toList(),
-      shippingClassId: (json['shipping_class_id'] as num?)?.toDouble(),
+      shippingClassId: json['shipping_class_id'] as int?,
       imageId: json['image_id'] as String?,
-      galleryImageIds: (json['gallery_image_ids'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
-      downloadLimit: (json['download_limit'] as num?)?.toDouble(),
-      downloadExpiry: (json['download_expiry'] as num?)?.toDouble(),
+      downloadLimit: json['download_limit'] as int?,
+      downloadExpiry: json['download_expiry'] as int?,
       averageRating: json['average_rating'] as String?,
-      reviewCount: (json['review_count'] as num?)?.toDouble(),
+      reviewCount: json['review_count'] as int?,
       categories: (json['categories'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
     );
 
-Map<String, dynamic> _$ProductDtoToJson(ProductDto instance) =>
+Map<String, dynamic> _$ProductDataToJson(ProductData instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'slug': instance.slug,
       'date_created': instance.dateCreated,
-      'date_modified': instance.dateModified,
       'status': instance.status,
       'featured': instance.featured,
       'catalog_visibility': instance.catalogVisibility,
@@ -80,10 +92,13 @@ Map<String, dynamic> _$ProductDtoToJson(ProductDto instance) =>
       'price': instance.price,
       'regular_price': instance.regularPrice,
       'sale_price': instance.salePrice,
+      'date_on_sale_from': instance.dateOnSaleFrom,
+      'date_on_sale_to': instance.dateOnSaleTo,
       'total_sales': instance.totalSales,
       'tax_status': instance.taxStatus,
       'tax_class': instance.taxClass,
       'manage_stock': instance.manageStock,
+      'stock_quantity': instance.stockQuantity,
       'stock_status': instance.stockStatus,
       'backorders': instance.backorders,
       'low_stock_amount': instance.lowStockAmount,
@@ -102,7 +117,6 @@ Map<String, dynamic> _$ProductDtoToJson(ProductDto instance) =>
       'category_ids': instance.categoryIds,
       'shipping_class_id': instance.shippingClassId,
       'image_id': instance.imageId,
-      'gallery_image_ids': instance.galleryImageIds,
       'download_limit': instance.downloadLimit,
       'download_expiry': instance.downloadExpiry,
       'average_rating': instance.averageRating,
@@ -112,24 +126,11 @@ Map<String, dynamic> _$ProductDtoToJson(ProductDto instance) =>
 
 DateCreated _$DateCreatedFromJson(Map<String, dynamic> json) => DateCreated(
       date: json['date'] as String?,
-      timezoneType: (json['timezone_type'] as num?)?.toDouble(),
+      timezoneType: json['timezone_type'] as int?,
       timezone: json['timezone'] as String?,
     );
 
 Map<String, dynamic> _$DateCreatedToJson(DateCreated instance) =>
-    <String, dynamic>{
-      'date': instance.date,
-      'timezone_type': instance.timezoneType,
-      'timezone': instance.timezone,
-    };
-
-DateModified _$DateModifiedFromJson(Map<String, dynamic> json) => DateModified(
-      date: json['date'] as String?,
-      timezoneType: (json['timezone_type'] as num?)?.toDouble(),
-      timezone: json['timezone'] as String?,
-    );
-
-Map<String, dynamic> _$DateModifiedToJson(DateModified instance) =>
     <String, dynamic>{
       'date': instance.date,
       'timezone_type': instance.timezoneType,

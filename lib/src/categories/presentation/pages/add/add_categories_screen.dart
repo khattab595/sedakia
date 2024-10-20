@@ -5,11 +5,15 @@ import 'package:app/core/utils/helper_methods.dart';
 import '../../../../../core/widgets/buttons/custom_button.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/category_params.dart';
 
 class AddCategoriesScreen extends BaseStatelessWidget {
+  final Function(CategoryParams) addCategory;
   TextEditingController imageController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   File? file;
+
+  AddCategoriesScreen({super.key, required this.addCategory});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -35,7 +39,12 @@ class AddCategoriesScreen extends BaseStatelessWidget {
             buttonText: strings.save,
             buttonColor: primaryColor,
             buttonTextColor: whiteTextColor,
-            buttonFunc: () {})
+            buttonFunc: () {
+              addCategory(CategoryParams(
+                name: nameController.text,
+                image: imageController.text,
+              ));
+            })
       ]),
     );
   }

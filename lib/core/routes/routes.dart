@@ -53,7 +53,6 @@ class Routes {
     splashPage: (context) => SplashPage(),
     loginPage: (context) => LoginPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
-    enterPinCodePage: (context) => EnterPinCodePage(),
     navigationPages: (context) => NavigationBarPage(),
     homePage: (context) => HomePage(),
     more: (context) => MorePage(),

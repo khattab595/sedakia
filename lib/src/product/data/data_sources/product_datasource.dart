@@ -15,7 +15,7 @@ abstract class  ProductDatasource{
   factory ProductDatasource(Dio dio) = _ProductDatasource;
 
   @GET('products-moblie/v1/all-products')
-  Future<ApiResponse<List<ProductDto>>> fetchGetProduct();
+  Future<ApiResponse<ProductDto>> fetchGetProduct();
 
   @POST('products-moblie/v1/add-product')
   Future<ApiResponse> createProduct(@Body() ProductParams params);

@@ -13,9 +13,9 @@ class ProductRepoImp extends ProductRepo {
   ProductRepoImp(this.datasource);
 
    @override
-  Future<List<ProductDto>> fetchGetProduct() async {
+  Future<ProductDto> fetchGetProduct() async {
     final response = await datasource.fetchGetProduct();
-    return response.data!;
+    return response.payload!;
   }
 
   @override

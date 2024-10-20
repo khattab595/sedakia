@@ -4,16 +4,17 @@
  import '../../../../core/bloc/base_cubit.dart';
 import '../../../main_index.dart';
 import '../../domain/repositories/home_repo.dart';
+import '../../domain/use_cases/home_usecase.dart';
 
 @Injectable()
 class HomeCubit extends BaseCubit {
-  final HomeRepo _repo;
+  final HomeUseCase homeUseCase;
 
-  HomeCubit(this._repo);
+  HomeCubit(this.homeUseCase);
 
-  // void fetchInitialData() {
-  //   executeSuccess(() => _repo.fetchHomeData());
-  // }
+  void fetchSummary() {
+    executeSuccess(() => homeUseCase.fetchSummary());
+  }
 
 
 }

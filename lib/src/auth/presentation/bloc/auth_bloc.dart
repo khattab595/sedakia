@@ -16,11 +16,4 @@ class AuthCubit extends BaseCubit {
    executeSuccessState(() => repo.login(params));
   }
 
-  void register(RegisterParams params) async {
-    executeEmitterListener(() => repo.register(params));
-  }
-
-  void verificationCode(VerificationCodeParams params) async {
-    executeEmitterListener(() => repo.verificationCode(params));
-  }
 }
