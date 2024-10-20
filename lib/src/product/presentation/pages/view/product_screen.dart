@@ -1,12 +1,11 @@
 import '../../../../main_index.dart';
 import '../../../data/models/product_dto.dart';
-import '../../../data/models/product_params.dart';
 import '../../widgets/product_item.dart';
 
 class ProductScreen extends BaseStatelessWidget {
   ProductScreen({super.key, required this.data,required this.onDelete});
   final ProductDto data;
-  final Function(ProductParams) onDelete;
+  final Function(int id) onDelete;
   @override
 
   Widget build(BuildContext context) {

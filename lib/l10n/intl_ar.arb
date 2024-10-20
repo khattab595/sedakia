@@ -26,6 +26,8 @@
   "average_order_value": "متوسط قيمة الطلب",
   "email": "البريد الإلكتروني",
   "forgot_password_message": "ادخل البريد الالكتروني لإعادة تعيين كلمة المرور",
+  "statistics": "الاحصائيات",
+  "piece": "قطعة",
 
 
 
@@ -63,7 +65,6 @@
   "name": "الاسم",
   "delete": "حذف",
   "price": "السعر",
-  "statistics": "الاحصئيات",
   "quantity": "الكمية",
    "products": "المنتجات",
   "add_product": "اضافة  منتج",

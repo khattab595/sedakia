@@ -25,8 +25,8 @@ class ProductRepoImp extends ProductRepo {
   }
 
   @override
-  Future<String> deleteProduct(ProductParams params) async{
-    final response =await datasource.deleteProduct(params);
+  Future<String> deleteProduct(int id) async{
+    final response =await datasource.deleteProduct(id);
     return response.message!;
   }
 }

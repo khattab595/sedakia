@@ -17,8 +17,8 @@ class ProductBloc extends BaseCubit {
     executeEmitterListener(() => _repo.createProduct(params));
   }
 
-  void deleteProduct(ProductParams params) {
-    executeEmitterListener(() => _repo.deleteProduct(params));
+  void deleteProduct(int id) {
+    executeEmitterListener(() => _repo.deleteProduct(id));
   }
 
 }

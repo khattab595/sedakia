@@ -79,7 +79,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   Widget buildWidget(BuildContext context, DataSuccess<ProductDto> state) {
     return ProductScreen(
       data: state.data!,
-      onDelete: (params)=>bloc.deleteProduct(params),
+      onDelete: (id)=>bloc.deleteProduct(id),
     );
   }
 

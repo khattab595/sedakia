@@ -82,12 +82,11 @@ class _ProductDatasource implements ProductDatasource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> deleteProduct(ProductParams params) async {
+  Future<ApiResponse<dynamic>> deleteProduct(int id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
@@ -96,7 +95,7 @@ class _ProductDatasource implements ProductDatasource {
     )
             .compose(
               _dio.options,
-              'products-moblie/v1/add-product',
+              'products-moblie/v1/add-product/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

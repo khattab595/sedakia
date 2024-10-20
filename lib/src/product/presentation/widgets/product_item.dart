@@ -12,7 +12,7 @@ class ProductItem extends BaseStatelessWidget {
     required this.onDelete
   });
   final ProductData data;
-  final Function(ProductParams) onDelete;
+  final Function(int id) onDelete;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,22 +53,22 @@ class ProductItem extends BaseStatelessWidget {
                     ),
                     5.ph,
                     PrimaryRegularText(
-                      label: "احسن قطعة  في السوق",
+                      label: data.shortDescription??"",
                       fontSize: 12,
                     ),
                     5.ph,
                     PrimaryRegularText(
-                      label: "500 قطعه",
+                      label: "${data.stockQuantity} ${strings.piece}",
                       fontSize: 12,
                     ),
                     5.ph,
                     PrimaryRegularText(
-                        label: "متاح",
+                        label: data.stockStatus??"",
                         fontSize: 12,
                         labelColor: AppColors.blueColor),
                     5.ph,
                     PrimaryRegularText(
-                      label: " \$ 300",
+                      label: " \$ ${data.price}",
                       fontSize: 14,
                     ),
                   ],
@@ -89,7 +89,7 @@ class ProductItem extends BaseStatelessWidget {
 }
 
 class _OptionsMenuButton extends BaseStatelessWidget {
-  final Function(ProductParams) onDelete;
+  final Function(int id) onDelete;
   final  ProductData data;
   _OptionsMenuButton({
     Key? key,
@@ -128,14 +128,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
 
         } else if (value == 1) {
           onDelete(
-            ProductParams(
-              name: data.name,
-              stockStatus: data.stockStatus,
-              shortDescription: data.shortDescription,
-              salePrice: double.parse(data.salePrice.toString()),
-              regularPrice: double.parse(data.regularPrice.toString()),
-              categories: data.categories
-            )
+            int.parse(data.id.toString())
           );
         }
       },

@@ -21,7 +21,7 @@ abstract class  ProductDatasource{
   Future<ApiResponse> createProduct(@Body() ProductParams params);
 
 
-  @POST('products-moblie/v1/add-product')
-  Future<ApiResponse> deleteProduct(@Body() ProductParams params);
+  @POST('products-moblie/v1/add-product/{id}')
+  Future<ApiResponse> deleteProduct(@Path("id") int id);
 
 }
