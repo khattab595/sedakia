@@ -10,13 +10,12 @@ import '../../domain/use_cases/categories_usecase.dart';
 class CategoriesBloc extends BaseCubit {
   final CategoriesRepo _repo;
   final CategoriesUseCase categoriesUseCase;
-  StreamStateInitial<CategoryModel?> categoryStreamData = StreamStateInitial();
+
 
   CategoriesBloc(this._repo,this.categoriesUseCase);
 
   fetchGetData() {
     fetchCategory();
-    getListCategory();
   }
   void fetchCategory() {
     executeSuccess(() => categoriesUseCase.fetchCategory());
@@ -32,15 +31,4 @@ class CategoriesBloc extends BaseCubit {
   }
 
 
-  getListCategory() async {
-    try {
-      final data = await categoriesUseCase.fetchCategory();
-      categoryStreamData.setData(data);
-    } catch (e) {
-      categoryStreamData.setError(e);
-      print(e);
-      print("ggt");
-      rethrow;
-    }
-  }
 }

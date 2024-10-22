@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app/src/categories/data/models/category_params.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -17,9 +19,15 @@ abstract class  CategoriesDatasource{
   @GET('categories/mobile/v1/all-categories')
   Future<ApiResponse<CategoryDto>> fetchCategory();
 
-
+  @MultiPart()
   @POST('categories/mobile/v1/add-category')
-  Future<ApiResponse<CategoryDto>> addCategory(@Body() CategoryParams params);
+  Future<ApiResponse<CategoryDto>> addCategory(
+      @Part(name: 'name') String name,
+      @Part(name: 'description') String description,
+      @Part(name: 'parent') String parent,
+      @Part(name: 'slug') List<String> slug,
+      @Part(name: 'image') File image,
+      );
 
 
   @POST('categories/mobile/v1/delete-category/{id}')

@@ -121,7 +121,7 @@ class DropDownField extends BaseStatelessWidget {
             },
             buttonStyleData:  ButtonStyleData(
               height: height,
-              padding: EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10),
               // decoration: BoxDecoration(
               //   color: Colors.transparent,
               // ),

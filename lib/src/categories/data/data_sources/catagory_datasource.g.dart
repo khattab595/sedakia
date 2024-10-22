@@ -51,17 +51,45 @@ class _CategoriesDatasource implements CategoriesDatasource {
   }
 
   @override
-  Future<ApiResponse<CategoryDto>> addCategory(CategoryParams params) async {
+  Future<ApiResponse<CategoryDto>> addCategory(
+    String name,
+    String description,
+    String parent,
+    List<String> slug,
+    File image,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'description',
+      description,
+    ));
+    _data.fields.add(MapEntry(
+      'parent',
+      parent,
+    ));
+    slug.forEach((i) {
+      _data.fields.add(MapEntry('slug', i));
+    });
+    _data.files.add(MapEntry(
+      'image',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<CategoryDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
             .compose(
               _dio.options,

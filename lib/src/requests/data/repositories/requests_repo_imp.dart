@@ -1,4 +1,5 @@
 
+import 'package:app/src/requests/data/models/order_details_dto.dart';
 import 'package:injectable/injectable.dart';
 
   import '../../../product/data/models/search_params.dart';
@@ -22,5 +23,11 @@ class RequestsRepoImp extends RequestsRepo {
   Future<String> changeStatus(int id) async {
     final response = await datasource.changeStatus(id);
     return response.message!;
+  }
+
+  @override
+  Future<OrderDetailsDto> orderDetails(int id)async {
+    final response = await datasource.orderDetails(id);
+    return response.payload!;
   }
 }

@@ -35,9 +35,9 @@ class DataOrder {
   @JsonKey(name: 'phone')
   String? phone;
   @JsonKey(name: 'shipping_address')
-  ShippingAddress? shippingAddress;
+  ShippingAddress shippingAddress;
 
-  DataOrder({this.id, this.customerName, this.status, this.total, this.dateCreated, this.phone, this.shippingAddress});
+  DataOrder({this.id, this.customerName, this.status, this.total, this.dateCreated, this.phone,required this.shippingAddress});
 
    factory DataOrder.fromJson(Map<String, dynamic> json) => _$DataOrderFromJson(json);
 

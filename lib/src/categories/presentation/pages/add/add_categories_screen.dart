@@ -16,11 +16,15 @@ class AddCategoriesScreen extends BaseStatelessWidget {
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   File? file;
-  String?  available;
+  String available = "";
   List<String>? category;
-  Function(String id) onGetCategory;
-  StreamStateInitial<CategoryModel?> categoryStreamData;
-  AddCategoriesScreen({super.key, required this.addCategory,required this.categoryStreamData,required this.onGetCategory});
+  final CategoryModel data;
+  StreamStateInitial<String> isAvailable = StreamStateInitial();
+  AddCategoriesScreen({
+    super.key,
+    required this.addCategory,
+    required this.data,
+  });
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -31,35 +35,37 @@ class AddCategoriesScreen extends BaseStatelessWidget {
           controller: nameController,
         ),
         DropDownField(
-            title: strings.available,
-            items: const [
-              DropDownItem(title: "نعم"),
-              DropDownItem(title: "لا"),
-            ],
-            value: available,
-            onChanged: (value) {
-              onGetCategory(value.id ?? "");
-              available = value.id;
-            },
-          ),
-        10.ph,
-        StreamBuilder(
-            stream: categoryStreamData.stream,
-          builder: (context,snapshot) {
-            return snapshot.data == null
-                ? const SizedBox()
-                :DropDownFieldMulti(
-              value: category,
-              title: strings.category,
-              items: snapshot.data!.data!
-                  .map((e) => DropDownItem(
-                id: e.id.toString(),
-                title: e.name ?? "",
-              ))
-                  .toList(),
-            );
-          }
+          title: strings.available,
+          items: const [
+            DropDownItem(title: "نعم", id: "1"),
+            DropDownItem(title: "لا", id: "0"),
+          ],
+          value: available,
+          onChanged: (value) {
+            available = value.id!;
+            isAvailable.setData(available);
+          },
         ),
+        15.ph,
+        StreamBuilder(
+            stream: isAvailable.stream,
+            builder: (context, snapshot) {
+              return( snapshot.data == null || snapshot.data=="0")
+                  ? const SizedBox()
+                  : DropDownFieldMulti(
+                      value: category,
+                      onChanged: (value) {
+                        category = value?.map((e) => e.id ?? "").toList();
+                      },
+                      title: strings.category,
+                      items: data.data
+                          !.map((e) => DropDownItem(
+                                id: e.id.toString(),
+                                title: e.name ?? "",
+                              ))
+                          .toList(),
+                    );
+            }),
         10.ph,
         StatefulBuilder(builder: (context, setState) {
           return CustomTextField(
@@ -86,7 +92,10 @@ class AddCategoriesScreen extends BaseStatelessWidget {
             buttonFunc: () {
               addCategory(CategoryParams(
                 name: nameController.text,
-                image: imageController.text,
+                parent: available,
+                slug: category,
+                image: file,
+                description: descriptionController.text,
               ));
             })
       ]),

@@ -29,10 +29,8 @@ DataOrder _$DataOrderFromJson(Map<String, dynamic> json) => DataOrder(
       total: json['total'] as String?,
       dateCreated: json['date_created'] as String?,
       phone: json['phone'] as String?,
-      shippingAddress: json['shipping_address'] == null
-          ? null
-          : ShippingAddress.fromJson(
-              json['shipping_address'] as Map<String, dynamic>),
+      shippingAddress: ShippingAddress.fromJson(
+          json['shipping_address'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DataOrderToJson(DataOrder instance) => <String, dynamic>{

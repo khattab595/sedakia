@@ -1,6 +1,8 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'dart:io';
 
-part 'category_params.g.dart'; 
+import 'package:json_annotation/json_annotation.dart';
+
+part 'category_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class CategoryParams {
@@ -9,16 +11,32 @@ class CategoryParams {
   @JsonKey(name: 'description')
   String? description;
   @JsonKey(name: 'parent')
-  int? parent;
+  String? parent;
   @JsonKey(name: 'slug')
-  String? slug;
+  List<String>? slug;
   @JsonKey(name: 'image')
-  String? image;
+  @FileJsonConverter()
+  File? image;
 
-  CategoryParams({this.name, this.description, this.parent, this.slug, this.image});
+  CategoryParams(
+      {this.name, this.description, this.parent, this.slug, this.image});
 
-   factory CategoryParams.fromJson(Map<String, dynamic> json) => _$CategoryParamsFromJson(json);
+  factory CategoryParams.fromJson(Map<String, dynamic> json) =>
+      _$CategoryParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$CategoryParamsToJson(this);
+  Map<String, dynamic> toJson() => _$CategoryParamsToJson(this);
 }
 
+class FileJsonConverter extends JsonConverter<File, String> {
+  const FileJsonConverter();
+
+  @override
+  File fromJson(String json) {
+    return File(json);
+  }
+
+  @override
+  String toJson(File object) {
+    return object.path;
+  }
+}

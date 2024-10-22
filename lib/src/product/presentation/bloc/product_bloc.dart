@@ -1,17 +1,18 @@
- import 'package:injectable/injectable.dart';
+import 'package:injectable/injectable.dart';
 import '../../../../../core/bloc/base_cubit.dart';
 import '../../../../core/commen/common_state.dart';
+import '../../../categories/domain/use_cases/categories_usecase.dart';
 import '../../data/models/product_dto.dart';
 import '../../data/models/product_params.dart';
 import '../../data/models/search_params.dart';
 import '../../domain/repositories/product_repo.dart';
 
-
 @Injectable()
 class ProductBloc extends BaseCubit {
   final ProductRepo _repo;
+  final CategoriesUseCase categoriesUseCase;
 
-  ProductBloc(this._repo);
+  ProductBloc(this._repo, this.categoriesUseCase);
   StreamStateInitial<ProductDto?> productStreamData = StreamStateInitial();
 
   fetchGetData(SearchParams searchParams) {
@@ -31,6 +32,10 @@ class ProductBloc extends BaseCubit {
     executeEmitterListener(() => _repo.deleteProduct(id));
   }
 
+  void fetchCategory() {
+    executeSuccess(() => categoriesUseCase.fetchCategory());
+  }
+
   searchProduct(SearchParams params) async {
     try {
       final data = await _repo.fetchGetProduct(params);
@@ -41,6 +46,4 @@ class ProductBloc extends BaseCubit {
       rethrow;
     }
   }
-
-
 }

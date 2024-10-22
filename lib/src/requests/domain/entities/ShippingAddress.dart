@@ -1,5 +1,7 @@
-class ShippingAddress {
-  ShippingAddress({
+import '../../data/models/order_dto.dart';
+
+class ShippingAddressData {
+  ShippingAddressData({
     this.firstName,
     this.lastName,
     this.address1,
@@ -19,12 +21,12 @@ class ShippingAddress {
   String? postcode;
   String? country;
 
-  factory ShippingAddress.fromDto(ShippingAddress json) {
-    return ShippingAddress(
+  factory ShippingAddressData.fromDto(ShippingAddress json) {
+    return ShippingAddressData(
       firstName: json.firstName,
       lastName: json.lastName,
-      address1: json.address1,
-      address2: json.address2,
+      address1: json.address_1,
+      address2: json.address_2,
       city: json.city,
       state: json.state,
       postcode: json.postcode,

@@ -19,7 +19,14 @@ class CategoriesRepoImp extends CategoriesRepo {
 
   @override
   Future<String> addCategory(CategoryParams params)async {
-    final response = await datasource.addCategory(params);
+    final response = await datasource.addCategory(
+
+      params.name??"",
+      params.description??"",
+      params.parent??"",
+      params.slug??[],
+      params.image!,
+    );
     return response.message??"";
   }
 

@@ -6,21 +6,25 @@ import 'package:app/core/widgets/drop_down/drop_down.dart';
 
 import '../../../../../core/utils/helper_methods.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
+import '../../../../categories/domain/entities/Category.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
   final Function(ProductParams) onCreate;
-  AddProductScreen({Key? key, required this.onCreate
-  }) : super(key: key);
+  final CategoryModel data;
+  AddProductScreen({Key? key, required this.onCreate, required this.data})
+      : super(key: key);
   TextEditingController nameController = TextEditingController();
   TextEditingController imageController = TextEditingController();
   TextEditingController priceController = TextEditingController();
   TextEditingController quantityController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController discountController = TextEditingController();
+  StreamStateInitial<String> isAvailable = StreamStateInitial();
   int? category;
-  String?  available;
+  String available="";
+  String? categories;
   File? file;
   @override
   Widget build(BuildContext context) {
@@ -55,20 +59,36 @@ class AddProductScreen extends BaseStatelessWidget {
               keyboardType: TextInputType.number,
             ),
             DropDownField(
-                title: strings.category,
-                items: const [DropDownItem(title: "بنطلون")],
-                onChanged: (item) {}),
-            10.ph,
-            DropDownField(
                 title: strings.available,
                 items: const [
-                  DropDownItem(title: "نعم"),
-                  DropDownItem(title: "لا"),
+                  DropDownItem(title: "نعم",id: "1"),
+                  DropDownItem(title: "لا",id: "0"),
                 ],
                 value: available,
                 onChanged: (item) {
-                  available=item.id;
+                  available = item.id!;
+                  isAvailable.setData(available);
                 }),
+            10.ph,
+            StreamBuilder(
+              stream:  isAvailable.stream,
+              builder: (context,snapshot) {
+                return ( snapshot.data == null || snapshot.data=="0")
+                    ? const SizedBox()
+                    : DropDownField(
+                    title: strings.category,
+                    value: categories,
+                    items: data.data!
+                        .map((e) => DropDownItem(
+                              id: e.id.toString(),
+                              title: e.name ?? "",
+                            ))
+                        .toList(),
+                    onChanged: (item) {
+                      categories = item.id;
+                    });
+              }
+            ),
             10.ph,
             CustomTextField(
               title: strings.quantity,
@@ -88,14 +108,14 @@ class AddProductScreen extends BaseStatelessWidget {
                 buttonTextColor: whiteTextColor,
                 buttonFunc: () {
                   onCreate(ProductParams(
-                    name: nameController.text,
-                    regularPrice: double.parse(priceController.text),
-                    salePrice: double.parse(quantityController.text),
-                    shortDescription: descriptionController.text,
-                    stockStatus:available,
-                    categories:["fhj","fs"],
-
-                  ));
+                      name: nameController.text,
+                      regularPrice: priceController.text,
+                      salePrice: discountController.text,
+                      shortDescription: descriptionController.text,
+                      stockQuantity: quantityController.text,
+                      stockStatus: available,
+                      categories: categories,
+                      images: file));
                 })
           ],
         ),

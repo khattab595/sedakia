@@ -1,13 +1,17 @@
  import 'package:injectable/injectable.dart';
 import '../../../../../core/bloc/base_cubit.dart';
+import '../../../domain/repositories/requests_repo.dart';
 import '../../../domain/use_cases/product_usecase.dart';
 
 
 @Injectable()
 class RequestDetailsBloc extends BaseCubit {
   final RequestsUseCase requestsUseCase;
-  RequestDetailsBloc(this.requestsUseCase);
+  final RequestsRepo requestsRepo;
+  RequestDetailsBloc(this.requestsUseCase,this.requestsRepo);
 
-
+  void orderDetails(int id) {
+    executeSuccess(() => requestsRepo.orderDetails(id));
+  }
 
 }

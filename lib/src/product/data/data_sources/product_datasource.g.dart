@@ -52,17 +52,61 @@ class _ProductDatasource implements ProductDatasource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> createProduct(ProductParams params) async {
+  Future<ApiResponse<dynamic>> createProduct(
+    String name,
+    String regularPrice,
+    String salePrice,
+    String stockQuantity,
+    String stockStatus,
+    String shortDescription,
+    String categories,
+    File images,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'regular_price',
+      regularPrice,
+    ));
+    _data.fields.add(MapEntry(
+      'sale_price',
+      salePrice,
+    ));
+    _data.fields.add(MapEntry(
+      'stock_quantity',
+      stockQuantity,
+    ));
+    _data.fields.add(MapEntry(
+      'stock_status',
+      stockStatus,
+    ));
+    _data.fields.add(MapEntry(
+      'short_description',
+      shortDescription,
+    ));
+    _data.fields.add(MapEntry(
+      'categories',
+      categories,
+    ));
+    _data.files.add(MapEntry(
+      'images[]',
+      MultipartFile.fromFileSync(
+        images.path,
+        filename: images.path.split(Platform.pathSeparator).last,
+      ),
+    ));
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
             .compose(
               _dio.options,
