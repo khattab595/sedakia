@@ -83,7 +83,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-          pushNamed(Routes.addCategoriesPage);
+          pushNamed(Routes.addCategoriesPage,arguments:data );
         } else if (value == 1) {
           onDelete(int.parse(data.id.toString()));
         }

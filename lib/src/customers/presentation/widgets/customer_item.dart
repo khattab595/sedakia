@@ -19,7 +19,7 @@ final CustomerData data;
         children: [
           PrimaryMediumText(label: data.userLogin??"",fontSize: 16,),
           7.ph,
-          PrimaryRegularText(label: "01120484981",fontSize: 12
+          PrimaryRegularText(label: data.phone??"",fontSize: 12
             ,),
           5.ph,
           PrimaryRegularText(label: data.email??"",fontSize:12,),

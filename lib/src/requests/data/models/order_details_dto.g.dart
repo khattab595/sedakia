@@ -16,17 +16,17 @@ OrderDetailsDto _$OrderDetailsDtoFromJson(Map<String, dynamic> json) =>
       currency: json['currency'] as String?,
       billing: json['billing'] == null
           ? null
-          : Billing.fromJson(json['billing'] as Map<String, dynamic>),
+          : DataBilling.fromJson(json['billing'] as Map<String, dynamic>),
       shipping: json['shipping'] == null
           ? null
           : Shipping.fromJson(json['shipping'] as Map<String, dynamic>),
       paymentMethod: json['payment_method'] as String?,
       paymentMethodTitle: json['payment_method_title'] as String?,
       items: (json['items'] as List<dynamic>?)
-          ?.map((e) => Item.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => DataItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       metaData: (json['meta_data'] as List<dynamic>?)
-          ?.map((e) => MetaData.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => MetaDataModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -46,7 +46,7 @@ Map<String, dynamic> _$OrderDetailsDtoToJson(OrderDetailsDto instance) =>
       'meta_data': instance.metaData,
     };
 
-Billing _$BillingFromJson(Map<String, dynamic> json) => Billing(
+DataBilling _$DataBillingFromJson(Map<String, dynamic> json) => DataBilling(
       firstName: json['first_name'] as String?,
       lastName: json['last_name'] as String?,
       email: json['email'] as String?,
@@ -59,7 +59,8 @@ Billing _$BillingFromJson(Map<String, dynamic> json) => Billing(
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$BillingToJson(Billing instance) => <String, dynamic>{
+Map<String, dynamic> _$DataBillingToJson(DataBilling instance) =>
+    <String, dynamic>{
       'first_name': instance.firstName,
       'last_name': instance.lastName,
       'email': instance.email,
@@ -94,7 +95,7 @@ Map<String, dynamic> _$ShippingToJson(Shipping instance) => <String, dynamic>{
       'country': instance.country,
     };
 
-Item _$ItemFromJson(Map<String, dynamic> json) => Item(
+DataItem _$DataItemFromJson(Map<String, dynamic> json) => DataItem(
       id: json['id'] as int?,
       productId: json['product_id'] as int?,
       name: json['name'] as String?,
@@ -102,9 +103,10 @@ Item _$ItemFromJson(Map<String, dynamic> json) => Item(
       total: json['total'] as String?,
       subtotal: json['subtotal'] as String?,
       sku: json['sku'] as String?,
+      imageUrl: json['image_url'] as String?,
     );
 
-Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
+Map<String, dynamic> _$DataItemToJson(DataItem instance) => <String, dynamic>{
       'id': instance.id,
       'product_id': instance.productId,
       'name': instance.name,
@@ -112,14 +114,15 @@ Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'total': instance.total,
       'subtotal': instance.subtotal,
       'sku': instance.sku,
+      'image_url': instance.imageUrl,
     };
 
-MetaData _$MetaDataFromJson(Map<String, dynamic> json) => MetaData(
+MetaDataModel _$MetaDataFromJson(Map<String, dynamic> json) => MetaDataModel(
       key: json['key'] as String?,
       value: json['value'] as String?,
     );
 
-Map<String, dynamic> _$MetaDataToJson(MetaData instance) => <String, dynamic>{
+Map<String, dynamic> _$MetaDataToJson(MetaDataModel instance) => <String, dynamic>{
       'key': instance.key,
       'value': instance.value,
     };

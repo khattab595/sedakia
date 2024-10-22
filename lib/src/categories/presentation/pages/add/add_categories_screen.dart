@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:app/core/utils/helper_methods.dart';
-
 import '../../../../../core/widgets/buttons/custom_button.dart';
 import '../../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../../../core/widgets/drop_down/multi_drop_down.dart';
@@ -9,24 +7,33 @@ import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/category_params.dart';
 import '../../../domain/entities/Category.dart';
+import '../../../domain/entities/Data.dart';
+
 
 class AddCategoriesScreen extends BaseStatelessWidget {
   final Function(CategoryParams) addCategory;
+  final Function( CategoryParams params, int id) updateCategory;
   TextEditingController imageController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   File? file;
   String available = "";
   List<String>? category;
-  final CategoryModel data;
+  final CategoryModel categoryModel;
+  // final CategoryData categoryData;
   StreamStateInitial<String> isAvailable = StreamStateInitial();
   AddCategoriesScreen({
     super.key,
     required this.addCategory,
-    required this.data,
+    required this.categoryModel,
+    required this.updateCategory,
+    // required this.categoryData
   });
   @override
   Widget build(BuildContext context) {
+    // nameController=TextEditingController(text: categoryData.name);
+    // imageController=TextEditingController(text: categoryData.image);
+    // descriptionController=TextEditingController(text: categoryData.description);
     return SingleChildScrollView(
       padding: 20.paddingAll,
       child: Column(children: [
@@ -58,7 +65,7 @@ class AddCategoriesScreen extends BaseStatelessWidget {
                         category = value?.map((e) => e.id ?? "").toList();
                       },
                       title: strings.category,
-                      items: data.data
+                      items: categoryModel.data
                           !.map((e) => DropDownItem(
                                 id: e.id.toString(),
                                 title: e.name ?? "",
@@ -90,6 +97,7 @@ class AddCategoriesScreen extends BaseStatelessWidget {
             buttonColor: primaryColor,
             buttonTextColor: whiteTextColor,
             buttonFunc: () {
+              // categoryData ==null ?
               addCategory(CategoryParams(
                 name: nameController.text,
                 parent: available,
@@ -97,6 +105,18 @@ class AddCategoriesScreen extends BaseStatelessWidget {
                 image: file,
                 description: descriptionController.text,
               ));
+              // :
+              // updateCategory(
+              //      CategoryParams(
+              //       name: nameController.text,
+              //       parent: available,
+              //       slug: category,
+              //       image: file,
+              //       description: descriptionController.text,
+              //     ),
+              //     int.parse(categoryData.id.toString())
+              // );
+
             })
       ]),
     );

@@ -14,7 +14,7 @@ class ProductDto {
   int? currentPage;
 
   ProductDto(
-      {this.data, this.totalProducts, this.totalPages, this.currentPage});
+      {this.data, this.totalProducts, this.totalPages, this.currentPage,});
 
   factory ProductDto.fromJson(Map<String, dynamic> json) =>
       _$ProductDtoFromJson(json);
@@ -35,6 +35,8 @@ class ProductData {
   @JsonKey(name: 'regular_price')
   String? regularPrice;
   @JsonKey(name: 'stock_quantity')
+  String? salePrice;
+  @JsonKey(name: 'sale_price')
   String? stockQuantity;
   @JsonKey(name: 'stock_status')
   String? stockStatus;
@@ -50,6 +52,7 @@ class ProductData {
     this.stockQuantity,
     this.stockStatus,
     this.imageUrl,
+    this.salePrice
   });
 
   factory ProductData.fromJson(Map<String, dynamic> json) =>

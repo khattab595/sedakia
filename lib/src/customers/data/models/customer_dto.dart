@@ -28,8 +28,10 @@ class Data {
   String? userLogin;
   @JsonKey(name: 'email')
   String? email;
+  @JsonKey(name: 'phone')
+  String? phone;
 
-  Data({this.id, this.userLogin, this.email});
+  Data({this.id, this.userLogin, this.email,this.phone});
 
    factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 

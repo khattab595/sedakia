@@ -1,19 +1,24 @@
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:app/core/widgets/buttons/custom_button.dart';
 import 'package:app/core/widgets/drop_down/drop_down.dart';
-
 import '../../../../../core/utils/helper_methods.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../categories/domain/entities/Category.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/product_dto.dart';
 import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
   final Function(ProductParams) onCreate;
-  final CategoryModel data;
-  AddProductScreen({Key? key, required this.onCreate, required this.data})
+  final CategoryModel categoryModel;
+ // final ProductDto productDto;
+  AddProductScreen(
+      {Key? key,
+      required this.onCreate,
+      required this.categoryModel,
+     // required this.productDto
+      })
       : super(key: key);
   TextEditingController nameController = TextEditingController();
   TextEditingController imageController = TextEditingController();
@@ -23,11 +28,20 @@ class AddProductScreen extends BaseStatelessWidget {
   TextEditingController discountController = TextEditingController();
   StreamStateInitial<String> isAvailable = StreamStateInitial();
   int? category;
-  String available="";
+  String available = "";
   String? categories;
   File? file;
   @override
   Widget build(BuildContext context) {
+    // nameController = TextEditingController(text: productDto.data?.first.name?? "");
+    // priceController = TextEditingController(text: productDto.data?.first.price ?? "");
+    // imageController = TextEditingController(text: productDto.data?.first.imageUrl ?? "");
+    // quantityController =
+    //     TextEditingController(text: productDto.data?.first.stockQuantity ?? "");
+    // descriptionController =
+    //     TextEditingController(text: productDto.data?.first.shortDescription ?? "");
+    // descriptionController =
+    //     TextEditingController(text: productDto.data?.first.salePrice ?? "");
     return SingleChildScrollView(
       padding: 15.paddingAll,
       child: Form(
@@ -61,8 +75,8 @@ class AddProductScreen extends BaseStatelessWidget {
             DropDownField(
                 title: strings.available,
                 items: const [
-                  DropDownItem(title: "نعم",id: "1"),
-                  DropDownItem(title: "لا",id: "0"),
+                  DropDownItem(title: "نعم", id: "1"),
+                  DropDownItem(title: "لا", id: "0"),
                 ],
                 value: available,
                 onChanged: (item) {
@@ -71,24 +85,23 @@ class AddProductScreen extends BaseStatelessWidget {
                 }),
             10.ph,
             StreamBuilder(
-              stream:  isAvailable.stream,
-              builder: (context,snapshot) {
-                return ( snapshot.data == null || snapshot.data=="0")
-                    ? const SizedBox()
-                    : DropDownField(
-                    title: strings.category,
-                    value: categories,
-                    items: data.data!
-                        .map((e) => DropDownItem(
-                              id: e.id.toString(),
-                              title: e.name ?? "",
-                            ))
-                        .toList(),
-                    onChanged: (item) {
-                      categories = item.id;
-                    });
-              }
-            ),
+                stream: isAvailable.stream,
+                builder: (context, snapshot) {
+                  return (snapshot.data == null || snapshot.data == "0")
+                      ? const SizedBox()
+                      : DropDownField(
+                          title: strings.category,
+                          value: categories,
+                          items: categoryModel.data!
+                              .map((e) => DropDownItem(
+                                    id: e.id.toString(),
+                                    title: e.name ?? "",
+                                  ))
+                              .toList(),
+                          onChanged: (item) {
+                            categories = item.id;
+                          });
+                }),
             10.ph,
             CustomTextField(
               title: strings.quantity,

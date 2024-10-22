@@ -51,7 +51,7 @@ class _CategoriesDatasource implements CategoriesDatasource {
   }
 
   @override
-  Future<ApiResponse<CategoryDto>> addCategory(
+  Future<ApiResponse<dynamic>> addCategory(
     String name,
     String description,
     String parent,
@@ -85,7 +85,7 @@ class _CategoriesDatasource implements CategoriesDatasource {
       ),
     ));
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<CategoryDto>>(Options(
+        _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -102,9 +102,69 @@ class _CategoriesDatasource implements CategoriesDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<CategoryDto>.fromJson(
+    final value = ApiResponse<dynamic>.fromJson(
       _result.data!,
-      (json) => CategoryDto.fromJson(json as Map<String, dynamic>),
+      (json) => json as dynamic,
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> updateCategory(
+    String name,
+    String description,
+    String parent,
+    List<String> slug,
+    File image,
+    int id,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'description',
+      description,
+    ));
+    _data.fields.add(MapEntry(
+      'parent',
+      parent,
+    ));
+    slug.forEach((i) {
+      _data.fields.add(MapEntry('slug', i));
+    });
+    _data.files.add(MapEntry(
+      'image',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'categories/mobile/v1/update-category/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
     );
     return value;
   }

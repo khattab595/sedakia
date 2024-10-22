@@ -36,6 +36,23 @@ class ProductRepoImp extends ProductRepo {
     return response.message ?? "";
   }
 
+
+  @override
+  Future<String> updateProduct({required ProductParams params,required int id}) async {
+    final response = await datasource.updateProduct(
+      params.name ?? "",
+      params.stockStatus ?? "",
+      params.stockQuantity??"",
+      params.regularPrice ?? "",
+      params.salePrice ?? "",
+      params.categories ?? "",
+      params.shortDescription??"",
+      params.images!,
+      id
+    );
+    return response.message ?? "";
+  }
+
   @override
   Future<String> deleteProduct(int id) async {
     final response = await datasource.deleteProduct(id);

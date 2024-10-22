@@ -17,7 +17,7 @@ class OrderDetailsDto {
   @JsonKey(name: 'currency')
   String? currency;
   @JsonKey(name: 'billing')
-  Billing? billing;
+  DataBilling? billing;
   @JsonKey(name: 'shipping')
   Shipping? shipping;
   @JsonKey(name: 'payment_method')
@@ -25,9 +25,9 @@ class OrderDetailsDto {
   @JsonKey(name: 'payment_method_title')
   String? paymentMethodTitle;
   @JsonKey(name: 'items')
-  List<Item>? items;
+  List<DataItem>? items;
   @JsonKey(name: 'meta_data')
-  List<MetaData>? metaData;
+  List<MetaDataModel>? metaData;
 
   OrderDetailsDto({this.id, this.status, this.dateCreated, this.total, this.subtotal, this.currency, this.billing, this.shipping, this.paymentMethod, this.paymentMethodTitle, this.items, this.metaData});
 
@@ -37,7 +37,7 @@ class OrderDetailsDto {
 }
 
 @JsonSerializable(ignoreUnannotated: false)
-class Billing {
+class DataBilling {
   @JsonKey(name: 'first_name')
   String? firstName;
   @JsonKey(name: 'last_name')
@@ -59,11 +59,11 @@ class Billing {
   @JsonKey(name: 'country')
   String? country;
 
-  Billing({this.firstName, this.lastName, this.email, this.phone, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
+  DataBilling({this.firstName, this.lastName, this.email, this.phone, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
 
-   factory Billing.fromJson(Map<String, dynamic> json) => _$BillingFromJson(json);
+   factory DataBilling.fromJson(Map<String, dynamic> json) => _$DataBillingFromJson(json);
 
-   Map<String, dynamic> toJson() => _$BillingToJson(this);
+   Map<String, dynamic> toJson() => _$DataBillingToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -93,7 +93,7 @@ class Shipping {
 }
 
 @JsonSerializable(ignoreUnannotated: false)
-class Item {
+class DataItem {
   @JsonKey(name: 'id')
   int? id;
   @JsonKey(name: 'product_id')
@@ -108,24 +108,26 @@ class Item {
   String? subtotal;
   @JsonKey(name: 'sku')
   String? sku;
+  @JsonKey(name: 'image_url')
+  String? imageUrl;
 
-  Item({this.id, this.productId, this.name, this.quantity, this.total, this.subtotal, this.sku});
+  DataItem({this.id, this.productId, this.name, this.quantity, this.total, this.subtotal, this.sku, this.imageUrl});
 
-   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
+   factory DataItem.fromJson(Map<String, dynamic> json) => _$DataItemFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ItemToJson(this);
+   Map<String, dynamic> toJson() => _$DataItemToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
-class MetaData {
+class MetaDataModel {
   @JsonKey(name: 'key')
   String? key;
   @JsonKey(name: 'value')
   String? value;
 
-  MetaData({this.key, this.value});
+  MetaDataModel({this.key, this.value});
 
-   factory MetaData.fromJson(Map<String, dynamic> json) => _$MetaDataFromJson(json);
+   factory MetaDataModel.fromJson(Map<String, dynamic> json) => _$MetaDataFromJson(json);
 
    Map<String, dynamic> toJson() => _$MetaDataToJson(this);
 }

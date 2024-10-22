@@ -11,7 +11,7 @@ class AddCategoriesPage
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchGetData();
+    bloc.fetchCategory();
   }
 
   @override
@@ -22,8 +22,11 @@ class AddCategoriesPage
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CategoryModel> state) {
     return AddCategoriesScreen(
-      data: state.data!,
+      categoryModel: state.data!,
+   //   categoryData: getArguments(context),
       addCategory: (params) => bloc.addCategory(params),
+      updateCategory: (params,  id) =>
+          bloc.updateCategory( params, id),
     );
   }
 

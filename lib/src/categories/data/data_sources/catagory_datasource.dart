@@ -21,7 +21,7 @@ abstract class  CategoriesDatasource{
 
   @MultiPart()
   @POST('categories/mobile/v1/add-category')
-  Future<ApiResponse<CategoryDto>> addCategory(
+  Future<ApiResponse> addCategory(
       @Part(name: 'name') String name,
       @Part(name: 'description') String description,
       @Part(name: 'parent') String parent,
@@ -30,7 +30,19 @@ abstract class  CategoriesDatasource{
       );
 
 
+  @MultiPart()
+  @POST('categories/mobile/v1/update-category/{id}')
+  Future<ApiResponse> updateCategory(
+      @Part(name: 'name') String name,
+      @Part(name: 'description') String description,
+      @Part(name: 'parent') String parent,
+      @Part(name: 'slug') List<String> slug,
+      @Part(name: 'image') File image,
+      @Path("id") int id
+      );
+
+
   @POST('categories/mobile/v1/delete-category/{id}')
-  Future<ApiResponse<CategoryDto>> deleteCategory(@Path() int id);
+  Future<ApiResponse<CategoryDto>> deleteCategory(@Path("id") int id);
 
 }

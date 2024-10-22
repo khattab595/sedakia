@@ -23,7 +23,7 @@ class AddProductPage extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductB
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CategoryModel> state) {
     return AddProductScreen(
-      data: state.data!,
+      categoryModel: state.data!,
       onCreate:(params)=>bloc.createProduct(params),
     );
   }
