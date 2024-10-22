@@ -22,7 +22,7 @@ class PasswordTextField extends BaseStatelessWidget {
      // prefixIconPath: AppIcons.unlock,
       isPassword: true,
       margin: margin,
-      validator: (value)=> Validation.validatePassword(value ?? ''),
+     // validator: (value)=> Validation.validatePassword(value ?? ''),
     );
   }
 }

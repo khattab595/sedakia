@@ -133,8 +133,10 @@ Future<_i1.GetIt> $initGetIt(
         gh<_i8.CategoriesRepo>(),
         gh<_i10.CategoriesUseCase>(),
       ));
-  gh.factory<_i44.CustomersBloc>(
-      () => _i44.CustomersBloc(gh<_i12.CustomersRepo>()));
+  gh.factory<_i44.CustomersBloc>(() => _i44.CustomersBloc(
+        gh<_i12.CustomersRepo>(),
+        gh<_i14.CustomersUseCase>(),
+      ));
   gh.factory<_i45.ForgotPasswordCubit>(() => _i45.ForgotPasswordCubit(
         gh<_i16.ForgotPasswordRepo>(),
         gh<_i5.AuthRepo>(),

@@ -21,9 +21,10 @@ class _ProductDatasource implements ProductDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<ProductDto>> fetchGetProduct() async {
+  Future<ApiResponse<ProductDto>> fetchGetProduct(SearchParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(params.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -95,7 +96,7 @@ class _ProductDatasource implements ProductDatasource {
     )
             .compose(
               _dio.options,
-              'products-moblie/v1/add-product/${id}',
+              'products-moblie/v1/delete-product/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -2,6 +2,7 @@
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../home/presentation/widgets/filter_date_widget.dart';
 import '../../../../main_index.dart';
+import '../../../../product/data/models/search_params.dart';
 import '../../../domain/entities/Order_model.dart';
 import '../bloc/requests_bloc.dart';
 import 'requests_screen.dart';
@@ -12,7 +13,7 @@ class RequestsPage extends BaseBlocWidget<DataSuccess<OrderModel>, RequestsBloc>
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchOrder();
+    bloc.fetchGetData(SearchParams());
   }
 
   @override
@@ -30,6 +31,7 @@ class RequestsPage extends BaseBlocWidget<DataSuccess<OrderModel>, RequestsBloc>
         FilterInvoices(
           controller: searchController,
           onFilter: (filter) {
+            bloc.searchOrder(SearchParams(searchText: filter));
           },
         ),
         Expanded(

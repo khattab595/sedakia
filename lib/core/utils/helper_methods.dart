@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../src/auth/data/models/login_dto.dart';
 import '../../src/main_index.dart';
 import '../../src/more/data/models/profile_dto.dart';
 
@@ -162,17 +163,17 @@ class HelperMethods {
     }
   }
 
-  static Future<ProfileDto> getProfile() async {
+  static Future<LoginDto> getProfile() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String profile = prefs.getString('profile') ?? '';
       print('profile $profile');
       final decoded = jsonDecode(profile);
       print('decoded $decoded');
-      return ProfileDto.fromJson(decoded);
+      return LoginDto.fromJson(decoded);
     } on Exception catch (e) {
       print('getProfile error $e');
-      return ProfileDto();
+      return LoginDto();
     }
   }
 
@@ -202,8 +203,8 @@ class HelperMethods {
 
   static Future<String> getToken() async {
     try {
-      ProfileDto profile = await getProfile();
-      return profile.token ?? '';
+      LoginDto loginDto = await getProfile();
+      return loginDto.token ?? '';
     } on Exception catch (e) {
       return '';
     }

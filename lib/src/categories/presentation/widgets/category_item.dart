@@ -17,9 +17,9 @@ class CategoryItem extends BaseStatelessWidget {
           width: MediaQuery.of(context).size.width * .5,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            image: const DecorationImage(
+            image: DecorationImage(
                 image: NetworkImage(
-                    "https://turkeyana.com/wp-content/uploads/2017/06/330.jpg"
+                    data.image??""
                     //  data.image??""
                     ),
                 fit: BoxFit.cover),
@@ -40,7 +40,7 @@ class CategoryItem extends BaseStatelessWidget {
         ),
         5.ph,
         PrimaryBoldText(
-          label: "moo",
+          label: data.name??"",
           //data.name??"",
           fontSize: 16,
         )

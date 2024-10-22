@@ -1,7 +1,8 @@
 
 import 'package:injectable/injectable.dart';
 
-  import '../../domain/repositories/customers_repo.dart';
+  import '../../../product/data/models/search_params.dart';
+import '../../domain/repositories/customers_repo.dart';
  import '../data_sources/customers_datasource.dart';
 import '../models/customer_dto.dart';
 
@@ -12,8 +13,8 @@ class CustomersRepoImp extends CustomersRepo {
   CustomersRepoImp(this.datasource);
 
   @override
-  Future<List<CustomerDto>> fetchCustomer() async {
-    final response = await datasource.fetchCustomer();
+  Future<CustomerDto> fetchCustomer(SearchParams params) async {
+    final response = await datasource.fetchCustomer(params);
     return response.payload!;
   }
 }

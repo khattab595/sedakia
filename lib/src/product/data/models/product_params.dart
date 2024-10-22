@@ -10,6 +10,8 @@ class ProductParams {
   double? regularPrice;
   @JsonKey(name: 'sale_price')
   double? salePrice;
+  @JsonKey(name: 'stock_quantity')
+  double? stockQuantity;
   @JsonKey(name: 'stock_status')
   String? stockStatus;
   @JsonKey(name: 'short_description')
@@ -17,7 +19,7 @@ class ProductParams {
   @JsonKey(name: 'categories')
   List<String> ?categories;
 
-  ProductParams({this.name, this.regularPrice, this.salePrice, this.stockStatus, this.shortDescription, this.categories});
+  ProductParams({this.name, this.regularPrice, this.salePrice,this.stockQuantity, this.stockStatus, this.shortDescription, this.categories});
 
    factory ProductParams.fromJson(Map<String, dynamic> json) => _$ProductParamsFromJson(json);
 

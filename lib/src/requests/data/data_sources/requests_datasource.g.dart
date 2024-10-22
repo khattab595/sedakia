@@ -21,9 +21,10 @@ class _RequestsDatasource implements RequestsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<OrderDto>> fetchOrder() async {
+  Future<ApiResponse<OrderDto>> fetchOrder(SearchParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(params.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(

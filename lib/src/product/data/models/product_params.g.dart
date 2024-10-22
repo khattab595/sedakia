@@ -11,6 +11,7 @@ ProductParams _$ProductParamsFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       regularPrice: (json['regular_price'] as num?)?.toDouble(),
       salePrice: (json['sale_price'] as num?)?.toDouble(),
+      stockQuantity: (json['stock_quantity'] as num?)?.toDouble(),
       stockStatus: json['stock_status'] as String?,
       shortDescription: json['short_description'] as String?,
       categories: (json['categories'] as List<dynamic>?)
@@ -23,6 +24,7 @@ Map<String, dynamic> _$ProductParamsToJson(ProductParams instance) =>
       'name': instance.name,
       'regular_price': instance.regularPrice,
       'sale_price': instance.salePrice,
+      'stock_quantity': instance.stockQuantity,
       'stock_status': instance.stockStatus,
       'short_description': instance.shortDescription,
       'categories': instance.categories,

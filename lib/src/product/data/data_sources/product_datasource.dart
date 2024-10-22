@@ -5,6 +5,7 @@ import 'package:retrofit/retrofit.dart';
 import '../../../../core/utils/constants.dart';
 import '../models/product_dto.dart';
 import '../models/product_params.dart';
+import '../models/search_params.dart';
 
 part 'product_datasource.g.dart';
 @Injectable()
@@ -15,13 +16,13 @@ abstract class  ProductDatasource{
   factory ProductDatasource(Dio dio) = _ProductDatasource;
 
   @GET('products-moblie/v1/all-products')
-  Future<ApiResponse<ProductDto>> fetchGetProduct();
+  Future<ApiResponse<ProductDto>> fetchGetProduct(@Queries() SearchParams params);
 
   @POST('products-moblie/v1/add-product')
   Future<ApiResponse> createProduct(@Body() ProductParams params);
 
 
-  @POST('products-moblie/v1/add-product/{id}')
+  @POST('products-moblie/v1/delete-product/{id}')
   Future<ApiResponse> deleteProduct(@Path("id") int id);
 
 }

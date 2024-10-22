@@ -1,5 +1,4 @@
 import 'package:app/core/utils/navigator.dart';
-import 'package:app/core/widgets/buttons/custom_button.dart';
 import 'package:app/core/widgets/text-field/custom_text_field.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/product/presentation/pages/view/product_screen.dart';
@@ -7,14 +6,14 @@ import 'package:app/src/product/presentation/pages/view/product_screen.dart';
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../main_index.dart';
 import '../../../data/models/product_dto.dart';
+import '../../../data/models/search_params.dart';
 import '../../bloc/product_bloc.dart';
 
 class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   ProductPage({Key? key}) : super(key: key);
-
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchGetProduct();
+    bloc.fetchGetData(SearchParams());
   }
   @override
   Widget build(BuildContext context) {
@@ -64,6 +63,9 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
           Padding(
             padding: 15.paddingHoriz + 10.paddingTop,
             child: CustomTextField(
+              onChanged: (value){
+               bloc.searchProduct(SearchParams(searchText: value));
+              },
               hintText: strings.search,
               minHeight: 45,
               validator: (p0) => null,

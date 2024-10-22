@@ -21,20 +21,21 @@ class _CustomersDatasource implements CustomersDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<List<CustomerDto>>> fetchCustomer() async {
+  Future<ApiResponse<CustomerDto>> fetchCustomer(SearchParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(params.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<CustomerDto>>>(Options(
+        _setStreamType<ApiResponse<CustomerDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'products/v1/get-customers',
+              'products/mobile/v1/get-customers',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,14 +44,9 @@ class _CustomersDatasource implements CustomersDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<List<CustomerDto>>.fromJson(
+    final value = ApiResponse<CustomerDto>.fromJson(
       _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<CustomerDto>(
-                  (i) => CustomerDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => CustomerDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

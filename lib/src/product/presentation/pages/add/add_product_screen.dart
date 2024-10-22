@@ -18,6 +18,7 @@ class AddProductScreen extends BaseStatelessWidget {
   TextEditingController priceController = TextEditingController();
   TextEditingController quantityController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  TextEditingController discountController = TextEditingController();
   int? category;
   String?  available;
   File? file;
@@ -46,6 +47,11 @@ class AddProductScreen extends BaseStatelessWidget {
             CustomTextField(
               title: strings.price,
               controller: priceController,
+              keyboardType: TextInputType.number,
+            ),
+            CustomTextField(
+              title: strings.discount,
+              controller: discountController,
               keyboardType: TextInputType.number,
             ),
             DropDownField(

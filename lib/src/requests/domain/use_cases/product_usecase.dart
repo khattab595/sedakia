@@ -2,6 +2,7 @@
 
 import 'package:injectable/injectable.dart';
 
+import '../../../product/data/models/search_params.dart';
 import '../entities/Order_model.dart';
 import '../repositories/requests_repo.dart';
 
@@ -13,8 +14,8 @@ class RequestsUseCase  {
 
 
 
-  Future<OrderModel> fetchOrder() async {
-    final result = await requestsRepo.fetchOrder();
+  Future<OrderModel> fetchOrder(SearchParams params) async {
+    final result = await requestsRepo.fetchOrder(params);
     final data = OrderModel.fromDto(result);
     return data;
   }

@@ -3,11 +3,10 @@ import 'Data.dart';
 
 class OrderModel {
   OrderModel({
-    this.data,
-    this.totalOrders,
-    this.totalPages,
-    this.currentPage,
-  });
+      this.data, 
+      this.totalOrders, 
+      this.totalPages, 
+      this.currentPage,});
 
   List<OrderData>? data;
   int? totalOrders;
@@ -22,4 +21,5 @@ class OrderModel {
       data: json.data?.map((e) => OrderData.fromDto(e)).toList(),
     );
   }
+
 }

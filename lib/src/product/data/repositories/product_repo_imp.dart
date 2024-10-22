@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
   import '../../domain/repositories/product_repo.dart';
  import '../data_sources/product_datasource.dart';
 import '../models/product_dto.dart';
+import '../models/search_params.dart';
 
 @Injectable(as: ProductRepo)
 class ProductRepoImp extends ProductRepo {
@@ -13,20 +14,20 @@ class ProductRepoImp extends ProductRepo {
   ProductRepoImp(this.datasource);
 
    @override
-  Future<ProductDto> fetchGetProduct() async {
-    final response = await datasource.fetchGetProduct();
+  Future<ProductDto> fetchGetProduct(SearchParams params) async {
+    final response = await datasource.fetchGetProduct(params);
     return response.payload!;
   }
 
   @override
   Future<String> createProduct(ProductParams params)async {
    final response =await datasource.createProduct(params);
-   return response.message!;
+   return response.message??"";
   }
 
   @override
   Future<String> deleteProduct(int id) async{
     final response =await datasource.deleteProduct(id);
-    return response.message!;
+    return response.message??"";
   }
 }

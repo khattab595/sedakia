@@ -30,9 +30,8 @@ class ProductItem extends BaseStatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                          image: NetworkImage(
-                              "https://turkeyana.com/wp-content/uploads/2017/06/330.jpg"),
+                      image: DecorationImage(
+                          image: NetworkImage(data.imageUrl??""),
                           fit: BoxFit.cover)),
                   //width: MediaQuery.of(context).size.width / 3,
                   width: 80,

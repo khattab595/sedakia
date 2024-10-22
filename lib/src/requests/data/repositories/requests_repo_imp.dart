@@ -1,7 +1,8 @@
 
 import 'package:injectable/injectable.dart';
 
-  import '../../domain/repositories/requests_repo.dart';
+  import '../../../product/data/models/search_params.dart';
+import '../../domain/repositories/requests_repo.dart';
 import '../data_sources/requests_datasource.dart';
 import '../models/order_dto.dart';
 
@@ -12,8 +13,8 @@ class RequestsRepoImp extends RequestsRepo {
   RequestsRepoImp(this.datasource);
 
   @override
-  Future<OrderDto> fetchOrder() async {
-    final response = await datasource.fetchOrder();
+  Future<OrderDto> fetchOrder(SearchParams params) async {
+    final response = await datasource.fetchOrder(params);
     return response.payload!;
   }
 

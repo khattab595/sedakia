@@ -4,7 +4,6 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../main_index.dart';
 import '../../../domain/entities/Data.dart';
-import '../../../domain/entities/Order_model.dart';
 
 class RequestItem extends StatelessWidget {
   const RequestItem({super.key,required this.data});
@@ -24,7 +23,7 @@ class RequestItem extends StatelessWidget {
           children: [
             PrimaryBoldText(label:data.customerName??"" ,fontSize: 16,),
             5.ph,
-            PrimaryRegularText(label: '+01120484981', fontSize: 13,),
+            PrimaryRegularText(label: data.phone??"", fontSize: 13,),
             5.ph,
             PrimaryRegularText(label: 'Cairo,Egypt', fontSize: 13,),
             5.ph,

@@ -20,12 +20,12 @@ class CategoriesRepoImp extends CategoriesRepo {
   @override
   Future<String> addCategory(CategoryParams params)async {
     final response = await datasource.addCategory(params);
-    return response.message!;
+    return response.message??"";
   }
 
   @override
   Future<String> deleteCategory(int id)async {
    final response=await datasource.deleteCategory(id);
-   return response.message!;
+   return response.message??"";
   }
 }

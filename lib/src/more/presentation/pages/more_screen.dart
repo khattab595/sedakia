@@ -1,3 +1,5 @@
+import '../../../../core/utils/helper_methods.dart';
+import '../../../../core/utils/navigator.dart';
 import '../../../main_index.dart';
 import '../widgets/more_item.dart';
 
@@ -69,13 +71,19 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.logout,
             title: strings.delete_account,
-            route: Routes.loginPage,
+            onTap: (){
+              HelperMethods.clearCashData();
+              pushNamedAndRemoveUntil(Routes.loginPage);
+            },
           ),
           line(),
           MoreItem(
             icon: AppIcons.logout,
             title: strings.sign_out,
-            route: Routes.loginPage,
+            onTap: (){
+              HelperMethods.clearCashData();
+              pushNamedAndRemoveUntil(Routes.loginPage);
+            },
           ),
         ],
       ),

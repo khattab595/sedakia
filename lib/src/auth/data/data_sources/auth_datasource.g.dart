@@ -21,21 +21,21 @@ class _AuthDataSource implements AuthDataSource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<dynamic>> login(LoginParams params) async {
+  Future<ApiResponse<LoginDto>> login(LoginParams params) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
+        _setStreamType<ApiResponse<LoginDto>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'api/v1/to-dash',
+              'api/v1/token',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -44,9 +44,9 @@ class _AuthDataSource implements AuthDataSource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<dynamic>.fromJson(
+    final value = ApiResponse<LoginDto>.fromJson(
       _result.data!,
-      (json) => json as dynamic,
+      (json) => LoginDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

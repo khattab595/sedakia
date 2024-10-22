@@ -1,11 +1,11 @@
 
 import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../main_index.dart';
-import '../../data/models/customer_dto.dart';
+import '../../domain/entities/Data.dart';
 
 class CustomerItem extends BaseStatelessWidget {
    CustomerItem({super.key,required this.data});
-final CustomerDto data;
+final CustomerData data;
   @override
   Widget build(BuildContext context) {
     return  Container(

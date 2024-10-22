@@ -21,8 +21,8 @@ abstract class AuthDataSource {
   @factoryMethod
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
-  @POST('api/v1/to-dash')
-  Future<ApiResponse> login(@Body() LoginParams params);
+  @POST('api/v1/token')
+  Future<ApiResponse<LoginDto>> login(@Body() LoginParams params);
 
   @POST('/register')
   Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);

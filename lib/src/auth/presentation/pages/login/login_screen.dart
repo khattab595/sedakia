@@ -1,8 +1,6 @@
 import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/images/logo.dart';
-import 'package:app/core/widgets/texts/hint_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import '../../../../../core/widgets/buttons/label_button.dart';
 import '../../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../../../core/widgets/text-field/password_text_field.dart';
@@ -11,9 +9,9 @@ import '../../../../main_index.dart';
 import '../../../data/models/login_params.dart';
 
 class LoginScreen extends BaseStatelessWidget {
-  final Function(LoginParams)? onLogin;
+  final Function(LoginParams) onLogin;
 
-  LoginScreen({Key? key, this.onLogin}) : super(key: key);
+  LoginScreen({Key? key,required this.onLogin}) : super(key: key);
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -24,8 +22,8 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      emailController.text = 'motkamel@gmail.com';
-      passwordController.text = '123456789';
+      emailController.text = 'midosok55@gmail.com';
+      passwordController.text = '123456';
     }
     return Form(
       key: formKey,
@@ -75,8 +73,8 @@ class LoginScreen extends BaseStatelessWidget {
               title: strings.sign_in,
               margin: 85.paddingTop,
               onPressed: () {
-               // onPressed();
-                pushNamed(Routes.navigationPages);
+                onPressed();
+              //  pushNamed(Routes.navigationPages);
               },
             ),
           ],
@@ -86,14 +84,10 @@ class LoginScreen extends BaseStatelessWidget {
   }
 
   onPressed() async {
-    FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-    String? token = await messaging.getToken();
     if (formKey.currentState!.validate()) {
-      onLogin!(LoginParams(
-        email: emailController.text,
+      onLogin(LoginParams(
+        username: emailController.text,
         password: passwordController.text,
-        fcmToken: token,
       ));
     }
   }

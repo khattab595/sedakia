@@ -7,14 +7,12 @@ part of 'login_params.dart';
 // **************************************************************************
 
 LoginParams _$LoginParamsFromJson(Map<String, dynamic> json) => LoginParams(
-      email: json['email'] as String?,
+      username: json['username'] as String?,
       password: json['password'] as String?,
-      fcmToken: json['fcm_token'] as String?,
     );
 
 Map<String, dynamic> _$LoginParamsToJson(LoginParams instance) =>
     <String, dynamic>{
-      'email': instance.email,
+      'username': instance.username,
       'password': instance.password,
-      'fcm_token': instance.fcmToken,
     };

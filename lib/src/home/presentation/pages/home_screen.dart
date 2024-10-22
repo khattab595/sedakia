@@ -3,23 +3,26 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
+import '../../domain/entities/Summary_model.dart';
 import '../widgets/filter_date_widget.dart';
 import '../widgets/orders_statistics.dart';
 import '../widgets/charts_statistics.dart';
 
 class HomeScreen extends BaseStatelessWidget {
 
+  final SummaryModel summaryModel;
 
+  HomeScreen({super.key, required this.summaryModel});
 
   @override
   Widget build(BuildContext context) {
     List<ModelDto> data =[
-      ModelDto(name: strings.number_order,value: "100"),
-      ModelDto(name: strings.number_client,value: "100"),
-      ModelDto(name: strings.number_product,value: "100"),
-      ModelDto(name: strings.number_refunds,value: "100"),
-      ModelDto(name: strings.number_sales,value: "100"),
-      ModelDto(name: strings.average_order_value,value: "100"),
+      ModelDto(name: strings.number_order,value: summaryModel.totalOrders.toString()),
+      ModelDto(name: strings.number_client,value: summaryModel.totalCustomers.toString()),
+      ModelDto(name: strings.number_product,value: summaryModel.totalProducts.toString()),
+      ModelDto(name: strings.number_refunds,value: summaryModel.totalRefunds.toString()),
+      ModelDto(name: strings.number_sales,value: summaryModel.totalSales.toString()),
+      ModelDto(name: strings.average_order_value,value: summaryModel.averageOrderValue.toString()),
 
     ];
     return Padding(
