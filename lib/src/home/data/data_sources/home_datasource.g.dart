@@ -51,13 +51,13 @@ class _HomeDatasource implements HomeDatasource {
   }
 
   @override
-  Future<ApiResponse<MonthlyDto>> fetchMonthly() async {
+  Future<ApiResponse<List<MonthlyDto>>> fetchMonthly() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<MonthlyDto>>(Options(
+        _setStreamType<ApiResponse<List<MonthlyDto>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -73,9 +73,14 @@ class _HomeDatasource implements HomeDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<MonthlyDto>.fromJson(
+    final value = ApiResponse<List<MonthlyDto>>.fromJson(
       _result.data!,
-      (json) => MonthlyDto.fromJson(json as Map<String, dynamic>),
+      (json) => json is List<dynamic>
+          ? json
+              .map<MonthlyDto>(
+                  (i) => MonthlyDto.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
     );
     return value;
   }

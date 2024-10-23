@@ -17,8 +17,8 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  Future<MonthlyDto> fetchMonthly()async {
+  Future<List<MonthlyDto>> fetchMonthly()async {
     final response = await datasource.fetchMonthly();
-    return response.payload!;
+    return response.payload??[];
   }
 }

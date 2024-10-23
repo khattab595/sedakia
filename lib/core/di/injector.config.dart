@@ -145,7 +145,10 @@ Future<_i1.GetIt> $initGetIt(
         gh<_i16.ForgotPasswordRepo>(),
         gh<_i5.AuthRepo>(),
       ));
-  gh.factory<_i47.HomeCubit>(() => _i47.HomeCubit(gh<_i21.HomeUseCase>()));
+  gh.factory<_i47.HomeCubit>(() => _i47.HomeCubit(
+        gh<_i21.HomeUseCase>(),
+        gh<_i19.HomeRepo>(),
+      ));
   gh.factory<_i48.ProductBloc>(() => _i48.ProductBloc(
         gh<_i24.ProductRepo>(),
         gh<_i10.CategoriesUseCase>(),

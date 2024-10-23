@@ -5,6 +5,7 @@ import '../../../product/data/models/search_params.dart';
 import '../../domain/repositories/requests_repo.dart';
 import '../data_sources/requests_datasource.dart';
 import '../models/order_dto.dart';
+import '../models/status_params.dart';
 
 @Injectable(as: RequestsRepo)
 class RequestsRepoImp extends RequestsRepo {
@@ -19,8 +20,8 @@ class RequestsRepoImp extends RequestsRepo {
   }
 
   @override
-  Future<String> changeStatus(int id) async {
-    final response = await datasource.changeStatus(id);
+  Future<String> changeStatus(StatusParams params,int id) async {
+    final response = await datasource.changeStatus(params,id);
     return response.message!;
   }
 

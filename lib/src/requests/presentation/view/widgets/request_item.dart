@@ -4,6 +4,7 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../main_index.dart';
 import '../../../domain/entities/Data.dart';
+import '../../details/pages/request_details_page.dart';
 
 class RequestItem extends StatelessWidget {
   const RequestItem({super.key, required this.data});
@@ -12,7 +13,7 @@ class RequestItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        pushNamed(Routes.requestDetailsPage, arguments: data);
+        push(RequestDetailsPage(id:int.parse( data.id.toString())));
       },
       child: Container(
         margin: 10.paddingAll,

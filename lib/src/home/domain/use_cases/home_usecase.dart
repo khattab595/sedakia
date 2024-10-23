@@ -15,9 +15,9 @@ class HomeUseCase {
     return data;
   }
 
-  Future<MonthlyModel> fetchMonthly() async {
-    final result = await homeRepo.fetchMonthly();
-    final data = MonthlyModel.fromDto(result);
-    return data;
-  }
+  // Future<MonthlyModel> fetchMonthly() async {
+  //   final result = await homeRepo.fetchMonthly();
+  //   final data = MonthlyModel.fromDto(result);
+  //   return data;
+  // }
 }

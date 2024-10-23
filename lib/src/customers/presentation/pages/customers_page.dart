@@ -44,6 +44,7 @@ class CustomersPage
   Widget buildWidget(BuildContext context, DataSuccess<CustomerModel> state) {
     return CustomersScreen(
       data: state.data!,
+      customerStreamData: bloc.customerStreamData,
     );
   }
 }

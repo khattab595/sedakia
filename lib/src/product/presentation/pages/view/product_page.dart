@@ -84,6 +84,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
     return ProductScreen(
       data: state.data!,
       onDelete: (id) => bloc.deleteProduct(id),
+      productStreamData: bloc.productStreamData,
     );
   }
 

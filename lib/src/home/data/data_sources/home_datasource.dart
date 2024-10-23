@@ -18,6 +18,6 @@ abstract class HomeDatasource {
   Future<ApiResponse<SummaryDto>> fetchSummary();
 
   @GET('analytics/mobile/v1/monthly')
-  Future<ApiResponse<MonthlyDto>> fetchMonthly();
+  Future<ApiResponse<List<MonthlyDto>>> fetchMonthly();
 
 }

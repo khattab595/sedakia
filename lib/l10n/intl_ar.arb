@@ -32,6 +32,12 @@
   "is_the_section_son": "هل القسم ابن؟",
   "total_orders": "إجمالي الطلبات",
   "total_sales": "إجمالي المبيعات",
+  "the_list_is_empty": "القائمة فارغة",
+  "address": "العنوان",
+  "payment_method": "طريقة الدفع",
+  "print_the_invoice": "طباعة الفاتورة",
+  "yes": "نعم",
+  "no": "لا",
 
 
 

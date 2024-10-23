@@ -3,9 +3,11 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../../core/widgets/texts/hint_texts.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/order_details_dto.dart';
 
-class RequestDetailsItem extends StatelessWidget {
-  const RequestDetailsItem({super.key});
+class RequestDetailsItem extends BaseStatelessWidget {
+   RequestDetailsItem({super.key,required this.data});
+  final DataItem data;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +17,9 @@ class RequestDetailsItem extends StatelessWidget {
       decoration: Decorations.shapeDecorationShadow(),
       child: Row(
         children: [
-          const ImageNetwork(
+           ImageNetwork(
             image:
-                'https://daniellegervino.com/wp-content/uploads/2022/06/Blog-Collages-Long-2.png',
+                data.imageUrl??"",
             width: 79,
             height: 94,
             radius: 20,
@@ -27,17 +29,17 @@ class RequestDetailsItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PrimaryBoldText(
-                label: 'حجاب',
+                label: data.name??"",
                 fontSize: 16,
               ),
+              // 5.ph,
+              // HintRegularText(label: 'ملابس', fontSize: 13),
               5.ph,
-              HintRegularText(label: 'ملابس', fontSize: 13),
-              5.ph,
-              PrimaryRegularText(label: '10 قطع', fontSize: 13),
+              PrimaryRegularText(label: '${data.quantity} ${strings.piece}', fontSize: 13),
             ],
           ),
           const Spacer(),
-          PrimaryMediumText(label: '500\$'),
+          PrimaryMediumText(label: data.total??""),
         ],
       ),
     );

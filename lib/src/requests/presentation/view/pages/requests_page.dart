@@ -9,7 +9,7 @@ import 'requests_screen.dart';
 class RequestsPage
     extends BaseBlocWidget<DataSuccess<OrderModel>, RequestsBloc> {
   RequestsPage({Key? key}) : super(key: key);
-
+  SearchParams params = SearchParams();
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchGetData(SearchParams());
@@ -29,8 +29,13 @@ class RequestsPage
       children: [
         FilterInvoices(
           controller: searchController,
+          onSearch: (params) => bloc.searchOrder(params),
           onFilter: (filter) {
-            bloc.searchOrder(SearchParams(searchText: filter));
+            params = filter;
+         //   params.status = status;
+            Future.delayed(const Duration(milliseconds: 500), () {
+              bloc.searchOrder(params);
+            });
           },
         ),
         Expanded(
@@ -44,6 +49,7 @@ class RequestsPage
   Widget buildWidget(BuildContext context, DataSuccess<OrderModel> state) {
     return RequestsScreen(
       data: state.data!,
+      orderStreamData: bloc.orderStreamData,
     );
   }
 }

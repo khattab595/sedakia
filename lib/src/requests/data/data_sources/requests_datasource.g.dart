@@ -82,11 +82,15 @@ class _RequestsDatasource implements RequestsDatasource {
   }
 
   @override
-  Future<ApiResponse<dynamic>> changeStatus(int id) async {
+  Future<ApiResponse<dynamic>> changeStatus(
+    StatusParams params,
+    int id,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(params.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',

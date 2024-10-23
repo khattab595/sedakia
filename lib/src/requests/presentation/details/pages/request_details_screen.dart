@@ -2,60 +2,101 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../../core/widgets/drop_down/drop_down.dart';
 import '../../../../main_index.dart';
+import '../../../data/models/order_details_dto.dart';
+import '../../../data/models/status_params.dart';
 import '../widgets/request_details_item.dart';
 
 class RequestDetailsScreen extends BaseStatelessWidget {
-  RequestDetailsScreen({Key? key}) : super(key: key);
+  RequestDetailsScreen(
+      {super.key, required this.data, required this.changeStatus});
+  final OrderDetailsDto data;
+  final Function(StatusParams params, int id) changeStatus;
+  String updateAvailable = "";
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: ListView.builder(
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return const RequestDetailsItem();
-            },
-          ),
+          child: data.items == null || data.items!.isEmpty
+              ? Center(
+                  child: PrimaryMediumText(label: strings.the_list_is_empty))
+              : ListView.builder(
+                  itemCount: data.items?.length,
+                  itemBuilder: (context, index) {
+                    return RequestDetailsItem(
+                      data: data.items![index],
+                    );
+                  },
+                ),
         ),
-        totalAmount(),
+        totalAmount(
+            text1: strings.total, text2: '${data.total} ${data.currency}'),
+        totalAmount(
+            text1: strings.address,
+            text2:
+                "${data.dataBilling?.address_1} ${data.dataBilling?.address_2}"),
+        totalAmount(
+            text1: strings.payment_method,
+            text2: data.paymentMethodTitle ?? ""),
         Padding(
           padding: 15.paddingAll,
           child: DropDownField(
               title: strings.update_status,
-              value: "مكتمل",
+              value: data.status,
               items: const [
-                DropDownItem(title: "مكتمل"),
-                DropDownItem(title: "مرفوض"),
+                DropDownItem(title: "Pending Payment", id: '1'),
+                DropDownItem(title: "Failed", id: '2'),
+                DropDownItem(title: "Processing", id: '3'),
+                DropDownItem(title: "Completed", id: '4'),
+                DropDownItem(title: "On-Hold", id: '5'),
+                DropDownItem(title: "Cancelled", id: '6'),
+                DropDownItem(title: "Refunded", id: '7'),
+                DropDownItem(title: "Draft", id: '8'),
               ],
-              onChanged: (item) {}),
+              onChanged: (value) {
+                updateAvailable = value.title!;
+              }),
         ),
-        PrimaryButton(
-          title: strings.save,
-          margin: 16.paddingHoriz + 10.paddingBottom,
-          onPressed: () {
-            // bloc.approveRequest();
-          },
+        Row(
+          children: [
+            Expanded(
+              child: PrimaryButton(
+                title: strings.save,
+                margin: 14.paddingHoriz + 10.paddingBottom,
+                onPressed: () {
+                  changeStatus(StatusParams(newStatus: updateAvailable),
+                      int.parse(data.id.toString()));
+                },
+              ),
+            ),
+            Expanded(
+              child: PrimaryButton(
+                title: strings.print_the_invoice,
+                margin: 14.paddingHoriz + 10.paddingBottom,
+                onPressed: () {},
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
 
-  Widget totalAmount() {
+  Widget totalAmount({required String text1, required String text2}) {
     return Container(
       padding: 14.paddingAll,
-      margin: 16.paddingAll,
+      margin: 16.paddingHoriz + 5.paddingVert,
       decoration: Decorations.shapeDecorationShadow(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           PrimaryBoldText(
-            label: strings.total,
-            fontSize: 16,
+            label: text1,
+            fontSize: 14,
           ),
           PrimaryMediumText(
-            label: '700\$',
-            fontSize: 16,
+            label: text2,
+            fontSize: 14,
           ),
         ],
       ),

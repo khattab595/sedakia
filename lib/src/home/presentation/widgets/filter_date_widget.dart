@@ -6,6 +6,7 @@ import '../../../../../core/utils/helper_methods.dart';
 import '../../../../core/widgets/buttons/selection_button_chip.dart';
 import '../../../../core/widgets/text-field/search_text_field.dart';
 import '../../../main_index.dart';
+import '../../../product/data/models/search_params.dart';
 
 class FilterDateWidget extends BaseStatelessWidget {
   final Function(String from, String to) onFilter;
@@ -59,20 +60,24 @@ class FilterDateWidget extends BaseStatelessWidget {
 
 class FilterInvoices extends BaseStatelessWidget {
   final TextEditingController controller;
-  final Function(dynamic) onFilter;
+  final Function(SearchParams) onFilter;
+  final Function(SearchParams params) onSearch;
 
-  FilterInvoices({super.key, required this.onFilter, required this.controller});
+  FilterInvoices({super.key, required this.onFilter, required this.controller,required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
+    SearchParams params = SearchParams();
     TextEditingController insideController = TextEditingController();
     List<SelectionItem> items = [
-      SelectionItem(id: '1', title: 'All'),
-      SelectionItem(id: '2', title: 'Processing'),
-      SelectionItem(id: '3', title: 'Pending'),
+      SelectionItem(id: '1', title: 'Pending Payment'),
+      SelectionItem(id: '2', title: 'Failed'),
+      SelectionItem(id: '3', title: 'Processing'),
       SelectionItem(id: '4', title: 'Completed'),
-      SelectionItem(id: '5', title: 'Cancelled'),
-      SelectionItem(id: '6', title: 'Rejected'),
+      SelectionItem(id: '5', title: 'On-Hold'),
+      SelectionItem(id: '6', title: 'Cancelled'),
+      SelectionItem(id: '6', title: 'Refunded'),
+      SelectionItem(id: '6', title: 'Draft'),
     ];
 
     SelectionItem initialItem = items.first;
@@ -83,7 +88,9 @@ class FilterInvoices extends BaseStatelessWidget {
           child: SearchTextField(
             controller: controller,
             hintText: strings.search,
-            onChanged: (value) {},
+            onChanged: (value) {
+              onSearch(SearchParams(searchText: value));
+            },
           ),
         ),
         AppIconButton(
@@ -103,7 +110,7 @@ class FilterInvoices extends BaseStatelessWidget {
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 builder: (BuildContext context) {
                   return Container(
-                    height: 400,
+                    height: 480,
                     color: cardColor,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +131,10 @@ class FilterInvoices extends BaseStatelessWidget {
                         // ),
                         16.ph,
                         FilterDateWidget(
-                          onFilter: (date, to) {},
+                          onFilter: (date, to) {
+                            params.dateFrom = date;
+                            params.dateTo = to;
+                          },
                         ),
                         16.ph,
                         /*
@@ -155,7 +165,8 @@ class FilterInvoices extends BaseStatelessWidget {
                           margin: 16.paddingHoriz,
                           onPressed: () {
                             Navigator.pop(context);
-                            onFilter('');
+                            params.status = items.first.title;
+                            onFilter(params);
                           },
                         )
                       ],

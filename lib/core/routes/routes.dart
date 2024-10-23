@@ -35,7 +35,7 @@ class Routes {
   static const String homePage = 'homePage';
   static const String splashPage = 'splashPage';
   static const String requestsPage = 'RequestsPage';
-  static const String requestDetailsPage = 'RequestDetailsPage';
+ // static const String requestDetailsPage = 'RequestDetailsPage';
   static const String productPage = 'productPage';
   static const String addProductPage = 'addProductPage';
   static const String categoriesPage = 'categoriesPage';
@@ -57,7 +57,7 @@ class Routes {
     more: (context) => MorePage(),
     changLanguagePage: (context) => ChangLanguagePage(),
     requestsPage: (context) => RequestsPage(),
-    requestDetailsPage: (context) => RequestDetailsPage(),
+  //  requestDetailsPage: (context) => RequestDetailsPage(),
     productPage: (context) => ProductPage(),
     addProductPage: (context) => AddProductPage(),
     categoriesPage: (context) => CategoriesPage(),

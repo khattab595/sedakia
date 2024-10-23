@@ -19,6 +19,6 @@ class HomePage extends BaseBlocWidget<DoubleDataSuccess, HomeCubit> {
 
   @override
   Widget buildWidget(BuildContext context, DoubleDataSuccess state) {
-    return HomeScreen(summaryModel: state.data1!, monthlyModel: state.data2);
+    return HomeScreen(summaryModel: state.data1!, monthlyDto: state.data2);
   }
 }

@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../../../core/bloc/base_cubit.dart';
 import '../../../../../core/commen/common_state.dart';
 import '../../../../product/data/models/search_params.dart';
+import '../../../data/models/status_params.dart';
 import '../../../domain/entities/Order_model.dart';
 import '../../../domain/repositories/requests_repo.dart';
 import '../../../domain/use_cases/product_usecase.dart';
@@ -21,10 +22,6 @@ class RequestsBloc extends BaseCubit {
 
   void fetchOrder(SearchParams params) {
     executeSuccess(() => requestsUseCase.fetchOrder(params));
-  }
-
-  void changeStatus(int id) {
-    executeEmitterListener(() => _repo.changeStatus(id));
   }
 
   searchOrder(SearchParams params) async {

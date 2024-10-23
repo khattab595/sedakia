@@ -39,6 +39,12 @@
   "is_the_section_son": "Is the section son?\n",
   "total_orders": "Total Orders",
   "total_sales": "Total Sales",
+  "the_list_is_empty": "The list is empty",
+  "address": "Address",
+  "payment_method": "Payment method",
+  "print_the_invoice": "Print invoice",
+  "yes": "Yes",
+  "no": "No",
 
 
 
@@ -284,7 +290,6 @@
   "customer_info": "Customer Info",
   "full_name": "Full Name",
   "phone_number": "Phone Number",
-  "address": "Address",
   "area": "Area",
   "shipping_notes": "Shipping Notes",
   "did_you_confirm_this_order": "Did you confirm this order?",

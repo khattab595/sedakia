@@ -6,6 +6,7 @@ import '../../../../core/utils/constants.dart';
 import '../../../product/data/models/search_params.dart';
 import '../models/order_details_dto.dart';
 import '../models/order_dto.dart';
+import '../models/status_params.dart';
 
 part 'requests_datasource.g.dart';
 
@@ -22,5 +23,5 @@ abstract class RequestsDatasource {
   Future<ApiResponse<OrderDetailsDto>> orderDetails(@Path("id") int id);
 
   @POST('products/v1/orders/{id}/change-status')
-  Future<ApiResponse> changeStatus(@Path() int id);
+  Future<ApiResponse> changeStatus(@Body() StatusParams params,@Path("id") int id);
 }

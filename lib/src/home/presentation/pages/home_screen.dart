@@ -2,6 +2,7 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
+import '../../data/models/monthly_dto.dart';
 import '../../domain/entities/Monthly_model.dart';
 import '../../domain/entities/Summary_model.dart';
 import '../widgets/filter_date_widget.dart';
@@ -10,9 +11,9 @@ import '../widgets/charts_statistics.dart';
 
 class HomeScreen extends BaseStatelessWidget {
   final SummaryModel summaryModel;
-  final MonthlyModel monthlyModel;
+  final List<MonthlyDto> monthlyDto;
 
-  HomeScreen({super.key, required this.monthlyModel, required this.summaryModel});
+  HomeScreen({super.key, required this.summaryModel,required this.monthlyDto});
 
   @override
   Widget build(BuildContext context) {
@@ -66,11 +67,9 @@ class HomeScreen extends BaseStatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // SemiBoldPrimaryText(label: 'Statistics', fontSize: 20),
-                  // 20.ph,
-                  PieChartScreen(
-                      monthlyModel:monthlyModel
-                  ),
+                  SemiBoldPrimaryText(label: strings.statistics, fontSize: 20),
+                  20.ph,
+                  ChartsStatistics(monthlyDto: [],)
                 ],
               ),
             ),

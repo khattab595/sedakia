@@ -80,9 +80,9 @@ class AddProductScreen extends BaseStatelessWidget {
             ),
             DropDownField(
                 title: strings.available,
-                items: const [
-                  DropDownItem(title: "نعم", id: "1"),
-                  DropDownItem(title: "لا", id: "0"),
+                items: [
+                  DropDownItem(title: strings.yes, id: "1"),
+                  DropDownItem(title: strings.no, id: "0"),
                 ],
                 value: productData?.parentId.toString(),
                 onChanged: (item) {
