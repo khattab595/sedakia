@@ -5,7 +5,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
-
 import 'core/firebase/notification_service.dart';
 import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
