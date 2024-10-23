@@ -20,6 +20,7 @@ class AppColors {
   static const Color orangeLight = Color(0xffFFE9D4);
   static const Color blueLight = Color(0xff105FAA);
   static const Color colorF4 = Color(0xffF5F4F4);
+  static const Color colorF2 =   Color(0xffF2F2F2);
 }
 
 extension AppColor on BuildContext {
