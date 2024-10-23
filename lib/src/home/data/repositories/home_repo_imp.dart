@@ -1,3 +1,4 @@
+import 'package:app/src/home/data/models/monthly_dto.dart';
 import 'package:app/src/home/data/models/summary_dto.dart';
 import 'package:injectable/injectable.dart';
 import '../../domain/repositories/home_repo.dart';
@@ -12,6 +13,12 @@ class HomeRepoImp extends HomeRepo {
   @override
   Future<SummaryDto> fetchSummary() async {
     final response = await datasource.fetchSummary();
+    return response.payload!;
+  }
+
+  @override
+  Future<MonthlyDto> fetchMonthly()async {
+    final response = await datasource.fetchMonthly();
     return response.payload!;
   }
 }
