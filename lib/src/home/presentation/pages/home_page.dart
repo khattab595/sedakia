@@ -4,7 +4,7 @@ import '../../domain/entities/Summary_model.dart';
 import '../bloc/home_bloc.dart';
 import 'home_screen.dart';
 
-class HomePage extends BaseBlocWidget<DataSuccess<SummaryModel>, HomeCubit> {
+class HomePage extends BaseBlocWidget<DoubleDataSuccess, HomeCubit> {
   HomePage({Key? key}) : super(key: key);
 
   @override
@@ -18,9 +18,7 @@ class HomePage extends BaseBlocWidget<DataSuccess<SummaryModel>, HomeCubit> {
   // }
 
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<SummaryModel> state) {
-    return HomeScreen(
-      summaryModel: state.data!,
-    );
+  Widget buildWidget(BuildContext context, DoubleDataSuccess state) {
+    return HomeScreen(summaryModel: state.data1!, monthlyModel: state.data2);
   }
 }

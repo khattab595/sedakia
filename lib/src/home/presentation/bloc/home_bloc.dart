@@ -10,11 +10,9 @@ class HomeCubit extends BaseCubit {
   HomeCubit(this.homeUseCase);
 
   void fetchSummary() {
-    executeSuccess(() => homeUseCase.fetchSummary());
+    executeDoubleSuccess(() => homeUseCase.fetchSummary(),() => homeUseCase.fetchMonthly(),);
   }
 
 
-  void fetchMonthly() {
-    executeSuccess(() => homeUseCase.fetchMonthly());
-  }
+
 }

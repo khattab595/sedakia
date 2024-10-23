@@ -1,37 +1,26 @@
 import 'package:fl_chart/fl_chart.dart';
 import '../../../main_index.dart';
 import '../../data/models/home_data_dto.dart';
+import '../../domain/entities/Monthly_model.dart';
 
-class ChartsStatistics extends BaseStatelessWidget {
-  final List<ModelDto> sliders;
+class PieChartScreen extends StatefulWidget {
+  final MonthlyModel monthlyModel;
 
-  ChartsStatistics({super.key, required this.sliders});
-
-  @override
-  Widget build(BuildContext context) {
-    return PieChartSample2(
-      text1: strings.total_orders,
-      text2: strings.total_sales,
-    );
-  }
-}
-
-class PieChartSample2 extends StatefulWidget {
-  final String textValue;
-  final String text2;
-  const PieChartSample2({
+  const PieChartScreen({
     Key? key,
-    required this.textValue,
-    required this.text2,
+    required this.monthlyModel,
   }) : super(key: key);
   @override
-  State<StatefulWidget> createState() => PieChart2State();
+  State<StatefulWidget> createState() => PieChartScreenState();
 }
 
-class PieChart2State extends State {
+class PieChartScreenState extends State<PieChartScreen> {
   int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
+    final strings =
+        injector<ServicesLocator>().navigatorKey.currentContext!.strings;
+
     return AspectRatio(
       aspectRatio: 1.3,
       child: Row(
@@ -63,7 +52,7 @@ class PieChart2State extends State {
                   ),
                   sectionsSpace: 0,
                   centerSpaceRadius: 40,
-                  sections: showingSections(),
+                  sections: showingSections(widget.monthlyModel),
                 ),
               ),
             ),
@@ -74,7 +63,7 @@ class PieChart2State extends State {
             children: <Widget>[
               Indicator(
                 color: AppColors.colorF2,
-                text: widget.textValue,
+                text: strings.total_sales,
                 isSquare: true,
               ),
               const SizedBox(
@@ -82,7 +71,7 @@ class PieChart2State extends State {
               ),
               Indicator(
                 color: AppColors.primaryLight,
-                text: widget.text2,
+                text: strings.total_orders,
                 isSquare: true,
               ),
               const SizedBox(
@@ -98,8 +87,11 @@ class PieChart2State extends State {
     );
   }
 
-  List<PieChartSectionData> showingSections() {
+  List<PieChartSectionData> showingSections(MonthlyModel monthlyModel) {
     return List.generate(2, (i) {
+      final strings =
+          injector<ServicesLocator>().navigatorKey.currentContext!.strings;
+
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 25.0 : 16.0;
       final radius = isTouched ? 60.0 : 50.0;
@@ -108,8 +100,8 @@ class PieChart2State extends State {
         case 0:
           return PieChartSectionData(
             color: AppColors.colorF2,
-            value: 40,
-            title: '40%',
+            value: monthlyModel.totalSales,
+            title: strings.total_sales,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -121,8 +113,8 @@ class PieChart2State extends State {
         case 1:
           return PieChartSectionData(
             color: AppColors.primaryLight,
-            value: 30,
-            title: '30%',
+            value: monthlyModel.totalOrders,
+            title: strings.total_orders,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
