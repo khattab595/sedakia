@@ -16,15 +16,25 @@ CategoryParams _$CategoryParamsFromJson(Map<String, dynamic> json) =>
           json['image'], const FileJsonConverter().fromJson),
     );
 
-Map<String, dynamic> _$CategoryParamsToJson(CategoryParams instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'description': instance.description,
-      'parent': instance.parent,
-      'slug': instance.slug,
-      'image': _$JsonConverterToJson<String, File>(
-          instance.image, const FileJsonConverter().toJson),
-    };
+Map<String, dynamic> _$CategoryParamsToJson(CategoryParams instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('description', instance.description);
+  writeNotNull('parent', instance.parent);
+  writeNotNull('slug', instance.slug);
+  writeNotNull(
+      'image',
+      _$JsonConverterToJson<String, File>(
+          instance.image, const FileJsonConverter().toJson));
+  return val;
+}
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

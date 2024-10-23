@@ -5,6 +5,7 @@ import 'package:app/src/main_index.dart';
 import '../../../../core/widgets/buttons/options_menu_button.dart';
 import '../../data/models/product_dto.dart';
 import '../../data/models/product_params.dart';
+import '../pages/add/add_product_page.dart';
 
 class ProductItem extends BaseStatelessWidget {
   ProductItem({super.key,
@@ -123,7 +124,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       onSelect: (value) async {
         if (value == 0) {
 
-          pushNamed(Routes.addProductPage,arguments: data);
+          push(AddProductPage(data:data));
 
         } else if (value == 1) {
           onDelete(

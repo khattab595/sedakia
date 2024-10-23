@@ -40,6 +40,7 @@ class ProductRepoImp extends ProductRepo {
   @override
   Future<String> updateProduct({required ProductParams params,required int id}) async {
     final response = await datasource.updateProduct(
+      id,
       params.name ?? "",
       params.stockStatus ?? "",
       params.stockQuantity??"",
@@ -47,8 +48,9 @@ class ProductRepoImp extends ProductRepo {
       params.salePrice ?? "",
       params.categories ?? "",
       params.shortDescription??"",
-      params.images!,
-      id
+      images: params.images,
+
+
     );
     return response.message ?? "";
   }

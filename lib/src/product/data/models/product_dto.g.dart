@@ -33,6 +33,7 @@ ProductData _$ProductDataFromJson(Map<String, dynamic> json) => ProductData(
       stockStatus: json['stock_status'] as String?,
       imageUrl: json['image_url'] as String?,
       salePrice: json['stock_quantity'] as String?,
+      parentId: json['parent_id'] as int?,
     );
 
 Map<String, dynamic> _$ProductDataToJson(ProductData instance) =>
@@ -46,4 +47,5 @@ Map<String, dynamic> _$ProductDataToJson(ProductData instance) =>
       'sale_price': instance.stockQuantity,
       'stock_status': instance.stockStatus,
       'image_url': instance.imageUrl,
+      'parent_id': instance.parentId,
     };

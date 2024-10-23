@@ -20,7 +20,7 @@ class ShippingData {
   String? postcode;
   String? country;
 
-  factory ShippingData.fromDto(Shipping json) {
+  factory ShippingData.fromDto(ShippingModel json) {
     return ShippingData(
       firstName: json.firstName,
       lastName: json.lastName,

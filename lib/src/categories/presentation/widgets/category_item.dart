@@ -3,6 +3,7 @@ import '../../../../core/widgets/buttons/options_menu_button.dart';
 import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../main_index.dart';
 import '../../domain/entities/Data.dart';
+import '../pages/add/add_categories_page.dart';
 
 class CategoryItem extends BaseStatelessWidget {
   CategoryItem({super.key, required this.data, required this.onDelete});
@@ -83,7 +84,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-          pushNamed(Routes.addCategoriesPage,arguments:data );
+          push(AddCategoriesPage(data:data));
         } else if (value == 1) {
           onDelete(int.parse(data.id.toString()));
         }

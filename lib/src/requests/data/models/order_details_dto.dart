@@ -17,9 +17,9 @@ class OrderDetailsDto {
   @JsonKey(name: 'currency')
   String? currency;
   @JsonKey(name: 'billing')
-  DataBilling? billing;
+  DataBilling? dataBilling;
   @JsonKey(name: 'shipping')
-  Shipping? shipping;
+  ShippingModel? shippingModel;
   @JsonKey(name: 'payment_method')
   String? paymentMethod;
   @JsonKey(name: 'payment_method_title')
@@ -29,7 +29,7 @@ class OrderDetailsDto {
   @JsonKey(name: 'meta_data')
   List<MetaDataModel>? metaData;
 
-  OrderDetailsDto({this.id, this.status, this.dateCreated, this.total, this.subtotal, this.currency, this.billing, this.shipping, this.paymentMethod, this.paymentMethodTitle, this.items, this.metaData});
+  OrderDetailsDto({this.id, this.status, this.dateCreated, this.total, this.subtotal, this.currency, this.dataBilling, this.shippingModel, this.paymentMethod, this.paymentMethodTitle, this.items, this.metaData});
 
    factory OrderDetailsDto.fromJson(Map<String, dynamic> json) => _$OrderDetailsDtoFromJson(json);
 
@@ -67,7 +67,7 @@ class DataBilling {
 }
 
 @JsonSerializable(ignoreUnannotated: false)
-class Shipping {
+class ShippingModel {
   @JsonKey(name: 'first_name')
   String? firstName;
   @JsonKey(name: 'last_name')
@@ -85,11 +85,11 @@ class Shipping {
   @JsonKey(name: 'country')
   String? country;
 
-  Shipping({this.firstName, this.lastName, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
+  ShippingModel({this.firstName, this.lastName, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
 
-   factory Shipping.fromJson(Map<String, dynamic> json) => _$ShippingFromJson(json);
+   factory ShippingModel.fromJson(Map<String, dynamic> json) => _$ShippingModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ShippingToJson(this);
+   Map<String, dynamic> toJson() => _$ShippingModelToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -127,8 +127,8 @@ class MetaDataModel {
 
   MetaDataModel({this.key, this.value});
 
-   factory MetaDataModel.fromJson(Map<String, dynamic> json) => _$MetaDataFromJson(json);
+   factory MetaDataModel.fromJson(Map<String, dynamic> json) => _$MetaDataModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$MetaDataToJson(this);
+   Map<String, dynamic> toJson() => _$MetaDataModelToJson(this);
 }
 

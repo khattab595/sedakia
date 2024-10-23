@@ -6,21 +6,21 @@ part 'product_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ProductParams {
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name',includeIfNull: false)
   String? name;
-  @JsonKey(name: 'regular_price')
+  @JsonKey(name: 'regular_price',includeIfNull: false)
   String? regularPrice;
-  @JsonKey(name: 'sale_price')
+  @JsonKey(name: 'sale_price',includeIfNull: false)
   String? salePrice;
-  @JsonKey(name: 'stock_quantity')
+  @JsonKey(name: 'stock_quantity',includeIfNull: false)
   String? stockQuantity;
-  @JsonKey(name: 'stock_status')
+  @JsonKey(name: 'stock_status',includeIfNull: false)
   String? stockStatus;
-  @JsonKey(name: 'short_description')
+  @JsonKey(name: 'short_description',includeIfNull: false)
   String? shortDescription;
-  @JsonKey(name: 'categories')
+  @JsonKey(name: 'categories',includeIfNull: false)
   String ?categories;
-  @JsonKey(name: 'images[]')
+  @JsonKey(name: 'images[]',includeIfNull: false)
   @FileJsonConverter()
   File? images;
 

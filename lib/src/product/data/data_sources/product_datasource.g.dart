@@ -128,55 +128,72 @@ class _ProductDatasource implements ProductDatasource {
 
   @override
   Future<ApiResponse<dynamic>> updateProduct(
-    String name,
-    String regularPrice,
-    String salePrice,
-    String stockQuantity,
-    String stockStatus,
-    String shortDescription,
-    String categories,
-    File images,
-    int id,
-  ) async {
+    int? id,
+    String? name,
+    String? regularPrice,
+    String? salePrice,
+    String? stockQuantity,
+    String? stockStatus,
+    String? shortDescription,
+    String? categories, {
+    File? images = null,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.fields.add(MapEntry(
-      'name',
-      name,
-    ));
-    _data.fields.add(MapEntry(
-      'regular_price',
-      regularPrice,
-    ));
-    _data.fields.add(MapEntry(
-      'sale_price',
-      salePrice,
-    ));
-    _data.fields.add(MapEntry(
-      'stock_quantity',
-      stockQuantity,
-    ));
-    _data.fields.add(MapEntry(
-      'stock_status',
-      stockStatus,
-    ));
-    _data.fields.add(MapEntry(
-      'short_description',
-      shortDescription,
-    ));
-    _data.fields.add(MapEntry(
-      'categories',
-      categories,
-    ));
-    _data.files.add(MapEntry(
-      'images[]',
-      MultipartFile.fromFileSync(
-        images.path,
-        filename: images.path.split(Platform.pathSeparator).last,
-      ),
-    ));
+    if (name != null) {
+      _data.fields.add(MapEntry(
+        'name',
+        name,
+      ));
+    }
+    if (regularPrice != null) {
+      _data.fields.add(MapEntry(
+        'regular_price',
+        regularPrice,
+      ));
+    }
+    if (salePrice != null) {
+      _data.fields.add(MapEntry(
+        'sale_price',
+        salePrice,
+      ));
+    }
+    if (stockQuantity != null) {
+      _data.fields.add(MapEntry(
+        'stock_quantity',
+        stockQuantity,
+      ));
+    }
+    if (stockStatus != null) {
+      _data.fields.add(MapEntry(
+        'stock_status',
+        stockStatus,
+      ));
+    }
+    if (shortDescription != null) {
+      _data.fields.add(MapEntry(
+        'short_description',
+        shortDescription,
+      ));
+    }
+    if (categories != null) {
+      _data.fields.add(MapEntry(
+        'categories',
+        categories,
+      ));
+    }
+    if (images != null) {
+      _data.files.add(MapEntry(
+        'images[]',
+        MultipartFile.fromFileSync(
+          images.path,
+          filename: images.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',

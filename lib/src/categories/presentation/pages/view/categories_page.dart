@@ -4,6 +4,7 @@ import '../../../../../core/widgets/texts/primary_texts.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/Category.dart';
 import '../../bloc/categories_bloc.dart';
+import '../add/add_categories_page.dart';
 import 'categories_screen.dart';
 
 class CategoriesPage
@@ -23,7 +24,7 @@ class CategoriesPage
         6.pw,
         InkWell(
             onTap: () {
-              pushNamed(Routes.addCategoriesPage);
+              push(AddCategoriesPage());
             },
             child: Container(
               alignment: Alignment.center,

@@ -37,15 +37,16 @@ abstract class ProductDatasource {
   @MultiPart()
   @POST('products-moblie/v1/update-product/{id}')
   Future<ApiResponse> updateProduct(
-      @Part(name: 'name') String name,
-      @Part(name: 'regular_price') String regularPrice,
-      @Part(name: 'sale_price') String salePrice,
-      @Part(name: 'stock_quantity') String stockQuantity,
-      @Part(name: 'stock_status') String stockStatus,
-      @Part(name: 'short_description') String shortDescription,
-      @Part(name: 'categories') String categories,
-      @Part(name: 'images[]') File images,
-      @Path("id") int id,
+      @Path("id") int ?id,
+      @Part(name: 'name') String ?name,
+      @Part(name: 'regular_price') String ?regularPrice,
+      @Part(name: 'sale_price') String ?salePrice,
+      @Part(name: 'stock_quantity') String ?stockQuantity,
+      @Part(name: 'stock_status') String ?stockStatus,
+      @Part(name: 'short_description') String ?shortDescription,
+      @Part(name: 'categories') String ?categories,
+      {@Part(name: 'images[]') File ?images = null}
+
       );
 
 

@@ -33,12 +33,13 @@ abstract class  CategoriesDatasource{
   @MultiPart()
   @POST('categories/mobile/v1/update-category/{id}')
   Future<ApiResponse> updateCategory(
-      @Part(name: 'name') String name,
-      @Part(name: 'description') String description,
-      @Part(name: 'parent') String parent,
-      @Part(name: 'slug') List<String> slug,
-      @Part(name: 'image') File image,
-      @Path("id") int id
+     @Path("id") int ? id,
+      @Part(name: 'name') String? name,
+      @Part(name: 'description') String ?description,
+      @Part(name: 'parent') String ?parent,
+      @Part(name: 'slug') List<String>? slug,
+     {@Part(name: 'image') File ?image = null}
+
       );
 
 

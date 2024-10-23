@@ -11,14 +11,15 @@ import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
   final Function(ProductParams) onCreate;
+  final Function(ProductParams,int id) onUpdate;
   final CategoryModel categoryModel;
- // final ProductDto productDto;
+  final ProductData? productData;
   AddProductScreen(
       {Key? key,
       required this.onCreate,
+      required this.onUpdate,
       required this.categoryModel,
-     // required this.productDto
-      })
+      this.productData})
       : super(key: key);
   TextEditingController nameController = TextEditingController();
   TextEditingController imageController = TextEditingController();
@@ -33,15 +34,20 @@ class AddProductScreen extends BaseStatelessWidget {
   File? file;
   @override
   Widget build(BuildContext context) {
-    // nameController = TextEditingController(text: productDto.data?.first.name?? "");
-    // priceController = TextEditingController(text: productDto.data?.first.price ?? "");
-    // imageController = TextEditingController(text: productDto.data?.first.imageUrl ?? "");
-    // quantityController =
-    //     TextEditingController(text: productDto.data?.first.stockQuantity ?? "");
-    // descriptionController =
-    //     TextEditingController(text: productDto.data?.first.shortDescription ?? "");
-    // descriptionController =
-    //     TextEditingController(text: productDto.data?.first.salePrice ?? "");
+    if (productData?.parentId == 1) {
+      isAvailable.setData("1");
+    } else {
+      isAvailable.setData("0");
+    }
+    nameController = TextEditingController(text: productData?.name ?? "");
+    priceController = TextEditingController(text: productData?.price ?? "");
+    imageController = TextEditingController(text: productData?.imageUrl ?? "");
+    quantityController =
+        TextEditingController(text: productData?.stockQuantity ?? "");
+    descriptionController =
+        TextEditingController(text: productData?.shortDescription ?? "");
+    descriptionController =
+        TextEditingController(text: productData?.salePrice ?? "");
     return SingleChildScrollView(
       padding: 15.paddingAll,
       child: Form(
@@ -78,7 +84,7 @@ class AddProductScreen extends BaseStatelessWidget {
                   DropDownItem(title: "نعم", id: "1"),
                   DropDownItem(title: "لا", id: "0"),
                 ],
-                value: available,
+                value: productData?.parentId.toString(),
                 onChanged: (item) {
                   available = item.id!;
                   isAvailable.setData(available);
@@ -120,6 +126,7 @@ class AddProductScreen extends BaseStatelessWidget {
                 buttonColor: primaryColor,
                 buttonTextColor: whiteTextColor,
                 buttonFunc: () {
+                  productData ==null ?
                   onCreate(ProductParams(
                       name: nameController.text,
                       regularPrice: priceController.text,
@@ -128,7 +135,16 @@ class AddProductScreen extends BaseStatelessWidget {
                       stockQuantity: quantityController.text,
                       stockStatus: available,
                       categories: categories,
-                      images: file));
+                      images: file)):
+                  onUpdate(ProductParams(
+                      name: nameController.text,
+                      regularPrice: priceController.text,
+                      salePrice: discountController.text,
+                      shortDescription: descriptionController.text,
+                      stockQuantity: quantityController.text,
+                      stockStatus: available,
+                      categories: categories,
+                      images: file),int.parse(productData?.id.toString()??""));
                 })
           ],
         ),

@@ -1,7 +1,7 @@
 import 'package:app/src/requests/data/models/order_details_dto.dart';
 
-class Billing {
-  Billing({
+class BillingModel {
+  BillingModel({
       this.firstName, 
       this.lastName, 
       this.email, 
@@ -24,8 +24,8 @@ class Billing {
   String? postcode;
   String? country;
 
-  factory Billing.fromDto(DataBilling json) {
-    return Billing(
+  factory BillingModel.fromDto(DataBilling json) {
+    return BillingModel(
       firstName: json.firstName,
       lastName: json.lastName,
       email: json.email,

@@ -29,7 +29,7 @@ class ProductBloc extends BaseCubit {
     executeEmitterListener(() => _repo.createProduct(params));
   }
 
-  void updateProduct({required ProductParams params,required int id}) {
+  void updateProduct(ProductParams params, int id) {
     executeEmitterListener(() => _repo.updateProduct(params: params,id: id));
   }
 

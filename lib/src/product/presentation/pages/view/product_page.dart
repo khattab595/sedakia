@@ -8,6 +8,7 @@ import '../../../../main_index.dart';
 import '../../../data/models/product_dto.dart';
 import '../../../data/models/search_params.dart';
 import '../../bloc/product_bloc.dart';
+import '../add/add_product_page.dart';
 
 class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   ProductPage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
         6.pw,
         InkWell(
             onTap: () {
-              pushNamed(Routes.addProductPage);
+              push(AddProductPage());
             },
             child: Container(
               alignment: Alignment.center,

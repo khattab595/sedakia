@@ -111,39 +111,48 @@ class _CategoriesDatasource implements CategoriesDatasource {
 
   @override
   Future<ApiResponse<dynamic>> updateCategory(
-    String name,
-    String description,
-    String parent,
-    List<String> slug,
-    File image,
-    int id,
-  ) async {
+    int? id,
+    String? name,
+    String? description,
+    String? parent,
+    List<String>? slug, {
+    File? image = null,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = FormData();
-    _data.fields.add(MapEntry(
-      'name',
-      name,
-    ));
-    _data.fields.add(MapEntry(
-      'description',
-      description,
-    ));
-    _data.fields.add(MapEntry(
-      'parent',
-      parent,
-    ));
-    slug.forEach((i) {
+    if (name != null) {
+      _data.fields.add(MapEntry(
+        'name',
+        name,
+      ));
+    }
+    if (description != null) {
+      _data.fields.add(MapEntry(
+        'description',
+        description,
+      ));
+    }
+    if (parent != null) {
+      _data.fields.add(MapEntry(
+        'parent',
+        parent,
+      ));
+    }
+    slug?.forEach((i) {
       _data.fields.add(MapEntry('slug', i));
     });
-    _data.files.add(MapEntry(
-      'image',
-      MultipartFile.fromFileSync(
-        image.path,
-        filename: image.path.split(Platform.pathSeparator).last,
-      ),
-    ));
+    if (image != null) {
+      _data.files.add(MapEntry(
+        'image',
+        MultipartFile.fromFileSync(
+          image.path,
+          filename: image.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ApiResponse<dynamic>>(Options(
       method: 'POST',

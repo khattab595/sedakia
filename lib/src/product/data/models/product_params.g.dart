@@ -19,18 +19,28 @@ ProductParams _$ProductParamsFromJson(Map<String, dynamic> json) =>
           json['images[]'], const FileJsonConverter().fromJson),
     );
 
-Map<String, dynamic> _$ProductParamsToJson(ProductParams instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'regular_price': instance.regularPrice,
-      'sale_price': instance.salePrice,
-      'stock_quantity': instance.stockQuantity,
-      'stock_status': instance.stockStatus,
-      'short_description': instance.shortDescription,
-      'categories': instance.categories,
-      'images[]': _$JsonConverterToJson<String, File>(
-          instance.images, const FileJsonConverter().toJson),
-    };
+Map<String, dynamic> _$ProductParamsToJson(ProductParams instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('name', instance.name);
+  writeNotNull('regular_price', instance.regularPrice);
+  writeNotNull('sale_price', instance.salePrice);
+  writeNotNull('stock_quantity', instance.stockQuantity);
+  writeNotNull('stock_status', instance.stockStatus);
+  writeNotNull('short_description', instance.shortDescription);
+  writeNotNull('categories', instance.categories);
+  writeNotNull(
+      'images[]',
+      _$JsonConverterToJson<String, File>(
+          instance.images, const FileJsonConverter().toJson));
+  return val;
+}
 
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,

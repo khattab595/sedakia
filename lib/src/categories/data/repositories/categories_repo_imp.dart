@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app/src/categories/data/models/category_params.dart';
 import 'package:injectable/injectable.dart';
 
@@ -36,16 +38,15 @@ class CategoriesRepoImp extends CategoriesRepo {
   }
 
   @override
-  Future<String> updateCategory(
-       CategoryParams params,  int id) async {
+  Future<String> updateCategory(CategoryParams params, int id) async {
     final response = await datasource.updateCategory(
-    params.name ?? "",
-    params.description ?? "",
-    params.parent ?? "",
-    params.slug ?? [],
-    params.image!,
-    id,
-  );
-  return response.message ?? "";
+      id,
+      params.name ?? "",
+      params.description ?? "",
+      params.parent ?? "",
+      params.slug ?? [],
+      image: params.image,
+    );
+    return response.message ?? "";
   }
 }

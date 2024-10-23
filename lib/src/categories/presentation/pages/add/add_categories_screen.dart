@@ -20,20 +20,25 @@ class AddCategoriesScreen extends BaseStatelessWidget {
   String available = "";
   List<String>? category;
   final CategoryModel categoryModel;
-  // final CategoryData categoryData;
+   final CategoryData ?categoryData;
   StreamStateInitial<String> isAvailable = StreamStateInitial();
   AddCategoriesScreen({
     super.key,
     required this.addCategory,
     required this.categoryModel,
     required this.updateCategory,
-    // required this.categoryData
+      this.categoryData
   });
   @override
   Widget build(BuildContext context) {
-    // nameController=TextEditingController(text: categoryData.name);
-    // imageController=TextEditingController(text: categoryData.image);
-    // descriptionController=TextEditingController(text: categoryData.description);
+    if(categoryData?.parent==1){
+      isAvailable.setData("1");
+    }else{
+      isAvailable.setData("0");
+    }
+    nameController=TextEditingController(text: categoryData?.name??"");
+    imageController=TextEditingController(text: categoryData?.image??"");
+    descriptionController=TextEditingController(text: categoryData?.description??"");
     return SingleChildScrollView(
       padding: 20.paddingAll,
       child: Column(children: [
@@ -42,12 +47,12 @@ class AddCategoriesScreen extends BaseStatelessWidget {
           controller: nameController,
         ),
         DropDownField(
-          title: strings.available,
+          title: strings.is_the_section_son,
           items: const [
             DropDownItem(title: "نعم", id: "1"),
             DropDownItem(title: "لا", id: "0"),
           ],
-          value: available,
+          value: categoryData?.parent.toString(),
           onChanged: (value) {
             available = value.id!;
             isAvailable.setData(available);
@@ -60,7 +65,7 @@ class AddCategoriesScreen extends BaseStatelessWidget {
               return( snapshot.data == null || snapshot.data=="0")
                   ? const SizedBox()
                   : DropDownFieldMulti(
-                      value: category,
+                      value: [categoryData?.slug??""],
                       onChanged: (value) {
                         category = value?.map((e) => e.id ?? "").toList();
                       },
@@ -97,25 +102,25 @@ class AddCategoriesScreen extends BaseStatelessWidget {
             buttonColor: primaryColor,
             buttonTextColor: whiteTextColor,
             buttonFunc: () {
-              // categoryData ==null ?
+              categoryData ==null ?
               addCategory(CategoryParams(
                 name: nameController.text,
                 parent: available,
                 slug: category,
                 image: file,
                 description: descriptionController.text,
-              ));
-              // :
-              // updateCategory(
-              //      CategoryParams(
-              //       name: nameController.text,
-              //       parent: available,
-              //       slug: category,
-              //       image: file,
-              //       description: descriptionController.text,
-              //     ),
-              //     int.parse(categoryData.id.toString())
-              // );
+              ))
+              :
+              updateCategory(
+                   CategoryParams(
+                    name: nameController.text,
+                    parent: available,
+                    slug: category,
+                    image: file,
+                    description: descriptionController.text,
+                  ),
+                  int.parse(categoryData?.id.toString()??"")
+              );
 
             })
       ]),

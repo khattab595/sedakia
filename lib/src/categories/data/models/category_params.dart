@@ -6,15 +6,15 @@ part 'category_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class CategoryParams {
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name',includeIfNull: false)
   String? name;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description',includeIfNull: false)
   String? description;
-  @JsonKey(name: 'parent')
+  @JsonKey(name: 'parent',includeIfNull: false)
   String? parent;
-  @JsonKey(name: 'slug')
+  @JsonKey(name: 'slug',includeIfNull: false)
   List<String>? slug;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image',includeIfNull: false)
   @FileJsonConverter()
   File? image;
 

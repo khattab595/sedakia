@@ -14,12 +14,12 @@ OrderDetailsDto _$OrderDetailsDtoFromJson(Map<String, dynamic> json) =>
       total: json['total'] as String?,
       subtotal: json['subtotal'] as int?,
       currency: json['currency'] as String?,
-      billing: json['billing'] == null
+      dataBilling: json['billing'] == null
           ? null
           : DataBilling.fromJson(json['billing'] as Map<String, dynamic>),
-      shipping: json['shipping'] == null
+      shippingModel: json['shipping'] == null
           ? null
-          : Shipping.fromJson(json['shipping'] as Map<String, dynamic>),
+          : ShippingModel.fromJson(json['shipping'] as Map<String, dynamic>),
       paymentMethod: json['payment_method'] as String?,
       paymentMethodTitle: json['payment_method_title'] as String?,
       items: (json['items'] as List<dynamic>?)
@@ -38,8 +38,8 @@ Map<String, dynamic> _$OrderDetailsDtoToJson(OrderDetailsDto instance) =>
       'total': instance.total,
       'subtotal': instance.subtotal,
       'currency': instance.currency,
-      'billing': instance.billing,
-      'shipping': instance.shipping,
+      'billing': instance.dataBilling,
+      'shipping': instance.shippingModel,
       'payment_method': instance.paymentMethod,
       'payment_method_title': instance.paymentMethodTitle,
       'items': instance.items,
@@ -73,7 +73,8 @@ Map<String, dynamic> _$DataBillingToJson(DataBilling instance) =>
       'country': instance.country,
     };
 
-Shipping _$ShippingFromJson(Map<String, dynamic> json) => Shipping(
+ShippingModel _$ShippingModelFromJson(Map<String, dynamic> json) =>
+    ShippingModel(
       firstName: json['first_name'] as String?,
       lastName: json['last_name'] as String?,
       address_1: json['address_1'] as String?,
@@ -84,7 +85,8 @@ Shipping _$ShippingFromJson(Map<String, dynamic> json) => Shipping(
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$ShippingToJson(Shipping instance) => <String, dynamic>{
+Map<String, dynamic> _$ShippingModelToJson(ShippingModel instance) =>
+    <String, dynamic>{
       'first_name': instance.firstName,
       'last_name': instance.lastName,
       'address_1': instance.address_1,
@@ -117,12 +119,14 @@ Map<String, dynamic> _$DataItemToJson(DataItem instance) => <String, dynamic>{
       'image_url': instance.imageUrl,
     };
 
-MetaDataModel _$MetaDataFromJson(Map<String, dynamic> json) => MetaDataModel(
+MetaDataModel _$MetaDataModelFromJson(Map<String, dynamic> json) =>
+    MetaDataModel(
       key: json['key'] as String?,
       value: json['value'] as String?,
     );
 
-Map<String, dynamic> _$MetaDataToJson(MetaDataModel instance) => <String, dynamic>{
+Map<String, dynamic> _$MetaDataModelToJson(MetaDataModel instance) =>
+    <String, dynamic>{
       'key': instance.key,
       'value': instance.value,
     };

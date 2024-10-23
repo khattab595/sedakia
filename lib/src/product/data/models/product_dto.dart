@@ -42,6 +42,8 @@ class ProductData {
   String? stockStatus;
   @JsonKey(name: 'image_url')
   String? imageUrl;
+  @JsonKey(name: 'parent_id')
+  int? parentId;
 
   ProductData({
     this.id,
@@ -52,7 +54,8 @@ class ProductData {
     this.stockQuantity,
     this.stockStatus,
     this.imageUrl,
-    this.salePrice
+    this.salePrice,
+    this.parentId,
   });
 
   factory ProductData.fromJson(Map<String, dynamic> json) =>
