@@ -24,11 +24,12 @@ class LabelButton extends StatelessWidget {
       onTap: onTap,
       child: Text(
         title,
-        style: style ?? context.bodyMedium.copyWith(
-          color: color,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-        ),
+        style: style ??
+            context.bodyMedium.copyWith(
+              color: color,
+              fontSize: fontSize,
+              fontWeight: fontWeight,
+            ),
       ),
     );
   }

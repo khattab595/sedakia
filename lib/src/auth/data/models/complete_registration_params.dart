@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'complete_registration_params.g.dart'; 
+part 'complete_registration_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class CompleteRegistrationParams {
@@ -17,11 +17,16 @@ class CompleteRegistrationParams {
   @JsonKey(name: 'pic_identityB')
   String? picIdentityB;
 
+  CompleteRegistrationParams(
+      {this.gender,
+      this.birthDate,
+      this.academicLevelId,
+      this.stageLevelId,
+      this.picIdentityF,
+      this.picIdentityB});
 
-  CompleteRegistrationParams({this.gender, this.birthDate, this.academicLevelId, this.stageLevelId, this.picIdentityF, this.picIdentityB});
+  factory CompleteRegistrationParams.fromJson(Map<String, dynamic> json) =>
+      _$CompleteRegistrationParamsFromJson(json);
 
-   factory CompleteRegistrationParams.fromJson(Map<String, dynamic> json) => _$CompleteRegistrationParamsFromJson(json);
-
-   Map<String, dynamic> toJson() => _$CompleteRegistrationParamsToJson(this);
+  Map<String, dynamic> toJson() => _$CompleteRegistrationParamsToJson(this);
 }
-

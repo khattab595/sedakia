@@ -6,10 +6,10 @@ import '../../../../core/utils/constants.dart';
 import '../models/summary_dto.dart';
 
 part 'home_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  HomeDatasource{
-
+abstract class HomeDatasource {
   @factoryMethod
   factory HomeDatasource(Dio dio) = _HomeDatasource;
 

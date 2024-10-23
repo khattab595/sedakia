@@ -8,7 +8,7 @@ import '../../../domain/entities/about.dart';
 
 class AboutScreen extends BaseStatelessWidget {
   // final About about;
-   AboutScreen({
+  AboutScreen({
     Key? key,
     //  required this.about
   }) : super(key: key);
@@ -16,25 +16,24 @@ class AboutScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-    padding: 20.paddingAll,
-      child: Column(
-        children: [
-          AboutLogesteItem(
-            title: strings.this_app,
-            subTitle:strings.desc_about,
-          ),
-          20.ph,
-          AboutLogesteItem(
-            title:strings.features,
-            subTitle: strings.desc_about,
-          ),
-          20.ph,
-          AboutLogesteItem(
-            title: strings.services,
-            subTitle: strings.desc_about,
-          )
-        ],
-      )
-    );
+        padding: 20.paddingAll,
+        child: Column(
+          children: [
+            AboutLogesteItem(
+              title: strings.this_app,
+              subTitle: strings.desc_about,
+            ),
+            20.ph,
+            AboutLogesteItem(
+              title: strings.features,
+              subTitle: strings.desc_about,
+            ),
+            20.ph,
+            AboutLogesteItem(
+              title: strings.services,
+              subTitle: strings.desc_about,
+            )
+          ],
+        ));
   }
 }

@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'home_data_dto.g.dart'; 
+part 'home_data_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ModelDto {
@@ -9,10 +9,10 @@ class ModelDto {
   @JsonKey(name: 'url')
   String? value;
 
-  ModelDto(  {this.name, this.value});
+  ModelDto({this.name, this.value});
 
-   factory ModelDto.fromJson(Map<String, dynamic> json) => _$ModelDtoFromJson(json);
+  factory ModelDto.fromJson(Map<String, dynamic> json) =>
+      _$ModelDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ModelDtoToJson(this);
+  Map<String, dynamic> toJson() => _$ModelDtoToJson(this);
 }
-

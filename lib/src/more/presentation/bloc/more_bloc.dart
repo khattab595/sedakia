@@ -1,4 +1,3 @@
-
 import 'package:injectable/injectable.dart';
 import '../../../../core/bloc/base_cubit.dart';
 import '../../../auth/domain/repositories/auth_repo.dart';
@@ -12,11 +11,4 @@ class ProfileBloc extends BaseCubit {
   final ForgotPasswordRepo forgotPasswordRepo;
 
   ProfileBloc(this.repo, this.authRepo, this.forgotPasswordRepo);
-
-
-
-  }
-
-
-
-
+}

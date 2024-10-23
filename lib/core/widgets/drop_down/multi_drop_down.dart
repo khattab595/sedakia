@@ -28,26 +28,26 @@ class DropDownFieldMulti extends BaseStatelessWidget {
 
   DropDownFieldMulti(
       {Key? key,
-        required this.items,
-        this.title,
-        this.hint,
-        this.isSearch,
-        this.onChanged,
-        this.prefixIcon,
-        this.texStyle,
-        this.value,
-        this.iconWidget,
-        this.isValidator = true,
-        this.isIconShow = true,
-        this.validator,
-        this.style,
-        this.radius,
-        this.borderColor,
-        this.titleColor,
-        this.width,
-        this.offset,
-        this.fontSize,
-        this.contentPadding})
+      required this.items,
+      this.title,
+      this.hint,
+      this.isSearch,
+      this.onChanged,
+      this.prefixIcon,
+      this.texStyle,
+      this.value,
+      this.iconWidget,
+      this.isValidator = true,
+      this.isIconShow = true,
+      this.validator,
+      this.style,
+      this.radius,
+      this.borderColor,
+      this.titleColor,
+      this.width,
+      this.offset,
+      this.fontSize,
+      this.contentPadding})
       : super(key: key);
 
   @override
@@ -70,32 +70,32 @@ class DropDownFieldMulti extends BaseStatelessWidget {
           onListChanged: (p0) {
             onChanged!(p0);
           },
-        listItemPadding: const EdgeInsets.all(5),
+          listItemPadding: const EdgeInsets.all(5),
           closedHeaderPadding: const EdgeInsets.all(10),
           expandedHeaderPadding: const EdgeInsets.all(5),
           headerListBuilder: (context, selectedItems, enabled) {
             return SizedBox(
-              height: 30,width: double.infinity,
+              height: 30,
+              width: double.infinity,
               child: ListView.builder(
                   itemCount: selectedItems.length,
-
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => Padding(
-                    padding: 5.paddingStart,
-                    child: Row(
-                      children: [
-                        BlackMediumText(
-                          label: selectedItems[index].title.toString(),
+                        padding: 5.paddingStart,
+                        child: Row(
+                          children: [
+                            BlackMediumText(
+                              label: selectedItems[index].title.toString(),
+                            ),
+                            5.pw,
+                            Container(
+                              color: primaryColor,
+                              width: 7,
+                              height: 3,
+                            ),
+                          ],
                         ),
-                        5.pw,
-                        Container(
-                          color: primaryColor,
-                          width: 7,
-                          height: 3,
-                        ),
-                      ],
-                    ),
-                  )),
+                      )),
             );
           },
           initialItems: getInitialValue(),
@@ -127,15 +127,17 @@ class DropDownFieldMulti extends BaseStatelessWidget {
               closedBorderRadius: BorderRadius.circular(12),
               closedErrorBorderRadius: BorderRadius.circular(12),
               expandedBorderRadius: BorderRadius.circular(12),
-            //  hintStyle: hintRegularStyle.copyWith(color: Colors.grey),
+              //  hintStyle: hintRegularStyle.copyWith(color: Colors.grey),
               expandedFillColor: Colors.white),
           hintText: hint,
           items: items,
           disabledDecoration: CustomDropdownDisabledDecoration(
-            border: Border.all(color: whiteTextColor, width: 0,),
+            border: Border.all(
+              color: whiteTextColor,
+              width: 0,
+            ),
             fillColor: context.theme.inputDecorationTheme.fillColor,
             borderRadius: BorderRadius.circular(12),
-
           ),
         ),
         5.ph,

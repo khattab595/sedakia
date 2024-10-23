@@ -11,26 +11,21 @@ class CategoriesBloc extends BaseCubit {
   final CategoriesRepo _repo;
   final CategoriesUseCase categoriesUseCase;
 
-
-  CategoriesBloc(this._repo,this.categoriesUseCase);
-
+  CategoriesBloc(this._repo, this.categoriesUseCase);
 
   void fetchCategory() {
     executeSuccess(() => categoriesUseCase.fetchCategory());
   }
 
-
   void addCategory(CategoryParams params) {
     executeEmitterListener(() => _repo.addCategory(params));
   }
 
-  void updateCategory( CategoryParams params, int id) {
-    executeEmitterListener(() => _repo.updateCategory( params,id));
+  void updateCategory(CategoryParams params, int id) {
+    executeEmitterListener(() => _repo.updateCategory(params, id));
   }
 
   void deleteCategory(int id) {
     executeEmitterListener(() => _repo.deleteCategory(id));
   }
-
-
 }

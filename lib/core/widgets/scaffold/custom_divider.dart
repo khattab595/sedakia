@@ -8,12 +8,21 @@ class CustomDivider extends StatelessWidget {
   final double? endIndent;
   final EdgeInsetsGeometry? margin;
   final Color? backgroundColor;
-  const CustomDivider({Key? key, this.height, this.color, this.thickness, this.indent, this.endIndent, this.margin, this.backgroundColor}) : super(key: key);
+  const CustomDivider(
+      {Key? key,
+      this.height,
+      this.color,
+      this.thickness,
+      this.indent,
+      this.endIndent,
+      this.margin,
+      this.backgroundColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return  Container(
+    return Container(
       color: backgroundColor ?? theme.colorScheme.background,
       margin: margin ?? EdgeInsets.zero,
       child: Divider(

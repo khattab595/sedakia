@@ -20,7 +20,7 @@ class ProfileItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: 5.paddingBottom,
+        margin: 5.paddingBottom,
         decoration: Decorations.kDecorationBorderRadius(
             borderColor: AppColors.dividerColor.withOpacity(.7)),
         child: ListTile(
@@ -50,7 +50,7 @@ class ProfileItem extends BaseStatelessWidget {
 class ProfileItemV2 extends BaseStatelessWidget {
   final String icon;
   final String title;
-Widget? trailing;
+  Widget? trailing;
   final Function()? onTap;
   final double iconSize;
 
@@ -79,14 +79,18 @@ Widget? trailing;
             color: context.primaryColor,
           ),
           minLeadingWidth: 20,
-          title:
-          Text(
+          title: Text(
             title,
             style: primaryRegularStyle.copyWith(
               fontSize: 16,
             ),
           ),
-          trailing: trailing??const Icon(Icons.arrow_forward_ios_sharp,size: 14,color: AppColors.primaryLight,),
+          trailing: trailing ??
+              const Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 14,
+                color: AppColors.primaryLight,
+              ),
         ),
       ),
     );

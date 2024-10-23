@@ -73,7 +73,7 @@ class DropDownField extends BaseStatelessWidget {
               fillColor:
                   fillColor ?? context.theme.inputDecorationTheme.fillColor,
               contentPadding:
-              const EdgeInsets.symmetric(vertical: 2, horizontal: 0),
+                  const EdgeInsets.symmetric(vertical: 2, horizontal: 0),
               border: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: borderColor,
@@ -119,7 +119,7 @@ class DropDownField extends BaseStatelessWidget {
             onSaved: (value) {
               //  selectedValue = value.toString();
             },
-            buttonStyleData:  ButtonStyleData(
+            buttonStyleData: ButtonStyleData(
               height: height,
               padding: const EdgeInsets.only(left: 10),
               // decoration: BoxDecoration(

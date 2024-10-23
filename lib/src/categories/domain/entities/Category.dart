@@ -3,16 +3,16 @@ import 'Data.dart';
 
 class CategoryModel {
   CategoryModel({
-      this.data, 
-      this.totalCategories, 
-      this.page, 
-      this.perPage,});
+    this.data,
+    this.totalCategories,
+    this.page,
+    this.perPage,
+  });
 
   List<CategoryData>? data;
   int? totalCategories;
   int? page;
   int? perPage;
-
 
   factory CategoryModel.fromDto(CategoryDto json) {
     return CategoryModel(
@@ -21,7 +21,5 @@ class CategoryModel {
       perPage: json.perPage,
       data: json.data?.map((e) => CategoryData.fromDto(e)).toList(),
     );
-}
-
-
   }
+}

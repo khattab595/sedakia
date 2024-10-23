@@ -49,7 +49,8 @@ class BlackRegularText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          blackRegularStyle.copyWith(fontSize: fontSize ?? 14, color: labelColor),
+          blackRegularStyle.copyWith(
+              fontSize: fontSize ?? 14, color: labelColor),
     );
   }
 }
@@ -82,7 +83,8 @@ class BlackMediumText extends BaseStatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       style: labelStyle ??
-          blackMediumStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          blackMediumStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -109,7 +111,8 @@ class BlackSemiBoldText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-         blackSemiBoldStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          blackSemiBoldStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }

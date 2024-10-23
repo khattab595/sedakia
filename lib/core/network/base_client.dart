@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'dart:io';
-import 'package:app/core/exceptions/extensions.dart';
-import 'package:app/core/routes/routes.dart';
+
 import 'package:app/core/utils/helper_methods.dart';
-import 'package:app/core/utils/navigator.dart';
-import 'package:dio/dio.dart';
+ import 'package:dio/dio.dart';
 import '../di/injector.dart';
 import '../exceptions/api_exception.dart';
 
@@ -62,32 +59,11 @@ class HeaderInterceptor extends Interceptor {
       String message = data.containsKey('message') ? data['message'] : "Error";
       // final status = data.containsKey('status') ? data['status'] : "Error";
       int code = data.containsKey('code') ? data['code'] : 0;
-      // if (err.response?.statusCode == 401) {
-      //   pushNamedAndRemoveUntil(Routes.loginPage);
-      // }
-      /*throw DioError(
-        error: message,
-        response: err.response,
-        type: DioErrorType.response,
-        requestOptions: err.requestOptions,
-      );*/
+
       throw ApiException(message, code);
     } else {
       super.onError(err, handler);
     }
   }
 
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    super.onResponse(response, handler);
-    Map<String, dynamic> data = response.data;
-    // final message = data.containsKey('message') ? data['message'] : "Error";
-    // // final status = data.containsKey('status') ? data['status'] : "Error";
-    // String code =
-    //     data.containsKey('code') ? response.data['code'].toString() : "E";
-    // print('onRespons ${response.toString()} => ${code != 'Ok'}');
-    // if (status != SUCCESS_CODE) {
-    //   throw ApiException(message, code);
-    // }
-  }
 }

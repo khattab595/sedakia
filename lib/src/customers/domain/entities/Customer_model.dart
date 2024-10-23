@@ -3,10 +3,11 @@ import 'Data.dart';
 
 class CustomerModel {
   CustomerModel({
-      this.data, 
-      this.totalUsers, 
-      this.totalPages, 
-      this.currentPage,});
+    this.data,
+    this.totalUsers,
+    this.totalPages,
+    this.currentPage,
+  });
 
   List<CustomerData>? data;
   int? totalUsers;
@@ -15,11 +16,10 @@ class CustomerModel {
 
   factory CustomerModel.fromDto(CustomerDto json) {
     return CustomerModel(
-   totalUsers:json.totalUsers,
-      totalPages:json.totalPages,
-      currentPage:json.currentPage,
+      totalUsers: json.totalUsers,
+      totalPages: json.totalPages,
+      currentPage: json.currentPage,
       data: json.data?.map((e) => CustomerData.fromDto(e)).toList(),
     );
   }
-
 }

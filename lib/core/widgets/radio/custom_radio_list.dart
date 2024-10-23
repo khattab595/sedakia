@@ -1,4 +1,3 @@
-
 import '../../../src/main_index.dart';
 import '../texts/black_texts.dart';
 

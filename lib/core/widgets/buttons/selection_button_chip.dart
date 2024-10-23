@@ -24,17 +24,17 @@ class SelectionButtonChip extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: items
                 .map((item) => SelectionWidget(
-                  item: item,
-                  isSelected: _selectedType == item,
-                  onSelected: (selected) {
-                    if (selected) {
-                      setState(() {
-                        _selectedType = item;
-                      });
-                      onSelected!(_selectedType);
-                    }
-                  },
-                ))
+                      item: item,
+                      isSelected: _selectedType == item,
+                      onSelected: (selected) {
+                        if (selected) {
+                          setState(() {
+                            _selectedType = item;
+                          });
+                          onSelected!(_selectedType);
+                        }
+                      },
+                    ))
                 .toList(),
           ),
         );
@@ -47,7 +47,11 @@ class SelectionWidget extends StatelessWidget {
   final bool isSelected;
   final SelectionItem item;
   final void Function(bool)? onSelected;
-  const SelectionWidget({super.key, required this.item, required this.isSelected, this.onSelected});
+  const SelectionWidget(
+      {super.key,
+      required this.item,
+      required this.isSelected,
+      this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +59,7 @@ class SelectionWidget extends StatelessWidget {
     return Container(
       margin: 10.paddingAll,
       decoration: Decorations.shapeDecorationShadow(
-        color: isSelected
-            ? theme.primaryColor
-            : theme.cardColor,
+        color: isSelected ? theme.primaryColor : theme.cardColor,
       ),
       child: ChoiceChip(
         label: Text(item.title,
@@ -75,15 +77,13 @@ class SelectionWidget extends StatelessWidget {
         selectedColor: theme.primaryColor,
         backgroundColor: theme.cardColor,
         side: BorderSide.none,
-        padding:  const EdgeInsets.symmetric(
-                vertical: 10, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onSelected: onSelected,
       ),
     );
   }
 }
-
 
 class SelectionItem {
   final String id;

@@ -1,5 +1,4 @@
-
-class Splash{
+class Splash {
   final int id;
   final String image;
   final String description;

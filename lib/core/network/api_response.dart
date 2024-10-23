@@ -1,7 +1,6 @@
 import 'package:app/core/network/pagination.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-
 part 'api_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
@@ -12,14 +11,11 @@ class ApiResponse<T> {
   Pagination? pagination;
   T? payload;
 
-
   ApiResponse({this.code, this.message, this.payload, this.pagination});
 
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object?) toJsonT,
-  ) => _$ApiResponseFromJson(json, toJsonT);
+  ) =>
+      _$ApiResponseFromJson(json, toJsonT);
 }
-
-
-

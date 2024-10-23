@@ -10,10 +10,8 @@ class HomeRepoImp extends HomeRepo {
   HomeRepoImp(this.datasource);
 
   @override
-  Future<SummaryDto> fetchSummary() async{
-   final response =await datasource.fetchSummary();
-   return response.payload!;
+  Future<SummaryDto> fetchSummary() async {
+    final response = await datasource.fetchSummary();
+    return response.payload!;
   }
-
-
 }

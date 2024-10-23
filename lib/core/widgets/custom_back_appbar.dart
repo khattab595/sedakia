@@ -3,7 +3,7 @@ import 'dart:math';
 import '../../src/main_index.dart';
 
 class CustomBackAppBar extends BaseStatelessWidget {
-   CustomBackAppBar({super.key});
+  CustomBackAppBar({super.key});
   @override
   Widget build(BuildContext context) {
     return InkWell(

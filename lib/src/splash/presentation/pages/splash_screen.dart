@@ -11,35 +11,35 @@ class SplashPage extends StatefulWidget {
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin{
+class _SplashPageState extends State<SplashPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _opacityAnimation;
-
 
   late Widget startWidget;
 
   @override
   void initState() {
-
+    super.initState();
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    _opacityAnimation =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
 
     _animationController.forward();
     Future.delayed(
       const Duration(seconds: 2),
       () async {
-        bool isLogin = await HelperMethods.isLogin();
+        String token = await HelperMethods.getToken();
         // bool isFirstTime = await HelperMethods.isFirstTime();
         bool isRememberMe = await HelperMethods.getRememberMe();
-        if ( isLogin) {
+        if (token.isNotEmpty || token != '') {
           pushNamedAndRemoveUntil(Routes.navigationPages);
         } else {
           pushNamedAndRemoveUntil(Routes.loginPage);
         }
-
       },
     );
   }
@@ -62,14 +62,16 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-    AnimatedBuilder(
-    animation: _opacityAnimation,
-    builder: (context, child) {
-    return Opacity(opacity: _opacityAnimation.value,
-                  child: Image.asset(AppImages.splash, width: 200, height: 200),
-    );},
+                AnimatedBuilder(
+                  animation: _opacityAnimation,
+                  builder: (context, child) {
+                    return Opacity(
+                      opacity: _opacityAnimation.value,
+                      child: Image.asset(AppImages.splash,
+                          width: 200, height: 200),
+                    );
+                  },
                 ),
-
               ],
             )), // Set image
       ),

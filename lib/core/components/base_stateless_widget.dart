@@ -1,31 +1,40 @@
+// ignore_for_file: must_be_immutable
 
 import '../widgets/dialogs/progress_dialog.dart';
 import '/src/main_index.dart';
-abstract class BaseStatelessWidget extends StatelessWidget {
 
-  BuildContext? context = injector<ServicesLocator>().navigatorKey.currentContext;
-  final strings = injector<ServicesLocator>().navigatorKey.currentContext!.strings ;
+abstract class BaseStatelessWidget extends StatelessWidget {
+  BuildContext? context =
+      injector<ServicesLocator>().navigatorKey.currentContext;
+  final strings =
+      injector<ServicesLocator>().navigatorKey.currentContext!.strings;
   ThemeData get theme => Theme.of(context!);
   TextTheme get textTheme => theme.textTheme;
-  final local = injector<ServicesLocator>().navigatorKey.currentContext?.languageCode.toString();
+  final local = injector<ServicesLocator>()
+      .navigatorKey
+      .currentContext
+      ?.languageCode
+      .toString();
 
   TextStyle get whiteRegularStyle => textTheme.labelSmall!;
   TextStyle get whiteMediumStyle => textTheme.labelMedium!;
   TextStyle get whiteSemiBoldStyle => textTheme.labelLarge!;
-  TextStyle get whiteBoldStyle => textTheme.titleLarge!.copyWith(color: whiteSemiBoldStyle.color);
+  TextStyle get whiteBoldStyle =>
+      textTheme.titleLarge!.copyWith(color: whiteSemiBoldStyle.color);
   TextStyle get hintRegularStyle => textTheme.displaySmall!;
   TextStyle get hintMediumStyle => textTheme.displayMedium!;
-  TextStyle get hintBoldStyle => textTheme.titleLarge!.copyWith(color: hintMediumStyle.color);
+  TextStyle get hintBoldStyle =>
+      textTheme.titleLarge!.copyWith(color: hintMediumStyle.color);
   TextStyle get hintSemiBoldStyle => textTheme.displayLarge!;
   TextStyle get primaryRegularStyle => textTheme.headlineSmall!;
   TextStyle get primaryMediumStyle => textTheme.headlineMedium!;
   TextStyle get primarySemiBoldStyle => textTheme.headlineLarge!;
-  TextStyle get primaryBoldStyle => textTheme.titleLarge!.copyWith(color: primaryMediumStyle.color, fontSize: 18);
+  TextStyle get primaryBoldStyle => textTheme.titleLarge!
+      .copyWith(color: primaryMediumStyle.color, fontSize: 18);
   TextStyle get blackRegularStyle => textTheme.bodySmall!;
   TextStyle get blackMediumStyle => textTheme.bodyMedium!;
   TextStyle get blackSemiBoldStyle => textTheme.bodyLarge!;
   TextStyle get blackBoldStyle => textTheme.titleLarge!;
-
 
   Color get errorColor => theme.colorScheme.error;
   Color get scaffoldBackgroundColor => theme.scaffoldBackgroundColor;
@@ -51,23 +60,19 @@ abstract class BaseStatelessWidget extends StatelessWidget {
   EdgeInsetsGeometry get basePadding => const EdgeInsets.all(16);
   //static String routeName (){return '';}
 
-  final CustomProgressDialog progress =
-      DialogsManager.createProgress();
+  final CustomProgressDialog progress = DialogsManager.createProgress();
 
   bool isRtl() => local == 'ar';
 
-  BaseStatelessWidget({Key? key}):  super(key: key);
+  BaseStatelessWidget({Key? key}) : super(key: key);
 
-
-  T? getArguments<T>(BuildContext context ){
+  T? getArguments<T>(BuildContext context) {
     return context.getArguments();
   }
 
-   handleErrorDialogBuilder(dynamic exception) {
-    final context = this.context ;
+  handleErrorDialogBuilder(dynamic exception) {
+    final context = this.context;
 
-    DialogsManager. showErrorDialog(context!, exception);
-
-   }
-
+    DialogsManager.showErrorDialog(context!, exception);
+  }
 }

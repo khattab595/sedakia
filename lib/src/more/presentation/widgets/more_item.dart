@@ -50,7 +50,6 @@ class MoreItem extends StatelessWidget {
             ),
             trailing: trailing ?? 0.pw,
           ),
-
         ],
       ),
     );

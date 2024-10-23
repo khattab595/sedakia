@@ -13,7 +13,6 @@ class AppIcons {
   static const String menu2 = "assets/icons/more_2.svg";
   static const String home = "assets/icons/home.svg";
 
-
   ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";
   static const String unlock = "assets/icons/unlock.svg";
@@ -48,5 +47,4 @@ class AppIcons {
   static const String search = "assets/icons/search.svg";
   static const String back = "assets/icons/back.svg";
   static const String filter = "assets/icons/filter.svg";
-
 }

@@ -9,10 +9,9 @@ import '../../../data/models/category_params.dart';
 import '../../../domain/entities/Category.dart';
 import '../../../domain/entities/Data.dart';
 
-
 class AddCategoriesScreen extends BaseStatelessWidget {
   final Function(CategoryParams) addCategory;
-  final Function( CategoryParams params, int id) updateCategory;
+  final Function(CategoryParams params, int id) updateCategory;
   TextEditingController imageController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
@@ -20,25 +19,25 @@ class AddCategoriesScreen extends BaseStatelessWidget {
   String available = "";
   List<String>? category;
   final CategoryModel categoryModel;
-   final CategoryData ?categoryData;
+  final CategoryData? categoryData;
   StreamStateInitial<String> isAvailable = StreamStateInitial();
-  AddCategoriesScreen({
-    super.key,
-    required this.addCategory,
-    required this.categoryModel,
-    required this.updateCategory,
-      this.categoryData
-  });
+  AddCategoriesScreen(
+      {super.key,
+      required this.addCategory,
+      required this.categoryModel,
+      required this.updateCategory,
+      this.categoryData});
   @override
   Widget build(BuildContext context) {
-    if(categoryData?.parent==1){
+    if (categoryData?.parent == 1) {
       isAvailable.setData("1");
-    }else{
+    } else {
       isAvailable.setData("0");
     }
-    nameController=TextEditingController(text: categoryData?.name??"");
-    imageController=TextEditingController(text: categoryData?.image??"");
-    descriptionController=TextEditingController(text: categoryData?.description??"");
+    nameController = TextEditingController(text: categoryData?.name ?? "");
+    imageController = TextEditingController(text: categoryData?.image ?? "");
+    descriptionController =
+        TextEditingController(text: categoryData?.description ?? "");
     return SingleChildScrollView(
       padding: 20.paddingAll,
       child: Column(children: [
@@ -62,16 +61,16 @@ class AddCategoriesScreen extends BaseStatelessWidget {
         StreamBuilder(
             stream: isAvailable.stream,
             builder: (context, snapshot) {
-              return( snapshot.data == null || snapshot.data=="0")
+              return (snapshot.data == null || snapshot.data == "0")
                   ? const SizedBox()
                   : DropDownFieldMulti(
-                      value: [categoryData?.slug??""],
+                      value: [categoryData?.slug ?? ""],
                       onChanged: (value) {
                         category = value?.map((e) => e.id ?? "").toList();
                       },
                       title: strings.category,
-                      items: categoryModel.data
-                          !.map((e) => DropDownItem(
+                      items: categoryModel.data!
+                          .map((e) => DropDownItem(
                                 id: e.id.toString(),
                                 title: e.name ?? "",
                               ))
@@ -102,26 +101,23 @@ class AddCategoriesScreen extends BaseStatelessWidget {
             buttonColor: primaryColor,
             buttonTextColor: whiteTextColor,
             buttonFunc: () {
-              categoryData ==null ?
-              addCategory(CategoryParams(
-                name: nameController.text,
-                parent: available,
-                slug: category,
-                image: file,
-                description: descriptionController.text,
-              ))
-              :
-              updateCategory(
-                   CategoryParams(
-                    name: nameController.text,
-                    parent: available,
-                    slug: category,
-                    image: file,
-                    description: descriptionController.text,
-                  ),
-                  int.parse(categoryData?.id.toString()??"")
-              );
-
+              categoryData == null
+                  ? addCategory(CategoryParams(
+                      name: nameController.text,
+                      parent: available,
+                      slug: category,
+                      image: file,
+                      description: descriptionController.text,
+                    ))
+                  : updateCategory(
+                      CategoryParams(
+                        name: nameController.text,
+                        parent: available,
+                        slug: category,
+                        image: file,
+                        description: descriptionController.text,
+                      ),
+                      int.parse(categoryData?.id.toString() ?? ""));
             })
       ]),
     );

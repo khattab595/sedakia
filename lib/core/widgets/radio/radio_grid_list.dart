@@ -37,21 +37,19 @@ class RadioGridList extends StatelessWidget {
                         groupValue = value!;
                       });
                       onChanged!(item);
-                    }
-                  )
-                :
-              FittedBox(
-              child: CustomRadioListTile2(
-                title: item.title,
-                groupValue: groupValue,
-                onChanged: (value) {
-                  setState(() {
-                    groupValue = value!;
-                  });
-                  onChanged!(item);
-                },
-              ),
-            );
+                    })
+                : FittedBox(
+                    child: CustomRadioListTile2(
+                      title: item.title,
+                      groupValue: groupValue,
+                      onChanged: (value) {
+                        setState(() {
+                          groupValue = value!;
+                        });
+                        onChanged!(item);
+                      },
+                    ),
+                  );
           }).toList(),
         );
       }),
@@ -63,12 +61,16 @@ class RadioItem {
   final String value;
   final String title;
   final String tooltipMessage;
-  RadioItem({required this.value, required this.title, this.tooltipMessage = ''});
+  RadioItem(
+      {required this.value, required this.title, this.tooltipMessage = ''});
 
   static listFrom(List items) {
     List<RadioItem> list = [];
     for (var item in items) {
-      list.add(RadioItem(value: item.productId, title: item.storeName, tooltipMessage: item.tooltipMessage ?? ''));
+      list.add(RadioItem(
+          value: item.productId,
+          title: item.storeName,
+          tooltipMessage: item.tooltipMessage ?? ''));
     }
     return list;
   }

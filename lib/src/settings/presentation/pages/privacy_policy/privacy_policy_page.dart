@@ -1,4 +1,3 @@
-
 import 'package:app/core/components/base_widget_bloc.dart';
 import 'package:app/src/settings/presentation/pages/privacy_policy/privacy_policy_screen.dart';
 
@@ -16,9 +15,9 @@ class PrivacyPolicyPage extends BaseBlocWidget<UnInitState, AboutCubit> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return  PrivacyPolicyScreen(
-      //   about: state.data!,
-    );
+    return PrivacyPolicyScreen(
+        //   about: state.data!,
+        );
   }
 
   @override

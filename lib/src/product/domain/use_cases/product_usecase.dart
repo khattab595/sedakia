@@ -1,12 +1,10 @@
-
-
 import 'package:injectable/injectable.dart';
 
 import '../repositories/product_repo.dart';
 
 @Injectable()
-class ProductUseCase  {
-  final ProductRepo productRepo ;
+class ProductUseCase {
+  final ProductRepo productRepo;
 
   ProductUseCase(this.productRepo);
 /*
@@ -23,5 +21,4 @@ class ProductUseCase  {
     return data;
   }
    */
-
 }

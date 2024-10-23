@@ -83,29 +83,26 @@ class IconText extends StatelessWidget {
                 )),
       );
 
-  Widget buildIconOrImage(BuildContext context) => icon
-              ?.split('/')
-              .last
-              .contains('.svg') ??
-          false
-      ? AppIcon(
-          icon: icon ?? '',
-          size: iconSize,
-          color: iconColor,
-        )
-      : isIconData
-          ? Icon(iconData, size: iconSize, color: iconColor)
-          : icon!.contains('http')
-              ? ImageNetwork(
-                  image: icon ?? '',
-                  height: iconSize,
-                  width: iconSize,
-                  radius: 0,
-                )
-              : Image.asset(
-                  icon ?? '',
-                  height: iconSize,
-                  width: iconSize,
-                  color: iconColor,
-                );
+  Widget buildIconOrImage(BuildContext context) =>
+      icon?.split('/').last.contains('.svg') ?? false
+          ? AppIcon(
+              icon: icon ?? '',
+              size: iconSize,
+              color: iconColor,
+            )
+          : isIconData
+              ? Icon(iconData, size: iconSize, color: iconColor)
+              : icon!.contains('http')
+                  ? ImageNetwork(
+                      image: icon ?? '',
+                      height: iconSize,
+                      width: iconSize,
+                      radius: 0,
+                    )
+                  : Image.asset(
+                      icon ?? '',
+                      height: iconSize,
+                      width: iconSize,
+                      color: iconColor,
+                    );
 }

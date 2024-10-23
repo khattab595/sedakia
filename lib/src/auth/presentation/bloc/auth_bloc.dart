@@ -10,8 +10,7 @@ class AuthCubit extends BaseCubit {
 
   AuthCubit(this.repo);
 
- void login(LoginParams params) async {
-   executeEmitterListener(() => repo.login(params));
+  void login(LoginParams params) async {
+    executeEmitterListener(() => repo.login(params));
   }
-
 }

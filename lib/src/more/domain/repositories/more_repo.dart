@@ -1,6 +1,3 @@
-
-
-
-abstract class ProfileRepo{
+abstract class ProfileRepo {
   //Future<Profile> fetchProfileData(bool isFromCash);
 }

@@ -6,10 +6,10 @@ import 'package:app/core/network/api_response.dart';
 import '../../domain/entities/splash.dart';
 
 part 'splash_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: 'kBASE_URL')
-abstract class  SplashDatasource{
-
+abstract class SplashDatasource {
   @factoryMethod
   factory SplashDatasource(Dio dio) = _SplashDatasource;
 

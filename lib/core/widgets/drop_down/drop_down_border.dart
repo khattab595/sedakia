@@ -17,24 +17,23 @@ class DropDownFieldBorder extends StatelessWidget {
   final Color? fillColor;
   final bool isLoading;
 
-  const DropDownFieldBorder(
-      {Key? key,
-      required this.items,
-      this.title,
-      this.hint,
-      required this.onChanged,
-      this.prefixIcon,
-      this.texStyle,
-      this.value,
-      this.iconWidget,
-      this.isValidator = true,
-      this.validator,
-      this.style,
-      this.colorBorderSide,
-      this.fillColor,
-      this.isLoading = false,
-      })
-      : super(key: key);
+  const DropDownFieldBorder({
+    Key? key,
+    required this.items,
+    this.title,
+    this.hint,
+    required this.onChanged,
+    this.prefixIcon,
+    this.texStyle,
+    this.value,
+    this.iconWidget,
+    this.isValidator = true,
+    this.validator,
+    this.style,
+    this.colorBorderSide,
+    this.fillColor,
+    this.isLoading = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +55,7 @@ class DropDownFieldBorder extends StatelessWidget {
         texStyle: texStyle ?? context.headlineSmall.copyWith(fontSize: 16),
         fillColor: fillColor ?? context.hintColor,
         colorBorderSide: context.backgroundColor,
-          isLoading: isLoading,
+        isLoading: isLoading,
         hintStyle: context.headlineSmall.copyWith(fontSize: 16),
       ),
     );

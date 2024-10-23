@@ -12,30 +12,41 @@ class CustomContainer extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final Widget? customWidget;
   final Widget? footer;
-  const CustomContainer({Key? key,  this.title,  this.value, this.titleStyle, this.valueStyle, this.padding, this.customWidget, this.footer, this.margin}) : super(key: key);
+  const CustomContainer(
+      {Key? key,
+      this.title,
+      this.value,
+      this.titleStyle,
+      this.valueStyle,
+      this.padding,
+      this.customWidget,
+      this.footer,
+      this.margin})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
-      padding: padding ?? const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
-      margin: margin ??  EdgeInsets.zero,
-      decoration: Decorations.kDecorationOnlyRadius(color: Theme.of(context).cardColor),
-      child: customWidget ??
-         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title!,
-              style: titleStyle ?? theme.textTheme.displayMedium!,
-            ),
-            Text(
-              value!,
-              style: valueStyle ?? theme.textTheme.headlineMedium,
-            ),
-            footer ?? const SizedBox.shrink(),
-          ],
-         )
-    );
+        padding:
+            padding ?? const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+        margin: margin ?? EdgeInsets.zero,
+        decoration: Decorations.kDecorationOnlyRadius(
+            color: Theme.of(context).cardColor),
+        child: customWidget ??
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title!,
+                  style: titleStyle ?? theme.textTheme.displayMedium!,
+                ),
+                Text(
+                  value!,
+                  style: valueStyle ?? theme.textTheme.headlineMedium,
+                ),
+                footer ?? const SizedBox.shrink(),
+              ],
+            ));
   }
 }

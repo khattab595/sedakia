@@ -19,8 +19,7 @@ class CategoryItem extends BaseStatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
-                image: NetworkImage(
-                    data.image??""
+                image: NetworkImage(data.image ?? ""
                     //  data.image??""
                     ),
                 fit: BoxFit.cover),
@@ -41,7 +40,7 @@ class CategoryItem extends BaseStatelessWidget {
         ),
         5.ph,
         PrimaryBoldText(
-          label: data.name??"",
+          label: data.name ?? "",
           //data.name??"",
           fontSize: 16,
         )
@@ -84,7 +83,7 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-          push(AddCategoriesPage(data:data));
+          push(AddCategoriesPage(data: data));
         } else if (value == 1) {
           onDelete(int.parse(data.id.toString()));
         }

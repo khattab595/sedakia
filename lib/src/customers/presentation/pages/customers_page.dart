@@ -7,25 +7,27 @@ import '../../domain/entities/Customer_model.dart';
 import '../bloc/customers_bloc.dart';
 import 'customers_screen.dart';
 
-class CustomersPage extends BaseBlocWidget<DataSuccess<CustomerModel>, CustomersBloc> {
+class CustomersPage
+    extends BaseBlocWidget<DataSuccess<CustomerModel>, CustomersBloc> {
   CustomersPage({Key? key}) : super(key: key);
 
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchGetData(SearchParams());
   }
+
   @override
   String? title(BuildContext context) {
     return strings.customers;
   }
+
   @override
   Widget build(BuildContext context) {
-
-    return  mainFrame(
+    return mainFrame(
       body: Column(
         children: [
           Padding(
-            padding: 15.paddingHoriz+10.paddingTop,
+            padding: 15.paddingHoriz + 10.paddingTop,
             child: CustomTextField(
               hintText: strings.search,
               minHeight: 45,
@@ -40,7 +42,7 @@ class CustomersPage extends BaseBlocWidget<DataSuccess<CustomerModel>, Customers
 
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CustomerModel> state) {
-    return  CustomersScreen(
+    return CustomersScreen(
       data: state.data!,
     );
   }

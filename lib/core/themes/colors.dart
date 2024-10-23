@@ -1,4 +1,3 @@
-
 import 'package:app/src/main_index.dart';
 
 class AppColors {
@@ -16,15 +15,14 @@ class AppColors {
   static const Color blueColor = Color(0xff105FAA);
   static const Color cafColor = Color(0xff8DDBE5);
   static const Color cafColor2 = Color(0xff307EBC);
-  static const Color orangeColor =  Color(0xffFF6B00);
+  static const Color orangeColor = Color(0xffFF6B00);
   static const Color blueColorff = Color(0xff1A138E);
   static const Color orangeLight = Color(0xffFFE9D4);
   static const Color blueLight = Color(0xff105FAA);
-  static const Color colorF4 =  Color(0xffF5F4F4);
+  static const Color colorF4 = Color(0xffF5F4F4);
 }
 
-
-extension AppColor on BuildContext{
+extension AppColor on BuildContext {
   // bool isDark() => Theme.of(this).brightness == Brightness.dark;
   // Color get blue_E0 => isDark() ? const Color(0xFF83BAE0) : const Color(0xFF83BAE0);
   // Color get blue_EC => isDark() ? const Color(0xFF7FC0EC) : const Color(0xFF7FC0EC);

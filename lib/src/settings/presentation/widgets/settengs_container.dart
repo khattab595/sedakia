@@ -8,7 +8,9 @@ class SettingsContainer extends StatelessWidget {
   final Decoration? decoration;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
-  const SettingsContainer({Key? key, this.child, this.decoration, this.margin, this.padding}) : super(key: key);
+  const SettingsContainer(
+      {Key? key, this.child, this.decoration, this.margin, this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +19,12 @@ class SettingsContainer extends StatelessWidget {
       width: double.infinity,
       margin: margin ?? 16.paddingAll,
       padding: padding ?? 16.paddingAll,
-      decoration: decoration ?? Decorations.shapeDecorationShadow(
-        color: Color(0xfff7f6f6),
-        colorShadow: Color(0x29000000),
-        radius: 15,
-      ),
+      decoration: decoration ??
+          Decorations.shapeDecorationShadow(
+            color: Color(0xfff7f6f6),
+            colorShadow: Color(0x29000000),
+            radius: 15,
+          ),
       child: child,
     );
   }

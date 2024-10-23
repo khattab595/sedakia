@@ -4,13 +4,14 @@ import '../../../../core/widgets/texts/primary_texts.dart';
 import '../../../main_index.dart';
 
 class AboutLogesteItem extends BaseStatelessWidget {
-   AboutLogesteItem({super.key,required this.title,required this.subTitle});
-final String title;
-final String subTitle;
+  AboutLogesteItem({super.key, required this.title, required this.subTitle});
+  final String title;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: Decorations.kDecorationBorderRadius(radius: 30,borderColor:AppColors.borderColor.withOpacity(0.3)),
+      decoration: Decorations.kDecorationBorderRadius(
+          radius: 30, borderColor: AppColors.borderColor.withOpacity(0.3)),
       padding: 25.paddingAll,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +22,7 @@ final String subTitle;
           ),
           15.ph,
           PrimaryRegularText(
-            label:subTitle,
+            label: subTitle,
             fontSize: 13,
           )
         ],

@@ -3,7 +3,6 @@ import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 import '../pagination/custom_footer_builder.dart';
 
-
 ///  Created by harbey on 5/27/2023.
 class PaginationWidget extends StatelessWidget {
   final bool isNoData;
@@ -13,19 +12,18 @@ class PaginationWidget extends StatelessWidget {
   final ScrollController? scrollController;
   final RefreshController refreshController;
 
-  const PaginationWidget({super.key,
-    this.isNoData = false,
-    required this.child,
-    this.onRefresh,
-    this.onLoading,
-    required this.refreshController,
-    this.scrollController});
-
+  const PaginationWidget(
+      {super.key,
+      this.isNoData = false,
+      required this.child,
+      this.onRefresh,
+      this.onLoading,
+      required this.refreshController,
+      this.scrollController});
 
   @override
   Widget build(BuildContext context) {
-    return
-    SmartRefresher(
+    return SmartRefresher(
       enablePullUp: true,
       footer: const CustomFooterBuilder(),
       controller: refreshController,
@@ -33,7 +31,7 @@ class PaginationWidget extends StatelessWidget {
       // physics: NeverScrollableScrollPhysics(),
       onLoading: () async {
         if (onLoading != null) {
-         await onLoading!();
+          await onLoading!();
         }
       },
       scrollController: scrollController,
@@ -46,7 +44,7 @@ class PaginationWidget extends StatelessWidget {
     if (onRefresh != null) {
       onRefresh!();
     }
-     refreshController.refreshCompleted();
-     refreshController.loadComplete();
+    refreshController.refreshCompleted();
+    refreshController.loadComplete();
   }
 }

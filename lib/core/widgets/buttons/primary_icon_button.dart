@@ -22,7 +22,7 @@ class PrimaryIconButton extends StatelessWidget {
   const PrimaryIconButton(
       {Key? key,
       this.title,
-        this.fontSize,
+      this.fontSize,
       this.onPressed,
       this.height,
       this.backgroundColor,
@@ -45,7 +45,8 @@ class PrimaryIconButton extends StatelessWidget {
       margin: margin,
       decoration: decoration ??
           Decorations.kDecorationOnlyRadius(
-              color: backgroundColor ?? theme.primaryColor, radius:borderRadius?? 8),
+              color: backgroundColor ?? theme.primaryColor,
+              radius: borderRadius ?? 8),
       child: InkWell(
         onTap: onPressed,
         radius: 100,
@@ -56,10 +57,9 @@ class PrimaryIconButton extends StatelessWidget {
             AppIcon(
                 icon: icon, color: iconColor ?? context.cardColor, size: 25),
             17.pw,
-            Text(
-              title!,
-              style: titleStyle ?? context.labelLarge.copyWith(fontSize:fontSize?? 16)
-            ),
+            Text(title!,
+                style: titleStyle ??
+                    context.labelLarge.copyWith(fontSize: fontSize ?? 16)),
           ],
         ),
       ),

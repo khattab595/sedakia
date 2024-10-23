@@ -1,4 +1,3 @@
-
 import 'package:app/core/components/base_widget_bloc.dart';
 
 import '../../../../../core/utils/navigator.dart';
@@ -11,12 +10,10 @@ import 'login_screen.dart';
 class LoginPage extends BaseBlocWidget<UnInitState, AuthCubit> {
   LoginPage({Key? key}) : super(key: key);
 
-
-
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return LoginScreen(
-      onLogin:(params)=>bloc.login(params),
+      onLogin: (params) => bloc.login(params),
     );
   }
 

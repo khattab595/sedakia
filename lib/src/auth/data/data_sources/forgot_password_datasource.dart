@@ -9,10 +9,10 @@ import '../models/forgot_password_params.dart';
 import '../models/reset_password_params.dart';
 
 part 'forgot_password_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  ForgotPasswordDataSource{
-
+abstract class ForgotPasswordDataSource {
   @factoryMethod
   factory ForgotPasswordDataSource(Dio dio) = _ForgotPasswordDataSource;
 
@@ -25,5 +25,5 @@ abstract class  ForgotPasswordDataSource{
   @POST('v1/updatePassword')
   Future<ApiResponse> updatePassword(@Body() ChangePasswordParams params);
   @POST('v1/logout')
-  Future<ApiResponse> logout( );
+  Future<ApiResponse> logout();
 }

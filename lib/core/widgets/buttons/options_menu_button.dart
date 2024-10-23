@@ -3,9 +3,8 @@ import 'package:app/core/widgets/buttons/app_icon.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:flutter/material.dart';
 
- import '../../assets/app_icons.dart';
+import '../../assets/app_icons.dart';
 import '../../components/base_stateless_widget.dart';
-
 
 class OptionsMenuButton extends BaseStatelessWidget {
   final List<Widget>? options;
@@ -17,15 +16,14 @@ class OptionsMenuButton extends BaseStatelessWidget {
   final Function(int index) onSelect;
   OptionsMenuButton(
       {this.options,
-        required this.onSelect,
-        this.title,
-        this.icon,
-        this.optionsString,
-        this.padding,
-        this.shape
-      })
+      required this.onSelect,
+      this.title,
+      this.icon,
+      this.optionsString,
+      this.padding,
+      this.shape})
       : assert(options == null || optionsString == null,
-  'Cannot provide both a optionsString and a options');
+            'Cannot provide both a optionsString and a options');
   @override
   Widget build(BuildContext context) {
     return buildOptions();
@@ -33,17 +31,16 @@ class OptionsMenuButton extends BaseStatelessWidget {
 
   Widget buildOptions() {
     return PopupMenuButton(
-      padding: 0.paddingAll,
+        padding: 0.paddingAll,
         child: icon != null ? null : (title ?? defaultIcon()),
         icon: icon,
-
         position: PopupMenuPosition.under,
         itemBuilder: (_) =>
-
-        options != null ? optionItems() : optionItemsBuildWidget(),
-        shape: shape ?? RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+            options != null ? optionItems() : optionItemsBuildWidget(),
+        shape: shape ??
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
         onSelected: (value) {
           onSelect(int.parse(value.toString()));
         });
@@ -70,16 +67,19 @@ class OptionsMenuButton extends BaseStatelessWidget {
   }
 
   Widget menuItemWidget(String name) {
-    return
-      PrimaryMediumText(label: name,fontSize: 13,);
-
+    return PrimaryMediumText(
+      label: name,
+      fontSize: 13,
+    );
   }
 
   Widget defaultIcon() {
     return Padding(
-      padding: padding ?? const EdgeInsetsDirectional.only(end: 15, top: 20, start: 40, bottom: 10),
+      padding: padding ??
+          const EdgeInsetsDirectional.only(
+              end: 15, top: 20, start: 40, bottom: 10),
       child: const AppIcon(
-      icon: AppIcons.menu,
+        icon: AppIcons.menu,
       ),
     );
   }
@@ -91,7 +91,14 @@ class BuildPopupMenuItemContent extends StatelessWidget {
   final String? iconPath;
   final double? iconSize;
   final bool? isDivider;
-  const BuildPopupMenuItemContent({Key? key, required this.title, this.iconPath, this.isDivider = true, this.iconSize, this.titleStyle}) : super(key: key);
+  const BuildPopupMenuItemContent(
+      {Key? key,
+      required this.title,
+      this.iconPath,
+      this.isDivider = true,
+      this.iconSize,
+      this.titleStyle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,13 +107,17 @@ class BuildPopupMenuItemContent extends StatelessWidget {
         Row(
           children: [
             if (iconPath != null) ...[
-              AppIcon(icon: iconPath!,  ),
+              AppIcon(
+                icon: iconPath!,
+              ),
               const SizedBox(
                 width: 8,
               ),
             ],
-            PrimaryMediumText(label: title,fontSize: 12,)
-
+            PrimaryMediumText(
+              label: title,
+              fontSize: 12,
+            )
           ],
         ),
         if (isDivider!)

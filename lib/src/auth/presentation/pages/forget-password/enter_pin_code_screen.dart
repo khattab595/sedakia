@@ -24,9 +24,9 @@ class EnterPinCodeScreen extends BaseStatelessWidget {
             PrimaryBoldText(label: strings.forgot_password, fontSize: 22),
             16.ph,
             HintRegularText(
-                label: strings.forgot_password_verification_msg,
-                fontSize: 16,
-                textAlign: TextAlign.center,
+              label: strings.forgot_password_verification_msg,
+              fontSize: 16,
+              textAlign: TextAlign.center,
             ),
             30.ph,
             CustomPinCode(

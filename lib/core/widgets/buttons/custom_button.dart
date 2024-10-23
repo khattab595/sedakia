@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../themes/fonts.dart';
 
 Widget customButton({
-
   required String buttonText,
   required Color buttonColor,
   required Color buttonTextColor,
@@ -23,14 +22,12 @@ Widget customButton({
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         color: buttonColor,
-        borderRadius: BorderRadius.circular((fullBorderRadius)? buttonHeight/2 :borderRadius),
+        borderRadius: BorderRadius.circular(
+            (fullBorderRadius) ? buttonHeight / 2 : borderRadius),
       ),
       child: Text(
         buttonText,
-        style: TextStyle(
-            color: buttonTextColor,
-            fontSize: AppFonts.myP1
-        ),
+        style: TextStyle(color: buttonTextColor, fontSize: AppFonts.myP1),
       ),
     ),
   );

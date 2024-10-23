@@ -8,9 +8,10 @@ import '../../../data/models/product_dto.dart';
 import '../../bloc/product_bloc.dart';
 import 'add_product_screen.dart';
 
-class AddProductPage extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductBloc> {
+class AddProductPage
+    extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductBloc> {
   AddProductPage({Key? key, this.data}) : super(key: key);
-  ProductData ?data;
+  ProductData? data;
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchCategory();
@@ -26,10 +27,11 @@ class AddProductPage extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductB
     return AddProductScreen(
       categoryModel: state.data!,
       productData: data,
-      onCreate:(params)=>bloc.createProduct(params),
-      onUpdate:(params,id)=>bloc.updateProduct(params,id),
+      onCreate: (params) => bloc.createProduct(params),
+      onUpdate: (params, id) => bloc.updateProduct(params, id),
     );
   }
+
   @override
   void onSuccessDismissed() {
     Navigators.pushNamedAndRemoveUntil(Routes.productPage);

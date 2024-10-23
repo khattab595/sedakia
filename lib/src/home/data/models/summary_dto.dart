@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'summary_dto.g.dart'; 
+part 'summary_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class SummaryDto {
@@ -17,10 +17,16 @@ class SummaryDto {
   @JsonKey(name: 'total_refunds')
   int? totalRefunds;
 
-  SummaryDto({this.totalOrders, this.totalProducts, this.totalSales, this.totalCustomers, this.averageOrderValue, this.totalRefunds});
+  SummaryDto(
+      {this.totalOrders,
+      this.totalProducts,
+      this.totalSales,
+      this.totalCustomers,
+      this.averageOrderValue,
+      this.totalRefunds});
 
-   factory SummaryDto.fromJson(Map<String, dynamic> json) => _$SummaryDtoFromJson(json);
+  factory SummaryDto.fromJson(Map<String, dynamic> json) =>
+      _$SummaryDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$SummaryDtoToJson(this);
+  Map<String, dynamic> toJson() => _$SummaryDtoToJson(this);
 }
-

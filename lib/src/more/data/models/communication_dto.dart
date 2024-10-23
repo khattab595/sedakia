@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'communication_dto.g.dart'; 
+part 'communication_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class CommunicationDto {
@@ -19,10 +19,17 @@ class CommunicationDto {
   @JsonKey(name: 'updated_at')
   String? updatedAt;
 
-  CommunicationDto({this.id, this.Linkedin, this.Facebook, this.Telegram, this.Whatsapp, this.Google, this.updatedAt});
+  CommunicationDto(
+      {this.id,
+      this.Linkedin,
+      this.Facebook,
+      this.Telegram,
+      this.Whatsapp,
+      this.Google,
+      this.updatedAt});
 
-   factory CommunicationDto.fromJson(Map<String, dynamic> json) => _$CommunicationDtoFromJson(json);
+  factory CommunicationDto.fromJson(Map<String, dynamic> json) =>
+      _$CommunicationDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$CommunicationDtoToJson(this);
+  Map<String, dynamic> toJson() => _$CommunicationDtoToJson(this);
 }
-

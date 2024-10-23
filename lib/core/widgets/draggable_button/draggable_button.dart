@@ -11,7 +11,16 @@ class DraggableButton extends StatelessWidget {
   final double? height;
   final double? width;
   final Offset? initialOffset;
-  const DraggableButton({Key? key, this.icon, this.onPressed, this.color, this.height, this.width, this.initialOffset, this.backgroundColor}) : super(key: key);
+  const DraggableButton(
+      {Key? key,
+      this.icon,
+      this.onPressed,
+      this.color,
+      this.height,
+      this.width,
+      this.initialOffset,
+      this.backgroundColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +35,11 @@ class DraggableButton extends StatelessWidget {
             child: FloatingActionButton(
               onPressed: onPressed,
               backgroundColor: backgroundColor,
-              child: Icon(icon ?? Icons.add, color: color ),
+              child: Icon(icon ?? Icons.add, color: color),
             ),
             initialOffset: initialOffset ?? const Offset(0, 24),
             parentKey: _parentKey,
-              onPointerUp: () {},
+            onPointerUp: () {},
           ),
         ],
       ),

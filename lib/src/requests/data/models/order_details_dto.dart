@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'order_details_dto.g.dart'; 
+part 'order_details_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class OrderDetailsDto {
@@ -29,11 +29,24 @@ class OrderDetailsDto {
   @JsonKey(name: 'meta_data')
   List<MetaDataModel>? metaData;
 
-  OrderDetailsDto({this.id, this.status, this.dateCreated, this.total, this.subtotal, this.currency, this.dataBilling, this.shippingModel, this.paymentMethod, this.paymentMethodTitle, this.items, this.metaData});
+  OrderDetailsDto(
+      {this.id,
+      this.status,
+      this.dateCreated,
+      this.total,
+      this.subtotal,
+      this.currency,
+      this.dataBilling,
+      this.shippingModel,
+      this.paymentMethod,
+      this.paymentMethodTitle,
+      this.items,
+      this.metaData});
 
-   factory OrderDetailsDto.fromJson(Map<String, dynamic> json) => _$OrderDetailsDtoFromJson(json);
+  factory OrderDetailsDto.fromJson(Map<String, dynamic> json) =>
+      _$OrderDetailsDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$OrderDetailsDtoToJson(this);
+  Map<String, dynamic> toJson() => _$OrderDetailsDtoToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -59,11 +72,22 @@ class DataBilling {
   @JsonKey(name: 'country')
   String? country;
 
-  DataBilling({this.firstName, this.lastName, this.email, this.phone, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
+  DataBilling(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.phone,
+      this.address_1,
+      this.address_2,
+      this.city,
+      this.state,
+      this.postcode,
+      this.country});
 
-   factory DataBilling.fromJson(Map<String, dynamic> json) => _$DataBillingFromJson(json);
+  factory DataBilling.fromJson(Map<String, dynamic> json) =>
+      _$DataBillingFromJson(json);
 
-   Map<String, dynamic> toJson() => _$DataBillingToJson(this);
+  Map<String, dynamic> toJson() => _$DataBillingToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -85,11 +109,20 @@ class ShippingModel {
   @JsonKey(name: 'country')
   String? country;
 
-  ShippingModel({this.firstName, this.lastName, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
+  ShippingModel(
+      {this.firstName,
+      this.lastName,
+      this.address_1,
+      this.address_2,
+      this.city,
+      this.state,
+      this.postcode,
+      this.country});
 
-   factory ShippingModel.fromJson(Map<String, dynamic> json) => _$ShippingModelFromJson(json);
+  factory ShippingModel.fromJson(Map<String, dynamic> json) =>
+      _$ShippingModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ShippingModelToJson(this);
+  Map<String, dynamic> toJson() => _$ShippingModelToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -111,11 +144,20 @@ class DataItem {
   @JsonKey(name: 'image_url')
   String? imageUrl;
 
-  DataItem({this.id, this.productId, this.name, this.quantity, this.total, this.subtotal, this.sku, this.imageUrl});
+  DataItem(
+      {this.id,
+      this.productId,
+      this.name,
+      this.quantity,
+      this.total,
+      this.subtotal,
+      this.sku,
+      this.imageUrl});
 
-   factory DataItem.fromJson(Map<String, dynamic> json) => _$DataItemFromJson(json);
+  factory DataItem.fromJson(Map<String, dynamic> json) =>
+      _$DataItemFromJson(json);
 
-   Map<String, dynamic> toJson() => _$DataItemToJson(this);
+  Map<String, dynamic> toJson() => _$DataItemToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -127,8 +169,8 @@ class MetaDataModel {
 
   MetaDataModel({this.key, this.value});
 
-   factory MetaDataModel.fromJson(Map<String, dynamic> json) => _$MetaDataModelFromJson(json);
+  factory MetaDataModel.fromJson(Map<String, dynamic> json) =>
+      _$MetaDataModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$MetaDataModelToJson(this);
+  Map<String, dynamic> toJson() => _$MetaDataModelToJson(this);
 }
-

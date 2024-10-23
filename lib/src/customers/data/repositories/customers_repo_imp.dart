@@ -1,9 +1,8 @@
-
 import 'package:injectable/injectable.dart';
 
-  import '../../../product/data/models/search_params.dart';
+import '../../../product/data/models/search_params.dart';
 import '../../domain/repositories/customers_repo.dart';
- import '../data_sources/customers_datasource.dart';
+import '../data_sources/customers_datasource.dart';
 import '../models/customer_dto.dart';
 
 @Injectable(as: CustomersRepo)

@@ -15,6 +15,9 @@ class CustomerData {
 
   factory CustomerData.fromDto(Data json) {
     return CustomerData(
-        id: json.id, userLogin: json.userLogin, email: json.email,phone: json.phone);
+        id: json.id,
+        userLogin: json.userLogin,
+        email: json.email,
+        phone: json.phone);
   }
 }

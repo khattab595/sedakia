@@ -8,16 +8,12 @@ import '../../data/models/product_params.dart';
 import '../pages/add/add_product_page.dart';
 
 class ProductItem extends BaseStatelessWidget {
-  ProductItem({super.key,
-    required this.data,
-    required this.onDelete
-  });
+  ProductItem({super.key, required this.data, required this.onDelete});
   final ProductData data;
   final Function(int id) onDelete;
   @override
   Widget build(BuildContext context) {
     return Container(
-
       margin: 10.paddingTop + 10.paddingHoriz,
       decoration: Decorations.shapeDecorationShadow(),
       child: Stack(
@@ -32,7 +28,7 @@ class ProductItem extends BaseStatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                          image: NetworkImage(data.imageUrl??""),
+                          image: NetworkImage(data.imageUrl ?? ""),
                           fit: BoxFit.cover)),
                   //width: MediaQuery.of(context).size.width / 3,
                   width: 80,
@@ -44,16 +40,17 @@ class ProductItem extends BaseStatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width *0.50,
+                      width: MediaQuery.of(context).size.width * 0.50,
                       child: SemiBoldPrimaryText(
-                        label: data.name??"",
+                        label: data.name ?? "",
                         fontSize: 16,
-                        labelStyle: primarySemiBoldStyle.copyWith(overflow: TextOverflow.ellipsis),
+                        labelStyle: primarySemiBoldStyle.copyWith(
+                            overflow: TextOverflow.ellipsis),
                       ),
                     ),
                     5.ph,
                     PrimaryRegularText(
-                      label: data.shortDescription??"",
+                      label: data.shortDescription ?? "",
                       fontSize: 12,
                     ),
                     5.ph,
@@ -63,7 +60,7 @@ class ProductItem extends BaseStatelessWidget {
                     ),
                     5.ph,
                     PrimaryRegularText(
-                        label: data.stockStatus??"",
+                        label: data.stockStatus ?? "",
                         fontSize: 12,
                         labelColor: AppColors.blueColor),
                     5.ph,
@@ -74,14 +71,16 @@ class ProductItem extends BaseStatelessWidget {
                   ],
                 ),
                 10.pw,
-
               ],
             ),
           ),
           PositionedDirectional(
               top: 0,
               end: 0,
-              child:  _OptionsMenuButton(onDelete: onDelete,data: data,))
+              child: _OptionsMenuButton(
+                onDelete: onDelete,
+                data: data,
+              ))
         ],
       ),
     );
@@ -90,7 +89,7 @@ class ProductItem extends BaseStatelessWidget {
 
 class _OptionsMenuButton extends BaseStatelessWidget {
   final Function(int id) onDelete;
-  final  ProductData data;
+  final ProductData data;
   _OptionsMenuButton({
     Key? key,
 
@@ -99,14 +98,12 @@ class _OptionsMenuButton extends BaseStatelessWidget {
     required this.data,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     TextStyle titleStyle =
-    primaryMediumStyle.copyWith(fontSize: 10, color: primaryColor);
+        primaryMediumStyle.copyWith(fontSize: 10, color: primaryColor);
     double iconSize = 16;
     return OptionsMenuButton(
-
       options: [
         BuildPopupMenuItemContent(
           title: strings.edit,
@@ -123,13 +120,9 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-
-          push(AddProductPage(data:data));
-
+          push(AddProductPage(data: data));
         } else if (value == 1) {
-          onDelete(
-            int.parse(data.id.toString())
-          );
+          onDelete(int.parse(data.id.toString()));
         }
       },
     );

@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:injectable/injectable.dart';
@@ -10,12 +9,10 @@ import '../data_sources/more_datasource.dart';
 import '../models/communication_dto.dart';
 import '../models/profile_dto.dart';
 
-
 @Injectable(as: ProfileRepo)
-class ProfileRepoImp extends ProfileRepo{
-  final ProfileDataSource  apiProvider;
+class ProfileRepoImp extends ProfileRepo {
+  final ProfileDataSource apiProvider;
   ProfileRepoImp(this.apiProvider);
-
 
   // @override
   // Future<Profile> fetchProfileData(bool isFromCash) async {
@@ -29,7 +26,4 @@ class ProfileRepoImp extends ProfileRepo{
   //   }
   //   return Profile.fromDto(profile);
   // }
-
-
-
 }

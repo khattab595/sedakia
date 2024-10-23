@@ -28,8 +28,7 @@ abstract class AuthDataSource {
   Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
 
   @POST('v1/validate_otp')
-  Future<ApiResponse> verificationCode(
-      @Body() VerificationCodeParams params);
+  Future<ApiResponse> verificationCode(@Body() VerificationCodeParams params);
 
   @MultiPart()
   @POST('/completeRegistration')
@@ -44,6 +43,4 @@ abstract class AuthDataSource {
 
   @GET('/academicLevels')
   Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels();
-
-
 }

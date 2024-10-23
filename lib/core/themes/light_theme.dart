@@ -1,4 +1,3 @@
-
 import '../../src/main_index.dart';
 import 'fonts.dart';
 
@@ -7,7 +6,6 @@ import 'fonts.dart';
 // const secondaryColor = Color(0xffffffff);
 // const Color kGreyColor = Color(0xff818185);
 // const Color blackColor = Color(0xff000000);
-
 
 final lightTheme = ThemeData(
   primaryColor: AppColors.primaryLight,
@@ -33,12 +31,12 @@ final lightTheme = ThemeData(
     // accentColor: const Color(0xff494949),
     errorColor: AppColors.errorColor,
   ).copyWith(
-    // secondaryContainer: const Color(0xff06bd3d),
-    // primaryContainer: const Color(0xffF9F0E1),
-    // onSecondary: const Color(0xffF67D31),
-    // secondary: const Color(0xffffffff),
-    // outline: const Color(0xff818185),
-  ),
+      // secondaryContainer: const Color(0xff06bd3d),
+      // primaryContainer: const Color(0xffF9F0E1),
+      // onSecondary: const Color(0xffF67D31),
+      // secondary: const Color(0xffffffff),
+      // outline: const Color(0xff818185),
+      ),
   appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: AppColors.backgroundColor,
@@ -63,7 +61,6 @@ final lightTheme = ThemeData(
       fontSize: 14,
       fontFamily: Fonts.regular,
     ),
-
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -76,7 +73,7 @@ final lightTheme = ThemeData(
     ),
   ),
   fontFamily: Fonts.bold,
-  textTheme:  const TextTheme(
+  textTheme: const TextTheme(
     titleLarge: TextStyle(
       fontSize: 22,
       fontFamily: Fonts.bold,
@@ -95,7 +92,6 @@ final lightTheme = ThemeData(
       fontFamily: Fonts.bold,
       fontWeight: FontWeight.bold,
     ),
-
     bodyLarge: TextStyle(
       fontSize: 16.0,
       color: AppColors.primaryLightText,
@@ -168,6 +164,5 @@ final lightTheme = ThemeData(
       fontFamily: Fonts.semiBold,
       fontWeight: FontWeight.w600,
     ),
-
   ),
 );

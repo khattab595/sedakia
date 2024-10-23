@@ -22,7 +22,10 @@ class HintBoldText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          context.headlineLarge.copyWith(fontSize: fontSize ?? 16, color: labelColor, fontWeight: FontWeight.bold),
+          context.headlineLarge.copyWith(
+              fontSize: fontSize ?? 16,
+              color: labelColor,
+              fontWeight: FontWeight.bold),
     );
   }
 }
@@ -49,7 +52,8 @@ class HintRegularText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          context.displaySmall.copyWith(fontSize: fontSize ?? 14, color: labelColor),
+          context.displaySmall
+              .copyWith(fontSize: fontSize ?? 14, color: labelColor),
     );
   }
 }
@@ -76,7 +80,8 @@ class HintMediumText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: style ??
-          context.displayMedium.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          context.displayMedium
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -103,7 +108,8 @@ class HintSemiBoldText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: style ??
-          context.displayLarge.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          context.displayLarge
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }

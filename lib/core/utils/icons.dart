@@ -36,5 +36,4 @@ class IconPaths {
   static String emptyCheckbox = "assets/icons/empty_checkbox.svg";
   static String checkbox = "assets/icons/checkbox.svg";
 //static String  = "assets/icons/.svg";
-
 }

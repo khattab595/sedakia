@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'stage_level_dto.g.dart'; 
+part 'stage_level_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class StageLevelDto {
@@ -15,10 +15,15 @@ class StageLevelDto {
   @JsonKey(name: 'updated_at')
   String? updatedAt;
 
-  StageLevelDto({this.id, this.name, this.academicLevelId, this.createdAt, this.updatedAt});
+  StageLevelDto(
+      {this.id,
+      this.name,
+      this.academicLevelId,
+      this.createdAt,
+      this.updatedAt});
 
-   factory StageLevelDto.fromJson(Map<String, dynamic> json) => _$StageLevelDtoFromJson(json);
+  factory StageLevelDto.fromJson(Map<String, dynamic> json) =>
+      _$StageLevelDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$StageLevelDtoToJson(this);
+  Map<String, dynamic> toJson() => _$StageLevelDtoToJson(this);
 }
-

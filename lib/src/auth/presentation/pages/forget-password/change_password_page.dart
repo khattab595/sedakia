@@ -6,20 +6,20 @@ import '../../../data/models/reset_password_params.dart';
 import '../../bloc/forgot_password_bloc.dart';
 import 'change_password_screen.dart';
 
-class ChangePasswordPage extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
+class ChangePasswordPage
+    extends BaseBlocWidget<UnInitState, ForgotPasswordCubit> {
   ChangePasswordPage({Key? key}) : super(key: key);
-
 
   @override
   String? title(BuildContext context) => strings.change_password;
-
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
     return ChangePasswordScreen(
       onChangePassword: (ResetPasswordParams params) {
         bloc.forgotPassword(params);
-      }, verificationCodeParams: getArguments(context),
+      },
+      verificationCodeParams: getArguments(context),
     );
   }
 

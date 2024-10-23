@@ -2,14 +2,15 @@ import '../../../data/models/order_details_dto.dart';
 
 class ShippingData {
   ShippingData({
-      this.firstName, 
-      this.lastName, 
-      this.address1, 
-      this.address2, 
-      this.city, 
-      this.state, 
-      this.postcode, 
-      this.country,});
+    this.firstName,
+    this.lastName,
+    this.address1,
+    this.address2,
+    this.city,
+    this.state,
+    this.postcode,
+    this.country,
+  });
 
   String? firstName;
   String? lastName;
@@ -32,5 +33,4 @@ class ShippingData {
       country: json.country,
     );
   }
-
 }

@@ -8,7 +8,10 @@ import '../../../data/models/verification_code_params.dart';
 class ChangePasswordScreen extends BaseStatelessWidget {
   final Function(ResetPasswordParams) onChangePassword;
   VerificationCodeParams verificationCodeParams;
-  ChangePasswordScreen({Key? key, required this.onChangePassword, required this.verificationCodeParams})
+  ChangePasswordScreen(
+      {Key? key,
+      required this.onChangePassword,
+      required this.verificationCodeParams})
       : super(key: key);
 
   TextEditingController currentPasswordController = TextEditingController();
@@ -25,7 +28,6 @@ class ChangePasswordScreen extends BaseStatelessWidget {
         padding: 16.paddingAll,
         child: Column(
           children: [
-
             CustomTextField(
               controller: newPasswordController,
               hintText: strings.new_password,
@@ -52,11 +54,10 @@ class ChangePasswordScreen extends BaseStatelessWidget {
   onSelectedPressed() async {
     if (_key.currentState!.validate()) {
       onChangePassword(ResetPasswordParams(
-         newPassword: newPasswordController.text,
+        newPassword: newPasswordController.text,
         newPasswordConfirmation: confirmNewPasswordController.text,
-        phone: verificationCodeParams.phoneNumber??"",
+        phone: verificationCodeParams.phoneNumber ?? "",
         otp: verificationCodeParams.code,
-
       ));
     }
   }

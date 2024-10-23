@@ -23,34 +23,30 @@ class ProductRepoImp extends ProductRepo {
   @override
   Future<String> createProduct(ProductParams params) async {
     final response = await datasource.createProduct(
-      params.name ?? "",
-      params.stockStatus ?? "",
-      params.stockQuantity??"",
-      params.regularPrice ?? "",
-      params.salePrice ?? "",
-      params.categories ?? "",
-      params.shortDescription??"",
-      params.images!
-
-    );
+        params.name ?? "",
+        params.stockStatus ?? "",
+        params.stockQuantity ?? "",
+        params.regularPrice ?? "",
+        params.salePrice ?? "",
+        params.categories ?? "",
+        params.shortDescription ?? "",
+        params.images!);
     return response.message ?? "";
   }
 
-
   @override
-  Future<String> updateProduct({required ProductParams params,required int id}) async {
+  Future<String> updateProduct(
+      {required ProductParams params, required int id}) async {
     final response = await datasource.updateProduct(
       id,
       params.name ?? "",
       params.stockStatus ?? "",
-      params.stockQuantity??"",
+      params.stockQuantity ?? "",
       params.regularPrice ?? "",
       params.salePrice ?? "",
       params.categories ?? "",
-      params.shortDescription??"",
+      params.shortDescription ?? "",
       images: params.images,
-
-
     );
     return response.message ?? "";
   }

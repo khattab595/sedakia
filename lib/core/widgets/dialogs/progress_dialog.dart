@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class ProgressDialog {
   static CustomProgressDialog createProgress(BuildContext context) {
     return CustomProgressDialog(context,
@@ -16,8 +15,6 @@ class ProgressDialog {
         blur: 2,
         dialogTransitionType: DialogTransitionType.Shrink);
   }
-
-
 }
 
 class LoadingIndicator extends StatelessWidget {

@@ -1,4 +1,4 @@
- import 'package:injectable/injectable.dart';
+import 'package:injectable/injectable.dart';
 import '../../../../../../core/bloc/base_cubit.dart';
 import '../../../../../core/commen/common_state.dart';
 import '../../../../product/data/models/search_params.dart';
@@ -6,15 +6,13 @@ import '../../../domain/entities/Order_model.dart';
 import '../../../domain/repositories/requests_repo.dart';
 import '../../../domain/use_cases/product_usecase.dart';
 
-
 @Injectable()
 class RequestsBloc extends BaseCubit {
   final RequestsUseCase requestsUseCase;
   final RequestsRepo _repo;
-  RequestsBloc(this.requestsUseCase,this._repo);
+  RequestsBloc(this.requestsUseCase, this._repo);
 
   StreamStateInitial<OrderModel?> orderStreamData = StreamStateInitial();
-
 
   fetchGetData(SearchParams searchParams) {
     fetchOrder(searchParams);
@@ -39,5 +37,4 @@ class RequestsBloc extends BaseCubit {
       rethrow;
     }
   }
-
 }

@@ -22,6 +22,4 @@ abstract class ProfileDataSource {
 
   // @POST('/updateProfile')
   // Future<ApiResponse<ProfileDto>> editProfileData(@Body() ProfileDto params,);
-
-
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import '../../src/main_index.dart';
 
 class LoadingView extends StatelessWidget {

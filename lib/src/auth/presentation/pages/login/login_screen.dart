@@ -11,7 +11,7 @@ import '../../../data/models/login_params.dart';
 class LoginScreen extends BaseStatelessWidget {
   final Function(LoginParams) onLogin;
 
-  LoginScreen({Key? key,required this.onLogin}) : super(key: key);
+  LoginScreen({Key? key, required this.onLogin}) : super(key: key);
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -74,7 +74,7 @@ class LoginScreen extends BaseStatelessWidget {
               margin: 85.paddingTop,
               onPressed: () {
                 onPressed();
-              //  pushNamed(Routes.navigationPages);
+                //  pushNamed(Routes.navigationPages);
               },
             ),
           ],

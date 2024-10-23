@@ -11,7 +11,7 @@ import '../../../data/models/product_params.dart';
 
 class AddProductScreen extends BaseStatelessWidget {
   final Function(ProductParams) onCreate;
-  final Function(ProductParams,int id) onUpdate;
+  final Function(ProductParams, int id) onUpdate;
   final CategoryModel categoryModel;
   final ProductData? productData;
   AddProductScreen(
@@ -126,25 +126,27 @@ class AddProductScreen extends BaseStatelessWidget {
                 buttonColor: primaryColor,
                 buttonTextColor: whiteTextColor,
                 buttonFunc: () {
-                  productData ==null ?
-                  onCreate(ProductParams(
-                      name: nameController.text,
-                      regularPrice: priceController.text,
-                      salePrice: discountController.text,
-                      shortDescription: descriptionController.text,
-                      stockQuantity: quantityController.text,
-                      stockStatus: available,
-                      categories: categories,
-                      images: file)):
-                  onUpdate(ProductParams(
-                      name: nameController.text,
-                      regularPrice: priceController.text,
-                      salePrice: discountController.text,
-                      shortDescription: descriptionController.text,
-                      stockQuantity: quantityController.text,
-                      stockStatus: available,
-                      categories: categories,
-                      images: file),int.parse(productData?.id.toString()??""));
+                  productData == null
+                      ? onCreate(ProductParams(
+                          name: nameController.text,
+                          regularPrice: priceController.text,
+                          salePrice: discountController.text,
+                          shortDescription: descriptionController.text,
+                          stockQuantity: quantityController.text,
+                          stockStatus: available,
+                          categories: categories,
+                          images: file))
+                      : onUpdate(
+                          ProductParams(
+                              name: nameController.text,
+                              regularPrice: priceController.text,
+                              salePrice: discountController.text,
+                              shortDescription: descriptionController.text,
+                              stockQuantity: quantityController.text,
+                              stockStatus: available,
+                              categories: categories,
+                              images: file),
+                          int.parse(productData?.id.toString() ?? ""));
                 })
           ],
         ),

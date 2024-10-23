@@ -31,16 +31,16 @@ class DialogsManager {
   }
 
   static baseDialog(
-      BuildContext context, {
-        String? confirmButtonName,
-        required String message,
-        Function()? onClickOk,
-        bool? dismissible = true,
-        Function()? negativeTap,
-        required IconData icon,
-        String? negativeButtonName,
-        bool hideCancelButton = true,
-      }) {
+    BuildContext context, {
+    String? confirmButtonName,
+    required String message,
+    Function()? onClickOk,
+    bool? dismissible = true,
+    Function()? negativeTap,
+    required IconData icon,
+    String? negativeButtonName,
+    bool hideCancelButton = true,
+  }) {
     print('baseDialog $message');
     showGeneralDialog(
       barrierDismissible: false,
@@ -52,8 +52,10 @@ class DialogsManager {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          title: Icon(icon, size: 60, color: icon == Icons.error ? Colors.red : Color(0xff1E3350)),
-          actionsPadding: 10.paddingBottom ,
+          title: Icon(icon,
+              size: 60,
+              color: icon == Icons.error ? Colors.red : Color(0xff1E3350)),
+          actionsPadding: 10.paddingBottom,
           content: WillPopScope(
             onWillPop: () async {
               return dismissible == true;
@@ -61,7 +63,8 @@ class DialogsManager {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(message, style: context.bodyMedium, textAlign: TextAlign.center),
+                Text(message,
+                    style: context.bodyMedium, textAlign: TextAlign.center),
               ],
             ),
           ),
@@ -76,23 +79,24 @@ class DialogsManager {
               },
               child: Text(
                 confirmButtonName ?? context.strings.ok,
-                style:  context.bodyMedium.copyWith(color: Color(0xff1E3350), fontSize: 18),
+                style: context.bodyMedium
+                    .copyWith(color: Color(0xff1E3350), fontSize: 18),
               ),
             ),
             hideCancelButton == true
                 ? const SizedBox.shrink()
                 : TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                if (negativeTap != null) {
-                  negativeTap();
-                }
-              },
-              child: Text(
-                negativeButtonName ?? context.strings.cancel,
-                style: context.bodyMedium.copyWith(color: Colors.red),
-              ),
-            ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      if (negativeTap != null) {
+                        negativeTap();
+                      }
+                    },
+                    child: Text(
+                      negativeButtonName ?? context.strings.cancel,
+                      style: context.bodyMedium.copyWith(color: Colors.red),
+                    ),
+                  ),
           ],
         );
       },
@@ -112,6 +116,10 @@ class DialogsManager {
   }
 
   static showErrorDialog(BuildContext context, String text) {
-    baseDialog(context, message: text, icon: Icons.error, );
+    baseDialog(
+      context,
+      message: text,
+      icon: Icons.error,
+    );
   }
 }

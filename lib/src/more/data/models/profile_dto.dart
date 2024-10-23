@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'profile_dto.g.dart'; 
+part 'profile_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ProfileDto {
@@ -53,11 +53,36 @@ class ProfileDto {
   @JsonKey(name: 'image')
   String? image;
 
-  ProfileDto({this.id, this.code, this.firstName, this.secondName, this.lastName, this.nationalId, this.dateBirth, this.dateOfCommencement, this.educationLevel, this.phone, this.address, this.yearsOfExperience, this.religion, this.city, this.nationality, this.job, this.gender, this.maritalStatus, this.salaryCategory, this.dateDocumentItInQawwa, this.childrenCount, this.token, this.salaryData, this.image});
+  ProfileDto(
+      {this.id,
+      this.code,
+      this.firstName,
+      this.secondName,
+      this.lastName,
+      this.nationalId,
+      this.dateBirth,
+      this.dateOfCommencement,
+      this.educationLevel,
+      this.phone,
+      this.address,
+      this.yearsOfExperience,
+      this.religion,
+      this.city,
+      this.nationality,
+      this.job,
+      this.gender,
+      this.maritalStatus,
+      this.salaryCategory,
+      this.dateDocumentItInQawwa,
+      this.childrenCount,
+      this.token,
+      this.salaryData,
+      this.image});
 
-   factory ProfileDto.fromJson(Map<String, dynamic> json) => _$ProfileDtoFromJson(json);
+  factory ProfileDto.fromJson(Map<String, dynamic> json) =>
+      _$ProfileDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ProfileDtoToJson(this);
+  Map<String, dynamic> toJson() => _$ProfileDtoToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -69,9 +94,10 @@ class EducationLevel {
 
   EducationLevel({this.id, this.name});
 
-   factory EducationLevel.fromJson(Map<String, dynamic> json) => _$EducationLevelFromJson(json);
+  factory EducationLevel.fromJson(Map<String, dynamic> json) =>
+      _$EducationLevelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$EducationLevelToJson(this);
+  Map<String, dynamic> toJson() => _$EducationLevelToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -83,9 +109,10 @@ class Religion {
 
   Religion({this.id, this.name});
 
-   factory Religion.fromJson(Map<String, dynamic> json) => _$ReligionFromJson(json);
+  factory Religion.fromJson(Map<String, dynamic> json) =>
+      _$ReligionFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ReligionToJson(this);
+  Map<String, dynamic> toJson() => _$ReligionToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -97,9 +124,9 @@ class City {
 
   City({this.id, this.name});
 
-   factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
+  factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
 
-   Map<String, dynamic> toJson() => _$CityToJson(this);
+  Map<String, dynamic> toJson() => _$CityToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -111,9 +138,10 @@ class Nationality {
 
   Nationality({this.id, this.name});
 
-   factory Nationality.fromJson(Map<String, dynamic> json) => _$NationalityFromJson(json);
+  factory Nationality.fromJson(Map<String, dynamic> json) =>
+      _$NationalityFromJson(json);
 
-   Map<String, dynamic> toJson() => _$NationalityToJson(this);
+  Map<String, dynamic> toJson() => _$NationalityToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -125,9 +153,9 @@ class Job {
 
   Job({this.id, this.name});
 
-   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
+  factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 
-   Map<String, dynamic> toJson() => _$JobToJson(this);
+  Map<String, dynamic> toJson() => _$JobToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -139,9 +167,10 @@ class SalaryCategory {
 
   SalaryCategory({this.id, this.name});
 
-   factory SalaryCategory.fromJson(Map<String, dynamic> json) => _$SalaryCategoryFromJson(json);
+  factory SalaryCategory.fromJson(Map<String, dynamic> json) =>
+      _$SalaryCategoryFromJson(json);
 
-   Map<String, dynamic> toJson() => _$SalaryCategoryToJson(this);
+  Map<String, dynamic> toJson() => _$SalaryCategoryToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -169,10 +198,21 @@ class SalaryData {
   @JsonKey(name: 'insurance_activation_date')
   String? insuranceActivationDate;
 
-  SalaryData({this.baseSalary, this.housingAllowance, this.transportAllowance, this.grossMonthlySalary, this.netMonthlySalary, this.housingAllowanceType, this.paymentMethod, this.bankName, this.bankNumber, this.bankIban, this.insuranceActivationDate});
+  SalaryData(
+      {this.baseSalary,
+      this.housingAllowance,
+      this.transportAllowance,
+      this.grossMonthlySalary,
+      this.netMonthlySalary,
+      this.housingAllowanceType,
+      this.paymentMethod,
+      this.bankName,
+      this.bankNumber,
+      this.bankIban,
+      this.insuranceActivationDate});
 
-   factory SalaryData.fromJson(Map<String, dynamic> json) => _$SalaryDataFromJson(json);
+  factory SalaryData.fromJson(Map<String, dynamic> json) =>
+      _$SalaryDataFromJson(json);
 
-   Map<String, dynamic> toJson() => _$SalaryDataToJson(this);
+  Map<String, dynamic> toJson() => _$SalaryDataToJson(this);
 }
-

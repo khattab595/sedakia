@@ -14,7 +14,6 @@ class About {
       );
 }
 
-
 enum AboutType {
   aboutUs,
   terms,

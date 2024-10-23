@@ -1,4 +1,3 @@
-
 import 'package:app/core/components/base_widget_bloc.dart';
 
 import '../../../../main_index.dart';
@@ -16,14 +15,14 @@ class AboutPage extends BaseBlocWidget<UnInitState, AboutCubit> {
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {
-    return  AboutScreen(
-   //   about: state.data!,
-    );
+    return AboutScreen(
+        //   about: state.data!,
+        );
   }
 
   @override
   String? title(BuildContext context) {
     return strings.about_us;
-      //getArguments(context) == AboutType.aboutUs ? strings.about_us : strings.terms_conditions;
+    //getArguments(context) == AboutType.aboutUs ? strings.about_us : strings.terms_conditions;
   }
 }

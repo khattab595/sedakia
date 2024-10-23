@@ -13,8 +13,12 @@ class ProductDto {
   @JsonKey(name: 'current_page')
   int? currentPage;
 
-  ProductDto(
-      {this.data, this.totalProducts, this.totalPages, this.currentPage,});
+  ProductDto({
+    this.data,
+    this.totalProducts,
+    this.totalPages,
+    this.currentPage,
+  });
 
   factory ProductDto.fromJson(Map<String, dynamic> json) =>
       _$ProductDtoFromJson(json);

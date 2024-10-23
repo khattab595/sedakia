@@ -19,10 +19,4 @@ class MorePage extends BaseBlocWidget<UnInitState, ProfileBloc> {
   Widget buildWidget(BuildContext context, UnInitState state) {
     return MoreScreen();
   }
-
-
-
-
-
-
 }

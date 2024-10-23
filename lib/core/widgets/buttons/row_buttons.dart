@@ -11,7 +11,17 @@ class RowButtons extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final double? height;
   final Color? backgroundColor2;
-  const RowButtons({Key? key, this.title1, this.title2, this.onPressed1, this.onPressed2, this.margin, this.padding, this.height, this.backgroundColor2}) : super(key: key);
+  const RowButtons(
+      {Key? key,
+      this.title1,
+      this.title2,
+      this.onPressed1,
+      this.onPressed2,
+      this.margin,
+      this.padding,
+      this.height,
+      this.backgroundColor2})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,29 +30,30 @@ class RowButtons extends StatelessWidget {
       padding: margin ?? EdgeInsets.zero,
       child: Row(
         children: [
-          if(onPressed1 != null)
-          Expanded(
-            child: PrimaryButton(
-              title: title1,
-              height: height ?? 35,
-              backgroundColor: context.primaryColor,
-              radius: 15,
-              onPressed: onPressed1,
-              padding: padding ?? EdgeInsets.zero,
+          if (onPressed1 != null)
+            Expanded(
+              child: PrimaryButton(
+                title: title1,
+                height: height ?? 35,
+                backgroundColor: context.primaryColor,
+                radius: 15,
+                onPressed: onPressed1,
+                padding: padding ?? EdgeInsets.zero,
+              ),
             ),
-          ),
-          if(onPressed2 != null)
-          Expanded(
-            child: PrimaryButton(
-              title: title2,
-              height: height ?? 35,
-              margin: 10.paddingStart,
-              backgroundColor: backgroundColor2 ?? theme.colorScheme.errorContainer,
-              radius: 15,
-              onPressed: onPressed2,
-              padding: padding ?? EdgeInsets.zero,
+          if (onPressed2 != null)
+            Expanded(
+              child: PrimaryButton(
+                title: title2,
+                height: height ?? 35,
+                margin: 10.paddingStart,
+                backgroundColor:
+                    backgroundColor2 ?? theme.colorScheme.errorContainer,
+                radius: 15,
+                onPressed: onPressed2,
+                padding: padding ?? EdgeInsets.zero,
+              ),
             ),
-          ),
         ],
       ),
     );

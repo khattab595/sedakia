@@ -5,12 +5,11 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
-
 part 'settings_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  SettingsDatasource{
-
+abstract class SettingsDatasource {
   @factoryMethod
   factory SettingsDatasource(Dio dio) = _SettingsDatasource;
 

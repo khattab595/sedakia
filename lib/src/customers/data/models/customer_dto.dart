@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'customer_dto.g.dart'; 
+part 'customer_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class CustomerDto {
@@ -15,9 +15,10 @@ class CustomerDto {
 
   CustomerDto({this.data, this.totalUsers, this.totalPages, this.currentPage});
 
-   factory CustomerDto.fromJson(Map<String, dynamic> json) => _$CustomerDtoFromJson(json);
+  factory CustomerDto.fromJson(Map<String, dynamic> json) =>
+      _$CustomerDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$CustomerDtoToJson(this);
+  Map<String, dynamic> toJson() => _$CustomerDtoToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -31,10 +32,9 @@ class Data {
   @JsonKey(name: 'phone')
   String? phone;
 
-  Data({this.id, this.userLogin, this.email,this.phone});
+  Data({this.id, this.userLogin, this.email, this.phone});
 
-   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
-   Map<String, dynamic> toJson() => _$DataToJson(this);
+  Map<String, dynamic> toJson() => _$DataToJson(this);
 }
-

@@ -13,5 +13,4 @@ class CategoriesUseCase {
     final data = CategoryModel.fromDto(result);
     return data;
   }
-
 }

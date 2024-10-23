@@ -16,6 +16,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   void loadInitialData(BuildContext context) {
     bloc.fetchGetData(SearchParams());
   }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -31,7 +32,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
               width: 95,
               height: 30,
               decoration: Decorations.kDecorationBorderRadius(
-                  radius: 7, color:  context.theme.primaryColor),
+                  radius: 7, color: context.theme.primaryColor),
               child: PrimaryRegularText(
                 label: strings.add_product,
                 fontSize: 12,
@@ -64,8 +65,8 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
           Padding(
             padding: 15.paddingHoriz + 10.paddingTop,
             child: CustomTextField(
-              onChanged: (value){
-               bloc.searchProduct(SearchParams(searchText: value));
+              onChanged: (value) {
+                bloc.searchProduct(SearchParams(searchText: value));
               },
               hintText: strings.search,
               minHeight: 45,
@@ -82,10 +83,9 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   Widget buildWidget(BuildContext context, DataSuccess<ProductDto> state) {
     return ProductScreen(
       data: state.data!,
-      onDelete: (id)=>bloc.deleteProduct(id),
+      onDelete: (id) => bloc.deleteProduct(id),
     );
   }
-
 
   @override
   void onSuccessDismissed() {

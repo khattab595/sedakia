@@ -5,7 +5,7 @@ class DateFormatter {
   static String DATE_FORMAT = 'dd-MM-yyyy';
   static String DATE_FORMAT_MOUNTH = 'MMMM yyyy';
   static String DATE_FORMAT_MOUNTH_DAY = 'EEEE, d MMM, yyyy';
-  static const MONTH_NAME_YEAR ='MMM yyyy ' ;
+  static const MONTH_NAME_YEAR = 'MMM yyyy ';
   static String formatDate(DateTime date) {
     final now = DateTime.now();
     final diff = now.difference(date);
@@ -17,7 +17,8 @@ class DateFormatter {
       return '${date.hour}:${date.minute}';
     }
   }
-  static String monthNameYear(DateTime date){
+
+  static String monthNameYear(DateTime date) {
     return formatDateV2(date, 'MMM yyyy ');
   }
 
@@ -26,19 +27,18 @@ class DateFormatter {
     return DateFormat('yyyy-MM-dd').format(dateTime);
   }
 
-
-  static String formatDateV2(DateTime dateTime ,String pattern , ){
-
+  static String formatDateV2(
+    DateTime dateTime,
+    String pattern,
+  ) {
     try {
       return DateFormat(pattern).format(dateTime);
-    }catch(e){
-      return '' ;
+    } catch (e) {
+      return '';
     }
   }
 
-
-
-  static String formatChatDate(String dateChat){
+  static String formatChatDate(String dateChat) {
     try {
       final date = DateTime.parse(dateChat);
       final now = DateTime.now();
@@ -56,27 +56,29 @@ class DateFormatter {
       return '';
     }
   }
+
 // convert from date string 20-8-2024 to 20 oct 2024
-  static String formatOrderStatusDateString(String dateString){
+  static String formatOrderStatusDateString(String dateString) {
     try {
       final DateFormat _inputFormat = DateFormat('dd-MM-yyyy');
       final DateFormat _outputFormat = DateFormat('dd\nMMM');
       DateTime date = _inputFormat.parse(dateString);
       String formattedDate = _outputFormat.format(date);
       return formattedDate;
-    } on Exception catch (e) {
+    } on Exception {
       return '';
     }
   }
 
-  static String formatString(String dateString, {String format = 'MMM d, yyyy'}){
+  static String formatString(String dateString,
+      {String format = 'MMM d, yyyy'}) {
     final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
       final DateFormat _inputFormat = DateFormat('yy-MM-dd');
       final DateFormat _outputFormat = DateFormat(format, lang);
       DateTime date = _inputFormat.parse(dateString);
-      String formattedDate = _outputFormat.format(date );
+      String formattedDate = _outputFormat.format(date);
       return formattedDate;
     } on Exception catch (e) {
       print('formatTimestampString error: $e');
@@ -84,14 +86,15 @@ class DateFormatter {
     }
   }
 
-  static String formatTimestampString(String dateString, {String format = 'dd-MM-yyyy'}){
+  static String formatTimestampString(String dateString,
+      {String format = 'dd-MM-yyyy'}) {
     // final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
       final DateFormat _inputFormat = DateFormat('yy-MM-dd');
       final DateFormat _outputFormat = DateFormat(format);
       DateTime date = _inputFormat.parse(dateString);
-      String formattedDate = _outputFormat.format(date );
+      String formattedDate = _outputFormat.format(date);
       return formattedDate;
     } on Exception catch (e) {
       print('formatTimestampString error: $e');

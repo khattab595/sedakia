@@ -83,9 +83,7 @@ class FilterInvoices extends BaseStatelessWidget {
           child: SearchTextField(
             controller: controller,
             hintText: strings.search,
-            onChanged: (value) {
-
-            },
+            onChanged: (value) {},
           ),
         ),
         AppIconButton(
@@ -97,7 +95,7 @@ class FilterInvoices extends BaseStatelessWidget {
             showModalBottomSheet(
                 shape: const RoundedRectangleBorder(
                   borderRadius:
-                  BorderRadius.vertical(top: Radius.circular(8.0)),
+                      BorderRadius.vertical(top: Radius.circular(8.0)),
                 ),
                 context: context,
                 isScrollControlled: true,
@@ -126,33 +124,31 @@ class FilterInvoices extends BaseStatelessWidget {
                         // ),
                         16.ph,
                         FilterDateWidget(
-                          onFilter: (date, to) {
-
-                          },
+                          onFilter: (date, to) {},
                         ),
                         16.ph,
                         /*
                         tabssss
                          */
-                        StatefulBuilder(
-                          builder: (context, setState) {
-                            return Wrap(
-                              children: items
-                                  .map((e) => SelectionWidget(
-                                item: e,
-                                isSelected: initialItem == e,
-                                onSelected: (selected) {
-                                  if (selected) {
-                                    setState(() {
-                                      initialItem = e;
-                                    });
-                                  }
-                                },
-                              ),)
-                                  .toList(),
-                            );
-                          }
-                        ),
+                        StatefulBuilder(builder: (context, setState) {
+                          return Wrap(
+                            children: items
+                                .map(
+                                  (e) => SelectionWidget(
+                                    item: e,
+                                    isSelected: initialItem == e,
+                                    onSelected: (selected) {
+                                      if (selected) {
+                                        setState(() {
+                                          initialItem = e;
+                                        });
+                                      }
+                                    },
+                                  ),
+                                )
+                                .toList(),
+                          );
+                        }),
                         50.ph,
                         PrimaryButton(
                           title: strings.search,

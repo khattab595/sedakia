@@ -18,7 +18,6 @@ abstract class RequestsDatasource {
   @GET('products/mobile/v1/orders')
   Future<ApiResponse<OrderDto>> fetchOrder(@Queries() SearchParams params);
 
-
   @GET('products/mobile/v1/order/{id}')
   Future<ApiResponse<OrderDetailsDto>> orderDetails(@Path("id") int id);
 

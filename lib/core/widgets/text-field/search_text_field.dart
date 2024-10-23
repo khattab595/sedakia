@@ -2,7 +2,6 @@ import 'package:app/src/main_index.dart';
 
 import 'custom_text_field.dart';
 
-
 class SearchTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
@@ -25,12 +24,36 @@ class SearchTextField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final double? radius;
   final bool isValidator;
-  const SearchTextField({Key? key, this.controller, this.hintText, this.labelText, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius, this.iconPath, this.isValidator = false}) : super(key: key);
+  const SearchTextField(
+      {Key? key,
+      this.controller,
+      this.hintText,
+      this.labelText,
+      this.isPassword = false,
+      this.onTap,
+      this.onChanged,
+      this.validator,
+      this.inputDecoration,
+      this.keyboardType,
+      this.fillColor,
+      this.hintStyle,
+      this.textAlign,
+      this.prefixIcon,
+      this.maxLines,
+      this.colorBorderSide,
+      this.margin,
+      this.contentPadding,
+      this.suffixIcon,
+      this.radius,
+      this.iconPath,
+      this.isValidator = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // if
-    Color? borderColor = colorBorderSide ?? context.dividerColor ?? context.backgroundColor;
+    Color? borderColor =
+        colorBorderSide ?? context.dividerColor ?? context.backgroundColor;
     return CustomTextField(
       hintText: hintText ?? 'Search',
       fillColor: fillColor ?? context.cardColor,

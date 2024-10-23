@@ -1,4 +1,3 @@
-
 class LocalState {
   final String language;
   final bool isLogin;
@@ -13,6 +12,6 @@ class LocalState {
   });
 }
 
-class LoadingState{
+class LoadingState {
   LoadingState();
 }

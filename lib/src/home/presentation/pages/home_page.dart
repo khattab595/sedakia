@@ -18,11 +18,9 @@ class HomePage extends BaseBlocWidget<DataSuccess<SummaryModel>, HomeCubit> {
   // }
 
   @override
-  Widget buildWidget(
-      BuildContext context, DataSuccess<SummaryModel> state) {
+  Widget buildWidget(BuildContext context, DataSuccess<SummaryModel> state) {
     return HomeScreen(
       summaryModel: state.data!,
-
     );
   }
 }

@@ -1,14 +1,9 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-class PlatFormInvocation{
-  static const UPDATE_LOCAL_METHOD="updateLocal";
-  static const CHANGE_LOCAL_METHOD="changeLocal";
+class PlatFormInvocation {
+  static const UPDATE_LOCAL_METHOD = "updateLocal";
+  static const CHANGE_LOCAL_METHOD = "changeLocal";
   static const platform = const MethodChannel('com.sedk.fultter/channel');
-
 
   // static updateLanguage(BuildContext context){
   //   if(kIsWeb) return ;

@@ -27,13 +27,14 @@ class HelperMethods {
       ],
     );
   }
-  static Future<List<File>> getListImagePicker() async {
 
-  List<XFile>? imageFile = await ImagePicker().pickMultipleMedia( );
-  List<File> data=  imageFile.map((e) => File(e.path)).toList();
+  static Future<List<File>> getListImagePicker() async {
+    List<XFile>? imageFile = await ImagePicker().pickMultipleMedia();
+    List<File> data = imageFile.map((e) => File(e.path)).toList();
     return data;
   }
-  static  String getDate(String now) {
+
+  static String getDate(String now) {
     if (now == "") {
       return "";
     } else {
@@ -41,6 +42,7 @@ class HelperMethods {
       return DateFormat('yyyy-MM-dd').format(dateTime);
     }
   }
+
   static Future<File> getImageFromGallery() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -141,7 +143,7 @@ class HelperMethods {
   static Future<void> saveProfile(ProfileDto dto) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      if(dto.token != null && dto.token!.isNotEmpty) {
+      if (dto.token != null && dto.token!.isNotEmpty) {
         prefs.setString('profile', jsonEncode(dto.toJson()));
       } else {
         dto.token = await getToken();
@@ -177,7 +179,8 @@ class HelperMethods {
     }
   }
 
-  static Future<DateTime?> selectDate(BuildContext context, {DateTime? firstDate}) async {
+  static Future<DateTime?> selectDate(BuildContext context,
+      {DateTime? firstDate}) async {
     ThemeData theme = Theme.of(context);
     return await showDatePicker(
       context: context,

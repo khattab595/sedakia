@@ -16,7 +16,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.people,
             title: strings.customers,
-             route: Routes.customersPage,
+            route: Routes.customersPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 16,
@@ -27,7 +27,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.messages,
             title: strings.about_us,
-             route: Routes.aboutPage,
+            route: Routes.aboutPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -38,7 +38,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.privacy,
             title: strings.privacy_policy,
-             route: Routes.privacyPolicyPage,
+            route: Routes.privacyPolicyPage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -49,7 +49,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.lang,
             title: strings.language,
-             route: Routes.changLanguagePage,
+            route: Routes.changLanguagePage,
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,
@@ -71,7 +71,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.logout,
             title: strings.delete_account,
-            onTap: (){
+            onTap: () {
               HelperMethods.clearCashData();
               pushNamedAndRemoveUntil(Routes.loginPage);
             },
@@ -80,7 +80,7 @@ class MoreScreen extends BaseStatelessWidget {
           MoreItem(
             icon: AppIcons.logout,
             title: strings.sign_out,
-            onTap: (){
+            onTap: () {
               HelperMethods.clearCashData();
               pushNamedAndRemoveUntil(Routes.loginPage);
             },

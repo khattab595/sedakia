@@ -19,7 +19,6 @@ class RequestDetailsScreen extends BaseStatelessWidget {
           ),
         ),
         totalAmount(),
-
         Padding(
           padding: 15.paddingAll,
           child: DropDownField(

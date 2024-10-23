@@ -3,13 +3,14 @@ import 'package:app/src/requests/domain/entities/ShippingAddress.dart';
 
 class OrderData {
   OrderData({
-      this.id, 
-      this.customerName, 
-      this.status, 
-      this.total, 
-      this.dateCreated, 
-      this.phone, 
-      this.shippingAddress,});
+    this.id,
+    this.customerName,
+    this.status,
+    this.total,
+    this.dateCreated,
+    this.phone,
+    this.shippingAddress,
+  });
 
   int? id;
   String? customerName;
@@ -17,7 +18,7 @@ class OrderData {
   String? total;
   String? dateCreated;
   String? phone;
-  ShippingAddressData ?shippingAddress;
+  ShippingAddressData? shippingAddress;
 
   factory OrderData.fromDto(DataOrder json) {
     return OrderData(
@@ -30,6 +31,4 @@ class OrderData {
       shippingAddress: ShippingAddressData.fromDto(json.shippingAddress),
     );
   }
-
 }
-

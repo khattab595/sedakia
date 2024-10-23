@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'order_dto.g.dart'; 
+part 'order_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class OrderDto {
@@ -15,9 +15,10 @@ class OrderDto {
 
   OrderDto({this.data, this.totalOrders, this.totalPages, this.currentPage});
 
-   factory OrderDto.fromJson(Map<String, dynamic> json) => _$OrderDtoFromJson(json);
+  factory OrderDto.fromJson(Map<String, dynamic> json) =>
+      _$OrderDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$OrderDtoToJson(this);
+  Map<String, dynamic> toJson() => _$OrderDtoToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -37,11 +38,19 @@ class DataOrder {
   @JsonKey(name: 'shipping_address')
   ShippingAddress shippingAddress;
 
-  DataOrder({this.id, this.customerName, this.status, this.total, this.dateCreated, this.phone,required this.shippingAddress});
+  DataOrder(
+      {this.id,
+      this.customerName,
+      this.status,
+      this.total,
+      this.dateCreated,
+      this.phone,
+      required this.shippingAddress});
 
-   factory DataOrder.fromJson(Map<String, dynamic> json) => _$DataOrderFromJson(json);
+  factory DataOrder.fromJson(Map<String, dynamic> json) =>
+      _$DataOrderFromJson(json);
 
-   Map<String, dynamic> toJson() => _$DataOrderToJson(this);
+  Map<String, dynamic> toJson() => _$DataOrderToJson(this);
 }
 
 @JsonSerializable(ignoreUnannotated: false)
@@ -63,10 +72,18 @@ class ShippingAddress {
   @JsonKey(name: 'country')
   String? country;
 
-  ShippingAddress({this.firstName, this.lastName, this.address_1, this.address_2, this.city, this.state, this.postcode, this.country});
+  ShippingAddress(
+      {this.firstName,
+      this.lastName,
+      this.address_1,
+      this.address_2,
+      this.city,
+      this.state,
+      this.postcode,
+      this.country});
 
-   factory ShippingAddress.fromJson(Map<String, dynamic> json) => _$ShippingAddressFromJson(json);
+  factory ShippingAddress.fromJson(Map<String, dynamic> json) =>
+      _$ShippingAddressFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ShippingAddressToJson(this);
+  Map<String, dynamic> toJson() => _$ShippingAddressToJson(this);
 }
-

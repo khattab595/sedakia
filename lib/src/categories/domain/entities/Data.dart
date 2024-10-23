@@ -2,13 +2,13 @@ import 'package:app/src/categories/data/models/category_dto.dart';
 
 class CategoryData {
   CategoryData({
-      this.id, 
-      this.name, 
-      this.description, 
-      this.parent, 
-      this.slug, 
-      this.image,});
-
+    this.id,
+    this.name,
+    this.description,
+    this.parent,
+    this.slug,
+    this.image,
+  });
 
   int? id;
   String? name;
@@ -20,12 +20,11 @@ class CategoryData {
   factory CategoryData.fromDto(Data json) {
     return CategoryData(
       id: json.id,
-        name: json.name,
+      name: json.name,
       description: json.description,
       parent: json.parent,
       slug: json.slug,
       image: json.image,
     );
   }
-
 }

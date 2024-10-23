@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'id_dto.g.dart'; 
+part 'id_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class IdDto {
@@ -9,8 +9,7 @@ class IdDto {
 
   IdDto({this.id});
 
-   factory IdDto.fromJson(Map<String, dynamic> json) => _$IdDtoFromJson(json);
+  factory IdDto.fromJson(Map<String, dynamic> json) => _$IdDtoFromJson(json);
 
-   Map<String, dynamic> toJson() => _$IdDtoToJson(this);
+  Map<String, dynamic> toJson() => _$IdDtoToJson(this);
 }
-

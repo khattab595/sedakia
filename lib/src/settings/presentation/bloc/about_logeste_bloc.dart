@@ -10,7 +10,9 @@ class AboutCubit extends BaseCubit {
 
   AboutCubit(this.usecase);
 
-  fetchAbout(AboutType type ) async {
-   executeSuccess(() => type == AboutType.aboutUs ? usecase.fetchAboutUs() : usecase.fetchTermsConditions());
+  fetchAbout(AboutType type) async {
+    executeSuccess(() => type == AboutType.aboutUs
+        ? usecase.fetchAboutUs()
+        : usecase.fetchTermsConditions());
   }
 }

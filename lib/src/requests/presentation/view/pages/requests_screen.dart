@@ -11,7 +11,9 @@ class RequestsScreen extends BaseStatelessWidget {
     return ListView.builder(
       itemCount: data.data?.length,
       itemBuilder: (context, index) {
-        return RequestItem(data: data.data![index],);
+        return RequestItem(
+          data: data.data![index],
+        );
       },
     );
   }

@@ -1,4 +1,3 @@
-
 import '../../../../../core/components/base_widget_bloc.dart';
 import '../../../../home/presentation/widgets/filter_date_widget.dart';
 import '../../../../main_index.dart';
@@ -7,9 +6,9 @@ import '../../../domain/entities/Order_model.dart';
 import '../bloc/requests_bloc.dart';
 import 'requests_screen.dart';
 
-class RequestsPage extends BaseBlocWidget<DataSuccess<OrderModel>, RequestsBloc> {
+class RequestsPage
+    extends BaseBlocWidget<DataSuccess<OrderModel>, RequestsBloc> {
   RequestsPage({Key? key}) : super(key: key);
-
 
   @override
   void loadInitialData(BuildContext context) {

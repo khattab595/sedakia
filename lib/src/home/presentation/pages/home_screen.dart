@@ -1,4 +1,3 @@
-
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../main_index.dart';
@@ -9,21 +8,31 @@ import '../widgets/orders_statistics.dart';
 import '../widgets/charts_statistics.dart';
 
 class HomeScreen extends BaseStatelessWidget {
-
   final SummaryModel summaryModel;
 
   HomeScreen({super.key, required this.summaryModel});
 
   @override
   Widget build(BuildContext context) {
-    List<ModelDto> data =[
-      ModelDto(name: strings.number_order,value: summaryModel.totalOrders.toString()),
-      ModelDto(name: strings.number_client,value: summaryModel.totalCustomers.toString()),
-      ModelDto(name: strings.number_product,value: summaryModel.totalProducts.toString()),
-      ModelDto(name: strings.number_refunds,value: summaryModel.totalRefunds.toString()),
-      ModelDto(name: strings.number_sales,value: summaryModel.totalSales.toString()),
-      ModelDto(name: strings.average_order_value,value: summaryModel.averageOrderValue.toString()),
-
+    List<ModelDto> data = [
+      ModelDto(
+          name: strings.number_order,
+          value: summaryModel.totalOrders.toString()),
+      ModelDto(
+          name: strings.number_client,
+          value: summaryModel.totalCustomers.toString()),
+      ModelDto(
+          name: strings.number_product,
+          value: summaryModel.totalProducts.toString()),
+      ModelDto(
+          name: strings.number_refunds,
+          value: summaryModel.totalRefunds.toString()),
+      ModelDto(
+          name: strings.number_sales,
+          value: summaryModel.totalSales.toString()),
+      ModelDto(
+          name: strings.average_order_value,
+          value: summaryModel.averageOrderValue.toString()),
     ];
     return Padding(
       padding: 10.paddingAll + (kToolbarHeight - 20).paddingTop,
@@ -39,7 +48,6 @@ class HomeScreen extends BaseStatelessWidget {
                   fontSize: 20,
                 ),
                 popUpMenu(),
-
               ],
             ),
             20.ph,
@@ -99,20 +107,19 @@ class HomeScreen extends BaseStatelessWidget {
             ),
           ),
           dropdownMenuEntries: [
-          DropdownMenuEntry(
-          value: '1',
-          label: strings.weakly,
-        ),
-          DropdownMenuEntry(
-          value: '2',
-          label: strings.monthly,
-        ),
-          DropdownMenuEntry(
-          value: '3',
-          label: strings.yearly,
-        ),
-      ]),
+            DropdownMenuEntry(
+              value: '1',
+              label: strings.weakly,
+            ),
+            DropdownMenuEntry(
+              value: '2',
+              label: strings.monthly,
+            ),
+            DropdownMenuEntry(
+              value: '3',
+              label: strings.yearly,
+            ),
+          ]),
     );
   }
-
 }

@@ -42,19 +42,15 @@ class OrderStatistic extends BaseStatelessWidget {
     return Container(
       margin: 10.paddingAll,
       padding: 10.paddingAll,
-      decoration:
-          Decorations.shapeDecorationShadow(),
+      decoration: Decorations.shapeDecorationShadow(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SemiBoldPrimaryText(
-            label: model.value??"",
-            fontSize: 20
-          ),
+          SemiBoldPrimaryText(label: model.value ?? "", fontSize: 20),
           5.ph,
           PrimaryMediumText(
-            label: model.name??"",
+            label: model.name ?? "",
             fontSize: 12,
           ),
         ],

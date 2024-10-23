@@ -1,4 +1,3 @@
-
 import 'package:injectable/injectable.dart';
 import 'package:app/src/settings/data/data_sources/settings_datasource.dart';
 
@@ -7,8 +6,8 @@ import '../../domain/repositories/settings_repo.dart';
 import '../models/about_dto.dart';
 
 @Injectable(as: SettingsRepo)
-class SettingsRepoImp extends SettingsRepo{
-  final SettingsDatasource  apiProvider;
+class SettingsRepoImp extends SettingsRepo {
+  final SettingsDatasource apiProvider;
   SettingsRepoImp(this.apiProvider);
 
   @override
@@ -22,6 +21,4 @@ class SettingsRepoImp extends SettingsRepo{
     final response = await apiProvider.fetchTermsConditions();
     return About.fromDto(response.payload ?? AboutDto());
   }
-
-
 }

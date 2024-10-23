@@ -1,7 +1,5 @@
-
 import '../../../../core/widgets/texts/black_texts.dart';
 import '../../../main_index.dart';
-
 
 class CheckBoxTermsConditions extends BaseStatelessWidget {
   final void Function(bool?)? onChanged;
