@@ -1,6 +1,6 @@
-import '../entities/about.dart';
+import '../../data/models/setting_dto.dart';
 
 abstract class SettingsRepo {
-  Future<About> fetchAboutUs();
-  Future<About> fetchTermsConditions();
+  Future<SettingDto> fetchSetting();
+
 }

@@ -10,11 +10,13 @@ class AboutLogesteItem extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       decoration: Decorations.kDecorationBorderRadius(
           radius: 30, borderColor: AppColors.borderColor.withOpacity(0.3)),
       padding: 25.paddingAll,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SemiBoldPrimaryText(
             label: title,

@@ -21,20 +21,20 @@ class _SettingsDatasource implements SettingsDatasource {
   String? baseUrl;
 
   @override
-  Future<ApiResponse<AboutDto>> fetchAboutUs() async {
+  Future<ApiResponse<SettingDto>> fetchSetting() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<AboutDto>>(Options(
+        _setStreamType<ApiResponse<SettingDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/AboutUs',
+              'settings/mobile/v1/get-first',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,39 +43,9 @@ class _SettingsDatasource implements SettingsDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<AboutDto>.fromJson(
+    final value = ApiResponse<SettingDto>.fromJson(
       _result.data!,
-      (json) => AboutDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<AboutDto>> fetchTermsConditions() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<AboutDto>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/TermsConditions',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<AboutDto>.fromJson(
-      _result.data!,
-      (json) => AboutDto.fromJson(json as Map<String, dynamic>),
+      (json) => SettingDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }

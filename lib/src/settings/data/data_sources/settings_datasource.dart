@@ -5,6 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:app/core/network/api_response.dart';
 
+import '../models/setting_dto.dart';
+
 part 'settings_datasource.g.dart';
 
 @Injectable()
@@ -13,9 +15,6 @@ abstract class SettingsDatasource {
   @factoryMethod
   factory SettingsDatasource(Dio dio) = _SettingsDatasource;
 
-  @GET('/AboutUs')
-  Future<ApiResponse<AboutDto>> fetchAboutUs();
-
-  @GET('/TermsConditions')
-  Future<ApiResponse<AboutDto>> fetchTermsConditions();
+  @GET('settings/mobile/v1/get-first')
+  Future<ApiResponse<SettingDto>> fetchSetting();
 }

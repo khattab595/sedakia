@@ -1,7 +1,4 @@
-import 'package:app/core/widgets/texts/primary_texts.dart';
 
-import '../../../../../core/utils/navigator.dart';
-import '../../../../../core/widgets/buttons/options_menu_button.dart';
 import '../../../../main_index.dart';
 import '../../../domain/entities/Category.dart';
 import '../../widgets/category_item.dart';

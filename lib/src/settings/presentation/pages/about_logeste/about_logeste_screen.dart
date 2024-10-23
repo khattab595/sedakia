@@ -4,36 +4,38 @@ import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/settings/presentation/widgets/about_logeste_item.dart';
 
 import '../../../../main_index.dart';
+import '../../../domain/entities/Setting_model.dart';
 import '../../../domain/entities/about.dart';
 
 class AboutScreen extends BaseStatelessWidget {
-  // final About about;
-  AboutScreen({
-    Key? key,
-    //  required this.about
-  }) : super(key: key);
+  final SettingModel data;
+  AboutScreen({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         padding: 20.paddingAll,
-        child: Column(
-          children: [
-            AboutLogesteItem(
-              title: strings.this_app,
-              subTitle: strings.desc_about,
-            ),
-            20.ph,
-            AboutLogesteItem(
-              title: strings.features,
-              subTitle: strings.desc_about,
-            ),
-            20.ph,
-            AboutLogesteItem(
-              title: strings.services,
-              subTitle: strings.desc_about,
-            )
-          ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              AboutLogesteItem(
+                title: strings.this_app,
+                subTitle: data.thisApp??"",
+              ),
+              20.ph,
+              AboutLogesteItem(
+                title: strings.features,
+                subTitle: data.features??"",
+              ),
+              20.ph,
+              AboutLogesteItem(
+                title: strings.services,
+                subTitle: data.services??"",
+              )
+            ],
+          ),
         ));
   }
 }
