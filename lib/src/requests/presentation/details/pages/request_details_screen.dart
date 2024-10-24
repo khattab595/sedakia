@@ -44,14 +44,12 @@ class RequestDetailsScreen extends BaseStatelessWidget {
               title: strings.update_status,
               value: data.status,
               items: const [
-                DropDownItem(title: "Pending Payment", id: '1'),
-                DropDownItem(title: "Failed", id: '2'),
-                DropDownItem(title: "Processing", id: '3'),
-                DropDownItem(title: "Completed", id: '4'),
-                DropDownItem(title: "On-Hold", id: '5'),
-                DropDownItem(title: "Cancelled", id: '6'),
-                DropDownItem(title: "Refunded", id: '7'),
-                DropDownItem(title: "Draft", id: '8'),
+                DropDownItem(title: "pending-payment", id: '1'),
+                DropDownItem(title: "processing", id: '2'),
+                DropDownItem(title: "on-hold", id: '3'),
+                DropDownItem(title: "completed", id: '4'),
+                DropDownItem(title: "cancelled", id: '5'),
+                DropDownItem(title: "refunded", id: '6'),
               ],
               onChanged: (value) {
                 updateAvailable = value.title!;

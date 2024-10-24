@@ -63,21 +63,23 @@ class FilterInvoices extends BaseStatelessWidget {
   final Function(SearchParams) onFilter;
   final Function(SearchParams params) onSearch;
 
-  FilterInvoices({super.key, required this.onFilter, required this.controller,required this.onSearch});
+  FilterInvoices(
+      {super.key,
+      required this.onFilter,
+      required this.controller,
+      required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
     SearchParams params = SearchParams();
     TextEditingController insideController = TextEditingController();
     List<SelectionItem> items = [
-      SelectionItem(id: '1', title: 'Pending Payment'),
-      SelectionItem(id: '2', title: 'Failed'),
-      SelectionItem(id: '3', title: 'Processing'),
-      SelectionItem(id: '4', title: 'Completed'),
-      SelectionItem(id: '5', title: 'On-Hold'),
-      SelectionItem(id: '6', title: 'Cancelled'),
-      SelectionItem(id: '6', title: 'Refunded'),
-      SelectionItem(id: '6', title: 'Draft'),
+      SelectionItem(id: '1', title: 'pending-payment'),
+      SelectionItem(id: '2', title: 'processing'),
+      SelectionItem(id: '3', title: 'on-hold'),
+      SelectionItem(id: '4', title: 'completed'),
+      SelectionItem(id: '5', title: 'cancelled'),
+      SelectionItem(id: '6', title: 'refunded'),
     ];
 
     SelectionItem initialItem = items.first;
