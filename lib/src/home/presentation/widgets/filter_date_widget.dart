@@ -68,11 +68,12 @@ class FilterInvoices extends BaseStatelessWidget {
       required this.onFilter,
       required this.controller,
       required this.onSearch});
+  String? startDate;
+  String? endDate;
+  String? status;
 
   @override
   Widget build(BuildContext context) {
-    SearchParams params = SearchParams();
-    TextEditingController insideController = TextEditingController();
     List<SelectionItem> items = [
       SelectionItem(id: '1', title: 'pending-payment'),
       SelectionItem(id: '2', title: 'processing'),
@@ -124,24 +125,16 @@ class FilterInvoices extends BaseStatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        // 10.ph,
-                        // CustomTextField(
-                        //   controller: insideController,
-                        //   title: strings.id_number,
-                        //   margin: 16.paddingHoriz,
-                        //   keyboardType: TextInputType.number,
-                        // ),
+
                         16.ph,
                         FilterDateWidget(
                           onFilter: (date, to) {
-                            params.dateFrom = date;
-                            params.dateTo = to;
+                            startDate = date;
+                            endDate = to;
                           },
                         ),
                         16.ph,
-                        /*
-                        tabssss
-                         */
+
                         StatefulBuilder(builder: (context, setState) {
                           return Wrap(
                             children: items
@@ -153,6 +146,7 @@ class FilterInvoices extends BaseStatelessWidget {
                                       if (selected) {
                                         setState(() {
                                           initialItem = e;
+                                          status = initialItem.title;
                                         });
                                       }
                                     },
@@ -167,8 +161,11 @@ class FilterInvoices extends BaseStatelessWidget {
                           margin: 16.paddingHoriz,
                           onPressed: () {
                             Navigator.pop(context);
-                            params.status = items.first.title;
-                            onFilter(params);
+
+                            onFilter(SearchParams(
+                                dateFrom: startDate,
+                                dateTo: endDate,
+                                status: status));
                           },
                         )
                       ],

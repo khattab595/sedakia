@@ -33,6 +33,8 @@ class _SplashPageState extends State<SplashPage>
       const Duration(seconds: 2),
       () async {
         String token = await HelperMethods.getToken();
+        print(token);
+        print("jjkjkjkjk");
         // bool isFirstTime = await HelperMethods.isFirstTime();
         bool isRememberMe = await HelperMethods.getRememberMe();
         if (token.isNotEmpty || token != '') {

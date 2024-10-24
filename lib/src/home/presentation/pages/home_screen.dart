@@ -69,7 +69,7 @@ class HomeScreen extends BaseStatelessWidget {
                 children: [
                   SemiBoldPrimaryText(label: strings.statistics, fontSize: 20),
                   20.ph,
-                  ChartsStatistics(monthlyDto: [],)
+                  ChartsStatistics(monthlyDto: monthlyDto,)
                 ],
               ),
             ),

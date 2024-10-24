@@ -32,7 +32,7 @@ class RequestsPage
           onSearch: (params) => bloc.searchOrder(params),
           onFilter: (filter) {
             params = filter;
-         //   params.status = status;
+
             Future.delayed(const Duration(milliseconds: 500), () {
               bloc.searchOrder(params);
             });

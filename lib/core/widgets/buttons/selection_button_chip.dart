@@ -80,6 +80,7 @@ class SelectionWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onSelected: onSelected,
+
       ),
     );
   }

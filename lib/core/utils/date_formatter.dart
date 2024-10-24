@@ -6,6 +6,21 @@ class DateFormatter {
   static String DATE_FORMAT_MOUNTH = 'MMMM yyyy';
   static String DATE_FORMAT_MOUNTH_DAY = 'EEEE, d MMM, yyyy';
   static const MONTH_NAME_YEAR = 'MMM yyyy ';
+  static const TIME_STAMP="yyyy-MM-dd'T'HH:mm:ss" ;
+  static const DAY_MONTH_YEAR ='dd/MM/yyyy' ;
+  static const MONTH_DAY_YEAR ='MM/dd/yyyy' ;
+  static const HOUR_MINUT_SEC ='HH:mm:ss' ;
+  static const HOUR_MINUT ='HH:mm' ;
+  static const HOUR_MINUT_12 =' hh:mm a' ;
+  static const DATE_TIME ='dd/MM/yyyy HH:mm:ss' ;
+  static const DATE_TIME_API ='MM/dd/yyyy HH:mm:ss' ;
+  static const DATE_TIME_UI ='EEE ,d MMM  yyyy , hh:mm a' ;
+  static const WORKING_DATE_TIME_UI ='dd-MM-yyyy HH:mm a' ;
+  static const DATE_UI ='EEE ,d MMM  yyyy ' ;
+
+  static const TIME_UI ='hh:mm' ;
+  static const DATE_Api_DD_MM_YYYY ='dd-MM-yyyy' ;
+  static const DATE_D_MMM_YYYY ='d MMM yyyy';
   static String formatDate(DateTime date) {
     final now = DateTime.now();
     final diff = now.difference(date);
@@ -87,7 +102,7 @@ class DateFormatter {
   }
 
   static String formatTimestampString(String dateString,
-      {String format = 'dd-MM-yyyy'}) {
+      {String format = TIME_STAMP}) {
     // final lang = injector<ServicesLocator>().languageCode;
     try {
       print('formatTimestampString dateString: $dateString');
