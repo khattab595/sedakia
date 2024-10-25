@@ -116,4 +116,16 @@ class DateFormatter {
       return dateString;
     }
   }
+
+  static int getMonthIndex(String date){
+    try {
+      final DateFormat _inputFormat = DateFormat('yyyy-MM');
+      DateTime dateTime = _inputFormat.parse(date);
+      print('getMonthIndex error: ${dateTime.month}');
+      return dateTime.month;
+    } catch (e) {
+      print('getMonthIndex error: $e');
+      return 0;
+    }
+  }
 }
