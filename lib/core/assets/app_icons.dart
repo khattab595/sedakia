@@ -6,7 +6,7 @@ class AppIcons {
   static const String logout = "assets/icons/logout.svg";
   static const String category = "assets/icons/category.svg";
   static const String arrow = "assets/icons/arrow.svg";
-
+  static const String location = "assets/icons/location.svg";
   static const String menu = "assets/icons/menu.svg";
   static const String more = "assets/icons/more.svg";
   static const String reservation = "assets/icons/reservation.svg";
@@ -29,7 +29,6 @@ class AppIcons {
   static const String gender = "assets/icons/gender.svg";
   static const String id_number = "assets/icons/id_number.svg";
   static const String language = "assets/icons/language.svg";
-  static const String location = "assets/icons/map-pin 1.svg";
   static const String nationality = "assets/icons/nationality.svg";
   static const String phone = "assets/icons/phone.svg";
   static const String religion = "assets/icons/religion.svg";

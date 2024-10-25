@@ -69,6 +69,20 @@ class MoreScreen extends BaseStatelessWidget {
           ),
           line(),
           MoreItem(
+            icon: AppIcons.location,
+            iconSize:25 ,
+            title: strings.go_to_the_site,
+            onTap: () {
+              HelperMethods.launchURL("https://dash.motkaml.com/?t=[${HelperMethods.getToken()}]");
+            },
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 15,
+              color: AppColors.primaryLightText,
+            ),
+          ),
+          line(),
+          MoreItem(
             icon: AppIcons.logout,
             title: strings.delete_account,
             onTap: () {
