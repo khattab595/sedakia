@@ -73,7 +73,7 @@ class MoreScreen extends BaseStatelessWidget {
             iconSize:25 ,
             title: strings.go_to_the_site,
             onTap: () {
-              HelperMethods.launchURL("https://dash.motkaml.com/?t=[${HelperMethods.getToken()}]");
+              HelperMethods.launchURL("https://dash.motkaml.com/?t=${HelperMethods.getToken()}");
             },
             trailing: const Icon(
               Icons.arrow_forward_ios,
