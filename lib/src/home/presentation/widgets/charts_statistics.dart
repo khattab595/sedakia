@@ -59,31 +59,7 @@ class BarChartSample2State extends State<ChartsStatistics> {
                 tooltipMargin: -10,
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   String weekDay;
-                  switch (group.x) {
-                    case 0:
-                      weekDay = 'Monday';
-                      break;
-                    case 1:
-                      weekDay = 'Tuesday';
-                      break;
-                    case 2:
-                      weekDay = 'Wednesday';
-                      break;
-                    case 3:
-                      weekDay = 'Thursday';
-                      break;
-                    case 4:
-                      weekDay = 'Friday';
-                      break;
-                    case 5:
-                      weekDay = 'Saturday';
-                      break;
-                    case 6:
-                      weekDay = 'Sunday';
-                      break;
-                    default:
-                      throw Error();
-                  }
+                  weekDay = months[group.x];
                   return BarTooltipItem(
                     '$weekDay\n',
                     const TextStyle(
@@ -207,11 +183,13 @@ class BarChartSample2State extends State<ChartsStatistics> {
     );
   }
 
+  final months = DateFormatter.getAllMonthsTransactions();
+
   Widget bottomTitles(double value, TitleMeta meta) {
-    final titles = <String>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+    final titles = months;
 
     final Widget text = PrimaryRegularText(
-      label: titles[value.toInt()],
+      label: titles[value.toInt()].substring(0, 3),
       fontSize: 12,
     );
 

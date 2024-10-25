@@ -128,4 +128,12 @@ class DateFormatter {
       return 0;
     }
   }
+
+  static List<String> getAllMonthsTransactions() {
+    List<String> months = [];
+    for (int i = 1; i <= 12; i++) {
+      months.add(DateFormat('MMMM').format(DateTime(2021, i)));
+    }
+    return months;
+  }
 }
