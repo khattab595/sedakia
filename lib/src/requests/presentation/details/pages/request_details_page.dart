@@ -1,6 +1,5 @@
 import '../../../../../core/components/base_widget_bloc.dart';
-import '../../../../../core/utils/navigator.dart';
-import '../../../../main_index.dart';
+ import '../../../../main_index.dart';
 import '../../../data/models/order_details_dto.dart';
 import '../bloc/request_details_bloc.dart';
 import 'request_details_screen.dart';
@@ -29,8 +28,6 @@ class RequestDetailsPage
 
   @override
   void onSuccessDismissed() {
-    push(RequestDetailsPage(
-      id: id,
-    ));
+    bloc.orderDetails(id);
   }
 }

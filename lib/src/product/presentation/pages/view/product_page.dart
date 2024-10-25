@@ -90,6 +90,6 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.productPage);
+    bloc.fetchGetData(SearchParams());
   }
 }

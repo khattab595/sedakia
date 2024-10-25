@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:get_storage/get_storage.dart';
 import 'firebase_options.dart';
 import 'package:app/src/settings/presentation/bloc/locale_cubit.dart';
 import 'package:app/src/settings/presentation/bloc/locale_state.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
 
   await configureDependencies();
   ServicesLocator().init();
+  await GetStorage.init();
   injector.registerSingleton(ClientCreator(
       interceptor: HeaderInterceptor(
     accessToken: '',

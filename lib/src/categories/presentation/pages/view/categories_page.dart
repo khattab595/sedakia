@@ -50,6 +50,6 @@ class CategoriesPage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.categoriesPage);
+    bloc.fetchCategory();
   }
 }

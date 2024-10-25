@@ -14,6 +14,9 @@ class RequestDetailsScreen extends BaseStatelessWidget {
   String? updateAvailable;
   @override
   Widget build(BuildContext context) {
+    print(data.status);
+    print("jkkk");
+
     return Column(
       children: [
         Expanded(
@@ -43,13 +46,14 @@ class RequestDetailsScreen extends BaseStatelessWidget {
           child: DropDownField(
               title: strings.update_status,
               value: data.status,
+
               items: const [
-                DropDownItem(title: "pending-payment", id: '1'),
-                DropDownItem(title: "processing", id: '2'),
-                DropDownItem(title: "on-hold", id: '3'),
-                DropDownItem(title: "completed", id: '4'),
-                DropDownItem(title: "cancelled", id: '5'),
-                DropDownItem(title: "refunded", id: '6'),
+                DropDownItem(title: "pending-payment", id: 'pending-payment'),
+                DropDownItem(title: "processing", id: 'processing'),
+                DropDownItem(title: "on-hold", id: 'on-hold'),
+                DropDownItem(title: "completed", id: 'completed'),
+                DropDownItem(title: "cancelled", id: 'cancelled'),
+                DropDownItem(title: "refunded", id: 'refunded'),
               ],
               onChanged: (value) {
                 updateAvailable = value.title!;

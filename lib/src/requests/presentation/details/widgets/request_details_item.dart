@@ -6,7 +6,7 @@ import '../../../../main_index.dart';
 import '../../../data/models/order_details_dto.dart';
 
 class RequestDetailsItem extends BaseStatelessWidget {
-   RequestDetailsItem({super.key,required this.data});
+  RequestDetailsItem({super.key, required this.data});
   final DataItem data;
 
   @override
@@ -17,9 +17,8 @@ class RequestDetailsItem extends BaseStatelessWidget {
       decoration: Decorations.shapeDecorationShadow(),
       child: Row(
         children: [
-           ImageNetwork(
-            image:
-                data.imageUrl??"",
+          ImageNetwork(
+            image: data.imageUrl ?? "",
             width: 79,
             height: 94,
             radius: 20,
@@ -29,17 +28,18 @@ class RequestDetailsItem extends BaseStatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PrimaryBoldText(
-                label: data.name??"",
+                label: data.name ?? "",
                 fontSize: 16,
               ),
               // 5.ph,
               // HintRegularText(label: 'ملابس', fontSize: 13),
               5.ph,
-              PrimaryRegularText(label: '${data.quantity} ${strings.piece}', fontSize: 13),
+              PrimaryRegularText(
+                  label: '${data.quantity} ${strings.piece}', fontSize: 13),
             ],
           ),
           const Spacer(),
-          PrimaryMediumText(label: data.total??""),
+          PrimaryMediumText(label: "${data.total ?? ""}  "),
         ],
       ),
     );
