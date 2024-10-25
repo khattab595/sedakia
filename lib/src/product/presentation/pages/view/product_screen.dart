@@ -4,9 +4,10 @@ import '../../../data/models/product_dto.dart';
 import '../../widgets/product_item.dart';
 
 class ProductScreen extends BaseStatelessWidget {
-  ProductScreen({super.key, required this.data, required this.onDelete,required this.productStreamData});
+  ProductScreen({super.key, required this.onRefresh,required this.data, required this.onDelete,required this.productStreamData});
   final ProductDto data;
   final Function(int id) onDelete;
+  final Function( ) onRefresh;
   StreamStateInitial<ProductDto?> productStreamData;
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class ProductScreen extends BaseStatelessWidget {
           itemBuilder: (context, index) => ProductItem(
             data: snapshot.data!.data![index],
             onDelete: onDelete,
+              onRefresh:onRefresh
           ),
         );
       }

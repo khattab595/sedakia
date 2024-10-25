@@ -5,9 +5,10 @@ import '../../widgets/category_item.dart';
 
 class CategoriesScreen extends BaseStatelessWidget {
   final Function(int id) onDelete;
+  final Function( ) onRefresh;
   final CategoryModel data;
 
-  CategoriesScreen({super.key, required this.data, required this.onDelete});
+  CategoriesScreen({super.key, required this.onRefresh, required this.data, required this.onDelete});
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -22,6 +23,7 @@ class CategoriesScreen extends BaseStatelessWidget {
         itemBuilder: (context, index) {
           return CategoryItem(
             data: data.data![index],
+            onRefresh:onRefresh,
             onDelete: onDelete,
           );
         });

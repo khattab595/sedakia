@@ -8,8 +8,9 @@ import '../../data/models/product_params.dart';
 import '../pages/add/add_product_page.dart';
 
 class ProductItem extends BaseStatelessWidget {
-  ProductItem({super.key, required this.data, required this.onDelete});
+  ProductItem({super.key, required this.onRefresh,required this.data, required this.onDelete});
   final ProductData data;
+  final Function( ) onRefresh;
   final Function(int id) onDelete;
   @override
   Widget build(BuildContext context) {
@@ -80,6 +81,7 @@ class ProductItem extends BaseStatelessWidget {
               child: _OptionsMenuButton(
                 onDelete: onDelete,
                 data: data,
+                onRefresh: onRefresh,
               ))
         ],
       ),
@@ -89,12 +91,14 @@ class ProductItem extends BaseStatelessWidget {
 
 class _OptionsMenuButton extends BaseStatelessWidget {
   final Function(int id) onDelete;
+  final Function( ) onRefresh;
   final ProductData data;
   _OptionsMenuButton({
     Key? key,
 
     // required this.onChangeStatus,
     required this.onDelete,
+    required this.onRefresh,
     required this.data,
   }) : super(key: key);
 
@@ -120,7 +124,11 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-          push(AddProductPage(data: data));
+          AddProductPage.push(context, productData: data, onSuccess: () {
+            print('isTrue');
+            onRefresh();
+          });
+         ;
         } else if (value == 1) {
           onDelete(int.parse(data.id.toString()));
         }

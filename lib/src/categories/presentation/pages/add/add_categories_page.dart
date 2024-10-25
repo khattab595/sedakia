@@ -8,8 +8,7 @@ import 'add_categories_screen.dart';
 
 class AddCategoriesPage
     extends BaseBlocWidget<DataSuccess<CategoryModel>, CategoriesBloc> {
-  AddCategoriesPage({Key? key, this.data}) : super(key: key);
-  CategoryData? data;
+
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchCategory();
@@ -19,12 +18,23 @@ class AddCategoriesPage
   String? title(BuildContext context) {
     return strings.add_categories;
   }
+  static push(BuildContext context,
+      {required Function() onSuccess, CategoryData? categoryData}) async {
+    final result = await Navigator.pushNamed(context, Routes.addCategoriesPage,
+        arguments: categoryData);
+    if (result is bool && result) {
+      print('push: $result');
+      onSuccess();
+    }
+  }
 
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CategoryModel> state) {
+    CategoryData categoryData=getArguments(context);
+
     return AddCategoriesScreen(
       categoryModel: state.data!,
-      categoryData: data,
+      categoryData: categoryData,
       addCategory: (params) => bloc.addCategory(params),
       updateCategory: (params, id) => bloc.updateCategory(params, id),
     );
@@ -32,6 +42,6 @@ class AddCategoriesPage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.categoriesPage);
+   pop();
   }
 }

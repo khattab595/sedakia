@@ -25,7 +25,11 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
         6.pw,
         InkWell(
             onTap: () {
-              push(AddProductPage());
+              AddProductPage.push(context,   onSuccess: () {
+
+                loadInitialData(context);
+              });
+
             },
             child: Container(
               alignment: Alignment.center,
@@ -83,6 +87,7 @@ class ProductPage extends BaseBlocWidget<DataSuccess<ProductDto>, ProductBloc> {
   Widget buildWidget(BuildContext context, DataSuccess<ProductDto> state) {
     return ProductScreen(
       data: state.data!,
+      onRefresh: () => loadInitialData(context),
       onDelete: (id) => bloc.deleteProduct(id),
       productStreamData: bloc.productStreamData,
     );
