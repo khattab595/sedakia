@@ -206,8 +206,8 @@ class HelperMethods {
 
   static Future<String> getToken() async {
     try {
-      LoginDto loginDto = await getProfile();
-      return loginDto.token ?? '';
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('token') ?? '';
     } on Exception catch (e) {
       return '';
     }

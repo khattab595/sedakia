@@ -11,7 +11,7 @@ class RequestDetailsScreen extends BaseStatelessWidget {
       {super.key, required this.data, required this.changeStatus});
   final OrderDetailsDto data;
   final Function(StatusParams params, int id) changeStatus;
-  String updateAvailable = "";
+  String? updateAvailable;
   @override
   Widget build(BuildContext context) {
     return Column(
