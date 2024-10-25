@@ -42,6 +42,6 @@ class AddCategoriesPage
 
   @override
   void onSuccessDismissed() {
-   pop();
+    Navigator.pop(context!, true);
   }
 }

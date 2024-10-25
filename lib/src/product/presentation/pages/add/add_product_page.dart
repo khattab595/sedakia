@@ -10,7 +10,6 @@ import 'add_product_screen.dart';
 
 class AddProductPage
     extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductBloc> {
-
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchCategory();
@@ -33,7 +32,7 @@ class AddProductPage
 
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CategoryModel> state) {
-    ProductData? productData=getArguments(context);
+    ProductData? productData = getArguments(context);
     return AddProductScreen(
       categoryModel: state.data!,
       productData: productData,
@@ -44,6 +43,6 @@ class AddProductPage
 
   @override
   void onSuccessDismissed() {
-    pop();
+    Navigator.pop(context!, true);
   }
 }
