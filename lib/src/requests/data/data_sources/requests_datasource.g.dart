@@ -99,7 +99,7 @@ class _RequestsDatasource implements RequestsDatasource {
     )
             .compose(
               _dio.options,
-              'products/v1/orders/${id}/change-status',
+              'products/mobile/v1/orders/change-status/${id}/',
               queryParameters: queryParameters,
               data: _data,
             )

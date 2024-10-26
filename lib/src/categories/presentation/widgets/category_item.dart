@@ -6,9 +6,10 @@ import '../../domain/entities/Data.dart';
 import '../pages/add/add_categories_page.dart';
 
 class CategoryItem extends BaseStatelessWidget {
-  CategoryItem({super.key, required this.data, required this.onDelete});
+  CategoryItem({super.key, required this.onRefresh, required this.data, required this.onDelete});
   final CategoryData data;
   final Function(int id) onDelete;
+  final Function( ) onRefresh;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,6 +34,7 @@ class CategoryItem extends BaseStatelessWidget {
                 child: _OptionsMenuButton(
                   onDelete: onDelete,
                   data: data,
+                    onRefresh:onRefresh
                 ),
               )
             ],
@@ -51,12 +53,14 @@ class CategoryItem extends BaseStatelessWidget {
 
 class _OptionsMenuButton extends BaseStatelessWidget {
   final Function(int id) onDelete;
+  final Function( ) onRefresh;
   final CategoryData data;
   _OptionsMenuButton({
     Key? key,
 
     // required this.onChangeStatus,
     required this.onDelete,
+    required this.onRefresh,
     required this.data,
   }) : super(key: key);
 
@@ -83,7 +87,11 @@ class _OptionsMenuButton extends BaseStatelessWidget {
       ],
       onSelect: (value) async {
         if (value == 0) {
-          push(AddCategoriesPage(data: data));
+          AddCategoriesPage.push(context, categoryData:  data, onSuccess: () {
+            print('isTrue');
+            onRefresh();
+          });
+
         } else if (value == 1) {
           onDelete(int.parse(data.id.toString()));
         }

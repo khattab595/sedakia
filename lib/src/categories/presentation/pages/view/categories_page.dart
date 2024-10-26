@@ -24,7 +24,10 @@ class CategoriesPage
         6.pw,
         InkWell(
             onTap: () {
-              push(AddCategoriesPage());
+              AddCategoriesPage.push(context, onSuccess: () {
+                print('isTrue');
+                loadInitialData(context);
+              });
             },
             child: Container(
               alignment: Alignment.center,
@@ -43,6 +46,7 @@ class CategoriesPage
       ],
       body: CategoriesScreen(
         data: state.data!,
+        onRefresh: () => loadInitialData(context),
         onDelete: (id) => bloc.deleteCategory(id),
       ),
     );
@@ -50,6 +54,6 @@ class CategoriesPage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.categoriesPage);
+    bloc.fetchCategory();
   }
 }

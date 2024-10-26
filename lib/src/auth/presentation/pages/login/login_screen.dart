@@ -55,18 +55,18 @@ class LoginScreen extends BaseStatelessWidget {
               controller: passwordController,
               margin: 0.paddingBottom,
             ),
-            10.ph,
-            Row(
-              children: [
-                LabelButton(
-                  title: strings.forgot_password,
-                  style: primaryMediumStyle.copyWith(fontSize: 12),
-                  onTap: () {
-                    pushNamed(Routes.enterPhoneNumberPage);
-                  },
-                ),
-              ],
-            ),
+            // 10.ph,
+            // Row(
+            //   children: [
+            //     LabelButton(
+            //       title: strings.forgot_password,
+            //       style: primaryMediumStyle.copyWith(fontSize: 12),
+            //       onTap: () {
+            //         pushNamed(Routes.enterPhoneNumberPage);
+            //       },
+            //     ),
+            //   ],
+            // ),
             PrimaryButton(
               radius: 15,
               height: 50,

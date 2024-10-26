@@ -12,10 +12,10 @@ class HomePage extends BaseBlocWidget<DoubleDataSuccess, HomeCubit> {
     bloc.fetchSummary();
   }
 
-  // @override
-  // String? title(BuildContext context) {
-  //   return 'Statistics';
-  // }
+  @override
+  String? title(BuildContext context) {
+    return strings.statistics;
+  }
 
   @override
   Widget buildWidget(BuildContext context, DoubleDataSuccess state) {

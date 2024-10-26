@@ -22,6 +22,6 @@ abstract class RequestsDatasource {
   @GET('products/mobile/v1/order/{id}')
   Future<ApiResponse<OrderDetailsDto>> orderDetails(@Path("id") int id);
 
-  @POST('products/v1/orders/{id}/change-status')
+  @POST('products/mobile/v1/orders/change-status/{id}/')
   Future<ApiResponse> changeStatus(@Body() StatusParams params,@Path("id") int id);
 }

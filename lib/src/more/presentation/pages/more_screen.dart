@@ -1,5 +1,6 @@
 import '../../../../core/utils/helper_methods.dart';
 import '../../../../core/utils/navigator.dart';
+import '../../../../core/utils/storage.dart';
 import '../../../main_index.dart';
 import '../widgets/more_item.dart';
 
@@ -61,6 +62,21 @@ class MoreScreen extends BaseStatelessWidget {
             icon: AppIcons.category,
             title: strings.categories,
             route: Routes.categoriesPage,
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 15,
+              color: AppColors.primaryLightText,
+            ),
+          ),
+          line(),
+          MoreItem(
+            icon: AppIcons.location,
+            iconSize: 25,
+            title: strings.go_to_the_site,
+            onTap: () {
+              HelperMethods.launchURL(
+                  "https://dash.motkaml.com/?t=${KStorage.i.getToken}");
+            },
             trailing: const Icon(
               Icons.arrow_forward_ios,
               size: 15,

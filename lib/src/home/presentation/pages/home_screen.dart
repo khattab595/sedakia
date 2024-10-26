@@ -38,25 +38,26 @@ class HomeScreen extends BaseStatelessWidget {
           value: summaryModel.averageOrderValue.toString()),
     ];
     return Padding(
-      padding: 10.paddingAll + (kToolbarHeight - 20).paddingTop,
+      padding: 10.paddingAll ,
+       //   + (kToolbarHeight - 20).paddingTop,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SemiBoldPrimaryText(
-                  label: strings.statistics,
-                  fontSize: 20,
-                ),
-                popUpMenu(),
-              ],
-            ),
-            20.ph,
-            FilterDateWidget(
-              onFilter: (from, to) {},
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     SemiBoldPrimaryText(
+            //       label: strings.statistics,
+            //       fontSize: 20,
+            //     ),
+           //     popUpMenu(),
+          //    ],
+           // ),
+           //  20.ph,
+            // FilterDateWidget(
+            //   onFilter: (from, to) {},
+            // ),
             OrdersStatistics(
               models: List.generate(data.length, (index) => data[index]),
               onDownload: (url) {},

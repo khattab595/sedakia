@@ -10,8 +10,6 @@ import 'add_product_screen.dart';
 
 class AddProductPage
     extends BaseBlocWidget<DataSuccess<CategoryModel>, ProductBloc> {
-  AddProductPage({Key? key, this.data}) : super(key: key);
-  ProductData? data;
   @override
   void loadInitialData(BuildContext context) {
     bloc.fetchCategory();
@@ -22,11 +20,22 @@ class AddProductPage
     return strings.add_product;
   }
 
+  static push(BuildContext context,
+      {required Function() onSuccess, ProductData? productData}) async {
+    final result = await Navigator.pushNamed(context, Routes.addProductPage,
+        arguments: productData);
+    if (result is bool && result) {
+      print('push: $result');
+      onSuccess();
+    }
+  }
+
   @override
   Widget buildWidget(BuildContext context, DataSuccess<CategoryModel> state) {
+    ProductData? productData = getArguments(context);
     return AddProductScreen(
       categoryModel: state.data!,
-      productData: data,
+      productData: productData,
       onCreate: (params) => bloc.createProduct(params),
       onUpdate: (params, id) => bloc.updateProduct(params, id),
     );
@@ -34,6 +43,6 @@ class AddProductPage
 
   @override
   void onSuccessDismissed() {
-    Navigators.pushNamedAndRemoveUntil(Routes.productPage);
+    Navigator.pop(context!, true);
   }
 }
