@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                   ],
                   //  home: SplashScreen(widgetPage: LoginPage()),
                   routes: Routes.routes,
-                  initialRoute: Routes.printPage,
+                  initialRoute: Routes.splashPage,
                 );
         },
       ),

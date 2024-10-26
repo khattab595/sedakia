@@ -8,153 +8,45 @@ class ChartsStatistics extends StatefulWidget {
   final List<MonthlyDto> monthlyDto;
   ChartsStatistics({super.key, required this.monthlyDto});
 
-  final Color leftBarColor = AppColors.blueColor;
-  final Color rightBarColor = AppColors.cafColor2;
-  final Color avgColor = AppColors.primaryLight;
-
   @override
-  State<StatefulWidget> createState() => BarChartSample2State();
+  State<ChartsStatistics> createState() => _ChartsStatisticsState();
 }
 
-class BarChartSample2State extends State<ChartsStatistics> {
-  final double width = 7;
+class _ChartsStatisticsState extends State<ChartsStatistics> {
+  List<Color> gradientColors = [
+    AppColors.backgroundColor,
+    AppColors.greenColor,
+  ];
 
-  late List<BarChartGroupData> rawBarGroups;
-  late List<BarChartGroupData> showingBarGroups;
-
-  int touchedGroupIndex = -1;
-
-  @override
-  void initState() {
-    super.initState();
-
-    final items = widget.monthlyDto
-        .asMap()
-        .map((index, value) => MapEntry(
-        index,
-            makeGroupData(
-                DateFormatter.getMonthIndex(value.month ?? "") ,
-                value.totalOrders?.toDouble() ?? 0.0, value.totalSales?.toDouble() ?? 0.0)))
-        .values
-        .toList();
-
-    rawBarGroups = items;
-
-    showingBarGroups = rawBarGroups;
-  }
+  bool showAvg = false;
 
   @override
   Widget build(BuildContext context) {
-    return ClipRect(
-      clipBehavior: Clip.antiAlias,
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: BarChart(
-          BarChartData(
-            maxY: 20,
-            barTouchData: BarTouchData(
-              touchTooltipData: BarTouchTooltipData(
-                getTooltipColor: (_) => Colors.blueGrey,
-                tooltipHorizontalAlignment: FLHorizontalAlignment.right,
-                tooltipMargin: -10,
-                getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                  String weekDay;
-                  weekDay = months[group.x];
-                  return BarTooltipItem(
-                    '$weekDay\n',
-                    const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: (rod.toY - 1).toString(),
-                        style: context.headlineSmall,
-                      ),
-                    ],
-                  );
-                },
-              ),
-              touchCallback: (FlTouchEvent event, response) {
-                if (response == null || response.spot == null) {
-                  setState(() {
-                    touchedGroupIndex = -1;
-                    showingBarGroups = List.of(rawBarGroups);
-                  });
-                  return;
-                }
-
-                touchedGroupIndex = response.spot!.touchedBarGroupIndex;
-
-                setState(() {
-                  if (!event.isInterestedForInteractions) {
-                    touchedGroupIndex = -1;
-                    showingBarGroups = List.of(rawBarGroups);
-                    return;
-                  }
-                  showingBarGroups = List.of(rawBarGroups);
-                  if (touchedGroupIndex != -1) {
-                    var sum = 0.0;
-                    for (final rod
-                    in showingBarGroups[touchedGroupIndex].barRods) {
-                      sum += rod.toY;
-                    }
-                    final avg = sum /
-                        showingBarGroups[touchedGroupIndex].barRods.length;
-
-                    showingBarGroups[touchedGroupIndex] =
-                        showingBarGroups[touchedGroupIndex].copyWith(
-                          barRods: showingBarGroups[touchedGroupIndex]
-                              .barRods
-                              .map((rod) {
-                            return rod.copyWith(
-                                toY: avg, color: widget.avgColor);
-                          }).toList(),
-                        );
-                  }
-                });
-              },
-            ),
-            titlesData: FlTitlesData(
-              show: true,
-              rightTitles: const AxisTitles(
-                sideTitles: SideTitles(showTitles: false),
-              ),
-              topTitles: const AxisTitles(
-                sideTitles: SideTitles(showTitles: false),
-              ),
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  getTitlesWidget: bottomTitles,
-                  reservedSize: 42,
-                ),
-              ),
-              leftTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  reservedSize: 28,
-                  interval: 1,
-                  getTitlesWidget: leftTitles,
-                ),
-              ),
-            ),
-            borderData: FlBorderData(
-              show: false,
-            ),
-            barGroups: showingBarGroups,
-            gridData: const FlGridData(show: false),
-          ),
-        ),
+    return AspectRatio(
+      aspectRatio: 1,
+      child: LineChart(
+        mainData(),
       ),
     );
   }
+  final months = DateFormatter.getAllMonthsTransactions();
+  Widget bottomTitleWidgets(double value, TitleMeta meta) {
+    final titles = months;
+    final Widget text = PrimaryRegularText(
+      label: titles[value.toInt()].substring(0, 3),
+      fontSize: 12,
+    );
 
-  Widget leftTitles(double value, TitleMeta meta) {
+    return SideTitleWidget(
+      axisSide: meta.axisSide,
+      space: 16, //margin top
+      child: text,
+    );
+  }
+
+  Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      color: Color(0xff7589a2),
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.normal,
       fontSize: 14,
     );
     String text;
@@ -173,94 +65,90 @@ class BarChartSample2State extends State<ChartsStatistics> {
     } else {
       return Container();
     }
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 0,
-      child: PrimaryRegularText(
-        label: text,
-        fontSize: 12,
+
+    return Text(text, style: style, textAlign: TextAlign.left);
+  }
+
+  LineChartData mainData() {
+    return LineChartData(
+      gridData: FlGridData(
+        show: true,
+        drawVerticalLine: true,
+        horizontalInterval: 1,
+        verticalInterval: 1,
+        getDrawingHorizontalLine: (value) {
+          return FlLine(
+            color: context.primaryColor,
+            strokeWidth: 1,
+          );
+        },
+        getDrawingVerticalLine: (value) {
+          return FlLine(
+            color: context.errorColor,
+            strokeWidth: 1,
+          );
+        },
       ),
-    );
-  }
-
-  final months = DateFormatter.getAllMonthsTransactions();
-
-  Widget bottomTitles(double value, TitleMeta meta) {
-    final titles = months;
-
-    final Widget text = PrimaryRegularText(
-      label: titles[value.toInt()].substring(0, 3),
-      fontSize: 12,
-    );
-
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16, //margin top
-      child: text,
-    );
-  }
-
-  BarChartGroupData makeGroupData(int x, double y1, double y2) {
-    return BarChartGroupData(
-      barsSpace: 4,
-      x: x,
-      barRods: [
-        BarChartRodData(
-          toY: y1,
-          color: widget.leftBarColor,
-          width: width,
+      titlesData: FlTitlesData(
+        show: true,
+        rightTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
         ),
-        BarChartRodData(
-          toY: y2,
-          color: widget.rightBarColor,
-          width: width,
+        topTitles: const AxisTitles(
+          sideTitles: SideTitles(showTitles: false),
         ),
-      ],
-    );
-  }
-
-  Widget makeTransactionsIcon() {
-    const width = 4.5;
-    const space = 3.5;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Container(
-          width: width,
-          height: 10,
-          color: Colors.white.withOpacity(0.4),
+        bottomTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: true,
+            reservedSize: 30,
+            interval: 1,
+            getTitlesWidget: bottomTitleWidgets,
+          ),
         ),
-        const SizedBox(
-          width: space,
+        leftTitles: AxisTitles(
+          sideTitles: SideTitles(
+            showTitles: true,
+            interval: 1,
+            getTitlesWidget: leftTitleWidgets,
+            reservedSize: 20,
+          ),
         ),
-        Container(
-          width: width,
-          height: 28,
-          color: Colors.white.withOpacity(0.8),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 42,
-          color: Colors.white.withOpacity(1),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 28,
-          color: Colors.white.withOpacity(0.8),
-        ),
-        const SizedBox(
-          width: space,
-        ),
-        Container(
-          width: width,
-          height: 10,
-          color: Colors.white.withOpacity(0.4),
+      ),
+      borderData: FlBorderData(
+        show: true,
+        border: Border.all(color: const Color(0xff37434d)),
+      ),
+      minX: 0,
+      maxX: 11,
+      minY: 0,
+      maxY: 20,
+      lineBarsData: [
+        LineChartBarData(
+          spots: widget.monthlyDto
+              .map(
+                (e) => FlSpot(
+                  DateFormatter.getMonthIndex(e.month ?? '').toDouble(),
+                  e.totalOrders?.toDouble() ?? 0,
+                ),
+              )
+              .toList(),
+          isCurved: true,
+          gradient: LinearGradient(
+            colors: gradientColors,
+          ),
+          barWidth: 10,
+          isStrokeCapRound: true,
+          // dotData: const FlDotData(
+          //   show: false,
+          // ),
+          belowBarData: BarAreaData(
+            show: true,
+            gradient: LinearGradient(
+              colors: gradientColors
+                  .map((color) => color.withOpacity(0.3))
+                  .toList(),
+            ),
+          ),
         ),
       ],
     );
