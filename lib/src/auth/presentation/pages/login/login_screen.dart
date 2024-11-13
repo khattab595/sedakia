@@ -1,8 +1,6 @@
-import 'package:app/core/utils/navigator.dart';
-import 'package:app/core/widgets/images/logo.dart';
+ import 'package:app/core/widgets/images/logo.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
-import '../../../../../core/widgets/buttons/label_button.dart';
-import '../../../../../core/widgets/text-field/mobile_text_field.dart';
+ import '../../../../../core/widgets/text-field/mobile_text_field.dart';
 import '../../../../../core/widgets/text-field/password_text_field.dart';
 import '../../../../../core/widgets/texts/black_texts.dart';
 import '../../../../main_index.dart';
