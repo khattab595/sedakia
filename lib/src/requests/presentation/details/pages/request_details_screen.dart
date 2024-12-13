@@ -1,3 +1,4 @@
+import 'package:app/core/utils/navigator.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
 import '../../../../../core/widgets/drop_down/drop_down.dart';
@@ -75,7 +76,12 @@ class RequestDetailsScreen extends BaseStatelessWidget {
               child: PrimaryButton(
                 title: strings.print_the_invoice,
                 margin: 14.paddingHoriz + 10.paddingBottom,
-                onPressed: () {},
+                onPressed: () {
+                  pushNamed(
+                    Routes.printPage,
+                    arguments: data,
+                  );
+                },
               ),
             ),
           ],

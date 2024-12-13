@@ -27,6 +27,7 @@ class DropDownField extends BaseStatelessWidget {
   final Color? iconColor;
   final TextStyle? hintStyle;
   final bool isLoading;
+  final EdgeInsetsGeometry? padding;
 
   DropDownField(
       {Key? key,
@@ -47,14 +48,16 @@ class DropDownField extends BaseStatelessWidget {
       this.colorBorderSide,
       this.fillColor,
       this.hintStyle,
-      this.isLoading = false})
+      this.isLoading = false,
+      this.padding
+      })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Color? borderColor = colorBorderSide ?? context.dividerColor;
     return Padding(
-      padding: 0.paddingBottom,
+      padding: padding ?? 0.paddingBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

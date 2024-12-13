@@ -293,5 +293,18 @@
   "save": "حفظ",
   "gender": "الجنس",
   "delete_account": "حذف الحساب",
-  "delete_account_message": "هل أنت متأكد من حذف الحساب؟"
+  "delete_account_message": "هل أنت متأكد من حذف الحساب؟",
+  "select_device": "اختر الجهاز",
+  "no_device_found": "لم يتم العثور على جهاز",
+  "connect": "الاتصال",
+  "disconnect": "قطع الاتصال",
+  "print_receipt": "طباعة الفاتورة",
+    "print_test": "طباعة كاختبار",
+  "no_device_connected": "لا يوجد جهاز متصل",
+  "connecting": "جاري الاتصال...",
+  "please_select_device": "الرجاء اختيار جهاز",
+  "disconnecting": "جاري قطع الاتصال...",
+  "connect_success": "تم الاتصال بنجاح",
+    "disconnect_success": "تم قطع الاتصال بنجاح",
+  "scanning": "جاري البحث..."
 }

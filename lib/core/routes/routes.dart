@@ -8,6 +8,7 @@ import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/main_index.dart';
 import '../../src/more/presentation/pages/more_page.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
+import '../../src/print/print_page.dart';
 import '../../src/requests/presentation/details/pages/request_details_page.dart';
 import '../../src/requests/presentation/view/pages/requests_page.dart';
 import '../../src/settings/presentation/pages/change-language/chang_language_page.dart';
@@ -44,12 +45,14 @@ class Routes {
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
   static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
+  static const String printPage = 'printPage';
 
   /* ====================================================================== */
   static const String productDetailsPage = 'productDetailsPage';
 
   static final routes = <String, Widget Function(BuildContext)>{
     splashPage: (context) => SplashPage(),
+    printPage: (context) => PrintPage(),
     loginPage: (context) => LoginPage(),
     changePasswordPage: (context) => ChangePasswordPage(),
     navigationPages: (context) => NavigationBarPage(),
