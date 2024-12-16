@@ -11,18 +11,27 @@ class RowIconText extends BaseStatelessWidget {
   final Color? containerColor;
   final double? iconSize;
   final EdgeInsetsGeometry padding;
-   RowIconText({super.key,required this.icon,this.containerColor,required this.value, this.valueStyle,this.labelColor,this.iconSize, this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 2)});
+  RowIconText(
+      {super.key,
+      required this.icon,
+      this.containerColor,
+      required this.value,
+      this.valueStyle,
+      this.labelColor,
+      this.iconSize,
+      this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 2)});
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
-         AppIcon(icon: icon,size: iconSize,),
+        AppIcon(
+          icon: icon,
+          size: iconSize,
+        ),
         7.pw,
         Container(
           decoration: Decorations.kDecorationBorderRadius(
-              radius: 5,
-              color: containerColor,
-              borderColor: containerColor),
+              radius: 5, color: containerColor, borderColor: containerColor),
           padding: padding,
           child: Center(
             child: PrimaryRegularText(

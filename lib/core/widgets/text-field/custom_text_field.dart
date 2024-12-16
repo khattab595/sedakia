@@ -1,7 +1,6 @@
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/main_index.dart';
 
-
 class CustomTextField extends BaseStatelessWidget {
   final TextEditingController? controller;
   final String? hintText;
@@ -17,7 +16,7 @@ class CustomTextField extends BaseStatelessWidget {
   final TextAlign? textAlign;
   final Widget? prefixIcon;
   final String? prefixIconPath;
-  final String ? suffixIconPath;
+  final String? suffixIconPath;
   final Widget? suffixIcon;
   final int? maxLines;
   final Color? colorBorderSide;
@@ -27,7 +26,33 @@ class CustomTextField extends BaseStatelessWidget {
   final bool? isValidator;
   final double? minHeight;
   final bool enabled;
-    CustomTextField({Key? key, this.controller, this.hintText, this.title, this.isPassword = false, this.onTap, this.onChanged, this.validator, this.inputDecoration, this.keyboardType, this.fillColor, this.hintStyle, this.textAlign, this.prefixIcon, this.maxLines, this.colorBorderSide, this.margin, this.contentPadding, this.suffixIcon, this.radius = 12, this.prefixIconPath, this.suffixIconPath, this.isValidator = true, this.minHeight, this.enabled = true }) : super(key: key);
+  CustomTextField(
+      {Key? key,
+      this.controller,
+      this.hintText,
+      this.title,
+      this.isPassword = false,
+      this.onTap,
+      this.onChanged,
+      this.validator,
+      this.inputDecoration,
+      this.keyboardType,
+      this.fillColor,
+      this.hintStyle,
+      this.textAlign,
+      this.prefixIcon,
+      this.maxLines,
+      this.colorBorderSide,
+      this.margin,
+      this.contentPadding,
+      this.suffixIcon,
+      this.radius = 12,
+      this.prefixIconPath,
+      this.suffixIconPath,
+      this.isValidator = true,
+      this.minHeight,
+      this.enabled = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,87 +64,113 @@ class CustomTextField extends BaseStatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (title != null) ...[PrimaryMediumText(label: title!, fontSize: 16,),
-            8.ph],
-          SizedBox(
-            height:  minHeight??50,
-            child:  StatefulBuilder(
-                builder: (context, setState) {
-                return TextFormField(
-                  onTap: onTap,
-                  readOnly: onTap != null,
-                  enabled: enabled,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  textAlign: textAlign ?? TextAlign.start,
-                  maxLines: maxLines ?? 1,
-                  keyboardType: isPassword ? TextInputType.visiblePassword : keyboardType,
-                  style: enabled ? blackRegularStyle.copyWith(fontSize: 16) : hintRegularStyle.copyWith(fontSize: 16),
-                  obscureText: isVisibility,
-                  controller: controller,
-                  textInputAction: TextInputAction.next,
-                  cursorColor: context.primaryColor,
-                  inputFormatters: [
-                    if (keyboardType == TextInputType.number) FilteringTextInputFormatter.digitsOnly,
-                  ],
-                  decoration: inputDecoration ?? InputDecoration(
-                    hintText: hintText,
-                    hintStyle: hintStyle ?? context.displaySmall.copyWith(fontSize: 16),
-                    fillColor: fillColor ?? context.theme.inputDecorationTheme.fillColor,
-                    filled: true,
-                    // prefixIconConstraints:  BoxConstraints(
-                    //   minWidth: minHeight?? 35,
-                    //   minHeight: minHeight ?? 35,
-                    // ),
-                    prefixIcon:  prefixIconPath != null ? AppIcon(
-                      padding: const EdgeInsets.all(12),
-                      icon: prefixIconPath!,  size: 20,) : prefixIcon,
-                    suffixIcon: isPassword ?
-                    IconButton(
-                      icon: Icon(
-                        isVisibility ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-                        color: isVisibility ? hintColor : primaryColor,
-                      ),
-                      onPressed: () {
-                        isVisibility = !isVisibility;
-                        setState(() {});
-                      },
-                    ) :
-                    (suffixIconPath != null ? AppIcon(
-                        padding: const EdgeInsets.all(12),
-                        icon: suffixIconPath!, size: 0) : suffixIcon),
-                    // contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-                    border:  OutlineInputBorder(
-                      borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
-                      borderSide: BorderSide(color: borderColor),
-                    ),
-                    focusedBorder:  OutlineInputBorder(
-                      borderRadius:  BorderRadius.all(Radius.circular(radius ?? 6)),
-                      borderSide: BorderSide(color: primaryColor),
-                    ),
-
-                    enabledBorder:  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
-                      borderSide: BorderSide(color: borderColor),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
-                      borderSide: BorderSide(color: errorColor),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(radius ?? 6)),
-                      borderSide: BorderSide(color: borderColor),
-                    ),
-                  ),
-                  validator: (isValidator! &&  validator == null) ? (value) {
-                    if (value == null || value.isEmpty) {
-                      return context.getStrings().this_field_is_required;
-                    }
-                    return null;
-                  } : validator,
-                  onChanged: onChanged,
-                );
-              }
+          if (title != null) ...[
+            PrimaryMediumText(
+              label: title!,
+              fontSize: 16,
             ),
+            8.ph
+          ],
+          SizedBox(
+            height: minHeight ?? 50,
+            child: StatefulBuilder(builder: (context, setState) {
+              return TextFormField(
+                onTap: onTap,
+                readOnly: onTap != null,
+                enabled: enabled,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                textAlign: textAlign ?? TextAlign.start,
+                maxLines: maxLines ?? 1,
+                keyboardType:
+                    isPassword ? TextInputType.visiblePassword : keyboardType,
+                style: enabled
+                    ? blackRegularStyle.copyWith(fontSize: 16)
+                    : hintRegularStyle.copyWith(fontSize: 16),
+                obscureText: isVisibility,
+                controller: controller,
+                textInputAction: TextInputAction.next,
+                cursorColor: context.primaryColor,
+                inputFormatters: [
+                  if (keyboardType == TextInputType.number)
+                    FilteringTextInputFormatter.digitsOnly,
+                ],
+                decoration: inputDecoration ??
+                    InputDecoration(
+                      hintText: hintText,
+                      hintStyle: hintStyle ??
+                          context.displaySmall.copyWith(fontSize: 16),
+                      fillColor: fillColor ??
+                          context.theme.inputDecorationTheme.fillColor,
+                      filled: true,
+                      // prefixIconConstraints:  BoxConstraints(
+                      //   minWidth: minHeight?? 35,
+                      //   minHeight: minHeight ?? 35,
+                      // ),
+                      contentPadding: contentPadding ??
+                          const EdgeInsets.symmetric(horizontal: 16),
+                      prefixIcon: prefixIconPath != null
+                          ? AppIcon(
+                              padding: const EdgeInsets.all(12),
+                              icon: prefixIconPath!,
+                              size: 20,
+                            )
+                          : prefixIcon,
+                      suffixIcon: isPassword
+                          ? IconButton(
+                              icon: Icon(
+                                size: 18,
+                                isVisibility
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: isVisibility
+                                    ? hintColor
+                                    : AppColors.blueLight,
+                              ),
+                              onPressed: () {
+                                isVisibility = !isVisibility;
+                                setState(() {});
+                              },
+                            )
+                          : (suffixIconPath != null
+                              ? AppIcon(
+                                  padding: const EdgeInsets.all(12),
+                                  icon: suffixIconPath!,
+                                  size: 20)
+                              : suffixIcon),
+                      // contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(radius)),
+                        borderSide: BorderSide(color: borderColor),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(radius)),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
+
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(radius)),
+                        borderSide: BorderSide(color: borderColor),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(radius)),
+                        borderSide: BorderSide(color: errorColor),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(radius)),
+                        borderSide: BorderSide(color: borderColor),
+                      ),
+                    ),
+                validator: (isValidator! && validator == null)
+                    ? (value) {
+                        if (value == null || value.isEmpty) {
+                          return context.getStrings().this_field_is_required;
+                        }
+                        return null;
+                      }
+                    : validator,
+                onChanged: onChanged,
+              );
+            }),
           ),
         ],
       ),

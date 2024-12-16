@@ -1,22 +1,18 @@
-import 'package:app/src/auth/data/models/register_params.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'login_params.g.dart'; 
+part 'login_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: true)
 class LoginParams {
-  @JsonKey(name: 'phone')
-  String? phone;
+  @JsonKey(name: 'username')
+  String? username;
   @JsonKey(name: 'password')
   String? password;
-  @JsonKey(name: 'fcm_token')
-  String? fcmToken;
 
-  LoginParams({this.phone, this.password, this.fcmToken});
+  LoginParams({this.username, this.password});
 
-   factory LoginParams.fromJson(Map<String, dynamic> json) => _$LoginParamsFromJson(json);
+  factory LoginParams.fromJson(Map<String, dynamic> json) =>
+      _$LoginParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$LoginParamsToJson(this);
+  Map<String, dynamic> toJson() => _$LoginParamsToJson(this);
 }
-
-

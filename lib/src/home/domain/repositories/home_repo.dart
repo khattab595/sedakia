@@ -1,6 +1,7 @@
-
-import '../entities/home_data.dart';
+import '../../data/models/monthly_dto.dart';
+import '../../data/models/summary_dto.dart';
 
 abstract class HomeRepo {
-  Future<HomeData> fetchHomeData();
+  Future<SummaryDto> fetchSummary();
+  Future<List<MonthlyDto>> fetchMonthly();
 }

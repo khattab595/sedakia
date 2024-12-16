@@ -26,7 +26,8 @@ class SuccessWidget extends BaseStatelessWidget {
             width: double.infinity,
             alignment: Alignment.center,
             decoration: Decorations.kDecorationOnlyRadius(
-                color: theme.colorScheme.secondaryContainer.withOpacity(0.1), radius: 18),
+                color: theme.colorScheme.secondaryContainer.withOpacity(0.1),
+                radius: 18),
             child: Text(
               footerMessage!,
               style: Theme.of(context)

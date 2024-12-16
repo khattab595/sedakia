@@ -1,4 +1,3 @@
-
 import '../../../src/main_index.dart';
 import 'image_network.dart';
 
@@ -46,7 +45,8 @@ class ImageNetworkText extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Flexible(child: Text(text ?? '', style: textStyle ?? context.labelMedium))
+        Flexible(
+            child: Text(text ?? '', style: textStyle ?? context.labelMedium))
       ],
     );
   }

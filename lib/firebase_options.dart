@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'alwaseet-7098c.appspot.com',
     iosBundleId: 'com.multiurun.wezary',
   );
-
 }

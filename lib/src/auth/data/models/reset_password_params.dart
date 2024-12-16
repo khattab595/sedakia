@@ -1,4 +1,4 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
 part 'reset_password_params.g.dart';
 
@@ -13,10 +13,11 @@ class ResetPasswordParams {
   @JsonKey(name: 'otp')
   String? otp;
 
-  ResetPasswordParams({this.newPassword,this.otp, this.newPasswordConfirmation, this.phone});
+  ResetPasswordParams(
+      {this.newPassword, this.otp, this.newPasswordConfirmation, this.phone});
 
-   factory ResetPasswordParams.fromJson(Map<String, dynamic> json) => _$ResetPasswordParamsFromJson(json);
+  factory ResetPasswordParams.fromJson(Map<String, dynamic> json) =>
+      _$ResetPasswordParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ResetPasswordParamsToJson(this);
+  Map<String, dynamic> toJson() => _$ResetPasswordParamsToJson(this);
 }
-

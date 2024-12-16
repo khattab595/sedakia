@@ -1,8 +1,17 @@
-class AppIcons{
-
-
+class AppIcons {
+  static const String people = "assets/icons/people.svg";
+  static const String messages = "assets/icons/messages.svg";
+  static const String privacy = "assets/icons/privacy.svg";
+  static const String lang = "assets/icons/lang.svg";
+  static const String logout = "assets/icons/logout.svg";
+  static const String category = "assets/icons/category.svg";
+  static const String arrow = "assets/icons/arrow.svg";
+  static const String location = "assets/icons/location.svg";
   static const String menu = "assets/icons/menu.svg";
+  static const String more = "assets/icons/more.svg";
+  static const String reservation = "assets/icons/reservation.svg";
   static const String menu2 = "assets/icons/more_2.svg";
+  static const String home = "assets/icons/home.svg";
 
   ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";
@@ -11,18 +20,15 @@ class AppIcons{
   static const String map_pin = "assets/icons/map_pin.svg";
   static const String notification = "assets/icons/notification.svg";
   static const String activity = "assets/icons/activity.svg";
-  static const String home = "assets/icons/home.svg";
   static const String profile = "assets/icons/profile.svg";
   static const String request = "assets/icons/request.svg";
   static const String desc = "assets/icons/desc.svg";
   static const String date = "assets/icons/date.svg";
   static const String avatar = "assets/icons/avatar.svg";
-  static const String category = "assets/icons/category.svg";
   static const String coin = "assets/icons/coin.svg";
   static const String gender = "assets/icons/gender.svg";
   static const String id_number = "assets/icons/id_number.svg";
   static const String language = "assets/icons/language.svg";
-  static const String location = "assets/icons/map-pin 1.svg";
   static const String nationality = "assets/icons/nationality.svg";
   static const String phone = "assets/icons/phone.svg";
   static const String religion = "assets/icons/religion.svg";
@@ -39,7 +45,5 @@ class AppIcons{
   static const String creditCardBuyer = "assets/icons/credit-card-buyer 3.svg";
   static const String search = "assets/icons/search.svg";
   static const String back = "assets/icons/back.svg";
-  static const String logout = "assets/icons/logout.svg";
-
-
+  static const String filter = "assets/icons/filter.svg";
 }

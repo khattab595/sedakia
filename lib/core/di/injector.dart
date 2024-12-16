@@ -1,12 +1,10 @@
-import 'package:dio/dio.dart';
-import 'package:get_it/get_it.dart';
+ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../src/main_index.dart';
 import 'injector.config.dart';
 
 final injector = GetIt.instance;
-
 
 @InjectableInit(
   initializerName: r'$initGetIt', // default
@@ -15,9 +13,8 @@ final injector = GetIt.instance;
 )
 Future<void> configureDependencies() async => await $initGetIt(injector);
 
-
 // @Injectable()
-class ServicesLocator{
+class ServicesLocator {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   void init() {
     injector.registerLazySingleton(() => ServicesLocator());
@@ -28,5 +25,4 @@ class ServicesLocator{
   AppLocalizations get strings => AppLocalizations.of(appContext)!;
 
   String get languageCode => appContext.languageCode;
-
 }

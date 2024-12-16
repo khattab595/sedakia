@@ -1,8 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
-import 'package:app/src/auth/data/models/register_params.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -10,8 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../src/auth/data/models/login_dto.dart';
 import '../../src/main_index.dart';
-import '../../src/profile/data/models/profile_dto.dart';
+import '../../src/more/data/models/profile_dto.dart';
 
 class HelperMethods {
   static Future<CroppedFile?> getImagePicker() async {
@@ -29,11 +27,20 @@ class HelperMethods {
       ],
     );
   }
-  static Future<List<File>> getListImagePicker() async {
 
-  List<XFile>? imageFile = await ImagePicker().pickMultipleMedia( );
-  List<File> data=  imageFile.map((e) => File(e.path)).toList();
+  static Future<List<File>> getListImagePicker() async {
+    List<XFile>? imageFile = await ImagePicker().pickMultipleMedia();
+    List<File> data = imageFile.map((e) => File(e.path)).toList();
     return data;
+  }
+
+  static String getDate(String now) {
+    if (now == "") {
+      return "";
+    } else {
+      DateTime dateTime = DateTime.parse(now);
+      return DateFormat('yyyy-MM-dd').format(dateTime);
+    }
   }
 
   static Future<File> getImageFromGallery() async {
@@ -136,7 +143,7 @@ class HelperMethods {
   static Future<void> saveProfile(ProfileDto dto) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      if(dto.token != null && dto.token!.isNotEmpty) {
+      if (dto.token != null && dto.token!.isNotEmpty) {
         prefs.setString('profile', jsonEncode(dto.toJson()));
       } else {
         dto.token = await getToken();
@@ -158,21 +165,32 @@ class HelperMethods {
     }
   }
 
-  static Future<ProfileDto> getProfile() async {
+  static saveUrl(String url) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('url', url);
+    } on Exception catch (e) {
+      print('e $e');
+      rethrow;
+    }
+  }
+
+  static Future<LoginDto> getProfile() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String profile = prefs.getString('profile') ?? '';
       print('profile $profile');
       final decoded = jsonDecode(profile);
       print('decoded $decoded');
-      return ProfileDto.fromJson(decoded);
+      return LoginDto.fromJson(decoded);
     } on Exception catch (e) {
       print('getProfile error $e');
-      return ProfileDto();
+      return LoginDto();
     }
   }
 
-  static Future<DateTime?> selectDate(BuildContext context, {DateTime? firstDate}) async {
+  static Future<DateTime?> selectDate(BuildContext context,
+      {DateTime? firstDate}) async {
     ThemeData theme = Theme.of(context);
     return await showDatePicker(
       context: context,
@@ -198,8 +216,17 @@ class HelperMethods {
 
   static Future<String> getToken() async {
     try {
-      ProfileDto profile = await getProfile();
-      return profile.token ?? '';
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('token') ?? '';
+    } on Exception catch (e) {
+      return '';
+    }
+  }
+
+  static getUrl() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('url') ?? '';
     } on Exception catch (e) {
       return '';
     }

@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'verification_code_params.g.dart'; 
+part 'verification_code_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class VerificationCodeParams {
@@ -11,8 +11,8 @@ class VerificationCodeParams {
 
   VerificationCodeParams({this.code, this.phoneNumber});
 
-   factory VerificationCodeParams.fromJson(Map<String, dynamic> json) => _$VerificationCodeParamsFromJson(json);
+  factory VerificationCodeParams.fromJson(Map<String, dynamic> json) =>
+      _$VerificationCodeParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$VerificationCodeParamsToJson(this);
+  Map<String, dynamic> toJson() => _$VerificationCodeParamsToJson(this);
 }
-

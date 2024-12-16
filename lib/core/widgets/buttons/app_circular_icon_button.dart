@@ -1,4 +1,3 @@
-
 import '../../../src/main_index.dart';
 
 class AppCircularIconButton extends StatelessWidget {
@@ -9,7 +8,16 @@ class AppCircularIconButton extends StatelessWidget {
   final double? radius;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
-  const AppCircularIconButton({Key? key, required this.icon, this.onPressed, this.size, this.color, this.radius, this.backgroundColor, this.padding}) : super(key: key);
+  const AppCircularIconButton(
+      {Key? key,
+      required this.icon,
+      this.onPressed,
+      this.size,
+      this.color,
+      this.radius,
+      this.backgroundColor,
+      this.padding})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-import 'package:path/path.dart';
-
 import '../../src/main_index.dart';
 
 class Decorations {
@@ -165,7 +163,8 @@ class Decorations {
           radius ?? 12,
         )),
         border: Border.all(
-            color: borderColor ?? appContext.cardColor, width: borderWidth ?? 1.0));
+            color: borderColor ?? appContext.cardColor,
+            width: borderWidth ?? 1.0));
   }
 
   static BoxDecoration kDecorationRadiusAndImage({
@@ -204,9 +203,9 @@ class Decorations {
           borderRadius: borderRadius ?? BorderRadius.circular(radius ?? 20)),
       shadows: [
         BoxShadow(
-          color: colorShadow ?? appContext.shadowColor.withOpacity(0.06),
-          blurRadius: 10,
-          offset: const Offset(0, 2),
+          color: colorShadow ?? appContext.shadowColor.withOpacity(0.03),
+          blurRadius: 25,
+          offset: const Offset(0, 0),
           spreadRadius: 0,
         )
       ],

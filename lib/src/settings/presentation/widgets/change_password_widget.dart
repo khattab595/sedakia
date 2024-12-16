@@ -9,7 +9,7 @@ import '../../../../core/components/base_stateless_widget.dart';
 import '../../../../core/decorations/decorations.dart';
 import '../../../../core/widgets/text-field/custom_text_field.dart';
 
-class ChangePasswordWidget extends BaseStatelessWidget{
+class ChangePasswordWidget extends BaseStatelessWidget {
   final Function()? onSave;
   ChangePasswordWidget({Key? key, this.onSave}) : super(key: key);
   TextEditingController oldController = TextEditingController();
@@ -62,5 +62,4 @@ class ChangePasswordWidget extends BaseStatelessWidget{
       ),
     );
   }
-  
 }

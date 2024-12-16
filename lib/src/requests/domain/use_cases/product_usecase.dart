@@ -1,27 +1,18 @@
-
-
 import 'package:injectable/injectable.dart';
 
+import '../../../product/data/models/search_params.dart';
+import '../entities/Order_model.dart';
 import '../repositories/requests_repo.dart';
 
 @Injectable()
-class RequestsUseCase  {
-  final RequestsRepo requestsRepo ;
+class RequestsUseCase {
+  final RequestsRepo requestsRepo;
 
   RequestsUseCase(this.requestsRepo);
-/*
 
-  Future<String> call({int? params}) async {
-    final response = await jobOffersRepository.confirmRequiredTask(params!);
-    return response.message ?? '';
-  }
-
-
-  Future<List<AllUserEntity>> call( ) async {
-    final result = await repository.fetchUserType();
-    final data = result.map((e) => AllUserEntity.fromDto(e)).toList();
+  Future<OrderModel> fetchOrder(SearchParams params) async {
+    final result = await requestsRepo.fetchOrder(params);
+    final data = OrderModel.fromDto(result);
     return data;
   }
-   */
-
 }

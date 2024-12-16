@@ -8,7 +8,7 @@ import '../../resources/validation.dart';
 
 class CustomPinCode extends BaseStatelessWidget {
   final TextEditingController pinCodeController;
-   CustomPinCode({Key? key, required this.pinCodeController}) : super(key: key);
+  CustomPinCode({Key? key, required this.pinCodeController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

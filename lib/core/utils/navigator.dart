@@ -12,20 +12,19 @@ Future<dynamic> pushNamed(String routeName, {dynamic arguments}) async {
 Future<dynamic> pushNamedAndRemoveUntil(String routeName, {dynamic arguments}) {
   BuildContext context = injector<ServicesLocator>().appContext;
   print('routeName: $routeName');
-  return Navigator.of(context).pushNamedAndRemoveUntil(routeName, (Route<dynamic> route) => false,
+  return Navigator.of(context).pushNamedAndRemoveUntil(
+      routeName, (Route<dynamic> route) => false,
       arguments: arguments);
 }
 
 Future<dynamic> push(Widget page) {
   BuildContext context = injector<ServicesLocator>().appContext;
-  return Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
+  return Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => page));
 }
 
 pop({dynamic arguments}) {
-  injector<ServicesLocator>()
-      .navigatorKey
-      .currentState!
-      .pop(arguments);
+  injector<ServicesLocator>().navigatorKey.currentState!.pop(arguments);
 }
 
 pushNameByUri(Uri uri) {
@@ -35,12 +34,12 @@ pushNameByUri(Uri uri) {
       .pushNamed(uri.path, arguments: uri.queryParameters);
 }
 
-
 class Navigators {
+  static GlobalKey<NavigatorState> navigationKey =
+      injector<ServicesLocator>().navigatorKey;
 
-  static GlobalKey<NavigatorState> navigationKey = injector<ServicesLocator>().navigatorKey;
-
- static Future<dynamic> pushNamed(String routeName, {dynamic arguments}) async {
+  static Future<dynamic> pushNamed(String routeName,
+      {dynamic arguments}) async {
     return await navigationKey.currentState!
         .pushNamed(routeName, arguments: arguments);
   }
@@ -63,8 +62,7 @@ class Navigators {
   }
 
   static void goBackUntil(String routeName) {
-    return navigationKey.currentState!
-        .popUntil(ModalRoute.withName(routeName));
+    return navigationKey.currentState!.popUntil(ModalRoute.withName(routeName));
   }
 
   static void goToLoginPage() {

@@ -45,7 +45,10 @@ class DropDownFieldStream extends BaseStatelessWidget {
       initialData: [],
       builder: (context, snapshot) {
         return snapshot.data == null
-            ? LoadingDropDown(hint: hint, title: title,)
+            ? LoadingDropDown(
+                hint: hint,
+                title: title,
+              )
             : DropDownField(
                 items: snapshot.data ?? [],
                 hint: hint,
@@ -133,7 +136,8 @@ class LoadingDropDown extends StatelessWidget {
           margin: 2.paddingVert,
           padding: 16.paddingHoriz + 18.paddingVert,
           decoration: Decorations.kDecorationBorderRadius(
-              borderColor: context.dividerColor, color: context.scaffoldBackgroundColor),
+              borderColor: context.dividerColor,
+              color: context.scaffoldBackgroundColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -28,7 +28,10 @@ class CustomSwitch extends StatelessWidget {
           if (title != null) ...[
             Text(
               title ?? '',
-              style: style ?? context.bodyMedium.copyWith(color: context.theme.switchTheme.thumbColor!.resolve({MaterialState.selected})),
+              style: style ??
+                  context.bodyMedium.copyWith(
+                      color: context.theme.switchTheme.thumbColor!
+                          .resolve({MaterialState.selected})),
             ),
           ],
           StatefulBuilder(builder: (context, setState) {

@@ -1,28 +1,26 @@
-
 import 'package:app/core/components/base_widget_bloc.dart';
-
 import '../../../../main_index.dart';
-import '../../../domain/entities/about.dart';
+import '../../../domain/entities/Setting_model.dart';
 import '../../bloc/about_logeste_bloc.dart';
 import 'about_logeste_screen.dart';
 
-class AboutPage extends BaseBlocWidget<DataSuccess<About>, AboutCubit> {
+class AboutPage extends BaseBlocWidget<DataSuccess<SettingModel>, AboutCubit> {
   AboutPage({Key? key}) : super(key: key);
 
   @override
   void loadInitialData(BuildContext context) {
-    bloc.fetchAbout(getArguments(context));
+    bloc.fetchSetting();
   }
 
   @override
-  Widget buildWidget(BuildContext context, DataSuccess<About> state) {
+  Widget buildWidget(BuildContext context, DataSuccess<SettingModel> state) {
     return AboutScreen(
-      about: state.data!,
+      data: state.data!,
     );
   }
 
   @override
   String? title(BuildContext context) {
-    return getArguments(context) == AboutType.aboutUs ? strings.about_us : strings.terms_conditions;
+    return strings.about_us;
   }
 }

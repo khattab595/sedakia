@@ -12,13 +12,240 @@ class _ProductDatasource implements ProductDatasource {
   _ProductDatasource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://alwaseet-sa.online/api/';
-  }
+  });
 
   final Dio _dio;
 
   String? baseUrl;
+
+  @override
+  Future<ApiResponse<ProductDto>> fetchGetProduct(SearchParams params) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(params.toJson());
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<ProductDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'products-moblie/v1/all-products',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<ProductDto>.fromJson(
+      _result.data!,
+      (json) => ProductDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> createProduct(
+    String name,
+    String regularPrice,
+    String salePrice,
+    String stockQuantity,
+    String stockStatus,
+    String shortDescription,
+    String categories,
+    File images,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'name',
+      name,
+    ));
+    _data.fields.add(MapEntry(
+      'regular_price',
+      regularPrice,
+    ));
+    _data.fields.add(MapEntry(
+      'sale_price',
+      salePrice,
+    ));
+    _data.fields.add(MapEntry(
+      'stock_quantity',
+      stockQuantity,
+    ));
+    _data.fields.add(MapEntry(
+      'stock_status',
+      stockStatus,
+    ));
+    _data.fields.add(MapEntry(
+      'short_description',
+      shortDescription,
+    ));
+    _data.fields.add(MapEntry(
+      'categories',
+      categories,
+    ));
+    _data.files.add(MapEntry(
+      'images[]',
+      MultipartFile.fromFileSync(
+        images.path,
+        filename: images.path.split(Platform.pathSeparator).last,
+      ),
+    ));
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'products-moblie/v1/add-product',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> updateProduct(
+    int? id,
+    String? name,
+    String? regularPrice,
+    String? salePrice,
+    String? stockQuantity,
+    String? stockStatus,
+    String? shortDescription,
+    String? categories, {
+    File? images = null,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    if (name != null) {
+      _data.fields.add(MapEntry(
+        'name',
+        name,
+      ));
+    }
+    if (regularPrice != null) {
+      _data.fields.add(MapEntry(
+        'regular_price',
+        regularPrice,
+      ));
+    }
+    if (salePrice != null) {
+      _data.fields.add(MapEntry(
+        'sale_price',
+        salePrice,
+      ));
+    }
+    if (stockQuantity != null) {
+      _data.fields.add(MapEntry(
+        'stock_quantity',
+        stockQuantity,
+      ));
+    }
+    if (stockStatus != null) {
+      _data.fields.add(MapEntry(
+        'stock_status',
+        stockStatus,
+      ));
+    }
+    if (shortDescription != null) {
+      _data.fields.add(MapEntry(
+        'short_description',
+        shortDescription,
+      ));
+    }
+    if (categories != null) {
+      _data.fields.add(MapEntry(
+        'categories',
+        categories,
+      ));
+    }
+    if (images != null) {
+      _data.files.add(MapEntry(
+        'images[]',
+        MultipartFile.fromFileSync(
+          images.path,
+          filename: images.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'multipart/form-data',
+    )
+            .compose(
+              _dio.options,
+              'products-moblie/v1/update-product/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<dynamic>> deleteProduct(int id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<dynamic>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'products-moblie/v1/delete-product/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<dynamic>.fromJson(
+      _result.data!,
+      (json) => json as dynamic,
+    );
+    return value;
+  }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&

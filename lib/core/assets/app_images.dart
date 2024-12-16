@@ -1,4 +1,4 @@
-class AppImages{
+class AppImages {
   static const String on_boarding1 = 'assets/images/on_boarding1.png';
   static const String on_boarding2 = 'assets/images/on_boarding2.png';
   static const String on_boarding3 = 'assets/images/on_boarding3.png';
@@ -18,5 +18,4 @@ class AppImages{
   static const String file = 'assets/images/file.png';
   static const String book = 'assets/images/book2.png';
   static const String splash = 'assets/logo/logo.png';
-
 }

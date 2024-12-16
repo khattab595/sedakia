@@ -104,7 +104,10 @@ dependencies:
 
 
   page_transition: ^2.1.0
-
+  fl_chart: ^0.69.0
+  animated_custom_dropdown: ^3.1.1
+  get_storage: ^2.1.1
+  bluetooth_print: ^4.3.0
 
 
 
@@ -138,6 +141,7 @@ flutter_icons:
   ios: true
   image_path: "assets/logo/logo.png"
   remove_alpha_ios: true
+  remove_alpha_channel_ios: true
 
 # The following section is specific to Flutter packages.
 flutter:

@@ -16,7 +16,7 @@ class SplashCubit extends BaseCubit {
       emit(LoadingStateListener());
       final splashData = await usecase.fetchSplashData();
       emit(DataSuccess<List<Splash>>(splashData));
-    }  catch (e) {
+    } catch (e) {
       emit(FailureStateListener(e));
     }
   }

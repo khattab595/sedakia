@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 import 'black_texts.dart';
-
 
 class RowTexts extends StatelessWidget {
   final String title;
@@ -45,7 +43,7 @@ class RowTexts extends StatelessWidget {
         children: [
           BlackSemiBoldText(label: title, labelStyle: titleStyle, fontSize: 14),
           BlackMediumText(
-            labelStyle: valueStyle ,
+            labelStyle: valueStyle,
             label: value,
             fontSize: 14,
           ),

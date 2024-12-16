@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'register_params.g.dart'; 
+part 'register_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: true)
 class RegisterParams {
@@ -17,10 +17,16 @@ class RegisterParams {
   @JsonKey(name: 'fcm_token')
   String? fcmToken;
 
-  RegisterParams({this.name,  this.parentPhone, this.phone, this.password, this.passwordConfirmation, this.fcmToken});
+  RegisterParams(
+      {this.name,
+      this.parentPhone,
+      this.phone,
+      this.password,
+      this.passwordConfirmation,
+      this.fcmToken});
 
-   factory RegisterParams.fromJson(Map<String, dynamic> json) => _$RegisterParamsFromJson(json);
+  factory RegisterParams.fromJson(Map<String, dynamic> json) =>
+      _$RegisterParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$RegisterParamsToJson(this);
+  Map<String, dynamic> toJson() => _$RegisterParamsToJson(this);
 }
-

@@ -16,7 +16,20 @@ class RowButtonsIcon extends StatelessWidget {
   final double? height;
   final Color? backgroundColor2;
   final double? iconSize;
-  const RowButtonsIcon({Key? key,required this.icon1,required this.icon2, this.iconSize,this.title1, this.title2, this.onPressed1, this.onPressed2, this.margin, this.padding, this.height, this.backgroundColor2}) : super(key: key);
+  const RowButtonsIcon(
+      {Key? key,
+      required this.icon1,
+      required this.icon2,
+      this.iconSize,
+      this.title1,
+      this.title2,
+      this.onPressed1,
+      this.onPressed2,
+      this.margin,
+      this.padding,
+      this.height,
+      this.backgroundColor2})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +38,7 @@ class RowButtonsIcon extends StatelessWidget {
       padding: margin ?? EdgeInsets.zero,
       child: Row(
         children: [
-          if(onPressed1 != null)
+          if (onPressed1 != null)
             Expanded(
               child: AppIconButton(
                 icon: icon1,
@@ -34,9 +47,9 @@ class RowButtonsIcon extends StatelessWidget {
                 size: iconSize,
               ),
             ),
-          if(onPressed2 != null)
+          if (onPressed2 != null)
             Expanded(
-              child:  AppIconButton(
+              child: AppIconButton(
                 icon: icon2,
                 onPressed: onPressed2,
                 color: backgroundColor2 ?? theme.colorScheme.errorContainer,

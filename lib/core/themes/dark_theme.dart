@@ -20,7 +20,7 @@ final darkTheme = ThemeData(
     elevation: 0,
   ),
   cardColor: Colors.grey[800],
-  textTheme:  const TextTheme(
+  textTheme: const TextTheme(
     titleLarge: TextStyle(
       fontSize: 32,
       fontFamily: 'Tajawal-Bold',
@@ -85,6 +85,4 @@ final darkTheme = ThemeData(
       fontFamily: 'Tajawal-Medium',
     ),
   ),
-
 );
-

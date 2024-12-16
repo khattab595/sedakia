@@ -3,17 +3,21 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import '../../../../core/network/api_response.dart';
 import '../../../../core/utils/constants.dart';
-import '../models/home_data_dto.dart';
+import '../models/monthly_dto.dart';
+import '../models/summary_dto.dart';
 
 part 'home_datasource.g.dart';
+
 @Injectable()
 @RestApi(baseUrl: kBaseUrl)
-abstract class  HomeDatasource{
-
+abstract class HomeDatasource {
   @factoryMethod
   factory HomeDatasource(Dio dio) = _HomeDatasource;
 
-  @GET('/v1/home')
-  Future<ApiResponse<HomeDataDto>> fetchHomeData();
+  @GET('analytics/mobile/v1/summary')
+  Future<ApiResponse<SummaryDto>> fetchSummary();
+
+  @GET('analytics/mobile/v1/monthly')
+  Future<ApiResponse<List<MonthlyDto>>> fetchMonthly();
 
 }

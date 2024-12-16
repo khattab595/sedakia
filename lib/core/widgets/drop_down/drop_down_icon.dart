@@ -6,7 +6,9 @@ class DropDownIcon extends StatelessWidget {
   final IconData? icon;
   final List<DropdownMenuItem>? items;
   final void Function(dynamic?)? onChanged;
-  const DropDownIcon({Key? key, required this.items, this.value, this.onChanged, this.icon}) : super(key: key);
+  const DropDownIcon(
+      {Key? key, required this.items, this.value, this.onChanged, this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,6 @@ class DropDownIcon extends StatelessWidget {
         ),
         items: items,
         onChanged: onChanged,
-
       ),
     );
   }

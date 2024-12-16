@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart'; 
+import 'package:json_annotation/json_annotation.dart';
 
-part 'forgot_password_params.g.dart'; 
+part 'forgot_password_params.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ForgotPasswordParams {
@@ -9,8 +9,8 @@ class ForgotPasswordParams {
 
   ForgotPasswordParams({this.phone});
 
-   factory ForgotPasswordParams.fromJson(Map<String, dynamic> json) => _$ForgotPasswordParamsFromJson(json);
+  factory ForgotPasswordParams.fromJson(Map<String, dynamic> json) =>
+      _$ForgotPasswordParamsFromJson(json);
 
-   Map<String, dynamic> toJson() => _$ForgotPasswordParamsToJson(this);
+  Map<String, dynamic> toJson() => _$ForgotPasswordParamsToJson(this);
 }
-

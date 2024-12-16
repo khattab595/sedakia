@@ -68,9 +68,10 @@ class FirebaseNotification {
 
     final NotificationAppLaunchDetails? notificationAppLaunchDetails =
         await flutterLocalNotificationPlugin.getNotificationAppLaunchDetails();
-    String? payload = notificationAppLaunchDetails?.notificationResponse?.payload;
+    String? payload =
+        notificationAppLaunchDetails?.notificationResponse?.payload;
     if (payload != null) {
-      final data = jsonDecode(payload);
+
       if (mounted) return;
       //    setRouteFromNotificationData(context: context, data: data);
     }
@@ -101,29 +102,18 @@ class FirebaseNotification {
 
     FirebaseMessaging.onMessageOpenedApp.listen((message) async {
       print('onMessageOpenedApp: ${message.messageId}');
-      RemoteNotification? notification = message.notification;
-      // AndroidNotification? android = message.notification?.android;
-      // if (notification != null) {
-      //   routeFromNotificationMessage(context, message);
-      // }
+
     });
   }
 
-  // Future<void> routeFromNotificationMessage(
-  //     BuildContext context, RemoteMessage message) async {
-  //   print('routeFromNotificationMessage');
-  //   setRouteFromNotificationData(context: context, data: message.data);
-  // }
 
-// support ticket
 
   Future<String?> getToken() async {
     print('get token called');
     String? firebaseToken = await FirebaseMessaging.instance.getToken();
     firebaseNotificationToken = firebaseToken;
     if (kDebugMode) {
-      print(
-          'firebaseToken $firebaseNotificationToken');
+      print('firebaseToken $firebaseNotificationToken');
     }
     return firebaseToken;
   }

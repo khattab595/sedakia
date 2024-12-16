@@ -22,7 +22,8 @@ class PrimaryBoldText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          primaryBoldStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          primaryBoldStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -49,10 +50,12 @@ class PrimaryRegularText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          primaryRegularStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          primaryRegularStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
+
 class PrimaryMediumText extends BaseStatelessWidget {
   final String label;
   final TextAlign textAlign;
@@ -75,7 +78,8 @@ class PrimaryMediumText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          primaryMediumStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          primaryMediumStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -102,7 +106,8 @@ class SemiBoldPrimaryText extends BaseStatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-         primarySemiBoldStyle.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          primarySemiBoldStyle.copyWith(
+              fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }

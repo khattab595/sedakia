@@ -4,18 +4,16 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import '../../src/main_index.dart';
-import '../utils/responsive_service.dart';
-import 'api_exception.dart';
+ import 'api_exception.dart';
 import 'empty_list_exception.dart';
 
 extension AppResource on BuildContext {
-
   AppLocalizations getStrings() {
     var stringRes = AppLocalizations.of(this);
-    return stringRes! ;
+    return stringRes!;
   }
 
-  T? getArguments<T>(){
+  T? getArguments<T>() {
     return ModalRoute.of(this)?.settings.arguments as T?;
   }
 
@@ -23,22 +21,20 @@ extension AppResource on BuildContext {
     final strings = getStrings();
     String message = strings.something_went_wrong;
     String messageWrong = message;
-    String code = "0";
+
     print('handleApiError is dio   ${exception is DioException}');
     if (exception is DioException) {
-
       if (exception.error is WebSocketException ||
           exception.error is HandshakeException) {
         message = messageWrong;
       } else if (exception.error is SocketException ||
           exception.error is TimeoutException ||
-          exception.error is TimeoutException || exception.type == DioErrorType.connectionTimeout) {
+          exception.error is TimeoutException ||
+          exception.type == DioErrorType.connectionTimeout) {
         message = message;
-      }
-      else if (exception.error is ApiException) {
+      } else if (exception.error is ApiException) {
         message = (exception.error as ApiException).message;
         print('handleApiError whenApiException is dio   $message');
-
       }
     }
 
@@ -57,7 +53,7 @@ extension AppResource on BuildContext {
     }
 
     if (exception is EmptyListException) {
-      print('handleApiError is EmptyListException   ${exception.toString()}' );
+      print('handleApiError is EmptyListException   ${exception.toString()}');
       message = exception.toString();
     }
     // if (exception is DioException && exception.response?.data != null) {
@@ -67,9 +63,10 @@ extension AppResource on BuildContext {
   }
 
   ApiException handleApiError({required dynamic exception}) {
-    String message = injector<ServicesLocator>().appContext.strings.something_went_wrong;
+    String message =
+        injector<ServicesLocator>().appContext.strings.something_went_wrong;
     int code = 0;
-    List<String> errors = [];
+
     if (exception is DioError) {
       print('handleApiError is dio   ${exception.error is ApiException}');
 
@@ -78,12 +75,12 @@ extension AppResource on BuildContext {
         message = 'error_internet_connection';
       } else if (exception.error is SocketException ||
           exception.error is TimeoutException ||
-          exception.error is TimeoutException || exception.type == DioErrorType.connectionTimeout) {
+          exception.error is TimeoutException ||
+          exception.type == DioErrorType.connectionTimeout) {
         message = 'error_internet_connection';
-      }
-      else if (exception.error is ApiException) {
+      } else if (exception.error is ApiException) {
         message = (exception.error as ApiException).message;
-        code = (exception.error as ApiException).code ;
+        code = (exception.error as ApiException).code;
       }
     }
 
@@ -103,23 +100,19 @@ extension AppResource on BuildContext {
     }
 
     if (exception is EmptyListException) {
-      print('handleApiError is EmptyListException   ${exception.toString()}' );
+      print('handleApiError is EmptyListException   ${exception.toString()}');
       message = exception.toString();
     }
     print('handleApiError message $message');
-    return ApiException(message ,code);
+    return ApiException(message, code);
   }
-
-
 }
 
 extension NullOrEmpty on String? {
   bool isNullOrEmpty() {
-    return this == null || this!.trim().isEmpty ;
+    return this == null || this!.trim().isEmpty;
   }
 }
-
-
 
 extension ThemesExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
@@ -187,7 +180,6 @@ extension ThemesExtension on BuildContext {
   TextStyle get headlineSmall => textTheme.headlineSmall!;
 }
 
-
 extension LocaleExtension on BuildContext {
   Locale get locale => Localizations.localeOf(this);
 
@@ -203,22 +195,26 @@ extension AppLocalizationsShortcuts on BuildContext {
   AppLocalizations get strings => AppLocalizations.of(this)!;
 }
 
-
 extension PaddingExtension on num {
-
   EdgeInsetsDirectional get paddingAll => EdgeInsetsDirectional.all(toDouble());
 
-  EdgeInsetsDirectional get paddingVert => EdgeInsetsDirectional.symmetric(vertical: toDouble());
+  EdgeInsetsDirectional get paddingVert =>
+      EdgeInsetsDirectional.symmetric(vertical: toDouble());
 
-  EdgeInsetsDirectional get paddingHoriz => EdgeInsetsDirectional.symmetric(horizontal: toDouble());
+  EdgeInsetsDirectional get paddingHoriz =>
+      EdgeInsetsDirectional.symmetric(horizontal: toDouble());
 
-  EdgeInsetsDirectional get paddingStart => EdgeInsetsDirectional.only(start: toDouble());
+  EdgeInsetsDirectional get paddingStart =>
+      EdgeInsetsDirectional.only(start: toDouble());
 
-  EdgeInsetsDirectional get paddingEnd => EdgeInsetsDirectional.only(end: toDouble());
+  EdgeInsetsDirectional get paddingEnd =>
+      EdgeInsetsDirectional.only(end: toDouble());
 
-  EdgeInsetsDirectional get paddingTop => EdgeInsetsDirectional.only(top: toDouble());
+  EdgeInsetsDirectional get paddingTop =>
+      EdgeInsetsDirectional.only(top: toDouble());
 
-  EdgeInsetsDirectional get paddingBottom => EdgeInsetsDirectional.only(bottom: toDouble());
+  EdgeInsetsDirectional get paddingBottom =>
+      EdgeInsetsDirectional.only(bottom: toDouble());
 }
 
 extension EmptyPaadding on num {
@@ -233,7 +229,6 @@ extension SizeExtension on BuildContext {
   double get width => mediaQuery.size.width;
 
   double get height => mediaQuery.size.height;
-
 }
 
 extension FirstWhereOrNullExtension<T> on Iterable<T> {

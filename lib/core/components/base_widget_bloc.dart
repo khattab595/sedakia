@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:app/core/exceptions/empty_list_exception.dart';
 
 import '../../src/main_index.dart';

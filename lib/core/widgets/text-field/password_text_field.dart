@@ -1,4 +1,3 @@
-
 import 'package:app/core/resources/validation.dart';
 
 import '../../../src/main_index.dart';
@@ -9,18 +8,22 @@ class PasswordTextField extends BaseStatelessWidget {
   final String? hintText;
   final TextEditingController? controller;
   final EdgeInsetsGeometry? margin;
-  PasswordTextField({Key? key, this.title, this.hintText, this.controller, this.margin}) : super(key: key);
+  PasswordTextField(
+      {Key? key, this.title, this.hintText, this.controller, this.margin})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      minHeight: 55,
+      radius: 15,
       controller: controller,
       title: title ?? strings.password,
       hintText: hintText,
-      prefixIconPath: AppIcons.unlock,
+      // prefixIconPath: AppIcons.unlock,
       isPassword: true,
       margin: margin,
-      validator: (value)=> Validation.validatePassword(value ?? ''),
+      // validator: (value)=> Validation.validatePassword(value ?? ''),
     );
   }
 }

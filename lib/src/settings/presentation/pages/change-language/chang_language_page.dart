@@ -9,10 +9,6 @@ class ChangLanguagePage extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  AppScaffold(
-      title: strings.language,
-        body: ChangLanguageScreen());
+    return AppScaffold(title: strings.language, body: ChangLanguageScreen());
   }
 }
-
-

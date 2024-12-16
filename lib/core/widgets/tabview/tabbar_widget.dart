@@ -1,27 +1,29 @@
 import 'package:app/src/main_index.dart';
 
-class TabItemModel{
-  final String label ;
-  final int id ;
-  TabItemModel({required this.label,required this.id});
-  Tab builder(){
+class TabItemModel {
+  final String label;
+  final int id;
+  TabItemModel({required this.label, required this.id});
+  Tab builder() {
     return TabWidgetItemBuilder(this);
   }
 }
 
-class TabWidgetItemBuilder extends Tab{
-  TabWidgetItemBuilder(TabItemModel model, {Key? key}):super(key: key, text: model.label);
+class TabWidgetItemBuilder extends Tab {
+  TabWidgetItemBuilder(TabItemModel model, {Key? key})
+      : super(key: key, text: model.label);
 }
 
-class TabBarWidget  extends StatelessWidget{
+class TabBarWidget extends StatelessWidget {
   final Function(int)? onTap;
-  final List<TabItemModel> tabs ;
+  final List<TabItemModel> tabs;
   final Widget? page;
   final int? initialIndex;
-  TabBarWidget({Key? key ,required this.tabs, this.initialIndex, this.onTap, this.page}) : super(key: key);
+  TabBarWidget(
+      {Key? key, required this.tabs, this.initialIndex, this.onTap, this.page})
+      : super(key: key);
 
-
-  int indexTap=1;
+  int indexTap = 1;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -30,7 +32,7 @@ class TabBarWidget  extends StatelessWidget{
         height: 80,
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar:   PreferredSize(
+          appBar: PreferredSize(
             preferredSize: const Size.fromHeight(90),
             child: Container(
               margin: 20.paddingHoriz,
@@ -48,11 +50,11 @@ class TabBarWidget  extends StatelessWidget{
                 unselectedLabelStyle: context.bodyLarge,
                 labelStyle: context.labelLarge,
                 labelColor: Colors.white,
-                unselectedLabelColor:AppColors.primaryLight,
+                unselectedLabelColor: AppColors.primaryLight,
                 padding: 8.paddingAll,
                 indicatorPadding: 0.paddingAll,
-                labelPadding:  0.paddingHoriz ,
-                indicator:  BoxDecoration(
+                labelPadding: 0.paddingHoriz,
+                indicator: BoxDecoration(
                   color: context.primaryColor,
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
                   boxShadow: [
@@ -63,14 +65,12 @@ class TabBarWidget  extends StatelessWidget{
                       offset: const Offset(0, 1), // changes position of shadow
                     ),
                   ],
-
                 ),
                 indicatorSize: TabBarIndicatorSize.tab,
                 onTap: (idTap) {
-                    onTap!(tabs[idTap].id);
+                  onTap!(tabs[idTap].id);
                 },
-                tabs: tabs.map((e) => e.builder()
-                ).toList(),
+                tabs: tabs.map((e) => e.builder()).toList(),
               ),
             ),
           ),

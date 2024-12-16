@@ -17,7 +17,6 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Form(
@@ -28,7 +27,8 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
             kToolbarHeight.ph,
             PrimaryBoldText(label: strings.forgot_password, fontSize: 22),
             16.ph,
-            HintRegularText(label: strings.forgot_password_message, fontSize: 16),
+            HintRegularText(
+                label: strings.forgot_password_message, fontSize: 16),
             30.ph,
             MobileTextField(
               controller: phoneNumberController,
@@ -41,11 +41,11 @@ class EnterPhoneNumberScreen extends BaseStatelessWidget {
                 print(phoneNumberController.text);
                 print("phoneNumberControlle-----------------");
                 if (formKey.currentState!.validate()) {
-                  onEnterPhoneNumber( ForgotPasswordParams(phone: phoneNumberController.text ));
+                  onEnterPhoneNumber(
+                      ForgotPasswordParams(phone: phoneNumberController.text));
                 }
               },
             ),
-
             InkWell(
               onTap: () {
                 Navigator.of(context).pop();

@@ -1,4 +1,81 @@
 {
+  "welcome_back": "Welcome Back",
+  "sign_in_to_continue": "sign in to continue",
+  "more": "More",
+  "customers": "Customers",
+  "about_us": "About Us",
+  "privacy_policy": "Privacy Policy",
+  "arabic": "Arabic",
+  "category": "Category",
+  "sign_out": "Sign out",
+  "delete_account": "Delete Account",
+  "available": "Is the product available?",
+  "status": "Status",
+  "update_status": "Update Status",
+  "search": "Search",
+  "total": "Total",
+  "sign_in": "Sign in",
+  "statistics": "Statistics",
+  "forgot_password": "Forgot Password?",
+   "password": "Password",
+  "this_app": "This App ",
+  "desc_about": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company.",
+  "features": "Features",
+  "services": "Services",
+  "content_privacy": "This agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website, owned and operated by Digital Servers for Communications and Information Technology Company. Using the service means agreeing to the terms of this agreement in addition to any future amendments to this agreement that will occur from time to time.\nThis agreement includes all subscribers to the Whats Loop service and its website.",
+  "weakly": "Weakly",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
+  "email": "Email",
+  "number_order": "Number of orders",
+  "number_client": "Number of clients",
+  "number_product": "Number of products",
+  "number_refunds": "Total Refunds",
+  "number_sales": "Total Sales",
+  "average_order_value": "Average order value",
+  "forgot_password_message": "Enter your email to reset your password\n",
+  "piece": "piece",
+  "discount": "Discount",
+  "is_the_section_son": "Is the section son?\n",
+  "total_orders": "Total Orders",
+  "total_sales": "Total Sales",
+  "the_list_is_empty": "The list is empty",
+  "address": "Address",
+  "payment_method": "Payment method",
+  "print_the_invoice": "Print invoice",
+  "yes": "Yes",
+  "no": "No",
+  "go_to_the_site": "Go to the site",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "activity": "Activity",
 
   "add_product": "Add Product",
@@ -71,7 +148,6 @@
   "current_project": "Current Project",
   "past_project": "past Project",
   "code": "Employee Code ",
-  "phone_number": "phone number",
   "date_birth": "date of birth",
   "years_experience": "years experience",
   "qualified": "qualified",
@@ -136,7 +212,6 @@
   "note": "Notes",
   "hajj_messages": "Hajj messages",
   "the_note": "Notes",
-  "category": "التصنيف",
   "send": "ارسال",
   "write_a_message": "Write a message",
   "message_content": "Message content",
@@ -150,7 +225,6 @@
   "nationality": "Nationality",
   "gender": "Gender",
   "iD_number": "ID Number",
-  "mobile_number": "Mobile number",
   "reservation_number": "Reservation number",
   "status": "Status",
   "package_number": "Package number",
@@ -174,11 +248,8 @@
   "welcome": "Welcome",
   "login": "LOGIN",
   "sign_up": "SIGN UP",
-  "email": "Email",
   "phone": "Phone",
-  "forgot_password": "Forgot Password?",
   "name": "Name",
-  "password": "Password",
   "password_note": "The password should contain at least 2 symbols",
   "onboarding_title1": "Start your journey",
   "onboarding_description1": "simple  fast  affordable",
@@ -220,7 +291,6 @@
   "customer_info": "Customer Info",
   "full_name": "Full Name",
   "phone_number": "Phone Number",
-  "address": "Address",
   "area": "Area",
   "shipping_notes": "Shipping Notes",
   "did_you_confirm_this_order": "Did you confirm this order?",
@@ -511,6 +581,15 @@
   "look_for_a_qayd": "Look for a Qayd",
   "day": "Day",
   "bill": "Bill",
+
+
+
+
+
+
+
+
+  "sxa": "SXAssssssssssssssssssssssss",
   "from": "From",
   "to": "To"
 }

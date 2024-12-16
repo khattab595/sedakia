@@ -1,4 +1,4 @@
-class Fonts{
+class Fonts {
   static const String regular = 'Regular';
   static const String medium = 'Medium';
   static const String semiBold = 'SemiBold';

@@ -12,29 +12,27 @@ class _HomeDatasource implements HomeDatasource {
   _HomeDatasource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://alwaseet-sa.online/api/';
-  }
+  });
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<ApiResponse<HomeDataDto>> fetchHomeData() async {
+  Future<ApiResponse<SummaryDto>> fetchSummary() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<HomeDataDto>>(Options(
+        _setStreamType<ApiResponse<SummaryDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/v1/home',
+              'analytics/mobile/v1/summary',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -43,9 +41,44 @@ class _HomeDatasource implements HomeDatasource {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ApiResponse<HomeDataDto>.fromJson(
+    final value = ApiResponse<SummaryDto>.fromJson(
       _result.data!,
-      (json) => HomeDataDto.fromJson(json as Map<String, dynamic>),
+      (json) => SummaryDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<ApiResponse<List<MonthlyDto>>> fetchMonthly() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ApiResponse<List<MonthlyDto>>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'analytics/mobile/v1/monthly',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ApiResponse<List<MonthlyDto>>.fromJson(
+      _result.data!,
+      (json) => json is List<dynamic>
+          ? json
+              .map<MonthlyDto>(
+                  (i) => MonthlyDto.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
     );
     return value;
   }

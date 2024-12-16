@@ -13,7 +13,10 @@ abstract class BaseCubit extends Cubit<DataState> {
       emit(DataLoading());
       final response = await invoke();
       emit(DataSuccess<T>(response));
-      if(response == null || response is List && response.isEmpty || response is Map && response.isEmpty || response is String && response.isEmpty){
+      if (response == null ||
+          response is List && response.isEmpty ||
+          response is Map && response.isEmpty ||
+          response is String && response.isEmpty) {
         print('invoke response $response');
         throw EmptyListException();
       } else {
@@ -26,7 +29,6 @@ abstract class BaseCubit extends Cubit<DataState> {
     }
   }
 
-
   executeDoubleSuccess<T>(
       Future<T> Function() invoke1, Future<T> Function() invoke2) async {
     try {
@@ -38,6 +40,7 @@ abstract class BaseCubit extends Cubit<DataState> {
       emit(DataFailed(e));
     }
   }
+
   executeSuccessNotLoading<T>(Future<T> Function() invoke) async {
     try {
       // emit(DataLoading());
@@ -88,6 +91,7 @@ abstract class BaseCubit extends Cubit<DataState> {
       emit((SuccessState()));
     });
   }
+
   executeSuccessNoActionState<T>(Future<T> Function() invoke,
       {ValueChanged<T>? onSuccess}) {
     executeListener(() => invoke(), onSuccess: (v) {

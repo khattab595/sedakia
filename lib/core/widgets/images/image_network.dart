@@ -13,7 +13,17 @@ class ImageNetworkCircle extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
 
-  const ImageNetworkCircle({super.key, this.image, this.width, this.height, this.fit, this.color, this.size, this.borderRadius, this.margin, this.padding});
+  const ImageNetworkCircle(
+      {super.key,
+      this.image,
+      this.width,
+      this.height,
+      this.fit,
+      this.color,
+      this.size,
+      this.borderRadius,
+      this.margin,
+      this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +54,18 @@ class ImageNetwork extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final double? radius;
 
-  const ImageNetwork({super.key, this.image, this.width, this.height, this.fit, this.color, this.size, this.borderRadius, this.margin, this.padding, this.radius});
+  const ImageNetwork(
+      {super.key,
+      this.image,
+      this.width,
+      this.height,
+      this.fit,
+      this.color,
+      this.size,
+      this.borderRadius,
+      this.margin,
+      this.padding,
+      this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +83,7 @@ class ImageNetwork extends StatelessWidget {
         child: FadeInImage.assetNetwork(
           fit: fit ?? BoxFit.cover,
           placeholder: 'assets/images/loading.gif',
-         // placeholderScale: 20,
+          // placeholderScale: 20,
           placeholderCacheHeight: 5,
           placeholderCacheWidth: 5,
           placeholderFit: BoxFit.contain,
@@ -72,7 +93,11 @@ class ImageNetwork extends StatelessWidget {
           imageErrorBuilder: (c, o, s) {
             // print('imageErrorBuilder error  $s ');
             return const Center(
-                child: Icon(Icons.image,color: Colors.grey,size: 30,));
+                child: Icon(
+              Icons.image,
+              color: Colors.grey,
+              size: 30,
+            ));
           },
         ),
       ),

@@ -11,24 +11,27 @@ class MobileTextField extends BaseStatelessWidget {
   final String? title;
   final String? hintText;
   final TextEditingController? controller;
-  MobileTextField({Key? key, this.title, this.hintText, this.controller}) : super(key: key);
+  MobileTextField({Key? key, this.title, this.hintText, this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      radius: 15,
+      minHeight: 55,
       controller: controller,
-      title: title ?? strings.mobile_number,
+      title: title ?? strings.email,
       hintText: hintText,
-      keyboardType: TextInputType.number,
-      prefixIconPath: AppIcons.smartphone,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return strings.this_field_is_required;
-        } else if (value.length < 9) {
-          return strings.must_be_more_than_6_digits;
-        }
-        return null;
-      },
+      keyboardType: TextInputType.text,
+      //  prefixIconPath: AppIcons.smartphone,
+      //   validator: (value) {
+      //     if (value!.isEmpty) {
+      //       return strings.this_field_is_required;
+      //     } else if (value.length < 9) {
+      //       return strings.must_be_more_than_6_digits;
+      //     }
+      //     return null;
+      //   },
     );
   }
 }

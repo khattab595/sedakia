@@ -1,11 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class CommonState  extends Equatable{
-
+abstract class CommonState extends Equatable {
   @override
-  List<Object?> get props =>[];
-
+  List<Object?> get props => [];
 }
 
 abstract class StreamState<T> {
@@ -33,6 +31,7 @@ abstract class StreamState<T> {
     _streamController.close();
   }
 }
+
 class StreamStateInitial<T> extends StreamState<T> {
   @override
   bool get hasData => data != null;

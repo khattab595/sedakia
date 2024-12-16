@@ -2,13 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class DraggableFloatingActionButtonConfig extends StatefulWidget {
-
   final Widget child;
   final Offset initialOffset;
   final VoidCallback onPointerUp;
   final GlobalKey parentKey;
 
-  const DraggableFloatingActionButtonConfig({Key? key,
+  const DraggableFloatingActionButtonConfig({
+    Key? key,
     required this.child,
     required this.initialOffset,
     required this.onPointerUp,
@@ -16,11 +16,12 @@ class DraggableFloatingActionButtonConfig extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _DraggableFloatingActionButtonConfigState();
+  State<StatefulWidget> createState() =>
+      _DraggableFloatingActionButtonConfigState();
 }
 
-class _DraggableFloatingActionButtonConfigState extends State<DraggableFloatingActionButtonConfig> {
-
+class _DraggableFloatingActionButtonConfigState
+    extends State<DraggableFloatingActionButtonConfig> {
   final GlobalKey _key = GlobalKey();
 
   bool _isDragging = false;
@@ -37,8 +38,10 @@ class _DraggableFloatingActionButtonConfigState extends State<DraggableFloatingA
   }
 
   void _setBoundary(_) {
-    final RenderBox parentRenderBox = widget.parentKey.currentContext?.findRenderObject() as RenderBox;
-    final RenderBox renderBox = _key.currentContext?.findRenderObject() as RenderBox;
+    final RenderBox parentRenderBox =
+        widget.parentKey.currentContext?.findRenderObject() as RenderBox;
+    final RenderBox renderBox =
+        _key.currentContext?.findRenderObject() as RenderBox;
 
     try {
       final Size parentSize = parentRenderBox.size;
@@ -47,9 +50,7 @@ class _DraggableFloatingActionButtonConfigState extends State<DraggableFloatingA
       setState(() {
         _minOffset = const Offset(0, 0);
         _maxOffset = Offset(
-            parentSize.width - size.width,
-            parentSize.height - size.height
-        );
+            parentSize.width - size.width, parentSize.height - size.height);
       });
     } catch (e) {
       if (kDebugMode) {
