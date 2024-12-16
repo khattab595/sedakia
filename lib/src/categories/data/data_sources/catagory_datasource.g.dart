@@ -91,7 +91,7 @@ class _CategoriesDatasource implements CategoriesDatasource {
     )
             .compose(
               _dio.options,
-              'categories/mobile/v1/add-category',
+              null,
               queryParameters: queryParameters,
               data: _data,
             )
