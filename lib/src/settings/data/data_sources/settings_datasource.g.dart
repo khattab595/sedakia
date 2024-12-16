@@ -12,9 +12,7 @@ class _SettingsDatasource implements SettingsDatasource {
   _SettingsDatasource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
-  }
+  });
 
   final Dio _dio;
 

@@ -12,9 +12,7 @@ class _ProductDatasource implements ProductDatasource {
   _ProductDatasource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
-  }
+  });
 
   final Dio _dio;
 

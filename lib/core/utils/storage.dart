@@ -3,6 +3,7 @@ import 'package:get_storage/get_storage.dart';
 class KStorageKeys {
 
   static const String token = 'token';
+  static const String baseUrl = 'baseUrl';
 
 }
 
@@ -19,6 +20,12 @@ class KStorage {
   }
 
 
+  String? get getBaseUrl => _storage.read(KStorageKeys.baseUrl);
+  setBaseUrl(String? baseUrl) =>
+      _storage.write(KStorageKeys.baseUrl, baseUrl);
+
+
+  get erase async => await _storage.erase();
 
 
 
@@ -27,7 +34,9 @@ class KStorage {
       _storage.write(KStorageKeys.token, token);
 
 
-  get erase async => await _storage.erase();
+
+
+
 
 
 }

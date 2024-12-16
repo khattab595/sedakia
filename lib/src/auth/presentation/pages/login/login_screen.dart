@@ -20,8 +20,8 @@ class LoginScreen extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      emailController.text = 'midosok55@gmail.com';
-      passwordController.text = '123456';
+      emailController.text = 'midosok100@gmail.com';
+      passwordController.text = '7E%d!d)Jar^hYJ8L';
     }
     return Form(
       key: formKey,

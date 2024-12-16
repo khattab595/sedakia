@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import '../utils/helper_methods.dart';
 import '../widgets/dialogs/progress_dialog.dart';
 import '/src/main_index.dart';
 
@@ -75,4 +76,7 @@ abstract class BaseStatelessWidget extends StatelessWidget {
 
     DialogsManager.showErrorDialog(context!, exception);
   }
+
+
+
 }

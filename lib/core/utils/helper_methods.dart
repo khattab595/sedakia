@@ -165,6 +165,16 @@ class HelperMethods {
     }
   }
 
+  static saveUrl(String url) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('url', url);
+    } on Exception catch (e) {
+      print('e $e');
+      rethrow;
+    }
+  }
+
   static Future<LoginDto> getProfile() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -208,6 +218,15 @@ class HelperMethods {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       return prefs.getString('token') ?? '';
+    } on Exception catch (e) {
+      return '';
+    }
+  }
+
+  static getUrl() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('url') ?? '';
     } on Exception catch (e) {
       return '';
     }

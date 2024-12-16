@@ -12,9 +12,7 @@ class _HomeDatasource implements HomeDatasource {
   _HomeDatasource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
-  }
+  });
 
   final Dio _dio;
 

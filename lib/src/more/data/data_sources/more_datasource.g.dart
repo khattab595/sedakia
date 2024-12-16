@@ -12,9 +12,7 @@ class _ProfileDataSource implements ProfileDataSource {
   _ProfileDataSource(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
-  }
+  });
 
   final Dio _dio;
 

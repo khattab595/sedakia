@@ -15,6 +15,7 @@ class AuthRepoImp extends AuthRepo {
   Future<String> login(LoginParams params) async {
     final response = await apiProvider.login(params);
     await HelperMethods.saveToken(response.payload?.token ?? "");
+    await HelperMethods.saveUrl(response.payload?.siteData?.path ?? "");
     await KStorage.i.setToken(response.payload?.token ?? "");
     return response.message ?? "";
   }

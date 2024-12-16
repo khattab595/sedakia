@@ -16,31 +16,13 @@ import '../models/verification_code_params.dart';
 part 'auth_datasource.g.dart';
 
 @Injectable()
-@RestApi(baseUrl: kBaseUrl)
+@RestApi(baseUrl: baseUrlLogin)
 abstract class AuthDataSource {
   @factoryMethod
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
-  @POST('api/v1/token')
+  @POST('v1/token')
   Future<ApiResponse<LoginDto>> login(@Body() LoginParams params);
 
-  @POST('/register')
-  Future<ApiResponse<ProfileDto>> register(@Body() RegisterParams params);
 
-  @POST('v1/validate_otp')
-  Future<ApiResponse> verificationCode(@Body() VerificationCodeParams params);
-
-  @MultiPart()
-  @POST('/completeRegistration')
-  Future completeRegistration(
-    @Part(name: 'academic_level_id') String academicLevelId,
-    @Part(name: 'stage_level_id') String stageId,
-    @Part(name: 'birth_date') String birthDate,
-    @Part(name: 'gender') String gender,
-    @Part(name: 'pic_identityF') File image,
-    @Part(name: 'pic_identityB') File idImage,
-  );
-
-  @GET('/academicLevels')
-  Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels();
 }

@@ -13,7 +13,7 @@ class _AuthDataSource implements AuthDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://mm.motkaml.online/wp-json/';
+    baseUrl ??= 'https://www.motkaml.com/wp-json/api/';
   }
 
   final Dio _dio;
@@ -35,7 +35,7 @@ class _AuthDataSource implements AuthDataSource {
     )
             .compose(
               _dio.options,
-              'api/v1/token',
+              'v1/token',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -47,168 +47,6 @@ class _AuthDataSource implements AuthDataSource {
     final value = ApiResponse<LoginDto>.fromJson(
       _result.data!,
       (json) => LoginDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<ProfileDto>> register(RegisterParams params) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<ProfileDto>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/register',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<ProfileDto>.fromJson(
-      _result.data!,
-      (json) => ProfileDto.fromJson(json as Map<String, dynamic>),
-    );
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<dynamic>> verificationCode(
-      VerificationCodeParams params) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(params.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<dynamic>>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              'v1/validate_otp',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<dynamic>.fromJson(
-      _result.data!,
-      (json) => json as dynamic,
-    );
-    return value;
-  }
-
-  @override
-  Future<dynamic> completeRegistration(
-    String academicLevelId,
-    String stageId,
-    String birthDate,
-    String gender,
-    File image,
-    File idImage,
-  ) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = FormData();
-    _data.fields.add(MapEntry(
-      'academic_level_id',
-      academicLevelId,
-    ));
-    _data.fields.add(MapEntry(
-      'stage_level_id',
-      stageId,
-    ));
-    _data.fields.add(MapEntry(
-      'birth_date',
-      birthDate,
-    ));
-    _data.fields.add(MapEntry(
-      'gender',
-      gender,
-    ));
-    _data.files.add(MapEntry(
-      'pic_identityF',
-      MultipartFile.fromFileSync(
-        image.path,
-        filename: image.path.split(Platform.pathSeparator).last,
-      ),
-    ));
-    _data.files.add(MapEntry(
-      'pic_identityB',
-      MultipartFile.fromFileSync(
-        idImage.path,
-        filename: idImage.path.split(Platform.pathSeparator).last,
-      ),
-    ));
-    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-      contentType: 'multipart/form-data',
-    )
-        .compose(
-          _dio.options,
-          '/completeRegistration',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-    final value = _result.data;
-    return value;
-  }
-
-  @override
-  Future<ApiResponse<List<AcademicLevelDto>>> fetchAcademicLevels() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ApiResponse<List<AcademicLevelDto>>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/academicLevels',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = ApiResponse<List<AcademicLevelDto>>.fromJson(
-      _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<AcademicLevelDto>(
-                  (i) => AcademicLevelDto.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
     );
     return value;
   }
