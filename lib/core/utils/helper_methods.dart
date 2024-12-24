@@ -7,9 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../src/auth/data/models/login_dto.dart';
-import '../../src/main_index.dart';
-import '../../src/more/data/models/profile_dto.dart';
+ import '../../src/main_index.dart';
 
 class HelperMethods {
   static Future<CroppedFile?> getImagePicker() async {
@@ -140,20 +138,20 @@ class HelperMethods {
     return prefs.getString('language') ?? 'ar';
   }
 
-  static Future<void> saveProfile(ProfileDto dto) async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      if (dto.token != null && dto.token!.isNotEmpty) {
-        prefs.setString('profile', jsonEncode(dto.toJson()));
-      } else {
-        dto.token = await getToken();
-        prefs.setString('profile', jsonEncode(dto.toJson()));
-      }
-    } on Exception catch (e) {
-      print('e $e');
-      rethrow;
-    }
-  }
+  // static Future<void> saveProfile(ProfileDto dto) async {
+  //   try {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     if (dto.token != null && dto.token!.isNotEmpty) {
+  //       prefs.setString('profile', jsonEncode(dto.toJson()));
+  //     } else {
+  //       dto.token = await getToken();
+  //       prefs.setString('profile', jsonEncode(dto.toJson()));
+  //     }
+  //   } on Exception catch (e) {
+  //     print('e $e');
+  //     rethrow;
+  //   }
+  // }
 
   static Future<void> saveToken(String token) async {
     try {
@@ -175,19 +173,19 @@ class HelperMethods {
     }
   }
 
-  static Future<LoginDto> getProfile() async {
-    try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      String profile = prefs.getString('profile') ?? '';
-      print('profile $profile');
-      final decoded = jsonDecode(profile);
-      print('decoded $decoded');
-      return LoginDto.fromJson(decoded);
-    } on Exception catch (e) {
-      print('getProfile error $e');
-      return LoginDto();
-    }
-  }
+  // static Future<LoginDto> getProfile() async {
+  //   try {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     String profile = prefs.getString('profile') ?? '';
+  //     print('profile $profile');
+  //     final decoded = jsonDecode(profile);
+  //     print('decoded $decoded');
+  //     return LoginDto.fromJson(decoded);
+  //   } on Exception catch (e) {
+  //     print('getProfile error $e');
+  //     return LoginDto();
+  //   }
+  // }
 
   static Future<DateTime?> selectDate(BuildContext context,
       {DateTime? firstDate}) async {

@@ -2,10 +2,10 @@ import 'package:app/src/main_index.dart';
 
 class AppColors {
   static const Color primaryDark = Color(0xff000000);
-  static const Color primaryLightText = Color(0xff1A138E);
-  static const Color primaryLight = Color(0xff1A138E);
+  static const Color primaryLightText = Color(0xff598000);
+  static const Color primaryLight = Color(0xff598000);
   static const Color errorColor = Color(0xffF40000);
-  static const Color greenColor = Color(0xff219653);
+  static const Color scondColor = Color(0xffF2B648);
   static const Color backgroundColor = Color(0xffffffff);
   static const Color cardColor = Color(0xffffffff);
   static const Color borderColor = Color(0xffD0D5DD);

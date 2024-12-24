@@ -46,10 +46,10 @@ class FirebaseNotification {
 
     await flutterLocalNotificationPlugin
         .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
+        AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(channel);
     var initializationSettingsAndroid =
-        const AndroidInitializationSettings('@mipmap/ic_launcher');
+    const AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializeSettingIOS = DarwinInitializationSettings();
 
     var initializationSettings = InitializationSettings(
@@ -67,20 +67,19 @@ class FirebaseNotification {
     );
 
     final NotificationAppLaunchDetails? notificationAppLaunchDetails =
-        await flutterLocalNotificationPlugin.getNotificationAppLaunchDetails();
+    await flutterLocalNotificationPlugin.getNotificationAppLaunchDetails();
     String? payload =
         notificationAppLaunchDetails?.notificationResponse?.payload;
     if (payload != null) {
-
       if (mounted) return;
       //    setRouteFromNotificationData(context: context, data: data);
     }
 
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
-            alert: true, badge: true, sound: true);
+        alert: true, badge: true, sound: true);
 
-    await getToken();
+    // await getToken();
     FirebaseMessaging.instance.getInitialMessage().then((message) async {
       print('getInitialMessage: $message');
       print('getInitialMessage data: ${message?.data}');
@@ -102,21 +101,9 @@ class FirebaseNotification {
 
     FirebaseMessaging.onMessageOpenedApp.listen((message) async {
       print('onMessageOpenedApp: ${message.messageId}');
-
     });
   }
 
-
-
-  Future<String?> getToken() async {
-    print('get token called');
-    String? firebaseToken = await FirebaseMessaging.instance.getToken();
-    firebaseNotificationToken = firebaseToken;
-    if (kDebugMode) {
-      print('firebaseToken $firebaseNotificationToken');
-    }
-    return firebaseToken;
-  }
 
   static NotificationDetails _notificationDetails() {
     print('_notificationDetails');
@@ -132,53 +119,4 @@ class FirebaseNotification {
     await FirebaseMessaging.instance.subscribeToTopic(topic);
   }
 
-// setRouteFromNotificationData(
-//     {required BuildContext context,
-//     required Map<String, dynamic> data}) async {
-//   print('setRouteFromNotificationData');
-//   final route = data['page'];
-//   final id = data['id'];
-//   final ServicesLocator navigationService = sl<ServicesLocator>();
-//   await autoLogin();
-//   if (route != null && id != null) {
-//     switch (route) {
-//       case 'paymentReceipt':
-//         navigationService.pushReplacement(ReceiptScreen(receipt: data['id']));
-//         break;
-//       case 'orderDetail':
-//         navigationService.pushReplacement(OrderDetailsScreen(orderId: data['id']));
-//         break;
-//       case 'supportTickets':
-//         navigationService.pushReplacement(OrderDetailsScreen(orderId: data['id']));
-//         break;
-//       case 'productDetails':
-//         navigationService.pushReplacement(ProductDetailsPage(variantId: data['id'], isFav: false));
-//         break;
-//     }
-//   } else {
-//     // if (data['page'] == null) {
-//     //   HelperMethods.showErrorToast(
-//     //       "Notification doesn't contain destination page");
-//     // } else if (data['id'] == null) {
-//     //   HelperMethods.showErrorToast("Notification doesn't contain object id");
-//     // }
-//   }
-// }
 }
-
-// autoLogin() async {
-//   Dio dio = ClientCreator().createClient();
-//   bool isTokenExpired = await HelperMethods.isTokenExpired();
-//   if (!isTokenExpired) return;
-//   LoginParams params = await HelperMethods.getUserData();
-//   try {
-//     final response = await dio.post(
-//       Apis.login,
-//       data: params.toJson(),
-//     );
-//     Map data = response.data;
-//     HelperMethods.saveToken(data['token']);
-//   } catch (e) {
-//     print('error in auto login $e');
-//   }
-// }

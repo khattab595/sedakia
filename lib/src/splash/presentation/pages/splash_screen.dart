@@ -30,18 +30,19 @@ class _SplashPageState extends State<SplashPage>
 
     _animationController.forward();
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 5),
       () async {
-        String token = await HelperMethods.getToken();
-        print(token);
-        print("jjkjkjkjk");
-        // bool isFirstTime = await HelperMethods.isFirstTime();
-        bool isRememberMe = await HelperMethods.getRememberMe();
-        if (token.isNotEmpty || token != '') {
-          pushNamedAndRemoveUntil(Routes.navigationPages);
-        } else {
-          pushNamedAndRemoveUntil(Routes.loginPage);
-        }
+        pushNamedAndRemoveUntil(Routes.homePage);
+        // String token = await HelperMethods.getToken();
+        // print(token);
+        // print("jjkjkjkjk");
+        // // bool isFirstTime = await HelperMethods.isFirstTime();
+        // bool isRememberMe = await HelperMethods.getRememberMe();
+        // // if (token.isNotEmpty || token != '') {
+        //   pushNamedAndRemoveUntil(Routes.navigationPages);
+        // } else {
+        //   pushNamedAndRemoveUntil(Routes.loginPage);
+        // }
       },
     );
   }
@@ -58,7 +59,7 @@ class _SplashPageState extends State<SplashPage>
     return Scaffold(
       body: Center(
         child: AnimatedContainer(
-            duration: const Duration(seconds: 6),
+            duration: const Duration(seconds: 3),
             curve: Curves.decelerate,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,8 +70,7 @@ class _SplashPageState extends State<SplashPage>
                   builder: (context, child) {
                     return Opacity(
                       opacity: _opacityAnimation.value,
-                      child: Image.asset(AppImages.splash,
-                          width: 200, height: 200),
+                      child: Image.asset(AppImages.splash,),
                     );
                   },
                 ),
