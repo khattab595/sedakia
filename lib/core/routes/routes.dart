@@ -1,6 +1,10 @@
 
+import '../../src/electronic_rosary/presentation/pages/add_experiments/add_experiments_page.dart';
+import '../../src/electronic_rosary/presentation/pages/electronic_rosary/electronic_rosary_page.dart';
+import '../../src/electronic_rosary/presentation/pages/experiments/experiments_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/main_index.dart';
+import '../../src/parties/presentation/pages/parties_page.dart';
 import '../../src/splash/presentation/pages/splash_screen.dart';
 
 class Routes {
@@ -19,6 +23,10 @@ class Routes {
   static const String more = 'more';
   static const String settings = 'settings';
   static const String homePage = 'homePage';
+  static const String partiesPage = 'partiesPage';
+  static const String addExperimentsPage = 'addExperimentsPage';
+  static const String experimentsPage = 'experimentsPage';
+  static const String electronicRosaryPage = 'electronicRosaryPage';
   static const String splashPage = 'splashPage';
   static const String requestsPage = 'RequestsPage';
  // static const String requestDetailsPage = 'RequestDetailsPage';
@@ -39,6 +47,10 @@ static const String customersPage = 'customersPage';
 
      homePage: (context) => HomePage(),
     splashPage: (context) => SplashPage(),
+    partiesPage: (context) => PartiesPage(),
+    electronicRosaryPage: (context) => ElectronicRosaryPage(),
+    experimentsPage: (context) => ExperimentsPage(),
+    addExperimentsPage: (context) => AddExperimentsPage(),
 
 
   };

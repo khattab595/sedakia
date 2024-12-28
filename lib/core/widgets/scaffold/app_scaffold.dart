@@ -70,7 +70,7 @@ class AppScaffold extends StatelessWidget {
                 actions: actions,
                 backgroundColor:
                     backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                centerTitle: false,
+                centerTitle: true,
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
@@ -84,7 +84,7 @@ class AppScaffold extends StatelessWidget {
                 //     preferredSize: Size.fromHeight(1),
                 //     child: Divider(),
                 // ),
-                iconTheme: IconThemeData(color: AppColors.primaryDark),
+                iconTheme: const IconThemeData(color: AppColors.primaryDark),
               ),
     );
   }

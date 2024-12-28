@@ -40,6 +40,21 @@ class HelperMethods {
       return DateFormat('yyyy-MM-dd').format(dateTime);
     }
   }
+  static String getTime(String now) {
+    if (now == "") {
+      return "";
+    } else {
+      DateTime dateTime = DateTime.parse(now);
+      return DateFormat("HH:mm").format(dateTime);
+    }
+  }
+
+ static String getFormattedTime(DateTime time) {
+
+    var timeFormat = DateFormat("HH:mm");
+    String timePortion = timeFormat.format(time);
+    return timePortion;
+  }
 
   static Future<File> getImageFromGallery() async {
     final pickedFile =

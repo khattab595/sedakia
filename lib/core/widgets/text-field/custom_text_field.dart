@@ -72,7 +72,7 @@ class CustomTextField extends BaseStatelessWidget {
             8.ph
           ],
           SizedBox(
-            height: minHeight ?? 50,
+            height: minHeight,
             child: StatefulBuilder(builder: (context, setState) {
               return TextFormField(
                 onTap: onTap,
@@ -98,7 +98,7 @@ class CustomTextField extends BaseStatelessWidget {
                     InputDecoration(
                       hintText: hintText,
                       hintStyle: hintStyle ??
-                          context.displaySmall.copyWith(fontSize: 16),
+                          context.displaySmall.copyWith(fontSize: 12),
                       fillColor: fillColor ??
                           context.theme.inputDecorationTheme.fillColor,
                       filled: true,
@@ -107,7 +107,7 @@ class CustomTextField extends BaseStatelessWidget {
                       //   minHeight: minHeight ?? 35,
                       // ),
                       contentPadding: contentPadding ??
-                          const EdgeInsets.symmetric(horizontal: 16),
+                          const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                       prefixIcon: prefixIconPath != null
                           ? AppIcon(
                               padding: const EdgeInsets.all(12),

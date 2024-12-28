@@ -1,3 +1,4 @@
+import 'package:app/src/main_index.dart';
 import 'package:flutter/material.dart';
 
 import 'black_texts.dart';
@@ -39,9 +40,10 @@ class RowTexts extends StatelessWidget {
       padding: padding ?? const EdgeInsets.all(0),
       child: Row(
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
-        mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
         children: [
           BlackSemiBoldText(label: title, labelStyle: titleStyle, fontSize: 14),
+          4.pw,
           BlackMediumText(
             labelStyle: valueStyle,
             label: value,

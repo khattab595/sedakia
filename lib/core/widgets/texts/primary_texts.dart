@@ -62,12 +62,14 @@ class PrimaryMediumText extends BaseStatelessWidget {
   final TextStyle? labelStyle;
   final Color? labelColor;
   final double? fontSize;
+  final int? maxLines;
 
   PrimaryMediumText({
     Key? key,
     required this.label,
     this.textAlign = TextAlign.start,
     this.labelStyle,
+    this.maxLines,
     this.labelColor,
     this.fontSize,
   }) : super(key: key);
@@ -77,9 +79,10 @@ class PrimaryMediumText extends BaseStatelessWidget {
     return Text(
       label,
       textAlign: textAlign,
+      maxLines:maxLines ,
       style: labelStyle ??
           primaryMediumStyle.copyWith(
-              fontSize: fontSize ?? 16, color: labelColor),
+              fontSize: fontSize ?? 16, color: labelColor,),
     );
   }
 }
