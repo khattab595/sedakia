@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage>
     Future.delayed(
       const Duration(seconds: 5),
       () async {
-        pushNamedAndRemoveUntil(Routes.homePage);
+        pushNamedAndRemoveUntil(Routes.navigationPages);
         // String token = await HelperMethods.getToken();
         // print(token);
         // print("jjkjkjkjk");

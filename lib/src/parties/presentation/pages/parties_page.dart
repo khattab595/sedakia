@@ -6,10 +6,10 @@ import '../bloc/parties_bloc.dart';
 class PartiesPage extends BaseBlocWidget<UnInitState, PartiesCubit> {
   PartiesPage({Key? key}) : super(key: key);
 
-  // @override
-  // String? title(BuildContext context) {
-  //   return strings.statistics;
-  // }
+  @override
+  String? title(BuildContext context) {
+    return strings.notifications;
+  }
 
   @override
   Widget buildWidget(BuildContext context, UnInitState state) {

@@ -4,6 +4,7 @@ import '../../src/electronic_rosary/presentation/pages/electronic_rosary/electro
 import '../../src/electronic_rosary/presentation/pages/experiments/experiments_page.dart';
 import '../../src/home/presentation/pages/home_page.dart';
 import '../../src/main_index.dart';
+import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/parties/presentation/pages/parties_page.dart';
 import '../../src/splash/presentation/pages/splash_screen.dart';
 
@@ -51,6 +52,7 @@ static const String customersPage = 'customersPage';
     electronicRosaryPage: (context) => ElectronicRosaryPage(),
     experimentsPage: (context) => ExperimentsPage(),
     addExperimentsPage: (context) => AddExperimentsPage(),
+    navigationPages: (context) => NavigationBarPage(),
 
 
   };

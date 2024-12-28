@@ -5,7 +5,7 @@ import '../../../data/model/experiments_dto.dart';
 import '../../bloc/electronic_rosary_bloc.dart';
 import 'experiments_screen.dart';
 
-class ExperimentsPage extends BaseBlocWidget<DataSuccess<List<ExperimentsDto>>,
+class ExperimentsPage extends BaseBlocWidget<UnInitState,
     ElectronicRosaryCubit> {
   ExperimentsPage({Key? key}) : super(key: key);
 
@@ -33,9 +33,9 @@ class ExperimentsPage extends BaseBlocWidget<DataSuccess<List<ExperimentsDto>>,
 
   @override
   Widget buildWidget(
-      BuildContext context, DataSuccess<List<ExperimentsDto>> state) {
+      BuildContext context, UnInitState state) {
     return ExperimentsScreen(
-      experimentsDto: getArguments(context),
+
     );
   }
 }

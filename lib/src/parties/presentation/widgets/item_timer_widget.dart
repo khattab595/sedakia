@@ -6,10 +6,11 @@ import '../../../../core/widgets/texts/primary_texts.dart';
 
 class ItemTimerWidget extends BaseStatelessWidget {
 
-TimeOfDay selectedTime=TimeOfDay.now();
+ final String time;
+ final String value;
 
 
-  ItemTimerWidget({super.key});
+  ItemTimerWidget({super.key,required  this.time,required  this.value,});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +18,7 @@ TimeOfDay selectedTime=TimeOfDay.now();
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 100,
+          width: double.infinity,
           padding: 12.paddingVert,
           decoration:
           Decorations.kDecorationTopRadius(radius: 8, color: Colors.grey.withOpacity(0.1)),
@@ -28,52 +29,33 @@ TimeOfDay selectedTime=TimeOfDay.now();
               Icon(Icons.alarm,size: 14,color: primaryColor),
               4.pw,
               PrimaryMediumText(
-                label: "${selectedTime.hour}:${selectedTime.minute}",
+                label: time,
                 fontSize: 11,
               )
             ],
           ),
         ),
-        StatefulBuilder(
-          builder: (context,setState) {
-            return InkWell(
-              onTap: ()async{
-                final TimeOfDay?timeOfDay= await showTimePicker(
-                    context: context,
-                    initialTime: selectedTime,
-                 initialEntryMode: TimePickerEntryMode.dial,
+        Container(
+          width: double.infinity,
+          padding: 12.paddingVert,
+          decoration: Decorations.kDecorationBottomRadius(
+              radius: 8, color: primaryColor),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: PrimaryMediumText(
+                  label:value ,
+                  fontSize: 11,
+                  maxLines: 2,
+                  labelColor: AppColors.backgroundColor,
 
-                );
-                if (timeOfDay !=null){
-                 setState((){
-                   selectedTime=timeOfDay;
-                 });
-                }
-              },
-              child: Container(
-                width: 100,
-                padding: 12.paddingVert,
-                decoration: Decorations.kDecorationBottomRadius(
-                    radius: 8, color: primaryColor),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: PrimaryMediumText(
-                        label: "الأوراد المربوطة بعد صلاة الصبح",
-                        fontSize: 11,
-                        maxLines: 2,
-                        labelColor: AppColors.backgroundColor,
-
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  ],
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            );
-          }
+              )
+            ],
+          ),
         ),
       ],
     );

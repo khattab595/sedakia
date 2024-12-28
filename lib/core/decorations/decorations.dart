@@ -97,7 +97,12 @@ class Decorations {
   }) {
     return BoxDecoration(
       color: color,
+      borderRadius: const BorderRadius.only(
+        topRight: Radius.circular(20),
+        topLeft:    Radius.circular(20),
+      ),
       border: Border(
+
         top: BorderSide(
           color: borderColor ??
               injector<ServicesLocator>().appContext.dividerColor,

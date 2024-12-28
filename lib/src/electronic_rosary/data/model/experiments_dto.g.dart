@@ -9,8 +9,7 @@ part of 'experiments_dto.dart';
 ExperimentsDto _$ExperimentsDtoFromJson(Map<String, dynamic> json) =>
     ExperimentsDto(
       experimentName: json['experiment_name'] as String?,
-      addExperiment: json['add_experiment'] as String?,
-      count: json['count'] as String?,
+       count: json['count'] as int?,
     );
 
 Map<String, dynamic> _$ExperimentsDtoToJson(ExperimentsDto instance) {
@@ -23,7 +22,6 @@ Map<String, dynamic> _$ExperimentsDtoToJson(ExperimentsDto instance) {
   }
 
   writeNotNull('experiment_name', instance.experimentName);
-  writeNotNull('add_experiment', instance.addExperiment);
-  writeNotNull('count', instance.count);
+   writeNotNull('count', instance.count);
   return val;
 }

@@ -4,14 +4,12 @@ part 'experiments_dto.g.dart';
 
 @JsonSerializable(ignoreUnannotated: false)
 class ExperimentsDto {
-  @JsonKey(name: 'experiment_name',includeIfNull: false)
+  @JsonKey(name: 'experiment_name', )
   String? experimentName;
-  @JsonKey(name: 'add_experiment',includeIfNull: false)
-  String? addExperiment;
-  @JsonKey(name: 'count',includeIfNull: false)
-  String? count;
+  @JsonKey(name: 'count', )
+  int? count;
 
-  ExperimentsDto({this.experimentName, this.addExperiment, this.count});
+  ExperimentsDto({this.experimentName,  this.count});
 
    factory ExperimentsDto.fromJson(Map<String, dynamic> json) => _$ExperimentsDtoFromJson(json);
 
