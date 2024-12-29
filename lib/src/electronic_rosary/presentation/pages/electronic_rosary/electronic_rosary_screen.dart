@@ -22,7 +22,7 @@ class ElectronicRosaryScreen extends BaseStatelessWidget {
             20.ph,
             RowTexts(
               title: data.experimentName??"",
-              value: '/ ${data.count??""}',
+              value: data.count==null?"":'/ ${data.count??""}',
               mainAxisAlignment:MainAxisAlignment.center,
               titleStyle: primaryMediumStyle.copyWith(fontSize: 25,color: AppColors.primaryDark.withOpacity(0.5)),
               valueStyle: primaryMediumStyle.copyWith(
@@ -45,7 +45,8 @@ class ElectronicRosaryScreen extends BaseStatelessWidget {
             const Spacer(),
             GestureDetector(
               onTap: () async {
-                if (value >= data.count!) {
+               int   count= data.count??100000000000;
+                if (value >=count ) {
                   HelperMethods.showErrorToast("لقد  وصلت  الي  نهاية العدد");
                   await _audioPlayer.play(AssetSource('audio.mpeg'));
                 } else {

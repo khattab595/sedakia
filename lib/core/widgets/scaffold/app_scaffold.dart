@@ -74,16 +74,7 @@ class AppScaffold extends StatelessWidget {
                 flexibleSpace: titleWidget,
                 foregroundColor:
                     foregroundColor ?? theme.appBarTheme.foregroundColor,
-                // leadingWidth: 30,
-                // systemOverlayStyle: SystemUiOverlayStyle(
-                //   statusBarColor:
-                //       backgroundAppBar ?? theme.appBarTheme.backgroundColor,
-                //   statusBarBrightness: Brightness.light,
-                // ),
-                // bottom: PreferredSize(
-                //     preferredSize: Size.fromHeight(1),
-                //     child: Divider(),
-                // ),
+
                 iconTheme: const IconThemeData(color: AppColors.primaryDark),
               ),
     );
