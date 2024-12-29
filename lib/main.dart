@@ -4,10 +4,9 @@ import 'package:app/core/firebase/notification_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
 
- import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/data/latest_all.dart' as tz;
 
-
- import 'core/themes/light_theme.dart';
+import 'core/themes/light_theme.dart';
 import 'core/network/base_client.dart';
 import 'src/main_index.dart'; // Provides [VideoController] & [Video] etc.
 
@@ -21,11 +20,11 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
 
 Future<void> initializeNotifications() async {
   const AndroidInitializationSettings androidInitializationSettings =
-  AndroidInitializationSettings('@mipmap/ic_launcher');
+      AndroidInitializationSettings('@mipmap/ic_launcher');
 
   const InitializationSettings initializationSettings = InitializationSettings(
     android: androidInitializationSettings,
@@ -35,6 +34,7 @@ Future<void> initializeNotifications() async {
     initializationSettings,
   );
 }
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp(
@@ -87,4 +87,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
