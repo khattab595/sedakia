@@ -7,7 +7,7 @@ part of 'id_dto.dart';
 // **************************************************************************
 
 IdDto _$IdDtoFromJson(Map<String, dynamic> json) => IdDto(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$IdDtoToJson(IdDto instance) => <String, dynamic>{

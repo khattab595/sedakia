@@ -9,7 +9,7 @@ class AddExperimentsScreen extends BaseStatelessWidget {
   AddExperimentsScreen({super.key});
 
   TextEditingController experimentNameController = TextEditingController();
-   TextEditingController countController = TextEditingController();
+  TextEditingController countController = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
   @override
@@ -30,23 +30,21 @@ class AddExperimentsScreen extends BaseStatelessWidget {
               hintText: "اضافة العدد هنا",
               keyboardType: TextInputType.number,
               controller: countController,
-        
             ),
-            StatefulBuilder(
-              builder: (context,setState) {
-                return PrimaryButton(
-                  margin: 50.paddingHoriz + 50.paddingVert,
-                  title: "ابدأ",
-                  onPressed: () {
-                  if(formkey.currentState!.validate()){
-                    ExperimentsDto data=     ExperimentsDto(count: int.parse(countController.text),experimentName:experimentNameController.text );
-                    pushNamed(Routes.electronicRosaryPage,arguments:data );
-
+            StatefulBuilder(builder: (context, setState) {
+              return PrimaryButton(
+                margin: 50.paddingHoriz + 50.paddingVert,
+                title: "ابدأ",
+                onPressed: () {
+                  if (formkey.currentState!.validate()) {
+                    ExperimentsDto data = ExperimentsDto(
+                        count: int.parse(countController.text),
+                        experimentName: experimentNameController.text);
+                    pushNamed(Routes.electronicRosaryPage, arguments: data);
                   }
-                  },
-                );
-              }
-            )
+                },
+              );
+            })
           ],
         ),
       ),

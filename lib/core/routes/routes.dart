@@ -7,6 +7,7 @@ import '../../src/main_index.dart';
 import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/parties/presentation/pages/parties_page.dart';
 import '../../src/splash/presentation/pages/splash_screen.dart';
+import '../../src/tasks/presentation/pages/tasks/tasks_page.dart';
 
 class Routes {
   static const String intro = '/';
@@ -36,6 +37,7 @@ class Routes {
   static const String categoriesPage = 'categoriesPage';
   static const String addCategoriesPage = 'addCategoriesPage';
 static const String customersPage = 'customersPage';
+static const String tasksPage = 'tasksPage';
   static const String aboutPage = 'aboutPage';
   static const String privacyPolicyPage = 'privacyPolicyPage';
   static const String enterPhoneNumberPage = 'enterPhoneNumberPage';
@@ -49,6 +51,7 @@ static const String customersPage = 'customersPage';
      homePage: (context) => HomePage(),
     splashPage: (context) => SplashPage(),
     partiesPage: (context) => PartiesPage(),
+    tasksPage: (context) => TasksPage(),
     electronicRosaryPage: (context) => ElectronicRosaryPage(),
     experimentsPage: (context) => ExperimentsPage(),
     addExperimentsPage: (context) => AddExperimentsPage(),

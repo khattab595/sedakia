@@ -7,12 +7,12 @@ part of 'summary_dto.dart';
 // **************************************************************************
 
 SummaryDto _$SummaryDtoFromJson(Map<String, dynamic> json) => SummaryDto(
-      totalOrders: json['total_orders'] as int?,
-      totalProducts: json['total_products'] as int?,
-      totalSales: json['total_sales'] as int?,
-      totalCustomers: json['total_customers'] as int?,
+      totalOrders: (json['total_orders'] as num?)?.toInt(),
+      totalProducts: (json['total_products'] as num?)?.toInt(),
+      totalSales: (json['total_sales'] as num?)?.toInt(),
+      totalCustomers: (json['total_customers'] as num?)?.toInt(),
       averageOrderValue: json['average_order_value'] as String?,
-      totalRefunds: json['total_refunds'] as int?,
+      totalRefunds: (json['total_refunds'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$SummaryDtoToJson(SummaryDto instance) =>

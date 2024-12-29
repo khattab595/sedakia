@@ -10,8 +10,7 @@ class ExperimentsScreen extends BaseStatelessWidget {
     ExperimentsDto(experimentName: "الصلاة التفريجية", count: 4444),
     ExperimentsDto(experimentName: "يا لطيف", count: 129),
     ExperimentsDto(experimentName: "حسبنا الله ونعم الوكيل", count: 450),
-    ExperimentsDto(
-        experimentName: "الصلاة التفريجية - العدد الصغير", count: 111),
+    ExperimentsDto(experimentName: "الصلاة التفريجية - العدد الصغير", count: 111),
     ExperimentsDto(experimentName: "يا وارث", count: 1000),
     ExperimentsDto(experimentName: "يا واسع", count: 137),
     ExperimentsDto(experimentName: "آية الكرسي", count: 11),
