@@ -12,6 +12,8 @@ class AppIcons {
   static const String reservation = "assets/icons/reservation.svg";
   static const String menu2 = "assets/icons/more_2.svg";
   static const String home = "assets/icons/home.svg";
+  static const String empty = "assets/icons/empty.svg";
+  static const String tasbih = "assets/icons/rosary.svg";
 
   ////////////////////////////---------------------
   static const String smartphone = "assets/icons/smartphone.svg";

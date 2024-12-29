@@ -8,6 +8,7 @@ import '../../src/nav_bar/presentation/pages/main_navgation_bar.dart';
 import '../../src/parties/presentation/pages/parties_page.dart';
 import '../../src/splash/presentation/pages/splash_screen.dart';
 import '../../src/tasks/presentation/pages/tasks/tasks_page.dart';
+import '../../src/tasks/presentation/pages/tasks/tasks_screen.dart';
 
 class Routes {
   static const String intro = '/';

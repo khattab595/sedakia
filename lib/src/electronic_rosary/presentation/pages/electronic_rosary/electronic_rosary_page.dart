@@ -8,9 +8,6 @@ import 'electronic_rosary_screen.dart';
 class ElectronicRosaryPage
     extends BaseBlocWidget<UnInitState, ElectronicRosaryCubit> {
   ElectronicRosaryPage({Key? key}) : super(key: key);
-
-
-
   TextEditingController experimentNameController = TextEditingController();
   TextEditingController countController = TextEditingController();
   final formkey = GlobalKey<FormState>();
