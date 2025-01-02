@@ -1,6 +1,8 @@
 import 'package:app/core/widgets/icons/icon_text.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 
+import '../../../../../core/widgets/buttons/row_buttons.dart';
+import '../../../../../core/widgets/helper/helper_widgets.dart';
 import '../../../../../core/widgets/text-field/custom_text_field.dart';
 import '../../../../../core/widgets/texts/row_texts.dart';
 import '../../../../main_index.dart';
@@ -176,7 +178,18 @@ class _TasksPageState extends State<TasksPage> {
                             7.pw,
                             InkWell(
                                 onTap: () {
-                                  _deleteString(item['id']);
+                                  showAppModalBottomSheet(
+                                      title: "حذف المهمة",
+                                      isScrollControlled: true,
+                                      context: context,
+                                      child: shetMessage(
+                                          label: "هل أنت متأكد من حذف المهمة؟",
+                                          onPressed: () async{
+                                           await _deleteString(item['id']);
+                                           Navigator.pop(context);
+                                          },
+                                          context: context));
+
                                 },
                                 child:   Icon(
                                   Icons.delete_outlined,
@@ -186,6 +199,33 @@ class _TasksPageState extends State<TasksPage> {
                           ],
                         )));
               }),
+    );
+  }
+  shetMessage({required String label, Function()? onPressed, context}) {
+    return SizedBox(
+      height: 150,
+      child: Column(
+        children: [
+          PrimaryBoldText(
+            label: label,
+            fontSize: 14,
+            labelColor: AppColors.primaryLight,
+          ),
+          Padding(
+            padding: 20.paddingHoriz + 15.paddingVert,
+            child: RowButtons(
+              margin: 40.paddingTop,
+              backgroundColor2: AppColors.greyColor.withOpacity(0.4),
+              onPressed1: onPressed,
+              title1: "نعم",
+              title2: "لا",
+              onPressed2: () {
+                Navigator.pop(context);
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }
