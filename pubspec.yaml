@@ -113,6 +113,7 @@ dependencies:
   cool_alert: ^2.0.1
   audioplayers: ^5.2.1
   sqflite:
+  workmanager: ^0.5.2
 
 
 

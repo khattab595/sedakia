@@ -70,10 +70,11 @@ class PartiesScreen extends BaseStatelessWidget {
                                 onPressed: () async {
                                   if (formkey.currentState!.validate()) {
                                     await KStorage.i
-                                        .setTimeNot(timeController.text);
+                                        .setTimeHoure(timeController.text.split(":").first);
+                                    await KStorage.i
+                                        .setTimeMinite(timeController.text.split(":").last);
                                     await KStorage.i
                                         .setNameNot(nameController.text);
-
                                     pushNamedAndRemoveUntil(
                                         Routes.navigationPages);
                                   }
@@ -88,7 +89,7 @@ class PartiesScreen extends BaseStatelessWidget {
                 },
                 child: ItemTimerWidget(
                     value: KStorage.i.getNameNot ?? "حدد  اشعار",
-                    time: KStorage.i.getTimeNot ?? "حدد  الوقت")),
+                    time: "${KStorage.i.getTimeHoure}:${KStorage.i.getTimeMinite}"  ?? "حدد  الوقت")),
             30.ph,
           ],
         );

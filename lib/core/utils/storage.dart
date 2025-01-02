@@ -32,8 +32,11 @@ class KStorage {
   setLastRed(int? token) =>
       _storage.write(KStorageKeys.lastRed, token);
 
-  String? get getTimeNot => _storage.read(KStorageKeys.time);
-  setTimeNot(String? token) =>
+  String? get getTimeMinite => _storage.read(KStorageKeys.time);
+  setTimeMinite(String? token) =>
+      _storage.write(KStorageKeys.time, token);
+  String? get getTimeHoure => _storage.read(KStorageKeys.time);
+  setTimeHoure(String? token) =>
       _storage.write(KStorageKeys.time, token);
 
   String? get getNameNot => _storage.read(KStorageKeys.nameNoti);
