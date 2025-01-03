@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: InkWell(
             onTap: () {
               KStorage.i.setLastRed(_currentPage);
-              HelperMethods.showSuccessToast("تم  حفظ  التقدم");
+              HelperMethods.showSuccessToast("تم حفظ التقدم");
               // showTopSnackBar(
               //   Overlay.of(context),
               //   const CustomSnackBar.success(
