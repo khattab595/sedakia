@@ -1,3 +1,4 @@
+import 'package:app/core/utils/helper_methods.dart';
 import 'package:app/core/widgets/texts/black_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/home/data/models/FilterModel.dart';
@@ -151,15 +152,16 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: InkWell(
             onTap: () {
               KStorage.i.setLastRed(_currentPage);
-              showTopSnackBar(
-                Overlay.of(context),
-                const CustomSnackBar.success(
-                  backgroundColor: AppColors.primaryLight,
-                  textStyle: TextStyle(
-                      color: Colors.white, fontSize: 14),
-                  message: "تم  حفظ  التقدم",
-                ),
-              );
+              HelperMethods.showSuccessToast("تم  حفظ  التقدم");
+              // showTopSnackBar(
+              //   Overlay.of(context),
+              //   const CustomSnackBar.success(
+              //     backgroundColor: AppColors.primaryLight,
+              //     textStyle: TextStyle(
+              //         color: Colors.white, fontSize: 14),
+              //     message: "تم  حفظ  التقدم",
+              //   ),
+              // );
             },
             child: const Icon(Icons.bookmark_outline_rounded,
                 color: Colors.black, size: 25)),
