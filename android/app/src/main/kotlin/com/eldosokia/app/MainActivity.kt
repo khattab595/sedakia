@@ -1,4 +1,4 @@
-package com.ebrahimaia.app
+package com.eldosokia.app
 
 import android.view.WindowManager.LayoutParams
 import io.flutter.embedding.android.FlutterActivity

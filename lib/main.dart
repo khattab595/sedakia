@@ -161,7 +161,9 @@ void scheduleDailyNotifications() {
       requiresBatteryNotLow: true,
     ),
   );
-  if(KStorage.i.getTimeHoure!=""|| KStorage.i.getTimeHoure!=null){
+  if(KStorage.i.getTimeHoure=="" || KStorage.i.getTimeHoure==null){
+
+  }else{
     final timeCashe = DateTime(now.year, now.month, now.day,  int.parse(KStorage.i.getTimeHoure.toString()), int.parse(KStorage.i.getTimeMinite.toString()));
     final durationCashe = time12.isBefore(now) ? timeCashe.add(Duration(days: 1)).difference(now) : timeCashe.difference(now);
     final titleCashe =  KStorage.i.getNameNot??" " ;

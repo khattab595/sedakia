@@ -14,7 +14,7 @@
         </intent>
     </queries>
     <application
-        android:label="Motkaml"
+        android:label="الدُّسُوقِي"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -50,7 +50,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
     <!-- Required to query activities that can process text, see:
-         https://developer.android.com/training/package="com.ebrahimaia.app">
+         https://developer.android.com/training/package="com.eldosokia.app">
          https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
 
          In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->

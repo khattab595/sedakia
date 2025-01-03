@@ -59,7 +59,7 @@ class PartiesScreen extends BaseStatelessWidget {
                                     setState(() {
                                       selectedTime = timeOfDay;
                                       timeController.text =
-                                          "${timeOfDay.hour}:${timeOfDay.minute}";
+                                          "${timeOfDay.hour??""}:${timeOfDay.minute??""}";
                                     });
                                   }
                                 },
@@ -89,7 +89,7 @@ class PartiesScreen extends BaseStatelessWidget {
                 },
                 child: ItemTimerWidget(
                     value: KStorage.i.getNameNot ?? "حدد  اشعار",
-                    time: "${KStorage.i.getTimeHoure}:${KStorage.i.getTimeMinite}"  ?? "حدد  الوقت")),
+                    time: "${KStorage.i.getTimeHoure??""}:${KStorage.i.getTimeMinite??""}"  ?? "حدد  الوقت")),
             30.ph,
           ],
         );
