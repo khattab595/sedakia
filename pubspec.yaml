@@ -114,6 +114,8 @@ dependencies:
   audioplayers: ^5.2.1
   sqflite:
   workmanager: ^0.5.2
+  flutter_launcher_icons: ^0.13.1
+
 
 
 
@@ -122,7 +124,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_native_splash: ^2.2.16
-  flutter_launcher_icons: ^0.13.1
   change_app_package_name: ^1.4.0
   retrofit_generator: ^8.1.0
   floor_generator: ^1.4.2

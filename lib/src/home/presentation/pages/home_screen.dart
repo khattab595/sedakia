@@ -3,16 +3,13 @@ import 'package:app/core/widgets/texts/black_texts.dart';
 import 'package:app/core/widgets/texts/primary_texts.dart';
 import 'package:app/src/home/data/models/FilterModel.dart';
 import 'package:cool_alert/cool_alert.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import '../../../../core/firebase/notification_service.dart';
-import '../../../../core/utils/storage.dart';
+ import '../../../../core/utils/storage.dart';
 import '../../../../main.dart';
 import '../../../main_index.dart';
 
 import 'dart:io';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -34,21 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     loadPdfFromAssets();
-    requestPermissions();
 
 
   }
-  Future<void> requestPermissions() async {
-    final iosPlugin = flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>();
 
-    await iosPlugin?.requestPermissions(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
-  }
 
   List<FilterModel> listData = [
     FilterModel(name: "خَاتَمُ ٱلصَّلَوَاتِ", id: 3),
@@ -134,10 +120,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: PrimaryBoldText(
-            label: 'ٱلطَّرِيقَةُ ٱلْبُرْهَامِيَّةُ',
-            fontSize: 25,
-            labelColor: AppColors.primaryLight),
+        centerTitle: true,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppIcon(icon: "assets/logo/log.png"),
+            PrimaryBoldText(
+                label:"الدسوقي",
+                fontSize: 20,
+                labelColor: AppColors.primaryLight),
+          ],
+        ),
         actions: [
           10.pw,
           InkWell(
@@ -171,15 +164,18 @@ class _HomeScreenState extends State<HomeScreen> {
           : PDFView(
               filePath: localFilePath,
               enableSwipe: false,
+              fitEachPage: true,
               swipeHorizontal: true,
+              fitPolicy:FitPolicy.BOTH ,
               onRender: (pages) {
                 setState(() => _totalPages = pages!);
                 _filteredPages =
                     List.generate(pages ?? 0, (index) => index + 1);
               },
-              onViewCreated: (controller) {
+              onViewCreated: (controller) async {
                 _pdfViewController = controller;
-                int page=  KStorage.i.getLastRed??0 ;
+                 int page=  KStorage.i.getLastRed??0 ;
+
                 print(page);
                 print("jkjjkjkjk");
                 if(page!=0){
