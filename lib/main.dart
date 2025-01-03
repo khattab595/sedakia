@@ -92,7 +92,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('en'), // English, no country code
+        Locale('ar'), // English, no country code
         Locale('ar'), // Arabic, no country code
       ],
       //  home: SplashScreen(widgetPage: LoginPage()),
